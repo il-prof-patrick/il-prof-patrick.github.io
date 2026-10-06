@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reti e Internet · Informatica con il Prof. Patrick</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body>
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Seconda liceo · Modulo</span></div>
+  <h1>Reti e Internet</h1>
+  <p class="obiettivo">Dai bit che viaggiano nei cavi ai servizi che usi ogni giorno: come è fatta una rete, come comunicano i computer, come funzionano Internet e il Web, come cercare bene, che cosa sono 5G, IoT e cloud e che cosa c’entra l’intelligenza artificiale.</p>
+  <div class="righe" id="righe"></div>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script>
+  (function () {
+    var r = document.getElementById('righe'), h = '';
+    MODULO.capitoli.forEach(function (c) {
+      var n = (c.n < 10 ? '0' : '') + c.n, dentro = '<span class="n">' + n + '</span><span><span class="tt">' + c.titolo + '</span><br><span class="ds">' + c.descr + '</span></span>';
+      h += c.file ? '<a class="riga" href="' + c.file + '">' + dentro + '<span class="stato-l">Apri</span></a>' : '<div class="riga">' + dentro + '<span class="stato-l">In preparazione</span></div>';
+    });
+    r.innerHTML = h;
+  })();
+</script>
+<script src="assets/sito.js"></script>
+</body>
+</html>
