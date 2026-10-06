@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3. Come comunicano i computer: indirizzi e protocolli · Reti e Internet</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="3">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Reti e Internet · Capitolo 03</span></div>
+  <h1>Come comunicano i computer: indirizzi e protocolli</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 3.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">3.1</span>Che cos’è un protocollo</h2>
+  <p class="domanda">Quando telefonate a una persona che non conoscete bene, che “regole” seguite senza pensarci, dal momento in cui l’altro risponde a quando chiudete?</p>
+  <p>Un <span class="termine">protocollo</span> è <b>l’insieme di regole che stabilisce come due dispositivi si scambiano i dati</b>: in che formato scriverli, in che ordine mandare i messaggi, come capire che un messaggio è arrivato, che cosa fare se qualcosa va storto. Senza un protocollo comune, due computer collegati dallo stesso cavo si mandano bit che l’altro non sa interpretare.</p>
+  <p>Un protocollo definisce di solito tre cose:</p>
+  <ul>
+    <li><b>la sintassi</b>: il formato dei messaggi (quali campi ci sono e in che ordine, come in un modulo da compilare);</li>
+    <li><b>la semantica</b>: il significato di ogni campo e di ogni messaggio («questo numero è l’indirizzo del destinatario», «questo messaggio vuol dire ricevuto»);</li>
+    <li><b>la sequenza</b>: chi parla per primo, che cosa si risponde e che cosa succede se una risposta non arriva entro un certo tempo.</li>
+  </ul>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il protocollo è il programma che manda i dati.»</p>
+    <p class="err-si">Il protocollo è <b>l’insieme delle regole</b>; il programma (browser, app, sistema operativo) è ciò che le <b>mette in pratica</b>. Programmi diversi possono implementare lo stesso protocollo.</p></div>
+
+  <!-- ===================== 3.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">3.2</span>Il modello a livelli</h2>
+  <p>Mandare un messaggio attraverso Internet è un problema enorme: bisogna trasformare i bit in segnali, consegnarli al dispositivo giusto della rete locale, trovare la strada tra milioni di reti, garantire che arrivino tutti e in ordine, e infine farli capire all’app giusta. Invece di un unico protocollo gigantesco, <b>il problema è diviso in livelli sovrapposti: ogni livello risolve una parte del problema, usa i servizi del livello sotto e offre i suoi al livello sopra</b>.</p>
+  <p>Il vantaggio è enorme: <b>si può cambiare un livello senza toccare gli altri</b>. Il browser funziona allo stesso modo con il Wi-Fi, con il cavo o con il 5G, perché il livello che si occupa del mezzo fisico è separato da quello che si occupa delle pagine web.</p>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>Spedire un pacco funziona a livelli: tu scrivi la lettera e la imbusti (<b>contenuto</b>); il servizio di spedizione aggiunge l’etichetta con indirizzo e codice di tracciamento (<b>trasporto</b>); il centro di smistamento decide su quale camion caricarlo (<b>instradamento</b>); il camionista guida (<b>mezzo fisico</b>). Il camionista non apre la lettera e tu non sai quale strada farà il camion. L’analogia regge per la divisione dei compiti, ma nella rete ogni livello aggiunge le sue informazioni in modo rigoroso e automatico.</p></div>
+  <h3>Il modello TCP/IP</h3>
+  <p>Internet, nella pratica, non segue i sette livelli ma il modello <b>TCP/IP</b>, più semplice, nato con i protocolli che gli danno il nome. <b>Ha quattro livelli:</b></p>
+  <div class="tab"><table>
+    <thead><tr><th>Modello TCP/IP</th><th>Corrisponde ai livelli OSI</th><th>Protocolli principali</th></tr></thead>
+    <tbody>
+      <tr><td>Applicazione</td><td>7, 6, 5</td><td>HTTP/HTTPS, DNS, SMTP, IMAP, POP3</td></tr>
+      <tr><td>Trasporto</td><td>4</td><td>TCP, UDP</td></tr>
+      <tr><td>Internet (rete)</td><td>3</td><td>IP</td></tr>
+      <tr><td>Accesso alla rete</td><td>2, 1</td><td>Ethernet, Wi-Fi, 4G/5G</td></tr>
+    </tbody></table></div>
+  <h3>L’incapsulamento</h3>
+  <p>Quando un’app invia dati, <b>ogni livello aggiunge in testa ai dati una sua intestazione</b> (<i>header</i>) con le informazioni che servono al suo compito: il livello di trasporto aggiunge le <b>porte</b>, quello di rete gli <b>indirizzi IP</b>, quello di accesso gli <b>indirizzi MAC</b>. È come mettere una busta dentro una busta più grande: questo procedimento si chiama <b>incapsulamento</b>. All’arrivo <b>ogni livello toglie la sua busta, la legge e passa il resto al livello superiore</b> (decapsulamento).</p>
+  <figure>
+    <div class="tela passi-anim" id="f-incapsulamento" data-titolo="L’incapsulamento: buste dentro buste" data-inizio="Il telefono di Luca e quello di Sara, ciascuno con quattro ripiani: Applicazione, Trasporto, Internet e Accesso. In mezzo un router. In cima al telefono di Luca il messaggio «Ci vediamo alle 5?».">
+      <svg viewBox="0 0 720 330" role="img" aria-label="Scendendo i livelli il messaggio riceve un’intestazione dopo l’altra (porte, indirizzi IP, indirizzi MAC); il router apre solo la busta del MAC e legge l’IP; risalendo i livelli sul telefono di Sara le buste vengono tolte una alla volta"></svg>
+      <ol class="passi-testo">
+        <li>Applicazione: il messaggio diventa un foglio con l’intestazione dell’app.</li>
+        <li>Trasporto: il foglio entra in una busta gialla con scritto “porta di destinazione”.</li>
+        <li>Internet: la busta gialla entra in una busta blu con gli indirizzi IP di Luca e Sara.</li>
+        <li>Accesso: la busta blu entra in una busta verde con gli indirizzi MAC; il pacco scende sul cavo come una fila di bit.</li>
+        <li>Il router apre solo la busta verde e legge la blu (IP), decide la strada, mette una busta verde nuova e lo rimanda.</li>
+        <li>Sul telefono di Sara ogni ripiano toglie la sua busta, finché in cima compare di nuovo “Ci vediamo alle 5?”.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Ogni dispositivo lungo il percorso legge tutto il messaggio.»</p>
+    <p class="err-si">Ogni apparato apre <b>solo i livelli che gli servono</b>: lo switch guarda il MAC (livello 2), il router l’IP (livello 3). Il contenuto, oggi quasi sempre <b>cifrato</b>, lo leggono solo le app alle due estremità.</p></div>
+  <p class="domanda">Se domani inventassero un nuovo tipo di Wi-Fi molto più veloce, bisognerebbe riscrivere i browser? Perché?</p>
+
+  <!-- ===================== 3.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">3.3</span>L’indirizzo MAC</h2>
+  <p>L’<span class="termine">indirizzo MAC</span> (<i>Media Access Control</i>), già incontrato con la scheda di rete (paragrafo 2.5), <b>identifica una scheda di rete all’interno della rete locale</b>. È lungo <b>48 bit</b>, scritti come <b>6 coppie di cifre esadecimali</b> separate da due punti o trattini.</p>
+  <p class="formula">3C:22:FB : 7A:10:9E</p>
+  <p><b>Le prime tre coppie identificano il produttore</b> della scheda (si chiamano <b>OUI</b>, <i>Organizationally Unique Identifier</i>, e sono assegnate dall’IEEE); <b>le altre tre sono un numero di serie</b> scelto dal produttore. Con 48 bit si possono scrivere circa <b>281 mila miliardi</b> di indirizzi diversi, abbastanza perché non si ripetano.</p>
+  <p><b>Il MAC serve solo dentro la rete locale</b>: lo usano gli switch per consegnare i frame all’host giusto. Quando un pacchetto esce dalla rete attraverso il router, <b>il MAC perde di utilità.</b></p>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>Per trovare il proprio indirizzo MAC: sul telefono, nelle impostazioni Wi-Fi o nelle informazioni sul dispositivo; su Windows, nelle proprietà della connessione di rete. I telefoni moderni usano un <b>MAC casuale</b>, diverso per ogni rete Wi-Fi: così un centro commerciale o un aeroporto non può riconoscere lo stesso telefono che torna giorni dopo. È il motivo per cui, in alcune reti con accesso a pagamento, a volte bisogna rifare il login.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Con l’indirizzo MAC si può trovare un telefono ovunque nel mondo.»</p>
+    <p class="err-si">Il MAC <b>non esce dalla rete locale</b>: già al primo router viene sostituito. Per comunicare attraverso Internet contano gli indirizzi IP.</p></div>
+  <p class="domanda">Se porto il telefono da casa a scuola, che cosa cambia tra MAC e IP?</p>
+
+  <!-- ===================== 3.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">3.4</span>L’indirizzo IP</h2>
+  <p>L’<span class="termine">indirizzo IP</span> (<i>Internet Protocol</i>) è <b>il numero che identifica un dispositivo collegato a una rete e permette ai router di consegnargli i pacchetti</b>. Dice <b>dove si trova il dispositivo nella rete</b>, non chi è: per questo <b>cambia quando ci si collega a una rete diversa</b>.</p>
+  <h3>IPv4</h3>
+  <p>La versione ancora più usata è l’<b>IPv4</b>: <b>un indirizzo di 32 bit</b>, scritto come <b>quattro numeri da 0 a 255 separati da punti</b> (notazione decimale puntata). Ogni numero rappresenta 8 bit, cioè un byte.</p>
+  <p class="formula">192.168.1.4 = 11000000.10101000.00000001.00000100</p>
+  <p>Un indirizzo IPv4 ha <b>due parti</b>: la prima identifica <b>la rete</b>, la seconda <b>il dispositivo</b> dentro quella rete, come il nome della via e il numero civico. Nella rete di casa di solito i primi tre numeri sono uguali per tutti i dispositivi (ad esempio 192.168.1) e cambia solo l’ultimo.</p>
+  <figure>
+    <div class="tela" data-widget="ipv4"></div>
+  </figure>
+  <h3>Pochi indirizzi: l’esaurimento</h3>
+  <p>Con 32 bit si possono scrivere <b>2³² ≈ 4,3 miliardi di indirizzi</b>. Negli anni Settanta sembravano infiniti; oggi i dispositivi connessi sono molti di più degli esseri umani. <b>Gli indirizzi IPv4 liberi sono finiti</b>: l’ente mondiale che li distribuiva (IANA) ha consegnato gli ultimi blocchi nel <b>2011</b>, e il registro europeo (RIPE NCC) ha esaurito la sua scorta nel <b>2019</b>. Oggi un indirizzo IPv4 si compra e si vende tra aziende, come un bene raro.</p>
+  <h3>IPv6</h3>
+  <p>La soluzione definitiva è l’<b>IPv6</b>: <b>indirizzi di 128 bit</b>, scritti come <b>otto gruppi di quattro cifre esadecimali</b> separati da due punti. Gli indirizzi possibili sono <b>2¹²⁸, circa 340 miliardi di miliardi di miliardi di miliardi</b>: abbastanza per dare un indirizzo a ogni granello di sabbia della Terra, moltissime volte.</p>
+  <p class="formula">2001:0db8:85a3:0000:0000:8a2e:0370:7334</p>
+  <p>Il passaggio è lento perché <b>IPv4 e IPv6 non sono compatibili</b>: per anni devono convivere, con apparati che parlano entrambi. Oggi circa metà degli utenti di Google si collega in IPv6 (il valore cambia molto da paese a paese ed è indicativo).</p>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Indirizzo MAC</th><th>Indirizzo IP</th></tr></thead>
+    <tbody>
+      <tr><td>Che cosa indica</td><td>chi è la scheda di rete</td><td>dove si trova il dispositivo nella rete</td></tr>
+      <tr><td>Lunghezza</td><td>48 bit</td><td>32 bit (IPv4) o 128 bit (IPv6)</td></tr>
+      <tr><td>Chi lo assegna</td><td>il produttore</td><td>la rete (amministratore o DHCP)</td></tr>
+      <tr><td>Dove vale</td><td>solo nella rete locale</td><td>in tutta Internet (se pubblico)</td></tr>
+      <tr><td>Chi lo usa</td><td>lo switch</td><td>il router</td></tr>
+    </tbody></table></div>
+  <div class="box lab"><h3><i data-ic="users" class="ic-20"></i> In laboratorio</h3>
+    <p>Aprire dal telefono e dal computer il sito: <a href="https://www.whatismyip.com/" target="_blank" rel="noopener">https://www.whatismyip.com/</a></p>
+    <p>Annotare i due valori e confrontarli: <b>sono uguali? Perché?</b></p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il mio indirizzo IP è sempre lo stesso, è come il numero di telefono.»</p>
+    <p class="err-si">L’IP <b>dipende dalla rete</b>: cambia passando dal Wi-Fi di casa a quello della scuola o ai dati mobili, e spesso cambia anche nella stessa rete dopo un riavvio.</p></div>
+  <p>Ogni volta che un telefono si collega a un Wi-Fi riceve in pochi secondi un indirizzo IP, senza che nessuno lo scriva a mano: il <b>DHCP</b> (<i>Dynamic Host Configuration Protocol</i>) <b>assegna automaticamente a ogni dispositivo che si collega un indirizzo IP libero</b>, insieme alle altre informazioni che servono per usare la rete: l’indirizzo del <b>router</b> (il <i>gateway</i> predefinito) e quello del <b>server DNS</b> (paragrafo 3.5). L’indirizzo è dato <b>in prestito per un certo tempo</b> (<i>lease</i>): se il dispositivo se ne va, l’indirizzo torna libero per qualcun altro.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-dhcp" data-titolo="Il DHCP in quattro messaggi" data-inizio="Un telefono appena entrato in casa, ancora senza indirizzo, e il router con l’elenco degli indirizzi liberi: .2, .3, .4, .5…">
+      <svg viewBox="0 0 720 270" role="img" aria-label="Il telefono chiede a tutti se c’è un server DHCP, il router propone un indirizzo, il telefono lo accetta e il router conferma, segnando l’indirizzo come occupato per un certo tempo"></svg>
+      <ol class="passi-testo">
+        <li>Scoperta: il telefono, che non sa a chi rivolgersi, chiede a tutta la rete “C’è un server DHCP?”.</li>
+        <li>Offerta: il router risponde “Ti propongo 192.168.1.4”.</li>
+        <li>Richiesta: il telefono risponde “Accetto 192.168.1.4”.</li>
+        <li>Conferma: il router conferma e aggiunge router e DNS da usare; l’indirizzo .4 viene segnato come occupato, con una clessidra per la durata del prestito.</li>
+      </ol>
+    </div>
+  </figure>
+
+  <!-- ===================== 3.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">3.5</span>Il DNS</h2>
+  <p>Le persone ricordano i nomi, i router capiscono solo i numeri. Il <b>DNS</b> (<i>Domain Name System</i>) è <b>il servizio che traduce i nomi dei siti, come www.wikipedia.org, negli indirizzi IP dei server che li ospitano</b>. È spesso descritto come la <b>rubrica di Internet</b>: si cerca il nome, si ottiene il numero.</p>
+  <h3>Come funziona la risoluzione</h3>
+  <p>Nessun computer al mondo contiene la rubrica completa: <b>il DNS è un sistema distribuito e gerarchico</b>, diviso tra milioni di server, ognuno responsabile di una parte dei nomi. I nomi si leggono <b>da destra a sinistra</b>, dal più generale al più specifico: in www.wikipedia.org, prima org, poi wikipedia, poi www.</p>
+  <p>Vi è inoltre un <b>servizio di cache</b>, grazie alla quale i server <b>memorizzano le risposte</b> usate più di recente e/o più di frequente, riuscendo a <b>rispondere immediatamente</b>. Senza di essa, ogni richieste richiederebbe sempre un numero elevato di domande.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-dns" data-titolo="Dal nome al numero: la risoluzione DNS" data-inizio="Il portatile vuole aprire www.wikipedia.org; accanto il server DNS dell’operatore con il suo quaderno, la cache, ancora vuoto; in alto, su tre gradini, il server radice, quello di .org e quello di wikipedia.org.">
+      <svg viewBox="0 0 720 330" role="img" aria-label="Il DNS dell’operatore chiede al server radice, poi a quello di .org, poi a quello di wikipedia.org e ottiene l’indirizzo IP; lo annota nella cache e la seconda volta risponde subito"></svg>
+      <ol class="passi-testo">
+        <li>Il portatile chiede al DNS dell’operatore: “Qual è l’IP di www.wikipedia.org?”.</li>
+        <li>Il DNS dell’operatore non lo sa e chiede al server radice, che risponde: “Non lo so, ma chiedi ai server di .org”.</li>
+        <li>Il server di .org risponde: “Chiedi ai server di wikipedia.org”.</li>
+        <li>Il server di wikipedia.org risponde con l’indirizzo IP.</li>
+        <li>Il DNS dell’operatore annota la risposta nel quaderno e la passa al portatile, che apre il sito.</li>
+        <li>Un compagno chiede lo stesso nome: il DNS dell’operatore risponde subito leggendo il quaderno.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box lab"><h3><i data-ic="users" class="ic-20"></i> In laboratorio</h3>
+    <p>Usare un sito di <i>DNS lookup</i> (come <a href="https://www.nslookup.io/" target="_blank" rel="noopener">https://www.nslookup.io/</a>) per trovare l’indirizzo IP di alcuni siti conosciuti: il sito della scuola, wikipedia.org, google.com. Annotare i risultati e notare che <b>i siti grandi hanno più indirizzi</b>, a volte diversi a seconda di dove ci si trova: lo stesso nome porta a server diversi sparsi nel mondo.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il DNS è il server dove si trova il sito.»</p>
+    <p class="err-si">Il DNS <b>non contiene il sito</b>: contiene solo l’associazione tra il nome e l’indirizzo IP del server che lo ospita, come la rubrica contiene il numero, non la persona.</p></div>
+
+  <!-- ===================== 3.6 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p6"><span class="num">3.6</span>TCP e UDP</h2>
+  <p>Il livello di <b>trasporto</b> ha due compiti: <b>consegnare i dati all’app giusta</b>, tra le tante aperte sullo stesso dispositivo, e decidere <b>quanto garantire la consegna</b>. Internet offre due protocolli di trasporto con filosofie opposte: TCP e UDP.</p>
+  <h3>Le porte</h3>
+  <p>Un dispositivo ha un solo indirizzo IP, ma molte app che comunicano insieme: il browser, WhatsApp, Spotify. Per distinguerle si usano le <b>porte</b>: <b>numeri da 0 a 65535 che identificano il programma a cui è destinato un pacchetto</b>. Se l’indirizzo IP è l’indirizzo di un condominio, la porta è il numero dell’interno.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-porte" data-titolo="Le porte: a quale app va il pacchetto?" data-inizio="A sinistra il telefono con l’indirizzo IP 192.168.1.4, disegnato come un palazzo con tre porte numerate: WhatsApp (50211), Spotify (50488) e il browser (51032). A destra i server di WhatsApp, Spotify e Wikipedia, tutti sulla porta 443.">
+      <svg viewBox="0 0 720 330" role="img" aria-label="Il pacchetto del browser va all’IP di Wikipedia sulla porta 443 e la risposta torna alla porta 51032 del telefono; pacchetti per porte diverse arrivano ad app diverse; un pacchetto per una porta senza app viene scartato"></svg>
+      <ol class="passi-testo">
+        <li>il browser apre Wikipedia. Parte un pacchetto con un’etichetta divisa in due: destinazione IP di Wikipedia : 443, mittente 192.168.1.4 : 51032. In alto compare la scritta «Dove va? IP + porta».</li>
+        <li>il pacchetto arriva al server di Wikipedia, che lo consegna al programma in ascolto sulla porta 443, il server web.</li>
+        <li>il server risponde. Il nuovo pacchetto ha come destinazione 192.168.1.4 : 51032, cioè il mittente e la porta del pacchetto di prima.</li>
+        <li>la risposta arriva al palazzo 192.168.1.4. Il sistema operativo legge la porta 51032 e la consegna solo alla porta del browser, che si illumina. WhatsApp e Spotify restano spenti.</li>
+        <li>nello stesso istante arrivano tre pacchetti insieme, diretti alle porte 50211, 50488 e 51032. Ognuno entra dalla sua porta: arriva un messaggio WhatsApp, Spotify continua la canzone, il browser carica un’immagine. Una scritta conclude: «stesso IP, app diverse».</li>
+        <li>arriva un pacchetto diretto alla porta 7000, dove non c’è nessuna app. Trova la porta chiusa e viene scartato con una X rossa. Compare la scritta «nessuna app in ascolto».</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>Il TCP</h3>
+  <p>Il <span class="termine">TCP</span> (<i>Transmission Control Protocol</i>) <b>garantisce che tutti i dati arrivino, senza errori e nell’ordine giusto</b>. Prima di trasmettere <b>apre una connessione</b> con uno scambio di tre messaggi (<i>three-way handshake</i>); poi numera i pacchetti, <b>il destinatario conferma quelli ricevuti</b> e <b>il mittente ritrasmette quelli di cui non arriva conferma</b>. Infine rimette tutto in ordine. Il prezzo di queste garanzie è un po’ di <b>lentezza</b>: conferme e ritrasmissioni richiedono tempo.</p>
+  <h3>L’UDP</h3>
+  <p>L’<span class="termine">UDP</span> (<i>User Datagram Protocol</i>) <b>manda i pacchetti senza aprire una connessione, senza conferme e senza ritrasmissioni</b>. Se un pacchetto si perde, si perde. Sembra un difetto, ma per alcune applicazioni è un vantaggio: <b>in una videochiamata o in un videogioco online un pacchetto che arriva in ritardo è inutile</b>, perché quel momento è già passato; meglio perderlo e andare avanti che fermarsi ad aspettarlo.</p>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>TCP</th><th>UDP</th></tr></thead>
+    <tbody>
+      <tr><td>Connessione</td><td>sì, aperta prima di trasmettere</td><td>no</td></tr>
+      <tr><td>Consegna</td><td>garantita, con conferme e ritrasmissioni</td><td>non garantita</td></tr>
+      <tr><td>Ordine</td><td>i dati arrivano in ordine</td><td>possono arrivare in disordine</td></tr>
+      <tr><td>Velocità</td><td>più lento</td><td>più veloce</td></tr>
+      <tr><td>Si usa per</td><td>pagine web, email, download, messaggi</td><td>videochiamate, dirette, giochi online, DNS</td></tr>
+    </tbody></table></div>
+  <figure>
+    <div class="tela passi-anim" id="f-tcpudp" data-titolo="TCP e UDP: che cosa succede se un pacchetto si perde" data-inizio="Sopra un mittente e un destinatario che usano il TCP, sotto la stessa scena con l’UDP. Il file è diviso nei pacchetti 1, 2, 3 e 4.">
+      <svg viewBox="0 0 720 330" role="img" aria-label="Il TCP apre la connessione, si accorge che il pacchetto 3 manca e lo fa rimandare; l’UDP non apre connessioni e il pacchetto perso resta perso"></svg>
+      <ol class="passi-testo">
+        <li>TCP: tre frecce di apertura (“ciao?”, “ciao, ci sono”, “iniziamo”).</li>
+        <li>Partono i pacchetti 1, 2, 3, 4; il 3 si perde lungo la strada (si dissolve).</li>
+        <li>Il destinatario conferma 1 e 2, poi segnala “mi manca il 3”.</li>
+        <li>Il mittente rimanda il 3; il file arriva completo, ma con un piccolo ritardo.</li>
+        <li>UDP: partono 1, 2, 3, 4 senza saluti; il 3 si perde e nessuno lo rimanda: in una videochiamata si vede solo un attimo di immagine sgranata.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>Un <b>protocollo</b> è l’insieme di regole con cui due dispositivi si scambiano i dati: <b>sintassi</b> (il formato), <b>semantica</b> (il significato) e <b>sequenza</b> (chi parla e quando).</li>
+      <li>La comunicazione è divisa in <b>livelli</b>: ognuno risolve un problema e si può cambiare senza toccare gli altri. Internet usa il modello <b>TCP/IP</b>, con <b>quattro</b> livelli: accesso alla rete, Internet, trasporto, applicazione.</li>
+      <li>Con l’<b>incapsulamento</b> ogni livello aggiunge ai dati la sua <b>intestazione</b> (porte, IP, MAC); all’arrivo ogni livello toglie la sua, e ogni apparato legge solo i livelli che gli servono.</li>
+      <li>L’<b>indirizzo MAC</b> (48 bit, 6 coppie esadecimali) identifica la scheda di rete e vale <b>solo nella rete locale</b>; l’<b>indirizzo IP</b> indica <b>dove</b> si trova un dispositivo. <b>IPv4</b>: 32 bit, quattro numeri da 0 a 255, circa <b>4,3 miliardi</b> di indirizzi, ormai <b>esauriti</b>; <b>IPv6</b>: <b>128 bit</b>, indirizzi praticamente illimitati.</li>
+      <li>Il <b>DHCP</b> assegna automaticamente a chi si collega un <b>indirizzo IP</b> libero, insieme all’indirizzo del router (<i>gateway</i>) e del server DNS.</li>
+      <li>Il <b>DNS</b> traduce i <b>nomi</b> dei siti in <b>indirizzi IP</b>; è <b>distribuito e gerarchico</b> (i nomi si leggono da destra) e usa la <b>cache</b> per rispondere subito alle richieste già fatte.</li>
+      <li>Le <b>porte</b> indicano l’app a cui è destinato un pacchetto. Il <b>TCP</b> garantisce consegna completa e ordinata con conferme e ritrasmissioni; l’<b>UDP</b> è più veloce e senza garanzie, adatto a videochiamate e giochi.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/capitolo-03.js"></script>
+<script src="assets/capitolo-03-aula.js"></script>
+</body>
+</html>

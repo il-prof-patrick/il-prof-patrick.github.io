@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2. Le reti di computer · Reti e Internet</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="2">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Reti e Internet · Capitolo 02</span></div>
+  <h1>Le reti di computer</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 2.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">2.1</span>Che cos’è una rete</h2>
+  <p class="domanda">Quanti e quali dispositivi sono collegati in questo momento alla rete di casa vostra?</p>
+  <p>Una <span class="termine">rete di computer</span> è <b>un insieme di dispositivi collegati tra loro in modo da potersi scambiare dati e condividere risorse</b>. I dispositivi collegati si chiamano <b>nodi</b> (o <i>host</i>, quando sono computer, telefoni, stampanti) e sono uniti da <b>collegamenti</b> (<i>link</i>), cablati o senza fili.</p>
+  <p>Perché due dispositivi formino una rete non basta il cavo: <b>servono regole comuni per parlarsi</b>, i <b>protocolli</b> (capitolo 3). Un telefono e una stampante di marche diverse si capiscono perché seguono gli stessi standard.</p>
+  <h3>A che cosa serve</h3>
+  <ul>
+    <li><b>condividere risorse</b>: una sola stampante per tutta la classe, un solo collegamento a Internet per tutta la casa;</li>
+    <li><b>condividere dati</b>: un documento su Google Drive che tutta la classe può leggere e modificare;</li>
+    <li><b>comunicare</b>: messaggi, posta elettronica, videochiamate;</li>
+    <li><b>accedere a servizi a distanza</b>: il registro elettronico, la banca, lo streaming, i videogiochi online;</li>
+    <li><b>lavorare insieme</b>: più persone sullo stesso progetto, anche da città diverse.</li>
+  </ul>
+  <p>Le reti hanno anche dei <b>rischi</b>, che sono il rovescio dei vantaggi: <b>se tutto è collegato, un problema può propagarsi</b>. Un virus può passare da un computer all’altro, un guasto al router lascia senza Internet tutta la casa, e dati condivisi male possono essere letti da chi non dovrebbe.</p>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>L’aula di informatica: i computer degli studenti, quello del docente, la stampante e il proiettore sono collegati alla stessa rete. Il docente può mandare un file a tutti, tutti stampano sulla stessa stampante e tutti escono su Internet dallo stesso collegamento della scuola.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Una rete si forma collegandosi a Internet.»</p>
+    <p class="err-si">Internet è <b>una</b> rete, anzi una rete di reti (capitolo 4). Anche due computer collegati con un cavo, senza alcun accesso a Internet, formano una rete.</p></div>
+
+  <!-- ===================== 2.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">2.2</span>La classificazione per estensione</h2>
+  <p>Il modo più semplice di classificare le reti è guardare <b>quanto spazio coprono</b>. Dalla più piccola alla più grande:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Sigla</th><th>Nome</th><th>Estensione indicativa</th><th>Esempi</th></tr></thead>
+    <tbody>
+      <tr><td><b>BAN</b></td><td><i>Body Area Network</i>, rete corporea</td><td>il corpo di una persona</td><td>smartwatch con sensore cardiaco, sensore di glicemia, pacemaker controllabile a distanza</td></tr>
+      <tr><td><b>PAN</b></td><td><i>Personal Area Network</i>, rete personale</td><td>pochi metri intorno a una persona</td><td>telefono con auricolari, smartwatch, tastiera Bluetooth</td></tr>
+      <tr><td><b>LAN</b></td><td><i>Local Area Network</i>, rete locale</td><td>una casa, una scuola, un ufficio, un edificio</td><td>la rete della scuola, il Wi-Fi di casa</td></tr>
+      <tr><td><b>MAN</b></td><td><i>Metropolitan Area Network</i>, rete metropolitana</td><td>una città</td><td>la rete in fibra che collega gli uffici di un comune o i plessi di un’università</td></tr>
+      <tr><td><b>WAN</b></td><td><i>Wide Area Network</i>, rete geografica</td><td>regioni, nazioni, continenti</td><td>la rete di una banca con filiali in tutta Italia, la rete di un operatore</td></tr>
+    </tbody></table></div>
+  <figure>
+    <div class="tela schema" id="s-estensione"><p class="passi-titolo">Le reti dalla più piccola alla più grande</p>
+      <svg viewBox="0 0 720 300" role="img" aria-label="Cerchi concentrici intorno a una persona: BAN sul corpo, PAN intorno alla persona, LAN la casa, MAN la città, WAN regioni, nazioni e continenti"></svg>
+    </div>
+  </figure>
+  <div class="box esempio"><figure class="foto-lato testa dx"><a class="fonte" href="https://www.thekeyholeheartclinic.com/blog/is-your-smartwatch-heart-data-actually-useful-or-misleading/" target="_blank" rel="noopener"><img src="https://cdn-bohdg.nitrocdn.com/LRSkEHBfAjwsEFOOHlbAXIhAeKQgiLsG/assets/images/optimized/rev-34c23c4/www.thekeyholeheartclinic.com/wp-content/uploads/2025/05/Untitled-1200-x-900-px-1300-x-900-px-6.png" alt="Uno smartwatch che misura il battito: il sensore sul polso fa parte di una BAN, il collegamento con il telefono di una PAN." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Smartwatch: BAN e PAN</figcaption></figure><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>Chi ha il diabete può portare un <b>sensore di glicemia</b> sul braccio che manda i valori al telefono ogni pochi minuti; il telefono li inoltra al medico. In una sola persona ci sono una BAN (il sensore), una PAN (sensore–telefono) e l’accesso a una rete globale (telefono–ospedale).</p></div>
+  <p><b>I confini tra le categorie non sono fissati da numeri precisi</b>: contano soprattutto <b>chi possiede e gestisce la rete</b> e <b>che tecnologie usa</b>. Una LAN appartiene a chi la usa (la famiglia, la scuola) e usa cavi Ethernet e Wi-Fi; una WAN attraversa territori pubblici e quindi <b>usa le linee di un operatore di telecomunicazioni</b>, pagate a canone.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«La rete della scuola è una WAN perché è grande: ci sono tanti computer.»</p>
+    <p class="err-si">La classificazione dipende dall’<b>estensione geografica</b>, non dal numero di dispositivi: una scuola con mille computer in un solo edificio è comunque una <b>LAN</b>.</p></div>
+  <p class="domanda">Una scuola con due sedi in due quartieri della stessa città, collegate tra loro: che tipo di rete forma?</p>
+
+  <!-- ===================== 2.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">2.3</span>Le topologie</h2>
+  <p>La <span class="termine">topologia</span> è <b>la forma della rete, cioè il modo in cui i nodi sono collegati tra loro</b>. Si distingue la <b>topologia fisica</b> (come sono stesi davvero i cavi) da quella <b>logica</b> (come viaggiano i dati): a volte coincidono, a volte no. La scelta della topologia decide due cose molto concrete: <b>quanto costa la rete</b> e <b>che cosa succede quando qualcosa si guasta</b>.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Topologia</th><th>Come è fatta</th><th>Vantaggi</th><th>Svantaggi</th></tr></thead>
+    <tbody>
+      <tr><td><b>Bus</b></td><td>tutti i nodi collegati a un unico cavo condiviso</td><td>poco cavo, economica</td><td>se il cavo si rompe si ferma tutto; un solo nodo alla volta può trasmettere</td></tr>
+      <tr><td><b>Anello</b> (<i>ring</i>)</td><td>ogni nodo collegato al precedente e al successivo, a formare un cerchio</td><td>nessuna collisione: si trasmette a turno</td><td>un nodo o un tratto guasto può interrompere l’anello</td></tr>
+      <tr><td><b>Stella</b> (<i>star</i>)</td><td>ogni nodo collegato con il suo cavo a un apparato centrale (switch)</td><td>se un cavo si rompe si ferma solo quel nodo; facile aggiungere nodi</td><td>se si guasta il centro si ferma tutto; più cavo</td></tr>
+      <tr><td><b>Albero</b> o stella estesa</td><td>più stelle collegate tra loro in modo gerarchico</td><td>adatta a edifici grandi, ordinata</td><td>un guasto in alto isola un intero ramo</td></tr>
+      <tr><td><b>Maglia</b> (<i>mesh</i>)</td><td>nodi collegati con più percorsi; completa se ognuno è collegato a tutti, parziale se solo ad alcuni</td><td>robustissima: c’è sempre una strada alternativa</td><td>costosa e complessa</td></tr>
+    </tbody></table></div>
+  <figure>
+    <div class="tela schema" id="s-topologie"><p class="passi-titolo">Le cinque topologie</p>
+      <svg viewBox="0 0 720 260" role="img" aria-label="Gli stessi sei computer collegati a bus, ad anello, a stella, ad albero e a maglia parziale"></svg>
+    </div>
+  </figure>
+  <figure>
+    <div class="tela passi-anim" id="f-topologie" data-titolo="Che cosa succede quando qualcosa si rompe" data-inizio="Le cinque topologie una accanto all’altra, con tutti i computer accesi in verde.">
+      <svg viewBox="0 0 720 290" role="img" aria-label="Nel bus e nell’anello un guasto ferma tutti; nella stella si spegne solo un computer, a meno che si guasti lo switch; nell’albero si spegne un ramo; nella maglia i dati trovano altre strade"></svg>
+      <ol class="passi-testo">
+        <li>Bus: si spezza il cavo centrale; tutti i computer diventano grigi.</li>
+        <li>Anello: si interrompe un tratto; i dati non riescono più a fare il giro e l’anello si ferma.</li>
+        <li>Stella: si stacca il cavo di un computer; diventa grigio solo quello. Poi si guasta lo switch: tutti grigi.</li>
+        <li>Albero: si guasta lo switch di un piano; diventa grigio tutto quel ramo, l’altro piano funziona.</li>
+        <li>Maglia: si interrompono due collegamenti; i dati trovano altre strade e tutti restano verdi.</li>
+      </ol>
+    </div>
+  </figure>
+  <p>Oggi <b>le reti locali sono quasi tutte a stella o ad albero</b>: ogni computer ha il suo cavo verso uno switch, e gli switch dei piani sono collegati a uno switch centrale. <b>Internet, invece, è una gigantesca maglia parziale</b>: tra due punti esistono quasi sempre più percorsi, ed è questo che la rende così resistente ai guasti.</p>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>La rete della scuola è un <b>albero</b>: dallo switch centrale, di solito in un armadio al piano terra, parte un cavo per ogni piano; su ogni piano uno switch collega le aule e gli access point. Se un giorno “non va Internet al secondo piano”, il guasto è probabilmente nello switch o nel cavo di quel piano.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Con il Wi-Fi non c’è topologia, perché non ci sono cavi.»</p>
+    <p class="err-si">Anche una rete Wi-Fi ha una forma: i dispositivi parlano con l’access point al centro, quindi è <b>una stella senza fili</b>. I sistemi Wi-Fi <i>mesh</i> (paragrafo 2.5) formano invece una maglia tra le unità.</p></div>
+  <p class="domanda">Perché in una scuola non si collega ogni computer con un cavo a tutti gli altri, visto che la maglia completa è la topologia più robusta?</p>
+
+  <!-- ===================== 2.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">2.4</span>Le architetture: client-server e peer-to-peer</h2>
+  <p>Oltre alla forma della rete conta <b>come si dividono i compiti i computer che la usano</b>. Le due architetture fondamentali sono client-server e peer-to-peer.</p>
+  <h3>Client-server</h3>
+  <p>Nell’architettura <b>client-server un computer, il server, offre un servizio, e altri computer, i client, lo richiedono</b>. Il client fa una <b>richiesta</b> («dammi la pagina della classe», «salva questo file»), il server la elabora e manda una <b>risposta</b>. È il modello di quasi tutti i servizi che usiamo: il web, la posta, Classroom, Netflix, i social.</p>
+  <p>Attenzione alle parole: <b>client e server sono ruoli, non tipi di computer</b>. Il “server” è il programma che risponde alle richieste e, per estensione, il computer su cui gira; il “client” è il programma che chiede, ad esempio il browser o l’app. Lo stesso computer può essere client per un servizio e server per un altro. Nei <i>data center</i> i server sono di solito computer senza schermo, molto potenti, montati a decine negli armadi.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://shieldenstrut.com/blogs/news/cable-tray-server-room/" target="_blank" rel="noopener"><img src="https://shieldenstrut.com/wp-content/uploads/2026/03/server-room-cable-tray-overhead-data-center-layout.jpg" alt="Un data center: corridoi di armadi pieni di server. Osservare: niente schermi né tastiere, solo computer impilati, cavi e luci di stato." referrerpolicy="no-referrer"></a><figcaption>Un <i>data center</i>: corridoi di armadi pieni di server. Osservare: niente schermi né tastiere, solo computer impilati, cavi e luci di stato.</figcaption></figure>
+  <p class="domanda">Quando mandate un vocale su WhatsApp a un amico che ha il telefono spento, dove si trova il messaggio? Quando poi lo riaccende, cambia qualcosa?</p>
+  <h3>Peer-to-peer</h3>
+  <p>Nell’architettura <span class="termine">peer-to-peer</span> (P2P, “da pari a pari”) <b>tutti i computer hanno lo stesso ruolo: ognuno può chiedere e offrire risorse agli altri</b>, senza un server centrale. Esempi: lo scambio di file con <b>BitTorrent</b>, in cui ogni utente scarica pezzi di un file da molti altri e intanto li offre a sua volta; la condivisione di file tra due telefoni vicini (AirDrop, Quick Share); alcuni videogiochi in cui la partita è ospitata dal computer di uno dei giocatori.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-p2p" data-titolo="Client-server e peer-to-peer" data-inizio="A sinistra un server con sei client intorno; a destra sei computer uguali collegati tra loro. Lo stesso file è diviso in sei pezzi colorati.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Nel client-server il server invia sei copie intere e se si spegne nessuno riceve più nulla; nel peer-to-peer i computer si scambiano i pezzi e continuano anche se uno si spegne"></svg>
+      <ol class="passi-testo">
+        <li>Client-server: tutti e sei i client chiedono il file; dal server partono sei copie intere e le frecce si accumulano al centro (etichetta “server sotto sforzo”).</li>
+        <li>Il server si spegne: nessun client riceve più nulla.</li>
+        <li>Peer-to-peer: ogni computer ha alcuni pezzi; i pezzi si scambiano in tutte le direzioni finché tutti hanno il file completo.</li>
+        <li>Un computer si spegne: gli altri continuano a scambiarsi i pezzi.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Client-server</th><th>Peer-to-peer</th></tr></thead>
+    <tbody>
+      <tr><td>Ruoli</td><td>diversi: chi offre (server) e chi chiede (client)</td><td>uguali: tutti offrono e chiedono</td></tr>
+      <tr><td>Controllo</td><td>centralizzato: chi gestisce il server decide tutto</td><td>distribuito: nessuno controlla l’insieme</td></tr>
+      <tr><td>Punto debole</td><td>se il server cade, il servizio si ferma</td><td>difficile garantire qualità e controllare i contenuti</td></tr>
+      <tr><td>Con tanti utenti</td><td>il server va potenziato</td><td>aumentano anche le fonti</td></tr>
+      <tr><td>Esempi</td><td>web, posta, Classroom, social, streaming</td><td>BitTorrent, AirDrop, alcuni videogiochi</td></tr>
+    </tbody></table></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il server è un computer gigante e il client è un computer piccolo.»</p>
+    <p class="err-si">Sono <b>ruoli</b>: anche un normale portatile può fare da server (ad esempio per una partita in rete locale), e un server enorme può fare da client quando chiede dati a un altro server.</p></div>
+  <p class="domanda">Quando guardate una storia su Instagram, chi è il client e chi è il server? E quando mandate una foto con AirDrop o Quick Share a un compagno?</p>
+
+  <!-- ===================== 2.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">2.5</span>I dispositivi di rete</h2>
+  <p>Una rete non è fatta solo di computer: in mezzo ci sono <b>apparati che collegano, ripetono, smistano, traducono e filtrano i dati</b>. Da fuori molti si assomigliano, scatole con prese e luci; ma ognuno fa un lavoro preciso, e capirlo serve a capire come funziona la rete di casa e della scuola.</p>
+  <h3>La scheda di rete</h3>
+  <p>La <span class="termine">scheda di rete</span> (NIC, <i>Network Interface Card</i>) è <b>il componente che permette a un dispositivo di collegarsi a una rete</b>. Può essere <b>cablata</b>, con la presa RJ45 per il cavo Ethernet, oppure <b>wireless</b>, per il Wi-Fi. Nei portatili e nei telefoni è integrata nella scheda madre; nei computer fissi può essere una scheda aggiuntiva o una chiavetta USB.</p>
+  <div class="foto-coppia">
+    <figure><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Ethernet_pci_card.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Ethernet_pci_card.jpg" alt="Una scheda di rete Ethernet da inserire in un computer fisso: si vedono la presa RJ45 e i chip." referrerpolicy="no-referrer"></a><figcaption>Una scheda di rete Ethernet da inserire in un computer fisso: si vedono la presa RJ45 e i chip.</figcaption></figure>
+    <figure><a class="fonte" href="https://commons.wikimedia.org/wiki/File:USB-wireless-adapter.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/USB-wireless-adapter.jpg" alt="Una chiavetta USB Wi-Fi: anche questa è una scheda di rete, ma senza fili." referrerpolicy="no-referrer"></a><figcaption>Una chiavetta USB Wi-Fi: anche questa è una scheda di rete, ma senza fili.</figcaption></figure>
+  </div>
+  <p>Ogni scheda di rete ha un <b>identificativo unico al mondo, assegnato dal produttore: l’indirizzo MAC</b> (<i>Media Access Control</i>).</p>
+  <h3>Hub e switch</h3>
+  <p>Hub e switch <b>collegano tra loro più computer della stessa rete locale (LAN)</b> con topologia a stella. Da fuori sembrano identici, una scatola con molte prese RJ45, ma <b>il comportamento è molto diverso</b>.</p>
+  <ul>
+    <li>L’<span class="termine">hub</span> è un dispositivo “stupido”: quando riceve dati da una porta <b>li ripete su tutte le altre porte</b>. Ogni computer riceve tutto e scarta ciò che non è per lui. Può trasmettere un solo computer alla volta (half-duplex), perché tutte le porte dell’hub condividono lo stesso “filo”: <b>se due trasmettono insieme, i segnali si sovrappongono e diventano illeggibili</b>. È una <b>collisione</b>, e i dati vanno ritrasmessi.</li>
+    <li>Lo <span class="termine">switch</span> è “intelligente”: <b>impara quale computer è collegato a quale porta e invia i dati solo alla porta del destinatario</b>. Più coppie di computer possono comunicare contemporaneamente, in full-duplex.</li>
+  </ul>
+  <div class="foto-coppia">
+    <figure><a class="fonte" href="https://commons.wikimedia.org/wiki/File:HP_EtherTwist_Hub8.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/HP_EtherTwist_Hub8.jpg" alt="Un vecchio hub Ethernet a 8 porte (anni ’90): da fuori è quasi identico a uno switch." referrerpolicy="no-referrer"></a><figcaption>Un vecchio hub Ethernet a 8 porte (anni ’90): da fuori è quasi identico a uno switch.</figcaption></figure>
+    <figure><a class="fonte" href="https://www.pexels.com/photo/13963756/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/13963756/pexels-photo-13963756.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Switch in un armadio di rete, con decine di cavi: così sono fatte le reti di scuole e uffici." referrerpolicy="no-referrer"></a><figcaption>Switch in un armadio di rete, con decine di cavi: così sono fatte le reti di scuole e uffici.</figcaption></figure>
+  </div>
+  <p>L’analogia: <b>l’hub è un postino che legge ad alta voce ogni lettera nel cortile</b> del condominio, e ognuno ascolta per capire se è per lui; <b>lo switch è un postino che mette ogni lettera nella cassetta giusta</b>.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-hub" data-titolo="Hub e switch: dove va un pacchetto" data-inizio="Quattro computer, A, B, C e D, collegati a una scatola centrale con scritto «hub».">
+      <svg viewBox="0 0 720 295" role="img" aria-label="Con l’hub il pacchetto di A per C arriva a tutti e due trasmissioni insieme si scontrano; con lo switch va solo a C e più conversazioni avvengono insieme"></svg>
+      <ol class="passi-testo">
+        <li>A invia un pacchetto per C: il pacchetto arriva all’hub.</li>
+        <li>L’hub lo copia su tutte le porte: C lo tiene, B e D lo ricevono e lo scartano (una X su ciascuno).</li>
+        <li>A e B trasmettono nello stesso momento: i due pacchetti si scontrano nell’hub e vanno persi (collisione).</li>
+        <li>La scatola diventa uno switch: A invia a C e il pacchetto va solo a C; B e D non ricevono niente.</li>
+        <li>Contemporaneamente B invia a D: due conversazioni insieme, senza disturbarsi.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Hub</th><th>Switch</th></tr></thead>
+    <tbody>
+      <tr><td>Come inoltra i dati</td><td>a tutte le porte</td><td>solo alla porta del destinatario</td></tr>
+      <tr><td>Collisioni</td><td>frequenti</td><td>praticamente assenti</td></tr>
+      <tr><td>Prestazioni</td><td>basse: la banda è condivisa tra tutti</td><td>alte: ogni porta ha la sua banda</td></tr>
+      <tr><td>Sicurezza</td><td>bassa: tutti “sentono” tutto</td><td>migliore</td></tr>
+      <tr><td>Oggi</td><td>praticamente scomparso</td><td>standard in ogni rete</td></tr>
+    </tbody></table></div>
+  <figure>
+    <div class="tela" data-widget="switch"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Per collegare la rete di casa a Internet basta uno switch.»</p>
+    <p class="err-si">Lo switch collega dispositivi <b>nella stessa rete locale</b>; per collegare <b>reti diverse</b> servono altre componenti.</p></div>
+  <p class="domanda">Perché secondo voi l’hub è scomparso dal mercato?</p>
+  <h3>Il router</h3>
+  <figure class="foto-margine"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Cisco_2800_series_router_%281%29.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Cisco_2800_series_router_%281%29.jpg" alt="Un router professionale Cisco, come quelli usati dagli operatori e nelle aziende." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Router professionale</figcaption></figure>
+  <p>Il <span class="termine">router</span> (instradatore) <b>collega reti diverse tra loro e decide quale strada devono seguire i dati</b> per arrivare a destinazione. Mentre lo switch lavora con gli indirizzi MAC dentro una LAN, <b>il router lavora con gli indirizzi IP</b> e sceglie il percorso tra le reti.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Cisco_Advanced_Gateway_Server_%28AGS%29_router_%281986%29_-_Computer_History_Museum.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_Advanced_Gateway_Server_%28AGS%29_router_%281986%29_-_Computer_History_Museum.jpg" alt="Il router Cisco AGS del 1986, oggi conservato al Computer History Museum." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Cisco AGS, 1986</figcaption></figure>
+  <p>In Internet ci sono milioni di router, collegati come gli incroci di una rete stradale. Ogni router guarda l’indirizzo IP di destinazione del pacchetto e <b>lo inoltra al router successivo più adatto</b>. Un pacchetto che va dall’Italia agli Stati Uniti attraversa in genere dai 10 ai 20 router.</p>
+  <p>L’analogia è quella di un <b>centro di smistamento postale</b>: non consegna la lettera a casa, ma guarda la città di destinazione e la manda al centro successivo nella direzione giusta.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-router" data-titolo="Il router come centro di smistamento" data-inizio="Tre reti locali, casa, scuola e ufficio, collegate da quattro router R1–R4 disposti a rombo; un pacchetto con l’etichetta «→ scuola» esce dalla rete di casa.">
+      <svg viewBox="0 0 720 270" role="img" aria-label="Un pacchetto diretto alla rete della scuola passa di router in router; quando un collegamento si interrompe prende un’altra strada"></svg>
+      <ol class="passi-testo">
+        <li>Il pacchetto arriva a R1; accanto compare la tabella di R1 con la riga «scuola → via R3».</li>
+        <li>R1 lo inoltra a R3; R3 consulta la sua tabella e lo passa a R4.</li>
+        <li>R4 lo consegna alla rete della scuola, che si illumina.</li>
+        <li>Il collegamento R1–R3 si interrompe (una X rossa): la tabella di R1 si aggiorna in «scuola → via R2» e il pacchetto successivo arriva lo stesso passando da R2.</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>Il modem</h3>
+  <p>Il <span class="termine">modem</span> (da <b>mo</b>dulatore-<b>dem</b>odulatore) <b>trasforma i dati digitali del computer in un segnale adatto alla linea dell’operatore</b>, cioè il rame telefonico, il cavo, la fibra o la rete cellulare, <b>e viceversa</b>:</p>
+  <ul>
+    <li><b>modulazione</b>: da bit a segnale adatto al canale, in trasmissione;</li>
+    <li><b>demodulazione</b>: da segnale a bit, in ricezione.</li>
+  </ul>
+  <figure>
+    <div class="tela passi-anim" id="f-modem" data-titolo="Che cosa vuol dire modulare" data-inizio="Due computer lontani, ciascuno collegato al suo modem; sulla linea dell’operatore scorre un’onda regolare, la portante, che non trasporta ancora nulla.">
+      <svg viewBox="0 0 720 225" role="img" aria-label="I bit modificano l’altezza dell’onda nel primo modem, l’onda viaggia sulla linea e il secondo modem la misura e ricostruisce i bit"></svg>
+      <ol class="passi-testo">
+        <li>Dal computer di sinistra escono i bit 1 0 1 1 0.</li>
+        <li>Il modem modula l’onda: dove c’è un 1 l’onda diventa alta, dove c’è uno 0 diventa bassa (modulazione di ampiezza, semplificata).</li>
+        <li>L’onda modulata viaggia lungo la linea fino al modem di destra.</li>
+        <li>Il modem di destra misura l’altezza dell’onda e ricostruisce 1 0 1 1 0: è la demodulazione.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="foto-coppia">
+    <figure><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Hayes_Smartmodem_1982_%282%29.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Hayes_Smartmodem_1982_%282%29.jpg" alt="Un modem esterno Hayes del 1982, uno dei più diffusi dei primi anni: si collegava al computer da una parte e alla presa del telefono dall’altra." referrerpolicy="no-referrer"></a><figcaption>Un modem esterno Hayes del 1982, uno dei più diffusi dei primi anni: si collegava al computer da una parte e alla presa del telefono dall’altra.</figcaption></figure>
+    <figure><a class="fonte" href="https://commons.wikimedia.org/wiki/File:External_dialup_modem_back_panel.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/External_dialup_modem_back_panel.jpg" alt="Il retro di un modem esterno per linea telefonica: la presa per il telefono e la porta seriale verso il computer." referrerpolicy="no-referrer"></a><figcaption>Il retro di un modem esterno per linea telefonica: la presa per il telefono e la porta seriale verso il computer.</figcaption></figure>
+  </div>
+  <div class="box storia"><h3><i data-ic="history" class="ic-20"></i> Nella storia</h3>
+    <p>I primi modem, dagli anni ’60 agli anni ’90, trasformavano i bit in <b>suoni</b> udibili sulla linea telefonica: chi usava Internet negli anni ’90 ricorda il “canto” di fischi e gracchi durante la connessione. Mentre si navigava il telefono di casa era occupato, e si pagava a tempo, come una telefonata. Il massimo raggiunto da quei modem fu <b>56 kbps</b>.</p>
+    <a class="video" href="https://www.youtube.com/watch?v=0D2cqPk2c7o" target="_blank" rel="noopener" data-yt="0D2cqPk2c7o"><img src="https://i.ytimg.com/vi/0D2cqPk2c7o/hqdefault.jpg" alt="Anteprima del video" loading="lazy"><span class="play" aria-hidden="true"></span><span class="video-eti">Guarda il video</span></a>
+  </div>
+  <h3>L’access point, i ripetitori Wi-Fi e le reti mesh</h3>
+  <figure class="foto-margine"><a class="fonte" href="https://unsplash.com/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1785682117495-d87ff069cdb5?w=1200&q=80&fm=jpg" alt="Access point sul soffitto: il dispositivo che crea il Wi-Fi in scuole e uffici." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Access point sul soffitto</figcaption></figure>
+  <p>L’<span class="termine">access point</span> (punto di accesso) <b>crea una rete Wi-Fi e collega i dispositivi senza fili alla rete cablata</b>. In casa è quasi sempre integrato nel router; <b>nelle scuole, negli uffici e negli hotel ci sono molti access point distribuiti negli ambienti</b>, spesso sul soffitto, collegati via cavo a uno switch.</p>
+  <p>Un singolo access point copre una zona limitata: muri, pavimenti e distanza indeboliscono il segnale. Per coprire spazi più grandi si usano:</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.pexels.com/photo/1024697/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/1024697/pexels-photo-1024697.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un’unità di un sistema mesh: più unità come questa, sparse per la casa, creano un’unica rete Wi-Fi." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un’unità di un sistema mesh</figcaption></figure>
+  <ul>
+    <li>i <b>ripetitori</b> (o estensori) Wi-Fi, che <b>ricevono il segnale e lo ritrasmettono</b> verso le zone lontane; sono economici, ma spesso <b>dimezzano la banda</b>, perché usano lo stesso canale radio sia per ricevere dal router sia per ritrasmettere ai dispositivi, e quindi devono alternarsi;</li>
+    <li>i sistemi <b>mesh</b>, formati da <b>più unità che collaborano per creare un’unica rete Wi-Fi</b> in tutta la casa; il telefono passa da un’unità all’altra senza accorgersene e senza dover ripetere alcun segnale.</li>
+  </ul>
+  <figure>
+    <div class="tela schema" id="s-wifi"><p class="passi-titolo">Coprire tutta la casa con il Wi-Fi</p>
+      <svg viewBox="0 0 720 230" role="img" aria-label="Tre piante della stessa casa: con il solo router metà casa è coperta, con un ripetitore la copertura si estende ma la banda si riduce, con un sistema mesh tutta la casa è coperta"></svg>
+    </div>
+  </figure>
+  <p class="domanda">Guardate il soffitto dei corridoi o delle aule: riuscite a trovare gli access point della scuola? Quanti ce ne sono sul nostro piano?</p>
+
+  <!-- ===================== 2.6 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p6"><span class="num">2.6</span>Differenze da non confondere</h2>
+  <p>Hub, switch, router e modem vengono spesso confusi, anche perché in casa stanno tutti nella stessa scatola. La tabella riassume le <b>tre differenze</b> che contano di più.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Coppia</th><th>Differenza in una frase</th><th>Il perché</th></tr></thead>
+    <tbody>
+      <tr><td><b>Hub e switch</b></td><td>l’hub ripete a tutti, lo switch consegna solo al destinatario</td><td>lo switch impara la tabella MAC–porta; l’hub non legge gli indirizzi</td></tr>
+      <tr><td><b>Switch e router</b></td><td>lo switch collega dispositivi <b>della stessa rete</b>, il router collega <b>reti diverse</b></td><td>lo switch usa gli indirizzi MAC (validi solo nella rete locale), il router gli indirizzi IP (validi in tutta Internet)</td></tr>
+      <tr><td><b>Modem e router</b></td><td>il modem traduce il segnale per la linea dell’operatore, il router decide dove mandare i pacchetti</td><td>il modem lavora sui segnali fisici, il router sugli indirizzi</td></tr>
+      <tr><td><b>Access point e router</b></td><td>l’access point crea il Wi-Fi, il router collega la casa a Internet</td><td>un access point da solo non dà Internet: lo prende dal router via cavo</td></tr>
+      <tr><td><b>Ripetitore e access point</b></td><td>il ripetitore prende il Wi-Fi dall’aria e lo rilancia, l’access point lo crea da un cavo</td><td>il ripetitore usa la radio sia per ricevere sia per ritrasmettere e dimezza la banda; l’access point cablato no</td></tr>
+    </tbody></table></div>
+  <figure>
+    <div class="tela passi-anim" id="f-switchrouter" data-titolo="Dove finisce lo switch e comincia il router" data-inizio="Due case vicine, ciascuna con il suo switch e tre dispositivi; in mezzo un router collega le due reti. Un pacchetto è pronto sul telefono della casa A.">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Dentro la stessa casa lo switch consegna il pacchetto da solo; verso l’altra casa il pacchetto passa dal router, che guarda l’indirizzo IP"></svg>
+      <ol class="passi-testo">
+        <li>Il telefono manda un pacchetto alla stampante della stessa casa: lo switch della casa A lo consegna direttamente, senza coinvolgere il router.</li>
+        <li>Il telefono manda un pacchetto al computer della casa B: lo switch non conosce il destinatario nella sua rete e lo passa al router.</li>
+        <li>Il router guarda l’indirizzo IP, riconosce la rete B e inoltra il pacchetto allo switch della casa B.</li>
+        <li>Lo switch della casa B consegna il pacchetto al computer giusto.</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>Il “router” di casa</h3>
+  <figure class="foto-margine"><a class="fonte" href="https://www.pexels.com/photo/32698507/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/32698507/pexels-photo-32698507.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Il modem-router di casa: da fuori è una scatola sola." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Il modem-router di casa</figcaption></figure>
+  <p>Il “router” che l’operatore installa in casa è in realtà <b>un dispositivo tutto-in-uno, che contiene quattro apparati diversi</b>:</p>
+  <ol>
+    <li>un <b>modem</b>, che parla con la rete dell’operatore;</li>
+    <li>un <b>router</b>, che collega la rete di casa a Internet;</li>
+    <li>uno <b>switch</b>, con 2–4 prese Ethernet per collegare computer, console e smart TV via cavo;</li>
+    <li>un <b>access point</b>, che crea la rete Wi-Fi;</li>
+  </ol>
+  <figure class="foto-grande"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Adsl_connections.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Adsl_connections.jpg" alt="Il retro di un modem-router: la presa per la linea dell’operatore e le prese LAN dello switch. Da mostrare indicando a quale funzione corrisponde ogni presa." referrerpolicy="no-referrer"></a><figcaption>Il retro di un modem-router: la presa per la linea dell’operatore e le prese LAN dello switch. Da mostrare indicando a quale funzione corrisponde ogni presa.</figcaption></figure>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>Una <b>rete</b> è un insieme di dispositivi (<b>nodi</b>) collegati per scambiarsi dati, secondo regole comuni (<b>protocolli</b>); serve a condividere risorse e dati, comunicare e usare servizi a distanza, ma permette anche ai problemi di propagarsi.</li>
+      <li>Per estensione le reti si dividono in <b>BAN</b> (corpo), <b>PAN</b> (persona), <b>LAN</b> (edificio), <b>MAN</b> (città) e <b>WAN</b> (regioni, nazioni, continenti); conta l’<b>estensione geografica</b>, non il numero di dispositivi.</li>
+      <li>La <b>topologia</b> è la forma della rete: <b>bus, anello, stella, albero, maglia</b>. Decide costi e conseguenze dei guasti; le LAN sono a <b>stella</b> o ad <b>albero</b>, Internet è una <b>maglia parziale</b>.</li>
+      <li>Nel <b>client-server</b> il server offre un servizio e i client lo chiedono; nel <b>peer-to-peer</b> tutti offrono e chiedono. Client e server sono <b>ruoli</b>, non tipi di computer.</li>
+      <li>La <b>scheda di rete</b> ha un <b>indirizzo MAC</b> unico; l’<b>hub</b> ripete i dati a tutte le porte, lo <b>switch</b> li consegna solo al destinatario; il <b>router</b> collega reti diverse e sceglie la strada usando gli <b>indirizzi IP</b>; il <b>modem</b> trasforma i bit in un segnale adatto alla linea dell’operatore e viceversa.</li>
+      <li>L’<b>access point</b> crea il Wi-Fi; i <b>ripetitori</b> lo estendono ma spesso dimezzano la banda, i sistemi <b>mesh</b> creano un’unica rete in tutta la casa. Lo <b>switch</b> lavora <b>dentro una rete</b>, il <b>router tra reti</b>; il “router” di casa è un <b>tutto-in-uno</b>: modem, router, switch e access point.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/capitolo-02.js"></script>
+<script src="assets/capitolo-02-aula.js"></script>
+</body>
+</html>

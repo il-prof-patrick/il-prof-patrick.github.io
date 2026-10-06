@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>7. Reti e intelligenza artificiale · Reti e Internet</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="7">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Reti e Internet · Capitolo 07</span></div>
+  <h1>Reti e intelligenza artificiale</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 7.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">7.1</span>Dove “abita” un chatbot</h2>
+  <p class="domanda">Quando scrivete una domanda a un chatbot sul telefono, secondo voi la risposta viene calcolata dentro il telefono? Come potreste scoprirlo?</p>
+  <p>I chatbot come ChatGPT, Gemini o Claude <b>non funzionano dentro il telefono</b>: il telefono è solo il <b>client</b>. <b>Il modello di intelligenza artificiale gira su server specializzati nei data center</b> del fornitore, e la domanda e la risposta viaggiano attraverso Internet con gli stessi protocolli visti nei capitoli precedenti: DNS, TCP, HTTPS.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.trgdatacenters.com/resource/nvidia-data-center-gpus/" target="_blank" rel="noopener"><img src="https://www.trgdatacenters.com/wp-content/uploads/2024/10/Nvidia-h100.jpeg" alt="Una GPU per data center: un solo chip di questo tipo costa decine di migliaia di euro, e i data center per l’IA ne contengono decine o centinaia di migliaia." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Una GPU per data center</figcaption></figure>
+  <p>I grandi modelli linguistici hanno <b>centinaia di miliardi di parametri</b>, i numeri che il modello ha imparato durante l’addestramento: per contenerli e fare i calcoli in fretta servono <b>memorie enormi e processori speciali</b>, le <b>GPU</b> (<i>Graphics Processing Unit</i>). Le GPU erano nate per i videogiochi, perché sanno fare <b>migliaia di calcoli semplici in parallelo</b>, ed è esattamente il tipo di calcolo che serve alle reti neurali. Un singolo modello di grandi dimensioni può richiedere, per rispondere, <b>più GPU collegate tra loro da reti velocissime</b>.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-chatbot" data-titolo="Il viaggio di una domanda a un chatbot" data-inizio="A sinistra un telefono con l’app del chatbot e la domanda «Che cos’è un router?»; al centro la rete: Wi-Fi, router di casa, fibra, dorsale; a destra un data center con un gruppo di GPU.">
+      <svg viewBox="0 0 720 300" role="img" aria-label="La domanda cifrata attraversa la rete fino al data center, le GPU calcolano la risposta una parola alla volta e le parole tornano subito al telefono; in modalità aereo la domanda resta ferma"></svg>
+      <ol class="passi-testo">
+        <li>La domanda parte dal telefono, cifrata (lucchetto), e attraversa Wi-Fi, router, fibra e dorsale fino al data center.</li>
+        <li>Nel data center la domanda arriva a un gruppo di GPU, che si accendono insieme.</li>
+        <li>Il modello produce la risposta una parola alla volta: le prime parole ripartono subito verso il telefono.</li>
+        <li>Sul telefono la risposta compare “a pezzi”, come se qualcuno stesse scrivendo, mentre le GPU continuano a generare il resto.</li>
+        <li>Il telefono va in modalità aereo: la domanda successiva resta ferma con un punto esclamativo.</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>I data center dell’IA</h3>
+  <figure class="foto-margine"><a class="fonte" href="https://www.ciodive.com/news/cloud-ai-data-center-aws-microsof-google-oracle/743218/" target="_blank" rel="noopener"><img src="https://imgproxy.divecdn.com/C8S-cy2YNVsMZq4Ga3VDxxBK6dQ2gevQXUsBqpt6MkU/g:ce/rs:fill:1200:675:1/Z3M6Ly9kaXZlc2l0ZS1zdG9yYWdlL2RpdmVpbWFnZS9HZXR0eUltYWdlcy0yMTcwNjgzMzc1LmpwZw==.webp" alt="Un grande campus di data center visto dall’alto: capannoni enormi, impianti di raffreddamento sul tetto e linee elettriche dedicate." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un campus di data center</figcaption></figure>
+  <p>L’addestramento e l’uso dei modelli hanno fatto nascere <b>data center giganteschi dedicati all’IA</b>, che consumano quanto intere città. Per questo le grandi aziende tecnologiche stanno investendo centinaia di miliardi di dollari in nuovi edifici, in <b>contratti per l’energia</b>, perfino nella riapertura di centrali, e il tema del <b>consumo di elettricità e di acqua</b> dell’IA è diventato centrale (paragrafo 4.4).</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Una rete neurale è una rete di computer.»</p>
+    <p class="err-si">Una <b>rete neurale</b> è un <b>modello matematico</b> ispirato in modo molto lontano ai neuroni: è un programma, non un insieme di dispositivi collegati. Il nome “rete” indica i collegamenti tra i suoi “nodi” matematici. Per funzionare, però, gira su molti computer collegati da <b>reti vere</b>.</p></div>
+
+  <!-- ===================== 7.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">7.2</span>IA sul dispositivo e IA nel cloud</h2>
+  <p>Non tutta l’IA abita nei data center. Sempre più spesso <b>i modelli girano direttamente sul dispositivo</b>: telefono, computer, auto, videocamera. È l’applicazione all’IA dell’<b>edge computing</b> (paragrafo 6.9), che si chiama <b>edge AI</b> o <b>IA locale</b>(<i>on-device AI</i>). I telefoni recenti hanno processori dedicati, le <b>NPU</b> (<i>Neural Processing Unit</i>), progettati apposta per i calcoli delle reti neurali.</p>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>IA nel cloud</th><th>IA sul dispositivo</th></tr></thead>
+    <tbody>
+      <tr><td>Dove gira il modello</td><td>nei data center</td><td>sul telefono, sul computer, sull’oggetto</td></tr>
+      <tr><td>Dimensione del modello</td><td>enorme, molto capace</td><td>piccola, più limitata</td></tr>
+      <tr><td>Serve Internet?</td><td>sì</td><td>no</td></tr>
+      <tr><td>Latenza</td><td>il viaggio di andata e ritorno</td><td>quasi nulla</td></tr>
+      <tr><td>Privacy</td><td>i dati escono dal dispositivo</td><td>i dati restano sul dispositivo</td></tr>
+      <tr><td>Esempi</td><td>chatbot, generazione di immagini e video</td><td>riconoscimento del volto per sbloccare il telefono, foto migliorate, dettatura offline, traduzione offline</td></tr>
+    </tbody></table></div>
+  <p>Spesso le due soluzioni si <b>combinano</b>: il telefono usa il modello locale per le richieste semplici e quelle che riguardano dati privati, e passa al cloud quelle più complesse.</p>
+  <p class="domanda">Un chatbot in locale ha le stesse prestazioni di uno che lavora nel cloud?</p>
+
+  <!-- ===================== 7.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">7.3</span>Il Web come cibo per l’IA</h2>
+  <p>Un modello linguistico impara a scrivere <b>leggendo quantità enormi di testi</b>, nell’ordine di <b>migliaia di miliardi di parole</b>. La fonte principale di questi testi è <b>il Web</b>: pagine, enciclopedie, forum, libri digitalizzati, codice di programmazione. Per raccoglierli si usano gli stessi strumenti dei motori di ricerca: i <b>crawler</b> (paragrafo 5.1).</p>
+  <h3>Il diritto d’autore</h3>
+  <p>Usare i testi del Web per addestrare l’IA solleva un problema di <b>diritto d’autore</b>: giornalisti, scrittori, artisti e musicisti chiedono di essere <b>pagati o almeno consultati</b>, perché i modelli imparano dal loro lavoro e possono fare loro concorrenza. Ci sono state <b>cause in tribunale</b> importanti, tra cui quella del <i>New York Times</i> contro OpenAI e Microsoft, avviata nel 2023. In Europa la legge permette l’<b>estrazione di testi e dati</b> anche per l’IA, ma <b>i titolari dei diritti possono opporsi</b> dichiarandolo, ad esempio proprio con regole come quelle di robots.txt; l’AI Act chiede inoltre ai fornitori dei modelli di pubblicare un riassunto dei dati usati per addestrarli.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«L’IA quando risponde va a leggere Internet in quel momento.»</p>
+    <p class="err-si">Il modello ha <b>imparato</b> dai testi raccolti <b>prima</b> dell’addestramento, fino a una certa data. Solo se il chatbot fa anche una <b>ricerca sul web</b> (paragrafo 5.5) usa pagine attuali.</p></div>
+
+  <!-- ===================== 7.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">7.4</span>La teoria dell’Internet morta</h2>
+  <p class="domanda">Quando leggete i commenti sotto un video molto popolare, quanti pensate siano scritti da persone vere? Come fate a capirlo?</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.morelogin.com/blog/what-is-a-phone-farm" target="_blank" rel="noopener"><img src="https://blog-static.morelogin.com/halo/phone-farm.png" alt="Una phone farm: centinaia di smartphone su scaffali, comandati da un computer per far sembrare reali account, visualizzazioni e “mi piace”." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Una phone farm</figcaption></figure>
+  <p>La <span class="termine">teoria dell’Internet morta</span> (<i>Dead Internet Theory</i>) sostiene che <b>gran parte di ciò che si trova online, cioè traffico, account, commenti e contenuti, non sia più prodotta da esseri umani ma da bot e da programmi automatici, e che le persone vere siano ormai una minoranza</b> in un web popolato da macchine che parlano tra loro.</p>
+  <h3>Perché ci riguarda</h3>
+  <p>Anche senza complotto, la diffusione di bot e contenuti generati ha <b>conseguenze concrete</b>:</p>
+  <ul>
+    <li><b>fidarsi diventa più difficile</b>: recensioni, commenti, numeri di follower e di visualizzazioni possono essere gonfiati, e quindi <b>non sono più una prova di popolarità o di qualità</b>;</li>
+    <li><b>l’opinione pubblica può essere falsata</b>: migliaia di account automatici possono far sembrare maggioritaria un’idea che non lo è;</li>
+    <li><b>la qualità del Web si abbassa</b>: pagine scritte in serie per comparire nei motori di ricerca rendono più difficile trovare informazioni buone (paragrafo 5.1);</li>
+    <li><b>l’IA rischia di “mangiare se stessa”</b>: se i nuovi modelli vengono addestrati su testi scritti da altri modelli, la qualità può peggiorare di generazione in generazione. Uno studio pubblicato su <i>Nature</i> nel <b>2024</b> ha chiamato questo fenomeno <b>collasso del modello</b> (<i>model collapse</i>). Per questo i testi scritti da persone stanno diventando <b>sempre più preziosi</b>.</li>
+  </ul>
+  <figure>
+    <div class="tela passi-anim" id="f-collasso" data-titolo="Quando l’IA impara dall’IA" data-inizio="A sinistra un Web fatto di pagine scritte da persone; al centro un modello di IA; a destra un contatore della qualità.">
+      <svg viewBox="0 0 720 310" role="img" aria-label="Il modello impara dal Web umano e scrive testi buoni; i testi generati finiscono online e un nuovo modello impara da un Web sempre più pieno di testi generati, e la qualità scende"></svg>
+      <ol class="passi-testo">
+        <li>Il modello impara dal Web umano e produce testi buoni: il contatore è alto.</li>
+        <li>I testi generati vengono pubblicati online: il Web si riempie di pagine grigie (generate) accanto a quelle colorate.</li>
+        <li>Un nuovo modello impara dal Web misto, con molte pagine grigie: produce testi più uniformi e con più errori; il contatore scende.</li>
+        <li>Il ciclo si ripete: il Web diventa sempre più grigio e il contatore scende ancora; compare un cartello “i testi umani diventano preziosi”.</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>Come difendersi</h3>
+  <ul>
+    <li><b>guardare chi c’è dietro</b> un account o un sito (paragrafo 5.4), invece di fidarsi dei numeri;</li>
+    <li>preferire <b>fonti con autori riconoscibili</b> e comunità reali;</li>
+    <li>diffidare dei <b>commenti generici e ripetitivi</b> e degli account senza storia;</li>
+    <li><b>contribuire</b> con contenuti propri, originali e firmati: un web vivo dipende anche da chi lo scrive.</li>
+  </ul>
+  <p class="domanda">Se un giorno la maggior parte dei commenti e degli articoli fosse scritta da IA, che cosa cambierebbe per voi? Che valore avrebbe un contenuto scritto sicuramente da una persona?</p>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>I chatbot non funzionano nel telefono: il <b>modello</b> gira nei <b>data center</b> su <b>GPU</b>, processori che fanno migliaia di calcoli in parallelo, e domanda e risposta viaggiano con i protocolli di Internet; i data center dell’IA consumano moltissima energia.</li>
+      <li>I modelli linguistici imparano da migliaia di miliardi di parole raccolte dal <b>Web</b> con i <b>crawler</b>. L’uso dei testi solleva problemi di <b>diritto d’autore</b>: in Europa i titolari dei diritti possono <b>opporsi</b> all’estrazione.</li>
+      <li>L’<b>IA sul dispositivo</b> (<i>edge AI</i>, con le <b>NPU</b>) è più veloce, più riservata e funziona senza Internet, ma è meno potente di quella nel <b>cloud</b>; spesso le due si combinano.</li>
+      <li>La <b>teoria dell’Internet morta</b> sostiene che gran parte di ciò che si trova online sia prodotta da <b>bot</b> e programmi automatici, e che le persone vere siano ormai una minoranza.</li>
+      <li>Anche senza complotto, le conseguenze sono reali: numeri e recensioni non sono più prove, l’opinione pubblica può essere falsata, la qualità del Web cala e i modelli addestrati su testi generati rischiano il <b>collasso del modello</b>. La risposta è <b>verificare</b> e <b>dare valore ai contenuti umani</b> e alle fonti riconoscibili.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/capitolo-07.js"></script>
+<script src="assets/capitolo-07-aula.js"></script>
+</body>
+</html>

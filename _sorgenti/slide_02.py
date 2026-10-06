@@ -1,0 +1,91 @@
+# Slide di Presenta in aula · Capitolo 2 · Le reti di computer
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from slidelib import *
+configura(modulo='Reti e Internet')
+c = Capitolo(2)
+OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(QUI, '..')
+
+S = [
+ c.COP('Che cos’è una rete, come si classifica e quali apparati la compongono.'),
+ c.DOM(0),
+ # 2.1
+ c.SEZ('2.1', 'Dispositivi collegati che si parlano'),
+ {'tipo': 'punti', 'titolo': 'Una rete di computer', 'punti': [['network', 'Dispositivi **collegati** per **scambiarsi dati e condividere risorse**'], ['monitor', 'I dispositivi sono **nodi** (o *host*)'],
+   ['cable', 'Uniti da **collegamenti** (*link*), cablati o senza fili'], ['list', 'Servono **regole comuni**: i **protocolli**']]},
+ {'tipo': 'tessere', 'titolo': 'A che cosa serve una rete', 'tessere': [['printer', 'Condividere risorse', 'una stampante, un collegamento a Internet'], ['file', 'Condividere dati', 'un documento su Drive'],
+   ['message-circle', 'Comunicare', 'messaggi, posta, videochiamate'], ['globe', 'Servizi a distanza', 'registro, banca, streaming, giochi'], ['users', 'Lavorare insieme', 'anche da città diverse']],
+  'nota': 'Il rovescio: **se tutto è collegato, un problema può propagarsi** (virus, guasti, dati condivisi male)'},
+ {'tipo': 'punti', 'titolo': 'Esempio: l’aula di informatica', 'punti': [['monitor', 'Computer degli studenti e del docente, stampante, proiettore: **una sola rete**'], ['send', 'Il docente manda un file a tutti'], ['printer', 'Tutti stampano sulla stessa stampante'], ['globe', 'Tutti escono su Internet dallo stesso collegamento']]},
+ c.ERR(0),
+ # 2.2
+ c.SEZ('2.2', 'Quanto spazio copre una rete'),
+ {'tipo': 'tabella', 'titolo': 'Dalla più piccola alla più grande', 'righe': [['Sigla', 'Nome', 'Estensione', 'Esempi'], ['**BAN**', '*Body Area Network*', 'il corpo', 'smartwatch, sensore di glicemia, pacemaker'], ['**PAN**', '*Personal Area Network*', 'pochi metri', 'auricolari, smartwatch, tastiera Bluetooth'],
+   ['**LAN**', '*Local Area Network*', 'casa, scuola, edificio', 'rete della scuola, Wi-Fi di casa'], ['**MAN**', '*Metropolitan Area Network*', 'una città', 'fibra tra gli uffici di un comune'], ['**WAN**', '*Wide Area Network*', 'regioni, nazioni', 'banca con filiali, rete di un operatore']]},
+ c.SC('F2.2.1', 'Cerchi intorno a una persona'),
+ {'tipo': 'punti', 'titolo': 'Esempio: il sensore di glicemia', 'punti': [['activity', 'Il **sensore** sul braccio → una **BAN**'], ['smartphone', 'Sensore ↔ telefono → una **PAN**'], ['globe', 'Telefono ↔ medico → una **rete globale**']], 'foto': c.FO('F2.2.2', 'Smartwatch: BAN e PAN')},
+ {'tipo': 'punti', 'titolo': 'I confini tra le categorie', 'punti': [['ruler', '**Nessun numero preciso** fissa i confini'], ['house', 'Conta **chi possiede e gestisce** la rete e **che tecnologie usa**'],
+   ['network', 'LAN: di chi la usa, cavi Ethernet e Wi-Fi'], ['building-2', 'WAN: attraversa territori pubblici → **linee di un operatore**, a canone']]},
+ c.ERR(1),
+ c.DOM(1),
+ # 2.3
+ c.SEZ('2.3', 'La forma della rete'),
+ {'tipo': 'punti', 'titolo': 'La topologia', 'punti': [['share-2', 'La **forma** della rete: come sono collegati i nodi'], ['cable', '**Fisica**: come sono stesi i cavi · **logica**: come viaggiano i dati'], ['circle-check', 'Decide **quanto costa** la rete e **che cosa succede quando qualcosa si guasta**']]},
+ c.SC('F2.3.1', 'Le cinque topologie'),
+ {'tipo': 'tabella', 'titolo': 'Vantaggi e svantaggi', 'righe': [['Topologia', 'Com’è fatta', 'Vantaggi', 'Svantaggi'], ['**Bus**', 'un cavo condiviso', 'poco cavo, economica', 'cavo rotto → tutto fermo · uno alla volta'],
+   ['**Anello**', 'ogni nodo al precedente e al successivo', 'nessuna collisione', 'un guasto interrompe l’anello'], ['**Stella**', 'ogni nodo al centro (switch)', 'si ferma solo quel nodo · facile aggiungere', 'centro guasto → tutto fermo'],
+   ['**Albero**', 'stelle collegate in gerarchia', 'edifici grandi, ordinata', 'guasto in alto → isola un ramo'], ['**Maglia**', 'più percorsi (completa o parziale)', 'robustissima', 'costosa e complessa']]},
+ c.AN('F2.3.2', 'Che cosa succede quando si rompe qualcosa'),
+ {'tipo': 'confronto', 'titolo': 'Nella realtà', 'a': {'icona': 'building-2', 'titolo': 'Reti locali', 'tono': 'buono', 'righe': ['• quasi tutte a **stella** o ad **albero**', '• ogni computer ha il suo cavo verso uno switch']},
+  'b': {'icona': 'globe', 'titolo': 'Internet', 'righe': ['• una gigantesca **maglia parziale**', '+ quasi sempre **più percorsi**: resiste ai guasti']},
+  'verdetto': 'La scuola è un **albero**: “non va Internet al secondo piano”? Guarda lo switch o il cavo di quel piano'},
+ c.ERR(2),
+ c.DOM(2),
+ # 2.4
+ c.SEZ('2.4', 'Chi offre e chi chiede'),
+ {'tipo': 'punti', 'titolo': 'Client-server', 'punti': [['server', 'Il **server offre** un servizio, i **client** lo **richiedono**'], ['send', 'Richiesta («dammi la pagina») → risposta'],
+   ['globe', 'Web, posta, Classroom, Netflix, social'], ['users', '**Ruoli, non tipi di computer**: lo stesso computer può essere client e server']]},
+ {'tipo': 'foto', 'titolo': 'Un data center', 'foto': [c.FO('F2.4.1', 'Niente schermi né tastiere: solo computer impilati, cavi e luci')]},
+ c.DOM(3),
+ {'tipo': 'punti', 'titolo': 'Peer-to-peer (P2P)', 'punti': [['users', 'Tutti **lo stesso ruolo**: ognuno chiede e offre'], ['download', '**BitTorrent**: scarichi pezzi da molti e intanto li offri'],
+   ['smartphone', 'AirDrop, Quick Share tra telefoni vicini'], ['gamepad-2', 'Partite ospitate dal computer di un giocatore']]},
+ c.AN('F2.4.2', 'Client-server e peer-to-peer'),
+ {'tipo': 'tabella', 'titolo': 'Client-server e peer-to-peer a confronto', 'righe': [['', 'Client-server', 'Peer-to-peer'], ['Ruoli', 'diversi', 'uguali'], ['Controllo', 'centralizzato', 'distribuito'], ['Punto debole', 'se il server cade, si ferma', 'qualità e contenuti difficili da controllare'], ['Con tanti utenti', 'server da potenziare', 'aumentano anche le fonti'], ['Esempi', 'web, posta, Classroom, social, streaming', 'BitTorrent, AirDrop, alcuni giochi']]},
+ c.ERR(3),
+ c.DOM(4),
+ # 2.5
+ c.SEZ('2.5', 'Collegano, smistano, traducono'),
+ {'tipo': 'punti', 'titolo': 'La scheda di rete (NIC)', 'punti': [['cpu', 'Permette a un dispositivo di **collegarsi a una rete**'], ['cable', '**Cablata** (RJ45) o **wireless** (Wi-Fi)'],
+   ['key', 'Ha un identificativo **unico al mondo**: l’**indirizzo MAC**']], 'foto': c.FO('F2.5.1', 'Scheda di rete Ethernet')},
+ {'tipo': 'foto', 'titolo': 'Due schede di rete', 'foto': [c.FO('F2.5.1', 'Ethernet, da inserire nel computer'), c.FO('F2.5.2', 'Chiavetta USB Wi-Fi')]},
+ {'tipo': 'confronto', 'titolo': 'Hub o switch?', 'a': {'icona': 'volume-2', 'titolo': 'Hub', 'tono': 'vecchio', 'righe': ['- ripete i dati su **tutte le porte**', '- uno alla volta (half-duplex)', '- due insieme → **collisione**'], 'piede': 'il postino che legge ad alta voce nel cortile'},
+  'b': {'icona': 'network', 'titolo': 'Switch', 'tono': 'buono', 'righe': ['+ **impara** chi è collegato a quale porta', '+ invia **solo al destinatario**', '+ più coppie insieme (full-duplex)'], 'piede': 'il postino che usa la cassetta giusta'}},
+ {'tipo': 'foto', 'titolo': 'Uguali fuori', 'foto': [c.FO('F2.5.3', 'Un vecchio hub a 8 porte'), c.FO('F2.5.5', 'Switch in un armadio di rete')]},
+ c.AN('F2.5.6', 'Dove va un pacchetto'),
+ {'tipo': 'tabella', 'titolo': 'Hub e switch', 'righe': [['', 'Hub', 'Switch'], ['Inoltra i dati', 'a tutte le porte', 'solo al destinatario'], ['Collisioni', 'frequenti', 'praticamente assenti'], ['Prestazioni', 'banda condivisa', 'ogni porta ha la sua banda'], ['Sicurezza', 'tutti “sentono” tutto', 'migliore'], ['Oggi', 'scomparso', 'standard in ogni rete']]},
+ c.WG('switch', 'Prova tu: hub o switch?'),
+ c.ERR(4),
+ c.DOM(5),
+ {'tipo': 'punti', 'titolo': 'Il router', 'punti': [['route', 'Collega **reti diverse** e sceglie la strada'], ['globe', 'Lavora con gli **indirizzi IP** (lo switch con i MAC)'],
+   ['map', 'Inoltra al **router successivo** più adatto · Italia → USA: 10–20 router']], 'nota': 'Come un **centro di smistamento postale**', 'foto': c.FO('F2.5.9')},
+ c.AN('F2.5.8', 'Di router in router'),
+ {'tipo': 'foto', 'titolo': 'Uno dei primi router', 'foto': [c.FO('F2.5.10', 'Cisco AGS, 1986 · Computer History Museum')]},
+ {'tipo': 'formula', 'titolo': 'Il modem: MOdulatore + DEModulatore', 'formula': 'bit ⇄ segnale', 'righe': [['**modulazione**', 'bit → segnale per la linea (trasmissione)'], ['**demodulazione**', 'segnale → bit (ricezione)']]},
+ c.AN('F2.5.11', 'Modulare e demodulare'),
+ {'tipo': 'foto', 'titolo': 'Un modem del 1982', 'foto': [c.FO('F2.5.12', 'Hayes Smartmodem: computer da una parte, telefono dall’altra'), c.FO('F2.5.13', 'Il retro: presa del telefono e porta seriale')]},
+ {'tipo': 'storia', 'titolo': 'Quando Internet faceva rumore', 'anno': 'anni ’60–’90', 'icona': 'volume-2', 'punti': [['volume-2', 'I bit diventavano **suoni**: fischi e gracchi in linea'], ['phone', 'Mentre navigavi il **telefono di casa era occupato**'], ['clock', 'Si pagava **a tempo** · massimo **56 kbps**'], ['video', 'In aula: il video del “canto” di un modem']]},
+ {'tipo': 'punti', 'titolo': 'L’access point', 'punti': [['wifi', '**Crea il Wi-Fi** e collega i dispositivi senza fili alla rete cablata'], ['house', 'A casa è **dentro il router**'], ['building-2', 'Scuole, uffici, hotel: **tanti**, spesso **sul soffitto**, collegati a uno switch']], 'foto': c.FO('F2.5.15')},
+ {'tipo': 'confronto', 'titolo': 'Coprire spazi più grandi', 'a': {'icona': 'repeat', 'titolo': 'Ripetitore', 'tono': 'vecchio', 'righe': ['• riceve e **ritrasmette**', '+ economico', '- spesso **dimezza la banda**: stesso canale per ricevere e ritrasmettere']},
+  'b': {'icona': 'network', 'titolo': 'Mesh', 'tono': 'buono', 'righe': ['• **più unità** che collaborano', '+ **un’unica rete** in tutta la casa', '+ il telefono passa da un’unità all’altra']}},
+ {'tipo': 'foto', 'titolo': 'Un’unità di un sistema mesh', 'foto': [c.FO('F2.5.16', 'Più unità come questa creano un’unica rete')]},
+ c.SC('F2.5.17', 'Router, ripetitore, mesh'),
+ c.DOM(6),
+ # 2.6
+ c.SEZ('2.6', 'Quattro apparati, una scatola'),
+ {'tipo': 'tabella', 'titolo': 'Le differenze che contano', 'righe': [['Coppia', 'In una frase', 'Il perché'], ['Hub e switch', 'ripete a tutti / consegna solo al destinatario', 'lo switch impara la tabella MAC–porta'], ['Switch e router', 'stessa rete / reti diverse', 'MAC solo locali, IP validi in tutta Internet'],
+   ['Modem e router', 'traduce il segnale / decide dove mandare', 'segnali fisici / indirizzi'], ['Access point e router', 'crea il Wi-Fi / collega a Internet', 'l’AP prende Internet dal router via cavo'], ['Ripetitore e access point', 'rilancia il Wi-Fi / lo crea da un cavo', 'il ripetitore dimezza la banda']]},
+ c.AN('F2.6.1', 'Switch o router?'),
+ {'tipo': 'tessere', 'titolo': 'Dentro il “router” di casa', 'tessere': [['radio', 'Modem', 'parla con l’operatore'], ['route', 'Router', 'collega la casa a Internet'], ['network', 'Switch', '2–4 prese per i cavi'], ['wifi', 'Access point', 'crea il Wi-Fi']]},
+ {'tipo': 'foto', 'titolo': 'Una scatola sola', 'foto': [c.FO('F2.6.4', 'Il modem-router di casa'), c.FO('F2.6.3', 'Il retro: linea dell’operatore e prese LAN')]},
+]
+c.scrivi(OUT, S)

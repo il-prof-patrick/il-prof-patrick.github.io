@@ -1,0 +1,652 @@
+[
+ {
+  "domanda": "Nella comunicazione, che cos’è il «canale»?",
+  "risposte": [
+   "Il servizio usato, ad esempio WhatsApp",
+   "Il mezzo fisico su cui viaggia il messaggio",
+   "Le regole con cui si scrive il messaggio",
+   "Tutto ciò che disturba il messaggio"
+  ],
+  "corretta": 2,
+  "tempo": 20,
+  "tipo": "definizione",
+  "capitolo": 1
+ },
+ {
+  "domanda": "Con una connessione da 100 Mbps, quanti MB al secondo si scaricano al massimo?",
+  "risposte": [
+   "100 MB",
+   "800 MB",
+   "12,5 MB",
+   "1,25 MB"
+  ],
+  "corretta": 3,
+  "tempo": 30,
+  "tipo": "calcolo",
+  "capitolo": 1
+ },
+ {
+  "domanda": "«Con 1000 Mega scarico un file da 1000 MB in un secondo». Che cosa c’è di sbagliato?",
+  "risposte": [
+   "Niente: Mega e MB sono la stessa cosa",
+   "1000 megabit/s sono al massimo 125 megabyte/s",
+   "Servono almeno 1000 secondi",
+   "I file si misurano in bit, non in byte"
+  ],
+  "corretta": 2,
+  "tempo": 30,
+  "tipo": "trova l’errore",
+  "capitolo": 1
+ },
+ {
+  "domanda": "Che differenza c’è tra banda e latenza?",
+  "risposte": [
+   "Sono due nomi della stessa grandezza",
+   "Banda: quanto ci mette un dato; latenza: quanti dati",
+   "Banda: quanti dati al secondo; latenza: quanto ci mette un dato",
+   "La latenza si misura in Mbps, la banda in ms"
+  ],
+  "corretta": 3,
+  "tempo": 20,
+  "tipo": "confronto",
+  "capitolo": 1
+ },
+ {
+  "domanda": "Perché i fili del doppino sono intrecciati?",
+  "risposte": [
+   "Il disturbo colpisce entrambi i fili e nella differenza si annulla",
+   "Per rendere il cavo più resistente agli strappi",
+   "Per occupare meno spazio nel muro",
+   "Per far viaggiare il segnale più veloce"
+  ],
+  "corretta": 1,
+  "tempo": 30,
+  "tipo": "perché",
+  "capitolo": 1
+ },
+ {
+  "domanda": "Un’offerta dice «fibra fino a 200 Mega». Che cosa è probabile?",
+  "risposte": [
+   "È FTTH: fibra fino in casa",
+   "È una connessione via satellite",
+   "È una linea ADSL senza fibra",
+   "È FTTC: fibra fino all’armadio, poi rame"
+  ],
+  "corretta": 4,
+  "tempo": 20,
+  "tipo": "situazione",
+  "capitolo": 1
+ },
+ {
+  "domanda": "Quale di questi è un esempio di comunicazione half-duplex?",
+  "risposte": [
+   "Il walkie-talkie",
+   "La radio FM",
+   "La telefonata",
+   "La videochiamata"
+  ],
+  "corretta": 1,
+  "tempo": 20,
+  "tipo": "riconoscimento",
+  "capitolo": 1
+ },
+ {
+  "domanda": "Vero o falso: «nella commutazione di pacchetto i tempi di arrivo sono garantiti»",
+  "risposte": [
+   "Vero: ogni pacchetto ha una linea riservata",
+   "Falso: i pacchetti possono aspettare in coda",
+   "Vero: arrivano sempre in ordine",
+   "Falso: i pacchetti viaggiano solo via satellite"
+  ],
+  "corretta": 2,
+  "tempo": 20,
+  "tipo": "vero/falso",
+  "capitolo": 1
+ },
+ {
+  "domanda": "«La scuola è una WAN perché ha tanti computer». Che cosa c’è di sbagliato?",
+  "risposte": [
+   "Una scuola è sempre una MAN",
+   "Le WAN hanno pochi computer",
+   "Conta l’estensione geografica, non il numero di dispositivi",
+   "Niente: con tanti computer è una WAN"
+  ],
+  "corretta": 3,
+  "tempo": 30,
+  "tipo": "trova l’errore",
+  "capitolo": 2
+ },
+ {
+  "domanda": "Quale rete collega lo smartwatch e il telefono nella tua tasca?",
+  "risposte": [
+   "WAN",
+   "MAN",
+   "PAN",
+   "LAN"
+  ],
+  "corretta": 3,
+  "tempo": 20,
+  "tipo": "riconoscimento",
+  "capitolo": 2
+ },
+ {
+  "domanda": "In una rete a stella si stacca il cavo di un computer. Che cosa succede?",
+  "risposte": [
+   "Si ferma tutta la rete",
+   "Si ferma metà rete",
+   "I dati vanno persi in tutta la rete",
+   "Si ferma solo quel computer"
+  ],
+  "corretta": 4,
+  "tempo": 20,
+  "tipo": "situazione",
+  "capitolo": 2
+ },
+ {
+  "domanda": "«Il server è un computer gigante, il client un computer piccolo». Dov’è l’errore?",
+  "risposte": [
+   "Il client è sempre più potente",
+   "I server non hanno schermo, quindi non sono computer",
+   "Niente: è la definizione corretta",
+   "Client e server sono ruoli, non tipi di computer"
+  ],
+  "corretta": 4,
+  "tempo": 30,
+  "tipo": "trova l’errore",
+  "capitolo": 2
+ },
+ {
+  "domanda": "Che cosa fa lo switch che l’hub non fa?",
+  "risposte": [
+   "Ripete i dati su tutte le porte",
+   "Collega la casa a Internet",
+   "Invia i dati solo alla porta del destinatario",
+   "Trasforma i bit in onde"
+  ],
+  "corretta": 3,
+  "tempo": 20,
+  "tipo": "confronto",
+  "capitolo": 2
+ },
+ {
+  "domanda": "Che cosa fa il router?",
+  "risposte": [
+   "Collega reti diverse e sceglie il passo successivo",
+   "Crea la rete Wi-Fi",
+   "Traduce i bit per la linea dell’operatore",
+   "Ripete i dati su tutte le porte"
+  ],
+  "corretta": 1,
+  "tempo": 20,
+  "tipo": "definizione",
+  "capitolo": 2
+ },
+ {
+  "domanda": "Perché un ripetitore Wi-Fi spesso dimezza la banda?",
+  "risposte": [
+   "Usa lo stesso canale per ricevere e ritrasmettere",
+   "Perché è più lontano dal router",
+   "Perché crea una seconda rete Internet",
+   "Perché usa solo i 2,4 GHz"
+  ],
+  "corretta": 1,
+  "tempo": 30,
+  "tipo": "perché",
+  "capitolo": 2
+ },
+ {
+  "domanda": "Che cos’è un protocollo?",
+  "risposte": [
+   "Il programma che manda i dati",
+   "Il cavo che collega due computer",
+   "L’indirizzo di un sito web",
+   "L’insieme di regole con cui due dispositivi si scambiano dati"
+  ],
+  "corretta": 4,
+  "tempo": 20,
+  "tipo": "definizione",
+  "capitolo": 3
+ },
+ {
+  "domanda": "Perché un nuovo Wi-Fi più veloce non richiede di riscrivere i browser?",
+  "risposte": [
+   "I browser non usano Internet",
+   "Il Wi-Fi è solo nel livello di accesso alla rete",
+   "Il Wi-Fi è nel livello di applicazione",
+   "I browser si aggiornano da soli ogni giorno"
+  ],
+  "corretta": 2,
+  "tempo": 30,
+  "tipo": "perché",
+  "capitolo": 3
+ },
+ {
+  "domanda": "Porti il telefono da casa a scuola: che cosa cambia?",
+  "risposte": [
+   "L’IP cambia, il MAC resta uguale",
+   "Il MAC cambia, l’IP resta uguale",
+   "Cambiano tutti e due",
+   "Non cambia niente"
+  ],
+  "corretta": 1,
+  "tempo": 20,
+  "tipo": "confronto",
+  "capitolo": 3
+ },
+ {
+  "domanda": "Quanti bit ha un indirizzo IPv4?",
+  "risposte": [
+   "48 bit",
+   "32 bit",
+   "128 bit",
+   "8 bit"
+  ],
+  "corretta": 2,
+  "tempo": 20,
+  "tipo": "calcolo",
+  "capitolo": 3
+ },
+ {
+  "domanda": "Quale servizio assegna in automatico l’indirizzo IP a chi si collega?",
+  "risposte": [
+   "Il DNS",
+   "L’HTTP",
+   "L’UDP",
+   "Il DHCP"
+  ],
+  "corretta": 4,
+  "tempo": 20,
+  "tipo": "riconoscimento",
+  "capitolo": 3
+ },
+ {
+  "domanda": "«Il DNS è il server dove si trova il sito». Che cosa c’è di sbagliato?",
+  "risposte": [
+   "Il DNS è il browser",
+   "Il DNS è solo un tipo di cavo",
+   "Niente: il DNS ospita tutti i siti",
+   "Il DNS traduce il nome nell’IP del server, non contiene il sito"
+  ],
+  "corretta": 4,
+  "tempo": 30,
+  "tipo": "trova l’errore",
+  "capitolo": 3
+ },
+ {
+  "domanda": "In una videochiamata si perde un pacchetto. Che cosa fa l’UDP?",
+  "risposte": [
+   "Lo fa rimandare",
+   "Lo lascia perdere e va avanti",
+   "Ferma la chiamata finché non arriva",
+   "Riapre la connessione"
+  ],
+  "corretta": 2,
+  "tempo": 20,
+  "tipo": "situazione",
+  "capitolo": 3
+ },
+ {
+  "domanda": "Qual è stato il primo messaggio di ARPANET, nel 1969?",
+  "risposte": [
+   "«LOGIN»",
+   "«HELLO»",
+   "«PING»",
+   "«LO»"
+  ],
+  "corretta": 4,
+  "tempo": 20,
+  "tipo": "storia",
+  "capitolo": 4
+ },
+ {
+  "domanda": "Vero o falso: «quasi tutto il traffico tra continenti passa dai satelliti»",
+  "risposte": [
+   "Falso: oltre il 95% passa nei cavi sottomarini",
+   "Vero: i cavi non attraversano gli oceani",
+   "Vero: i satelliti hanno più banda",
+   "Falso: passa tutto via ponte radio"
+  ],
+  "corretta": 1,
+  "tempo": 20,
+  "tipo": "vero/falso",
+  "capitolo": 4
+ },
+ {
+  "domanda": "«Il cloud è nell’aria, i miei dati non sono da nessuna parte». Dov’è l’errore?",
+  "risposte": [
+   "I dati sono dentro il telefono",
+   "Il cloud è un satellite",
+   "Niente: il cloud non ha un luogo fisico",
+   "I dati sono su dischi veri in data center veri"
+  ],
+  "corretta": 4,
+  "tempo": 30,
+  "tipo": "trova l’errore",
+  "capitolo": 4
+ },
+ {
+  "domanda": "Che cos’è il divario digitale?",
+  "risposte": [
+   "La distanza tra due data center",
+   "La differenza di accesso e di capacità di usare Internet",
+   "Il ritardo di una connessione satellitare",
+   "La differenza tra download e upload"
+  ],
+  "corretta": 2,
+  "tempo": 20,
+  "tipo": "definizione",
+  "capitolo": 4
+ },
+ {
+  "domanda": "Che cosa garantisce la neutralità della rete?",
+  "risposte": [
+   "Internet non ha un proprietario",
+   "Ogni paese può filtrare i siti",
+   "Tutto il traffico va trattato allo stesso modo",
+   "Gli operatori scelgono quali servizi accelerare"
+  ],
+  "corretta": 3,
+  "tempo": 20,
+  "tipo": "definizione",
+  "capitolo": 4
+ },
+ {
+  "domanda": "«Con la VPN nessuno può sapere che cosa faccio online». Che cosa c’è di sbagliato?",
+  "risposte": [
+   "Il fornitore della VPN vede tutto il traffico",
+   "La VPN non cifra nulla",
+   "La VPN funziona solo in ufficio",
+   "Niente: la VPN rende anonimi"
+  ],
+  "corretta": 1,
+  "tempo": 30,
+  "tipo": "trova l’errore",
+  "capitolo": 4
+ },
+ {
+  "domanda": "Che differenza c’è tra Internet e Web?",
+  "risposte": [
+   "Sono la stessa cosa",
+   "Il Web è la rete fisica, Internet le pagine",
+   "Internet è nato al CERN nel 1989",
+   "Internet è la rete di reti, il Web un servizio sopra di essa"
+  ],
+  "corretta": 4,
+  "tempo": 20,
+  "tipo": "confronto",
+  "capitolo": 4
+ },
+ {
+  "domanda": "Chi ha inventato il World Wide Web?",
+  "risposte": [
+   "Leonard Kleinrock",
+   "Tim Berners-Lee",
+   "Paul Baran",
+   "Martin Cooper"
+  ],
+  "corretta": 2,
+  "tempo": 20,
+  "tipo": "storia",
+  "capitolo": 4
+ },
+ {
+  "domanda": "Quale indirizzo appartiene davvero a Poste Italiane?",
+  "risposte": [
+   "poste.it.login-sicuro.com",
+   "poste-it.accesso.net",
+   "login.poste.it",
+   "www.login-poste.it.ru"
+  ],
+  "corretta": 3,
+  "tempo": 30,
+  "tipo": "situazione",
+  "capitolo": 4
+ },
+ {
+  "domanda": "Quale codice di stato HTTP indica una risorsa che non esiste?",
+  "risposte": [
+   "200",
+   "404",
+   "301",
+   "500"
+  ],
+  "corretta": 2,
+  "tempo": 20,
+  "tipo": "riconoscimento",
+  "capitolo": 4
+ },
+ {
+  "domanda": "Vero o falso: «il lucchetto dice che il sito è affidabile»",
+  "risposte": [
+   "Vero: i siti truffa non hanno il lucchetto",
+   "Vero: lo controlla la polizia postale",
+   "Falso: il lucchetto indica un sito statico",
+   "Falso: dice solo che la comunicazione è cifrata"
+  ],
+  "corretta": 4,
+  "tempo": 20,
+  "tipo": "vero/falso",
+  "capitolo": 4
+ },
+ {
+  "domanda": "Chiudi il banner dei cookie con la X. Che cosa hai scelto?",
+  "risposte": [
+   "Accetto tutti i cookie",
+   "Accetto solo i cookie di terze parti",
+   "Rifiuto dei cookie non tecnici",
+   "Nessuna scelta: il banner riappare"
+  ],
+  "corretta": 3,
+  "tempo": 20,
+  "tipo": "situazione",
+  "capitolo": 4
+ },
+ {
+  "domanda": "«Il deep web è la parte illegale di Internet». Dov’è l’errore?",
+  "risposte": [
+   "Il deep web è più piccolo del dark web",
+   "Il deep web si raggiunge solo con Tor",
+   "Il deep web è ciò che non è indicizzato, come la posta",
+   "Niente: deep web e dark web sono uguali"
+  ],
+  "corretta": 3,
+  "tempo": 30,
+  "tipo": "trova l’errore",
+  "capitolo": 4
+ },
+ {
+  "domanda": "Perché Google risponde in mezzo secondo?",
+  "risposte": [
+   "Consulta un indice preparato prima, non tutto il Web",
+   "Visita tutti i siti in quel momento",
+   "Chiede la risposta a un chatbot",
+   "Ha copiato l’intero Web sul tuo telefono"
+  ],
+  "corretta": 1,
+  "tempo": 30,
+  "tipo": "perché",
+  "capitolo": 5
+ },
+ {
+  "domanda": "Che differenza c’è tra risultati organici e sponsorizzati?",
+  "risposte": [
+   "Gli sponsorizzati sono annunci pagati",
+   "Gli organici sono annunci pagati",
+   "Gli sponsorizzati sono i più veri",
+   "Non c’è differenza"
+  ],
+  "corretta": 1,
+  "tempo": 20,
+  "tipo": "confronto",
+  "capitolo": 5
+ },
+ {
+  "domanda": "Che cos’è la disinformazione?",
+  "risposte": [
+   "Informazione falsa condivisa in buona fede",
+   "Informazione falsa creata apposta per ingannare",
+   "Una notizia vera ma vecchia",
+   "Un errore di battitura in un articolo"
+  ],
+  "corretta": 2,
+  "tempo": 20,
+  "tipo": "definizione",
+  "capitolo": 5
+ },
+ {
+  "domanda": "In che cosa consiste la «lettura laterale»?",
+  "risposte": [
+   "Leggere solo i titoli di una pagina",
+   "Leggere la pagina da destra a sinistra",
+   "Aprire altre schede per scoprire chi c’è dietro un sito",
+   "Fidarsi dell’aspetto professionale del sito"
+  ],
+  "corretta": 3,
+  "tempo": 20,
+  "tipo": "definizione",
+  "capitolo": 5
+ },
+ {
+  "domanda": "«Il chatbot ha risposto sicuro e con un link, quindi è giusto». Dov’è l’errore?",
+  "risposte": [
+   "I chatbot non danno mai link",
+   "I link dei chatbot sono sempre falsi",
+   "Niente: un link è una garanzia",
+   "Il tono sicuro non prova nulla: il link va aperto e controllato"
+  ],
+  "corretta": 4,
+  "tempo": 30,
+  "tipo": "trova l’errore",
+  "capitolo": 5
+ },
+ {
+  "domanda": "Che cos’è l’handover?",
+  "risposte": [
+   "Il passaggio dal 4G al 5G",
+   "Lo scambio di chiavi di HTTPS",
+   "Il passaggio del telefono da una cella all’altra",
+   "Lo spegnimento di un’antenna"
+  ],
+  "corretta": 3,
+  "tempo": 20,
+  "tipo": "definizione",
+  "capitolo": 6
+ },
+ {
+  "domanda": "Quale generazione ha portato Internet sul telefono?",
+  "risposte": [
+   "La 1G",
+   "La 3G",
+   "La 2G",
+   "La 5G"
+  ],
+  "corretta": 2,
+  "tempo": 20,
+  "tipo": "storia",
+  "capitolo": 6
+ },
+ {
+  "domanda": "Vero o falso: «le onde del 5G possono danneggiare il DNA»",
+  "risposte": [
+   "Falso: sono onde non ionizzanti",
+   "Vero: sono come i raggi X",
+   "Vero: solo a 26 GHz",
+   "Falso: il 5G non usa onde elettromagnetiche"
+  ],
+  "corretta": 1,
+  "tempo": 20,
+  "tipo": "vero/falso",
+  "capitolo": 6
+ },
+ {
+  "domanda": "Che cosa fece il malware Mirai nel 2016?",
+  "risposte": [
+   "Rubò i dati dei telefoni 5G",
+   "Spense i data center di Google",
+   "Usò videocamere con password predefinite per attaccare un DNS",
+   "Cancellò i siti dei comuni"
+  ],
+  "corretta": 3,
+  "tempo": 30,
+  "tipo": "storia",
+  "capitolo": 6
+ },
+ {
+  "domanda": "Classroom è un esempio di…",
+  "risposte": [
+   "SaaS",
+   "IaaS",
+   "PaaS",
+   "grid computing"
+  ],
+  "corretta": 1,
+  "tempo": 20,
+  "tipo": "riconoscimento",
+  "capitolo": 6
+ },
+ {
+  "domanda": "Che cosa distingue il grid computing dal cloud?",
+  "risposte": [
+   "Unisce i computer di tanti enti per un unico calcolo enorme",
+   "È un servizio a pagamento di un solo fornitore",
+   "Funziona solo senza Internet",
+   "Serve per la posta elettronica"
+  ],
+  "corretta": 1,
+  "tempo": 30,
+  "tipo": "confronto",
+  "capitolo": 6
+ },
+ {
+  "domanda": "Perché l’edge computing riduce la latenza?",
+  "risposte": [
+   "Usa data center più grandi",
+   "Manda tutto il video al cloud",
+   "Usa solo cavi in rame",
+   "Elabora i dati vicino a dove nascono"
+  ],
+  "corretta": 4,
+  "tempo": 20,
+  "tipo": "perché",
+  "capitolo": 6
+ },
+ {
+  "domanda": "Metti il telefono in modalità aereo e chiedi qualcosa a un chatbot. Che cosa succede?",
+  "risposte": [
+   "Risponde lo stesso, il modello è nel telefono",
+   "Non risponde: il modello gira in un data center",
+   "Risponde più lentamente via satellite",
+   "Risponde solo con testi brevi"
+  ],
+  "corretta": 2,
+  "tempo": 20,
+  "tipo": "situazione",
+  "capitolo": 7
+ },
+ {
+  "domanda": "«Una rete neurale è una rete di computer». Che cosa c’è di sbagliato?",
+  "risposte": [
+   "È un modello matematico, un programma",
+   "È una rete di telefoni",
+   "È una rete di cavi in fibra",
+   "Niente: è la definizione corretta"
+  ],
+  "corretta": 1,
+  "tempo": 30,
+  "tipo": "trova l’errore",
+  "capitolo": 7
+ },
+ {
+  "domanda": "Che cos’è il «collasso del modello»?",
+  "risposte": [
+   "Un guasto dei data center dell’IA",
+   "La qualità cala se i modelli imparano da testi scritti da IA",
+   "Il blocco di un chatbot senza Internet",
+   "La fine delle batterie di un telefono"
+  ],
+  "corretta": 2,
+  "tempo": 30,
+  "tipo": "definizione",
+  "capitolo": 7
+ }
+]

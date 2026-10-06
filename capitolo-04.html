@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>4. Internet · Reti e Internet</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="4">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Reti e Internet · Capitolo 04</span></div>
+  <h1>Internet</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 4.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">4.1</span>Internet, la rete delle reti</h2>
+  <p class="domanda">Secondo voi chi è il “proprietario” di Internet? Si potrebbe spegnere?</p>
+  <p><span class="termine">Internet</span> è <b>una rete di reti: l’insieme di decine di migliaia di reti indipendenti, di proprietari diversi, collegate tra loro e che comunicano usando gli stessi protocolli, quelli della famiglia TCP/IP</b>. La rete di casa, quella della scuola, quella di un operatore telefonico, quella di Google sono reti separate; diventano “Internet” perché si collegano e parlano la stessa lingua.</p>
+  <p><b>Internet non ha un proprietario né un centro</b>. Ogni rete appartiene a qualcuno, ma l’insieme no. Esistono però organizzazioni che coordinano ciò che deve essere unico per tutti.</p>
+  <h3>Come è nata</h3>
+  <div class="box storia"><figure class="foto-lato testa dx"><a class="fonte" href="https://www.limesonline.com/rivista/ho-inventato-la-rete-e-vi-spiego-come-cambiera-14622035/" target="_blank" rel="noopener"><img src="https://www.gedistatic.it/content/gedi/img/limesonline/www/2012/04/internet_kleinrock_interface_message_processor.jpg" alt="Leonard Kleinrock accanto all’IMP, il primo “router” di ARPANET: da questo armadio partì il messaggio «LO» nel 1969." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Kleinrock e l’IMP</figcaption></figure><h3><i data-ic="history" class="ic-20"></i> Nella storia</h3>
+    <p>Nel <b>1957</b> l’Unione Sovietica lanciò lo <b>Sputnik</b>, il primo satellite artificiale. Gli Stati Uniti, preoccupati di essere rimasti indietro, crearono un’agenzia militare per la ricerca avanzata, l’<b>ARPA</b>, che tra i suoi progetti finanziò una rete per <b>far condividere i costosissimi computer delle università</b>. Il <b>29 ottobre 1969</b> dall’Università della California a Los Angeles (UCLA) partì il primo messaggio di <b>ARPANET</b> verso lo Stanford Research Institute: si doveva scrivere «LOGIN», ma il sistema si bloccò dopo due lettere. <b>Il primo messaggio della storia di Internet fu quindi «LO».</b> Alla fine del 1969 i nodi erano quattro: UCLA, Stanford Research Institute, Università di Santa Barbara e Università dello Utah.</p></div>
+  <figure class="foto-grande"><a class="fonte" href="https://paleofuture.com/blog/2023/4/19/larry-roberts-and-the-early-blueprint-for-the-internet" target="_blank" rel="noopener"><img src="https://images.squarespace-cdn.com/content/v1/5c647bc99b7d150fe925ea5c/12a065de-dbb3-420b-9830-91172fdc7086/1967+arpanet.jpg" alt="Uno schizzo della prima ARPANET: i nodi delle università collegati tra loro. Osservare: pochi cerchi e poche linee, l’inizio di una rete che oggi collega miliardi di dispositivi." referrerpolicy="no-referrer"></a><figcaption>Uno schizzo della prima ARPANET: i nodi delle università collegati tra loro. Osservare: pochi cerchi e poche linee, l’inizio di una rete che oggi collega miliardi di dispositivi.</figcaption></figure>
+  <div class="box storia"><h3><i data-ic="history" class="ic-20"></i> Nella storia</h3>
+    <p><b>L’Italia è stata il primo paese dell’Europa continentale a collegarsi a Internet</b>: il <b>30 aprile 1986</b> un computer del <b>CNUCE di Pisa</b>, un centro del CNR, si collegò con un ponte satellitare a una stazione negli Stati Uniti. Il primo segnale fu un semplice comando di <b>ping, per verificare la connessione.</b></p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Internet l’ha inventata una sola persona.»</p>
+    <p class="err-si">Internet è il risultato del lavoro di <b>molte persone in decenni</b>: Baran e Davies (pacchetti), Kleinrock e il gruppo di ARPANET, Cerf e Kahn (TCP/IP), Mockapetris (DNS), e migliaia di altri. Il Web, che è un’altra cosa (paragrafo 4.6), ha invece un inventore preciso.</p></div>
+  <p class="domanda">Se un paese decidesse di “staccarsi” da Internet, che cosa dovrebbe fare concretamente?</p>
+
+  <!-- ===================== 4.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">4.2</span>L’infrastruttura fisica</h2>
+  <p>Quando si dice “Internet” si pensa a qualcosa di immateriale. In realtà <b>Internet è fatta di oggetti fisici</b>: cavi in fibra sotto le strade e sotto il mare, armadi pieni di router, edifici enormi pieni di server. Seguiamo il viaggio di un pacchetto dalla casa fino a un server dall’altra parte del mondo.</p>
+  <h3>Gli ISP</h3>
+  <p>Un <span class="termine">ISP</span> (<i>Internet Service Provider</i>, fornitore di servizi Internet) è <b>l’azienda che collega i suoi clienti a Internet</b>: TIM, Vodafone, WindTre, Iliad, Fastweb e molti altri in Italia. Ogni ISP ha la sua rete, con centrali e router, e la collega alle reti degli altri.</p>
+  <h3>Le dorsali</h3>
+  <p>Le <span class="termine">dorsali</span> (<i>backbone</i>) sono <b>i collegamenti ad altissima capacità, in fibra ottica, che uniscono le città, i paesi e i continenti</b> e su cui viaggia il grosso del traffico. Corrono lungo autostrade, ferrovie e gasdotti, dove è più facile posare i cavi.</p>
+  <p>Contrariamente a quanto molti pensano, <b>quasi tutto il traffico Internet tra i continenti (oltre il 95%) non passa dai satelliti, ma da cavi in fibra ottica posati sul fondo degli oceani</b>. Il motivo semplice: <b>una coppia di fibre porta più dati di un intero satellite, con meno ritardo e a costi più bassi</b>. Nel mondo i cavi sono oltre 500, per più di un milione di chilometri.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://circleid.com/posts/20230314-submarine-cable-resiliency-in-the-face-of-disruptions" target="_blank" rel="noopener"><img src="https://www.circleid.com/images/uploads/13954a.jpg" alt="Un cavo sottomarino in sezione: al centro poche fibre, intorno strati di protezione e armatura d’acciaio." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un cavo sottomarino in sezione</figcaption></figure>
+  <p>Un cavo sottomarino è grosso più o meno come un tubo da giardino, più spesso vicino alla costa dove è protetto da armature. Lungo il percorso ci sono <b>ripetitori</b> che amplificano la luce. <b>Ancore, reti da pesca, terremoti e anche sabotaggi possono danneggiarli</b>: per questo sono <b>infrastrutture strategiche</b>. Quando un cavo si rompe, <b>il traffico viene deviato su altri cavi</b>: la rete rallenta, ma non si ferma. Solo i paesi collegati da pochissimi cavi rischiano di restare isolati, come accadde a <b>Tonga nel 2022</b> dopo un’eruzione vulcanica.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-cavi" data-titolo="Da Roma a New York, sotto il mare" data-inizio="L’Atlantico con tre cavi sottomarini, A, B e C, tra Europa e America; a Roma un computer, a New York un server.">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Un pacchetto da Roma a New York attraversa l’oceano nel cavo A; quando un’ancora lo danneggia, il traffico passa dal cavo B"></svg>
+      <ol class="passi-testo">
+        <li>Un pacchetto parte da Roma, attraversa l’Europa fino alla costa e scende nel cavo A.</li>
+        <li>Il pacchetto attraversa l’oceano nel cavo A e arriva al server di New York.</li>
+        <li>Un’ancora danneggia il cavo A (X rossa).</li>
+        <li>Il pacchetto successivo viene deviato sul cavo B e arriva lo stesso; compare la scritta “più traffico su B: un po’ più lento”.</li>
+      </ol>
+    </div>
+  </figure>
+  <figure class="foto-grande"><a class="fonte" href="https://resources.telegeography.com/2025-submarine-cable-map" target="_blank" rel="noopener"><img src="https://www2.telegeography.com/hubfs/2025/Blog%20Assets/Submarine_Cable_Map_2025_Global-656609b2ac4cce708aa8385ae0ff644b-1.jpg" alt="La mappa mondiale dei cavi sottomarini. Osservare: quanti cavi attraversano l’Atlantico e il Mediterraneo, e quanti pochi raggiungono alcune isole del Pacifico." referrerpolicy="no-referrer"></a><figcaption>La mappa mondiale dei cavi sottomarini. Osservare: quanti cavi attraversano l’Atlantico e il Mediterraneo, e quanti pochi raggiungono alcune isole del Pacifico.</figcaption></figure>
+  <p><b>L’Italia, al centro del Mediterraneo, è un punto di approdo importante</b> per i cavi tra Europa, Africa, Medio Oriente e Asia: ad esempio in Sicilia (Mazara del Vallo, Catania) e a Genova.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://www.datacenterdynamics.com/en/news/telxius-connects-cable-landing-station-njfx/" target="_blank" rel="noopener"><img src="https://media.datacenterdynamics.com/media/images/Marea-beach.original.jpg" alt="L’approdo di un cavo sottomarino su una spiaggia: da qui la fibra entra nella stazione di terra e si collega alle dorsali." referrerpolicy="no-referrer"></a><figcaption>L’approdo di un cavo sottomarino su una spiaggia: da qui la fibra entra nella stazione di terra e si collega alle dorsali.</figcaption></figure>
+  <h3>I data center</h3>
+  <p>All’altro capo del viaggio ci sono i <b>data center</b>: <b>edifici che contengono migliaia di server, con impianti di alimentazione, raffreddamento e collegamento alla rete ridondanti</b>, cioè doppi, perché non devono fermarsi mai. Lì “abitano” i siti, le email, le foto nel <i>cloud</i>, i video di YouTube e i modelli di intelligenza artificiale (capitolo 7).</p>
+  <figure class="foto-grande"><a class="fonte" href="https://shieldenstrut.com/blogs/news/cable-tray-server-room/" target="_blank" rel="noopener"><img src="https://shieldenstrut.com/wp-content/uploads/2026/03/server-room-cable-tray-overhead-data-center-layout.jpg" alt="L’interno di un data center: file di armadi pieni di server, con le canaline dei cavi sopra. Osservare: pavimenti e corridoi organizzati per far circolare l’aria fredda e quella calda." referrerpolicy="no-referrer"></a><figcaption>L’interno di un data center: file di armadi pieni di server, con le canaline dei cavi sopra. Osservare: pavimenti e corridoi organizzati per far circolare l’aria fredda e quella calda.</figcaption></figure>
+  <p>Un grande <i>data center</i> consuma <b>quanto una cittadina</b>, soprattutto per alimentare i server e per raffreddarli: per questo spesso viene costruito vicino a centrali elettriche, a fonti d’acqua o nei paesi freddi del Nord Europa.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-viaggio" data-titolo="Il viaggio fisico di una richiesta" data-inizio="Da sinistra a destra: la casa con il telefono, la centrale dell’ISP, un router a Milano, la stazione di approdo in Sicilia, il mare e un data center negli Stati Uniti.">
+      <svg viewBox="0 0 720 280" role="img" aria-label="La richiesta passa dal Wi-Fi al router di casa, in fibra alla centrale, lungo la dorsale fino a Milano, poi alla stazione di approdo, nel cavo sottomarino e infine nel data center, in meno di un decimo di secondo"></svg>
+      <ol class="passi-testo">
+        <li>Il pacchetto parte dal telefono, passa dal Wi-Fi al router di casa e da lì, in fibra, alla centrale dell’ISP.</li>
+        <li>Dalla centrale corre lungo una dorsale fino a Milano, dove passa nella rete di un operatore internazionale.</li>
+        <li>Scende lungo l’Italia fino alla stazione di approdo e si tuffa nel cavo sottomarino.</li>
+        <li>Attraversa il mare ed entra nel data center; un orologio in alto mostra il tempo totale: meno di un decimo di secondo.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il cloud è nell’aria, i miei dati non sono da nessuna parte.»</p>
+    <p class="err-si">I dati “nel cloud” sono su <b>dischi veri dentro data center veri</b>, in un luogo preciso del mondo, collegati da cavi veri. <i>Cloud</i> è solo un nome commerciale.</p></div>
+
+  <!-- ===================== 4.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">4.3</span>I numeri di Internet</h2>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Ormai tutti hanno Internet.»</p>
+    <p class="err-si">Nel 2025 oltre <b>2 miliardi di persone</b> sono ancora offline, e molte di quelle connesse hanno connessioni lente, costose o condivise. Il divario digitale riguarda anche l’Italia, tra città e aree interne.</p></div>
+  <p>Secondo l’<b>ITU</b>, l’agenzia delle Nazioni Unite per le telecomunicazioni, <b>nel 2025 circa 6 miliardi di persone usano Internet, circa tre quarti della popolazione mondiale</b>. Restano <b>offline circa 2,2 miliardi di persone</b>. I valori sono stime che cambiano ogni anno, ma la tendenza è chiara: ogni anno si aggiungono centinaia di milioni di nuovi utenti.</p>
+  <p>Il <span class="termine">divario digitale</span> (<i>digital divide</i>) è <b>la differenza di accesso a Internet, e di capacità di usarlo, tra gruppi di persone</b>: tra paesi ricchi e poveri, tra città e campagna, tra giovani e anziani, tra uomini e donne. Secondo l’ITU nei paesi ad alto reddito è online circa il <b>94%</b> della popolazione, in quelli a basso reddito circa il <b>23%</b>; e il <b>96%</b> di chi è offline vive in paesi a reddito basso o medio. <b>I giovani sono i più connessi</b>: nel mondo usa Internet l’<b>82% dei ragazzi tra 15 e 24 anni</b>, contro il 72% del resto della popolazione. Gli <b>abbonamenti 5G</b> sono circa <b>3 miliardi</b>, un terzo di quelli alla banda larga mobile. Il divario non riguarda solo <b>avere o non avere</b> la connessione, ma anche <b>la qualità</b> (una connessione lenta e costosa non permette di seguire una lezione online) e <b>le competenze</b> (saper cercare, valutare le fonti, proteggersi). Durante la didattica a distanza del 2020 molti studenti italiani si sono trovati con un solo telefono per tutta la famiglia o senza una connessione sufficiente.</p>
+  <figure>
+    <div class="tela schema" id="s-numeri"><p class="passi-titolo">Chi è online nel mondo (ITU, 2025)</p>
+      <svg viewBox="0 0 720 270" role="img" aria-label="Persone online: 94% nei paesi ad alto reddito, circa 74% nel mondo, 23% nei paesi a basso reddito; 82% dei giovani tra 15 e 24 anni contro il 72% del resto della popolazione"></svg>
+    </div>
+  </figure>
+
+  <!-- ===================== 4.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">4.4</span>Limiti e problemi di Internet</h2>
+  <p>Internet è una delle infrastrutture più importanti del mondo, e proprio per questo i suoi limiti hanno conseguenze concrete. Ne vediamo quattro.</p>
+  <h3>Il consumo di energia</h3>
+  <p>Data center, reti e dispositivi <b>consumano molta elettricità</b>. Secondo l’Agenzia internazionale dell’energia (IEA), nel <b>2024 i soli data center hanno usato circa l’1,5% dell’elettricità mondiale</b>, e il consumo potrebbe <b>più che raddoppiare entro il 2030</b>, spinto soprattutto dall’intelligenza artificiale (capitolo 7). Si tratta di stime indicative, che cambiano con le nuove tecnologie. Ai consumi si aggiungono l’<b>acqua</b> usata per raffreddare i server e i <b>rifiuti elettronici</b> dei dispositivi sostituiti.</p>
+  <h3>Censura e blackout</h3>
+  <p>Poiché Internet passa per cavi e router che si trovano in paesi precisi, <b>un governo può controllarne o bloccarne l’accesso</b> dentro i suoi confini. Alcuni paesi <b>filtrano</b> stabilmente siti e social (il caso più noto è la Cina, con il cosiddetto “Grande Firewall”), altri <b>spengono Internet</b> durante proteste o elezioni: questi blocchi totali si chiamano <i>Internet shutdown</i>. Anche nei paesi democratici esistono blocchi, ad esempio dei siti di scommesse illegali o di pirateria, decisi per legge.</p>
+  <p class="domanda">Un operatore vi propone: «WhatsApp e Spotify non consumano giga». Che ne pensate?</p>
+  <h3>La neutralità della rete</h3>
+  <p>La <span class="termine">neutralità della rete</span> (<i>net neutrality</i>) è <b>il principio secondo cui gli operatori devono trattare allo stesso modo tutto il traffico, senza rallentare o favorire un servizio rispetto a un altro</b>. Senza neutralità un operatore potrebbe, ad esempio, far andare veloce il servizio di streaming con cui ha un accordo e rallentare quello concorrente. <b>Nell’Unione Europea la neutralità della rete è garantita da un regolamento del 2015</b>; in altri paesi, come gli Stati Uniti, le regole sono cambiate più volte.</p>
+  <h3>Il potere di pochi</h3>
+  <p>Internet è nata per essere <b>decentralizzata</b>, ma oggi <b>una grande parte del traffico e dei servizi passa per poche grandi aziende</b>: pochi fornitori di cloud ospitano milioni di siti, pochi motori di ricerca e social decidono che cosa vediamo. <b>Quando uno di loro ha un guasto, si ferma una parte enorme del web</b>, come è successo più volte con interruzioni dei grandi fornitori di cloud e di servizi di rete.</p>
+
+  <!-- ===================== 4.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">4.5</span>Intranet, extranet e VPN</h2>
+  <p>Le tecnologie di Internet non si usano solo su Internet. Un’azienda o una scuola possono usarle <b>al proprio interno</b>, in una rete privata. Da qui nascono tre concetti spesso confusi.</p>
+  <ul>
+    <li>Una <span class="termine">intranet</span> è <b>una rete privata di un’organizzazione che usa le stesse tecnologie di Internet, ma è accessibile solo ai suoi membri</b>: ad esempio il sito interno di un’azienda con le circolari, i moduli e i turni, che si apre solo dai computer dell’azienda;</li>
+    <li>una <b>extranet</b> è <b>una parte della intranet aperta, con credenziali, ad alcuni utenti esterni</b> selezionati: fornitori, clienti, famiglie. Il registro elettronico, che le famiglie consultano da casa con le proprie credenziali, è un buon esempio di servizio “riservato ma raggiungibile da fuori”;</li>
+    <li><span class="termine">Internet</span> è invece la rete pubblica, aperta a tutti.</li>
+  </ul>
+  <figure>
+    <div class="tela schema" id="s-intranet"><p class="passi-titolo">Intranet, extranet e Internet</p>
+      <svg viewBox="0 0 720 290" role="img" aria-label="Tre cerchi concentrici: al centro la intranet per i dipendenti, intorno la extranet per fornitori e clienti con password, all’esterno Internet aperta a tutti"></svg>
+    </div>
+  </figure>
+  <h3>La VPN</h3>
+  <p>Una <span class="termine">VPN</span> (<i>Virtual Private Network</i>, rete privata virtuale) <b>crea un “tunnel” cifrato attraverso Internet tra un dispositivo e una rete privata</b>. Il dispositivo, ovunque si trovi, si comporta come se fosse collegato dentro quella rete. Funziona così: <b>ogni pacchetto viene cifrato e chiuso dentro un altro pacchetto</b>, indirizzato al server VPN; chi lo intercetta lungo la strada vede solo pacchetti illeggibili diretti al server VPN, e solo il server li apre e li consegna alla rete interna.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-vpn" data-titolo="Che cosa vuol dire «tunnel»" data-inizio="A sinistra un portatile collegato al Wi-Fi pubblico di un bar, al centro Internet con un curioso che osserva, a destra la sede dell’azienda con il server VPN e il server dei documenti.">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Senza VPN il curioso legge il pacchetto e l’azienda lo rifiuta; con la VPN il pacchetto viaggia cifrato dentro un altro pacchetto diretto al server VPN, che lo apre e lo consegna come se il portatile fosse in ufficio"></svg>
+      <ol class="passi-testo">
+        <li>Senza VPN: il portatile manda un pacchetto con scritto “documenti interni”; il curioso lo legge, ma il server dell’azienda non lo accetta perché arriva da fuori.</li>
+        <li>Si attiva la VPN: il pacchetto viene chiuso in una busta con un lucchetto, indirizzata al server VPN.</li>
+        <li>La busta attraversa Internet dentro un tubo (il tunnel); il curioso vede solo “lucchetto → server VPN”.</li>
+        <li>Il server VPN apre la busta e consegna il pacchetto al server dei documenti, come se il portatile fosse in ufficio.</li>
+      </ol>
+    </div>
+  </figure>
+  <p>Le VPN si usano in due modi diversi, da non confondere:</p>
+  <ul>
+    <li><span class="termine">VPN aziendali</span> (o scolastiche): <b>per lavorare da casa sulla rete privata</b> dell’organizzazione, raggiungendo file e programmi interni;</li>
+    <li><span class="termine">VPN commerciali</span>, i servizi a pagamento pubblicizzati sui social: <b>nascondono il traffico al Wi-Fi in cui ci si trova e fanno apparire la connessione come proveniente da un altro paese</b>, perché verso i siti si esce dal server della VPN.</li>
+  </ul>
+  <p>Una VPN commerciale <b>non rende anonimi</b>: sposta la fiducia dal proprio operatore all’azienda che gestisce la VPN, che vede tutto il traffico. Inoltre non protegge da phishing, virus o da ciò che si rivela di sé sui siti e sui social.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Con la VPN sono invisibile e nessuno può sapere che cosa faccio online.»</p>
+    <p class="err-si">La VPN nasconde il traffico <b>a chi sta lungo il percorso</b> (il Wi-Fi del bar, l’operatore), ma <b>il fornitore della VPN vede tutto</b>, e i siti in cui si entra con il proprio account sanno benissimo chi sei.</p></div>
+  <p class="domanda">Il registro elettronico è una intranet, una extranet o un normale sito Internet?</p>
+
+  <!-- ===================== 4.6 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p6"><span class="num">4.6</span>Il Web</h2>
+  <p class="domanda">Internet e Web sono la stessa cosa?</p>
+  <p><span class="termine">Internet</span> è <b>l’infrastruttura</b>: la rete di reti, con i suoi cavi, router e protocolli TCP/IP (capitolo 4). Il <b>World Wide Web</b> (“ragnatela grande quanto il mondo”, in breve <b>Web</b>) è <b>uno dei servizi che funzionano sopra Internet: l’insieme delle pagine e dei documenti collegati tra loro da link, che si consultano con un browser</b>.</p>
+  <p>Sopra Internet funzionano <b>molti altri servizi</b> oltre al Web: la posta elettronica, la messaggistica, le videochiamate, i videogiochi online, lo scambio di file, la TV via Internet. <b>Ognuno usa i suoi protocolli</b> di livello applicazione: il Web usa <b>HTTP/HTTPS</b>, la posta <b>SMTP e IMAP</b>.</p>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>Internet è come la <b>rete stradale</b>; il Web è uno dei servizi che la usano, ad esempio <b>il servizio di autobus</b>. Sulle stesse strade viaggiano anche corrieri, taxi e auto private (posta, chat, giochi). L’analogia ha un limite: oggi molti servizi, compresa la posta letta su Gmail, si usano <b>attraverso</b> pagine web, e il confine per l’utente si fa sfumato.</p></div>
+  <figure>
+    <div class="tela schema" id="s-servizi"><p class="passi-titolo">Il Web è uno dei servizi sopra Internet</p>
+      <svg viewBox="0 0 720 250" role="img" aria-label="Sulla base di Internet, fatta di cavi, router e TCP/IP, poggiano tanti servizi: Web, posta, messaggistica, videochiamate, giochi online, streaming"></svg>
+    </div>
+  </figure>
+  <p class="domanda">Quando usate WhatsApp dal telefono state usando il Web? E quando lo usate da WhatsApp Web sul computer?</p>
+
+  <!-- ===================== 4.7 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p7"><span class="num">4.7</span>La nascita del Web</h2>
+  <figure class="foto-margine"><a class="fonte" href="https://www.britannica.com/biography/Tim-Berners-Lee" target="_blank" rel="noopener"><img src="https://cdn.britannica.com/94/123894-050-53EC378E/Tim-Berners-Lee-2005.jpg" alt="Tim Berners-Lee, l’inventore del World Wide Web." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Tim Berners-Lee</figcaption></figure>
+  <p>Il Web, a differenza di Internet, <b>ha un inventore preciso, un luogo e una data</b>. Alla fine degli anni Ottanta al <b>CERN</b> di Ginevra lavoravano migliaia di fisici di tutto il mondo, con computer diversi e documenti sparsi ovunque: trovare un’informazione era un’impresa. Un informatico inglese, <b>Tim Berners-Lee</b>, pensò di collegare tutti quei documenti con dei <b>link</b>, consultabili da qualsiasi computer.</p>
+  <div class="box storia"><figure class="foto-lato testa dx"><a class="fonte" href="https://dexagod.github.io/introduction-slides-solid-linked-data/" target="_blank" rel="noopener"><img src="https://dexagod.github.io/introduction-slides-solid-linked-data/images/vague-but-exciting.jpg" alt="La prima pagina della proposta di Berners-Lee (1989), con l’annotazione a mano di Mike Sendall: «Vague but exciting…»." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">«Vague but exciting…»</figcaption></figure><h3><i data-ic="history" class="ic-20"></i> Nella storia</h3>
+    <p>Nel <b>marzo 1989</b> Berners-Lee consegnò al suo capo, <b>Mike Sendall</b>, una proposta intitolata <i>Information Management: A Proposal</i>. Sendall scrisse a matita in cima alla prima pagina un commento diventato famoso: <b>«Vague but exciting…»</b>, “vago ma entusiasmante”, e gli lasciò il tempo di provarci.</p></div>
+  <figure class="foto-margine"><a class="fonte" href="https://www.flickr.com/photos/chailey/2424440866" target="_blank" rel="noopener"><img src="https://live.staticflickr.com/3187/2424440866_5011997474_b.jpg" alt="Il computer NeXT usato da Berners-Lee come primo server web, oggi conservato al CERN." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Il NeXT, primo server web</figcaption></figure>
+  <p>Scrisse anche il <b>primo browser</b> e il <b>primo server web</b>. Sul computer c’era un’etichetta scritta a mano: «Questa macchina è un server. NON SPEGNERLA!!». <b>La prima pagina web, info.cern.ch, andò online nell’agosto 1991</b> e spiegava che cos’era il Web. Puoi vederla riprodotta qui: <a href="https://info.cern.ch/hypertext/WWW/TheProject.html" target="_blank" rel="noopener">https://info.cern.ch/hypertext/WWW/TheProject.html</a></p>
+  <div class="box storia"><h3><i data-ic="history" class="ic-20"></i> Nella storia</h3>
+    <p>Il <b>30 aprile 1993</b> il CERN rese <b>pubblico e gratuito</b> il software del Web, rinunciando a qualsiasi brevetto. <b>È soprattutto per questa scelta che il Web si è diffuso così in fretta</b>: chiunque poteva costruire un sito o un browser senza pagare nessuno. Nel 2004 Berners-Lee è stato nominato cavaliere dalla regina Elisabetta.</p></div>
+
+  <!-- ===================== 4.8 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p8"><span class="num">4.8</span>Ipertesto e ipermedia</h2>
+  <p>Un <span class="termine">ipertesto</span> è <b>un insieme di testi collegati tra loro da link (collegamenti ipertestuali), che permettono di saltare da un punto a un altro in qualsiasi ordine</b>. Un libro si legge in modo <b>lineare</b>, dalla prima all’ultima pagina; un ipertesto si legge in modo <b>non lineare</b>: ogni lettore sceglie il proprio percorso seguendo i link che lo interessano.</p>
+  <p>Quando i collegamenti non uniscono solo testi ma anche <b>immagini, audio, video e animazioni</b> si parla di <b>ipermedia</b>. Il Web di oggi è un enorme ipermedia: da un articolo si passa a un video, da un video a una mappa, da una mappa a un’altra pagina.</p>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>Su Wikipedia si cerca “fibra ottica”, si clicca sul link “riflessione totale”, poi su “Snell”, poi su “Paesi Bassi”: in dieci minuti si è finiti lontanissimi dall’argomento di partenza. È la <b>navigazione non lineare</b> dell’ipertesto, con il suo pregio (curiosità, collegamenti) e il suo rischio (perdere il filo).</p></div>
+  <figure>
+    <div class="tela schema" id="s-ipertesto"><p class="passi-titolo">Lettura lineare e ipertesto</p>
+      <svg viewBox="0 0 720 272" role="img" aria-label="A sinistra le pagine di un libro lette una dopo l’altra; a destra pagine collegate da molti link in tutte le direzioni, con testo, immagini, video e audio"></svg>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Un link porta sempre a un’altra pagina.»</p>
+    <p class="err-si">Un link può portare a <b>un punto della stessa pagina</b>, a un file da scaricare, a un indirizzo email da scrivere o a un numero di telefono da chiamare: è un collegamento a una <b>risorsa</b>, non solo a una pagina.</p></div>
+  <p class="domanda">Leggere un ipertesto è più facile o più difficile che leggere un libro? Perché?</p>
+
+  <!-- ===================== 4.9 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p9"><span class="num">4.9</span>L’URL</h2>
+  <p>Ogni risorsa del Web (pagina, immagine, video) ha un indirizzo unico, l’<b>URL</b> (<i>Uniform Resource Locator</i>), che <b>dice al browser con quale protocollo, a quale server e in quale punto del server trovarla</b>. Va letto pezzo per pezzo:</p>
+  <figure>
+    <div class="tela schema" id="s-url"><p class="passi-titolo">Un URL letto pezzo per pezzo</p>
+      <svg viewBox="0 0 720 156" role="img" aria-label="L’indirizzo https://www.istruzione.it/esame_di_stato/index.html?anno=2026#date diviso in protocollo, dominio, percorso, parametri e segnalibro"></svg>
+    </div>
+  </figure>
+  <div class="tab"><table>
+    <thead><tr><th>Parte</th><th>Che cosa indica</th><th>Nell’esempio</th></tr></thead>
+    <tbody>
+      <tr><td><b>Protocollo</b></td><td>con quali regole parlare al server</td><td>https (web cifrato)</td></tr>
+      <tr><td><b>Dominio</b></td><td>il nome del server, tradotto in IP dal DNS (paragrafo 3.5)</td><td>www.istruzione.it</td></tr>
+      <tr><td><b>Percorso</b></td><td>la posizione della risorsa sul server, come cartelle e file</td><td>/esame_di_stato/index.html</td></tr>
+      <tr><td><b>Parametri</b></td><td>informazioni aggiuntive per il server, dopo il punto interrogativo</td><td>?anno=2026</td></tr>
+      <tr><td><b>Segnalibro</b></td><td>un punto preciso della pagina, dopo il cancelletto</td><td>#date</td></tr>
+    </tbody></table></div>
+  <h3>I domini</h3>
+  <p>Il dominio si legge <b>da destra a sinistra</b> (come nel DNS): l’ultima parte è il <b>dominio di primo livello</b> (TLD, <i>Top Level Domain</i>), che può indicare un <b>paese</b> (.it, .fr, .de) o una <b>categoria</b> (.com per le aziende, .org per le organizzazioni, .edu per le università americane, .gov per il governo americano). A sinistra c’è il <b>nome</b> scelto da chi ha registrato il dominio, e ancora a sinistra eventuali <b>sottodomini</b> (www, mail, classroom).</p>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>In classroom.google.com il dominio registrato è <b>google.com</b>, e classroom è un sottodominio. In google.com.sicurezza-account.ru invece il dominio registrato è <b>sicurezza-account.ru</b>: Google non c’entra nulla. <b>Leggere il dominio da destra</b> è la difesa più semplice contro i link truffa.</p></div>
+  <figure>
+    <div class="tela" data-widget="url"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Se nell’indirizzo c’è scritto “google”, il sito è di Google.»</p>
+    <p class="err-si">Conta <b>solo il dominio registrato</b>, cioè le ultime due parti prima del primo /. La parola “google” può comparire ovunque in un indirizzo truffa.</p></div>
+  <p class="domanda">In quale di questi indirizzi il sito appartiene davvero a Poste Italiane: poste.it.login-sicuro.com oppure login.poste.it?</p>
+
+  <!-- ===================== 4.10 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p10"><span class="num">4.10</span>HTTP e HTTPS</h2>
+  <p>L’<span class="termine">HTTP</span> (<i>HyperText Transfer Protocol</i>) è <b>il protocollo con cui il browser chiede una risorsa al server e il server la invia</b>. Funziona con il modello <b>richiesta–risposta</b> del client-server (paragrafo 2.4): il browser manda una richiesta, ad esempio “dammi la pagina index.html”, e il server risponde con un <b>codice di stato</b> e, se tutto va bene, con il contenuto.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-http" data-titolo="Dall’Invio alla pagina" data-inizio="A sinistra il portatile con la barra degli indirizzi «https://www.wikipedia.org», a destra il server web, in alto il server DNS.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Prima il DNS trova l’indirizzo IP, poi il TCP apre la connessione, browser e server si accordano per cifrare la comunicazione, il browser chiede la pagina con GET, il server risponde 200 OK e la pagina si compone a pezzi"></svg>
+      <ol class="passi-testo">
+        <li>DNS: il portatile chiede l’indirizzo IP di www.wikipedia.org e lo riceve.</li>
+        <li>TCP: portatile e server si scambiano i tre messaggi di apertura della connessione.</li>
+        <li>Cifratura: browser e server si accordano per cifrare la comunicazione (HTTPS) e compare un lucchetto sul collegamento.</li>
+        <li>Richiesta HTTP: dal portatile parte la busta “GET /”.</li>
+        <li>Risposta: dal server torna “200 OK” con il file HTML; il browser si accorge che servono anche immagini e stile e manda altre richieste.</li>
+        <li>La pagina si compone a pezzi sullo schermo.</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>I codici di stato</h3>
+  <div class="tab"><table>
+    <thead><tr><th>Codice</th><th>Significato</th><th>Quando lo si vede</th></tr></thead>
+    <tbody>
+      <tr><td><b>200</b> OK</td><td>tutto bene, ecco la risorsa</td><td>quasi sempre, ma non si vede</td></tr>
+      <tr><td><b>301</b> / <b>302</b></td><td>la risorsa si è spostata, vai a quest’altro indirizzo</td><td>il browser segue il reindirizzamento da solo</td></tr>
+      <tr><td><b>403</b> Forbidden</td><td>la risorsa esiste ma non hai il permesso</td><td>pagine riservate</td></tr>
+      <tr><td><b>404</b> Not Found</td><td>la risorsa non esiste</td><td>link sbagliati o pagine cancellate</td></tr>
+      <tr><td><b>500</b> Internal Server Error</td><td>errore del server</td><td>quando il sito ha un guasto</td></tr>
+      <tr><td><b>503</b> Service Unavailable</td><td>server sovraccarico o in manutenzione</td><td>il giorno dell’uscita dei risultati dei test, quando tutti si collegano</td></tr>
+    </tbody></table></div>
+  <p>La prima cifra dice già molto: <b>2 = successo, 3 = reindirizzamento, 4 = errore del client (di chi chiede), 5 = errore del server</b>.</p>
+  <h3>HTTPS e il lucchetto</h3>
+  <p>Con il semplice HTTP <b>i dati viaggiano in chiaro</b>: chiunque si trovi lungo il percorso, ad esempio sullo stesso Wi-Fi pubblico, potrebbe leggerli. L’<b>HTTPS</b> (la <b>S</b> sta per <i>Secure</i>) <b>cifra la comunicazione tra browser e server con il protocollo TLS</b>: lungo la strada passano solo dati illeggibili, e <b>nessuno può modificarli senza che il browser se ne accorga</b>.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«C’è il lucchetto, quindi il sito è sicuro e affidabile.»</p>
+    <p class="err-si">Il lucchetto dice solo che la <b>comunicazione è cifrata</b> con il dominio indicato. Un sito di phishing come poste.it.login-sicuro.com può avere un lucchetto perfetto.</p></div>
+
+  <!-- ===================== 4.11 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p11"><span class="num">4.11</span>I linguaggi del Web</h2>
+  <p>Una pagina web è fatta di file di testo scritti in tre linguaggi, ciascuno con un compito diverso. <b>Separare i compiti</b> permette, ad esempio, di cambiare la grafica di un intero sito senza toccare i contenuti.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Linguaggio</th><th>Che cosa fa</th><th>Paragone con una casa</th></tr></thead>
+    <tbody>
+      <tr><td><b>HTML</b> (<i>HyperText Markup Language</i>)</td><td>descrive <b>struttura e contenuto</b>: titoli, paragrafi, immagini, link, tabelle</td><td>i muri e le stanze</td></tr>
+      <tr><td><b>CSS</b> (<i>Cascading Style Sheets</i>)</td><td>descrive <b>l’aspetto</b>: colori, caratteri, impaginazione, adattamento al telefono</td><td>l’arredamento e la pittura</td></tr>
+      <tr><td><b>JavaScript</b></td><td>aggiunge <b>comportamento</b>: reagisce ai clic, aggiorna la pagina senza ricaricarla, crea animazioni</td><td>l’impianto elettrico e la domotica</td></tr>
+    </tbody></table></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Programmo in HTML.»</p>
+    <p class="err-si">L’HTML <b>descrive</b> il contenuto ma non contiene istruzioni da eseguire: è un linguaggio di <b>marcatura</b>. La parte di “programmazione” di una pagina è in <b>JavaScript</b> e nel codice che gira sul server.</p></div>
+  <h3>Pagine statiche e dinamiche</h3>
+  <p>Una pagina <b>statica è un file già pronto sul server, uguale per tutti</b>: il server lo manda così com’è. Una pagina <b>dinamica viene costruita dal server al momento della richiesta</b>, spesso leggendo dati da un database, ed è <b>diversa per ogni utente o momento</b>: la home di Instagram, il conto di una banca, i risultati di una ricerca.</p>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Pagina statica</th><th>Pagina dinamica</th></tr></thead>
+    <tbody>
+      <tr><td>Come nasce</td><td>file scritto una volta e salvato sul server</td><td>generata dal server a ogni richiesta</td></tr>
+      <tr><td>Contenuto</td><td>uguale per tutti</td><td>personalizzato e aggiornato</td></tr>
+      <tr><td>Esempi</td><td>la pagina “chi siamo” di un sito, il sito didattico di una lezione</td><td>feed dei social, registro elettronico, carrello di un negozio online</td></tr>
+    </tbody></table></div>
+  <p class="domanda">La pagina dei voti del registro elettronico è statica o dinamica? Da che cosa lo capite?</p>
+
+  <!-- ===================== 4.12 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p12"><span class="num">4.12</span>Il browser</h2>
+  <p>Il <span class="termine">browser</span> (letteralmente “sfogliatore”) è <b>il programma client che chiede le risorse ai server web, le interpreta e le mostra sullo schermo</b>. Il suo cuore è il <b>motore di rendering</b>, che legge HTML e CSS e “disegna” la pagina, insieme a un <b>motore JavaScript</b> che esegue il codice delle pagine.</p>
+  <p>I browser più usati sono <b>Chrome</b> (Google), <b>Safari</b> (Apple), <b>Edge</b> (Microsoft) e <b>Firefox</b> (Mozilla). Molti di essi, compresi Edge, Opera e Brave, <b>usano lo stesso motore di Chrome</b> (Chromium/Blink). <b>Le pagine dovrebbero apparire uguali in tutti i browser perché tutti seguono gli stessi standard</b> del W3C, ma piccole differenze esistono ancora.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Elemento</th><th>A che cosa serve</th></tr></thead>
+    <tbody>
+      <tr><td>Barra degli indirizzi</td><td>scrivere un URL o una ricerca; mostra il dominio e il lucchetto</td></tr>
+      <tr><td>Schede (<i>tab</i>)</td><td>tenere aperte più pagine nella stessa finestra</td></tr>
+      <tr><td>Preferiti (segnalibri)</td><td>salvare gli indirizzi da ritrovare</td></tr>
+      <tr><td>Cronologia</td><td>l’elenco delle pagine visitate</td></tr>
+      <tr><td>Estensioni</td><td>piccoli programmi aggiuntivi: traduttori, blocco pubblicità, gestori di password</td></tr>
+      <tr><td>Profili / account</td><td>separare navigazione personale e scolastica, sincronizzare preferiti e password tra dispositivi</td></tr>
+    </tbody></table></div>
+  <h3>La guerra dei browser</h3>
+  <div class="box storia"><figure class="foto-lato testa dx"><a class="fonte" href="https://www.researchgate.net/figure/Screenshot-of-the-Mosaic-browser-displaying-the-NCSAs-home-page-The-browser-was_fig1_304300437" target="_blank" rel="noopener"><img src="https://www.researchgate.net/profile/Erik-Ranschaert/publication/304300437/figure/fig1/AS:668993757118480@1536511949710/Screenshot-of-the-Mosaic-browser-displaying-the-NCSAs-home-page-The-browser-was.png" alt="Il browser Mosaic (1993): una delle prime pagine web con testo e immagini insieme." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Mosaic, 1993</figcaption></figure><h3><i data-ic="history" class="ic-20"></i> Nella storia</h3>
+    <p>Il primo browser con le <b>immagini dentro il testo</b> fu <b>Mosaic</b>, nel <b>1993</b>, creato all’Università dell’Illinois: fu lui a far esplodere il Web fuori dalle università. I suoi autori fondarono poi <b>Netscape</b>, che dominò il mercato finché Microsoft non integrò gratis <b>Internet Explorer</b> in Windows: fu la “prima guerra dei browser”, e Microsoft la vinse. Dalle ceneri di Netscape nacque <b>Firefox</b> (2004); nel <b>2008</b> arrivò <b>Chrome</b>, oggi il più usato.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il browser è Google.»</p>
+    <p class="err-si"><b>Google</b> è un’azienda e un <b>motore di ricerca</b> (capitolo 5); il <b>browser</b> è il programma con cui si aprono le pagine. Si può usare il motore di ricerca Google da Safari o Firefox, e un altro motore da Chrome.</p></div>
+  <p class="domanda">Le estensioni del browser possono leggere le pagine che visitate. Perché bisogna installarle con prudenza?</p>
+
+  <!-- ===================== 4.13 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p13"><span class="num">4.13</span>Le tracce della navigazione</h2>
+  <p>Navigando, il browser <b>conserva informazioni</b> sul dispositivo e i siti ne raccolgono altre. Alcune servono a chi naviga, altre soprattutto a chi vende pubblicità.</p>
+  <h3>Cronologia e cache</h3>
+  <p>La <span class="termine">cronologia</span> è <b>l’elenco delle pagine visitate</b>, utile per ritrovarle. La <b>cache</b> è <b>una copia locale di immagini, stili e script delle pagine già viste</b>: la seconda volta che si apre un sito il browser non li riscarica, e la pagina compare più in fretta. <b>Svuotare la cache</b> può risolvere pagine che si vedono “strane” dopo un aggiornamento del sito.</p>
+  <h3>I cookie</h3>
+  <p>Un <span class="termine">cookie</span> è <b>un piccolo file di testo che un sito chiede al browser di conservare e che il browser gli rimanda a ogni visita successiva</b>. Serve perché HTTP <b>non ha memoria</b>: ogni richiesta, per il server, è nuova. Il cookie permette al sito di <b>ricordarsi di te</b>.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Tipo di cookie</th><th>A che cosa serve</th><th>Serve il consenso?</th></tr></thead>
+    <tbody>
+      <tr><td><b>Tecnici</b></td><td>mantenere il login, ricordare il carrello o la lingua</td><td>no: senza, il sito non funziona</td></tr>
+      <tr><td><b>Analitici</b></td><td>contare le visite e capire come si usa il sito</td><td>dipende da come sono configurati</td></tr>
+      <tr><td><b>Di profilazione</b></td><td>registrare interessi e comportamenti per mostrare pubblicità mirata</td><td>sì</td></tr>
+      <tr><td><b>Di terze parti</b></td><td>cookie di un dominio diverso dal sito visitato (pubblicità, social), che <b>seguono l’utente da un sito all’altro</b></td><td>sì</td></tr>
+    </tbody></table></div>
+  <figure>
+    <div class="tela passi-anim" id="f-cookie" data-titolo="Come ti segue un cookie di terze parti" data-inizio="Un browser con il suo barattolo dei cookie, ancora vuoto; tre siti: un negozio di scarpe, un giornale e un social; in alto il server di un’azienda pubblicitaria presente su tutti e tre.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="La pubblicità del negozio lascia un cookie con un numero; sul giornale il browser lo rimanda alla stessa azienda, che collega le visite e mostra sul social le stesse scarpe; bloccando i cookie di terze parti il collegamento non avviene"></svg>
+      <ol class="passi-testo">
+        <li>Lo studente guarda delle scarpe nel negozio: la pubblicità del negozio, servita dall’azienda pubblicitaria, lascia nel barattolo il cookie “utente 4821”.</li>
+        <li>Lo studente apre il giornale: anche lì c’è un annuncio della stessa azienda, il browser le rimanda “utente 4821”.</li>
+        <li>L’azienda collega le due visite: “4821 ha guardato scarpe”.</li>
+        <li>Sul social compare la pubblicità delle stesse scarpe.</li>
+        <li>Si bloccano i cookie di terze parti: il barattolo dell’azienda resta vuoto e sul social compare una pubblicità qualsiasi.</li>
+      </ol>
+    </div>
+  </figure>
+  <p>In Europa i siti devono chiedere il <b>consenso</b> prima di usare cookie non tecnici: da qui i <b>banner dei cookie</b>. Secondo le linee guida del Garante per la protezione dei dati personali, <b>rifiutare deve essere facile quanto accettare</b>: chiudere il banner con la X equivale a rifiutare.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://www.cookieconsent.com/" target="_blank" rel="noopener"><img src="https://www.cookieconsent.com/assets/images/cookie-consent-notice-banner-style.png" alt="Un banner dei cookie: le scelte “Accetta”, “Rifiuta” e “Personalizza”. Osservare: quale pulsante è più evidente?" referrerpolicy="no-referrer"></a><figcaption>Un banner dei cookie: le scelte “Accetta”, “Rifiuta” e “Personalizza”. Osservare: quale pulsante è più evidente?</figcaption></figure>
+  <h3>La navigazione in incognito</h3>
+  <p>La <span class="termine">navigazione in incognito</span> (o privata) <b>non salva sul dispositivo cronologia, cookie e dati dei moduli una volta chiusa la finestra</b>. Serve ad esempio per usare il computer di un altro senza lasciare tracce o per entrare con un secondo account. <b>Non rende anonimi</b>: il sito visitato, la rete della scuola o di casa, l’operatore e chi gestisce i servizi in cui si entra con il proprio account <b>vedono la navigazione come sempre</b>.</p>
+  <div class="box lab"><h3><i data-ic="users" class="ic-20"></i> In laboratorio</h3>
+    <p>Nel browser aprire le <b>impostazioni su privacy e sicurezza</b>: guardare quanti siti hanno salvato cookie, bloccare i cookie di terze parti, provare a svuotare la cache di un solo sito. Poi visitare tre siti di notizie e annotare in un <b>Documento Google</b> come è fatto il loro banner: il pulsante “Rifiuta” è facile da trovare come “Accetta”?</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«In incognito nessuno sa che cosa sto facendo.»</p>
+    <p class="err-si">L’incognito cancella le tracce <b>solo sul dispositivo</b>. La scuola, l’operatore, i siti visitati e Google (se si è entrati con l’account) vedono tutto come prima.</p></div>
+  <p class="domanda">Perché quando guardate un paio di scarpe su un sito poi le ritrovate in pubblicità su siti diversi?</p>
+
+  <!-- ===================== 4.14 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p14"><span class="num">4.14</span>Siti, server e domini</h2>
+  <p>Per pubblicare un sito servono tre cose: i <b>file del sito</b> (HTML, CSS, immagini), un <b>server web</b> sempre acceso e collegato a Internet che li distribuisca, e un <b>nome a dominio</b> che le persone possano ricordare.</p>
+  <ul>
+    <li>Un <span class="termine">server web</span> è <b>un programma che ascolta le richieste HTTP e risponde inviando le risorse</b>, e per estensione il computer su cui gira. I programmi più diffusi sono nginx e Apache;</li>
+    <li>l’<b>hosting</b> è <b>il servizio con cui un’azienda ospita i file di un sito sui propri server</b>, a pagamento o gratis: quasi nessuno tiene il server a casa propria;</li>
+    <li>il <b>dominio</b> si <b>registra</b> pagando una piccola cifra annuale a un <b>registrar</b>, un’azienda autorizzata; il dominio resta proprio finché si rinnova la registrazione.</li>
+  </ul>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>I domini .it sono gestiti dal <b>Registro .it</b>, che ha sede presso l’Istituto di Informatica e Telematica del <b>CNR di Pisa</b>: la stessa città da cui partì la prima connessione italiana a Internet nel 1986. Esistono oggi più di tre milioni e mezzo di domini .it (valore indicativo).</p></div>
+  <p>Per un sito semplice esistono anche servizi <b>gratuiti</b> che fanno tutto insieme: <b>Google Sites</b> permette di costruire un sito con un editor visuale e lo pubblica su un indirizzo di Google; GitHub Pages pubblica gratis siti fatti di file statici.</p>
+  <div class="box lab"><h3><i data-ic="users" class="ic-20"></i> In laboratorio</h3>
+    <p>Con <b>Google Sites</b> costruire a gruppi un piccolo sito sul modulo “Reti e Internet”: una pagina per capitolo, immagini con testo alternativo, link tra le pagine e verso fonti esterne. Pubblicarlo solo per l’account della scuola e scambiarsi gli indirizzi tra gruppi.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Se compro un dominio, ho già un sito.»</p>
+    <p class="err-si">Il dominio è <b>solo il nome</b>: servono anche l’<b>hosting</b> che conservi e distribuisca i file e i file stessi del sito. Senza hosting il dominio non porta da nessuna parte.</p></div>
+  <p class="domanda">Che cosa succede a un sito se il proprietario dimentica di rinnovare il dominio?</p>
+
+  <!-- ===================== 4.15 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p15"><span class="num">4.15</span>Tipi di Web</h2>
+  <h3>Surface web, deep web e dark web</h3>
+  <ul>
+    <li>Il <span class="termine">surface web</span> (web di superficie) è <b>la parte del Web indicizzata dai motori di ricerca</b>, che chiunque può trovare con una ricerca;</li>
+    <li>il <b>deep web</b> (web profondo) è <b>tutto ciò che i motori di ricerca non indicizzano</b>, perché protetto da password o generato su richiesta: la posta, il registro elettronico, le pagine di Classroom, i documenti di Drive, la banca online. <b>È di gran lunga la parte più grande del Web, ed è del tutto normale e legale</b>;</li>
+    <li>il <b>dark web</b> è <b>una piccola parte del deep web raggiungibile solo con software speciali, come Tor, che nascondono l’identità di chi visita e di chi pubblica</b>. È usato da giornalisti e dissidenti in paesi con censura, ma anche per attività illegali.</li>
+  </ul>
+  <figure>
+    <div class="tela schema" id="s-iceberg"><p class="passi-titolo">Surface web, deep web e dark web</p>
+      <svg viewBox="0 0 720 330" role="img" aria-label="Un iceberg: sopra l’acqua la punta, il surface web; sotto la grande massa del deep web; in fondo una piccola zona scura, il dark web"></svg>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il deep web è la parte illegale di Internet.»</p>
+    <p class="err-si">Il <b>deep web</b> è semplicemente ciò che non è indicizzato: la vostra casella di posta e il registro elettronico sono deep web. La parte nascosta e a volte illegale è il <b>dark web</b>, molto più piccolo.</p></div>
+  <p class="domanda">Il vostro profilo Instagram privato fa parte del surface web o del deep web?</p>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li><b>Internet</b> è una <b>rete di reti</b>: decine di migliaia di reti indipendenti che comunicano con i protocolli <b>TCP/IP</b>. È nata da <b>ARPANET</b>, il cui primo messaggio partì nel <b>1969</b>.</li>
+      <li>Fisicamente Internet è fatta di <b>ISP</b> (fornitori di accesso), <b>dorsali</b> in fibra, <b>cavi sottomarini</b> (oltre il 95% del traffico tra continenti) e <b>data center</b>.</li>
+      <li>Nel <b>2025</b> circa <b>6 miliardi</b> di persone usano Internet e <b>2,2 miliardi</b> sono offline (ITU). Il <b>divario digitale</b> riguarda accesso, qualità della connessione e competenze.</li>
+      <li>I problemi di Internet: <b>consumo di energia</b> e acqua dei data center, <b>censura</b> e <i>shutdown</i>, <b>neutralità della rete</b> (garantita in UE dal 2015), <b>concentrazione</b> dei servizi in poche grandi aziende.</li>
+      <li>Una <b>intranet</b> è una <b>rete privata con le tecnologie di Internet</b>; una <b>extranet</b> ne <b>apre una parte a utenti esterni</b> con credenziali; una <b>VPN</b> crea <b>un tunnel cifrato su Internet</b> verso una rete privata, ma non rende anonimi.</li>
+      <li><b>Internet</b> è l’infrastruttura (rete di reti, TCP/IP); il <b>Web</b> è <b>uno dei servizi</b> che funzionano sopra Internet: pagine collegate da link, consultate con un browser. Altri servizi (posta, chat, giochi) usano Internet senza il Web.</li>
+      <li>Il Web nasce al <b>CERN</b> di Ginevra da <b>Tim Berners-Lee</b> (proposta nel 1989, prima pagina nel 1991); nel 1993 il CERN lo rende <b>pubblico e gratuito</b>, e per questo si diffonde in fretta.</li>
+      <li>Un <b>ipertesto</b> è un insieme di testi collegati da <b>link</b>, letti in modo <b>non lineare</b>; quando i collegamenti uniscono anche immagini, audio e video si parla di <b>ipermedia</b>.</li>
+      <li>L’<b>URL</b> è l’indirizzo di una risorsa: <b>protocollo, dominio, percorso, parametri, segnalibro</b>. Il dominio si legge <b>da destra</b>: conta il <b>dominio registrato</b> (es. poste.it), non le parole che compaiono altrove nell’indirizzo.</li>
+      <li><b>HTTP</b> funziona a <b>richiesta e risposta</b> con <b>codici di stato</b> (2xx successo, 3xx reindirizzamento, 4xx errore del client, es. 404; 5xx errore del server). <b>HTTPS</b> cifra la comunicazione con TLS; il <b>lucchetto</b> garantisce la cifratura, <b>non l’onestà del sito</b>.</li>
+      <li>Una pagina è fatta di <b>HTML</b> (struttura e contenuto, linguaggio di <b>marcatura</b>), <b>CSS</b> (aspetto) e <b>JavaScript</b> (comportamento). Le pagine <b>statiche</b> sono uguali per tutti, quelle <b>dinamiche</b> sono generate dal server a ogni richiesta.</li>
+      <li>Il <b>browser</b> è il client che chiede, interpreta e mostra le pagine con il suo <b>motore di rendering</b>; i principali sono Chrome, Safari, Edge e Firefox. <b>Mosaic</b> (1993) portò le immagini nel Web.</li>
+      <li>La <b>cronologia</b> elenca le pagine viste, la <b>cache</b> ne conserva copie per caricarle prima, i <b>cookie</b> permettono ai siti di ricordarsi dell’utente; quelli di <b>profilazione</b> e di <b>terze parti</b> richiedono il <b>consenso</b>. L’<b>incognito</b> non salva tracce sul dispositivo ma <b>non rende anonimi</b>.</li>
+      <li>Per pubblicare un sito servono <b>file</b>, un <b>server web</b> (spesso in <b>hosting</b>) e un <b>dominio</b> registrato presso un <b>registrar</b>; i .it sono gestiti dal Registro del <b>CNR di Pisa</b>.</li>
+      <li>Il <b>surface web</b> è indicizzato; il <b>deep web</b>, la parte più grande e normale, no; il <b>dark web</b> è una piccola parte raggiungibile solo con software come <b>Tor</b>.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/capitolo-04.js"></script>
+<script src="assets/capitolo-04-aula.js"></script>
+</body>
+</html>

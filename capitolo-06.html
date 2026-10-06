@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>6. Il 5G, l’Internet of Things e il Cloud Computing · Reti e Internet</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="6">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Reti e Internet · Capitolo 06</span></div>
+  <h1>Il 5G, l’Internet of Things e il Cloud Computing</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 6.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">6.1</span>Come funziona la rete mobile</h2>
+  <p class="domanda">Siete in treno e state guardando un video: il treno corre a 200 km/h, eppure il video continua. Come fa il telefono a restare collegato?</p>
+  <figure class="foto-margine"><a class="fonte" href="https://lxantenna.com/cell-tower-antennas-the-backbone-of-modern-wireless-communication/" target="_blank" rel="noopener"><img src="https://lxantenna.com/wp-content/uploads/2025/05/custom_antenna_solutions_bespoke_rf_design_manufacturing-%E6%81%A2%E5%A4%8D%E7%9A%84-%E6%81%A2%E5%A4%8D%E7%9A%84-1024x683.webp" alt="Una stazione radio base: le antenne in cima al traliccio servono le celle intorno." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Una stazione radio base</figcaption></figure>
+  <p>La <b>rete cellulare copre il territorio con tante celle, ciascuna servita da un’antenna</b> (stazione radio base). Il telefono parla sempre con l’antenna della cella in cui si trova; <b>quando ci si sposta, passa a quella della cella vicina senza interrompere la comunicazione</b>: questo passaggio si chiama <b>handover</b>.</p>
+  <p><b>Ogni antenna ha una capacità limitata, che si divide tra tutti i telefoni della sua cella.</b> Per questo <b>in città le celle sono piccole</b> (tante antenne, ognuna con pochi utenti da servire) e <b>in campagna sono grandi</b> (pochi utenti, servono meno antenne).</p>
+  <figure>
+    <div class="tela passi-anim" id="f-handover" data-titolo="Celle e handover" data-inizio="Una strada attraversa prima la campagna, con celle grandi, poi la città, con celle piccole; ogni cella ha la sua antenna. Un’auto con un telefono è collegata alla prima antenna.">
+      <svg viewBox="0 0 720 285" role="img" aria-label="L’auto passa da una cella all’altra e il telefono cambia antenna senza interrompere la chiamata; in città le celle sono piccole e ogni antenna serve pochi utenti"></svg>
+      <ol class="passi-testo">
+        <li>L’auto si sposta verso il bordo della cella: il collegamento con l’antenna si indebolisce.</li>
+        <li>Handover: il collegamento passa all’antenna della cella vicina, la chiamata continua.</li>
+        <li>L’auto entra in città: le celle sono piccole e gli <i>handover</i> sono più frequenti.</li>
+        <li>In ogni cella cittadina compaiono pochi telefoni: ogni antenna divide la sua capacità tra pochi utenti.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il mio telefono si collega al satellite per telefonare.»</p>
+    <p class="err-si">I normali telefoni si collegano alle <b>antenne a terra</b> della cella in cui si trovano, poche centinaia di metri o pochi chilometri; da lì i dati viaggiano quasi sempre <b>in fibra</b>. Solo alcuni modelli recenti possono mandare messaggi di emergenza via satellite.</p></div>
+
+  <!-- ===================== 6.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">6.2</span>Le generazioni: dalla 1G alla 5G</h2>
+  <figure class="foto-margine"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:2007Computex_e21Forum-MartinCooper.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/2007Computex_e21Forum-MartinCooper.jpg" alt="Martin Cooper con il DynaTAC, nel 2007." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Martin Cooper con il DynaTAC</figcaption></figure>
+  <p>Le tecnologie mobili si sono evolute in <b>generazioni</b> (la “G” di 4G e 5G sta per <i>generation</i>), circa una ogni dieci anni, e <b>ogni generazione ha cambiato che cosa si poteva fare con il telefono</b>, non solo la velocità:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Generazione</th><th>In Italia, circa</th><th>Novità principale</th><th>Banda indicativa</th></tr></thead>
+    <tbody>
+      <tr><td>1G (TACS)</td><td>fine anni ’80 – ’90</td><td>telefonia mobile <b>analogica</b>, solo voce</td><td>—</td></tr>
+      <tr><td>2G (GSM)</td><td>anni ’90</td><td>telefonia <b>digitale</b>, <b>SMS</b>, primi dati</td><td>decine di kbps</td></tr>
+      <tr><td>3G (UMTS)</td><td>anni 2000</td><td><b>Internet sul telefono</b>, videochiamate</td><td>alcuni Mbps</td></tr>
+      <tr><td>4G (LTE)</td><td>dal 2012</td><td>Internet mobile veloce: <b>streaming, social, app</b></td><td>decine–centinaia di Mbps</td></tr>
+      <tr><td>5G</td><td>dal 2019</td><td><b>latenza bassissima</b>, moltissimi dispositivi connessi</td><td>centinaia di Mbps – oltre 1 Gbps</td></tr>
+    </tbody></table></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Le generazioni del cellulare cambiano solo la velocità.»</p>
+    <p class="err-si">Il passaggio 1G → 2G è stato <b>da analogico a digitale</b>; il 3G ha portato <b>Internet</b> sul telefono; il 5G punta soprattutto su <b>latenza</b> e <b>numero di dispositivi</b>.</p></div>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>Lo smartphone moderno nasce in questo contesto: l’<b>iPhone</b> del <b>2007</b> e i primi telefoni Android del <b>2008</b> arrivarono quando la rete 3G permetteva finalmente di navigare in modo accettabile. Senza la 4G non ci sarebbero stati Instagram e TikTok come li conosciamo: i video brevi in alta qualità richiedono molta banda mobile.</p></div>
+  <p class="domanda">Quale generazione ha cambiato di più la vostra vita, anche se non l’avete vissuta? Perché?</p>
+
+  <!-- ===================== 6.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">6.3</span>5G e salute: falsi miti e dati</h2>
+  <p>Il 5G è stato al centro di molte paure e di vere e proprie teorie del complotto: durante la pandemia del 2020 si diffuse la falsa notizia che il 5G causasse o diffondesse il COVID-19, e in alcuni paesi furono incendiate delle antenne. Per discuterne con serietà bisogna partire dalla fisica.</p>
+  <p>Le onde del 5G sono <b>onde elettromagnetiche non ionizzanti</b>, come quelle di radio, TV, Wi-Fi e delle generazioni precedenti: <b>non hanno abbastanza energia per rompere i legami chimici e danneggiare il DNA</b>, a differenza delle radiazioni <b>ionizzanti</b> come i raggi X o quelli radioattivi. L’unico effetto biologico accertato delle onde radio, a intensità molto alte, è il <b>riscaldamento</b> dei tessuti, ed è per evitarlo che esistono i <b>limiti di esposizione</b>.</p>
+  <figure>
+    <div class="tela schema" id="s-ionizzanti"><p class="passi-titolo">Radiazioni non ionizzanti e ionizzanti</p>
+      <svg viewBox="0 0 720 240" role="img" aria-label="Lo spettro diviso da una linea: a sinistra le onde non ionizzanti (radio, TV, 4G, 5G, Wi-Fi, microonde, luce visibile), a destra quelle ionizzanti (ultravioletti estremi, raggi X, raggi gamma); il 5G resta lontanissimo dalla linea"></svg>
+    </div>
+  </figure>
+  <p>Un altro dato controintuitivo: <b>più antenne vicine possono significare meno esposizione per chi usa il telefono</b>. Quando l’antenna è lontana, il telefono deve trasmettere <b>alla massima potenza</b> per farsi sentire, e il telefono è a contatto con la testa; con un’antenna vicina basta pochissima potenza.</p>
+  <p class="domanda">Secondo voi che cosa porterà il 6G (verso il 2030)? A che cosa potrebbe servire una connessione ancora più veloce e con ancora meno ritardo?</p>
+
+  <!-- ===================== 6.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">6.4</span>L’Internet of Things</h2>
+  <p class="domanda">Elencate gli oggetti di casa vostra, esclusi telefoni, computer e TV, che secondo voi sono collegati a Internet.</p>
+  <p>L’<span class="termine">Internet of Things</span> (<b>IoT</b>, Internet delle cose) è <b>la rete di oggetti fisici dotati di sensori, capacità di calcolo e connessione, che raccolgono dati sull’ambiente, li scambiano tramite Internet e possono agire di conseguenza, spesso senza l’intervento di una persona</b>. Un oggetto così si dice <b>smart</b> (intelligente) o <b>connesso</b>.</p>
+  <p>Le <b>persone</b> usano Internet attraverso telefoni e computer; nell’IoT a comunicare sono soprattutto le <b>cose</b>. Il numero di oggetti connessi nel mondo ha già superato quello delle persone e, secondo le stime, è di <b>diverse decine di miliardi</b> (valore indicativo, che cambia molto a seconda di come si conta).</p>
+  <figure>
+    <div class="tela passi-anim" id="f-iot" data-titolo="Il ciclo di un oggetto IoT: il termostato smart" data-inizio="Una stanza con un termostato smart alla parete, una caldaia e una finestra; in alto il cloud del produttore; fuori casa un utente con l’app sul telefono.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Il sensore misura 17 gradi, il termostato accende la caldaia, il dato arriva all’app attraverso il cloud; quando si apre la finestra spegne la caldaia da solo e manda una notifica; dal telefono si alza l’obiettivo a 21 gradi"></svg>
+      <ol class="passi-testo">
+        <li>Il sensore misura 17 °C: il valore compare sul termostato.</li>
+        <li>Il termostato confronta il valore con l’obiettivo (20 °C) e accende la caldaia.</li>
+        <li>Il dato viaggia via Wi-Fi fino al cloud, e l’app sul telefono mostra “17 °C, riscaldamento acceso”.</li>
+        <li>Si apre la finestra: il sensore registra un calo brusco e il termostato spegne la caldaia da solo, mandando una notifica.</li>
+        <li>Dal telefono l’utente alza l’obiettivo a 21 °C: il comando passa dal cloud al termostato.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box storia"><h3><i data-ic="history" class="ic-20"></i> Nella storia</h3>
+    <p>L’espressione <b>Internet of Things</b> fu usata per la prima volta nel <b>1999</b> dall’inglese <b>Kevin Ashton</b>, che lavorava sull’uso dei tag RFID (paragrafo 1.3) per seguire i prodotti nei magazzini. Ma il primo “oggetto connesso” è considerato un <b>distributore di Coca-Cola</b> dell’Università Carnegie Mellon, collegato ad ARPANET all’inizio degli anni Ottanta: gli studenti potevano controllare da lontano se c’erano lattine e se erano fredde.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Un oggetto IoT è intelligente perché ragiona da solo.»</p>
+    <p class="err-si">Un oggetto “smart” di solito <b>segue un programma</b> e reagisce ai dati dei sensori; l’intelligenza vera, quando c’è, è spesso nel <b>cloud</b> del produttore o in modelli di IA (paragrafo 7.2).</p></div>
+
+  <!-- ===================== 6.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">6.5</span>Le applicazioni dell’IoT</h2>
+  <p>L’IoT è già dappertutto, spesso senza che ce ne accorgiamo. Le applicazioni principali:</p>
+  <h3>La casa intelligente</h3>
+  <figure class="foto-margine"><a class="fonte" href="https://smartzenhome.com/best-smart-home-devices-for-beginners-2026/" target="_blank" rel="noopener"><img src="https://smartzenhome.com/wp-content/uploads/2026/03/best-smart-home-devices-1024x683.png" alt="Alcuni dispositivi della casa intelligente: assistente vocale, termostato, lampadina, presa e videocamera connessi." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Dispositivi della casa intelligente</figcaption></figure>
+  <p>Nella <span class="termine">smart home</span> sono connessi <b>termostati, lampadine, prese, serrature, videocamere, robot aspirapolvere, elettrodomestici e assistenti vocali</b>, che fanno da “telecomando” per tutto il resto. Le applicazioni più utili sono il <b>risparmio energetico</b> (riscaldare solo quando serve) e l’<b>autonomia delle persone anziane o con disabilità</b>, che possono comandare la casa con la voce.</p>
+  <h3>Le città intelligenti</h3>
+  <figure class="foto-margine"><a class="fonte" href="https://www.asmag.com/showpost/27453.aspx" target="_blank" rel="noopener"><img src="https://www.asmag.com/upload/pic/article/51947.10575.jpg" alt="Un sensore di parcheggio installato sull’asfalto: rileva se sopra c’è un’auto e invia il dato via radio, così un’app mostra i posti liberi." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un sensore di parcheggio</figcaption></figure>
+  <p>Nelle <b>smart city</b> i sensori servono a gestire meglio servizi e risorse: <b>parcheggi</b> che segnalano i posti liberi, <b>lampioni</b> che si accendono solo quando passa qualcuno, <b>cassonetti</b> che avvisano quando sono pieni, <b>semafori</b> regolati dal traffico reale, centraline che misurano la <b>qualità dell’aria</b>.</p>
+  <p class="domanda">Quale applicazione dell’IoT vi sembra più utile per la vostra città? E quale vi sembra inutile o addirittura preoccupante?</p>
+
+  <!-- ===================== 6.6 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p6"><span class="num">6.6</span>I rischi dell’IoT</h2>
+  <p>Ogni oggetto connesso è anche <b>una porta in più verso la rete</b>, e spesso è la porta meno sorvegliata. Molti dispositivi IoT economici hanno problemi di sicurezza: <b>password predefinite uguali per tutti</b> e mai cambiate, <b>aggiornamenti</b> che non arrivano mai, dati inviati <b>senza cifratura</b>.</p>
+  <div class="box storia"><h3><i data-ic="history" class="ic-20"></i> Nella storia</h3>
+    <p>Nell’<b>ottobre 2016</b> il malware <b>Mirai</b> infettò centinaia di migliaia di <b>videocamere e videoregistratori</b> collegati a Internet, provando un elenco di <b>password predefinite</b> come “admin/admin”. Gli oggetti infettati diventarono una <b>botnet</b>, un esercito di dispositivi controllati a distanza, che bombardò di richieste il fornitore di DNS <b>Dyn</b>: per ore furono irraggiungibili Twitter, Netflix, Spotify e molti altri siti (paragrafo 3.5). I proprietari delle videocamere non si accorsero di nulla.</p></div>
+  <h3>Privacy</h3>
+  <p>Gli oggetti IoT raccolgono <b>dati molto personali</b>: quando si è in casa, che cosa si dice vicino a un assistente vocale, dove si va, come si dorme, quanto si consuma. <b>Chi possiede quei dati, dove sono conservati e a chi vengono ceduti</b> è spesso scritto in condizioni d’uso che nessuno legge. Videocamere e campanelli connessi pongono anche il problema di <b>riprendere altre persone</b>, come vicini e passanti.</p>
+  <p class="domanda">Una lampadina smart viene violata. Che danno può fare, se non può “vedere” niente?</p>
+
+  <!-- ===================== 6.7 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p7"><span class="num">6.7</span>Il cloud computing</h2>
+  <p class="domanda">Dove si trovano, fisicamente, i compiti che caricate su Classroom e le foto salvate nel cloud del telefono?</p>
+  <p>Il <span class="termine">cloud computing</span> (letteralmente “calcolo nella nuvola”) è <b>l’uso, attraverso Internet, di risorse informatiche che si trovano nei data center di un fornitore: spazio di archiviazione, potenza di calcolo, programmi</b>. Invece di comprare e gestire i propri computer e programmi, li si <b>affitta</b> e li si usa a distanza, <b>pagando in base a quanto si usa</b>, come si fa con l’elettricità.</p>
+  <p>Il nome viene dagli schemi di rete, dove Internet si disegnava come una nuvola per dire “qui c’è qualcosa di complicato che non ci interessa”. <b>Ma dentro la nuvola ci sono data center, server e cavi reali</b> (paragrafo 4.2).</p>
+  <h3>I modelli di servizio</h3>
+  <p>Si distinguono tre livelli, a seconda di <b>quanta parte del lavoro fa il fornitore e quanta il cliente</b>:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Modello</th><th>Che cosa si affitta</th><th>Chi lo usa</th><th>Esempi</th></tr></thead>
+    <tbody>
+      <tr><td><b>IaaS</b> (<i>Infrastructure as a Service</i>)</td><td>macchine virtuali, dischi, reti: l’“hardware” a distanza</td><td>tecnici che installano tutto da sé</td><td>Amazon Web Services EC2, Google Compute Engine, Microsoft Azure</td></tr>
+      <tr><td><b>PaaS</b> (<i>Platform as a Service</i>)</td><td>una piattaforma pronta su cui pubblicare i propri programmi</td><td>programmatori</td><td>Google App Engine, Firebase</td></tr>
+      <tr><td><b>SaaS</b> (<i>Software as a Service</i>)</td><td>un programma finito, che si usa dal browser o da un’app</td><td>tutti</td><td>Gmail, Google Documenti, Classroom, Canva, Netflix</td></tr>
+    </tbody></table></div>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>Un paragone con la pizza. <b>Fatta in casa</b>: compri tutto e fai tutto tu (i tuoi server). <b>IaaS</b>: noleggi una cucina attrezzata, ma la pizza la fai tu. <b>PaaS</b>: ti danno impasto e forno acceso, metti tu il condimento. <b>SaaS</b>: ordini la pizza pronta e la mangi. Come ogni paragone ha un limite: nel cloud si può passare da un modello all’altro e combinarli.</p></div>
+  <h3>Vantaggi e rischi</h3>
+  <div class="tab"><table>
+    <thead><tr><th>Vantaggi</th><th>Rischi</th></tr></thead>
+    <tbody>
+      <tr><td>nessun server da comprare e gestire</td><td><b>dipendenza dalla connessione</b>: senza Internet non si lavora</td></tr>
+      <tr><td>si paga quanto si usa; si cresce in pochi minuti</td><td><b>dipendenza dal fornitore</b>: se cambia prezzi o chiude, è difficile spostarsi</td></tr>
+      <tr><td>accesso da qualsiasi dispositivo e luogo</td><td><b>privacy</b>: i dati sono su computer di altri, a volte in altri paesi</td></tr>
+      <tr><td>collaborazione in tempo reale</td><td>un guasto del fornitore ferma migliaia di clienti insieme</td></tr>
+      <tr><td>backup e sicurezza gestiti da professionisti</td><td>un account violato espone tutti i dati</td></tr>
+    </tbody></table></div>
+  <div class="box lab"><h3><i data-ic="users" class="ic-20"></i> In laboratorio</h3>
+    <p>In <b>Google Drive</b> creare una cartella di gruppo, condividerla con i compagni con permessi diversi (visualizzatore, commentatore, editor) e lavorare in contemporanea su un <b>Documento Google</b>. Osservare la <b>cronologia delle versioni</b> e discutere: dove si trova fisicamente il documento? Che cosa succederebbe senza connessione? Chi può vederlo?</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Se salvo nel cloud, non perdo mai niente.»</p>
+    <p class="err-si">Il cloud protegge dai guasti del proprio dispositivo, ma <b>non da una cancellazione fatta per errore, da un account violato o da un abbonamento scaduto</b>. Per i file importanti serve comunque una copia di sicurezza separata.</p></div>
+  <p class="domanda">Classroom è un esempio di IaaS, PaaS o SaaS? E perché?</p>
+
+  <!-- ===================== 6.8 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p8"><span class="num">6.8</span>Il grid computing</h2>
+  <p>Alcuni calcoli sono così grandi che nessun singolo computer, e nemmeno un singolo data center, basta: simulare il clima del pianeta, analizzare le collisioni di particelle del CERN, studiare come si ripiegano le proteine. Il <b>grid computing</b> (calcolo a griglia) <b>unisce in rete la potenza di calcolo di tanti computer, anche di proprietari diversi e in luoghi diversi, per lavorare insieme a un unico problema enorme</b>, diviso in tanti pezzi indipendenti.</p>
+  <p>Il nome viene dalla <b>rete elettrica</b> (in inglese <i>power grid</i>): come si prende corrente dalla presa senza sapere da quale centrale arrivi, così un ricercatore prende potenza di calcolo dalla griglia senza sapere quali computer stiano lavorando per lui.</p>
+  <div class="box esempio"><figure class="foto-lato testa dx"><a class="fonte" href="https://home.cern/environmental-awareness-challenges-cerns-it-infrastructure/" target="_blank" rel="noopener"><img src="https://home.cern/wp-content/uploads/2026/04/CDS-CERN-PHOTO-201705-115-7.jpg" alt="Il centro di calcolo del CERN di Ginevra, uno dei nodi principali della griglia mondiale che analizza i dati degli esperimenti di fisica." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Il centro di calcolo del CERN</figcaption></figure><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>Il <b>Worldwide LHC Computing Grid</b> collega <b>circa 170 centri di calcolo in più di 40 paesi</b>, Italia compresa (con i centri dell’INFN), per analizzare i dati prodotti dall’acceleratore LHC del CERN. Con progetti come <b>Folding@home</b> anche i computer di casa di milioni di volontari hanno prestato la loro potenza, quando erano inattivi, per studiare le proteine dei virus: durante la pandemia del 2020 la potenza totale superò quella dei più grandi supercomputer del mondo.</p></div>
+  <figure>
+    <div class="tela passi-anim" id="f-grid" data-titolo="Un calcolo enorme diviso tra tanti computer" data-inizio="Al centro un grande blocco, un calcolo da 1000 ore; intorno, su una mappa d’Europa, dieci computer in città diverse.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Il calcolo si divide in cento pezzi che vanno a dieci computer; quando uno si spegne i suoi pezzi vengono dati agli altri; i risultati tornano al centro e il calcolo finisce in un giorno"></svg>
+      <ol class="passi-testo">
+        <li>Il blocco si divide in cento piccoli pezzi.</li>
+        <li>I pezzi partono verso i dieci computer; ognuno lavora su alcuni pezzi (barre di avanzamento).</li>
+        <li>Un computer si spegne: i suoi pezzi non finiti tornano al centro e vengono riassegnati agli altri.</li>
+        <li>I risultati tornano al centro e si ricompongono: il calcolo da 1000 ore è finito in un giorno.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Cloud computing</th><th>Grid computing</th></tr></thead>
+    <tbody>
+      <tr><td>Idea</td><td>affittare risorse di un fornitore</td><td>unire risorse di tanti per un grande problema</td></tr>
+      <tr><td>Proprietà</td><td>un solo fornitore</td><td>molti enti diversi</td></tr>
+      <tr><td>Utenti</td><td>chiunque, a pagamento</td><td>soprattutto ricerca scientifica</td></tr>
+      <tr><td>Tipo di lavoro</td><td>servizi di tutti i giorni (posta, file, siti)</td><td>calcoli enormi divisibili in pezzi</td></tr>
+      <tr><td>Esempi</td><td>Google Drive, AWS</td><td>griglia del CERN, Folding@home</td></tr>
+    </tbody></table></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Grid e cloud sono la stessa cosa: computer lontani usati via Internet.»</p>
+    <p class="err-si">Entrambi usano risorse a distanza, ma il <b>cloud</b> è un servizio di un fornitore per usi quotidiani, la <b>grid</b> è una <b>collaborazione tra molti enti</b> per risolvere calcoli giganteschi.</p></div>
+  <p class="domanda">Perché non tutti i problemi si possono risolvere con una grid?</p>
+
+  <!-- ===================== 6.9 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p9"><span class="num">6.9</span>L’edge computing</h2>
+  <p>Con miliardi di oggetti connessi, <b>mandare tutti i dati nel cloud</b> pone tre problemi: la <b>latenza</b> (andare e tornare da un data center lontano richiede tempo), la <b>banda</b> (una videocamera che invia tutto il video consuma moltissimo) e la <b>privacy</b> (i dati escono da casa o dalla fabbrica). L’<b>edge computing</b> (calcolo “al bordo” della rete) è <b>l’idea di elaborare i dati vicino a dove vengono prodotti, sull’oggetto stesso o su un piccolo computer locale, invece che in un data center lontano</b>, mandando al cloud solo i risultati.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-edge" data-titolo="Elaborare lontano o vicino?" data-inizio="La stessa videocamera davanti a un cancello, due volte: a sinistra collegata a un data center lontano (cloud), a destra con un piccolo chip accanto (edge). Un cronometro per lato.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Nel cloud la videocamera manda tutto il video lontano e il comando di apertura torna dopo parecchi decimi di secondo; nell’edge il chip riconosce l’auto e apre in pochi millisecondi, mandando al cloud solo una riga"></svg>
+      <ol class="passi-testo">
+        <li>Cloud: la videocamera invia tutto il video, un flusso continuo di pacchetti, verso il data center lontano.</li>
+        <li>Cloud: il data center riconosce un’auto e rimanda il comando “apri”: il cronometro segna parecchi decimi di secondo.</li>
+        <li>Edge: il chip accanto alla videocamera riconosce l’auto da solo e apre subito: il cronometro segna pochi millisecondi.</li>
+        <li>Edge: verso il cloud parte solo una riga, “ore 8:02, auto riconosciuta, cancello aperto”.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Cloud computing</th><th>Edge computing</th></tr></thead>
+    <tbody>
+      <tr><td>Dove si elaborano i dati</td><td>in data center lontani</td><td>vicino all’oggetto o sull’oggetto</td></tr>
+      <tr><td>Latenza</td><td>più alta</td><td>bassissima</td></tr>
+      <tr><td>Dati inviati in rete</td><td>tutti</td><td>solo i risultati</td></tr>
+      <tr><td>Potenza di calcolo</td><td>enorme</td><td>limitata</td></tr>
+      <tr><td>Senza connessione</td><td>non funziona</td><td>continua a funzionare</td></tr>
+    </tbody></table></div>
+  <p>Cloud ed edge <b>non sono alternativi ma complementari</b>: le decisioni rapide si prendono sul bordo, le analisi pesanti e lo storico restano nel cloud. Un’<b>auto a guida assistita</b>, ad esempio, deve frenare <b>da sola</b> in pochi millisecondi (edge), mentre i dati di migliaia di auto servono, nel cloud, a migliorare il software.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Con il 5G non serve l’edge: la rete è così veloce che basta il cloud.»</p>
+    <p class="err-si">Il 5G riduce la latenza della <b>rete radio</b>, ma il viaggio fino a un data center lontano e ritorno richiede comunque tempo. Il 5G, anzi, prevede server “al bordo” della rete proprio per sfruttare la sua latenza bassa.</p></div>
+  <p class="domanda">Perché una fabbrica potrebbe preferire elaborare i dati delle sue macchine nell’edificio invece che nel cloud?</p>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>La <b>rete mobile</b> è divisa in <b>celle</b>, ognuna servita da una <b>stazione radio base</b>; spostandosi il telefono passa da una all’altra con l’<b>handover</b>.</li>
+      <li>Le <b>generazioni</b>: <b>1G</b> analogica, solo voce; <b>2G</b> digitale e SMS; <b>3G</b> Internet sul telefono; <b>4G</b> Internet mobile veloce (streaming, social, app); <b>5G</b> dal <b>2019</b>, per latenza bassissima e moltissimi dispositivi.</li>
+      <li>Le onde del 5G sono <b>non ionizzanti</b>: non danneggiano il DNA; l’effetto accertato a intensità molto alte è il riscaldamento, evitato dai <b>limiti di esposizione</b>.</li>
+      <li>L’<b>Internet of Things</b> è la rete di <b>oggetti</b> dotati di <b>sensori</b>, capacità di calcolo e connessione, che raccolgono dati, li scambiano via Internet e possono <b>agire da soli</b>.</li>
+      <li>L’IoT è già ovunque: nella <b>casa intelligente</b> (risparmio energetico, autonomia di anziani e persone con disabilità) e nella <b>città intelligente</b> (parcheggi, lampioni, semafori, qualità dell’aria).</li>
+      <li>Rischi dell’IoT: <b>sicurezza</b> (password predefinite, aggiornamenti che non arrivano, dati non cifrati: nel <b>2016</b> la botnet <b>Mirai</b> rese irraggiungibili molti siti famosi) e <b>privacy</b> (dati molto personali, riprese di altre persone).</li>
+      <li>Il <b>cloud computing</b> è l’uso via Internet di risorse dei data center di un fornitore, pagate in base all’uso: <b>IaaS</b> (infrastruttura), <b>PaaS</b> (piattaforma), <b>SaaS</b> (programma pronto). Vantaggi: niente server, accesso ovunque; rischi: dipendenza da connessione e fornitore, privacy.</li>
+      <li>Il <b>grid computing</b> unisce la potenza di molti computer di enti diversi per un <b>unico calcolo enorme</b> diviso in pezzi (griglia del <b>CERN</b>, <b>Folding@home</b>); il cloud è invece un servizio commerciale per usi quotidiani.</li>
+      <li>L’<b>edge computing</b> elabora i dati <b>vicino a dove nascono</b>: meno latenza, meno traffico, più privacy; è <b>complementare</b> al cloud.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/capitolo-06.js"></script>
+<script src="assets/capitolo-06-aula.js"></script>
+</body>
+</html>

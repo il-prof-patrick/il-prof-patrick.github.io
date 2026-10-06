@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5. Fare ricerche nel web · Reti e Internet</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="5">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Reti e Internet · Capitolo 05</span></div>
+  <h1>Fare ricerche nel web</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 5.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">5.1</span>Come funziona un motore di ricerca</h2>
+  <p class="domanda">Quando scrivete una domanda su Google, secondo voi Google in quel momento “va a guardare” tutti i siti del mondo? Come fa a rispondere in mezzo secondo?</p>
+  <p>Un <span class="termine">motore di ricerca</span> è <b>un servizio che raccoglie e cataloga in anticipo miliardi di pagine web e, quando l’utente scrive una richiesta, restituisce in una frazione di secondo l’elenco delle pagine più pertinenti, in ordine di rilevanza</b>. I più usati sono <b>Google</b> (di gran lunga), <b>Bing</b>, DuckDuckGo e, in alcuni paesi, Yandex e Baidu.</p>
+  <p>Il lavoro si svolge in <b>tre fasi</b>, di cui solo l’ultima avviene mentre si aspetta il risultato:</p>
+  <ol>
+    <li><span class="termine">scansione</span> (<i>crawling</i>): programmi automatici chiamati <b>crawler</b> (o <i>spider</i>, ragni, perché si muovono nella “ragnatela”) <b>visitano le pagine, ne copiano il contenuto e seguono i link</b> per scoprirne di nuove, giorno e notte;</li>
+    <li><b>indicizzazione</b>: le pagine raccolte vengono analizzate e inserite in un enorme <b>indice</b>, simile all’indice analitico di un libro: <b>per ogni parola, l’elenco delle pagine che la contengono</b>, con molte altre informazioni (lingua, data, immagini);</li>
+    <li><span class="termine">posizionamento</span> (<i>ranking</i>): quando l’utente cerca, il motore <b>trova nell’indice le pagine candidate e le ordina</b> secondo centinaia di criteri, mostrando il risultato nella <b>SERP</b> (<i>Search Engine Results Page</i>, la pagina dei risultati).</li>
+  </ol>
+  <figure>
+    <div class="tela passi-anim" id="f-motore" data-titolo="Il motore di ricerca lavora prima che tu cerchi" data-inizio="A sinistra alcune pagine web collegate da link; al centro un ragnetto, il crawler; a destra uno schedario ancora vuoto, l’indice; in basso un utente con la barra di ricerca vuota.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Il crawler visita le pagine seguendo i link, le parole finiscono nell’indice, alla ricerca il motore apre solo le schede delle parole cercate e mostra i risultati in ordine in pochi decimi di secondo"></svg>
+      <ol class="passi-testo">
+        <li>Il crawler entra in una pagina, ne copia il testo e segue un link verso la pagina successiva, poi un’altra.</li>
+        <li>Le parole delle pagine copiate finiscono nello schedario: “router → pagine 3, 7, 12”, “fibra → pagine 2, 7”.</li>
+        <li>L’utente scrive “router fibra”: il motore apre solo le due schede dello schedario e trova le pagine in comune.</li>
+        <li>Le pagine trovate vengono messe in ordine e compaiono nella SERP; un cronometro segna 0,3 secondi.</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>Come si decide l’ordine</h3>
+  <p>L’ordine dei risultati è il punto decisivo: <b>quasi nessuno guarda oltre la prima pagina</b>, e i primi risultati ricevono la maggior parte dei clic. I criteri esatti sono segreti e cambiano spesso, seguendo un algoritmo brevettato da Google chiamato PageRank ma i principali sono noti: <b>quanto la pagina corrisponde alle parole cercate</b>, <b>quanto è autorevole</b>, <b>quanto è recente</b>, <b>quanto è veloce e leggibile sul telefono</b>, e <b>chi sta cercando</b>: lingua, posizione, ricerche precedenti.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Google mostra per primi i siti migliori e più veri.»</p>
+    <p class="err-si">Google mostra per primi i siti che i suoi criteri giudicano <b>più pertinenti e popolari</b> per quella ricerca e per quell’utente: <b>popolarità non significa verità</b>, e una pagina ben ottimizzata può superare una pagina più corretta.</p></div>
+  <p class="domanda">Due compagni cercano la stessa parola su Google, uno a Milano e uno a Palermo. Vedranno gli stessi risultati?</p>
+
+  <!-- ===================== 5.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">5.2</span>Risultati organici e sponsorizzati</h2>
+  <p>Come risultato di una ricerca, ci sono due tipi di risultati I <b>risultati organici</b> sono <b>quelli scelti dall’algoritmo</b> in base alla pertinenza. I <b>risultati sponsorizzati</b> sono <b>annunci pubblicitari: le aziende pagano per comparire in alto quando qualcuno cerca certe parole</b>, di solito pagando una cifra per ogni clic. Gli annunci sono segnalati da una piccola etichetta come “Sponsorizzato”, facile da non notare.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://cdn.searchenginejournal.com/wp-content/uploads/2022/10/img_2700-634da421e3991-sej.jpg" target="_blank" rel="noopener"><img src="https://cdn.searchenginejournal.com/wp-content/uploads/2022/10/img_2700-634da421e3991-sej.jpg" alt="Pagina dei risultati di un motore di ricerca con risultati sponsorizzati in alto" referrerpolicy="no-referrer"></a><figcaption>Una pagina dei risultati di ricerca: in cima gli annunci, segnalati solo da una piccola etichetta «Sponsorizzato».</figcaption></figure>
+  <p><b>La pubblicità è il modello di business dei motori di ricerca</b>: la ricerca è gratuita per l’utente perché le aziende pagano per raggiungerlo nel momento esatto in cui cerca qualcosa. Più il motore conosce l’utente, più gli annunci sono mirati e più valgono.</p>
+
+  <!-- ===================== 5.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">5.3</span>Cercare bene</h2>
+  <p>Il motore di ricerca capisce le domande in linguaggio naturale, ma <b>scegliere bene le parole e usare qualche operatore</b> riduce molto il tempo per trovare ciò che serve. Le regole di base:</p>
+  <ul>
+    <li>usare <b>parole chiave</b> specifiche, non frasi lunghe: “velocità FTTC distanza armadio” funziona meglio di “vorrei sapere perché la mia fibra è lenta”;</li>
+    <li><b>aggiungere o togliere parole</b> in base ai primi risultati, invece di sfogliare dieci pagine;</li>
+    <li>cercare <b>anche in inglese</b> gli argomenti tecnici: le fonti sono molte di più;</li>
+    <li>usare i <b>filtri</b> del motore: solo immagini, solo notizie, ultimo anno, ricerca per data.</li>
+  </ul>
+  <h3>Cercare con le immagini</h3>
+  <p>La <b>ricerca per immagini</b> trova immagini a partire da parole; la <b>ricerca inversa</b> fa il contrario: <b>si parte da un’immagine e si scopre dove compare in rete, da quando e in quali versioni</b>. Con Google Lens basta caricare una foto o inquadrare un oggetto. È lo strumento più semplice per <b>scoprire se una foto “di attualità” è in realtà vecchia</b> o presa da un altro contesto.</p>
+
+  <!-- ===================== 5.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">5.4</span>La disinformazione</h2>
+  <p class="domanda">Avete trovato due siti che dicono due cose opposte sul 5G. Come decidete a quale credere?</p>
+  <p>Sul web circolano contenuti falsi o fuorvianti di tipi diversi. Si distingue tra <b>misinformazione</b>, <b>informazione falsa condivisa in buona fede</b> da chi ci crede, e <b>disinformazione</b>, <b>informazione falsa creata e diffusa apposta</b> per ingannare, guadagnare o influenzare l’opinione pubblica.</p>
+  <ul>
+    <li>le <b>fake news</b>: notizie inventate o distorte, costruite per sembrare vere;</li>
+    <li>il <b>clickbait</b> (“esca per clic”): titoli esagerati o ingannevoli che spingono a cliccare («Non crederai a che cosa è successo…») per guadagnare con la pubblicità;</li>
+    <li>i contenuti <b>fuori contesto</b>: una foto vera, ma di un altro anno o di un altro paese, presentata come attuale;</li>
+    <li>i contenuti <b>manipolati o generati dall’IA</b>: immagini, audio e video falsi ma realistici.</li>
+  </ul>
+  <p>Le notizie false si diffondono <b>più velocemente</b> di quelle vere: sono spesso più sorprendenti e suscitano <b>emozioni forti</b> (rabbia, paura, indignazione), e chi le riceve le condivide prima di controllare. Una ricerca del MIT pubblicata nel <b>2018</b> su <i>Science</i> ha mostrato che su Twitter le notizie false raggiungevano le persone molto più in fretta di quelle vere, e che a diffonderle erano soprattutto persone, non bot.</p>
+  <p>Trovare un’informazione è facile; <b>capire se è affidabile è la vera competenza</b>. Su Internet chiunque può pubblicare qualsiasi cosa, senza nessun controllo preventivo. Prima di usare una fonte conviene farsi alcune domande:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Domanda</th><th>Che cosa guardare</th></tr></thead>
+    <tbody>
+      <tr><td><b>Chi</b> l’ha scritta?</td><td>autore, ente o testata; sezione “chi siamo”; competenze reali sull’argomento</td></tr>
+      <tr><td><b>Quando</b>?</td><td>la data di pubblicazione e di aggiornamento: su tecnologia e salute un testo di dieci anni fa può essere superato</td></tr>
+      <tr><td><b>Perché</b>?</td><td>lo scopo: informare, vendere, convincere, fare clic? Ci sono pubblicità ovunque? Il tono è emotivo?</td></tr>
+      <tr><td><b>Su che cosa si basa</b>?</td><td>cita fonti verificabili, dati, studi? I link portano davvero dove dicono?</td></tr>
+      <tr><td><b>Chi altro lo dice</b>?</td><td>altre fonti <b>indipendenti</b> confermano? Una notizia vera di solito si trova in più testate serie</td></tr>
+    </tbody></table></div>
+  <p>Una tecnica usata dai giornalisti per verificare è la <b>lettura laterale</b>: <b>invece di restare sulla pagina e giudicarla dal suo aspetto, si aprono altre schede per cercare chi c’è dietro</b> quel sito o quell’autore. Un sito può sembrare serissimo e appartenere a un’azienda che vende proprio il prodotto di cui parla bene.</p>
+  <h3>Wikipedia</h3>
+  <p><span class="termine">Wikipedia</span> è un’enciclopedia scritta dai volontari, che chiunque può modificare. <b>È un ottimo punto di partenza</b>: le voci importanti sono controllate da molti utenti, gli errori evidenti vengono corretti in fretta e soprattutto <b>ogni affermazione dovrebbe avere una fonte in nota</b>. <b>Non è però una fonte da citare da sola</b>: le voci meno seguite possono contenere errori, e il contenuto può cambiare da un giorno all’altro. Il modo giusto di usarla è <b>leggere la voce e poi andare alle fonti citate in fondo</b>.</p>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>Su Wikipedia ogni voce ha una scheda <b>“Cronologia”</b> con tutte le modifiche, chi le ha fatte e quando, e una scheda <b>“Discussione”</b> in cui gli autori discutono le parti controverse. Guardarle aiuta a capire quanto una voce sia stabile e condivisa.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Su Wikipedia può scrivere chiunque, quindi non è affidabile.»</p>
+    <p class="err-si">Può scrivere chiunque, ma <b>può correggere chiunque</b>, e le voci più lette sono verificate di continuo. Il limite è un altro: va usata come <b>porta verso le fonti</b>, non come fonte unica.</p></div>
+  <p>Ogni giorno vengono pubblicati miliardi di contenuti: nessuno potrebbe vederli tutti. Il <b>feed</b> (la pagina che scorre) e la pagina “Per te” sono costruiti da un <b>algoritmo di raccomandazione</b>: <b>un programma che sceglie, tra tutti i contenuti disponibili, quelli che una persona ha più probabilità di guardare a lungo, apprezzare, commentare o condividere</b>, e li mette in ordine.</p>
+  <p>Gli algoritmi moderni sono sistemi di <b>intelligenza artificiale</b> basati sull’apprendimento automatico: <b>imparano da ciò che ogni utente fa</b>. Non contano solo i “mi piace”: pesano moltissimo i segnali che non si controllano consapevolmente, come <b>quanti secondi si resta su un video</b>, se lo si riguarda, se si scorre via subito. Il criterio principale è l’<b>engagement</b> (coinvolgimento): ciò che trattiene l’utente.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-feed" data-titolo="Come il feed impara da te" data-inizio="Un telefono con un feed di video di argomenti diversi: sport, musica, cucina, animali, videogiochi. A lato il profilo dell’utente, con gli interessi tutti bassi e uguali.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Basta fermarsi venti secondi su un video di cucina perché l’interesse salga e il feed proponga sempre più video di cucina; un video di una lite guardato fino alla fine porta subito altri video di liti"></svg>
+      <ol class="passi-testo">
+        <li>L’utente scorre: su un video di cucina si ferma 20 secondi; la barra “cucina” sale.</li>
+        <li>Il feed propone due video di cucina in più; l’utente li guarda entrambi fino alla fine; la barra sale ancora.</li>
+        <li>Dopo pochi minuti quasi tutti i video sono di cucina, ed è sparita la varietà iniziale.</li>
+        <li>L’utente guarda per sbaglio un video di una lite: lo guarda fino alla fine. Compaiono subito altri video di liti: l’algoritmo ha registrato che “trattengono”.</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>Bolle e camere dell’eco</h3>
+  <p>Poiché l’algoritmo mostra ciò che piace, ogni utente tende a vedere <b>sempre più contenuti simili a quelli che ha già apprezzato</b>: è la <b>bolla dei filtri</b>. Nelle discussioni politiche e sociali questo può creare <b>camere dell’eco</b> (<i>echo chambers</i>): <b>gruppi in cui tutti la pensano allo stesso modo e si rafforzano a vicenda</b>, mentre le idee diverse non arrivano o arrivano solo come caricatura.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il feed mi mostra ciò che succede, in ordine.»</p>
+    <p class="err-si">Il feed mostra ciò che <b>l’algoritmo prevede che ti tratterrà</b> di più, non tutto ciò che succede né in ordine di tempo; due persone vedono feed molto diversi.</p></div>
+  <p class="domanda">Un sito con un aspetto molto professionale spiega che un certo integratore “potenzia la memoria degli studenti”. Che cosa controllereste prima di crederci?</p>
+  <h3>Verificare</h3>
+  <p>Il <span class="termine">fact-checking</span> è <b>la verifica dei fatti</b>: controllare un’affermazione risalendo alle fonti originali. Esistono testate dedicate (in Italia, ad esempio, Pagella Politica, Facta, Open Fact-checking) che verificano le notizie più condivise.</p>
+  <ol>
+    <li><b>fermarsi</b> prima di condividere: un’emozione forte è un campanello d’allarme;</li>
+    <li><b>guardare la fonte</b>: chi lo dice? è un sito che conosco?</li>
+    <li><b>cercare altrove</b>: lo riportano altre testate serie?</li>
+    <li><b>controllare le immagini</b> con la ricerca inversa;</li>
+    <li><b>guardare la data</b>: è una notizia di oggi o di anni fa?</li>
+  </ol>
+
+  <!-- ===================== 5.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">5.5</span>Cercare con l’intelligenza artificiale</h2>
+  <p class="domanda">Avete mai usato un chatbot come ChatGPT, Gemini o Claude al posto di Google per una ricerca? Che differenza avete notato?</p>
+  <p>Oggi molte persone, invece di cercare su un motore, <b>fanno una domanda a un chatbot di intelligenza artificiale</b>, e gli stessi motori di ricerca mostrano in cima ai risultati una <b>risposta riassunta generata dall’IA</b>. È un cambiamento profondo: <b>il motore di ricerca indica dove trovare l’informazione, il chatbot la scrive al posto nostro</b>.</p>
+  <p>Un chatbot si basa su un <b>modello linguistico</b> (in inglese <i>Large Language Model</i>, LLM): un programma addestrato su enormi quantità di testi, molti presi proprio dal Web (paragrafo 7.3), che <b>ha imparato a prevedere quali parole è probabile che vengano dopo</b>. Il risultato è un testo scorrevole e spesso corretto, ma <b>il modello non “sa” se ciò che scrive è vero</b>: produce la risposta più plausibile.</p>
+  <p>Molti chatbot oggi <b>fanno prima una ricerca sul web e poi scrivono la risposta usando le pagine trovate</b>, citandole con dei link. Questa tecnica si chiama <b>RAG</b> (<i>Retrieval-Augmented Generation</i>, generazione aumentata dal recupero). Riduce le allucinazioni perché il modello si appoggia a testi reali, <b>ma non le elimina</b>: le pagine trovate possono essere sbagliate, o il modello può riassumerle male.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-rag" data-titolo="Rispondere a memoria o cercare prima?" data-inizio="Uno studente chiede: «Quando è stata posata la prima fibra sottomarina tra Europa e America?». Al centro il chatbot, a destra tre pagine web.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Senza ricerca il chatbot risponde con sicurezza una data da verificare; con la RAG cerca sul web, legge le pagine, ne estrae le frasi utili e scrive la risposta citando le fonti, che lo studente può controllare"></svg>
+      <ol class="passi-testo">
+        <li>Senza ricerca: il chatbot risponde subito con una data e un nome scritti con sicurezza; un timbro rosso “da verificare” compare sulla risposta.</li>
+        <li>Con RAG: il chatbot manda la domanda a un motore di ricerca, che restituisce tre pagine.</li>
+        <li>Il chatbot legge le pagine e ne estrae le frasi utili (evidenziate).</li>
+        <li>Scrive la risposta con tre numeri tra parentesi collegati alle pagine; lo studente clicca su una fonte e la controlla.</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>Usare bene l’IA per cercare</h3>
+  <ul>
+    <li><b>chiedere sempre le fonti</b> e aprirle davvero: una fonte citata ma non controllata non vale nulla;</li>
+    <li><span class="termine">verificare i dettagli precisi</span> (numeri, date, nomi, citazioni) con una fonte affidabile;</li>
+    <li>usare il chatbot per <b>capire e orientarsi</b> (spiegare un concetto, suggerire parole chiave da cercare), il motore e le fonti per <b>verificare</b>;</li>
+    <li><b>non inserire dati personali</b> propri o altrui nelle domande.</li>
+  </ul>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il chatbot ha risposto con tanta sicurezza e con un link, quindi è giusto.»</p>
+    <p class="err-si">La sicurezza del tono <b>non dice nulla sulla verità</b>, e anche i link vanno aperti: a volte la pagina citata non contiene ciò che il chatbot le attribuisce, o non esiste.</p></div>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>Un <b>motore di ricerca</b> lavora in tre fasi: <b>scansione</b> (i <b>crawler</b> visitano le pagine seguendo i link), <b>indicizzazione</b> (un grande indice parola → pagine) e <b>posizionamento</b> (ordinamento dei risultati). Al momento della domanda consulta l’indice, non il Web.</li>
+      <li>L’ordine dei risultati dipende da pertinenza, autorevolezza, data, qualità tecnica e <b>da chi cerca</b> (lingua, posizione, ricerche precedenti): i primi sono i più pertinenti e popolari, e <b>popolarità non vuol dire verità</b>.</li>
+      <li>I risultati <b>organici</b> sono scelti dall’algoritmo, quelli <b>sponsorizzati</b> sono <b>annunci pagati</b>: la pubblicità è ciò che rende gratuita la ricerca.</li>
+      <li>Per <b>cercare bene</b> si usano parole chiave specifiche e i filtri del motore; la <b>ricerca inversa</b> delle immagini (ad esempio con Google Lens) mostra dove e da quando compare una foto.</li>
+      <li>Per <b>valutare una fonte</b> ci si chiede <b>chi</b> l’ha scritta, <b>quando</b>, <b>perché</b>, <b>su che cosa si basa</b> e <b>chi altro lo conferma</b>, anche con la <b>lettura laterale</b>. <b>Wikipedia</b> è un buon punto di partenza: si va poi alle fonti citate.</li>
+      <li>La <b>misinformazione</b> è falsa ma condivisa in buona fede, la <b>disinformazione</b> è creata apposta; fake news, clickbait, contenuti fuori contesto e falsi creati con l’IA si diffondono sfruttando le <b>emozioni</b>. Il <b>fact-checking</b> verifica risalendo alle fonti originali.</li>
+      <li>Il <b>feed</b> è scelto da un <b>algoritmo di raccomandazione</b> che premia ciò che ci trattiene (<i>engagement</i>); così si finisce nella <b>bolla dei filtri</b>, che mostra soprattutto ciò che conferma le nostre idee.</li>
+      <li>Un <b>chatbot</b> basato su un <b>modello linguistico</b> scrive la risposta più plausibile, non necessariamente vera: può produrre <b>allucinazioni</b>. Con la <b>RAG</b> cerca sul web e cita le fonti, ma le fonti vanno <b>aperte e verificate</b>.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/capitolo-05.js"></script>
+<script src="assets/capitolo-05-aula.js"></script>
+</body>
+</html>

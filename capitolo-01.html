@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1. La comunicazione digitale · Reti e Internet</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="1">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Reti e Internet · Capitolo 01</span></div>
+  <h1>La comunicazione digitale</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 1.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">1.1</span>Comunicare: gli elementi</h2>
+  <p class="domanda">Elencate tutti i modi in cui avete comunicato con qualcuno che non era nella stessa stanza nelle ultime 24 ore.</p>
+  <p>Comunicare significa <b>trasferire un’informazione da chi la possiede a chi non la possiede</b>. Ogni comunicazione, dalla più antica alla più moderna, ha <b>sempre gli stessi sei elementi</b>:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Elemento</th><th>Che cos’è</th><th>Esempio: un messaggio WhatsApp</th></tr></thead>
+    <tbody>
+      <tr><td>Mittente (sorgente)</td><td>chi invia l’informazione</td><td>tu che scrivi</td></tr>
+      <tr><td>Destinatario</td><td>chi la riceve</td><td>il tuo amico</td></tr>
+      <tr><td>Messaggio</td><td>il contenuto da trasmettere</td><td>“Ci vediamo alle 5?”</td></tr>
+      <tr><td>Codice</td><td>le regole con cui il messaggio è rappresentato</td><td>la lingua italiana, poi i bit</td></tr>
+      <tr><td>Canale</td><td>il mezzo fisico attraverso cui viaggia il messaggio</td><td>onde radio, cavi, fibra…</td></tr>
+      <tr><td>Rumore</td><td>tutto ciò che disturba o altera il messaggio</td><td>segnale debole, interferenze</td></tr>
+    </tbody></table></div>
+  <figure>
+    <div class="tela schema" id="s-comunicazione"><p class="passi-titolo">Gli elementi della comunicazione</p>
+      <svg viewBox="0 0 720 270" role="img" aria-label="Lo schema della comunicazione: il mittente codifica il messaggio, il canale lo trasporta disturbato dal rumore, il destinatario lo decodifica; sotto, lo stesso schema per un messaggio WhatsApp"></svg>
+    </div>
+  </figure>
+  <p>Perché la comunicazione funzioni, <b>mittente e destinatario devono usare lo stesso codice</b>: se scrivo in giapponese a chi non lo conosce, il messaggio arriva ma non viene capito. Nelle reti di computer questo accordo sul codice e sulle regole della conversazione si chiama <b>protocollo</b> (capitolo 3).</p>
+  <p>Il <span class="termine">rumore</span> è sempre presente: una voce in un’aula chiassosa, un segnale Wi-Fi attraverso un muro spesso, un cavo vicino a un motore elettrico. Una buona comunicazione <b>non elimina il rumore, ma lo tollera</b>: vedremo che il digitale è nato proprio per questo.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«WhatsApp è il canale attraverso cui arriva il mio messaggio.»</p>
+    <p class="err-si">WhatsApp è il <b>servizio</b>; il canale sono le <b>onde radio, i cavi e le fibre</b> su cui viaggiano i dati.</p></div>
+
+  <!-- ===================== 1.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">1.2</span>Le misure di una connessione</h2>
+  <p class="domanda">Quando dite “qui Internet va lento”, a che cosa pensate esattamente? Che cosa misurereste per dimostrarlo?</p>
+  <h3>La banda</h3>
+  <p>La <span class="termine">larghezza di banda</span> (in inglese <i>bandwidth</i>) è <b>la quantità massima di dati che un canale può trasportare in un secondo</b>. Si misura in <b>bit al secondo</b> (bps) e nei suoi multipli:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Unità</th><th>Simbolo</th><th>Valore</th></tr></thead>
+    <tbody>
+      <tr><td>kilobit al secondo</td><td>kbps (o kbit/s)</td><td>1.000 bit al secondo</td></tr>
+      <tr><td>megabit al secondo</td><td>Mbps</td><td>1.000.000 bit al secondo</td></tr>
+      <tr><td>gigabit al secondo</td><td>Gbps</td><td>1.000.000.000 bit al secondo</td></tr>
+      <tr><td>terabit al secondo</td><td>Tbps</td><td>1.000.000.000.000 bit al secondo</td></tr>
+    </tbody></table></div>
+  <p>Nel linguaggio comune si dice “velocità della connessione”, ma è più corretto parlare di <b>banda</b> o <b>capacità</b>. Il segnale, infatti, <b>viaggia sempre alla stessa velocità, fissata dalla fisica del mezzo</b>: nel rame e nella fibra circa 200.000 km al secondo, due terzi della velocità della luce. Una connessione “più veloce” non spinge i bit più in fretta: <b>ne mette di più sul canale ogni secondo</b>, perché i dispositivi alle due estremità sanno trasmettere e distinguere segnali più fitti.</p>
+  <p>L’analogia è il <b>tubo dell’acqua</b>: l’acqua scorre sempre alla stessa velocità, ma in un tubo più largo ne passa di più ogni secondo. La banda è la larghezza del tubo, non la velocità dell’acqua.</p>
+  <h3>Bit e byte: l’errore più comune</h3>
+  <p><b>Le connessioni si misurano in bit al secondo (Mbps, b minuscola), le dimensioni dei file in byte (MB, B maiuscola)</b>. Poiché 1 byte = 8 bit, con una connessione da 100 Mbps si scaricano al massimo 100 ÷ 8 = 12,5 MB al secondo.</p>
+  <p class="formula">MB al secondo = Mbps ÷ 8</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Con una connessione da 1000 Mega scarico un file da 1000 MB in un secondo.»</p>
+    <p class="err-si">1000 <b>megabit</b> al secondo sono al massimo <b>125 megabyte</b> al secondo: servono almeno 8 secondi.</p></div>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>Quanto tempo serve per scaricare un videogioco da 50 GB con una connessione da 100 Mbps?</p>
+    <p>50 GB = 50 × 8 = 400 gigabit = 400.000 megabit. Tempo = 400.000 ÷ 100 = 4.000 secondi, cioè circa 1 ora e 7 minuti (nel caso ideale; nella realtà un po’ di più).</p></div>
+  <figure>
+    <div class="tela" data-widget="download"></div>
+  </figure>
+  <p class="domanda">Cosa vuole dire upload e download? Hanno la stessa banda?</p>
+  <p>Si distinguono la banda in <b>download</b> (dati ricevuti: guardare un video, scaricare un file) e in <b>upload</b> (dati inviati: caricare un video, fare una videochiamata). <b>Nelle connessioni domestiche l’upload è spesso più basso del download</b>. Il motivo è tecnico: la capacità della linea è limitata e l’operatore la divide tra le due direzioni; poiché quasi tutti ricevono molti più dati di quanti ne inviino, <b>conviene dedicarne di più al download</b>. È la «A» di ADSL: <i>Asymmetric</i>, asimmetrica. Nella fibra FTTH la capacità è così grande che spesso le due bande sono uguali: la connessione è <b>simmetrica</b>.</p>
+  <h3>Banda e throughput</h3>
+  <p class="domanda">Se un’azienda vi offre una velocità di 1Gbps, raggiungete davvero quella velocità?</p>
+  <p>La quantità di dati che passa davvero in un secondo si chiama <b>velocità effettiva</b> (<i>throughput</i>) ed è <b>quasi sempre più bassa della banda</b>. I motivi sono concreti: la capacità della linea è <b>condivisa</b> con altri utenti e altri dispositivi di casa, il Wi-Fi perde una parte della velocità per muri e interferenze, il server dall’altra parte può essere lento o lontano, e una parte dei bit trasmessi non è il file ma <b>informazione di servizio dei protocolli</b> (indirizzi, controlli, conferme), come la busta e il francobollo di una lettera.</p>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>Un’offerta da “1 Gbps” misurata con il telefono in camera, lontano dal router, può dare 300 Mbps: la linea è da 1 Gbps, ma <b>il collo di bottiglia è il Wi-Fi</b> tra il telefono e il router. Lo stesso test con il computer collegato via cavo si avvicina molto di più al valore dichiarato.</p></div>
+  <h3>La latenza e il jitter</h3>
+  <p>La banda non basta a descrivere una connessione. Conta molto anche la <b>latenza</b>: <b>il tempo che passa da quando un dato parte a quando arriva a destinazione</b> (spesso si misura andata e ritorno). Si misura in <b>millisecondi (ms)</b> e si chiama comunemente <b>ping</b>, dal nome del comando che la misura.</p>
+  <p>La latenza <b>non dipende dalla banda</b>, ma soprattutto da tre cose:</p>
+  <ul>
+    <li><b>la distanza</b>: anche alla velocità del segnale servono circa 33 ms solo per andare da Milano a New York (6.500 km in fibra), e oltre 240 ms per salire e scendere da un satellite geostazionario a 36.000 km di quota;</li>
+    <li><b>i router attraversati</b>: ognuno deve ricevere il pacchetto, leggerlo e decidere dove mandarlo, e questo richiede tempo;</li>
+    <li><b>le code</b>: se un router è congestionato, il pacchetto aspetta il suo turno.</li>
+  </ul>
+  <p>Riprendendo l’analogia del tubo: <b>la banda è quanto il tubo è largo, la latenza è quanto è lungo</b>. Un tubo larghissimo ma lunghissimo porta tanta acqua al secondo, ma la prima goccia arriva tardi.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-tubi" data-titolo="Banda e latenza: due tubi diversi" data-inizio="Un rubinetto e due tubi: il tubo A è largo ma lunghissimo, il tubo B è stretto ma cortissimo. Sotto ogni bicchiere, un cronometro.">
+      <svg viewBox="0 0 720 310" role="img" aria-label="Nel tubo corto la prima goccia arriva subito ma il bicchiere si riempie lentamente; nel tubo largo e lungo la prima goccia arriva tardi ma poi il bicchiere si riempie in fretta"></svg>
+      <ol class="passi-testo">
+        <li>Si apre il rubinetto: nel tubo B la prima goccia arriva quasi subito; nel tubo A l’acqua sta ancora percorrendo il giro.</li>
+        <li>La prima goccia arriva anche nel tubo A: il cronometro segna molto più tempo (latenza alta).</li>
+        <li>Ora l’acqua scorre in entrambi: il bicchiere del tubo A si riempie molto più in fretta (banda alta), quello del tubo B goccia dopo goccia.</li>
+        <li>Etichette finali: tubo A = satellite geostazionario (tanta banda, latenza alta); tubo B = una connessione lenta ma vicina.</li>
+      </ol>
+    </div>
+  </figure>
+  <p><b>La latenza conta soprattutto nelle attività interattive</b>: videogiochi online, videochiamate, controllo a distanza. Per guardare un film in streaming conta di più la banda; per giocare online conta di più la latenza.</p>
+  <p>Un terzo parametro è il <b>jitter</b>: <b>quanto la latenza varia da un pacchetto all’altro</b>. Succede perché i pacchetti non fanno tutti lo stesso viaggio: alcuni trovano i router liberi, altri restano in coda, altri ancora prendono strade diverse. Così <b>arrivano a intervalli irregolari</b>, e in una videochiamata l’immagine si blocca e riparte “a scatti”, anche con banda e latenza media buone.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-jitter" data-titolo="Il jitter: una latenza irregolare" data-inizio="A sinistra chi parla in videochiamata invia i fotogrammi numerati da 1 a 8; a destra lo schermo di chi riceve; sotto, la linea del tempo.">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Con una rete stabile i pacchetti arrivano a intervalli regolari; con il jitter arrivano ammucchiati e con buchi; un piccolo buffer li rimette in fila"></svg>
+      <ol class="passi-testo">
+        <li>Rete stabile: i pacchetti partono e arrivano tutti a distanza regolare; il video scorre fluido.</li>
+        <li>Rete con jitter: i pacchetti partono regolari ma arrivano ammucchiati e con buchi (3 e 4 insieme, poi un vuoto, poi 5); l’immagine si blocca e poi salta avanti.</li>
+        <li>Il ricevitore usa un piccolo “buffer” di attesa: rimette i pacchetti in fila regolare, al prezzo di un leggero ritardo.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box lab"><figure class="foto-lato testa dx"><a class="fonte" href="https://www.pexels.com/photo/14690386/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/14690386/pexels-photo-14690386.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Uno speed test sul telefono: download, upload e ping, i tre valori da annotare in laboratorio." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Uno speed test sul telefono</figcaption></figure><h3><i data-ic="users" class="ic-20"></i> In laboratorio</h3>
+    <p>Fare uno <b>speed test</b> dal browser con un sito come speedtest.net o fast.com, collegati prima al Wi-Fi della scuola e poi (a casa) alla propria rete e alla rete del telefono. Annotare <b>download, upload e ping</b> in un <b>Foglio Google condiviso</b> dalla classe, con luogo, ora e tipo di collegamento (cavo, Wi-Fi vicino, Wi-Fi lontano, 4G/5G). Infine costruire con il Foglio un grafico a barre e discutere: quale collegamento ha più banda? Quale meno latenza? Coincidono?</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il gioco online va a scatti: mi serve una connessione con più Mega.»</p>
+    <p class="err-si">Spesso il problema è la <b>latenza</b> o il <b>jitter</b>, non la banda: più Mega non lo risolvono.</p></div>
+
+  <!-- ===================== 1.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">1.3</span>I mezzi trasmissivi</h2>
+  <p>Il <span class="termine">mezzo trasmissivo</span> è <b>il supporto fisico su cui viaggia il segnale</b> che trasporta i bit. I mezzi si dividono in due grandi famiglie:</p>
+  <ul>
+    <li><span class="termine">mezzi guidati</span> (cablati): <b>il segnale viaggia dentro un cavo</b>, che lo guida da un capo all’altro; sono il <b>rame</b> (doppino e coassiale) e la <b>fibra ottica</b>;</li>
+    <li><span class="termine">mezzi non guidati</span> (<i>wireless</i>, “senza fili”): <b>il segnale viaggia nell’aria o nello spazio come onda elettromagnetica</b>; sono il Wi-Fi, il Bluetooth, la rete cellulare e i satelliti.</li>
+  </ul>
+  <p><b>I mezzi guidati sono più veloci, stabili e sicuri</b>: il cavo protegge il segnale dai disturbi e, per intercettare i dati, bisogna arrivare fisicamente al cavo. <b>I mezzi non guidati sono più comodi e permettono di muoversi</b>, ma il segnale <b>si indebolisce con la distanza e con gli ostacoli</b> e subisce le interferenze degli altri apparecchi, perché l’aria è condivisa da tutti.</p>
+  <figure>
+    <div class="tela schema" id="s-mezzi"><p class="passi-titolo">Le due famiglie di mezzi trasmissivi</p>
+      <svg viewBox="0 0 720 300" role="img" aria-label="Mezzi guidati: doppino, coassiale e fibra ottica; mezzi non guidati: Wi-Fi, Bluetooth, rete cellulare e satellite, ognuno con il suo uso tipico"></svg>
+    </div>
+  </figure>
+  <p class="domanda">In questo momento, nella nostra aula, quali mezzi trasmissivi stanno trasportando dati?</p>
+  <h3>Il doppino</h3>
+  <figure class="foto-margine"><a class="fonte" href="https://stl.tech/blog/network-connectivity-with-twisted-pair-cables/" target="_blank" rel="noopener"><img src="https://stl.tech/wp-content/uploads/2022/05/twistedCable.jpg" alt="Un cavo di rete sguainato: le quattro coppie di fili colorati intrecciati." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Cavo di rete sguainato</figcaption></figure>
+  <p>Il <span class="termine">doppino</span> (<i>twisted pair</i>) è formato da <b>coppie di fili di rame intrecciati</b>. Il cavo di rete <b>Ethernet</b> ne contiene quattro coppie e si collega al computer con il connettore <b>RJ45</b>; la vecchia linea telefonica usa lo stesso principio.</p>
+  <p><b>L’intreccio serve a cancellare i disturbi.</b> I due fili di una coppia portano lo stesso segnale con versi opposti, e chi riceve <b>misura la differenza tra i due fili</b>. Un disturbo esterno (un motore, un altro cavo) colpisce allo stesso modo entrambi i fili, perché grazie all’intreccio si alternano continuamente nella stessa posizione: <b>nella differenza il disturbo si annulla</b>, mentre il segnale resta. Se i fili fossero paralleli, uno sarebbe sempre più vicino alla fonte del disturbo dell’altro e il disturbo non si cancellerebbe.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-intreccio" data-titolo="Perché i fili sono intrecciati" data-inizio="Due fili di una coppia, rosso e blu, portano lo stesso segnale con versi opposti; a destra il ricevitore fa la differenza tra i due.">
+      <svg viewBox="0 0 720 290" role="img" aria-label="Il disturbo colpisce allo stesso modo i due fili intrecciati e nella differenza si annulla; con fili paralleli invece ne resta una parte"></svg>
+      <ol class="passi-testo">
+        <li>Sui due fili viaggia il segnale: sul rosso un’onda, sul blu la stessa onda capovolta.</li>
+        <li>Arriva il disturbo: su entrambi i fili compare lo stesso “gradino” in più.</li>
+        <li>Il ricevitore fa la differenza tra i due fili: i due gradini uguali si annullano e resta il segnale pulito.</li>
+        <li>Confronto: con due fili paralleli il disturbo colpisce soprattutto il filo più vicino; i gradini sono diversi e nella differenza ne resta un pezzo.</li>
+      </ol>
+    </div>
+  </figure>
+  <p>I cavi Ethernet sono divisi in <b>categorie</b> (Cat 5e, Cat 6, Cat 6a…): <b>le categorie più alte hanno un intreccio più curato e una migliore schermatura, e quindi reggono velocità maggiori</b>, da 1 a 10 Gbps.</p>
+  <p>Negli anni Novanta ci si collegava con un <b>modem sulla linea telefonica</b>: il computer “telefonava” al fornitore e i bit viaggiavano come suoni (paragrafo 2.5). Il massimo era <b>56 kbps</b> e, mentre si navigava, il telefono di casa era occupato.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://bilder.obi-italia.it/c8f6b437-cdb1-48ee-ba31-863625aae3eb/prZZK/image.jpeg" target="_blank" rel="noopener"><img src="https://bilder.obi-italia.it/c8f6b437-cdb1-48ee-ba31-863625aae3eb/prZZK/image.jpeg" alt="Presa per telefono e connessione a Internet." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Presa per telefono e Internet</figcaption></figure>
+  <p>Successivamente nacque L’<b>ADSL</b> (<i>Asymmetric Digital Subscriber Line</i>): essa <b>usa lo stesso doppino telefonico, ma con frequenze molto più alte di quelle della voce</b>: così si possono telefonare e navigare insieme, e molto più velocemente, fino a circa 20 Mbps. La “A” sta per <b>asimmetrica</b>: il download è molto più veloce dell’upload, per il motivo visto nel paragrafo 1.2.</p>
+  <h3>Il cavo coassiale</h3>
+  <p>Il <b>cavo coassiale</b> ha un <b>filo centrale di rame circondato da un isolante, da una calza metallica e da una guaina</b>. <b>La calza fa da scudo</b>: i disturbi esterni si fermano su di lei e non raggiungono il filo centrale. Si usa per l’<b>antenna della TV</b> e, in alcuni paesi, per Internet via cavo.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://www.amphenolrf.com/en-us/engineering-center/engineering-resources/coaxial-cable-guide/" target="_blank" rel="noopener"><img src="https://www.amphenolrf.com/getattachment/2b8b4836-6fbc-4047-8925-530846e442d2/coaxial_cable.jpg" alt="Un cavo coassiale spellato a gradini, con gli strati etichettati in inglese. Osservare dall’interno all’esterno: conduttore centrale (center conductor), isolante (dielectric), schermo (foil e braided shield, la calza), guaina (jacket)." referrerpolicy="no-referrer"></a><figcaption>Un cavo coassiale spellato a gradini, con gli strati etichettati in inglese. Osservare dall’interno all’esterno: conduttore centrale (center conductor), isolante (dielectric), schermo (foil e braided shield, la calza), guaina (jacket).</figcaption></figure>
+  <h3>La fibra ottica</h3>
+  <figure class="foto-margine"><a class="fonte" href="https://www.rochester.edu/newscenter/what-is-fiber-optics-how-fiber-optics-works-658492/" target="_blank" rel="noopener"><img src="https://www.rochester.edu/newscenter/wp-content/uploads/2025/06/fea-how-fiber-optics-works-2025-06-16_fiber_optics_0325.jpg" alt="Fibre ottiche illuminate: la luce esce solo dalle punte, perché lungo il filo resta intrappolata dentro." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Fibre ottiche illuminate</figcaption></figure>
+  <p>La <span class="termine">fibra ottica</span> è <b>un filo di vetro sottile come un capello in cui i dati viaggiano come impulsi di luce</b>: luce accesa = 1, luce spenta = 0. Il vetro centrale (il <b>nucleo</b>) è avvolto da un altro strato di vetro (il <b>mantello</b>) che ha caratteristiche ottiche diverse.</p>
+  <p><b>La luce resta dentro la fibra grazie alla riflessione totale</b>: quando la luce passa dal nucleo al mantello con un angolo abbastanza radente, <b>non esce ma viene riflessa del tutto all’interno</b>, come su uno specchio perfetto. Rimbalzando così, percorre decine di chilometri anche se la fibra è curva. Se però la fibra si <b>piega troppo</b>, l’angolo diventa troppo ripido, la luce esce e il segnale si perde: per questo <b>la fibra non si può piegare a gomito</b>.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-fibra" data-titolo="La luce intrappolata nella fibra" data-inizio="Una fibra leggermente curva vista di lato: il nucleo chiaro, il mantello intorno, a sinistra un laser.">
+      <svg viewBox="0 0 720 315" role="img" aria-label="Un impulso di luce rimbalza sulle pareti del nucleo e arriva in fondo; in una fibra piegata a gomito esce e si perde"></svg>
+      <ol class="passi-testo">
+        <li>Il laser emette un impulso di luce che entra nel nucleo.</li>
+        <li>L’impulso colpisce la parete con un angolo radente e rimbalza: compare la scritta “riflessione totale”.</li>
+        <li>Rimbalzo dopo rimbalzo, l’impulso segue la curva e arriva in fondo alla fibra.</li>
+        <li>La fibra viene piegata a gomito: l’impulso colpisce la parete troppo di fronte, esce dal nucleo e si disperde; all’uscita non arriva niente.</li>
+      </ol>
+    </div>
+  </figure>
+  <p>Vantaggi della fibra, ciascuno con il suo perché:</p>
+  <ul>
+    <li><b>banda enorme</b>: la luce può essere accesa e spenta miliardi di volte al secondo e nella stessa fibra possono viaggiare <b>più colori di luce insieme</b>, ognuno con i suoi dati; una fibra porta decine di terabit al secondo;</li>
+    <li><b>distanze lunghe</b>: il vetro purissimo assorbe pochissima luce, quindi il segnale arriva lontano senza essere amplificato;</li>
+    <li><b>nessun disturbo elettromagnetico</b>: nella fibra viaggia luce, non corrente elettrica, quindi motori, fulmini e altri cavi non la disturbano;</li>
+    <li><b>sicurezza</b>: la luce non “trapela” all’esterno, e per intercettarla bisogna intervenire sulla fibra, cosa che si nota.</li>
+  </ul>
+  <p>Svantaggi: è più <b>delicata</b> (non si piega troppo) ed è più complessa da giuntare. <b>Il costo principale però non è la fibra, ma lo scavo</b> per portarla fino alle case.</p>
+  <p>Nelle offerte per la casa, “fibra” può voler dire due cose molto diverse:</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.tariffando.it/guida-alla-fibra-ottica-verificare-copertura/" target="_blank" rel="noopener"><img src="https://www.tariffando.it/wp-content/uploads/2017/02/11122494_10205447308395468_418905393_n-optimized.jpg" alt="Armadi di strada: in FTTC nell’armadio dell’operatore arriva la fibra e da lì parte il rame verso le case." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Armadio di strada FTTC</figcaption></figure>
+  <ul>
+    <li><span class="termine">FTTC</span> (<i>Fiber To The Cabinet</i>): <b>la fibra arriva fino all’armadio grigio in strada; l’ultimo tratto fino a casa è ancora in rame</b>;</li>
+    <li><span class="termine">FTTH</span> (<i>Fiber To The Home</i>): <b>la fibra arriva fino all’appartamento</b>.</li>
+  </ul>
+  <p><b>La differenza la fa l’ultimo tratto in rame</b>: per andare veloce il segnale sul doppino usa frequenze alte, che <b>si attenuano rapidamente con la lunghezza del filo</b>. Per questo in FTTC la velocità arriva al massimo a circa <b>200 Mbps</b> e <b>cala quanto più la casa è lontana dall’armadio</b>; in FTTH non c’è rame e si arriva a <b>1–10 Gbps</b>, indipendentemente dalla distanza.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-ftth" data-titolo="FTTC e FTTH: dove finisce la fibra" data-inizio="La centrale dell’operatore, l’armadio in strada collegato in fibra e due case, una vicina e una lontana dall’armadio.">
+      <svg viewBox="0 0 720 305" role="img" aria-label="In FTTC l’ultimo tratto in rame rallenta la casa lontana più di quella vicina; in FTTH la fibra arriva in entrambe le case con la stessa velocità"></svg>
+      <ol class="passi-testo">
+        <li>FTTC: dall’armadio alle case la linea diventa marrone, “rame”; i pacchetti viaggiano veloci in fibra e rallentano nel rame.</li>
+        <li>Sulle case compaiono le velocità: casa vicina circa 200 Mbps, casa lontana circa 50 Mbps.</li>
+        <li>FTTH: la linea arancione prosegue fino dentro le case, il rame sparisce.</li>
+        <li>Su entrambe le case compare la stessa velocità: fino a 2,5 Gbps, qualunque sia la distanza.</li>
+      </ol>
+    </div>
+  </figure>
+  <figure>
+    <div class="tela" data-widget="distanza"></div>
+  </figure>
+  <p class="domanda">Un’offerta pubblicizza “fibra fino a 200 Mega”, un’altra “fibra fino a 2,5 Giga”. Che cosa sospettate sulla prima?</p>
+  <h3>Onde radio, microonde e infrarossi</h3>
+  <p>I mezzi non guidati usano tutti <b>onde elettromagnetiche</b>, cioè la stessa “famiglia” della luce, ma a <b>frequenze</b> diverse. La frequenza conta perché decide il comportamento dell’onda: <b>più la frequenza è bassa, più l’onda arriva lontano e aggira gli ostacoli; più è alta, più dati può trasportare ma più facilmente viene fermata</b> da muri, pioggia e persino foglie.</p>
+  <ul>
+    <li><span class="termine">onde radio</span> (da pochi kHz a qualche GHz): radio FM, televisione digitale, rete cellulare, Wi-Fi, Bluetooth. Attraversano in parte i muri e coprono grandi distanze;</li>
+    <li><span class="termine">microonde</span> (da qualche GHz a decine di GHz): i <b>ponti radio</b> tra due antenne a vista sulle colline o sui tralicci, i collegamenti con i satelliti, le bande più alte del 5G. Hanno bisogno che <b>tra le due antenne non ci sia niente in mezzo</b>;</li>
+    <li><b>infrarossi</b>: il telecomando della TV, alcuni sensori di presenza. Non attraversano i muri e richiedono che trasmettitore e ricevitore “si vedano”, quindi funzionano solo nella stessa stanza.</li>
+  </ul>
+  <p>L’aria è <b>un mezzo condiviso da tutti</b>: se due apparecchi trasmettono sulla stessa frequenza nello stesso posto si disturbano. Per questo <b>le frequenze sono una risorsa pubblica, divisa per legge</b>: lo Stato assegna alcune bande in esclusiva (ad esempio con le aste delle frequenze per il 5G, pagate miliardi dagli operatori) e ne lascia altre libere, a patto di trasmettere con poca potenza: è il caso dei 2,4 e 5 GHz usati da Wi-Fi e Bluetooth.</p>
+  <figure>
+    <div class="tela schema" id="s-spettro"><p class="passi-titolo">Lo spettro elettromagnetico</p>
+      <svg viewBox="0 0 720 252" role="img" aria-label="Lo spettro dalle frequenze basse alle alte: radio FM, TV, cellulare, Wi-Fi, microonde, infrarossi, luce visibile; a sinistra le onde arrivano più lontano, a destra trasportano più dati"></svg>
+    </div>
+  </figure>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>Il telecomando della TV non funziona se qualcuno si mette davanti al televisore: gli <b>infrarossi</b> non attraversano il corpo umano. Il telefono, invece, riceve la chiamata anche in tasca: le <b>onde radio</b> del cellulare attraversano i vestiti e, in parte, i muri.</p></div>
+  <h3>Il Wi-Fi</h3>
+  <p>Il <b>Wi-Fi collega computer, telefoni e altri dispositivi a una rete locale senza cavi</b>, tramite un <b>access point</b> (paragrafo 2.5). La portata va da qualche decina di metri in casa a un centinaio all’aperto.</p>
+  <p>Il Wi-Fi usa soprattutto due <b>bande di frequenza</b>, e la scelta è un compromesso:</p>
+  <ul>
+    <li><b>2,4 GHz</b>: <b>arriva più lontano e attraversa meglio i muri</b>, perché le onde a frequenza più bassa vengono assorbite meno dai materiali; però è <b>più lenta e affollata</b> (pochi canali, usati anche da vicini, Bluetooth e microonde);</li>
+    <li><span class="termine">5 GHz</span> (e <b>6 GHz</b> nelle versioni recenti): <b>più veloce</b>, perché ha più spazio e canali più larghi in cui trasmettere dati, ma <b>la portata è minore</b> e i muri la fermano di più.</li>
+  </ul>
+  <figure>
+    <div class="tela schema" id="s-bande"><p class="passi-titolo">Wi-Fi a 2,4 GHz e a 5 GHz nella stessa casa</p>
+      <svg viewBox="0 0 720 270" role="img" aria-label="La stessa casa con il router in un angolo: a 2,4 GHz il segnale arriva in tutte le stanze attraversando i muri, a 5 GHz si ferma prima ma è più veloce"></svg>
+    </div>
+  </figure>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>Se in camera il Wi-Fi a 5 GHz “prende male” ma quello a 2,4 GHz sì, non è un guasto: la camera è troppo lontana o dietro troppi muri per i 5 GHz. Molti router uniscono le due bande e fanno scegliere al telefono.</p></div>
+  <p>Dal 2018 le versioni del Wi-Fi hanno un <b>numero facile da ricordare (Wi-Fi 4 fino all’attuale Wi-Fi 7)</b> al posto della sigla tecnica. <b>Ogni versione aumenta la velocità, ma soprattutto la capacità di servire molti dispositivi insieme</b>, perché le case e le scuole sono sempre più affollate.</p>
+  <h3>Il Bluetooth</h3>
+  <figure class="foto-margine"><a class="fonte" href="https://www.pexels.com/photo/10104833/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/10104833/pexels-photo-10104833.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Auricolari Bluetooth e telefono: una rete di pochi centimetri." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Auricolari Bluetooth</figcaption></figure>
+  <p>Il <span class="termine">Bluetooth collega dispositivi vicinissimi</span> (pochi metri): cuffie, auricolari, smartwatch, tastiere, casse. <b>Trasmette con pochissima potenza</b>: per questo consuma poca batteria, ma arriva vicino e trasporta pochi dati.</p>
+  <div class="box storia"><figure class="foto-lato testa dx"><a class="fonte" href="https://www.eurocomunicazione.com/wp-content/uploads/2022/01/Bluetooth-1.jpg" target="_blank" rel="noopener"><img src="https://www.eurocomunicazione.com/wp-content/uploads/2022/01/Bluetooth-1.jpg" alt="Il logo del Bluetooth formato dalle rune delle iniziali di Harald Bluetooth" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Il logo: le rune H e B</figcaption></figure><h3><i data-ic="history" class="ic-20"></i> Nella storia</h3>
+    <p>Il Bluetooth prende il nome da <b>Harald “Dente Blu” Gormsson</b>, re vichingo del X secolo che unificò le tribù di Danimarca e Norvegia: come lui, la tecnologia doveva “unire” dispositivi diversi. Il logo unisce le due rune delle sue iniziali, H e B.</p></div>
+  <p class="domanda">Il telefono segna Wi-Fi al massimo, ma le pagine non si caricano. Come è possibile?</p>
+  <h3>NFC e RFID</h3>
+  <figure class="foto-margine"><a class="fonte" href="https://www.rfidcard.com/understanding-rfid-antennas/" target="_blank" rel="noopener"><img src="https://www.rfidcard.com/wp-content/uploads/2021/06/Understanding-RFID-Antennas-1230x706.jpg" alt="Un tag RFID: al centro il minuscolo chip, intorno l’antenna stampata a spirale che raccoglie l’energia dal lettore." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un tag RFID</figcaption></figure>
+  <p>L’<span class="termine">RFID</span> (<i>Radio Frequency IDentification</i>) <b>identifica un oggetto a distanza con un’etichetta radio</b>. L’etichetta, il <b>tag</b>, contiene un microchip e un’antenna, spesso stampata su un adesivo sottile; <b>non ha batteria</b>: quando passa vicino a un lettore, <b>l’onda del lettore le fornisce l’energia</b> per rispondere con il suo codice. Si usa negli antitaccheggio dei negozi, nei badge, nei biglietti dei mezzi pubblici, nei passaporti, nel Telepass.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.roxpay.eu/en/resources/contactless-payment-terminal" target="_blank" rel="noopener"><img src="https://www.roxpay.eu/images/guides/contactless-payment-terminal.webp" alt="Pagamento contactless con lo smartphone avvicinato al POS: telefono e terminale parlano in NFC a pochi centimetri." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Pagamento contactless</figcaption></figure>
+  <p>L’<span class="termine">NFC</span> (<i>Near Field Communication</i>) è <b>una tecnologia derivata dall’RFID che funziona solo a pochi centimetri</b> e permette anche a due dispositivi di scambiarsi dati. <b>La distanza così ridotta è voluta, ed è una protezione</b>: per pagare bisogna avvicinare volontariamente il telefono al POS, ed è difficile intercettare la comunicazione da lontano. Si usa per i pagamenti contactless con carta o telefono, per abbinare velocemente le cuffie, per leggere il chip della carta d’identità elettronica.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Con l’NFC qualcuno può prelevare soldi dalla mia carta passandomi vicino in metro.»</p>
+    <p class="err-si">Il lettore deve stare <b>a pochi centimetri</b>, i pagamenti senza PIN hanno <b>un importo massimo</b> e ogni transazione usa <b>un codice valido una sola volta</b>. Il rischio non è zero, ma è molto più basso di quanto si racconti.</p></div>
+  <h3>Il satellite</h3>
+  <p>Caso particolare sono i <b>satelliti per telecomunicazioni</b>: essi <b>ricevono il segnale da Terra e lo ritrasmettono verso un altro punto</b>, superando montagne e oceani. Sono indispensabili dove i cavi non arrivano: navi, aerei, montagne, zone rurali, zone colpite da disastri.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.dishytech.com/starlink-mounting-options-a-guide-to-official-and-3rd-party-mounts/" target="_blank" rel="noopener"><img src="https://www.dishytech.com/wp-content/uploads/2026/03/DSC00011-scaled.jpg" alt="Un’antenna Starlink su un tetto: punta il cielo e segue i satelliti che passano." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Antenna Starlink su un tetto</figcaption></figure>
+  <ul>
+    <li><b>satelliti geostazionari</b>: a circa <b>36.000 km</b> di altezza, girano alla stessa velocità della Terra e quindi <b>sembrano fermi nel cielo</b>: l’antenna di casa può restare puntata sempre nello stesso punto e ne bastano pochi per coprire il pianeta. Ma <b>il segnale deve percorrere andata e ritorno quattro volte quella distanza</b> (casa → satellite → stazione a terra, e la risposta all’indietro), cioè circa 144.000 km: anche alla velocità della luce servono <b>oltre mezzo secondo</b> di <b>latenza</b>;</li>
+    <li><span class="termine">satelliti in orbita bassa</span> (LEO, <i>Low Earth Orbit</i>): a circa <b>550 km</b>, quindi <b>la latenza è bassa</b> (qualche decina di millisecondi). Però si muovono velocemente e ognuno resta visibile pochi minuti: <b>ne servono migliaia</b> che si passano il collegamento. È il caso delle costellazioni come <b>Starlink</b>.</li>
+  </ul>
+  <figure>
+    <div class="tela passi-anim" id="f-satelliti" data-titolo="Geostazionari e orbita bassa" data-inizio="La Terra con una casa e una stazione a terra; lontanissimo un satellite geostazionario, vicino alla Terra i satelliti in orbita bassa. Il cronometro segna 0 ms.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="La richiesta via satellite geostazionario impiega circa 600 millisecondi, via orbita bassa circa 30; i satelliti in orbita bassa passano e ne servono migliaia"></svg>
+      <ol class="passi-testo">
+        <li>Una richiesta parte dalla casa verso il geostazionario e torna giù alla stazione a terra; poi la risposta rifà il viaggio al contrario. L’orologio segna circa 600 ms.</li>
+        <li>La stessa richiesta via orbita bassa: il percorso è brevissimo, l’orologio segna circa 30 ms.</li>
+        <li>I satelliti in orbita bassa scorrono: quello sopra la casa se ne va e il collegamento passa al successivo.</li>
+        <li>Si vede tutta la costellazione: migliaia di satelliti per coprire la Terra.</li>
+      </ol>
+    </div>
+  </figure>
+  <p class="domanda">Perché non usiamo solo i satelliti al posto dei cavi, visto che non serve scavare?</p>
+  <h3>Il confronto</h3>
+  <div class="tab"><table>
+    <thead><tr><th>Tecnologia</th><th>Su che cosa viaggia l’ultimo tratto</th><th>Download indicativo</th><th>Latenza indicativa</th></tr></thead>
+    <tbody>
+      <tr><td>Linea commutata (anni ’90)</td><td>doppino telefonico, come voce</td><td>56 kbps</td><td>alta</td></tr>
+      <tr><td>ADSL</td><td>doppino telefonico, frequenze alte</td><td>fino a 20 Mbps</td><td>20–40 ms</td></tr>
+      <tr><td>FTTC (VDSL)</td><td>fibra fino all’armadio, poi doppino</td><td>30–200 Mbps</td><td>10–20 ms</td></tr>
+      <tr><td>FTTH</td><td>fibra fino in casa</td><td>1–10 Gbps</td><td>5–10 ms</td></tr>
+      <tr><td>Satellite in orbita bassa</td><td>onde radio da e verso i satelliti</td><td>100–250 Mbps</td><td>25–60 ms</td></tr>
+      <tr><td>Satellite geostazionario</td><td>onde radio, 36.000 km</td><td>decine di Mbps</td><td>600 ms e oltre</td></tr>
+      <tr><td>Rete mobile 4G / 5G</td><td>onde radio dalla cella</td><td>decine–centinaia di Mbps / oltre 1 Gbps</td><td>30–50 ms / 10–20 ms</td></tr>
+    </tbody></table></div>
+  <p>I valori della tabella sono <b>indicativi</b>: dipendono dalla tecnologia usata alle due estremità e cambiano con gli anni. Il confronto, però, mostra la regola generale: <b>il cavo vince per velocità, stabilità e sicurezza, l’onda radio per comodità e mobilità</b>. Per questo nelle reti reali i due mondi convivono: la fibra porta i dati fino all’edificio, il Wi-Fi li distribuisce nelle stanze.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-gara" data-titolo="Quanto conta la banda: la gara dei download" data-inizio="Quattro corsie, una per tecnologia, scaricano lo stesso film da 4 GB: le barre sono vuote e i cronometri a zero.">
+      <svg viewBox="0 0 720 290" role="img" aria-label="Lo stesso film da 4 GB si scarica in 32 secondi con la fibra FTTH, in circa 11 minuti con il 4G, in circa 27 minuti con l’ADSL e in quasi 7 giorni con il modem a 56k"></svg>
+      <ol class="passi-testo">
+        <li>Parte il download su tutte le corsie insieme: la FTTH si riempie in circa 32 secondi e il suo cronometro si ferma.</li>
+        <li>Il cronometro accelera: il 4G finisce in circa 11 minuti, l’ADSL in circa 27 minuti.</li>
+        <li>Il modem 56k ha riempito solo una sottilissima striscia: un cartello indica che gli servirebbero quasi 7 giorni.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il wireless è il mezzo del futuro: prima o poi i cavi spariranno.»</p>
+    <p class="err-si">Anche quando il telefono è “senza fili”, <b>dopo l’antenna i dati viaggiano quasi sempre in fibra</b>. Le onde radio condividono un’aria affollata e si fermano contro gli ostacoli: i cavi restano la spina dorsale della rete.</p></div>
+
+  <!-- ===================== 1.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">1.4</span>I modi di trasmissione</h2>
+  <p>Un canale di comunicazione può essere usato in tre modi diversi, a seconda di <b>in quale direzione viaggiano i dati e se possono farlo contemporaneamente</b>:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Modalità</th><th>Come funziona</th><th>Esempi</th></tr></thead>
+    <tbody>
+      <tr><td>Simplex</td><td>i dati viaggiano <b>in una sola direzione</b>, sempre la stessa</td><td>radio FM, televisione, un sensore che invia la temperatura</td></tr>
+      <tr><td>Half-duplex</td><td>i dati viaggiano <b>in entrambe le direzioni, ma a turno</b></td><td>walkie-talkie (“passo”), vecchie reti con hub</td></tr>
+      <tr><td>Full-duplex</td><td>i dati viaggiano <b>in entrambe le direzioni contemporaneamente</b></td><td>telefonata, videochiamata, reti moderne con switch</td></tr>
+    </tbody></table></div>
+  <figure>
+    <div class="tela passi-anim" id="f-modi" data-titolo="Simplex, half-duplex e full-duplex" data-inizio="Tre strade tra le città A e B: un senso unico, una strada stretta con il semaforo, una strada a doppia corsia.">
+      <svg viewBox="0 0 720 330" role="img" aria-label="Nel simplex le auto vanno solo da A a B; nell’half-duplex passano a turno e se partono insieme si scontrano; nel full-duplex viaggiano nei due sensi contemporaneamente"></svg>
+      <ol class="passi-testo">
+        <li>Simplex: le auto-pacchetto partono solo da A verso B; nessuna può tornare.</li>
+        <li>Half-duplex: passano le auto da A a B, poi il semaforo cambia e passano quelle da B ad A; mai insieme.</li>
+        <li>Half-duplex: due auto partono insieme dai due lati e si scontrano al centro (collisione).</li>
+        <li>Full-duplex: le auto viaggiano nei due sensi contemporaneamente, ognuna nella sua corsia.</li>
+      </ol>
+    </div>
+  </figure>
+  <p class="domanda">Una lezione in cui solo il professore parla è simplex, half-duplex o full-duplex? E una discussione in classe con alzata di mano?</p>
+  <h3>Comunicazione sincrona e asincrona</h3>
+  <p>Dal punto di vista di chi usa i servizi, una comunicazione è <b>sincrona</b> quando <b>mittente e destinatario devono essere presenti nello stesso momento</b>, come in una telefonata; è <b>asincrona</b> quando <b>il messaggio può essere letto più tardi</b>, perché qualcuno lo conserva nel frattempo, come una mail.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Servizio</th><th>Sincrona o asincrona?</th><th>Perché</th></tr></thead>
+    <tbody>
+      <tr><td>Telefonata, videochiamata</td><td>sincrona</td><td>si parla solo se l’altro risponde</td></tr>
+      <tr><td>Lezione in diretta su Meet</td><td>sincrona</td><td>serve essere collegati all’orario stabilito</td></tr>
+      <tr><td>Email, compito su Classroom</td><td>asincrona</td><td>il server conserva il messaggio fino alla lettura</td></tr>
+      <tr><td>Messaggio o vocale WhatsApp</td><td>asincrona (ma spesso usata in modo quasi sincrono)</td><td>il server lo consegna quando il telefono torna raggiungibile</td></tr>
+      <tr><td>Commento sotto un post</td><td>asincrona</td><td>resta pubblicato e si legge quando si vuole</td></tr>
+    </tbody></table></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Asincrono vuol dire lento.»</p>
+    <p class="err-si">Asincrono vuol dire <b>senza bisogno di essere presenti insieme</b>: un messaggio WhatsApp arriva in un secondo, ma resta asincrono perché si può leggere anche il giorno dopo.</p></div>
+  <p class="domanda">Una lezione registrata e caricata su Classroom è sincrona o asincrona? E un compito in classe online con un orario fissato?</p>
+
+  <!-- ===================== 1.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">1.5</span>Commutazione di circuito e di pacchetto</h2>
+  <p>Quando in una rete ci sono tanti mittenti e tanti destinatari, bisogna decidere <b>come far condividere a tutti gli stessi cavi</b>. La storia delle telecomunicazioni ha dato due risposte opposte, e capire la differenza significa capire perché Internet è fatta come è fatta.</p>
+  <h3>La commutazione di circuito</h3>
+  <figure class="foto-margine"><a class="fonte" href="https://www.lambtonmuseums.ca/en/lambton-heritage-museum/telephone-operators.aspx" target="_blank" rel="noopener"><img src="https://www.lambtonmuseums.ca/en/lambton-heritage-museum/resources/Images/LHM-Exhibits/Women-of-Lambton/Women-at-Work/Telephone-Operators/Picture2-1024x683-----HighRes.jpg" alt="Centraliniste al lavoro: ogni spinotto inserito a mano collegava due linee e creava un circuito riservato a una telefonata." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Centraliniste al lavoro</figcaption></figure>
+  <p>Nella <span class="termine">commutazione di circuito</span> (<i>circuit switching</i>), prima di comunicare <b>si costruisce un collegamento riservato tra i due interlocutori, che resta loro per tutta la durata della conversazione</b>, anche nei momenti di silenzio. È il modo in cui funzionava la <b>rete telefonica tradizionale</b>: componendo il numero, le centrali collegavano un tratto dopo l’altro fino al telefono chiamato.</p>
+  <p>Il vantaggio è la <b>qualità garantita</b>: la linea è tutta tua, non ci sono ritardi né attese. Lo svantaggio è lo <b>spreco</b>: in una telefonata si parla a turno e ci sono pause, ma il circuito resta occupato e nessun altro può usarlo; se poi un tratto si guasta, la comunicazione cade.</p>
+  <h3>La commutazione di pacchetto</h3>
+  <p>Nella <span class="termine">commutazione di pacchetto</span> (<i>packet switching</i>) <b>i dati vengono divisi in tanti pezzetti, i pacchetti, ognuno con l’indirizzo del destinatario, e ognuno viaggia per conto suo</b> attraverso la rete. Nessun collegamento è riservato: <b>i cavi sono condivisi istante per istante</b> da tutti i pacchetti di tutti gli utenti, che si mettono in coda nei nodi della rete e vengono inoltrati appena c’è posto. All’arrivo i pacchetti vengono <b>rimessi in ordine</b> e il messaggio ricomposto.</p>
+  <p>Il vantaggio è l’<b>efficienza</b>: nelle pause di una conversazione passano i pacchetti di altri, e nessun pezzo di cavo resta inutilizzato. Inoltre la rete è <b>robusta</b>: se un tratto si guasta, i pacchetti successivi prendono un’altra strada. Lo svantaggio è che <b>nessuno garantisce i tempi</b>: se c’è traffico i pacchetti aspettano in coda, e nascono la latenza variabile e il jitter visti nel paragrafo 1.2.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-commutazione" data-titolo="Circuito o pacchetti?" data-inizio="La stessa rete di cinque nodi, due volte: sopra tra i telefoni di Anna e Bruno, sotto tra i computer di Carla e Dario.">
+      <svg viewBox="0 0 720 352" role="img" aria-label="Con la commutazione di circuito il percorso resta riservato anche nel silenzio; con la commutazione di pacchetto i pacchetti prendono strade diverse, aggirano i guasti e vengono rimessi in ordine all’arrivo"></svg>
+      <ol class="passi-testo">
+        <li>Circuito: tra Anna e Bruno si accende un percorso colorato attraverso tre nodi; compare il lucchetto “riservato”.</li>
+        <li>Anna e Bruno restano in silenzio: il percorso resta acceso e vuoto; un altro utente prova a passare e trova la strada occupata.</li>
+        <li>Pacchetti: il messaggio di Carla si divide in quattro pacchetti numerati, che partono e prendono strade diverse, mescolandosi con pacchetti di altri colori.</li>
+        <li>Un collegamento si interrompe (X rossa): i pacchetti successivi lo aggirano.</li>
+        <li>I pacchetti arrivano a Dario in disordine (2, 1, 4, 3) e vengono rimessi in fila: 1, 2, 3, 4.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>È come la differenza tra <b>noleggiare un pullman</b> per tutta la classe (circuito: posti riservati, anche se metà restano vuoti) e far viaggiare ognuno <b>in autobus di linea</b> (pacchetti: si condividono i mezzi con altri passeggeri, si arriva magari in momenti diversi, ma nessun posto resta inutilizzato). L’analogia ha un limite: i pacchetti, a differenza dei passeggeri, possono andare persi, e allora qualcuno deve accorgersene e chiederne una copia (paragrafo 3.6).</p></div>
+  <div class="box storia"><h3><i data-ic="history" class="ic-20"></i> Nella storia</h3>
+    <p>L’idea dei pacchetti nacque negli anni Sessanta, in due posti diversi e indipendentemente. Negli Stati Uniti <b>Paul Baran</b> studiava una rete di comunicazione capace di <b>sopravvivere a un attacco nucleare</b>: senza un centro e con i messaggi spezzettati, la distruzione di alcuni nodi non l’avrebbe fermata. In Inghilterra <b>Donald Davies</b> cercava invece un modo per far condividere in modo efficiente i costosissimi collegamenti tra computer, e diede ai pezzetti il nome di <b>pacchetti</b> (<i>packets</i>). Le loro idee confluirono in <b>ARPANET</b>, l’antenata di Internet (paragrafo 4.1).</p></div>
+  <p>Oggi <b>anche la voce viaggia a pacchetti</b>: le chiamate WhatsApp, le videochiamate e ormai anche le telefonate tradizionali (il VoLTE del 4G, la telefonia fissa VoIP) sono pacchetti di dati come tutti gli altri.</p>
+  <p class="domanda">Durante una videochiamata l’immagine a volte si blocca per un attimo, cosa che con il vecchio telefono di casa non succedeva. Perché?</p>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>Ogni comunicazione ha <b>mittente, destinatario, messaggio, codice, canale e rumore</b>; mittente e destinatario devono usare <b>lo stesso codice</b>, che nelle reti si chiama <b>protocollo</b>.</li>
+      <li>La <b>banda</b> è la quantità massima di dati trasportabili in un secondo e si misura in <b>bit al secondo</b>; i file si misurano in <b>byte</b>: <b>MB/s = Mbps ÷ 8</b>. Il <b>throughput</b> è la velocità effettiva, quasi sempre più bassa della banda.</li>
+      <li>La <b>latenza</b> (ping) è il tempo che un dato impiega ad arrivare e dipende da <b>distanza, router attraversati e code</b>; il <b>jitter</b> è quanto la latenza varia. Per lo streaming conta la banda, per giochi e videochiamate la latenza.</li>
+      <li>I <b>mezzi guidati</b> (doppino, coassiale, fibra) portano il segnale in un cavo e sono <b>veloci, stabili e sicuri</b>; i <b>non guidati</b> (onde radio, microonde, infrarossi) sono <b>comodi</b> ma sensibili a distanza, ostacoli e interferenze.</li>
+      <li>Nel <b>doppino</b> l’intreccio fa annullare i disturbi; il <b>coassiale</b> si protegge con una calza metallica; la <b>fibra</b> porta <b>impulsi di luce</b> che restano dentro per <b>riflessione totale</b>, con banda enorme e senza disturbi elettromagnetici.</li>
+      <li>Più la frequenza di un’onda è <b>bassa</b>, più arriva <b>lontano</b> e attraversa gli ostacoli; più è <b>alta</b>, più <b>dati</b> trasporta. Le frequenze sono una <b>risorsa pubblica</b> divisa per legge.</li>
+      <li><b>Simplex</b>: una direzione; <b>half-duplex</b>: due direzioni a turno; <b>full-duplex</b>: due direzioni insieme.</li>
+      <li>Una comunicazione è <b>sincrona</b> se mittente e destinatario devono essere presenti insieme (telefonata), <b>asincrona</b> se il messaggio viene conservato e letto più tardi (email).</li>
+      <li>Nella <b>commutazione di circuito</b> si riserva un collegamento per tutta la conversazione (qualità garantita, spreco); nella <b>commutazione di pacchetto</b>, quella di Internet, i dati sono divisi in <b>pacchetti</b> che condividono i cavi e possono cambiare strada (efficienza e robustezza, ma tempi non garantiti).</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/capitolo-01.js"></script>
+<script src="assets/capitolo-01-aula.js"></script>
+</body>
+</html>
