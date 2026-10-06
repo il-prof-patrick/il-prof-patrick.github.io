@@ -107,16 +107,27 @@
     var M = window.MODULO || { anno: '', titolo: '', capitoli: [] };
     var cur = document.body.getAttribute('data-capitolo');
     var barra = document.createElement('header'); barra.className = 'barra';
-    barra.innerHTML = '<a class="marchio" href="index.html">Informatica <em>con il Prof. Patrick</em></a>' +
+    barra.innerHTML = '<a class="marchio" href="../index.html">' +
+      '<svg class="marchio-logo" viewBox="0 0 32 32" aria-hidden="true">' +
+      '<defs><linearGradient id="lg-logo-modulo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2dd4bf"/><stop offset=".5" stop-color="#60a5fa"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs>' +
+      '<rect width="32" height="32" rx="8" fill="url(#lg-logo-modulo)"/><path d="M9 11l5 5-5 5M16 22h7" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+      '<span class="marchio-testo"><b>Informatica</b> <span>con il Prof. Patrick</span></span></a>' +
       '<div class="strumenti">' +
       (cur ? '<button class="tasto" id="b-presenta">' + icona('presentation', 'ic-16') + '<span class="testo-tasto">Presenta in aula</span></button>' : '') +
       '<button class="tasto solo" id="b-tema" aria-label="Cambia tema"></button>' +
       '<button class="tasto solo" id="b-menu-mob" aria-label="Apri il menu" aria-expanded="false">' + icona('panel-left-open', 'ic-16') + '</button></div>';
     document.body.insertBefore(barra, document.body.firstChild);
+    var piede = document.createElement('footer'); piede.className = 'foot';
+    piede.innerHTML = '<div class="foot-wrap foot-cols">' +
+      '<div class="foot-col"><strong>Informatica con il Prof. Patrick</strong><span>Realizzato con il supporto dell\'intelligenza artificiale</span></div>' +
+      '<div class="foot-col foot-col-center"><span>© ' + new Date().getFullYear() + ' Patrick Militello</span></div>' +
+      '<div class="foot-col foot-col-right"><strong>Contatti</strong><a href="mailto:patrick.militello@iisaltierospinelli.it">patrick.militello@iisaltierospinelli.it</a></div>' +
+      '</div>';
+    document.body.appendChild(piede);
     var menu = document.getElementById('menu');
     if (menu) {
       var h = '<div class="menu-testa"><span class="menu-anno">' + M.anno + '</span><button class="tasto solo" id="b-menu" aria-label="Chiudi il menu" aria-expanded="true">' + icona('panel-left-close', 'ic-16') + '</button></div>';
-      h += '<div class="menu-gruppo">' + M.titolo + '</div>';
+      h += '<a class="menu-gruppo" href="index.html">' + M.titolo + '</a>';
       M.capitoli.forEach(function (c) {
         var n = (c.n < 10 ? '0' : '') + c.n;
         if (c.file) h += '<a class="voce" href="' + c.file + '"' + (String(c.n) === cur ? ' aria-current="page"' : '') + '><span class="n">' + n + '</span><span class="t">' + c.titolo + '</span></a>';

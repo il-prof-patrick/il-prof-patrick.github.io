@@ -5,28 +5,41 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Reti e Internet · Informatica con il Prof. Patrick</title>
 <link rel="stylesheet" href="assets/sito.css">
+<style>
+.copertina{margin:0 0 var(--space-6)}
+.copertina img{display:block;width:100%;height:clamp(300px,55vh,560px);object-fit:cover;border-radius:var(--radius-lg)}
+.testa-modulo{display:flex;align-items:center;justify-content:space-between;gap:var(--space-5);flex-wrap:wrap;margin:var(--space-3) 0 var(--space-4)}
+.testa-modulo h1{margin:0}
+.testa-modulo .tasto{flex:none;min-height:44px;padding:0 var(--space-5);font-size:15px}
+@media (max-width:480px){.testa-modulo .tasto{width:100%}}
+</style>
 </head>
 <body>
 <div class="corpo">
 <nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
 <main class="lezione" lang="it">
   <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Seconda liceo · Modulo</span></div>
-  <h1>Reti e Internet</h1>
-  <p class="obiettivo">Dai bit che viaggiano nei cavi ai servizi che usi ogni giorno: come è fatta una rete, come comunicano i computer, come funzionano Internet e il Web, come cercare bene, che cosa sono 5G, IoT e cloud e che cosa c’entra l’intelligenza artificiale.</p>
-  <div class="righe" id="righe"></div>
+  <div class="testa-modulo">
+    <h1>Reti e Internet</h1>
+    <a class="tasto primario" href="capitolo-01.html">Inizia <i data-ic="arrow-right" class="ic-16"></i></a>
+  </div>
+  <figure class="copertina">
+    <img src="../assets/immagini/modulo-reti-internet.jpg" alt="">
+  </figure>
+  <p class="obiettivo">Dai bit che viaggiano nei cavi ai servizi che usi ogni giorno: come è fatta una rete, come comunicano i computer, come funzionano Internet e il Web. Un percorso in sette capitoli che parte dalle basi della comunicazione digitale e arriva fino a temi di attualità come 5G, Internet delle cose, cloud computing e il rapporto sempre più stretto tra reti e intelligenza artificiale. Pensato per essere letto con calma, un capitolo alla volta, con esempi e schemi che accompagnano la teoria.</p>
+  <div class="prerequisiti">
+    <div class="tit"><i data-ic="target" class="ic-16"></i> Obiettivi del modulo</div>
+    <ul>
+      <li>Capire come viaggiano i dati, dalla comunicazione digitale alle reti di computer</li>
+      <li>Conoscere protocolli, indirizzi e dispositivi che fanno funzionare una rete</li>
+      <li>Capire come funzionano Internet e il Web, e come cercare bene online</li>
+      <li>Orientarsi tra 5G, Internet delle cose, cloud ed edge computing</li>
+      <li>Riconoscere il legame tra reti, Web e intelligenza artificiale</li>
+    </ul>
+  </div>
 </main>
 </div>
 <script src="assets/modulo.js"></script>
-<script>
-  (function () {
-    var r = document.getElementById('righe'), h = '';
-    MODULO.capitoli.forEach(function (c) {
-      var n = (c.n < 10 ? '0' : '') + c.n, dentro = '<span class="n">' + n + '</span><span><span class="tt">' + c.titolo + '</span><br><span class="ds">' + c.descr + '</span></span>';
-      h += c.file ? '<a class="riga" href="' + c.file + '">' + dentro + '<span class="stato-l">Apri</span></a>' : '<div class="riga">' + dentro + '<span class="stato-l">In preparazione</span></div>';
-    });
-    r.innerHTML = h;
-  })();
-</script>
 <script src="assets/sito.js"></script>
 </body>
 </html>
