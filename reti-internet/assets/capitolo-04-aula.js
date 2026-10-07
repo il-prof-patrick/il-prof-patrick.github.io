@@ -966,6 +966,11 @@ window.AULA = {
    "nota": "Separare i compiti: cambi la grafica di tutto il sito **senza toccare i contenuti**"
   },
   {
+   "tipo": "widget",
+   "titolo": "Prova tu: e se spegnessi un linguaggio?",
+   "w": "linguaggi"
+  },
+  {
    "tipo": "errore",
    "no": "«Programmo in HTML.»",
    "si": "L’HTML **descrive** il contenuto ma non contiene istruzioni da eseguire: è un linguaggio di **marcatura**. La parte di “programmazione” di una pagina è in **JavaScript** e nel codice che gira sul server."

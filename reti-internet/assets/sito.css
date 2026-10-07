@@ -234,6 +234,20 @@ svg text{pointer-events:none}
 .wid-campo{display:inline-flex;align-items:center;gap:var(--space-2);font-size:13px;color:var(--ink-muted);font-weight:600}
 .wid-campo input{font-family:var(--font-mono);font-size:16px;width:4.5em;padding:4px 8px;border:var(--sp1) solid var(--border-strong);border-radius:var(--radius-sm);background:var(--surface-000);color:var(--ink)}
 .wid-dati{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--space-3)}
+/* widget «linguaggi»: mini sito in un finto browser, con i tre interruttori accanto */
+.wid-ling{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:var(--space-4);align-items:start}
+.wid-ling .quadro{border:var(--sp1) solid var(--border-strong);border-radius:var(--radius-md);overflow:hidden;background:#fff}
+.wid-ling .barra{display:flex;align-items:center;gap:6px;padding:6px 10px;background:var(--surface-200);border-bottom:var(--sp1) solid var(--border)}
+.wid-ling .barra i{width:9px;height:9px;border-radius:50%;background:var(--border-strong)}
+.wid-ling .indirizzo{flex:1;margin-left:6px;padding:2px 10px;font:12px/18px var(--font-mono);color:var(--ink-muted);background:var(--surface-000);border:var(--sp1) solid var(--border);border-radius:999px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wid-ling iframe{display:block;width:100%;height:400px;border:0;background:#fff}
+.wid-ling-tasti{display:grid;gap:var(--space-2)}
+.wid-ling-tasti .tasto{display:grid;justify-content:stretch;justify-items:start;align-content:center;gap:0;min-height:56px;padding:var(--space-2) var(--space-4);border-radius:var(--radius-lg);text-align:left}
+.wid-ling-tasti .tasto b{font-size:16px;line-height:22px;color:inherit}
+.wid-ling-tasti .tasto span{font-size:12px;line-height:16px;font-weight:500;opacity:.85}
+.wid-ling-tasti .tasto[aria-pressed="false"]{border-style:dashed;color:var(--ink-muted)}
+.tipo-widget .wid-ling iframe{height:330px}
+@media (max-width:760px){.wid-ling{grid-template-columns:1fr}.wid-ling-tasti{grid-template-columns:repeat(3,1fr)}.wid-ling-tasti .tasto{padding:var(--space-2) var(--space-3)}}
 .dato{background:var(--surface-200);border:var(--sp1) solid var(--border);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);display:grid;gap:2px}
 .dato .k{color:var(--ink-soft);font-size:12px;line-height:16px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
 .dato .v{font-family:var(--font-mono);font-size:20px;line-height:28px;font-weight:600}

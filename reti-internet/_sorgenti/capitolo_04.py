@@ -43,7 +43,7 @@ FOTO = {
     'F5.7.1': dict(modo='box', tit='Mosaic, 1993'),
     'F5.8.2': dict(modo='grande'),
 }
-DOPO = {('4.9', 5): widget('url')}
+DOPO = {('4.9', 5): widget('url'), ('4.11', 1): widget('linguaggi')}
 
 if __name__ == '__main__':
     OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(QUI, '..')

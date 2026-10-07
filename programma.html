@@ -108,16 +108,21 @@ h1{display:flex;flex-direction:column;gap:6px}
 .selettore select:hover{border-color:var(--ink-3)}
 
 /* elenco moduli */
-.sec{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:12px 0 20px}
-.moduli-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.sec{flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px 0}
+.moduli-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:1080px){.moduli-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:800px){.moduli-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.moduli-grid{grid-template-columns:1fr}}
 .card{position:relative;isolation:isolate;display:flex;flex-direction:column;gap:12px;padding:16px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);text-decoration:none;color:inherit;transition:transform .35s var(--ease),box-shadow .35s,border-color .3s}
 a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-card);border-color:var(--line-2)}
 .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
 .card h3{font-size:17.5px;line-height:1.3;letter-spacing:-.015em;font-weight:600}
 .card p{color:var(--ink-2);font-size:14px;line-height:1.55}
-.card-img{aspect-ratio:3/4;height:170px;border-radius:var(--r-md);background-image:var(--img,none),linear-gradient(165deg,color-mix(in srgb,var(--a,var(--c2)) 35%,var(--surface)),color-mix(in srgb,var(--a,var(--c2)) 70%,#000 20%));background-size:cover;background-position:center}
+.card-img{position:relative;aspect-ratio:3/4;height:170px;border-radius:var(--r-md);background-image:var(--img,none),linear-gradient(165deg,color-mix(in srgb,var(--a,var(--c2)) 35%,var(--surface)),color-mix(in srgb,var(--a,var(--c2)) 70%,#000 20%));background-size:cover;background-position:center}
 .badge{padding:3px 9px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c1) 35%,transparent);background:color-mix(in srgb,var(--c1) 12%,transparent);color:var(--c1);font:500 11.5px var(--mono);white-space:nowrap}
 .badge.futuro{border-color:var(--line-2);background:var(--surface-2);color:var(--ink-3)}
+.card-img .badge{position:absolute;bottom:10px;right:10px;background:var(--surface);box-shadow:0 2px 8px -2px rgba(0,0,0,.35)}
+.card-img .badge.futuro{background:var(--surface)}
 .vuoto{padding:48px 24px;text-align:center;border:1px dashed var(--line-2);border-radius:var(--r-lg);color:var(--ink-2)}
 
 /* piè di pagina */
@@ -266,11 +271,10 @@ a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-card);border-col
           const tag = disp ? 'a' : 'div';
           return `
         <${tag} class="card"${disp ? ` href="${m.link}"` : ''} style="--a:var(${info.accent})" data-reveal>
-          <div class="card-top">
-            <h3>${m.titolo}</h3>
+          <h3>${m.titolo}</h3>
+          <div class="card-img"${m.immagine ? ` style="--img:url('${m.immagine}')"` : ''}>
             <span class="badge${disp ? '' : ' futuro'}">${disp ? 'Disponibile' : 'In arrivo'}</span>
           </div>
-          <div class="card-img"${m.immagine ? ` style="--img:url('${m.immagine}')"` : ''}></div>
           <p>${m.descr}</p>
         </${tag}>`;
         }).join('')

@@ -18,7 +18,57 @@ window.MODULI = {
   'scienze-applicate-4': [],
   'scienze-applicate-5': [],
 
-  'curvatura-ai-1': [],
+  'curvatura-ai-1': [
+    {
+      titolo: 'Introduzione a informatica e AI',
+      descr: 'Che cos\'è l\'informatica, come "ragionano" i computer e che cosa significa davvero intelligenza artificiale: i concetti di base per tutto l\'anno.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-introduzione-informatica-ai.jpg'
+    },
+    {
+      titolo: 'Algoritmi con Flowgorithm',
+      descr: 'Pensare per passi: descrivere un problema con un algoritmo, disegnarlo come diagramma di flusso con Flowgorithm ed eseguirlo istruzione per istruzione.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-algoritmi-flowgorithm.jpg'
+    },
+    {
+      titolo: 'Architettura di Von Neumann',
+      descr: 'Dentro il computer: CPU, memoria e dispositivi di input e output, e come lavorano insieme per eseguire un programma.',
+      link: 'von-neumann/',
+      stato: 'disponibile',
+      immagine: 'assets/immagini/modulo-von-neumann.jpg'
+    },
+    {
+      titolo: 'Codifica dei dati',
+      descr: 'Come un computer rappresenta numeri, testi, immagini e suoni usando solo 0 e 1: sistema binario e codifiche.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-codifica-dati.jpg'
+    },
+    {
+      titolo: 'Documenti',
+      descr: 'Scrivere documenti ben fatti: struttura, stili e impaginazione per testi chiari, ordinati e professionali.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-documenti.jpg'
+    },
+    {
+      titolo: 'Presentazioni',
+      descr: 'Costruire presentazioni efficaci: scaletta, immagini e slide leggibili per comunicare bene un\'idea.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-presentazioni.jpg'
+    },
+    {
+      titolo: 'Prompt Engineering',
+      descr: 'Come dare istruzioni chiare a un\'intelligenza artificiale: scrivere prompt efficaci e valutare criticamente le risposte.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-prompt-engineering.jpg'
+    }
+  ],
   'curvatura-ai-2': [
     {
       titolo: 'Reti e Internet',
@@ -56,7 +106,29 @@ window.MODULI = {
       immagine: 'assets/immagini/modulo-python-basi.jpg'
     }
   ],
-  'curvatura-ai-3': [],
+  'curvatura-ai-3': [
+    {
+      titolo: 'Python - Avanzato',
+      descr: 'Oltre le basi: strutture dati, funzioni, file e gestione degli errori per scrivere programmi più completi e ben organizzati.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-python-avanzato.jpg'
+    },
+    {
+      titolo: 'Linguaggi e computazione',
+      descr: 'Come si descrive un calcolo: linguaggi formali, grammatiche e automi, fino a capire che cosa significa davvero "calcolabile" per un computer.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-linguaggi-computazione.jpg'
+    },
+    {
+      titolo: 'Machine Learning',
+      descr: 'Come le macchine imparano dai dati: addestramento, modelli e previsioni, con esempi pratici e uno sguardo critico a limiti e rischi.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-machine-learning.jpg'
+    }
+  ],
   'curvatura-ai-4': [],
   'curvatura-ai-5': []
 };

@@ -96,6 +96,7 @@ S = [
  c.SEZ('4.11', 'Tre linguaggi, tre compiti'),
  {'tipo': 'tessere', 'titolo': 'Una pagina web come una casa', 'tessere': [['file-code', 'HTML', '**struttura e contenuto** · i muri e le stanze'], ['palette', 'CSS', '**aspetto** · arredamento e pittura'], ['zap', 'JavaScript', '**comportamento** · impianto elettrico e domotica']],
   'nota': 'Separare i compiti: cambi la grafica di tutto il sito **senza toccare i contenuti**'},
+ c.WG('linguaggi', 'Prova tu: e se spegnessi un linguaggio?'),
  c.ERR(7),
  {'tipo': 'confronto', 'titolo': 'Pagine statiche e dinamiche', 'a': {'icona': 'file', 'titolo': 'Statica', 'righe': ['• **file già pronto** sul server', '• uguale per tutti', '• “chi siamo”, un sito didattico']},
   'b': {'icona': 'refresh-cw', 'titolo': 'Dinamica', 'tono': 'buono', 'righe': ['• **costruita al momento** dal server', '• spesso da un **database**', '• feed dei social, registro elettronico, carrello']}},
