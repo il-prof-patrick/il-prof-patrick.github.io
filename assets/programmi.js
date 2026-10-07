@@ -1,4 +1,4 @@
-/* Indirizzi e moduli per anno. Per aggiungere un modulo, aggiungilo all'array giusto in MODULI. */
+﻿/* Indirizzi e moduli per anno. Per aggiungere un modulo, aggiungilo all'array giusto in MODULI. */
 window.INDIRIZZI = {
   'itis': { nome: 'ITIS', accent: '--a-prog' },
   'scienze-applicate': { nome: 'Liceo Scientifico Scienze Applicate', accent: '--a-dati' },
@@ -23,7 +23,7 @@ window.MODULI = {
     {
       titolo: 'Reti e Internet',
       descr: '7 capitoli per capire come viaggiano i dati: dalla comunicazione digitale alle reti, da Internet al Web, fino a 5G, IoT, cloud e intelligenza artificiale.',
-      link: 'reti-e-internet/index.html',
+      link: 'reti-internet/index.html',
       stato: 'disponibile',
       immagine: 'assets/immagini/modulo-reti-internet.jpg'
     },
