@@ -15,8 +15,31 @@ window.MODULI = {
   'scienze-applicate-1': [],
   'scienze-applicate-2': [],
   'scienze-applicate-3': [],
-  'scienze-applicate-4': [],
-  'scienze-applicate-5': [],
+  'scienze-applicate-4': [
+    {
+      titolo: 'Database',
+      descr: 'Organizzare i dati in modo stabile: database relazionali, tabelle, chiavi e interrogazioni con il linguaggio SQL.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-database.jpg'
+    }
+  ],
+  'scienze-applicate-5': [
+    {
+      titolo: 'Sviluppo Web - Front end',
+      descr: 'La parte di un sito che si vede e si usa: struttura, stile e interattività di un sito con HTML, CSS e JavaScript.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-web-frontend.png'
+    },
+    {
+      titolo: 'Sviluppo Web - Back end',
+      descr: 'Ciò che sta dietro le quinte: server, logica applicativa e database per far funzionare un sito web.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-web-backend.png'
+    }
+  ],
 
   'curvatura-ai-1': [
     {
@@ -129,6 +152,29 @@ window.MODULI = {
       immagine: 'assets/immagini/modulo-machine-learning.jpg'
     }
   ],
-  'curvatura-ai-4': [],
-  'curvatura-ai-5': []
+  'curvatura-ai-4': [
+    {
+      titolo: 'Database',
+      descr: 'Organizzare i dati in modo stabile: database relazionali, tabelle, chiavi e interrogazioni con il linguaggio SQL.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-database.jpg'
+    }
+  ],
+  'curvatura-ai-5': [
+    {
+      titolo: 'Sviluppo Web - Front end',
+      descr: 'La parte di un sito che si vede e si usa: struttura, stile e interattività di un sito con HTML, CSS e JavaScript.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-web-frontend.png'
+    },
+    {
+      titolo: 'Sviluppo Web - Back end',
+      descr: 'Ciò che sta dietro le quinte: server, logica applicativa e database per far funzionare un sito web.',
+      link: '#',
+      stato: 'in arrivo',
+      immagine: 'assets/immagini/modulo-web-backend.png'
+    }
+  ]
 };
