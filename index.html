@@ -394,14 +394,12 @@ h2{margin-top:16px;font-size:clamp(32px,4.4vw,54px);line-height:1.06;letter-spac
 .novita-vis{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--line)}
 .novita-vis img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
 .novita-card:hover .novita-vis img{transform:scale(1.04)}
-.novita-tag{position:absolute;left:12px;top:12px;z-index:1;display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 11px 0 9px;border-radius:999px;background:#d6001c;color:#fff;font:600 12px/1 var(--font);letter-spacing:.01em;box-shadow:0 4px 12px -4px rgba(0,0,0,.5)}
-.novita-tag .i{width:12px;height:12px;fill:currentColor}
+.novita-tag{position:absolute;right:12px;bottom:12px;z-index:1;display:inline-flex;align-items:center;height:26px;padding:0 11px;border-radius:999px;background:#d6001c;color:#fff;font:600 12px/1 var(--font);letter-spacing:.01em;box-shadow:0 4px 12px -4px rgba(0,0,0,.5)}
+.novita-tag[data-p="tiktok"]{background:#000}
 .novita-tag[hidden]{display:none}
-.novita-play{position:absolute;right:14px;bottom:14px;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:rgba(7,10,18,.72);color:#fff;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.novita-play .i{width:18px;height:18px}
 .novita-testo{padding:18px 20px 22px}
 .novita-card time{display:block;font:500 12.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
-.novita-card h3{font-size:18px;font-weight:600;line-height:1.3;letter-spacing:-.015em}
+.novita-card h3{font-size:18px;font-weight:600;line-height:1.3;letter-spacing:-.015em;text-align:justify;-webkit-hyphens:auto;hyphens:auto}
 @media (max-width:860px){.novita-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.novita-grid{grid-template-columns:1fr}}
 /* finestra con la notizia completa */
@@ -412,11 +410,12 @@ body:has(.notizia-dlg[open]){overflow:hidden}
 .notizia-x{position:absolute;top:12px;right:12px;display:grid;place-items:center;width:40px;height:40px;border:0;border-radius:50%;cursor:pointer;color:#fff;background:rgba(7,10,18,.72)}
 .notizia-x:hover{background:rgba(7,10,18,.9)}
 .notizia-x .i{width:18px;height:18px}
-.notizia-in .novita-tag{left:16px;top:16px}
+.notizia-vis{position:relative}
+.notizia-in .novita-tag{right:16px;bottom:16px}
 .notizia-img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--line)}
 .notizia-corpo{padding:22px 26px 26px}
 .notizia-corpo time{display:block;font:500 12.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
-.notizia-corpo h3{font-size:clamp(20px,3.4vw,26px);font-weight:600;line-height:1.25;letter-spacing:-.02em;margin-bottom:14px}
+.notizia-corpo h3{font-size:clamp(20px,3.4vw,26px);font-weight:600;line-height:1.25;letter-spacing:-.02em;margin-bottom:14px;text-align:justify;-webkit-hyphens:auto;hyphens:auto}
 .notizia-corpo p{color:var(--ink-2);font-size:16px;line-height:1.65;margin-bottom:12px;text-align:justify;-webkit-hyphens:auto;hyphens:auto}
 .notizia-corpo .notizia-da{font:500 13px var(--mono);letter-spacing:.02em;color:var(--ink-3);margin:18px 0}
 
@@ -729,8 +728,10 @@ body:has(.notizia-dlg[open]){overflow:hidden}
   <dialog class="notizia-dlg" id="notizia-dlg" aria-labelledby="notizia-titolo">
     <div class="notizia-in">
       <button class="notizia-x" id="notizia-x" type="button" aria-label="Chiudi"><svg class="i"><use href="#i-x"/></svg></button>
-      <span class="novita-tag" id="notizia-tag"><svg class="i" aria-hidden="true"><use href="#i-play"/></svg><span id="notizia-piattaforma"></span></span>
-      <img class="notizia-img" id="notizia-img" alt="" referrerpolicy="no-referrer">
+      <div class="notizia-vis">
+        <img class="notizia-img" id="notizia-img" alt="" referrerpolicy="no-referrer">
+        <span class="novita-tag" id="notizia-tag"></span>
+      </div>
       <div class="notizia-corpo">
         <time id="notizia-data"></time>
         <h3 id="notizia-titolo"></h3>
@@ -1042,14 +1043,14 @@ body:has(.notizia-dlg[open]){overflow:hidden}
     const lista = NOTIZIE.slice(0, 6), dlg = $('#notizia-dlg');
     el.innerHTML = lista.map((n, i) => `
       <button class="novita-card" type="button" data-i="${i}" aria-haspopup="dialog">
-        <span class="novita-vis"><img src="${n.immagine}" alt="" loading="lazy" referrerpolicy="no-referrer">${n.piattaforma ? `<span class="novita-tag"><svg class="i" aria-hidden="true"><use href="#i-play"/></svg>${n.piattaforma}</span>` : ''}<span class="novita-play" aria-hidden="true"><svg class="i"><use href="#i-play"/></svg></span></span>
+        <span class="novita-vis"><img src="${n.immagine}" alt="" loading="lazy" referrerpolicy="no-referrer">${n.piattaforma ? `<span class="novita-tag" data-p="${n.piattaforma.toLowerCase()}">${n.piattaforma}</span>` : ''}</span>
         <span class="novita-testo"><time datetime="${n.data}">${n.dataVisibile}</time><h3>${n.titolo}</h3></span>
       </button>`).join('');
     el.addEventListener('click', e => {
       const b = e.target.closest('.novita-card'); if (!b || !dlg) return;
       const n = lista[+b.dataset.i];
       $('#notizia-img').src = n.immagine;
-      $('#notizia-tag').hidden = !n.piattaforma; $('#notizia-piattaforma').textContent = n.piattaforma || '';
+      const tag = $('#notizia-tag'); tag.hidden = !n.piattaforma; tag.textContent = n.piattaforma || ''; tag.dataset.p = (n.piattaforma || '').toLowerCase();
       $('#notizia-data').textContent = n.dataVisibile; $('#notizia-data').setAttribute('datetime', n.data);
       $('#notizia-titolo').textContent = n.titolo;
       $('#notizia-testo').replaceChildren(...n.testo.map(t => { const p = document.createElement('p'); p.textContent = t; return p; }));

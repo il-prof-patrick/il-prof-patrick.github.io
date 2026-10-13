@@ -2,6 +2,20 @@
    Campi: data (AAAA-MM-GG), dataVisibile, titolo, piattaforma (targhetta sull'immagine, es. YouTube), immagine, testo (elenco di paragrafi), fonte (link), etichettaFonte, consigliata. */
 var NOTIZIE = [
   {
+    data: "2026-10-10",
+    dataVisibile: "10 ottobre 2026",
+    titolo: "Il Pentagono vuole trasmettere in diretta streaming una fucilazione: la prima esecuzione pubblica negli USA dopo 90 anni",
+    piattaforma: "TikTok",
+    immagine: "https://people.com/thmb/oBj3vZ1BKUxdPUm6M_mtKXpt-eE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(593x286:595x288)/donald-trump-nidal-hasan-101026-d4be67fdbc774024a4c947140c4e0adb.jpg",
+    testo: [
+      "Il segretario alla Difesa Pete Hegseth ha annunciato l’8 ottobre che Nidal Hasan, condannato per aver ucciso 13 persone nella strage del 2009, sarà giustiziato a dicembre e che l’esecuzione sarà trasmessa in streaming. La data fissata è il 3 dicembre 2026, alle 13, a Fort Hood.",
+      "Sarebbe la prima fucilazione dell’esercito americano dalla Seconda guerra mondiale. L’annuncio ha raccolto critiche bipartisan, e Trump ha detto che deciderà lui se trasmetterla in diretta.",
+      "Il caso riapre un dibattito che sembrava chiuso: lo Stato può fare dell’esecuzione uno spettacolo pubblico? Lo racconta Francesco Oggiano in un video su TikTok."
+    ],
+    fonte: "https://www.tiktok.com/@fraoggiano/video/7694617677062589728",
+    etichettaFonte: "Guarda il video su TikTok"
+  },
+  {
     data: "2026-10-07",
     dataVisibile: "7 ottobre 2026",
     titolo: "Settecento agenti IA fuori controllo: come l’IA potrebbe davvero farci del male",

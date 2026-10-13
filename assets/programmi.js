@@ -27,9 +27,9 @@ window.MODULI = {
   'scienze-applicate-5': [
     {
       titolo: 'Sviluppo Web - Front end',
-      descr: 'La parte di un sito che si vede e si usa: struttura, stile e interattività di un sito con HTML, CSS e JavaScript.',
-      link: '#',
-      stato: 'in arrivo',
+      descr: 'Dalla richiesta del browser alla pagina sullo schermo: come funziona il Web e come si costruisce la parte di un sito che si vede e si usa, con HTML, CSS e JavaScript.',
+      link: 'sviluppo-web-frontend/index.html',
+      stato: 'disponibile',
       immagine: 'assets/immagini/modulo-web-frontend.png'
     },
     {
@@ -43,11 +43,11 @@ window.MODULI = {
 
   'curvatura-ai-1': [
     {
-      titolo: 'Introduzione a informatica e AI',
-      descr: 'Che cos\'è l\'informatica, come "ragionano" i computer e che cosa significa davvero intelligenza artificiale: i concetti di base per tutto l\'anno.',
-      link: '#',
-      stato: 'in arrivo',
-      immagine: 'assets/immagini/modulo-introduzione-informatica-ai.jpg'
+      titolo: 'Introduzione all’intelligenza artificiale',
+      descr: 'Lessico e basi dell’IA: intelligenza, algoritmi, compiti, machine learning, deep learning, generazione, applicazioni e storia.',
+      link: 'introduzione-ia/index.html',
+      stato: 'disponibile',
+      immagine: 'introduzione-ia/assets/img/07-ia-nella-vita-quotidiana.webp'
     },
     {
       titolo: 'Algoritmi con Flowgorithm',
@@ -164,9 +164,9 @@ window.MODULI = {
   'curvatura-ai-5': [
     {
       titolo: 'Sviluppo Web - Front end',
-      descr: 'La parte di un sito che si vede e si usa: struttura, stile e interattività di un sito con HTML, CSS e JavaScript.',
-      link: '#',
-      stato: 'in arrivo',
+      descr: 'Dalla richiesta del browser alla pagina sullo schermo: come funziona il Web e come si costruisce la parte di un sito che si vede e si usa, con HTML, CSS e JavaScript.',
+      link: 'sviluppo-web-frontend/index.html',
+      stato: 'disponibile',
       immagine: 'assets/immagini/modulo-web-frontend.png'
     },
     {
