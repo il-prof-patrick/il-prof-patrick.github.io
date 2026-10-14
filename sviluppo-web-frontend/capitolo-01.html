@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1. Come funziona il Web · Sviluppo Web - Front end</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="1">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Sviluppo Web - Front end · Capitolo 01</span></div>
+  <h1>Come funziona il Web</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 1.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">1.1</span>Internet e Web</h2>
+  <p class="domanda">Internet e Web sono la stessa cosa? Fate un esempio di qualcosa che usa Internet ma non è il Web.</p>
+  <p><span class="termine">Internet</span> è <b>la rete mondiale che collega fra loro miliardi di dispositivi</b> (computer, telefoni, server, router) e permette di scambiare dati usando regole comuni, i protocolli della famiglia <b>TCP/IP</b>. Internet è l’infrastruttura: cavi, fibre, antenne, router e le regole per far viaggiare i pacchetti di dati.</p>
+  <p>Il <span class="termine">Web</span> (<i>World Wide Web</i>, “ragnatela grande quanto il mondo”) è invece <b>un servizio che funziona sopra Internet: un insieme enorme di documenti, le pagine web, collegati fra loro da link</b>. Ogni pagina ha un indirizzo, si chiede con il protocollo <b>HTTP</b> e si legge con un programma chiamato <b>browser</b>.</p>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p><b>Analogia.</b> Internet è la rete delle strade; il Web è uno dei servizi che usano quelle strade, come i corrieri che consegnano pacchi. Sulle stesse strade viaggiano anche autobus, ambulanze e taxi, cioè altri servizi (e-mail, chat, giochi online, videochiamate). L’analogia ha un limite: su Internet i servizi non hanno “mezzi” diversi, ma usano tutti gli stessi pacchetti di dati con protocolli diversi.</p></div>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Internet</th><th>Web</th></tr></thead>
+    <tbody>
+      <tr><td>Che cos’è</td><td>La rete fisica e logica che collega i dispositivi</td><td>Un servizio: pagine collegate da link</td></tr>
+      <tr><td>Nasce</td><td>1969 (ARPANET), TCP/IP dal 1983</td><td>1989–1991 (Tim Berners-Lee, CERN)</td></tr>
+      <tr><td>Regole principali</td><td>TCP/IP</td><td>HTTP/HTTPS, URL, HTML</td></tr>
+      <tr><td>Programma per usarlo</td><td>Dipende dal servizio (app di chat, client di posta…)</td><td>Il browser</td></tr>
+    </tbody></table></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Se non funziona Google, non funziona Internet.»</p>
+    <p class="err-si">Google è <b>un sito</b>, cioè un servizio del Web ospitato su certi server. Se quei server hanno un problema, <b>Internet continua a funzionare</b>: WhatsApp, la posta e gli altri siti funzionano lo stesso. Se invece manca la connessione, non funziona nessun servizio.</p></div>
+  <h3>Client e server</h3>
+  <p>Sul Web le macchine hanno due ruoli. Il <b>client</b> è <b>il programma che chiede una risorsa</b> (una pagina, un’immagine, un video): nel Web il client è il <b>browser</b>, come Chrome, Edge, Firefox o Safari. Il <b>server</b> è <b>il programma che resta in attesa delle richieste e risponde inviando la risorsa</b>: nel Web si chiama <b>web server</b> (i più diffusi sono Nginx e Apache).</p>
+  <figure class="foto-margine"><a class="fonte" href="https://sysracks.com/blog/how-are-data-centers-cooled/" target="_blank" rel="noopener"><img src="https://office.sysracks.com/storage/kgbsr4DUTuJzCkNw8eXpMZsSyD8pSxpc0kmjFxhh.jpg" alt="Corridoio di un data center con gli armadi pieni di server" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un data center</figcaption></figure>
+  <p>Si parla di <b>modello client-server</b>: <b>il client prende l’iniziativa e chiede, il server risponde</b>. Il server non manda pagine di sua spontanea volontà: se nessuno chiede, non succede niente. Con “server” si indica spesso anche il computer su cui gira il programma server: di solito è una macchina in un <b>data center</b>, accesa giorno e notte e collegata a Internet con linee molto veloci.</p>
+  <p><b>Ruolo e macchina sono cose diverse.</b> Lo stesso computer può fare sia da client sia da server: in laboratorio, con l’estensione Live Server di VS Code, il computer dello studente fa partire un piccolo web server e il suo stesso browser gli fa da client.</p>
+  <figure>
+    <div class="tela schema" id="s-clientserver"><p class="passi-titolo">Il modello client-server</p>
+      <svg viewBox="0 0 720 300" role="img" aria-label="Tre client (un portatile, un telefono e un tablet, ciascuno con un browser) inviano richieste attraverso Internet a un web server in un data center, che risponde"></svg>
+    </div>
+  </figure>
+  <div class="box storia"><figure class="foto-lato testa dx"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Sir_Tim_Berners-Lee_%28cropped%29.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Sir_Tim_Berners-Lee_%28cropped%29.jpg" alt="Tim Berners-Lee, inventore del Web" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Tim Berners-Lee</figcaption></figure><h3><i data-ic="history" class="ic-20"></i> Nella storia</h3>
+    <p>Il Web nasce al <b>CERN</b> di Ginevra, il laboratorio europeo di fisica delle particelle. Nel <b>marzo 1989</b> il fisico e informatico inglese <b>Tim Berners-Lee</b> propose un sistema per condividere documenti fra i ricercatori, collegandoli con link (<b>ipertesto</b>). Il suo responsabile, Mike Sendall, scrisse sulla proposta «<i>Vague but exciting</i>», vago ma entusiasmante. Alla fine del <b>1990</b> funzionavano già il primo browser, il primo web server e il primo sito, <b>info.cern.ch (https://info.cern.ch/)</b>; nell’<b>agosto 1991</b> il Web fu annunciato pubblicamente. Il <b>30 aprile 1993</b> il CERN rese il Web di pubblico dominio, gratis e senza brevetti: per questo si è diffuso in tutto il mondo.</p></div>
+  <figure class="foto-grande"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:First_Web_Server.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/First_Web_Server.jpg" alt="Il computer NeXT usato da Tim Berners-Lee come primo web server, con l’etichetta «Questa macchina è un server. NON SPEGNERLA!!»" referrerpolicy="no-referrer"></a><figcaption>Il computer NeXT usato da Berners-Lee al CERN come primo web server della storia, oggi in un museo. Osservare l’etichetta incollata sopra: «Questa macchina è un server. NON SPEGNERLA!!».</figcaption></figure>
+  <figure class="foto-grande"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:The_first_website%2C_info.cern.ch%2C_in_2025.PNG" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/The_first_website%2C_info.cern.ch%2C_in_2025.PNG" alt="La prima pagina web della storia su info.cern.ch: solo titoli, testo e link sottolineati" referrerpolicy="no-referrer"></a><figcaption>La prima pagina web della storia, ricostruita dal CERN su info.cern.ch e ancora online. Osservare che ci sono solo titoli, testo e link sottolineati.</figcaption></figure>
+
+  <!-- ===================== 1.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">1.2</span>Come il browser mostra la pagina</h2>
+  <p class="domanda">Quando aprite una pagina, secondo voi il browser riceve dal server un’“immagine” della pagina già pronta?</p>
+  <p>Il server <b>non manda una “fotografia” della pagina</b>, ma <b>file di testo con istruzioni</b>, più i file delle immagini, dei video e dei caratteri. <b>È il browser a costruire e disegnare la pagina sullo schermo</b>, seguendo quelle istruzioni. Per questo la stessa pagina può apparire diversa su uno schermo grande e su uno piccolo, o su due browser diversi.</p>
+  <h3>I passi principali</h3>
+  <ol>
+    <li><b>Il browser riceve il file HTML</b> e lo legge dall’alto in basso, riga per riga: scopre quali elementi ci sono (titoli, paragrafi, immagini, link) e come sono annidati uno dentro l’altro.</li>
+    <li><span class="termine">Mentre legge, trova i riferimenti ad altri file</span> (fogli di stile CSS, immagini, script JavaScript, caratteri) e <b>li chiede al server, uno per uno</b>: ogni file è una richiesta separata.</li>
+    <li><b>Applica gli stili</b>: per ogni elemento calcola colore, dimensione, carattere, margini e posizione, combinando le regole CSS.</li>
+    <li><span class="termine">Calcola l’impaginazione</span> (<i>layout</i>): dove va ogni elemento e quanto spazio occupa, in base alla larghezza della finestra.</li>
+    <li><span class="termine">Disegna i pixel sullo schermo</span> (<i>rendering</i>, in inglese anche <i>paint</i>).</li>
+    <li><span class="termine">Esegue gli script JavaScript</span>, che possono cambiare la pagina anche dopo che è stata disegnata (per esempio quando l’utente clicca un pulsante): a ogni modifica il browser ricalcola e ridisegna la parte interessata.</li>
+  </ol>
+  <figure>
+    <div class="tela passi-anim" id="f-costruzione" data-titolo="Come il browser costruisce la pagina" data-inizio="A sinistra la finestra del browser, ancora vuota, con l’indirizzo scuola.it; a destra il server; sotto il browser la cartella dei file ricevuti, vuota.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Il browser chiede il file HTML, poi i file collegati uno dopo l’altro: arrivano il CSS e la pagina si colora, arriva il logo, arriva lo script e il pulsante cambia il tema senza nuove richieste"></svg>
+      <ol class="passi-testo">
+        <li>Il browser chiede “<code>index.html</code>”: un foglio con il simbolo <code>&lt; &gt;</code> viaggia sul filo verso il browser ed entra nella cartella dei file ricevuti.</li>
+        <li>Il browser legge il file e trova “<code>style.css</code>”, “<code>logo.png</code>” e “<code>script.js</code>”: tre nuove richieste partono verso il server.</li>
+        <li>Arriva il CSS: nella finestra compaiono titoli e paragrafi già colorati e impaginati, ma al posto del logo c’è uno spazio vuoto.</li>
+        <li>Arriva il logo: l’immagine riempie lo spazio vuoto.</li>
+        <li>Arriva lo script: l’utente clicca il pulsante “Tema scuro” e la pagina si ridisegna con lo sfondo scuro, senza nuove richieste al server.</li>
+      </ol>
+    </div>
+  </figure>
+  <p><b>Un’unica pagina comporta molte richieste</b>: una pagina di un sito di notizie può richiedere più di cento file. Per questo il <b>peso</b> dei file, soprattutto delle immagini, influisce tanto sulla velocità con cui la pagina compare.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il mio sito è uguale su tutti i computer, perché l’ho visto sul mio.»</p>
+    <p class="err-si">Ogni browser <b>disegna la pagina da solo</b>, con la larghezza della sua finestra, i caratteri installati e le sue regole predefinite. Una pagina va <b>provata su più browser e più larghezze di schermo</b>, a partire dal telefono.</p></div>
+  <h3>I browser e i loro motori</h3>
+  <p>Il cuore di un browser è il <b>motore di rendering</b>, il programma che legge HTML e CSS e disegna la pagina, affiancato dal <b>motore JavaScript</b>, che esegue gli script. Oggi i motori di rendering sono soltanto tre: <b>Blink</b> (Chrome, Edge, Opera, Brave), <b>Gecko</b> (Firefox) e <b>WebKit</b> (Safari, e quasi tutti i browser su iPhone e iPad). Browser diversi con lo stesso motore disegnano le pagine quasi allo stesso modo.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Browser</th><th>Motore di rendering</th><th>Motore JavaScript</th><th>Azienda</th></tr></thead>
+    <tbody>
+      <tr><td>Chrome, Edge, Opera, Brave</td><td>Blink</td><td>V8</td><td>Google (Edge: Microsoft)</td></tr>
+      <tr><td>Firefox</td><td>Gecko</td><td>SpiderMonkey</td><td>Mozilla</td></tr>
+      <tr><td>Safari</td><td>WebKit</td><td>JavaScriptCore</td><td>Apple</td></tr>
+    </tbody></table></div>
+  <p>Quote di utilizzo indicative (2025–2026): Chrome circa due terzi della navigazione mondiale, Safari intorno al 15–20%, Edge e Firefox sotto il 10%. Oltre metà del traffico web proviene da <b>telefoni</b>: per questo si progetta prima per lo schermo piccolo (3.15).</p>
+
+  <!-- ===================== 1.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">1.3</span>I tre linguaggi del front-end</h2>
+  <p>Una pagina web moderna è scritta con <b>tre linguaggi, ciascuno con un compito preciso</b>. Separare i compiti rende il codice più ordinato: si può cambiare l’aspetto di tutto un sito senza toccare i contenuti, o aggiungere un comportamento senza riscrivere la pagina.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Linguaggio</th><th>Compito</th><th>Risponde alla domanda</th><th>Esempio</th></tr></thead>
+    <tbody>
+      <tr><td><b>HTML</b></td><td>Struttura e contenuto</td><td>Che cosa c’è nella pagina?</td><td>«Questo è un titolo, questo un paragrafo, questa un’immagine»</td></tr>
+      <tr><td><b>CSS</b></td><td>Presentazione</td><td>Come appare?</td><td>«Il titolo è blu, grande 32 pixel, centrato»</td></tr>
+      <tr><td><b>JavaScript</b></td><td>Comportamento</td><td>Che cosa fa quando…?</td><td>«Quando clicchi il pulsante, mostra il menu»</td></tr>
+    </tbody></table></div>
+  <p><span class="termine">HTML</span>, <i>HyperText Markup Language</i>, è un <b>linguaggio di markup</b> (di “marcatura”): <b>non dà ordini al computer, ma etichetta le parti di un testo</b> dicendo che cosa sono. Scrivere <code>&lt;h1&gt;Ricette&lt;/h1&gt;</code> significa “questo testo è il titolo principale”, non “disegnalo grande”.</p>
+  <p><span class="termine">CSS</span>, <i>Cascading Style Sheets</i> (fogli di stile a cascata), è un <b>linguaggio di stile</b>: <b>descrive l’aspetto degli elementi</b> con regole del tipo “a questi elementi dai queste caratteristiche”. Non decide che cosa c’è nella pagina e non contiene istruzioni da eseguire in ordine.</p>
+  <p><span class="termine">JavaScript</span> è un vero <b>linguaggio di programmazione</b>: ha <b>variabili, condizioni, cicli e funzioni</b>, e permette di <b>far reagire la pagina</b> a ciò che fa l’utente, di calcolare, di modificare il contenuto e di scaricare dati. È l’unico dei tre con cui si scrivono algoritmi.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Programmo in HTML.»</p>
+    <p class="err-si">HTML <b>non è un linguaggio di programmazione</b>: non ha variabili, condizioni né cicli e non esegue calcoli; <b>descrive la struttura di un documento</b>. Si dice “scrivo una pagina in HTML”. Anche il CSS non è un linguaggio di programmazione; lo è JavaScript.</p></div>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p><b>Analogia: la casa.</b> L’HTML è la struttura in muratura (muri, stanze, porte, finestre); il CSS è l’arredamento e la tinteggiatura; JavaScript è l’impianto elettrico e la domotica, che fa accendere la luce quando premi l’interruttore. Si può ridipingere la casa senza spostare i muri, come si può cambiare il CSS senza toccare l’HTML. Il limite: in una casa vera l’impianto non può spostare i muri, mentre JavaScript può aggiungere e togliere elementi HTML.</p></div>
+  <figure>
+    <div class="tela" data-widget="linguaggi"></div>
+  </figure>
+  <h3>Front-end e back-end</h3>
+  <p>Il <span class="termine">front-end</span> è <b>la parte di un sito che arriva al browser e viene eseguita lì</b>: HTML, CSS, JavaScript, immagini. Il <b>back-end</b> è <b>la parte che gira sul server</b>: programmi scritti in linguaggi come PHP, Python, Java o JavaScript (con <code>Node.js</code>), che leggono e scrivono nei database e preparano le risposte. Questo modulo riguarda <b>solo il front-end</b>.</p>
+  <p><b>Il codice del front-end è pubblico</b>: chiunque può leggerlo dal browser (con “Visualizza sorgente” o con gli strumenti per sviluppatori). Il back-end invece resta sul server e l’utente vede solo il risultato. Ne segue una regola importante: <b>nel codice del front-end non si mettono mai password o dati riservati</b>.</p>
+  <p class="domanda">Volete vedere il codice HTML di Instagram o di Wikipedia. Si può fare? E quello che gestisce le password degli utenti?</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Java e JavaScript sono lo stesso linguaggio, o almeno parenti stretti.»</p>
+    <p class="err-si">Sono <b>due linguaggi diversi</b>, con regole e usi diversi. Il nome “JavaScript” fu scelto nel 1995 per <b>ragioni di marketing</b>, sfruttando la popolarità che Java aveva allora. Come si dice tra programmatori: Java sta a JavaScript come <i>car</i> sta a <i>carpet</i>.</p></div>
+  <div class="box lab"><h3><i data-ic="users" class="ic-20"></i> In laboratorio</h3>
+    <p>Su una pagina reale (per esempio Wikipedia) aprire gli strumenti per sviluppatori con <b>F12</b>, scheda <i>Elements</i> / <i>Elementi</i>, e nel riquadro degli stili togliere la spunta ad alcune regole CSS: vedere la pagina perdere l’aspetto ma conservare il contenuto. Poi, dalle impostazioni (Ctrl+Maiusc+P, “Disable JavaScript”), disattivare JavaScript, ricaricare e provare la ricerca e i menu: che cosa smette di funzionare? Le modifiche spariscono ricaricando la pagina: si è cambiata solo la copia nel proprio browser.</p></div>
+
+  <!-- ===================== 1.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">1.4</span>Anatomia di una chiamata</h2>
+  <h3>L’indirizzo: l’URL</h3>
+  <p>Ogni risorsa del Web ha un indirizzo unico, l’<b>URL</b>, <i>Uniform Resource Locator</i>. <b>L’URL dice con quale protocollo chiedere la risorsa, a quale server e dove si trova sul server.</b></p>
+  <pre class="codice"><code>https://www.scuola.it:443/corsi/informatica/index.html?classe=5#programma</code></pre>
+  <div class="tab"><table>
+    <thead><tr><th>Parte</th><th>Esempio</th><th>Significato</th></tr></thead>
+    <tbody>
+      <tr><td>Protocollo (<i>scheme</i>)</td><td>https://</td><td>Le regole con cui chiedere la risorsa</td></tr>
+      <tr><td>Nome dell’host (dominio)</td><td>www.scuola.it</td><td>Il server a cui chiedere</td></tr>
+      <tr><td>Porta</td><td>:443</td><td>Il “numero di sportello” sul server; di solito si omette (80 per HTTP, 443 per HTTPS)</td></tr>
+      <tr><td>Percorso (<i>path</i>)</td><td><code>/corsi/informatica/index.html</code></td><td>Cartelle e file sul server</td></tr>
+      <tr><td>Parametri (<i>query string</i>)</td><td>?classe=5</td><td>Dati aggiuntivi passati al server, nella forma nome=valore separati da &amp;</td></tr>
+      <tr><td>Frammento</td><td>#programma</td><td>Un punto all’interno della pagina; non viene inviato al server</td></tr>
+    </tbody></table></div>
+  <p>Se il percorso finisce con una cartella (www.scuola.it/corsi/), <b>il server manda il file predefinito di quella cartella, di solito <code>index.html</code></b>. Per questo la pagina principale di un sito si chiama sempre <code>index.html</code>.</p>
+  <h3>Dal nome all’indirizzo IP: il DNS</h3>
+  <p>I dispositivi su Internet si identificano con <b>indirizzi IP</b>, numeri come 193.205.86.10, che le persone non ricordano. Il <b>DNS</b>, <i>Domain Name System</i>, è <b>il servizio che traduce un nome di dominio nell’indirizzo IP del server</b>. Il browser, prima di tutto, chiede al DNS “qual è l’IP di www.scuola.it?”; poi contatta il server a quell’indirizzo.</p>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p><b>Analogia.</b> Il DNS funziona come la rubrica del telefono: si cerca il nome della persona e la rubrica restituisce il numero da chiamare. Il limite: la rubrica del DNS non sta in un unico posto, ma è distribuita su migliaia di server nel mondo, e le risposte vengono memorizzate per un po’ (<i>cache</i>) per non chiedere ogni volta.</p></div>
+  <h3>Richiesta e risposta: HTTP</h3>
+  <p><span class="termine">HTTP</span>, <i>HyperText Transfer Protocol</i>, è <b>il protocollo con cui il browser chiede le risorse e il server le invia</b>. Ogni scambio è formato da una <b>richiesta</b> (il metodo, per esempio <b>GET</b> “dammi”, e il percorso della risorsa) e da una <b>risposta</b>, che contiene un <b>codice di stato</b> e, se tutto va bene, il contenuto del file.</p>
+  <pre class="codice"><code>GET /corsi/index.html HTTP/1.1
+Host: www.scuola.it
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+<span class="k">&lt;!DOCTYPE html&gt;</span>
+<span class="k">&lt;html</span> <span class="a">lang</span>=<span class="s">"it"</span><span class="k">&gt;</span> ...</code></pre>
+  <p><span class="termine">HTTP è senza memoria</span> (<i>stateless</i>): ogni richiesta è indipendente dalle precedenti e il server, di per sé, non ricorda chi ha chiesto che cosa. Per “ricordare” un utente (per esempio il carrello o il login) i siti usano i <b>cookie</b>, piccoli dati che il browser rimanda al server a ogni richiesta.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Codice</th><th>Significato</th><th>Quando capita</th></tr></thead>
+    <tbody>
+      <tr><td><b>200</b> OK</td><td>Tutto bene, ecco la risorsa</td><td>Quasi sempre</td></tr>
+      <tr><td><b>301</b> / <b>302</b></td><td>Spostata: la risorsa è a un altro indirizzo</td><td>Un sito cambia dominio o passa da http a https</td></tr>
+      <tr><td><b>304</b> Not Modified</td><td>Non è cambiata: usa la copia che hai già</td><td>Ricaricando una pagina, per immagini e CSS</td></tr>
+      <tr><td><b>403</b> Forbidden</td><td>Vietato: la risorsa esiste ma non puoi vederla</td><td>Area riservata, cartella protetta</td></tr>
+      <tr><td><b>404</b> Not Found</td><td>Non trovata</td><td>Link sbagliato, file rinominato o cancellato</td></tr>
+      <tr><td><b>500</b> Internal Server Error</td><td>Errore del server</td><td>Il programma sul server si è bloccato</td></tr>
+      <tr><td><b>503</b> Service Unavailable</td><td>Server non disponibile</td><td>Server sovraccarico o in manutenzione</td></tr>
+    </tbody></table></div>
+  <p><b>Le famiglie si riconoscono dalla prima cifra</b>: 2xx successo, 3xx reindirizzamento, 4xx errore del client (la richiesta è sbagliata), 5xx errore del server.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Errore 404: il sito è rotto, il server non funziona.»</p>
+    <p class="err-si">Il 404 è un errore <b>della richiesta</b>: il server funziona benissimo, tanto che risponde, ma <b>il file chiesto non esiste a quell’indirizzo</b> (link sbagliato, file rinominato). Se il server fosse guasto si avrebbe un 5xx, oppure nessuna risposta.</p></div>
+  <div class="box storia"><h3><i data-ic="history" class="ic-20"></i> Nella storia</h3>
+    <p>Si racconta che il codice 404 venga dalla “stanza 404” del CERN in cui stava il primo server. Non ci sono prove ed è considerata <b>una leggenda</b>: i codici furono scelti a famiglie: il 4 iniziale indica gli errori del client, e 04 è semplicemente il quarto della serie.</p></div>
+  <h3>HTTPS</h3>
+  <p><span class="termine">HTTPS</span> è <b>HTTP con i dati cifrati</b> (la S sta per <i>Secure</i>): nessuno tra il browser e il server può leggere o modificare ciò che si scambiano, e il server dimostra la sua identità con un <b>certificato digitale</b>. Il lucchetto nella barra degli indirizzi dice che <b>la connessione è cifrata</b>, non che il sito è onesto: anche un sito truffa può avere HTTPS.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-chiamata" data-titolo="Dall’Invio alla pagina" data-inizio="A sinistra il portatile con l’indirizzo www.scuola.it nella barra; in alto il server DNS con la sua rubrica; a destra il web server di www.scuola.it.">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Il browser chiede al DNS l’indirizzo IP, poi invia al web server la richiesta GET cifrata, il server risponde 200 OK con il file index.html, il browser chiede gli altri file e disegna la pagina; con un indirizzo sbagliato il server risponde 404"></svg>
+      <ol class="passi-testo">
+        <li>Si preme Invio: dal portatile parte una busta “Qual è l’IP di www.scuola.it?” verso il server DNS.</li>
+        <li>Il DNS sfoglia la rubrica e risponde con una busta “193.205.86.10”.</li>
+        <li>Il browser invia al web server la busta “GET <code>/index.html</code>”, chiusa da un lucchetto (HTTPS).</li>
+        <li>Il server cerca il file nella sua cartella e risponde con una busta “200 OK” che contiene il foglio <code>index.html</code>.</li>
+        <li>Il browser chiede gli altri file (CSS, immagini) e disegna la pagina.</li>
+        <li>Variante: si scrive “<code>/pagina-che-non-c’è.html</code>”; il server cerca, non trova e risponde con “404 Not Found”.</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>Statico o dinamico</h3>
+  <p>Un <span class="termine">sito statico</span> è formato da <b>file già pronti</b> (HTML, CSS, JavaScript, immagini) <b>che il server invia così come sono</b>, uguali per tutti. Per cambiare il contenuto bisogna modificare i file e ricaricarli sul server. Un sito statico può comunque essere interattivo: <b>JavaScript gira nel browser</b> e può far reagire la pagina, fare calcoli e perfino scaricare dati.</p>
+  <p>Un <b>sito dinamico costruisce la pagina al momento della richiesta</b>: sul server un programma legge i dati da un <b>database</b>, li inserisce in un modello e genera l’HTML. <b>Pagine diverse per utenti diversi</b> (il proprio profilo, il proprio carrello, i propri voti sul registro elettronico) richiedono un sito dinamico.</p>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Sito statico</th><th>Sito dinamico</th></tr></thead>
+    <tbody>
+      <tr><td>Pagina</td><td>File già pronto</td><td>Generata a ogni richiesta</td></tr>
+      <tr><td>Contenuto</td><td>Uguale per tutti</td><td>Può cambiare per ogni utente</td></tr>
+      <tr><td>Sul server</td><td>Solo un web server che invia file</td><td>Web server + programma (PHP, Python, <code>Node.js</code>…) + database</td></tr>
+      <tr><td>Velocità e costo</td><td>Molto veloce, hosting anche gratuito</td><td>Più lento e costoso da ospitare</td></tr>
+      <tr><td>Sicurezza</td><td>Poche parti attaccabili</td><td>Più parti da proteggere (programma, database)</td></tr>
+      <tr><td>Esempi</td><td>Sito di presentazione, portfolio, documentazione, sito di un evento</td><td>Social network, e-commerce, registro elettronico, home banking</td></tr>
+    </tbody></table></div>
+  <figure>
+    <div class="tela passi-anim" id="f-statico" data-titolo="Sito statico e sito dinamico" data-inizio="In alto un browser e un server statico con uno scaffale di file HTML già pronti; in basso un browser e un server dinamico con un programma e un database; l’utente è Giulia.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Il server statico invia il file già pronto, uguale per tutti; il server dinamico interroga il database e genera una pagina diversa per Giulia e per Marco"></svg>
+      <ol class="passi-testo">
+        <li>Giulia chiede “/profilo” a entrambi.</li>
+        <li>Il server statico prende dallo scaffale il foglio “<code>profilo.html</code>” e lo invia così com’è: è uguale per chiunque.</li>
+        <li>Il server dinamico fa girare l’ingranaggio, chiede al database “i dati di Giulia”, riceve nome e foto e li inserisce in un modello di pagina.</li>
+        <li>Il server dinamico invia una pagina con scritto “Ciao Giulia”.</li>
+        <li>Ora chiede la pagina Marco: il server statico invia lo stesso identico foglio, quello dinamico genera “Ciao Marco”.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Un sito statico è un sito dove non si muove niente.»</p>
+    <p class="err-si">“Statico” si riferisce <b>a come il server fornisce le pagine</b> (file già pronti), non all’aspetto. Un sito statico può avere animazioni, giochi, quiz e menu interattivi, perché <b>tutto questo lo fa JavaScript nel browser</b>. Non può invece salvare dati sul server o mostrare a ogni utente contenuti diversi presi da un database.</p></div>
+  <p class="domanda">Il sito che costruiremo noi: statico o dinamico? E il registro elettronico?</p>
+  <p>Molti siti oggi sono <b>ibridi</b>: le pagine sono file statici, e JavaScript chiede i dati a un servizio esterno (un’<b>API</b>, 4.14) quando servono. Anche i grandi siti “di contenuti” (blog, documentazione) spesso generano in anticipo tutte le pagine come file statici, perché così sono più veloci e sicuri.</p>
+  <div class="box lab"><h3><i data-ic="users" class="ic-20"></i> In laboratorio</h3>
+    <p>In un browser aprire gli strumenti per sviluppatori (F12), scheda <i>Network</i> / <i>Rete</i>, e ricaricare la home del sito della scuola. Osservare la lista delle richieste: quante sono, di che tipo (documento, CSS, immagini, script), con quale codice di stato, quanto pesano in tutto. Poi scrivere nella barra un indirizzo inesistente dello stesso sito e trovare il 404. Infine cliccare il lucchetto e leggere a chi è intestato il certificato.</p></div>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>Internet è la rete mondiale che collega i dispositivi; il Web è un servizio che funziona su Internet, fatto di pagine collegate da link.</li>
+      <li>Nel modello client-server il client (il browser) chiede una risorsa e il server (il web server) risponde inviandola; ruolo e macchina sono cose diverse.</li>
+      <li>Il Web è stato inventato da Tim Berners-Lee al CERN tra il 1989 e il 1991 ed è stato reso libero nel 1993.</li>
+      <li>Il server non invia una pagina già disegnata ma file di testo con istruzioni: il browser chiede uno per uno i file collegati, applica gli stili, impagina, disegna ed esegue gli script.</li>
+      <li>Ogni browser disegna la pagina da solo: una pagina va provata su più browser e più larghezze di schermo, a partire dal telefono.</li>
+      <li>HTML descrive la struttura e il contenuto, CSS l’aspetto, JavaScript il comportamento; solo JavaScript è un linguaggio di programmazione.</li>
+      <li>Il front-end (HTML, CSS, JS) arriva al browser ed è leggibile da tutti; il back-end gira sul server; nel front-end non si mettono mai dati riservati.</li>
+      <li>L’URL indica protocollo, dominio, eventuale porta, percorso, parametri e frammento; il file predefinito di una cartella è <code>index.html</code>.</li>
+      <li>Il DNS traduce il nome di dominio nell’indirizzo IP del server; poi il browser invia una richiesta HTTP e riceve una risposta con un codice di stato (2xx successo, 3xx reindirizzamento, 4xx errore del client, 5xx errore del server).</li>
+      <li>HTTPS cifra la comunicazione e verifica il server con un certificato; il lucchetto non garantisce che il sito sia onesto.</li>
+      <li>Un sito statico è fatto di file già pronti inviati uguali a tutti, ma può essere interattivo grazie a JavaScript; un sito dinamico genera le pagine sul server con un programma e un database.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/capitolo-01.js"></script>
+<script src="assets/capitolo-01-aula.js"></script>
+</body>
+</html>
