@@ -58,6 +58,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Una rete di computer",
+   "msg": "Dispositivi collegati per scambiarsi dati e condividere risorse",
    "punti": [
     [
      "network",
@@ -80,6 +81,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "A che cosa serve una rete",
+   "msg": "Condividere, comunicare, lavorare insieme, ma con un rischio",
    "tessere": [
     [
      "printer",
@@ -112,6 +114,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Esempio: l’aula di informatica",
+   "msg": "Una sola rete per file, stampante e Internet",
    "punti": [
     [
      "monitor",
@@ -150,6 +153,7 @@ window.AULA = {
   {
    "tipo": "tabella",
    "titolo": "Dalla più piccola alla più grande",
+   "msg": "Cinque tipi di rete, dal corpo al territorio",
    "righe": [
     [
      "Sigla",
@@ -192,11 +196,13 @@ window.AULA = {
   {
    "tipo": "schema",
    "titolo": "Cerchi intorno a una persona",
-   "sel": "#s-estensione"
+   "sel": "#s-estensione",
+   "msg": "Le reti più piccole stanno dentro quelle più grandi"
   },
   {
    "tipo": "punti",
    "titolo": "Esempio: il sensore di glicemia",
+   "msg": "Dal braccio al medico attraversa tre reti",
    "punti": [
     [
      "activity",
@@ -220,6 +226,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "I confini tra le categorie",
+   "msg": "Contano chi gestisce la rete e che tecnologie usa",
    "punti": [
     [
      "ruler",
@@ -263,6 +270,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "La topologia",
+   "msg": "La forma della rete decide costi e guasti",
    "punti": [
     [
      "share-2",
@@ -281,11 +289,13 @@ window.AULA = {
   {
    "tipo": "schema",
    "titolo": "Le cinque topologie",
-   "sel": "#s-topologie"
+   "sel": "#s-topologie",
+   "msg": "Bus, anello, stella, albero e maglia"
   },
   {
    "tipo": "tabella",
    "titolo": "Vantaggi e svantaggi",
+   "msg": "Ogni forma ha il suo punto debole",
    "righe": [
     [
      "Topologia",
@@ -328,11 +338,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Che cosa succede quando si rompe qualcosa",
-   "id": "f-topologie"
+   "id": "f-topologie",
+   "msg": "Il guasto isola il nodo, un ramo o niente, a seconda della forma"
   },
   {
    "tipo": "confronto",
    "titolo": "Nella realtà",
+   "msg": "Reti locali a stella o ad albero, Internet a maglia",
    "a": {
     "icona": "building-2",
     "titolo": "Reti locali",
@@ -376,6 +388,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Client-server",
+   "msg": "Il server offre, i client chiedono: sono ruoli, non computer",
    "punti": [
     [
      "server",
@@ -398,6 +411,7 @@ window.AULA = {
   {
    "tipo": "foto",
    "titolo": "Un data center",
+   "msg": "Un server vero non ha schermo né tastiera",
    "foto": [
     {
      "src": "https://shieldenstrut.com/wp-content/uploads/2026/03/server-room-cable-tray-overhead-data-center-layout.jpg",
@@ -414,6 +428,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Peer-to-peer (P2P)",
+   "msg": "Tutti hanno lo stesso ruolo: ognuno chiede e offre",
    "punti": [
     [
      "users",
@@ -436,11 +451,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Client-server e peer-to-peer",
-   "id": "f-p2p"
+   "id": "f-p2p",
+   "msg": "Due modi di organizzare chi offre e chi chiede"
   },
   {
    "tipo": "tabella",
    "titolo": "Client-server e peer-to-peer a confronto",
+   "msg": "Controllo centralizzato o distribuito",
    "righe": [
     [
      "",
@@ -498,6 +515,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "La scheda di rete (NIC)",
+   "msg": "Collega il dispositivo alla rete e ha un indirizzo MAC unico",
    "punti": [
     [
      "cpu",
@@ -521,6 +539,7 @@ window.AULA = {
   {
    "tipo": "foto",
    "titolo": "Due schede di rete",
+   "msg": "Una da inserire nel computer, una chiavetta Wi-Fi",
    "foto": [
     {
      "src": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Ethernet_pci_card.jpg",
@@ -537,6 +556,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Hub o switch?",
+   "msg": "L’hub ripete a tutti, lo switch consegna al destinatario",
    "a": {
     "icona": "volume-2",
     "titolo": "Hub",
@@ -563,6 +583,7 @@ window.AULA = {
   {
    "tipo": "foto",
    "titolo": "Uguali fuori",
+   "msg": "Per distinguerli bisogna conoscerne il comportamento",
    "foto": [
     {
      "src": "https://upload.wikimedia.org/wikipedia/commons/4/4b/HP_EtherTwist_Hub8.jpg",
@@ -579,11 +600,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Dove va un pacchetto",
-   "id": "f-hub"
+   "id": "f-hub",
+   "msg": "Lo switch impara quale dispositivo è su quale porta"
   },
   {
    "tipo": "tabella",
    "titolo": "Hub e switch",
+   "msg": "Collisioni, banda e sicurezza a confronto",
    "righe": [
     [
      "",
@@ -620,7 +643,8 @@ window.AULA = {
   {
    "tipo": "widget",
    "titolo": "Prova tu: hub o switch?",
-   "w": "switch"
+   "w": "switch",
+   "msg": "Manda un pacchetto e guarda a chi arriva"
   },
   {
    "tipo": "errore",
@@ -635,6 +659,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il router",
+   "msg": "Collega reti diverse e sceglie la strada con gli IP",
    "punti": [
     [
      "route",
@@ -659,11 +684,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Di router in router",
-   "id": "f-router"
+   "id": "f-router",
+   "msg": "Un pacchetto attraversa 10–20 router prima di arrivare"
   },
   {
    "tipo": "foto",
    "titolo": "Uno dei primi router",
+   "msg": "Un apparato del 1986, nel Computer History Museum",
    "foto": [
     {
      "src": "https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_Advanced_Gateway_Server_%28AGS%29_router_%281986%29_-_Computer_History_Museum.jpg",
@@ -675,6 +702,7 @@ window.AULA = {
   {
    "tipo": "formula",
    "titolo": "Il modem: MOdulatore + DEModulatore",
+   "msg": "Trasforma i bit in segnale per la linea e viceversa",
    "formula": "bit ⇄ segnale",
    "righe": [
     [
@@ -690,11 +718,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Modulare e demodulare",
-   "id": "f-modem"
+   "id": "f-modem",
+   "msg": "Dal bit al segnale e ritorno"
   },
   {
    "tipo": "foto",
    "titolo": "Un modem del 1982",
+   "msg": "Il computer da una parte, la linea telefonica dall’altra",
    "foto": [
     {
      "src": "https://upload.wikimedia.org/wikipedia/commons/8/84/Hayes_Smartmodem_1982_%282%29.jpg",
@@ -711,6 +741,7 @@ window.AULA = {
   {
    "tipo": "storia",
    "titolo": "Quando Internet faceva rumore",
+   "msg": "Bit trasformati in suoni, a 56 kbps al massimo",
    "anno": "anni ’60–’90",
    "icona": "volume-2",
    "punti": [
@@ -735,6 +766,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "L’access point",
+   "msg": "Crea il Wi-Fi e lo collega alla rete cablata",
    "punti": [
     [
      "wifi",
@@ -758,6 +790,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Coprire spazi più grandi",
+   "msg": "Il ripetitore dimezza la banda, il mesh crea un’unica rete",
    "a": {
     "icona": "repeat",
     "titolo": "Ripetitore",
@@ -782,6 +815,7 @@ window.AULA = {
   {
    "tipo": "foto",
    "titolo": "Un’unità di un sistema mesh",
+   "msg": "Più unità così formano una sola rete",
    "foto": [
     {
      "src": "https://images.pexels.com/photos/1024697/pexels-photo-1024697.jpeg?auto=compress&cs=tinysrgb&w=1200",
@@ -793,7 +827,8 @@ window.AULA = {
   {
    "tipo": "schema",
    "titolo": "Router, ripetitore, mesh",
-   "sel": "#s-wifi"
+   "sel": "#s-wifi",
+   "msg": "Tre modi di coprire la casa"
   },
   {
    "tipo": "domanda",
@@ -814,6 +849,7 @@ window.AULA = {
   {
    "tipo": "tabella",
    "titolo": "Le differenze che contano",
+   "msg": "Cinque coppie di apparati da non confondere",
    "righe": [
     [
      "Coppia",
@@ -850,11 +886,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Switch o router?",
-   "id": "f-switchrouter"
+   "id": "f-switchrouter",
+   "msg": "Stessa rete oppure reti diverse"
   },
   {
    "tipo": "tessere",
    "titolo": "Dentro il “router” di casa",
+   "msg": "Quattro apparati in una sola scatola",
    "tessere": [
     [
      "radio",
@@ -881,6 +919,7 @@ window.AULA = {
   {
    "tipo": "foto",
    "titolo": "Una scatola sola",
+   "msg": "Il modem-router di casa, visto davanti e dietro",
    "foto": [
     {
      "src": "https://images.pexels.com/photos/32698507/pexels-photo-32698507.jpeg?auto=compress&cs=tinysrgb&w=1200",

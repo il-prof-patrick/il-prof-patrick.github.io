@@ -54,6 +54,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il motore di ricerca",
+   "msg": "Il lavoro vero si fa prima che tu faccia la domanda",
    "punti": [
     [
      "search",
@@ -72,6 +73,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Tre fasi",
+   "msg": "Scansione, indicizzazione e risposta: solo l’ultima avviene mentre aspetti",
    "tessere": [
     [
      "bug",
@@ -94,11 +96,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Il motore lavora prima",
-   "id": "f-motore"
+   "id": "f-motore",
+   "msg": "Pagine copiate e indicizzate molto prima della tua ricerca"
   },
   {
    "tipo": "punti",
    "titolo": "Come si decide l’ordine",
+   "msg": "Quasi nessuno guarda oltre la prima pagina",
    "punti": [
     [
      "mouse-pointer-click",
@@ -142,6 +146,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Organici e sponsorizzati",
+   "msg": "Alcuni risultati sono annunci pagati",
    "a": {
     "icona": "search",
     "titolo": "Risultati organici",
@@ -164,6 +169,7 @@ window.AULA = {
   {
    "tipo": "foto",
    "titolo": "Una pagina dei risultati",
+   "msg": "In cima, gli annunci sponsorizzati",
    "foto": [
     {
      "src": "https://cdn.searchenginejournal.com/wp-content/uploads/2022/10/img_2700-634da421e3991-sej.jpg",
@@ -175,6 +181,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il modello di business",
+   "msg": "La ricerca è gratis perché le aziende pagano per raggiungerti",
    "punti": [
     [
      "coins",
@@ -204,6 +211,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Le regole di base",
+   "msg": "Parole specifiche, da aggiustare in base ai primi risultati",
    "punti": [
     [
      "key",
@@ -226,6 +234,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Cercare con le immagini",
+   "msg": "La ricerca inversa parte da un’immagine e scopre dove compare",
    "a": {
     "icona": "image",
     "titolo": "Ricerca per immagini",
@@ -263,6 +272,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Misinformazione e disinformazione",
+   "msg": "Cambia l’intenzione di chi diffonde il falso",
    "a": {
     "icona": "user",
     "titolo": "Misinformazione",
@@ -283,6 +293,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Che cosa circola",
+   "msg": "Le notizie false corrono più veloci di quelle vere",
    "tessere": [
     [
      "newspaper",
@@ -310,6 +321,7 @@ window.AULA = {
   {
    "tipo": "tabella",
    "titolo": "Prima di usare una fonte",
+   "msg": "Chi, quando e perché: tre domande da farsi",
    "righe": [
     [
      "Domanda",
@@ -340,6 +352,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "La lettura laterale",
+   "msg": "Per giudicare un sito, cerca chi c’è dietro in altre schede",
    "punti": [
     [
      "panels-top-left",
@@ -358,6 +371,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Wikipedia",
+   "msg": "Ottimo punto di partenza, non una fonte da citare da sola",
    "punti": [
     [
      "users",
@@ -386,6 +400,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "L’algoritmo di raccomandazione",
+   "msg": "Un’IA sceglie che cosa vedrai, in base all’engagement",
    "punti": [
     [
      "list",
@@ -408,11 +423,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Come il feed impara",
-   "id": "f-feed"
+   "id": "f-feed",
+   "msg": "Ogni secondo che guardi un video insegna qualcosa al feed"
   },
   {
    "tipo": "punti",
    "titolo": "Bolle e camere dell’eco",
+   "msg": "Sempre più contenuti simili a quelli che già apprezzi",
    "punti": [
     [
      "circle-dot",
@@ -441,6 +458,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Verificare: il *fact-checking*",
+   "msg": "Fermarsi, guardare la fonte, cercare altrove",
    "tessere": [
     [
      "hand",
@@ -489,6 +507,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Motore di ricerca e chatbot",
+   "msg": "Il motore indica dove trovare, il chatbot scrive la risposta",
    "a": {
     "icona": "search",
     "titolo": "Motore di ricerca",
@@ -510,6 +529,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Come “sa” le cose un chatbot",
+   "msg": "Ha imparato a prevedere la parola successiva",
    "punti": [
     [
      "brain",
@@ -528,6 +548,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "La RAG (*Retrieval-Augmented Generation*)",
+   "msg": "Prima cerca sul web, poi scrive usando le pagine trovate",
    "punti": [
     [
      "search",
@@ -550,11 +571,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "A memoria o cercando prima?",
-   "id": "f-rag"
+   "id": "f-rag",
+   "msg": "Con la RAG la risposta si appoggia a fonti"
   },
   {
    "tipo": "tessere",
    "titolo": "Usare bene l’IA per cercare",
+   "msg": "Chiedere le fonti e verificare i dettagli",
    "tessere": [
     [
      "link",

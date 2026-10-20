@@ -12,7 +12,15 @@ window.MODULI = {
   'itis-4': [],
   'itis-5': [],
 
-  'scienze-applicate-1': [],
+  'scienze-applicate-1': [
+    {
+      titolo: 'Introduzione a informatica ed AI',
+      descr: 'Che cosa vuol dire essere intelligenti e che cosa fa davvero un computer: intelligenza, algoritmi, pensiero computazionale e problemi che le regole non riescono a descrivere.',
+      link: 'introduzione-informatica-ai/index.html',
+      stato: 'disponibile',
+      immagine: 'assets/immagini/modulo-introduzione-informatica-ai.jpg'
+    }
+  ],
   'scienze-applicate-2': [],
   'scienze-applicate-3': [],
   'scienze-applicate-4': [
@@ -43,11 +51,11 @@ window.MODULI = {
 
   'curvatura-ai-1': [
     {
-      titolo: 'Introduzione all’intelligenza artificiale',
-      descr: 'Lessico e basi dell’IA: intelligenza, algoritmi, compiti, machine learning, deep learning, generazione, applicazioni e storia.',
-      link: 'introduzione-ia/index.html',
+      titolo: 'Introduzione a informatica ed AI',
+      descr: 'Che cosa vuol dire essere intelligenti e che cosa fa davvero un computer: intelligenza, algoritmi, pensiero computazionale e problemi che le regole non riescono a descrivere.',
+      link: 'introduzione-informatica-ai/index.html',
       stato: 'disponibile',
-      immagine: 'introduzione-ia/assets/img/07-ia-nella-vita-quotidiana.webp'
+      immagine: 'assets/immagini/modulo-introduzione-informatica-ai.jpg'
     },
     {
       titolo: 'Algoritmi con Flowgorithm',

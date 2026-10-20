@@ -54,6 +54,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Comunicare = trasferire un’informazione",
+   "msg": "Sei elementi, sempre gli stessi",
    "tessere": [
     [
      "user",
@@ -90,11 +91,13 @@ window.AULA = {
   {
    "tipo": "schema",
    "titolo": "Lo schema della comunicazione",
-   "sel": "#s-comunicazione"
+   "sel": "#s-comunicazione",
+   "msg": "Dal mittente al destinatario, passando per canale e rumore"
   },
   {
    "tipo": "punti",
    "titolo": "Codice e rumore",
+   "msg": "Serve lo stesso codice, e la comunicazione deve tollerare il rumore",
    "punti": [
     [
      "binary",
@@ -138,6 +141,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "La larghezza di banda (*bandwidth*)",
+   "msg": "Quanti dati al massimo passano in un secondo, non quanto corrono",
    "punti": [
     [
      "gauge",
@@ -161,6 +165,7 @@ window.AULA = {
   {
    "tipo": "tabella",
    "titolo": "Le unità della banda",
+   "msg": "Da kilobit a gigabit al secondo",
    "righe": [
     [
      "Unità",
@@ -192,6 +197,7 @@ window.AULA = {
   {
    "tipo": "formula",
    "titolo": "Bit e byte: l’errore più comune",
+   "msg": "Le connessioni si misurano in bit, i file in byte: si divide per 8",
    "formula": "MB al secondo = Mbps ÷ 8",
    "righe": [
     [
@@ -216,6 +222,7 @@ window.AULA = {
   {
    "tipo": "formula",
    "titolo": "Esempio: un videogioco da 50 GB a 100 Mbps",
+   "msg": "Un calcolo da fare con i bit",
    "formula": "50 GB = 400.000 megabit",
    "righe": [
     [
@@ -231,7 +238,8 @@ window.AULA = {
   {
    "tipo": "widget",
    "titolo": "Prova tu: quanto ci metto a scaricare?",
-   "w": "download"
+   "w": "download",
+   "msg": "Cambia file e banda e guarda il tempo"
   },
   {
    "tipo": "domanda",
@@ -241,6 +249,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Download e upload",
+   "msg": "Si riceve di più di quanto si invia",
    "a": {
     "icona": "download",
     "titolo": "Download",
@@ -270,6 +279,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Throughput: la velocità effettiva",
+   "msg": "Quasi sempre inferiore alla banda: perché",
    "punti": [
     [
      "activity",
@@ -296,6 +306,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Esempio: “1 Gbps” misurato in camera",
+   "msg": "Il collo di bottiglia è il Wi-Fi",
    "punti": [
     [
      "smartphone",
@@ -314,6 +325,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "La latenza (*ping*)",
+   "msg": "Il tempo che un dato impiega ad arrivare",
    "punti": [
     [
      "timer",
@@ -337,11 +349,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Due tubi: banda e latenza",
-   "id": "f-tubi"
+   "id": "f-tubi",
+   "msg": "La banda è la larghezza del tubo, la latenza la sua lunghezza"
   },
   {
    "tipo": "confronto",
    "titolo": "Che cosa conta di più?",
+   "msg": "Streaming e giochi chiedono cose diverse alla rete",
    "a": {
     "icona": "video",
     "titolo": "Streaming di un film",
@@ -363,6 +377,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il jitter",
+   "msg": "La latenza che varia fa andare l’immagine a scatti",
    "punti": [
     [
      "activity",
@@ -381,11 +396,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Il jitter",
-   "id": "f-jitter"
+   "id": "f-jitter",
+   "msg": "La latenza che varia fa andare l’immagine a scatti"
   },
   {
    "tipo": "punti",
    "titolo": "In laboratorio: lo speed test",
+   "msg": "Misurare download, upload e ping su tre reti",
    "punti": [
     [
      "gauge",
@@ -430,6 +447,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Due famiglie di mezzi trasmissivi",
+   "msg": "Il segnale viaggia in un cavo o nell’aria",
    "a": {
     "icona": "cable",
     "titolo": "Guidati (cablati)",
@@ -454,11 +472,13 @@ window.AULA = {
   {
    "tipo": "schema",
    "titolo": "La mappa dei mezzi",
-   "sel": "#s-mezzi"
+   "sel": "#s-mezzi",
+   "msg": "Rame, fibra e onde radio"
   },
   {
    "tipo": "punti",
    "titolo": "Il doppino (*twisted pair*)",
+   "msg": "Fili di rame intrecciati per cancellare i disturbi",
    "punti": [
     [
      "cable",
@@ -482,11 +502,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Perché i fili sono intrecciati",
-   "id": "f-intreccio"
+   "id": "f-intreccio",
+   "msg": "Il ricevitore misura la differenza tra i due fili"
   },
   {
    "tipo": "punti",
    "titolo": "Dal modem all’ADSL",
+   "msg": "Stesso doppino, frequenze sempre più alte",
    "punti": [
     [
      "layers",
@@ -510,6 +532,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il cavo coassiale",
+   "msg": "La calza metallica fa da scudo ai disturbi",
    "punti": [
     [
      "cable",
@@ -533,6 +556,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "La fibra ottica",
+   "msg": "Impulsi di luce dentro un filo di vetro",
    "punti": [
     [
      "sparkles",
@@ -560,11 +584,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "La luce intrappolata",
-   "id": "f-fibra"
+   "id": "f-fibra",
+   "msg": "La riflessione totale tiene la luce nel nucleo"
   },
   {
    "tipo": "tessere",
    "titolo": "Perché la fibra vince",
+   "msg": "Banda enorme, lunghe distanze, niente disturbi e più sicurezza",
    "tessere": [
     [
      "gauge",
@@ -592,6 +618,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "“Fibra” può voler dire due cose",
+   "msg": "FTTC arriva all’armadio, FTTH arriva in casa",
    "a": {
     "icona": "cable",
     "titolo": "FTTC · *Fiber To The Cabinet*",
@@ -615,6 +642,7 @@ window.AULA = {
   {
    "tipo": "foto",
    "titolo": "L’armadio di strada",
+   "msg": "In FTTC qui finisce la fibra e comincia il rame",
    "foto": [
     {
      "src": "https://www.tariffando.it/wp-content/uploads/2017/02/11122494_10205447308395468_418905393_n-optimized.jpg",
@@ -626,12 +654,14 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "FTTC e FTTH",
-   "id": "f-ftth"
+   "id": "f-ftth",
+   "msg": "Dove si ferma la fibra cambia la velocità"
   },
   {
    "tipo": "widget",
    "titolo": "Prova tu: quanto sei lontano dall’armadio?",
-   "w": "distanza"
+   "w": "distanza",
+   "msg": "Con il rame, più lontano significa più lento"
   },
   {
    "tipo": "domanda",
@@ -641,6 +671,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Onde elettromagnetiche e frequenza",
+   "msg": "Frequenza bassa arriva lontano, frequenza alta porta più dati",
    "punti": [
     [
      "waves",
@@ -667,11 +698,13 @@ window.AULA = {
   {
    "tipo": "schema",
    "titolo": "Lo spettro",
-   "sel": "#s-spettro"
+   "sel": "#s-spettro",
+   "msg": "Dalle onde radio agli infrarossi"
   },
   {
    "tipo": "punti",
    "titolo": "L’aria è di tutti",
+   "msg": "Le frequenze sono una risorsa pubblica divisa per legge",
    "punti": [
     [
      "users",
@@ -695,6 +728,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Il Wi-Fi: due bande",
+   "msg": "2,4 GHz arriva lontano, 5 GHz è più veloce",
    "a": {
     "icona": "wifi",
     "titolo": "2,4 GHz",
@@ -719,11 +753,13 @@ window.AULA = {
   {
    "tipo": "schema",
    "titolo": "2,4 e 5 GHz nella stessa casa",
-   "sel": "#s-bande"
+   "sel": "#s-bande",
+   "msg": "La stessa casa, due portate diverse"
   },
   {
    "tipo": "punti",
    "titolo": "Wi-Fi e Bluetooth",
+   "msg": "Una rete locale contro dispositivi vicinissimi",
    "punti": [
     [
      "wifi",
@@ -747,6 +783,7 @@ window.AULA = {
   {
    "tipo": "storia",
    "titolo": "Un re vichingo nel tuo telefono",
+   "msg": "Il nome e il logo del Bluetooth vengono da Harald Dente Blu",
    "anno": "X secolo",
    "foto": {
     "src": "https://www.eurocomunicazione.com/wp-content/uploads/2022/01/Bluetooth-1.jpg",
@@ -776,6 +813,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "RFID",
+   "msg": "Un’etichetta radio senza batteria identifica un oggetto",
    "punti": [
     [
      "tag",
@@ -799,6 +837,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "NFC",
+   "msg": "Pochi centimetri: la distanza ridotta è una protezione",
    "punti": [
     [
      "smartphone",
@@ -827,6 +866,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Satelliti per telecomunicazioni",
+   "msg": "Geostazionari e a orbita bassa hanno latenze molto diverse",
    "a": {
     "icona": "satellite",
     "titolo": "Geostazionari · 36.000 km",
@@ -851,11 +891,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Geostazionari e orbita bassa",
-   "id": "f-satelliti"
+   "id": "f-satelliti",
+   "msg": "Più il satellite è lontano, più il segnale ritarda"
   },
   {
    "tipo": "foto",
    "titolo": "Un’antenna Starlink",
+   "msg": "Punta il cielo e segue i satelliti che passano",
    "foto": [
     {
      "src": "https://www.dishytech.com/wp-content/uploads/2026/03/DSC00011-scaled.jpg",
@@ -872,6 +914,7 @@ window.AULA = {
   {
    "tipo": "tabella",
    "titolo": "Il confronto (valori indicativi)",
+   "msg": "Dalla linea commutata del ’90 al 5G",
    "righe": [
     [
      "Tecnologia",
@@ -926,11 +969,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "La gara dei download",
-   "id": "f-gara"
+   "id": "f-gara",
+   "msg": "Lo stesso file con tecnologie diverse"
   },
   {
    "tipo": "punti",
    "titolo": "Cavo e onda radio convivono",
+   "msg": "Il cavo per stabilità, l’onda radio per mobilità",
    "punti": [
     [
      "cable",
@@ -965,6 +1010,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Tre modi di usare un canale",
+   "msg": "Una direzione, a turno o insieme",
    "tessere": [
     [
      "move-right",
@@ -986,7 +1032,8 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Simplex, half-duplex, full-duplex",
-   "id": "f-modi"
+   "id": "f-modi",
+   "msg": "Chi può parlare, e quando"
   },
   {
    "tipo": "domanda",
@@ -996,6 +1043,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Sincrona o asincrona?",
+   "msg": "Presenti insieme oppure messaggi letti più tardi",
    "a": {
     "icona": "clock",
     "titolo": "Sincrona",
@@ -1041,6 +1089,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Commutazione di circuito",
+   "msg": "Un collegamento riservato per tutta la conversazione",
    "punti": [
     [
      "link",
@@ -1072,6 +1121,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Commutazione di pacchetto",
+   "msg": "Dati divisi in pacchetti che condividono i cavi",
    "punti": [
     [
      "package",
@@ -1098,11 +1148,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Circuito o pacchetti?",
-   "id": "f-commutazione"
+   "id": "f-commutazione",
+   "msg": "Un collegamento riservato contro cavi condivisi"
   },
   {
    "tipo": "confronto",
    "titolo": "Esempio: pullman o autobus di linea?",
+   "msg": "Posti riservati, ma a volte vuoti, oppure mezzi condivisi",
    "a": {
     "icona": "bus",
     "titolo": "Pullman noleggiato",
@@ -1128,6 +1180,7 @@ window.AULA = {
   {
    "tipo": "storia",
    "titolo": "Due inventori, un’idea",
+   "msg": "Baran e Davies inventano la rete a pacchetti",
    "anno": "anni ’60",
    "icona": "history",
    "punti": [
@@ -1148,6 +1201,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Oggi anche la voce viaggia a pacchetti",
+   "msg": "Dalle chiamate WhatsApp alla telefonia fissa",
    "punti": [
     [
      "phone",

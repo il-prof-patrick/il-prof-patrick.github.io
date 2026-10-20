@@ -1,0 +1,276 @@
+/* Informatica con il Prof. Patrick — Presenta in aula (palco 1280×720 scalato a tutto schermo).
+   Prende colori, caratteri di lettura e icone dal modulo che lo apre (--brand-*, --accent-*, --ink-*, --surface-*);
+   per i titoli usa Bricolage Grotesque, come la home. Niente schede e niente cornici: composizioni a tutta pagina. */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap");
+
+body.presenta{overflow:hidden}
+#palco{display:none}
+body.presenta #palco{
+  --pl-disp:"Bricolage Grotesque",var(--font-sans);
+  --pl-fondo:var(--surface-000); --pl-ink:var(--ink); --pl-mut:var(--ink-muted); --pl-soft:var(--ink-soft);
+  --pl-campo:var(--brand-600); --pl-su:var(--on-brand); --pl-linea:var(--border); --pl-ev:var(--accent-500);
+  --pl-ease:cubic-bezier(.16,1,.3,1);
+  display:block;position:fixed;inset:0;z-index:100;overflow:hidden;background:var(--pl-fondo);color:var(--pl-ink);
+  transition:background-color .5s var(--pl-ease);
+}
+#palco *{box-sizing:border-box}
+#palco.campo{background:var(--pl-campo)}
+#palco.quieto{cursor:none}
+#palco ::selection{background:var(--pl-ev);color:var(--on-accent,#1d0d00)}
+#palco.nera::after{content:"";position:absolute;inset:0;background:#000;z-index:50}
+
+.pl-scena{position:absolute;inset:0;overflow:hidden}
+.pl-tela{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+
+/* ---------- la slide ---------- */
+.pl{position:absolute;inset:0;overflow:hidden;background:var(--pl-fondo);color:var(--pl-ink);font-family:var(--font-sans);font-size:30px;line-height:1.3;font-kerning:normal}
+.pl b{font-weight:700;color:var(--brand-ink)}
+.pl i{font-style:italic}
+.pl code{font-family:var(--font-mono);font-size:.84em;background:var(--surface-200);color:var(--ink);padding:.06em .32em;border-radius:3px;font-weight:500}
+.pl-tit{margin:0;font-family:var(--pl-disp);font-weight:800;font-stretch:94%;font-size:52px;line-height:1.05;letter-spacing:-.012em;text-wrap:balance;hyphens:auto;overflow-wrap:break-word}
+.pl-tit b,.pl-tit i{color:inherit}
+/* sottotitolo: il concetto della slide, sotto il titolo-argomento */
+.pl-msg{margin:12px 0 0;font-size:29px;line-height:1.25;font-weight:600;color:var(--brand-600);text-wrap:balance}
+.pl-msg b{color:inherit;font-weight:800}
+.pl-lato .pl-msg{margin:-12px 0 0;font-size:27px;flex:none}
+.pl-st-testo .pl-msg{margin:6px 0 0;font-size:26px;flex:none}
+.pl-testa{position:absolute;left:72px;right:72px;top:50px}
+.pl-corpo{position:absolute;left:72px;right:72px;top:158px;bottom:66px;overflow:hidden}
+.pl-ic{flex:none;display:inline-grid;place-items:center;color:var(--brand-600)}
+#palco .pl-ic .ic{width:1.15em;height:1.15em;stroke-width:1.7}
+.pl-piede{position:absolute;left:72px;right:72px;bottom:24px;z-index:1;display:flex;justify-content:space-between;gap:24px;font-size:16px;line-height:20px;font-weight:600;letter-spacing:.01em;color:var(--pl-soft)}
+.pl-pag{font-variant-numeric:tabular-nums;white-space:nowrap}
+.pl-piede b{color:inherit;font-weight:700}
+
+/* ---------- arrivo e uscita: la slide nuova scivola dal lato in cui si va, i blocchi salgono uno dopo l'altro ---------- */
+.pl.av{animation:pl-arriva .7s var(--pl-ease) both}
+.pl.ind{animation:pl-torna .7s var(--pl-ease) both}
+.pl.fuori{pointer-events:none;animation:pl-esce .45s ease-in both}
+.pl.av .en{animation:pl-su .8s var(--pl-ease) both;animation-delay:calc(.12s + var(--i,0)*.08s)}
+.pl.av .en:nth-child(2){--i:1}.pl.av .en:nth-child(3){--i:2}.pl.av .en:nth-child(4){--i:3}
+@keyframes pl-arriva{from{opacity:0;transform:translate3d(70px,0,0)}}
+@keyframes pl-torna{from{opacity:0;transform:translate3d(-70px,0,0)}}
+@keyframes pl-esce{to{opacity:0;transform:translate3d(-44px,0,0)}}
+@keyframes pl-su{from{opacity:0;transform:translate3d(0,26px,0)}}
+/* la sezione è il momento forte: una tenda del colore del capitolo attraversa lo schermo */
+.pl-t-sezione.av{animation:pl-tenda .85s cubic-bezier(.76,0,.2,1) both}
+.pl-t-sezione.av .pl-sez-num{animation:pl-su 1s var(--pl-ease) .35s both}
+.pl-t-sezione.av .pl-sez-foto img{animation:pl-zoom 1.6s var(--pl-ease) .2s both}
+.pl-t-sezione.ind{animation:pl-torna .7s var(--pl-ease) both}
+@keyframes pl-tenda{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0 0 0 0)}}
+@keyframes pl-zoom{from{transform:scale(1.12)}}
+
+/* ---------- ciò che si svela a ogni clic ---------- */
+.rv{opacity:0;transform:translate3d(0,18px,0);filter:blur(6px);transition:opacity .5s var(--pl-ease),transform .7s var(--pl-ease),filter .5s var(--pl-ease)}
+.rv.visto{opacity:1;transform:none;filter:none}
+.pl-lista li.rv.visto:not(.ult){opacity:.72}
+
+/* ---------- copertina ---------- */
+.pl-t-copertina{background:var(--pl-fondo)}
+.pl-cop-sx{position:absolute;left:0;top:0;bottom:0;width:760px;padding:54px 0 56px 72px;display:flex;flex-direction:column}
+.pl-marchio{font-family:var(--pl-disp);font-weight:700;font-stretch:88%;font-size:24px;line-height:1;color:var(--brand-ink);letter-spacing:-.005em;display:flex;align-items:center;gap:14px}
+.pl-marchio::before{content:"";width:34px;height:6px;background:var(--pl-ev)}
+.pl-cop-sx h1{margin:auto 0 0;max-width:580px;font-size:82px;line-height:.98;letter-spacing:-.03em}
+.pl-cop-sotto{margin:22px 0 0;max-width:560px;font-size:28px;line-height:1.3;color:var(--pl-mut)}
+.pl-indice{list-style:none;margin:auto 0 0;padding:0;max-width:540px;display:grid;grid-template-columns:1fr 1fr;gap:8px 28px;font-size:18px;line-height:1.25;color:var(--pl-mut)}
+.pl-indice li{display:grid;grid-template-columns:auto 1fr;gap:10px}
+.pl-indice span{font-family:var(--font-mono);font-weight:500;color:var(--brand-ink)}
+.pl-cop-dx{position:absolute;right:0;top:0;bottom:0;width:520px;background:var(--surface-200)}
+.pl-cop-dx .pl-foto{height:100%;display:block}
+.pl-cop-foto img{width:100%;height:100%;object-fit:cover;display:block}
+.pl-cop-n{position:absolute;left:-92px;bottom:54px;width:216px;height:216px;display:grid;place-items:center;background:var(--pl-campo);color:var(--pl-su)}
+.pl-cop-n span{font-family:var(--pl-disp);font-weight:800;font-size:164px;line-height:1;letter-spacing:-.04em;font-variant-numeric:lining-nums;transform:translate(-4px,-6px)}
+
+/* ---------- sezione ---------- */
+.pl-t-sezione{background:var(--pl-campo);color:var(--pl-su)}
+.pl-sez-num{position:absolute;left:66px;top:34px;font-family:var(--pl-disp);font-weight:800;font-stretch:80%;font-size:250px;line-height:1;letter-spacing:-.05em}
+.pl-sez-testo{position:absolute;left:72px;bottom:70px;width:700px}
+.pl-sez-testo .pl-tit{font-size:80px;line-height:.98;letter-spacing:-.03em}
+.pl-sez-testo p{margin:20px 0 0;font-size:30px;line-height:1.28;max-width:620px}
+.pl-sez-testo b{color:inherit}
+.pl-foto.pl-sez-foto{position:absolute;right:0;top:0;bottom:0;width:430px;margin:0;isolation:isolate;background:var(--pl-campo);display:block}
+.pl-sez-foto img{width:100%;height:100%;object-fit:cover;display:block;mix-blend-mode:luminosity;opacity:.9}
+.pl-t-sezione .pl-piede{color:var(--pl-su);opacity:.8}
+.pl-sez-icona{position:absolute;right:-60px;bottom:-60px;width:520px;height:520px;display:grid;place-items:center;color:var(--pl-su);opacity:.14}
+.pl-sez-icona .ic{width:100%;height:100%;stroke-width:.7}
+
+/* ---------- punti: il titolo a sinistra, i punti a destra, uno alla volta ---------- */
+.pl-punti{top:0;bottom:0;left:0;right:0;padding:62px 72px 68px;display:grid;overflow:hidden;
+  grid-template-columns:420px minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;grid-template-areas:"lato lista" "nota lista";column-gap:64px}
+.pl-lato{grid-area:lato;display:flex;flex-direction:column;gap:30px;min-height:0}
+.pl-lato .pl-tit{font-size:56px;flex:none}
+.pl-punti:not(.con-foto) .pl-lato{justify-content:center}
+.pl-punti:not(.con-foto) .pl-lato .pl-tit{font-size:62px}
+.pl-lato .pl-foto{flex:1}
+.pl-cella{grid-area:lista;display:flex;align-items:center;min-height:0;overflow:hidden;font-size:36px}
+.pl-lista{list-style:none;margin:0;padding:0;width:100%;display:grid}
+.pl-lista li{display:grid;grid-template-columns:1.5em minmax(0,1fr);gap:.5em;align-items:start;padding:.52em 0;border-top:2px solid var(--pl-linea);line-height:1.24}
+.pl-lista li:first-child{border-top:0}
+.pl-lista li .pl-ic{height:1.24em}
+.pl-lista.piccola{font-size:.78em}
+.pl-nota{grid-area:nota;align-self:end;margin:26px 0 0;display:flex;gap:16px;align-items:flex-start;padding:18px 24px;border-radius:6px;background:var(--accent-100);color:var(--accent-ink);font-size:25px;line-height:1.28;font-weight:600}
+.pl-nota .ic{flex:none;width:30px;height:30px;stroke-width:1.8;margin-top:1px}
+.pl-nota b{color:inherit}
+.pl-punti:not(.con-foto) .pl-nota{margin-top:30px}
+
+/* ---------- tessere: colonne con una riga in testa ---------- */
+.pl-t-tessere .pl-corpo{display:flex;flex-direction:column;justify-content:center;font-size:36px}
+.pl-tessere{display:grid;gap:0 48px;grid-template-columns:repeat(3,minmax(0,1fr));align-content:start}
+.pl-tessere.n1{grid-template-columns:minmax(0,640px)}
+.pl-tessere.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.pl-tessere.n4{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:34px}
+.pl-tessere.n5,.pl-tessere.n6{grid-template-columns:repeat(6,minmax(0,1fr));row-gap:34px}
+.pl-tessere.n5 .pl-tessera{grid-column:span 2}.pl-tessere.n5 .pl-tessera:nth-child(n+4){grid-column:span 3}
+.pl-tessere.n6 .pl-tessera{grid-column:span 2}
+.pl-tessera{display:grid;align-content:start;gap:.4em;padding-top:.8em;border-top:4px solid var(--pl-ink)}
+.pl-tessera .pl-ic{font-size:1.5em;margin-bottom:.1em;justify-self:start}
+.pl-tessera b{font-family:var(--pl-disp);font-stretch:90%;font-weight:800;font-size:1.28em;line-height:1.08;letter-spacing:-.015em;color:var(--pl-ink)}
+.pl-tessera span:last-child{font-size:.88em;line-height:1.28;color:var(--pl-mut)}
+.pl-corpo>.pl-nota{margin-top:34px}
+.pl-corpo>.pl-tessere+.pl-nota{display:flex}
+
+/* ---------- confronto: due metà a tutta larghezza ---------- */
+.pl-confronto{position:absolute;left:0;right:0;top:158px;bottom:66px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;font-size:30px}
+.pl-confronto:has(~ .pl-verdetto){bottom:152px}
+.pl-col{padding:34px 54px 28px 72px;display:grid;align-content:start;gap:.55em;background:var(--surface-100)}
+.pl-col+.pl-col{padding:34px 72px 28px 54px;background:var(--surface-200)}
+.pl-col.buono{background:var(--pl-campo);color:var(--pl-su)}
+.pl-col.vecchio{background:var(--surface-200)}
+.pl-col-t{display:flex;align-items:center;gap:.5em}
+.pl-col-t .pl-ic{font-size:1.25em;color:inherit}
+.pl-col-t b{font-family:var(--pl-disp);font-stretch:90%;font-weight:800;font-size:1.22em;line-height:1.1;letter-spacing:-.015em;color:inherit}
+.pl-col ul{list-style:none;margin:.2em 0 0;padding:0;display:grid;gap:.5em}
+.pl-col li{display:grid;grid-template-columns:1.2em minmax(0,1fr);gap:.4em;font-size:.88em;line-height:1.26}
+.pl-col li .ic{width:1.1em;height:1.1em;margin-top:.1em;stroke-width:1.9}
+.pl-col li.si .ic{color:var(--brand-600)}
+.pl-col li.no .ic{color:var(--errore-ink)}
+.pl-col.buono li .ic{color:currentColor}
+.pl-col li i{width:.42em;height:.42em;border-radius:50%;background:currentColor;opacity:.55;margin:.5em 0 0 .3em}
+.pl-col b{color:inherit}
+.pl-col-p{margin:.3em 0 0;font-size:.74em;line-height:1.3;font-style:italic;opacity:.85}
+.pl-verdetto{position:absolute;left:0;right:0;bottom:56px;height:86px;margin:0;padding:0 72px;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--ink);color:var(--surface-000);font-family:var(--pl-disp);font-stretch:90%;font-weight:700;font-size:33px;line-height:1.15;letter-spacing:-.01em}
+.pl-verdetto b{color:inherit}
+
+/* ---------- animazioni, schemi e widget presi dal capitolo ---------- */
+.pl-figura{display:grid;align-content:start;justify-items:center;padding-top:2px}
+.pl-figura>*{width:100%;max-width:1136px;margin:0}
+.pl-figura .tela{border:none;padding:0;background:none}
+.pl-figura .passi-anim{gap:14px}
+.pl-figura .passi-titolo{display:none}
+.pl-figura .stato.passi-desc{font-size:23px;line-height:32px;min-height:0;padding:10px 20px}
+.pl-figura .tela svg:not(.ic){max-height:320px}
+.pl-figura .passi-com .tasto{font-size:15px}
+.pl-figura .schema svg{max-height:400px}
+.pl-t-widget .pl-corpo{overflow:hidden}
+.pl-t-widget .tela svg:not(.ic){max-height:250px}
+.pl-t-widget .wid-ling iframe{height:330px}
+
+/* ---------- foto ---------- */
+.pl-foto{margin:0;display:flex;flex-direction:column;gap:10px;min-height:0;position:relative}
+.pl-foto figcaption{font-size:19px;line-height:1.3;color:var(--pl-mut);font-weight:500}
+.pl-cornice{position:relative;overflow:hidden;border-radius:8px;background:var(--surface-200);flex:1;min-height:0}
+.pl-cornice img{position:relative;width:100%;height:100%;object-fit:cover;object-position:center;display:block;cursor:zoom-in}
+.pl-lato .pl-foto{opacity:0;transform:translateY(14px);transition:opacity .6s var(--pl-ease),transform .8s var(--pl-ease)}
+.pl-punti:has(.rv.visto) .pl-foto{opacity:1;transform:none}
+.pl-galleria{display:grid;gap:30px;grid-template-columns:repeat(3,minmax(0,1fr));height:100%}
+.pl-galleria.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.pl-galleria.n1{grid-template-columns:minmax(0,1fr)}
+.pl-galleria figcaption{font-size:22px;font-weight:600;color:var(--pl-ink)}
+
+/* ---------- storia: foto a tutta altezza, l'anno come titolo ---------- */
+.pl-st-foto{position:absolute;left:0;top:0;bottom:0;width:500px;background:var(--surface-200)}
+.pl-st-foto .pl-foto{height:100%;gap:0}
+.pl-st-foto .pl-cornice{border-radius:0}
+.pl-st-foto figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 28px 22px;background:linear-gradient(transparent,rgba(0,0,0,.62));color:#fff;font-size:18px}
+.pl-st-icona{height:100%;display:grid;place-items:center;background:var(--brand-100);color:var(--brand-600)}
+.pl-st-icona .ic{width:200px;height:200px;stroke-width:1.1}
+.pl-st-testo{position:absolute;left:566px;right:72px;top:54px;bottom:66px;display:flex;flex-direction:column;min-height:0}
+.pl-st-testo .pl-tit{font-size:38px;color:var(--pl-mut);flex:none}
+.pl-anno{font-family:var(--pl-disp);font-weight:800;font-stretch:78%;font-size:190px;line-height:.92;letter-spacing:-.045em;color:var(--brand-600);margin:4px 0 22px;font-variant-numeric:lining-nums;flex:none}
+.pl-st-testo .pl-cella{flex:1;grid-area:auto;align-items:flex-start;font-size:32px}
+
+/* ---------- formula ---------- */
+.pl-formula{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px}
+.pl-f{max-width:100%;font-family:var(--font-mono);font-weight:500;line-height:1.2;padding:.45em .85em;background:var(--ink);color:var(--surface-000);border-radius:6px;white-space:nowrap;letter-spacing:-.02em}
+.pl-f b{color:var(--pl-ev)}
+.pl-f-righe{margin:0;display:grid;gap:0;width:100%;max-width:1040px}
+.pl-f-righe div{display:grid;grid-template-columns:330px minmax(0,1fr);gap:28px;align-items:baseline;padding:13px 0;border-top:2px solid var(--pl-linea)}
+.pl-f-righe dt{margin:0;font-family:var(--font-mono);font-size:22px;font-weight:500;color:var(--brand-ink)}
+.pl-f-righe dd{margin:0;font-size:29px;line-height:1.25}
+
+/* ---------- tabella ---------- */
+.pl-t-tabella .pl-corpo{font-size:29px;display:flex;align-items:flex-start}
+.pl-tab{border-collapse:collapse;width:100%;font-size:1em;line-height:1.24}
+.pl-tab th{text-align:left;font-size:.56em;line-height:1.2;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--pl-soft);padding:.4em .75em .5em;border-bottom:4px solid var(--pl-ink)}
+.pl-tab td{padding:.5em .75em;border-bottom:2px solid var(--pl-linea);vertical-align:top}
+.pl-tab td:first-child,.pl-tab th:first-child{padding-left:0}
+.pl-tab td:first-child{font-weight:700;color:var(--brand-ink)}
+.pl-tab tbody tr:last-child td{border-bottom:0}
+
+/* ---------- codice ---------- */
+.pl-codice{display:grid;grid-template-rows:minmax(0,1fr);gap:30px;align-items:center;font-size:26px}
+.pl-codice.con-note{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.pl-codice.sopra{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-content:start}
+.pl-cod-cella{overflow:hidden;max-height:100%;font-size:26px;border-radius:6px}
+.pl-codice.sopra .pl-cod-cella{max-height:250px}
+.pl-cod-cella pre.codice{margin:0;font-size:1em;line-height:1.55;padding:.8em 1.1em;overflow:visible;border-radius:0}
+.pl-cod-note{font-size:30px}
+.pl-codice.sopra .pl-cod-note{grid-template-columns:1fr 1fr;gap:0 40px}
+
+/* ---------- domanda: un campo di colore, la risposta sale dal basso ---------- */
+.pl-t-domanda{background:var(--pl-campo);color:var(--pl-su)}
+.pl-dom{position:absolute;left:72px;right:72px;top:0;bottom:200px;display:flex;flex-direction:column;justify-content:center;gap:26px}
+.pl-dom>.ic{width:92px;height:92px;stroke-width:1.5;color:var(--pl-ev);flex:none}
+.pl-dom p{margin:0;max-width:1060px;font-family:var(--pl-disp);font-weight:800;font-stretch:88%;line-height:1.06;letter-spacing:-.025em;text-wrap:balance}
+.pl-dom b{color:inherit;text-decoration:underline;text-decoration-thickness:.07em;text-underline-offset:.12em;text-decoration-color:var(--pl-ev)}
+.pl-t-domanda .pl-piede{color:var(--pl-su);opacity:.85}
+.pl-dom-r{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;align-items:flex-start;gap:24px;padding:34px 72px 62px;background:var(--pl-fondo);color:var(--pl-ink);font-size:32px;line-height:1.25;font-weight:500;filter:none;opacity:1;transform:translate3d(0,102%,0);transition:transform .8s var(--pl-ease)}
+.pl-dom-r.visto{transform:none}
+.pl-dom-r .ic{flex:none;width:44px;height:44px;color:var(--brand-600);stroke-width:1.9;margin-top:2px}
+.pl-dom-r b{color:var(--brand-ink)}
+
+/* ---------- trova l'errore: l'affermazione sbagliata si segna, quella giusta arriva sotto ---------- */
+.pl-err{position:absolute;left:0;right:0;top:158px;bottom:66px;display:grid;grid-template-rows:1fr 1fr}
+.pl-err>div{display:flex;gap:30px;align-items:center;padding:0 72px;overflow:hidden;font-size:38px;line-height:1.22}
+.pl-err>div>.ic{flex:none;width:1.5em;height:1.5em;stroke-width:1.4}
+.pl-err p{margin:.2em 0 0}
+.pl-err span{display:block;font-size:.42em;line-height:1.2;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.pl-err-no{background:var(--surface-100);transition:background-color .6s var(--pl-ease),color .6s}
+.pl-err-no>.ic{color:var(--brand-600)}
+.pl-err-no .e2,.pl-err-no>.ic:nth-of-type(2){display:none}
+.pl-err-no span{color:var(--pl-soft)}
+.pl-err-no p b{color:inherit}
+.pl-err-si{background:var(--brand-100);filter:none}
+.pl-err-si>.ic{color:var(--brand-600)}
+.pl-err-si span{color:var(--brand-ink)}
+.pl-err-si p b{color:var(--brand-ink);background:none}
+.pl-err:has(.pl-err-si.visto) .pl-err-no{background:var(--errore-bg);color:var(--errore-ink)}
+.pl-err:has(.pl-err-si.visto) .pl-err-no span{color:var(--errore-ink)}
+.pl-err:has(.pl-err-si.visto) .pl-err-no .e1,.pl-err:has(.pl-err-si.visto) .pl-err-no>.ic:first-of-type{display:none}
+.pl-err:has(.pl-err-si.visto) .pl-err-no .e2{display:block}
+.pl-err:has(.pl-err-si.visto) .pl-err-no>.ic:nth-of-type(2){display:block;color:var(--errore-ink)}
+.pl-err:has(.pl-err-si.visto) .pl-err-no p{text-decoration:line-through;text-decoration-thickness:.07em;text-decoration-color:var(--errore-ink)}
+
+/* ---------- comandi e avanzamento: spariscono da soli ---------- */
+.pl-binario{position:absolute;left:0;right:0;bottom:0;height:6px;z-index:5;background:var(--surface-200);pointer-events:none}
+.pl-binario i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--brand-600);transition:width .7s var(--pl-ease)}
+.pl-binario b{position:absolute;top:0;bottom:0;width:3px;margin-left:-1px;background:var(--pl-fondo)}
+#palco.campo .pl-binario{background:rgba(0,0,0,.28)}
+#palco.campo .pl-binario i{background:var(--pl-ev)}
+#palco.campo .pl-binario b{background:var(--pl-campo)}
+.pl-com{position:absolute;left:50%;bottom:26px;z-index:10;display:flex;align-items:center;gap:4px;padding:6px;border-radius:12px;background:#10161d;color:#e8eef4;box-shadow:0 10px 30px rgba(0,0,0,.35),0 2px 6px rgba(0,0,0,.3);transform:translateX(-50%);transition:opacity .35s var(--pl-ease),transform .5s var(--pl-ease)}
+.pl-com.nascosta{opacity:0;pointer-events:none;transform:translate(-50%,14px)}
+.pl-b{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:44px;height:44px;padding:0 10px;border:0;border-radius:8px;background:transparent;color:inherit;font:600 15px/1 var(--font-sans);cursor:pointer;transition:background-color .15s}
+.pl-b:hover{background:#25303b}
+.pl-b:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+#palco .pl-b .ic{width:20px;height:20px}
+.pl-esci{color:#ffb4a8}
+.pl-sep{width:1px;height:26px;background:#2c3945;margin:0 4px}
+.pl-conta{display:flex;align-items:center;gap:7px;padding:0 6px;font:500 14px/1 var(--font-mono);color:#9fb0bf}
+#pl-vai{width:46px;height:34px;text-align:center;font:600 16px var(--font-mono);background:#1a232c;border:1px solid #2c3945;color:#fff;border-radius:6px}
+#pl-vai:focus{outline:2px solid #fff;outline-offset:1px}
+
+@media (prefers-reduced-motion:reduce){
+  .pl,.pl *{animation:none!important}
+  .rv,.pl-dom-r,.pl-binario i,.pl-com,.pl-err-no{transition-duration:.01ms!important}
+}

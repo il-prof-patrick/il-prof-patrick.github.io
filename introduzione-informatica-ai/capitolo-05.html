@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5. Dall’algoritmo all’IA che impara · Introduzione a informatica ed AI</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="5">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Introduzione a informatica ed AI · Capitolo 05</span></div>
+  <h1>Dall’algoritmo all’IA che impara</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 5.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">5.1</span>Un problema che le istruzioni non risolvono</h2>
+  <p class="domanda">Provate a scrivere tre regole per riconoscere un gatto in una foto: bastano?</p>
+  <div class="riga-foto">
+    <p>Riconoscere un gatto in una foto è <b>facilissimo per una persona</b>, ma non si riesce a <b>descriverlo con regole precise</b>, e un computer tradizionale <b>funziona solo con regole precise</b> (capitolo 4).</p>
+    <figure class="rf-foto"><a class="fonte" href="https://www.pexels.com/photo/8305815/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/8305815/pexels-photo-8305815.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un gatto: per una persona è immediato riconoscerlo." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un gatto</figcaption></figure>
+  </div>
+  <p>Proviamo a scrivere le regole. Per ognuna si trovano <b>eccezioni di due tipi</b>: animali che <b>sembrano gatti ma non lo sono</b> e gatti che <b>non rispettano la regola</b>.</p>
+  <h3>Regola 1 · «Ha le orecchie a punta»</h3>
+  <div class="foto-coppia tre">
+    <figure><a class="fonte" href="https://www.pexels.com/photo/247399/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/247399/pexels-photo-247399.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Anche una volpe ha le orecchie a punta, ma non è un gatto." referrerpolicy="no-referrer"></a><figcaption>Anche una volpe ha le orecchie a punta, ma non è un gatto.</figcaption></figure>
+    <figure><a class="fonte" href="https://www.pexels.com/photo/156934/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/156934/pexels-photo-156934.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un gatto Scottish Fold ha le orecchie piegate, ma è un gatto. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>Un gatto Scottish Fold ha le orecchie piegate, ma è un gatto.</figcaption></figure>
+    <figure><a class="fonte" href="https://www.pexels.com/photo/9823020/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/9823020/pexels-photo-9823020.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un gatto che spunta da una fessura di una scatola: l’oggetto ne nasconde le orecchie e quasi tutto il muso. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>Un gatto che spunta da una fessura di una scatola: l’oggetto ne nasconde le orecchie e quasi tutto il muso.</figcaption></figure>
+  </div>
+  <h3>Regola 2 · «Ha il pelo»</h3>
+  <div class="riga-foto">
+    <p>Il pelo ce l’ha anche la volpe, quindi non basta. E non tutti i gatti lo hanno:</p>
+    <figure class="rf-foto"><a class="fonte" href="https://www.aliciariusphotography.com/sphynx-cats" target="_blank" rel="noopener"><img src="https://images.squarespace-cdn.com/content/v1/53c5b010e4b0c3db71b3067c/1472801684905-BXYK2YRQY81GSO0LI5O9/close-up-portrait-sphynx-hairless-cat-alicia-rius-animal-photographer.jpg" alt="Un gatto sphynx non ha il pelo, ma è un gatto." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un gatto sphynx</figcaption></figure>
+  </div>
+  <h3>Regola 3 · «Si vedono baffi e muso»</h3>
+  <div class="foto-coppia tre">
+    <figure><a class="fonte" href="https://www.pexels.com/photo/10066594/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/10066594/pexels-photo-10066594.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un gatto visto di spalle: non si vedono né baffi né muso." referrerpolicy="no-referrer"></a><figcaption>Un gatto visto di spalle: non si vedono né baffi né muso.</figcaption></figure>
+    <figure><a class="fonte" href="https://articles.hepper.com/why-cats-curl-into-balls-when-sleeping/" target="_blank" rel="noopener"><img src="https://articles.hepper.com/wp-content/uploads/2021/09/tabby-cat-sleeping-in-a-ball-position-on-a-cat-tree.jpg" alt="Un gatto raggomitolato che dorme: il muso è nascosto. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>Un gatto raggomitolato che dorme: il muso è nascosto.</figcaption></figure>
+    <figure><a class="fonte" href="https://www.pexels.com/photo/13516205/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/13516205/pexels-photo-13516205.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un gatto in controluce: si vede solo la sagoma. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>Un gatto in controluce: si vede solo la sagoma.</figcaption></figure>
+  </div>
+  <h3>Regola 4 · «Sta in piedi sulle quattro zampe»</h3>
+  <div class="foto-coppia">
+    <figure><a class="fonte" href="https://cheezburger.com/2246405/36-perfectly-timed-photos-of-cats-caught-in-midair" target="_blank" rel="noopener"><img src="https://i.chzbgr.com/full/9037549056/h54637546/freeze-frame-photo-of-a-cat-in-mid-air-in-the-bedroom" alt="Un gatto in salto, appeso a una tenda: nessuna zampa a terra." referrerpolicy="no-referrer"></a><figcaption>Un gatto in salto, appeso a una tenda: nessuna zampa a terra.</figcaption></figure>
+    <figure><a class="fonte" href="https://www.pexels.com/photo/35247528/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/35247528/pexels-photo-35247528.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un gatto a pancia in su con le zampe in aria. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>Un gatto a pancia in su con le zampe in aria.</figcaption></figure>
+  </div>
+  <p>A ogni foto in più c’è <b>un’altra eccezione</b>: servirebbero <b>migliaia di regole</b>, e non basterebbero lo stesso. Serve un altro modo.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-gatti" data-titolo="Riconoscere un gatto con le regole" data-inizio="Un gatto: per noi è facile riconoscerlo. Provando a scrivere le regole, a ogni clic si vedono le eccezioni.">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Per riconoscere un gatto si provano quattro regole. Per ognuna ci sono eccezioni: animali che sembrano gatti e non lo sono, e gatti che non rispettano la regola."></svg>
+      <ol class="passi-testo">
+        <li>Regola 1, «Ha le orecchie a punta»: la volpe le ha ma non è un gatto; il Scottish Fold non le ha ed è un gatto; il gatto che spunta da una scatola le ha nascoste.</li>
+        <li>Regola 2, «Ha il pelo»: la volpe ce l’ha e non è un gatto; lo sphynx non ce l’ha ed è un gatto.</li>
+        <li>Regola 3, «Si vedono baffi e muso»: un gatto di spalle, uno raggomitolato e uno in controluce sono gatti, ma non si vede il muso.</li>
+        <li>Regola 4, «Sta in piedi sulle quattro zampe»: un gatto in salto e uno a pancia in su sono gatti, ma in una posa insolita.</li>
+        <li>Per ogni regola c’è un’eccezione: servirebbero migliaia di regole, e non basterebbero lo stesso.</li>
+      </ol>
+    </div>
+  </figure>
+
+  <!-- ===================== 5.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">5.2</span>Imparare dagli esempi</h2>
+  <p>Invece di scrivere le regole, si <b>mostrano al sistema tanti esempi</b> e gli si lascia <b>trovare da solo ciò che li distingue</b>. Un bambino impara che cos’è un cane allo stesso modo: <b>vedendo tanti cani</b>, non ascoltando un elenco di caratteristiche.</p>
+  <p>Quello che il sistema ricava dagli esempi si chiama <b>modello</b>: l’insieme di schemi (in inglese <i>pattern</i>) con cui giudica i casi nuovi. <b>Addestrare</b> un modello vuol dire fargli imparare dagli esempi.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-impara" data-titolo="Imparare dagli esempi" data-inizio="Nessuno scrive le regole: al sistema si mostrano tanti esempi.">
+      <svg viewBox="0 0 720 330" role="img" aria-label="Un mucchio di foto di gatti e non gatti si dispone in due gruppi; arriva una foto nuova e il sistema risponde «gatto, 94%»."></svg>
+      <ol class="passi-testo">
+        <li>Compare un mucchio di foto vere: tanti gatti di razze e pose diverse e tanti non-gatti, come cani, uccelli e auto.</li>
+        <li>Il sistema le confronta: le foto si dispongono in due gruppi, «gatti» e «non gatti», e cerca da solo che cosa li distingue.</li>
+        <li>Arriva una foto nuova, mai vista: un gatto in una posa insolita.</li>
+        <li>Compare la risposta, «gatto, 94%». Non è una certezza: è la risposta più probabile.</li>
+      </ol>
+    </div>
+  </figure>
+  <p>Imparare dagli esempi <b>non vuol dire capire come noi</b>: il sistema trova schemi che distinguono i gatti dai non-gatti, ma non «sa» che cos’è un gatto, come la persona nella stanza cinese.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Se un sistema ha imparato dagli esempi, ha capito che cos’è un gatto.»</p>
+    <p class="err-si">Ha trovato <b>schemi che distinguono</b> i gatti dagli altri animali: non è detto che sappia che cos’è un gatto.</p></div>
+
+  <!-- ===================== 5.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">5.3</span>Algoritmi tradizionali e algoritmi di apprendimento automatico a confronto</h2>
+  <p class="domanda">Chiedete due volte la stessa domanda a un chatbot: la risposta sarà identica? E con una calcolatrice?</p>
+  <p>Lo stesso problema si può risolvere in due modi: con <b>regole scritte da una persona</b> (<b>algoritmi tradizionali</b>) o con <b>regole ricavate dagli esempi</b> (<b>apprendimento automatico</b>, in inglese <i>Machine Learning</i>).</p>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Algoritmi tradizionali</th><th>Machine Learning (apprendimento automatico)</th></tr></thead>
+    <tbody>
+      <tr><td>Come si ottiene la soluzione</td><td>Regole scritte esplicitamente dal programmatore, per passare da dati in ingresso a dati in uscita con una logica ben definita.</td><td>Impara schemi (<i>pattern</i>) dai dati di esempio, così da addestrare un modello che sa generalizzare e fare previsioni su dati mai visti.</td></tr>
+      <tr><td>Su che cosa si basano</td><td>Sulle regole scritte dal programmatore.</td><td>Sui dati. Tanti dati.</td></tr>
+      <tr><td>Approccio</td><td><b>Imperativo</b>: le istruzioni dicono come raggiungere l’obiettivo.</td><td><b>Dichiarativo</b>: gli esempi descrivono com’è fatto l’obiettivo, e il modello impara da solo come raggiungerlo.</td></tr>
+      <tr><td>Dopo che sono scritti</td><td>Le istruzioni sono fisse, salvo modifiche manuali del programmatore.</td><td>Possono aggiornare il modello da soli in base a nuovi dati o errori: più flessibili e adattabili nel tempo.</td></tr>
+      <tr><td>Risultato</td><td><b>Deterministico</b>: stesso ingresso, stesso risultato, fisso e prevedibile.</td><td><b>Probabilistico</b>: nessun risultato garantito, ma la stima della soluzione più probabile sulla base dei dati.</td></tr>
+      <tr><td>Problemi adatti</td><td>Strutture medio-semplici e ben definite, come ordinare un elenco di numeri o calcolare un’operazione.</td><td>Anche schemi complessi e relazioni tra dati difficili da formalizzare, come riconoscere una mela o prevedere l’esito di una partita.</td></tr>
+      <tr><td>Esempio: filtro antispam</td><td>Un elenco di parole vietate scritto da una persona.</td><td>Migliaia di email spam e non spam da cui ricava gli indizi.</td></tr>
+    </tbody></table></div>
+  <figure>
+    <div class="tela passi-anim" id="f-antispam" data-titolo="Il filtro antispam in due modi" data-inizio="Arrivano tre email, una alla volta. A sinistra le regole scritte da una persona, a destra un sistema che ha imparato dagli esempi.">
+      <svg viewBox="0 0 720 380" role="img" aria-label="Tre email passano per due filtri antispam: quello a regole sbaglia due volte su tre, quello che ha imparato dagli esempi dà una probabilità e le azzecca."></svg>
+      <ol class="passi-testo">
+        <li>«VINCI un telefono GRATIS, clicca qui!»: un caso facile, le due strade sono d’accordo.</li>
+        <li>«G R A T I S!!! cl1cca q u i»: davanti a un caso nuovo, le regole non lo riconoscono; chi ha imparato dagli esempi sì.</li>
+        <li>«Ho vinto la partita, domani te la racconto!»: la regola scatta anche quando non dovrebbe. L’apprendimento automatico dà una probabilità, non una certezza: a volte sbaglia anche lui.</li>
+      </ol>
+    </div>
+  </figure>
+
+  <!-- ===================== 5.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">5.4</span>La mappa dei termini: i quattro cerchi</h2>
+  <p>Quattro termini si usano spesso insieme, in italiano e in inglese, e <b>stanno uno dentro l’altro</b>, come cerchi concentrici: ognuno è un caso particolare di quello che lo contiene. Li vediamo dal più grande al più piccolo.</p>
+  <h3>IA · Artificial Intelligence (AI)</h3>
+  <p>L’<span class="termine">intelligenza artificiale</span> è il cerchio più grande: comprende <b>qualsiasi sistema che svolge compiti che, svolti da una persona, richiederebbero intelligenza</b> (capitolo 2). Il termine <b>non dice come</b> il sistema ci riesce. Può riuscirci seguendo regole scritte a mano da una persona, come i primi programmi di conversazione, oppure imparando dagli esempi: sono tutte IA.</p>
+  <h3>Apprendimento automatico · Machine Learning (ML)</h3>
+  <p>Il <span class="termine">machine learning</span> è la parte dell’IA in cui il sistema <b>impara dagli esempi</b> invece di seguire regole scritte da una persona (5.2 e 5.3). Si mostrano molti esempi, il sistema ne ricava un <b>modello</b> e lo usa sui casi nuovi, dando una risposta <b>probabile</b>. Il filtro antispam di Gmail (capitolo 1) funziona così: ha visto un enorme numero di email e ha ricavato da solo gli indizi che distinguono lo spam.</p>
+  <p><b>Non tutta l’IA è machine learning</b>: un sistema a regole scritte a mano è IA, ma non impara dagli esempi.</p>
+  <h3>Apprendimento profondo · Deep Learning (DL)</h3>
+  <p>Il <span class="termine">deep learning</span> è un modo particolare di fare machine learning, adatto ai problemi più difficili, come riconoscere immagini e voce. Il modello è un sistema <b>molto grande, organizzato in molti livelli («strati»)</b> che elaborano l’informazione uno dopo l’altro: in una foto, per esempio, i primi livelli colgono i contorni, quelli successivi le forme e gli ultimi l’oggetto intero. Da qui «profondo»: tanti livelli uno sopra l’altro.</p>
+  <p>Il nome tecnico di questi sistemi è <b>rete neurale artificiale</b>, e ne riparlerete più avanti nel corso. Google Lens (capitolo 1), che riconosce una pianta da una foto, è un esempio.</p>
+  <h3>IA generativa · Generative AI (GenAI)</h3>
+  <p>L’<span class="termine">IA generativa</span> è quella che <b>produce contenuti nuovi</b>: testi, immagini, musica, programmi. I sistemi visti finora <b>rispondono a una domanda</b> («è spam?», «che pianta è?»); un sistema generativo <b>crea qualcosa</b>, a partire da una richiesta scritta.</p>
+  <p>Di solito è fatta con il deep learning e con una grandissima quantità di esempi: per questo ciò che produce <b>somiglia a ciò che ha visto</b>, senza essere in genere una copia. Midjourney e Suno (capitolo 1) e i chatbot come ChatGPT sono IA generativa.</p>
+  <h3>Come stanno insieme</h3>
+  <p>Ogni cerchio sta dentro quello più grande: <b>un sistema di IA generativa è anche deep learning, machine learning e IA</b>. Non vale il contrario: un sistema a regole scritte a mano è IA ma non machine learning, e un riconoscitore di immagini è deep learning ma non genera nulla.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-cerchi" data-titolo="I quattro cerchi" data-inizio="Quattro cerchi concentrici, appoggiati sulla stessa base: dal più grande al più piccolo.">
+      <svg viewBox="0 0 720 340" role="img" aria-label="Quattro cerchi uno dentro l’altro: intelligenza artificiale, apprendimento automatico, apprendimento profondo, IA generativa."></svg>
+      <ol class="passi-testo">
+        <li>Il cerchio più grande, IA: tutto ciò che svolge compiti che richiederebbero intelligenza.</li>
+        <li>Dentro, l’apprendimento automatico: l’IA che impara dagli esempi.</li>
+        <li>Dentro ancora, l’apprendimento profondo: apprendimento automatico con sistemi molto grandi, a più livelli.</li>
+        <li>Il più piccolo, l’IA generativa: produce contenuti nuovi.</li>
+        <li>Ogni cerchio sta dentro quello più grande. Un’IA generativa è anche apprendimento profondo, apprendimento automatico e IA. Non vale il contrario.</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>In sintesi</h3>
+  <div class="tab"><table>
+    <thead><tr><th>Italiano</th><th>Inglese</th><th>Che cos’è</th><th>Esempio</th></tr></thead>
+    <tbody>
+      <tr><td>Intelligenza artificiale (IA)</td><td>Artificial Intelligence (AI)</td><td>Tutto ciò che svolge compiti che richiederebbero intelligenza, anche con regole scritte a mano.</td><td>I primi programmi di conversazione a regole</td></tr>
+      <tr><td>Apprendimento automatico</td><td>Machine Learning (ML)</td><td>L’IA che impara dagli esempi invece di seguire regole scritte da una persona.</td><td>Il filtro antispam di Gmail</td></tr>
+      <tr><td>Apprendimento profondo</td><td>Deep Learning (DL)</td><td>Machine learning con sistemi molto grandi, organizzati in molti livelli.</td><td>Google Lens che riconosce una pianta</td></tr>
+      <tr><td>IA generativa</td><td>Generative AI (GenAI)</td><td>L’IA che produce contenuti nuovi: testi, immagini, suoni.</td><td>Midjourney, Suno, i chatbot</td></tr>
+    </tbody></table></div>
+
+  <!-- ===================== 5.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">5.5</span>Quanto è «generale» un’IA</h2>
+  <p class="domanda">Un programma di scacchi che batte tutti i campioni del mondo è un’IA generale?</p>
+  <p>Non tutte le IA sono uguali: alcune fanno <b>una cosa sola</b>, altre, in teoria, <b>qualsiasi cosa</b>. Possiamo immaginare <b>tre gradini</b>: l’IA specializzata, l’IA generale e la superintelligenza. Solo il primo esiste oggi, secondo la visione più diffusa.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-gradini" data-titolo="Tre gradini" data-inizio="Una scala a tre gradini: solo il primo, con il contorno pieno, esiste oggi; gli altri due sono tratteggiati.">
+      <svg viewBox="0 0 720 340" role="img" aria-label="Tre gradini: IA specializzata, che esiste oggi; IA generale e superintelligenza, ipotetiche."></svg>
+      <ol class="passi-testo">
+        <li>IA specializzata: fa una cosa sola, anche molto bene, e fuori da quella non sa fare nulla. Gli esempi del capitolo 1, ciascuno con il suo compito.</li>
+        <li>IA generale: saprebbe svolgere qualsiasi compito intellettuale come una persona. È ipotetica. Nel 2026 c’è chi dice che sia già stata raggiunta e molti esperti che non sono d’accordo.</li>
+        <li>Superintelligenza: supererebbe le persone in praticamente tutto. È ipotetica.</li>
+        <li>Tre gradini: il primo esiste oggi, gli altri due sono ipotetici.</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>IA specializzata · Narrow AI (ANI)</h3>
+  <p>L’<span class="termine">IA specializzata</span> (in inglese <i>Narrow AI</i>, abbreviata ANI, in italiano anche «IA debole») <b>svolge un compito solo, anche molto bene</b>, e fuori da quello non sa fare nulla. Secondo la visione più diffusa, <b>l’IA che esiste oggi è di questo tipo</b>: più sotto si vede che per i chatbot c’è chi la pensa diversamente.</p>
+  <p>Gli esempi del capitolo 1 lo mostrano: <b>Stockfish</b> gioca a scacchi meglio di qualsiasi persona ma non sa riconoscere un volto; <b>Face ID</b> riconosce i volti ma non sa tradurre; <b>Google Lens</b> riconosce le piante ma non sa giocare a scacchi.</p>
+  <h3>IA generale · Artificial General Intelligence (AGI)</h3>
+  <p>L’<span class="termine">IA generale</span> (in inglese <i>Artificial General Intelligence</i>, abbreviata AGI, in italiano anche «IA forte») sarebbe un sistema capace di <b>svolgere qualsiasi compito intellettuale che sa fare una persona</b> e di <b>imparare compiti nuovi</b>, come una persona. È <b>ipotetica</b>: oggi non esiste un sistema che tutti riconoscano come tale.</p>
+  <h3>Che cosa se ne dice oggi</h3>
+  <p>Oggi <b>non esiste una definizione di AGI su cui siano tutti d’accordo</b>. Nel 2023 alcuni ricercatori di Google DeepMind hanno proposto di classificare i sistemi in <b>livelli</b>, guardando a ciò che sanno fare e non a come lo fanno: secondo loro programmi specializzati come Stockfish sono già superumani nel loro compito, mentre i chatbot sarebbero soltanto un’AGI «emergente», cioè al primo livello.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.britannica.com/money/Jensen-Huang" target="_blank" rel="noopener"><img src="https://cdn.britannica.com/60/257460-050-62FF74CB/NVIDIA-Jensen-Huang.jpg" alt="Jensen Huang, capo di Nvidia: a marzo 2026 ha detto di pensare che l’AGI sia stata raggiunta." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Jensen Huang</figcaption></figure>
+  <p>A marzo 2026 il capo di Nvidia, <b>Jensen Huang</b>, ha detto in un podcast di pensare che l’AGI sia stata raggiunta. Per lui AGI vuol dire un sistema capace di fare il lavoro di una persona, perfino di avviare un’azienda; ma ha aggiunto che la probabilità che centomila agenti di IA costruiscano un’azienda come Nvidia è zero. Molti esperti hanno contestato sia l’affermazione sia la definizione.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://capacityglobal.com/news/who-is-yann-lecun/" target="_blank" rel="noopener"><img src="https://capacityglobal.com/wp-content/uploads/2025/11/Yann-LeCun.png" alt="Yann LeCun, ricercatore premio Turing: preferisce parlare di «Advanced Machine Intelligence» e dice che anche l’intelligenza umana è specializzata." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Yann LeCun</figcaption></figure>
+  <p><span class="termine">Yann LeCun</span>, ricercatore premiato con il Turing Award ed ex capo della ricerca sull’IA di Meta, ha lasciato l’azienda a fine 2025 e fondato a Parigi <b>AMI Labs</b>, che a marzo 2026 ha raccolto oltre un miliardo di dollari. Preferisce parlare di «Advanced Machine Intelligence» e sostiene che anche l’intelligenza umana è in realtà piuttosto specializzata e che i chatbot di oggi non sono una strada verso l’intelligenza umana.</p>
+  <p>Esistono anche test per misurare quanto un sistema sia «generale»: <b>ARC-AGI</b>, per esempio, misura con quanta efficienza un sistema impara compiti che non ha mai visto. Per ora <b>non c’è consenso</b> sul fatto che qualche sistema esistente abbia raggiunto un’intelligenza generale a livello umano.</p>
+  <h3>Superintelligenza · Artificial Super Intelligence (ASI)</h3>
+  <p>La <span class="termine">superintelligenza</span> (in inglese <i>Artificial Super Intelligence</i>, abbreviata ASI) <b>supererebbe le persone in praticamente tutti i campi</b>. Come l’AGI è <b>ipotetica</b>: nessun sistema del genere esiste.</p>
+  <h3>Nella fantascienza</h3>
+  <p>Il cinema ha immaginato spesso IA generali e superintelligenze, molto diverse da quelle reali. In <b>Terminator</b> (1984) la rete Skynet decide di combattere gli esseri umani; in <b>Io, Robot</b> (2004), tratto liberamente dai racconti di Asimov, il sistema VIKI controlla i robot di una città; in <b>WALL·E</b> (2008) un piccolo robot spazzino prova sentimenti; in <b>2001: Odissea nello spazio</b> (1968) il computer HAL 9000 gestisce un’astronave e si rifiuta di obbedire.</p>
+  <div class="foto-coppia quattro">
+    <figure><a class="fonte" href="https://www.youtube.com/watch?v=F76ttUhSkhs" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/F76ttUhSkhs/maxresdefault.jpg" alt="Terminator (1984): lo scheletro metallico del T-800, creato dalla rete Skynet." referrerpolicy="no-referrer"></a><figcaption>Terminator (1984): lo scheletro metallico del T-800, creato dalla rete Skynet.</figcaption></figure>
+    <figure><a class="fonte" href="https://www.looper.com/446378/the-actor-who-plays-sonny-in-i-robot-might-surprise-you/" target="_blank" rel="noopener"><img src="https://www.looper.com/img/gallery/the-actor-who-plays-sonny-in-i-robot-might-surprise-you/l-intro-1624582212.jpg" alt="Io, Robot (2004): il robot Sonny. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>Io, Robot (2004): il robot Sonny.</figcaption></figure>
+    <figure><a class="fonte" href="https://cinema.everyeye.it/film/wall-e/" target="_blank" rel="noopener"><img src="https://images.everyeye.it/img-artwork/wall-e-v1-578067-1280x720.jpg" alt="WALL·E (2008): il piccolo robot spazzino, con un cubo di Rubik. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>WALL·E (2008): il piccolo robot spazzino, con un cubo di Rubik.</figcaption></figure>
+    <figure><a class="fonte" href="https://www.independent.co.uk/arts-entertainment/films/features/2001-a-space-odyssey-50th-anniversary-future-predict-ai-artificial-intelligence-a8287056.html" target="_blank" rel="noopener"><img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/04/09/red-hal-eye.jpg" alt="2001: Odissea nello spazio (1968): l’occhio rosso del computer HAL 9000. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>2001: Odissea nello spazio (1968): l’occhio rosso del computer HAL 9000.</figcaption></figure>
+  </div>
+  <p>Queste storie hanno spesso in comune tre cose che l’IA di oggi <b>non ha</b>: un corpo da robot, volontà proprie e sentimenti (capitolo 1, «Idee sbagliate sull’IA»). Sono <b>racconti, non descrizioni della realtà</b>.</p>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>Riconoscere un gatto è facile per noi ma non si riesce a descrivere con regole: per ogni regola c’è un’eccezione.</li>
+      <li>Invece di scrivere le regole si mostrano al sistema tanti esempi e lui ricava un modello: imparare così non vuol dire capire.</li>
+      <li>Gli algoritmi tradizionali seguono regole scritte e danno risultati certi; il Machine Learning impara dai dati e dà risultati probabili.</li>
+      <li>IA, apprendimento automatico, apprendimento profondo e IA generativa sono quattro cerchi uno dentro l’altro, dal più grande al più piccolo.</li>
+      <li>Oggi esiste solo l’IA specializzata, brava in un compito alla volta; IA generale e superintelligenza sono ipotetiche, e senza una definizione condivisa.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/capitolo-05.js"></script>
+<script src="assets/capitolo-05-aula.js"></script>
+</body>
+</html>

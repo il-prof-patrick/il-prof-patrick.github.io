@@ -2,6 +2,20 @@
    Campi: data (AAAA-MM-GG), dataVisibile, titolo, piattaforma (targhetta sull'immagine, es. YouTube), immagine, testo (elenco di paragrafi), fonte (link), etichettaFonte, consigliata. */
 var NOTIZIE = [
   {
+    data: "2026-10-20",
+    dataVisibile: "20 ottobre 2026",
+    titolo: "Giochi gratis? Le pubblicità potrebbero manipolarti",
+    piattaforma: "TikTok",
+    immagine: "https://play-lh.googleusercontent.com/5FLR-EBlfNvoV9ydZkOMDqRF10nV64XcKdZzW_oQzmz2e8Me9PS5Zncnvviki0J3XumjO2a_lg6_IdwOqwnV=w512-h512",
+    testo: [
+      "Un divulgatore su TikTok dice di aver fatto reverse engineering di Block Blast, il puzzle gratuito che secondo lui incassa oltre 100 milioni di euro con la pubblicità. Secondo la sua analisi, il gioco raccoglie alcuni dati sul giocatore: modello del telefono, Paese, quanto hanno reso gli annunci già visti e perfino se la vibrazione è attiva. Questi dati entrano in un modello di machine learning che gira sul telefono e stima quanto vale ogni giocatore per gli inserzionisti.",
+      "In base a questa stima la partita diventa più facile o più difficile. Con la regola “boost and kill” il gioco prima aiuta il giocatore di nascosto, così crede di fare la partita della vita. Poi, quando è pronto un annuncio che rende molto, gli dà pezzi impossibili da piazzare. A quel punto propone di continuare guardando proprio quell’annuncio. Il creator dice anche che il gioco fa esperimenti per capire in quale minuto conviene farti perdere.",
+      "Sono affermazioni di un singolo creator e non le ha verificate nessuno in modo indipendente. Il caso però mostra bene come l’IA possa servire non a giocare meglio, ma a farci guardare più pubblicità."
+    ],
+    fonte: "https://www.tiktok.com/@igol.ai/video/7697733474232388897",
+    etichettaFonte: "Guarda il video su TikTok"
+  },
+  {
     data: "2026-10-10",
     dataVisibile: "10 ottobre 2026",
     titolo: "Il Pentagono vuole trasmettere in diretta streaming una fucilazione: la prima esecuzione pubblica negli USA dopo 90 anni",

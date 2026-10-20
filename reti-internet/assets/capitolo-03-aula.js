@@ -58,6 +58,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il protocollo",
+   "msg": "Regole condivise per scambiarsi i dati",
    "punti": [
     [
      "list",
@@ -76,6 +77,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Che cosa definisce un protocollo",
+   "msg": "Formato, significato e tempi dei messaggi",
    "tessere": [
     [
      "layout-list",
@@ -113,6 +115,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Perché i livelli",
+   "msg": "Un problema enorme diviso in parti, una per livello",
    "punti": [
     [
      "layers",
@@ -135,6 +138,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Esempio: spedire un pacco",
+   "msg": "Ognuno fa il suo lavoro senza conoscere quello degli altri",
    "tessere": [
     [
      "mail",
@@ -162,6 +166,7 @@ window.AULA = {
   {
    "tipo": "tabella",
    "titolo": "Il modello TCP/IP: quattro livelli",
+   "msg": "Dall’applicazione al collegamento fisico",
    "righe": [
     [
      "TCP/IP",
@@ -193,6 +198,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "L’incapsulamento",
+   "msg": "Ogni livello aggiunge in testa la sua intestazione",
    "punti": [
     [
      "mail",
@@ -215,7 +221,8 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Buste dentro buste",
-   "id": "f-incapsulamento"
+   "id": "f-incapsulamento",
+   "msg": "Il messaggio scende i livelli e si riempie di intestazioni"
   },
   {
    "tipo": "errore",
@@ -241,6 +248,7 @@ window.AULA = {
   {
    "tipo": "formula",
    "titolo": "L’indirizzo MAC (*Media Access Control*)",
+   "msg": "Dice chi è la scheda di rete, 48 bit scritti in esadecimale",
    "formula": "3C:22:FB : 7A:10:9E",
    "righe": [
     [
@@ -264,6 +272,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il MAC serve solo nella rete locale",
+   "msg": "Esce dal router e non conta più",
    "punti": [
     [
      "network",
@@ -307,6 +316,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "L’indirizzo IP (*Internet Protocol*)",
+   "msg": "Dice dove si trova un dispositivo, per consegnargli i pacchetti",
    "punti": [
     [
      "map-pin",
@@ -325,6 +335,7 @@ window.AULA = {
   {
    "tipo": "formula",
    "titolo": "IPv4: 32 bit",
+   "msg": "Quattro numeri da 0 a 255, ognuno è un byte",
    "formula": "192.168.1.4 = 11000000.10101000.00000001.00000100",
    "righe": [
     [
@@ -344,11 +355,13 @@ window.AULA = {
   {
    "tipo": "widget",
    "titolo": "Prova tu: un indirizzo IPv4 in bit",
-   "w": "ipv4"
+   "w": "ipv4",
+   "msg": "Dai numeri ai bit e ritorno"
   },
   {
    "tipo": "punti",
    "titolo": "Pochi indirizzi: l’esaurimento",
+   "msg": "Circa 4,3 miliardi, meno dei dispositivi di oggi",
    "punti": [
     [
      "binary",
@@ -371,6 +384,7 @@ window.AULA = {
   {
    "tipo": "formula",
    "titolo": "IPv6: 128 bit",
+   "msg": "Indirizzi quasi inesauribili",
    "formula": "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
    "righe": [
     [
@@ -390,6 +404,7 @@ window.AULA = {
   {
    "tipo": "tabella",
    "titolo": "MAC e IP a confronto",
+   "msg": "Il MAC dice chi sei, l’IP dove sei",
    "righe": [
     [
      "",
@@ -426,6 +441,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "In laboratorio: qual è il mio IP?",
+   "msg": "Telefono e computer sulla stessa rete: che cosa cambia?",
    "punti": [
     [
      "smartphone",
@@ -449,6 +465,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il DHCP",
+   "msg": "Un IP libero in pochi secondi, in automatico",
    "punti": [
     [
      "wifi",
@@ -471,7 +488,8 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Il DHCP in quattro messaggi",
-   "id": "f-dhcp"
+   "id": "f-dhcp",
+   "msg": "Scopri, offri, richiedi, conferma"
   },
   {
    "tipo": "sezione",
@@ -487,6 +505,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il DNS (*Domain Name System*)",
+   "msg": "Le persone ricordano i nomi, i router capiscono i numeri",
    "punti": [
     [
      "user",
@@ -505,6 +524,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Come funziona la risoluzione",
+   "msg": "Un sistema distribuito e gerarchico, con la cache",
    "punti": [
     [
      "network",
@@ -523,11 +543,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Dal nome al numero",
-   "id": "f-dns"
+   "id": "f-dns",
+   "msg": "Da www.wikipedia.org al suo indirizzo IP"
   },
   {
    "tipo": "punti",
    "titolo": "In laboratorio: DNS lookup",
+   "msg": "Cercare l’IP di alcuni siti",
    "punti": [
     [
      "search",
@@ -562,6 +584,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il livello di trasporto",
+   "msg": "Consegna all’app giusta e decide quanto garantire",
    "punti": [
     [
      "target",
@@ -580,6 +603,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Le porte",
+   "msg": "Un solo IP, tante app: la porta dice quale",
    "punti": [
     [
      "smartphone",
@@ -598,11 +622,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "A quale app va il pacchetto?",
-   "id": "f-porte"
+   "id": "f-porte",
+   "msg": "L’IP trova il dispositivo, la porta trova il programma"
   },
   {
    "tipo": "confronto",
    "titolo": "TCP e UDP",
+   "msg": "Consegna garantita contro consegna veloce",
    "a": {
     "icona": "shield-check",
     "titolo": "TCP · *Transmission Control Protocol*",
@@ -628,6 +654,7 @@ window.AULA = {
   {
    "tipo": "tabella",
    "titolo": "Quando si usa l’uno o l’altro",
+   "msg": "Pagine e posta con TCP, video e giochi con UDP",
    "righe": [
     [
      "",
@@ -664,7 +691,8 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Se un pacchetto si perde",
-   "id": "f-tcpudp"
+   "id": "f-tcpudp",
+   "msg": "TCP lo rimanda, UDP va avanti"
   }
  ]
 };

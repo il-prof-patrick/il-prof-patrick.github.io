@@ -347,147 +347,30 @@
     [].forEach.call(root.querySelectorAll('[data-widget]'), avviaWidget);
   }
 
-  /* ---------- Presenta in aula: slide 16:9 costruite da window.AULA ---------- */
+  /* ---------- Presenta in aula: il palco vive in assets/aula/ (aula.js + aula.css), si carica alla prima apertura ---------- */
   function md(t) { return String(t || '').replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/(^|[^*\w])\*([^*\s][^*]*?)\*(?![*\w])/g, '$1<i>$2</i>').replace(/`(.+?)`/g, '<code>$1</code>'); }
+  var BASE_AULA = (function () { var s = document.currentScript; return s && s.src ? new URL('../../assets/aula/', s.src).href : ''; })();
   function presentazione() {
     var main = document.querySelector('.lezione'); if (!main) return;
     var b = document.getElementById('b-presenta'); if (!b) return;
     var A = window.AULA; if (!A) { b.style.display = 'none'; return; }
-    var aula = document.createElement('div'); aula.id = 'aula'; aula.setAttribute('role', 'dialog'); aula.setAttribute('aria-label', 'Presenta in aula');
-    aula.innerHTML = '<div class="aula-scena"><div class="aula-tela"></div></div>' +
-      '<div class="aula-com"><button class="tasto" id="b-ind" aria-label="Indietro">' + icona('chevron-left', 'ic-16') + '</button>' +
-      '<span class="aula-conta"><input id="aula-vai" type="text" inputmode="numeric" aria-label="Vai alla slide"><span class="aula-tot"></span></span><button class="tasto" id="b-ava" aria-label="Avanti">' + icona('chevron-right', 'ic-16') + '</button>' +
-      '<button class="tasto" id="b-esci" aria-label="Esci">' + icona('x', 'ic-16') + '<span class="testo-tasto">Esci</span></button></div>';
-    document.body.appendChild(aula);
-    var scena = aula.querySelector('.aula-scena'), tela = aula.querySelector('.aula-tela'), vaiIn = aula.querySelector('#aula-vai'), tot = aula.querySelector('.aula-tot');
-    var S = A.slide, i = 0, aperta = false, cur = null;
-    var sezione = ''; S.forEach(function (s) { if (s.tipo === 'sezione') sezione = s.num + ' · ' + s.titolo; s._sez = s.tipo === 'copertina' ? '' : sezione; });
-
-    function ic(n) { return '<span class="sl-ic">' + icona(n || 'arrow-right') + '</span>'; }
-    // foto delle slide: copertina e sezione ritagliate; le foto didattiche intere, dentro una cornice (la stessa foto sfocata)
-    function fotoHtml(f, cls) {
-      var img = '<img src="' + f.src + '" alt="' + (f.alt || f.tit || '') + '" referrerpolicy="no-referrer">';
-      var taglia = /sl-cop-foto|sl-sez-foto/.test(cls || '');
-      return '<figure class="sl-foto ' + (cls || '') + (taglia ? '' : ' cornice') + '">' +
-        (taglia ? img : '<div class="sl-cornice" style="--sf:url(&quot;' + f.src + '&quot;)">' + img + '</div>') +
-        (f.tit ? '<figcaption>' + md(f.tit) + '</figcaption>' : '') + '</figure>'; }
-    function testa(s) { return '<header class="sl-testa">' + (s._sez ? '<span class="sl-eti">' + s._sez + '</span>' : '') + (s.titolo ? '<h2 class="sl-tit">' + md(s.titolo) + '</h2>' : '') + '</header>'; }
-    function clona(sel) {
-      var o = main.querySelector(sel); if (!o) return null;
-      var c = o.cloneNode(true);
-      [].forEach.call(c.querySelectorAll('.passi-testa,.passi-com'), function (x) { x.remove(); });
-      [].forEach.call(c.querySelectorAll('[data-widget]'), function (w) { w.innerHTML = ''; w._wid = false; w.className = w.className.replace(/\bwid\b/, ''); });
-      if (c.matches('[data-widget]')) { c.innerHTML = ''; c.className = c.className.replace(/\bwid\b/, ''); }
-      return c;
+    var motore = null, carico = false;
+    function carica(poi) {
+      if (motore) { poi(); return; }
+      if (carico) return; carico = true;
+      var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = BASE_AULA + 'aula.css';
+      var s = document.createElement('script'); s.src = BASE_AULA + 'aula.js';
+      function errore() { carico = false; b.title = 'Impossibile caricare la presentazione'; }
+      s.onerror = errore; l.onerror = errore;
+      // prima lo stile, poi il motore: la scala del palco si calcola solo a stile applicato
+      l.onload = function () { s.onload = function () { motore = window.AulaMotore(A, { main: main, icona: icona, iconeInline: iconeInline, avviaTutto: avviaTutto, md: md }); carico = false; poi(); }; document.head.appendChild(s); };
+      document.head.appendChild(l);
     }
-    var R = {
-      copertina: function (s) {
-        return '<div class="sl-cop-sx"><span class="sl-eti">' + A.modulo + ' · Capitolo ' + A.n + '</span><div class="sl-cop-n">' + A.n + '</div><h1>' + md(s.titolo) + '</h1>' +
-          (s.sotto ? '<p class="sl-cop-sotto">' + md(s.sotto) + '</p>' : '') +
-          '<ol class="sl-indice">' + (s.indice || []).map(function (x) { return '<li><span>' + x[0] + '</span>' + x[1] + '</li>'; }).join('') + '</ol></div>' +
-          (s.foto ? fotoHtml(s.foto, 'sl-cop-foto') : '');
-      },
-      sezione: function (s) {
-        return '<div class="sl-sez-n"><span>' + s.num + '</span></div><div class="sl-sez-dx"><h2>' + md(s.titolo) + '</h2>' + (s.sotto ? '<p>' + md(s.sotto) + '</p>' : '') + '</div>' +
-          (s.foto ? fotoHtml(s.foto, 'sl-sez-foto') : '<div class="sl-sez-icona">' + icona(s.icona || 'layers') + '</div>');
-      },
-      punti: function (s) {
-        var l = '<ul class="sl-punti">' + s.punti.map(function (p) { return '<li class="pz">' + ic(p[0]) + '<span>' + md(p[1]) + '</span></li>'; }).join('') + '</ul>';
-        if (s.nota) l += '<p class="sl-nota pz">' + icona('lightbulb') + '<span>' + md(s.nota) + '</span></p>';
-        return testa(s) + '<div class="sl-corpo ' + (s.foto ? 'con-foto' : '') + '"><div>' + l + '</div>' + (s.foto ? fotoHtml(s.foto) : '') + '</div>';
-      },
-      tessere: function (s) {
-        return testa(s) + '<div class="sl-corpo"><div class="sl-tessere n' + s.tessere.length + '">' + s.tessere.map(function (t) {
-          return '<div class="sl-tessera pz">' + ic(t[0]) + '<b>' + md(t[1]) + '</b><span>' + md(t[2] || '') + '</span></div>'; }).join('') + '</div>' +
-          (s.nota ? '<p class="sl-nota pz">' + icona('lightbulb') + '<span>' + md(s.nota) + '</span></p>' : '') + '</div>';
-      },
-      confronto: function (s) {
-        function col(c, k) { return '<div class="sl-col pz ' + (c.tono || '') + '"><div class="sl-col-t">' + ic(c.icona) + '<b>' + md(c.titolo) + '</b></div><ul>' +
-          c.righe.map(function (r) { var g = r[0] === '+' ? 'si' : r[0] === '-' ? 'no' : 'nn'; return '<li class="' + g + '">' + md(r.slice(1).trim()) + '</li>'; }).join('') + '</ul>' + (c.piede ? '<p class="sl-col-p">' + md(c.piede) + '</p>' : '') + '</div>'; }
-        return testa(s) + '<div class="sl-corpo"><div class="sl-confronto">' + col(s.a, 0) + col(s.b, 1) + '</div>' + (s.verdetto ? '<p class="sl-verdetto pz">' + md(s.verdetto) + '</p>' : '') + '</div>';
-      },
-      anim: function (s) { return testa(s) + '<div class="sl-corpo sl-figura" data-clona="#' + s.id + '"></div>'; },
-      schema: function (s) { return testa(s) + '<div class="sl-corpo sl-figura" data-clona="' + s.sel + '"></div>'; },
-      widget: function (s) { return testa(s) + '<div class="sl-corpo sl-figura" data-clona="[data-widget=&quot;' + s.w + '&quot;]"></div>'; },
-      foto: function (s) { return testa(s) + '<div class="sl-corpo"><div class="sl-galleria n' + s.foto.length + '">' + s.foto.map(function (f) { return fotoHtml(f); }).join('') + '</div></div>'; },
-      storia: function (s) {
-        return testa(s) + '<div class="sl-corpo sl-storia">' + (s.foto ? fotoHtml(s.foto) : '<div class="sl-storia-icona">' + icona(s.icona || 'history') + '</div>') + '<div><div class="sl-anno">' + s.anno + '</div><ul class="sl-punti piccoli">' +
-          s.punti.map(function (p) { return '<li class="pz">' + ic(p[0]) + '<span>' + md(p[1]) + '</span></li>'; }).join('') + '</ul></div></div>';
-      },
-      formula: function (s) {
-        return testa(s) + '<div class="sl-corpo sl-formula"><div class="sl-f">' + md(s.formula) + '</div>' + (s.righe ? '<div class="sl-f-righe">' + s.righe.map(function (r) {
-          return '<div class="pz"><span>' + md(r[0]) + '</span>' + icona('arrow-right') + '<b>' + md(r[1]) + '</b></div>'; }).join('') + '</div>' : '') + '</div>';
-      },
-      tabella: function (s) {
-        var car = s.righe.reduce(function (a, r) { return a + r.join(' ').length; }, 0), lunga = s.righe.some(function (r) { return String(r[r.length - 1]).length > 26; });
-        return testa(s) + '<div class="sl-corpo"><table class="sl-tab' + (car > 620 ? ' fittissima' : (s.righe.length > 8 || car > 420 ? ' fitta' : '')) + (lunga ? ' lunga' : '') + '"><thead><tr>' + s.righe[0].map(function (c) { return '<th>' + md(c) + '</th>'; }).join('') + '</tr></thead><tbody>' +
-          s.righe.slice(1).map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + md(c) + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody></table></div>';
-      },
-      domanda: function (s) { return '<div class="sl-dom">' + icona('message-circle-question') + '<span class="sl-eti">Domanda alla classe</span><p>' + md(s.testo) + '</p>' +
-        (s.risposta ? '<div class="sl-dom-r pz">' + icona('circle-check') + '<span>' + md(s.risposta) + '</span></div>' : '') + '</div>'; },
-      errore: function (s) {
-        return testa({ _sez: s._sez, titolo: s.titolo || 'Trova l’errore' }) + '<div class="sl-corpo sl-err"><div class="sl-err-no">' + icona('message-circle-question') + icona('circle-x') + '<div><span class="e1">Che cosa c’è di sbagliato?</span><span class="e2">Sbagliato</span><p>' + md(s.no) + '</p></div></div>' +
-          '<div class="sl-err-si pz">' + icona('circle-check') + '<div><span>Corretto</span><p>' + md(s.si) + '</p></div></div></div>';
-      },
-      ricorda: function (s) {
-        return testa({ _sez: '', titolo: s.titolo || 'Ricorda' }) + '<div class="sl-corpo"><div class="sl-ricorda">' + s.punti.map(function (p) {
-          return '<div class="pz">' + ic(p[0]) + '<span>' + md(p[1]) + '</span></div>'; }).join('') + '</div></div>';
-      }
-    };
-    function adatta() {
-      if (!aperta) return;
-      var r = scena.getBoundingClientRect(), k = Math.min(r.width / 1280, r.height / 720);
-      tela.style.transform = 'translate(-50%,-50%) scale(' + k + ')';
-    }
-    function mostra(dietro) {
-      var s = S[i];
-      tela.innerHTML = '<section class="sl tipo-' + s.tipo + '">' + R[s.tipo](s) +
-        (s.tipo !== 'copertina' && s.tipo !== 'sezione' ? '<footer class="sl-piede"><span>' + A.modulo + ' · ' + A.n + '. ' + A.titolo + '</span><span>' + (i + 1) + ' / ' + S.length + '</span></footer>' : '') + '</section>';
-      cur = { pz: [].slice.call(tela.querySelectorAll('.pz')), k: 0, av: null };
-      if (dietro) { cur.pz.forEach(function (p) { p.classList.add('on'); }); cur.k = cur.pz.length; }
-      var f = tela.querySelector('[data-clona]');
-      if (f) {
-        var c = clona(f.getAttribute('data-clona'));
-        if (c) { f.appendChild(c); iconeInline(f); avviaTutto(f); cur.av = f.querySelector('.passi-com .tasto.primario'); }
-      }
-      iconeInline(tela);
-      vaiIn.value = i + 1; tot.textContent = '/ ' + S.length;
-      adatta();
-    }
-    function avanti() {
-      if (cur && cur.k < cur.pz.length) { cur.pz[cur.k++].classList.add('on'); return; }
-      if (cur && cur.av && !cur.av.disabled) { cur.av.click(); return; }
-      if (i < S.length - 1) { i++; mostra(false); }
-    }
-    function indietro() {
-      if (cur && cur.k > 0 && !cur.av) { cur.pz[--cur.k].classList.remove('on'); return; }
-      if (i > 0) { i--; mostra(true); }
-    }
-    function salta(k) { k = Math.max(1, Math.min(S.length, parseInt(k, 10) || 0)); if (!k) return; i = k - 1; mostra(false); }
-    vaiIn.addEventListener('keydown', function (e) { e.stopPropagation(); if (e.key === 'Enter') { salta(vaiIn.value); vaiIn.blur(); } else if (e.key === 'Escape') { vaiIn.value = i + 1; vaiIn.blur(); } });
-    vaiIn.addEventListener('focus', function () { vaiIn.select(); });
-    var cifre = '', tCifre;
-    function apri() { i = 0; aperta = true; document.body.classList.add('presenta'); mostra(false); }
-    function chiudi() { aperta = false; document.body.classList.remove('presenta'); tela.innerHTML = ''; }
+    function apri() { carica(function () { motore.apri(); }); }
     b.onclick = apri;
-    aula.querySelector('#b-esci').onclick = chiudi;
-    aula.querySelector('#b-ava').onclick = avanti;
-    aula.querySelector('#b-ind').onclick = indietro;
-    window.addEventListener('resize', adatta);
     document.addEventListener('keydown', function (e) {
       var tag = (e.target.tagName || '').toLowerCase();
-      if (!aperta) { if ((e.key === 'p' || e.key === 'P') && tag !== 'input' && tag !== 'textarea' && tag !== 'select') apri(); return; }
-      if (tag === 'input' || tag === 'select') return;
-      if (/^[0-9]$/.test(e.key)) { cifre += e.key; vaiIn.value = cifre; clearTimeout(tCifre); tCifre = setTimeout(function () { cifre = ''; vaiIn.value = i + 1; }, 2500); return; }
-      if (e.key === 'Enter' && cifre) { salta(cifre); cifre = ''; return; }
-      if (e.key === 'Escape') chiudi();
-      else if (e.key === 'Home') salta(1); else if (e.key === 'End') salta(S.length);
-      else if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); avanti(); }
-      else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); indietro(); }
-    });
-    scena.addEventListener('click', function (e) {
-      if (e.target.closest('.wid,.passi-anim,.tela,button,input,select,a,label')) return;
-      avanti();
+      if ((e.key === 'p' || e.key === 'P') && !e.ctrlKey && !e.metaKey && !e.altKey && tag !== 'input' && tag !== 'textarea' && tag !== 'select' && !(motore && motore.aperta())) apri();
     });
   }
 
@@ -565,7 +448,7 @@
 
   // zoom delle foto: dopo 1 secondo fermi sopra, la foto si apre quasi a schermo intero (sempre la stessa grandezza)
   function zoomFoto() {
-    var SEL = '.foto-margine img,.foto-lato img,.foto-grande img,.foto-coppia img,.sl-foto:not(.sl-cop-foto):not(.sl-sez-foto) img';
+    var SEL = '.foto-margine img,.foto-lato img,.foto-grande img,.foto-coppia img,.pl-foto:not(.pl-cop-foto):not(.pl-sez-foto) img';
     var ov = document.createElement('div'); ov.id = 'zoom-foto'; ov.setAttribute('aria-hidden', 'true');
     ov.innerHTML = '<img alt=""><p></p>'; document.body.appendChild(ov);
     var zi = ov.querySelector('img'), zc = ov.querySelector('p'), timer = null, aperta = false;

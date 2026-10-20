@@ -35,13 +35,20 @@ class Capitolo:
         if titolo: d['titolo'] = titolo
         return d
 
-    def AN(self, fid, titolo):
-        self.usati['fig'].add(fid); return {'tipo': 'anim', 'titolo': titolo, 'id': self.conf.ANIM[fid]['id']}
+    def AN(self, fid, titolo, msg=None):
+        self.usati['fig'].add(fid); d = {'tipo': 'anim', 'titolo': titolo, 'id': self.conf.ANIM[fid]['id']}
+        if msg: d['msg'] = msg
+        return d
 
-    def SC(self, fid, titolo):
-        self.usati['fig'].add(fid); return {'tipo': 'schema', 'titolo': titolo, 'sel': '#' + self.conf.SCHEMI[fid]['id']}
+    def SC(self, fid, titolo, msg=None):
+        self.usati['fig'].add(fid); d = {'tipo': 'schema', 'titolo': titolo, 'sel': '#' + self.conf.SCHEMI[fid]['id']}
+        if msg: d['msg'] = msg
+        return d
 
-    def WG(self, nome, titolo): return {'tipo': 'widget', 'titolo': titolo, 'w': nome}
+    def WG(self, nome, titolo, msg=None):
+        d = {'tipo': 'widget', 'titolo': titolo, 'w': nome}
+        if msg: d['msg'] = msg
+        return d
 
     def FO(self, fid, tit=None):
         b = self.fig[fid]; self.usati['fig'].add(fid)

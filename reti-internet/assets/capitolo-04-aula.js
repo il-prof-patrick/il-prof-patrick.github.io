@@ -94,6 +94,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Internet è una rete di reti",
+   "msg": "Nessun proprietario e nessun centro: regole comuni, il TCP/IP",
    "punti": [
     [
      "network",
@@ -116,6 +117,7 @@ window.AULA = {
   {
    "tipo": "storia",
    "titolo": "Il primo messaggio: «LO»",
+   "msg": "Da ARPANET al primo collegamento tra UCLA e Stanford",
    "anno": "1957–1969",
    "foto": {
     "src": "https://www.gedistatic.it/content/gedi/img/limesonline/www/2012/04/internet_kleinrock_interface_message_processor.jpg",
@@ -144,6 +146,7 @@ window.AULA = {
   {
    "tipo": "foto",
    "titolo": "La prima ARPANET",
+   "msg": "Pochi nodi, l’inizio di una rete di miliardi di dispositivi",
    "foto": [
     {
      "src": "https://images.squarespace-cdn.com/content/v1/5c647bc99b7d150fe925ea5c/12a065de-dbb3-420b-9830-91172fdc7086/1967+arpanet.jpg",
@@ -155,6 +158,7 @@ window.AULA = {
   {
    "tipo": "storia",
    "titolo": "L’Italia in rete",
+   "msg": "Pisa, 30 aprile 1986: primo paese dell’Europa continentale",
    "anno": "1986",
    "icona": "flag",
    "punti": [
@@ -200,6 +204,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Il viaggio di un pacchetto",
+   "msg": "Dall’operatore alle dorsali, ai cavi sottomarini e ai data center",
    "tessere": [
     [
      "building-2",
@@ -226,6 +231,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Sotto il mare, non nello spazio",
+   "msg": "Oltre il 95% del traffico tra continenti viaggia in cavi",
    "punti": [
     [
      "anchor",
@@ -253,11 +259,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Da Roma a New York",
-   "id": "f-cavi"
+   "id": "f-cavi",
+   "msg": "Il percorso fisico di un pacchetto"
   },
   {
    "tipo": "foto",
    "titolo": "La mappa dei cavi sottomarini",
+   "msg": "Tanti cavi nell’Atlantico e nel Mediterraneo, pochissimi verso alcune isole",
    "foto": [
     {
      "src": "https://www2.telegeography.com/hubfs/2025/Blog%20Assets/Submarine_Cable_Map_2025_Global-656609b2ac4cce708aa8385ae0ff644b-1.jpg",
@@ -269,6 +277,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Se un cavo si rompe",
+   "msg": "Il traffico si devia, tranne dove i cavi sono pochissimi",
    "punti": [
     [
      "route",
@@ -292,6 +301,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "I data center",
+   "msg": "Migliaia di server ridondanti dove vivono siti, email e IA",
    "punti": [
     [
      "server",
@@ -310,6 +320,7 @@ window.AULA = {
   {
    "tipo": "foto",
    "titolo": "Dentro un data center",
+   "msg": "Corridoi organizzati per far circolare aria fredda e calda",
    "foto": [
     {
      "src": "https://shieldenstrut.com/wp-content/uploads/2026/03/server-room-cable-tray-overhead-data-center-layout.jpg",
@@ -321,7 +332,8 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Il viaggio fisico di una richiesta",
-   "id": "f-viaggio"
+   "id": "f-viaggio",
+   "msg": "Dal tuo clic al server e ritorno"
   },
   {
    "tipo": "errore",
@@ -347,6 +359,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "I numeri (ITU, 2025, indicativi)",
+   "msg": "Tre quarti dell’umanità è online, 2,2 miliardi di persone no",
    "punti": [
     [
      "users",
@@ -365,11 +378,13 @@ window.AULA = {
   {
    "tipo": "schema",
    "titolo": "Chi è online nel mondo",
-   "sel": "#s-numeri"
+   "sel": "#s-numeri",
+   "msg": "Le differenze tra aree del pianeta"
   },
   {
    "tipo": "tessere",
    "titolo": "Il divario digitale (*digital divide*)",
+   "msg": "Accesso, qualità e competenze",
    "tessere": [
     [
      "wifi-off",
@@ -403,6 +418,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Quattro problemi",
+   "msg": "Energia, censura, neutralità della rete e potere di pochi",
    "tessere": [
     [
      "zap",
@@ -445,11 +461,13 @@ window.AULA = {
   {
    "tipo": "schema",
    "titolo": "Intranet, extranet e Internet",
-   "sel": "#s-intranet"
+   "sel": "#s-intranet",
+   "msg": "Tre reti, tre livelli di apertura"
   },
   {
    "tipo": "punti",
    "titolo": "La VPN (*Virtual Private Network*)",
+   "msg": "Un tunnel cifrato su Internet verso una rete privata",
    "punti": [
     [
      "lock",
@@ -468,11 +486,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Che cosa vuol dire tunnel",
-   "id": "f-vpn"
+   "id": "f-vpn",
+   "msg": "Ogni pacchetto cifrato e chiuso dentro un altro"
   },
   {
    "tipo": "confronto",
    "titolo": "Due usi da non confondere",
+   "msg": "VPN di lavoro o scuola, VPN commerciali",
    "a": {
     "icona": "building-2",
     "titolo": "VPN aziendali o scolastiche",
@@ -522,6 +542,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Internet e Web",
+   "msg": "Internet è l’infrastruttura, il Web è uno dei suoi servizi",
    "a": {
     "icona": "network",
     "titolo": "Internet",
@@ -545,7 +566,8 @@ window.AULA = {
   {
    "tipo": "schema",
    "titolo": "Tanti servizi sulla stessa base",
-   "sel": "#s-servizi"
+   "sel": "#s-servizi",
+   "msg": "Web, posta e altri servizi viaggiano sulla stessa Internet"
   },
   {
    "tipo": "domanda",
@@ -566,6 +588,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il CERN, fine anni ’80",
+   "msg": "Berners-Lee collega i documenti con dei link",
    "punti": [
     [
      "building-2",
@@ -589,6 +612,7 @@ window.AULA = {
   {
    "tipo": "storia",
    "titolo": "«Vague but exciting…»",
+   "msg": "La proposta del 1989 e l’annotazione a matita del capo",
    "anno": "1989",
    "foto": {
     "src": "https://dexagod.github.io/introduction-slides-solid-linked-data/images/vague-but-exciting.jpg",
@@ -613,6 +637,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il primo browser, il primo server",
+   "msg": "Agosto 1991: la prima pagina, info.cern.ch",
    "punti": [
     [
      "monitor",
@@ -636,6 +661,7 @@ window.AULA = {
   {
    "tipo": "storia",
    "titolo": "Un regalo al mondo",
+   "msg": "30 aprile 1993: il Web diventa pubblico e gratuito",
    "anno": "1993",
    "icona": "gift",
    "punti": [
@@ -667,6 +693,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Testo e ipertesto",
+   "msg": "Un libro si legge in fila, un ipertesto saltando",
    "a": {
     "icona": "book-open",
     "titolo": "Libro",
@@ -689,11 +716,13 @@ window.AULA = {
   {
    "tipo": "schema",
    "titolo": "Lineare e ipertesto",
-   "sel": "#s-ipertesto"
+   "sel": "#s-ipertesto",
+   "msg": "Un percorso unico contro tanti percorsi possibili"
   },
   {
    "tipo": "punti",
    "titolo": "Esempio: dieci minuti su Wikipedia",
+   "msg": "La curiosità porta lontano, e si può perdere il filo",
    "punti": [
     [
      "search",
@@ -733,11 +762,13 @@ window.AULA = {
   {
    "tipo": "schema",
    "titolo": "Un URL pezzo per pezzo",
+   "msg": "Protocollo, dominio, percorso",
    "sel": "#s-url"
   },
   {
    "tipo": "tabella",
    "titolo": "Le parti di un URL",
+   "msg": "Che cosa indica ogni pezzo dell’indirizzo",
    "righe": [
     [
      "Parte",
@@ -774,6 +805,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "I domini si leggono da destra",
+   "msg": "Dal primo livello ai sottodomini",
    "punti": [
     [
      "flag",
@@ -792,7 +824,8 @@ window.AULA = {
   {
    "tipo": "widget",
    "titolo": "Prova tu: di chi è davvero questo indirizzo?",
-   "w": "url"
+   "w": "url",
+   "msg": "Leggi il dominio da destra e smaschera i falsi"
   },
   {
    "tipo": "errore",
@@ -818,6 +851,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "HTTP (*HyperText Transfer Protocol*)",
+   "msg": "Il browser chiede, il server risponde",
    "punti": [
     [
      "send",
@@ -836,11 +870,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Dall’Invio alla pagina",
-   "id": "f-http"
+   "id": "f-http",
+   "msg": "Richiesta e risposta, passo per passo"
   },
   {
    "tipo": "tabella",
    "titolo": "I codici di stato",
+   "msg": "200, 301, 403, 404 e gli altri",
    "righe": [
     [
      "Codice",
@@ -882,6 +918,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "La prima cifra dice già molto",
+   "msg": "Successo, reindirizzamento, errore del client, errore del server",
    "tessere": [
     [
      "circle-check",
@@ -908,6 +945,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "HTTP e HTTPS",
+   "msg": "In chiaro oppure cifrato con TLS",
    "a": {
     "icona": "eye",
     "titolo": "HTTP",
@@ -946,6 +984,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Una pagina web come una casa",
+   "msg": "HTML i muri, CSS l’arredamento, JavaScript l’impianto elettrico",
    "tessere": [
     [
      "file-code",
@@ -968,7 +1007,8 @@ window.AULA = {
   {
    "tipo": "widget",
    "titolo": "Prova tu: e se spegnessi un linguaggio?",
-   "w": "linguaggi"
+   "w": "linguaggi",
+   "msg": "Spegni HTML, CSS o JavaScript e guarda la pagina"
   },
   {
    "tipo": "errore",
@@ -978,6 +1018,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Pagine statiche e dinamiche",
+   "msg": "Un file già pronto oppure costruita al momento",
    "a": {
     "icona": "file",
     "titolo": "Statica",
@@ -1017,6 +1058,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il browser",
+   "msg": "Il client che chiede, interpreta e mostra le pagine",
    "punti": [
     [
      "monitor",
@@ -1039,6 +1081,7 @@ window.AULA = {
   {
    "tipo": "tabella",
    "titolo": "Le parti del browser",
+   "msg": "Barra degli indirizzi, schede, preferiti, cronologia, estensioni",
    "righe": [
     [
      "Elemento",
@@ -1073,6 +1116,7 @@ window.AULA = {
   {
    "tipo": "storia",
    "titolo": "La guerra dei browser",
+   "msg": "Da Mosaic a Firefox, passando per Netscape e Internet Explorer",
    "anno": "1993–2008",
    "foto": {
     "src": "https://www.researchgate.net/profile/Erik-Ranschaert/publication/304300437/figure/fig1/AS:668993757118480@1536511949710/Screenshot-of-the-Mosaic-browser-displaying-the-NCSAs-home-page-The-browser-was.png",
@@ -1122,6 +1166,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Cronologia e cache",
+   "msg": "Che cosa il browser ricorda dopo la visita",
    "tessere": [
     [
      "history",
@@ -1138,6 +1183,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "I cookie",
+   "msg": "Piccoli file che fanno ricordare l’utente a un sito senza memoria",
    "punti": [
     [
      "cookie",
@@ -1156,6 +1202,7 @@ window.AULA = {
   {
    "tipo": "tabella",
    "titolo": "Tipi di cookie",
+   "msg": "Tecnici, analitici, di profilazione e di terze parti",
    "righe": [
     [
      "Tipo",
@@ -1187,11 +1234,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Come ti segue un cookie",
-   "id": "f-cookie"
+   "id": "f-cookie",
+   "msg": "Un cookie di terze parti passa da un sito all’altro"
   },
   {
    "tipo": "punti",
    "titolo": "Il banner dei cookie",
+   "msg": "Rifiutare deve essere facile quanto accettare",
    "punti": [
     [
      "scale",
@@ -1215,6 +1264,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "La navigazione in incognito",
+   "msg": "Non salva niente sul dispositivo, ma non rende anonimi",
    "punti": [
     [
      "eye-off",
@@ -1233,6 +1283,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "In laboratorio: privacy nel browser",
+   "msg": "Impostazioni, cookie di terze parti e banner a confronto",
    "punti": [
     [
      "settings",
@@ -1272,6 +1323,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Per pubblicare un sito servono",
+   "msg": "File, un server web e un dominio",
    "tessere": [
     [
      "file-code",
@@ -1293,6 +1345,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Esempi",
+   "msg": "Registro .it, Google Sites e GitHub Pages",
    "punti": [
     [
      "map-pin",
@@ -1311,6 +1364,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "In laboratorio: un sito con Google Sites",
+   "msg": "Un sito di gruppo sul modulo Reti e Internet",
    "punti": [
     [
      "users",
@@ -1350,11 +1404,13 @@ window.AULA = {
   {
    "tipo": "schema",
    "titolo": "L’iceberg del Web",
-   "sel": "#s-iceberg"
+   "sel": "#s-iceberg",
+   "msg": "Surface, deep e dark web a confronto"
   },
   {
    "tipo": "tessere",
    "titolo": "Tre parti del Web",
+   "msg": "Il deep web è la parte più grande, normale e legale",
    "tessere": [
     [
      "search",

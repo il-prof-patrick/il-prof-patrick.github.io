@@ -50,6 +50,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Dove gira un chatbot",
+   "msg": "Il telefono è solo il client: il modello sta nei data center",
    "punti": [
     [
      "smartphone",
@@ -68,6 +69,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Le GPU",
+   "msg": "Migliaia di calcoli semplici in parallelo, quello che serve alle reti neurali",
    "punti": [
     [
      "brain",
@@ -95,11 +97,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Il viaggio di una domanda",
-   "id": "f-chatbot"
+   "id": "f-chatbot",
+   "msg": "Dal telefono al data center e ritorno"
   },
   {
    "tipo": "punti",
    "titolo": "I data center dell’IA",
+   "msg": "Giganteschi, costosi e affamati di energia",
    "punti": [
     [
      "building",
@@ -139,6 +143,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "L’IA sul dispositivo",
+   "msg": "Il modello gira vicino a te, spesso insieme al cloud",
    "punti": [
     [
      "smartphone",
@@ -157,6 +162,7 @@ window.AULA = {
   {
    "tipo": "tabella",
    "titolo": "IA nel cloud e IA sul dispositivo",
+   "msg": "Due posti dove far girare il modello, con pregi diversi",
    "righe": [
     [
      "",
@@ -214,6 +220,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Da dove impara un modello",
+   "msg": "Soprattutto dal Web, raccolto dai crawler",
    "punti": [
     [
      "book-open",
@@ -232,6 +239,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il diritto d’autore",
+   "msg": "Chi ha scritto quei testi chiede di essere pagato o consultato",
    "punti": [
     [
      "pen-tool",
@@ -275,6 +283,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "La teoria dell’Internet morta (*Dead Internet Theory*)",
+   "msg": "Un web in cui le persone vere sarebbero una minoranza",
    "punti": [
     [
      "bot",
@@ -298,6 +307,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Perché ci riguarda",
+   "msg": "Un web pieno di bot è meno affidabile",
    "tessere": [
     [
      "star",
@@ -324,11 +334,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Quando l’IA impara dall’IA",
-   "id": "f-collasso"
+   "id": "f-collasso",
+   "msg": "Il rischio del *model collapse*"
   },
   {
    "tipo": "tessere",
    "titolo": "Come difendersi",
+   "msg": "Guardare chi c’è dietro e contribuire con contenuti propri",
    "tessere": [
     [
      "search",

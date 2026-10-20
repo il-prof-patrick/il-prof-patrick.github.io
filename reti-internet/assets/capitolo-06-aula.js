@@ -70,6 +70,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "La rete cellulare",
+   "msg": "Il territorio è diviso in celle, ognuna con la sua antenna",
    "punti": [
     [
      "hexagon",
@@ -93,6 +94,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Celle grandi e celle piccole",
+   "msg": "Più utenti ci sono, più piccole sono le celle",
    "a": {
     "icona": "trees",
     "titolo": "Campagna",
@@ -115,7 +117,8 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Celle e handover",
-   "id": "f-handover"
+   "id": "f-handover",
+   "msg": "Il telefono passa da una cella all’altra senza interrompere"
   },
   {
    "tipo": "errore",
@@ -136,6 +139,7 @@ window.AULA = {
   {
    "tipo": "tabella",
    "titolo": "Dalla 1G alla 5G",
+   "msg": "Una nuova generazione ogni dieci anni circa",
    "righe": [
     [
      "Generazione",
@@ -178,6 +182,7 @@ window.AULA = {
   {
    "tipo": "foto",
    "titolo": "Martin Cooper",
+   "msg": "L’inventore del primo telefono cellulare",
    "foto": [
     {
      "src": "https://upload.wikimedia.org/wikipedia/commons/1/1f/2007Computex_e21Forum-MartinCooper.jpg",
@@ -194,6 +199,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Esempio: lo smartphone",
+   "msg": "Senza 3G e 4G non ci sarebbero app e social come li conosciamo",
    "punti": [
     [
      "smartphone",
@@ -224,6 +230,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Partire dalla fisica",
+   "msg": "Il 5G usa onde non ionizzanti, che non danneggiano il DNA",
    "punti": [
     [
      "triangle-alert",
@@ -246,11 +253,13 @@ window.AULA = {
   {
    "tipo": "schema",
    "titolo": "Non ionizzanti e ionizzanti",
-   "sel": "#s-ionizzanti"
+   "sel": "#s-ionizzanti",
+   "msg": "Conta l’energia delle onde, non il loro numero"
   },
   {
    "tipo": "punti",
    "titolo": "Un dato controintuitivo",
+   "msg": "Più antenne vicine significano meno esposizione per chi telefona",
    "punti": [
     [
      "radio-tower",
@@ -290,6 +299,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "L’Internet of Things (IoT)",
+   "msg": "Oggetti con sensori, calcolo e connessione, che agiscono da soli",
    "punti": [
     [
      "cpu",
@@ -312,11 +322,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Il termostato smart",
-   "id": "f-iot"
+   "id": "f-iot",
+   "msg": "Sensore, rete e decisione in un oggetto di casa"
   },
   {
    "tipo": "storia",
    "titolo": "Una lattina connessa",
+   "msg": "Dal distributore su ARPANET al nome «Internet of Things»",
    "anno": "1999",
    "icona": "history",
    "punti": [
@@ -353,6 +365,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "La casa intelligente (*smart home*)",
+   "msg": "Risparmio energetico e autonomia, controllati con la voce",
    "punti": [
     [
      "house",
@@ -380,6 +393,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "La città intelligente (*smart city*)",
+   "msg": "Parcheggi, lampioni e cassonetti che comunicano",
    "punti": [
     [
      "car",
@@ -423,6 +437,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Perché gli oggetti IoT sono rischiosi",
+   "msg": "Password predefinite, aggiornamenti assenti e dati in chiaro",
    "tessere": [
     [
      "key",
@@ -444,6 +459,7 @@ window.AULA = {
   {
    "tipo": "storia",
    "titolo": "Mirai",
+   "msg": "Videocamere con password banali diventano una botnet",
    "anno": "2016",
    "icona": "bug",
    "punti": [
@@ -468,6 +484,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Privacy",
+   "msg": "Dentro casa gli oggetti sanno molto di te",
    "punti": [
     [
      "house",
@@ -507,6 +524,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il cloud computing",
+   "msg": "Affittare risorse nei data center e pagarle quanto si usa",
    "punti": [
     [
      "cloud",
@@ -529,6 +547,7 @@ window.AULA = {
   {
    "tipo": "tabella",
    "titolo": "I modelli di servizio",
+   "msg": "IaaS, PaaS e SaaS: quanto si affitta e quanto si gestisce da soli",
    "righe": [
     [
      "Modello",
@@ -559,6 +578,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Esempio: la pizza",
+   "msg": "Dalla pizza fatta in casa a quella ordinata già pronta",
    "tessere": [
     [
      "house",
@@ -586,6 +606,7 @@ window.AULA = {
   {
    "tipo": "confronto",
    "titolo": "Vantaggi e rischi",
+   "msg": "Comodo e flessibile, ma dipendente da Internet e dal fornitore",
    "a": {
     "icona": "circle-check",
     "titolo": "Vantaggi",
@@ -613,6 +634,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "In laboratorio: Google Drive",
+   "msg": "Permessi, lavoro insieme e cronologia delle versioni",
    "punti": [
     [
      "folder",
@@ -656,6 +678,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Il grid computing",
+   "msg": "Tanti computer uniti contro un problema enorme",
    "punti": [
     [
      "globe",
@@ -678,6 +701,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Esempi",
+   "msg": "Dal CERN ai computer di casa di milioni di volontari",
    "punti": [
     [
      "atom",
@@ -701,11 +725,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Un calcolo diviso tra tanti",
-   "id": "f-grid"
+   "id": "f-grid",
+   "msg": "Il problema si divide in pezzi indipendenti"
   },
   {
    "tipo": "tabella",
    "titolo": "Cloud e grid",
+   "msg": "Affittare le risorse di un fornitore o unire quelle di molti",
    "righe": [
     [
      "",
@@ -763,6 +789,7 @@ window.AULA = {
   {
    "tipo": "tessere",
    "titolo": "Mandare tutto nel cloud? Tre problemi",
+   "msg": "Latenza, banda e privacy",
    "tessere": [
     [
      "timer",
@@ -785,11 +812,13 @@ window.AULA = {
   {
    "tipo": "anim",
    "titolo": "Lontano o vicino?",
-   "id": "f-edge"
+   "id": "f-edge",
+   "msg": "Elaborare al bordo o nel data center"
   },
   {
    "tipo": "tabella",
    "titolo": "Cloud ed edge",
+   "msg": "Potenza enorme lontano, risposta rapida vicino",
    "righe": [
     [
      "",
@@ -826,6 +855,7 @@ window.AULA = {
   {
    "tipo": "punti",
    "titolo": "Complementari",
+   "msg": "Decisioni rapide sul bordo, analisi pesanti nel cloud",
    "punti": [
     [
      "zap",
