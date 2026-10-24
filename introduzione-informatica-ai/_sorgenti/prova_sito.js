@@ -1,6 +1,6 @@
 // Prova automatica di una pagina del sito: animazioni passo per passo, testi fuori dal disegno,
 // impaginazione delle foto e tutte le slide di Presenta in aula.
-// Uso: node prova_sito.js <cartella del sito> capitolo-04 [cartella screenshot]
+// Uso: node prova_sito.js <cartella del sito> capitolo-05 [cartella screenshot]
 // Richiede playwright (npm i playwright; nel sandbox Chromium è in /opt/pw-browsers/chromium).
 // Variabili: PW (percorso di playwright/playwright-core), CHROME (eseguibile di Chrome), REAL=1 (carica le foto vere),
 // ANIM=id1,id2 (prova solo quelle animazioni), NOSLIDE=1 (salta le slide).

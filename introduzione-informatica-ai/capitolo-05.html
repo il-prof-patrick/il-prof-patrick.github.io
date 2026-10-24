@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>5. Dall’algoritmo all’IA che impara · Introduzione a informatica ed AI</title>
+<title>5. Dall’algoritmo all’apprendimento · Introduzione a informatica ed AI</title>
 <link rel="stylesheet" href="assets/sito.css">
 </head>
 <body data-capitolo="5">
@@ -11,37 +11,159 @@
 <nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
 <main class="lezione" lang="it">
   <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Introduzione a informatica ed AI · Capitolo 05</span></div>
-  <h1>Dall’algoritmo all’IA che impara</h1>
+  <h1>Dall’algoritmo all’apprendimento</h1>
 
   <div class="contenuto">
 
   <!-- ===================== 5.1 ===================== -->
   <section class="sez">
-  <h2 id="p1"><span class="num">5.1</span>Un problema che le istruzioni non risolvono</h2>
+  <h2 id="p1"><span class="num">5.1</span>Il computer tradizionale</h2>
+  <p class="domanda">Un computer fa in un istante conti che a noi richiederebbero ore: è più intelligente di noi?</p>
+  <p>Un <b>computer tradizionale non ragiona</b>: <b>esegue istruzioni</b> scritte da una persona, e l’insieme di quelle istruzioni è il <b>programma</b>.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.pexels.com/photo/37368169/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/37368169/pexels-photo-37368169.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un processore (CPU): il chip che esegue le istruzioni." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un processore (CPU)</figcaption></figure>
+  <p>Il processore sa eseguire <b>pochissimi tipi di istruzione, tutte semplicissime</b>: i <b>calcoli matematici</b> (per esempio una somma), le <b>operazioni logiche</b> (per esempio confrontare due numeri), la <b>memoria e i salti</b> (leggere o scrivere un dato e passare a un’altra istruzione, anche solo se un confronto è vero). Tutto il resto, dal videogioco al browser, nasce <b>combinando miliardi di queste istruzioni al secondo</b>.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.britannica.com/biography/Umberto-Eco" target="_blank" rel="noopener"><img src="https://cdn.britannica.com/33/225133-050-AD8BB3DB/Umberto-Eco-Italian-literary-critic-novelist-semiotician.jpg" alt="Umberto Eco (1932-2016), scrittore e semiologo: nella prefazione a Claudio Pozzoli, «Come scrivere una tesi di laurea con il personal computer» (Rizzoli), definì il computer «una macchina stupida» che funziona bene solo in mano a persone intelligenti." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Umberto Eco</figcaption></figure>
+  <p>Per questo un computer eccelle in due cose: la <b>velocità</b> (miliardi di istruzioni al secondo) e la <b>memoria</b> (non dimentica e non si stanca). Non eccelle in ciò che richiede di <b>capire</b>: come la persona nella stanza cinese, esegue regole senza sapere che cosa significhino.</p>
+  <p>Lo scrittore <b>Umberto Eco</b> lo disse in una prefazione: per lui il computer non rende intelligente chi non lo è, è una «macchina stupida» che dà buoni risultati solo <b>nelle mani di persone intelligenti</b>.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Un computer che calcola velocissimo è intelligente.»</p>
+    <p class="err-si">La <b>velocità non è intelligenza</b>: il computer esegue istruzioni semplicissime molto in fretta, ma non capisce che cosa sta calcolando.</p></div>
+
+  <!-- ===================== 5.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">5.2</span>Che cos’è un algoritmo</h2>
+  <p>Un <span class="termine">algoritmo</span> è un <b>procedimento finito</b>, formato da una <b>sequenza ordinata di passi elementari</b>, che <b>trasforma dati in ingresso</b> (<i>input</i>) <b>in dati in uscita</b> (<i>output</i>) per risolvere un problema.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.orasesta.com/distributori-automatici-caffe-illy-per-uffici-e-aziende/" target="_blank" rel="noopener"><img src="https://www.orasesta.com/wp-content/uploads/2023/02/macchina-illy-capsule-per-uffici-e-pmi-orasesta.jpg" alt="Una macchinetta del caffè: un algoritmo che prende monete e scelta e restituisce un caffè." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Una macchinetta del caffè</figcaption></figure>
+  <p>Per andare alle macchinette a prendere un caffè bisogna definire l’<b>output atteso</b> (il caffè), gli <b>input necessari</b> (monete e scelta) e i <b>passi</b> che portano dagli uni all’altro. Il programma è la traduzione di un algoritmo in istruzioni che il computer sa eseguire.</p>
+
+  <!-- ===================== 5.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">5.3</span>Le proprietà di un algoritmo</h2>
+  <p class="domanda">«Aggiungi un po’ di zucchero» è una buona istruzione per un computer?</p>
+  <p>Perché un procedimento sia un buon algoritmo deve avere alcune <b>proprietà</b>.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Proprietà</th><th>Che cosa richiede</th><th>Perché serve</th></tr></thead>
+    <tbody>
+      <tr><td>Finitezza</td><td>l’esecuzione termina in un tempo ragionevole</td><td>un procedimento infinito non dà mai una risposta</td></tr>
+      <tr><td>Non ambiguità</td><td>ogni passo si interpreta in un solo modo</td><td>la macchina non può «indovinare» che cosa si intendeva</td></tr>
+      <tr><td>Efficacia</td><td>il risultato è una soluzione adeguata al problema</td><td>un algoritmo che termina ma sbaglia è inutile</td></tr>
+      <tr><td>Efficienza</td><td>usa poco tempo e poca memoria</td><td>per uno stesso problema esistono tanti algoritmi, alcuni molto più rapidi</td></tr>
+      <tr><td>Generalità</td><td>risolve una classe di problemi e non uno solo</td><td>ordinare qualsiasi elenco, non solo uno</td></tr>
+      <tr><td>Atomicità</td><td>i passi non sono ulteriormente scomponibili</td><td>il computer capisce solo istruzioni elementari</td></tr>
+    </tbody></table></div>
+
+  <!-- ===================== 5.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">5.4</span>Come si rappresenta un algoritmo</h2>
+  <p>Lo stesso algoritmo si può scrivere in <b>quattro forme</b>, dalla più umana alla più vicina al computer. Usiamo l’esempio della macchinetta del caffè, con il prezzo in centesimi per evitare i decimali.</p>
+  <h3>1 · Linguaggio naturale</h3>
+  <p>Chiaro per una persona, ma <b>può essere ambiguo</b>.</p>
+  <ol>
+    <li>Parti da un credito di zero.</li>
+    <li>Finché il credito è minore del prezzo, chiedi una moneta e aggiungila.</li>
+    <li>Quando il credito basta, prepara il caffè.</li>
+    <li>Se il credito supera il prezzo, restituisci la differenza come resto.</li>
+  </ol>
+  <h3>2 · Diagramma di flusso</h3>
+  <p><b>Visivo</b>: ogni passo è un riquadro, le frecce dicono in che ordine eseguirli e il rombo è una domanda con risposta sì o no.</p>
+  <figure>
+    <div class="tela schema" id="s-flusso"><p class="passi-titolo">Diagramma di flusso della macchinetta del caffè</p>
+      <svg viewBox="0 0 720 420" role="img" aria-label="Diagramma di flusso della macchinetta del caffè: dopo Inizio il credito vale zero; finché il credito è minore del prezzo si aggiunge una moneta; poi si prepara il caffè; se il credito supera il prezzo si dà il resto; poi Fine.">
+        <rect x="264" y="14" width="72" height="24" rx="12" class="nodo evid"/><text x="300" y="31" text-anchor="middle" class="t-b">Inizio</text>
+        <rect x="220" y="61" width="160" height="30" rx="3" class="nodo"/><text x="300" y="81" text-anchor="middle" class="t">credito = 0</text>
+        <path d="M300 108 L400 140 L300 172 L200 140 Z" class="nodo"/><text x="300" y="145" text-anchor="middle" class="t">credito &lt; prezzo?</text>
+        <rect x="470" y="125" width="140" height="30" rx="3" class="nodo"/><text x="540" y="145" text-anchor="middle" class="t">aggiungi moneta</text>
+        <rect x="220" y="203" width="160" height="30" rx="3" class="nodo"/><text x="300" y="223" text-anchor="middle" class="t">prepara il caffè</text>
+        <path d="M300 260 L400 292 L300 324 L200 292 Z" class="nodo"/><text x="300" y="297" text-anchor="middle" class="t">credito &gt; prezzo?</text>
+        <rect x="470" y="277" width="140" height="30" rx="3" class="nodo"/><text x="540" y="297" text-anchor="middle" class="t">dai il resto</text>
+        <rect x="264" y="384" width="72" height="24" rx="12" class="nodo evid"/><text x="300" y="401" text-anchor="middle" class="t-b">Fine</text>
+        <path d="M300 38 V61" class="lin"/><path d="M295 54 L300 61 L305 54" class="lin"/>
+        <path d="M300 91 V108" class="lin"/><path d="M295 101 L300 108 L305 101" class="lin"/>
+        <path d="M400 140 H470" class="lin"/><path d="M463 135 L470 140 L463 145" class="lin"/>
+        <path d="M540 125 V99 H300" class="lin"/>
+        <path d="M300 172 V203" class="lin"/><path d="M295 196 L300 203 L305 196" class="lin"/>
+        <path d="M300 233 V260" class="lin"/><path d="M295 253 L300 260 L305 253" class="lin"/>
+        <path d="M400 292 H470" class="lin"/><path d="M463 287 L470 292 L463 297" class="lin"/>
+        <path d="M540 307 V396 H336" class="lin"/><path d="M343 391 L336 396 L343 401" class="lin"/>
+        <path d="M300 324 V384" class="lin"/><path d="M295 377 L300 384 L305 377" class="lin"/>
+        <text x="412" y="132" class="t-b">sì</text><text x="308" y="192" class="t-m">no</text><text x="412" y="284" class="t-b">sì</text><text x="308" y="344" class="t-m">no</text>
+      </svg>
+    </div>
+  </figure>
+  <h3>3 · Pseudocodice</h3>
+  <p><span class="termine">Preciso</span>, ma non eseguibile: usa parole italiane come se fossero istruzioni.</p>
+  <pre class="codice"><code>credito ← 0
+leggi prezzo
+finché credito &lt; prezzo
+    leggi moneta
+    credito ← credito + moneta
+scrivi «Caffè pronto»
+se credito &gt; prezzo
+    scrivi «Resto:», credito − prezzo</code></pre>
+  <h3>4 · Codice di programmazione</h3>
+  <p><span class="termine">Eseguibile dal computer</span>, ma scritto secondo le regole di un linguaggio di programmazione.</p>
+  <pre class="codice"><code>prezzo = 120  # in centesimi
+credito = 0
+while credito &lt; prezzo:
+    credito = credito + int(input("Moneta: "))
+print("Caffè pronto")
+if credito &gt; prezzo:
+    print("Resto:", credito - prezzo)</code></pre>
+  <p>Dallo <b>pseudocodice</b> o dal <b>diagramma di flusso</b> si può arrivare a <b>qualsiasi linguaggio di programmazione</b>: l’algoritmo resta lo stesso, cambia solo il modo di scriverlo.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-quattro" data-titolo="Quattro forme, un solo algoritmo" data-inizio="Quattro schede con lo stesso algoritmo, dalla forma più umana a quella più vicina al computer: linguaggio naturale, diagramma di flusso, pseudocodice, codice.">
+      <svg viewBox="0 0 720 530" role="img" aria-label="Il caffè della macchinetta scritto in quattro forme. A ogni passo si accende lo stesso pezzo in tutte e quattro."></svg>
+      <ol class="passi-testo">
+        <li>Si parte da un credito di zero: è il primo passo, e le quattro forme lo scrivono nello stesso punto.</li>
+        <li>Si ripete finché il credito è minore del prezzo: si chiede una moneta e la si aggiunge.</li>
+        <li>Quando il credito basta, si prepara il caffè.</li>
+        <li>Se il credito supera il prezzo, si dà il resto.</li>
+        <li>Quattro forme, un solo algoritmo: dalla più umana alla più vicina al computer.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>Un computer esegue solo istruzioni semplicissime, di calcolo, logiche e di memoria e salto, ma velocissime: è veloce, non intelligente.</li>
+      <li>Un algoritmo è un procedimento finito di passi elementari che trasforma dati in ingresso in dati in uscita per risolvere un problema.</li>
+      <li>Un buon algoritmo è finito, non ambiguo, efficace, efficiente, generale e fatto di passi elementari che il computer sa eseguire.</li>
+      <li>Lo stesso algoritmo si scrive in forme diverse, e da pseudocodice o diagramma di flusso si arriva a qualsiasi linguaggio di programmazione.</li>
+    </ul></div>
+  </section>
+
+  <!-- ===================== 5.5 ===================== -->
+  <section class="sez">
+  <h2 id="p5"><span class="num">5.5</span>L’IA che impara</h2>
+  <!-- ===================== 5.5.1 ===================== -->
+  <section class="sez">
+  <h3 id="p5-1"><span class="num">5.5.1</span>Un problema che le istruzioni non risolvono</h3>
   <p class="domanda">Provate a scrivere tre regole per riconoscere un gatto in una foto: bastano?</p>
   <div class="riga-foto">
-    <p>Riconoscere un gatto in una foto è <b>facilissimo per una persona</b>, ma non si riesce a <b>descriverlo con regole precise</b>, e un computer tradizionale <b>funziona solo con regole precise</b> (capitolo 4).</p>
+    <p>Riconoscere un gatto in una foto è <b>facilissimo per una persona</b>, ma non si riesce a <b>descriverlo con regole precise</b>, e un computer tradizionale <b>funziona solo con regole precise</b> (capitolo 5).</p>
     <figure class="rf-foto"><a class="fonte" href="https://www.pexels.com/photo/8305815/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/8305815/pexels-photo-8305815.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un gatto: per una persona è immediato riconoscerlo." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un gatto</figcaption></figure>
   </div>
   <p>Proviamo a scrivere le regole. Per ognuna si trovano <b>eccezioni di due tipi</b>: animali che <b>sembrano gatti ma non lo sono</b> e gatti che <b>non rispettano la regola</b>.</p>
-  <h3>Regola 1 · «Ha le orecchie a punta»</h3>
+  <h4>Regola 1 · «Ha le orecchie a punta»</h4>
   <div class="foto-coppia tre">
     <figure><a class="fonte" href="https://www.pexels.com/photo/247399/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/247399/pexels-photo-247399.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Anche una volpe ha le orecchie a punta, ma non è un gatto." referrerpolicy="no-referrer"></a><figcaption>Anche una volpe ha le orecchie a punta, ma non è un gatto.</figcaption></figure>
     <figure><a class="fonte" href="https://www.pexels.com/photo/156934/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/156934/pexels-photo-156934.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un gatto Scottish Fold ha le orecchie piegate, ma è un gatto. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>Un gatto Scottish Fold ha le orecchie piegate, ma è un gatto.</figcaption></figure>
     <figure><a class="fonte" href="https://www.pexels.com/photo/9823020/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/9823020/pexels-photo-9823020.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un gatto che spunta da una fessura di una scatola: l’oggetto ne nasconde le orecchie e quasi tutto il muso. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>Un gatto che spunta da una fessura di una scatola: l’oggetto ne nasconde le orecchie e quasi tutto il muso.</figcaption></figure>
   </div>
-  <h3>Regola 2 · «Ha il pelo»</h3>
+  <h4>Regola 2 · «Ha il pelo»</h4>
   <div class="riga-foto">
     <p>Il pelo ce l’ha anche la volpe, quindi non basta. E non tutti i gatti lo hanno:</p>
     <figure class="rf-foto"><a class="fonte" href="https://www.aliciariusphotography.com/sphynx-cats" target="_blank" rel="noopener"><img src="https://images.squarespace-cdn.com/content/v1/53c5b010e4b0c3db71b3067c/1472801684905-BXYK2YRQY81GSO0LI5O9/close-up-portrait-sphynx-hairless-cat-alicia-rius-animal-photographer.jpg" alt="Un gatto sphynx non ha il pelo, ma è un gatto." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un gatto sphynx</figcaption></figure>
   </div>
-  <h3>Regola 3 · «Si vedono baffi e muso»</h3>
+  <h4>Regola 3 · «Si vedono baffi e muso»</h4>
   <div class="foto-coppia tre">
     <figure><a class="fonte" href="https://www.pexels.com/photo/10066594/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/10066594/pexels-photo-10066594.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un gatto visto di spalle: non si vedono né baffi né muso." referrerpolicy="no-referrer"></a><figcaption>Un gatto visto di spalle: non si vedono né baffi né muso.</figcaption></figure>
     <figure><a class="fonte" href="https://articles.hepper.com/why-cats-curl-into-balls-when-sleeping/" target="_blank" rel="noopener"><img src="https://articles.hepper.com/wp-content/uploads/2021/09/tabby-cat-sleeping-in-a-ball-position-on-a-cat-tree.jpg" alt="Un gatto raggomitolato che dorme: il muso è nascosto. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>Un gatto raggomitolato che dorme: il muso è nascosto.</figcaption></figure>
     <figure><a class="fonte" href="https://www.pexels.com/photo/13516205/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/13516205/pexels-photo-13516205.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un gatto in controluce: si vede solo la sagoma. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>Un gatto in controluce: si vede solo la sagoma.</figcaption></figure>
   </div>
-  <h3>Regola 4 · «Sta in piedi sulle quattro zampe»</h3>
+  <h4>Regola 4 · «Sta in piedi sulle quattro zampe»</h4>
   <div class="foto-coppia">
     <figure><a class="fonte" href="https://cheezburger.com/2246405/36-perfectly-timed-photos-of-cats-caught-in-midair" target="_blank" rel="noopener"><img src="https://i.chzbgr.com/full/9037549056/h54637546/freeze-frame-photo-of-a-cat-in-mid-air-in-the-bedroom" alt="Un gatto in salto, appeso a una tenda: nessuna zampa a terra." referrerpolicy="no-referrer"></a><figcaption>Un gatto in salto, appeso a una tenda: nessuna zampa a terra.</figcaption></figure>
     <figure><a class="fonte" href="https://www.pexels.com/photo/35247528/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/35247528/pexels-photo-35247528.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un gatto a pancia in su con le zampe in aria. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>Un gatto a pancia in su con le zampe in aria.</figcaption></figure>
@@ -60,10 +182,10 @@
     </div>
   </figure>
 
-  <!-- ===================== 5.2 ===================== -->
+  <!-- ===================== 5.5.2 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p2"><span class="num">5.2</span>Imparare dagli esempi</h2>
+  <h3 id="p5-2"><span class="num">5.5.2</span>Imparare dagli esempi</h3>
   <p>Invece di scrivere le regole, si <b>mostrano al sistema tanti esempi</b> e gli si lascia <b>trovare da solo ciò che li distingue</b>. Un bambino impara che cos’è un cane allo stesso modo: <b>vedendo tanti cani</b>, non ascoltando un elenco di caratteristiche.</p>
   <p>Quello che il sistema ricava dagli esempi si chiama <b>modello</b>: l’insieme di schemi (in inglese <i>pattern</i>) con cui giudica i casi nuovi. <b>Addestrare</b> un modello vuol dire fargli imparare dagli esempi.</p>
   <figure>
@@ -82,10 +204,10 @@
     <p class="err-no">«Se un sistema ha imparato dagli esempi, ha capito che cos’è un gatto.»</p>
     <p class="err-si">Ha trovato <b>schemi che distinguono</b> i gatti dagli altri animali: non è detto che sappia che cos’è un gatto.</p></div>
 
-  <!-- ===================== 5.3 ===================== -->
+  <!-- ===================== 5.5.3 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p3"><span class="num">5.3</span>Algoritmi tradizionali e algoritmi di apprendimento automatico a confronto</h2>
+  <h3 id="p5-3"><span class="num">5.5.3</span>Algoritmi tradizionali e algoritmi di apprendimento automatico a confronto</h3>
   <p class="domanda">Chiedete due volte la stessa domanda a un chatbot: la risposta sarà identica? E con una calcolatrice?</p>
   <p>Lo stesso problema si può risolvere in due modi: con <b>regole scritte da una persona</b> (<b>algoritmi tradizionali</b>) o con <b>regole ricavate dagli esempi</b> (<b>apprendimento automatico</b>, in inglese <i>Machine Learning</i>).</p>
   <div class="tab"><table>
@@ -109,23 +231,24 @@
       </ol>
     </div>
   </figure>
-
-  <!-- ===================== 5.4 ===================== -->
   </section>
+  </section>
+
+<!-- ===================== 5.6 ===================== -->
   <section class="sez">
-  <h2 id="p4"><span class="num">5.4</span>La mappa dei termini: i quattro cerchi</h2>
+  <h2 id="p6"><span class="num">5.6</span>La mappa dei termini: i quattro cerchi</h2>
   <p>Quattro termini si usano spesso insieme, in italiano e in inglese, e <b>stanno uno dentro l’altro</b>, come cerchi concentrici: ognuno è un caso particolare di quello che lo contiene. Li vediamo dal più grande al più piccolo.</p>
   <h3>IA · Artificial Intelligence (AI)</h3>
-  <p>L’<span class="termine">intelligenza artificiale</span> è il cerchio più grande: comprende <b>qualsiasi sistema che svolge compiti che, svolti da una persona, richiederebbero intelligenza</b> (capitolo 2). Il termine <b>non dice come</b> il sistema ci riesce. Può riuscirci seguendo regole scritte a mano da una persona, come i primi programmi di conversazione, oppure imparando dagli esempi: sono tutte IA.</p>
+  <p>L’<span class="termine">intelligenza artificiale</span> è il cerchio più grande: comprende <b>qualsiasi sistema che svolge compiti che, svolti da una persona, richiederebbero intelligenza</b> (capitolo 4). Il termine <b>non dice come</b> il sistema ci riesce. Può riuscirci seguendo regole scritte a mano da una persona, come i primi programmi di conversazione, oppure imparando dagli esempi: sono tutte IA.</p>
   <h3>Apprendimento automatico · Machine Learning (ML)</h3>
-  <p>Il <span class="termine">machine learning</span> è la parte dell’IA in cui il sistema <b>impara dagli esempi</b> invece di seguire regole scritte da una persona (5.2 e 5.3). Si mostrano molti esempi, il sistema ne ricava un <b>modello</b> e lo usa sui casi nuovi, dando una risposta <b>probabile</b>. Il filtro antispam di Gmail (capitolo 1) funziona così: ha visto un enorme numero di email e ha ricavato da solo gli indizi che distinguono lo spam.</p>
+  <p>Il <span class="termine">machine learning</span> è la parte dell’IA in cui il sistema <b>impara dagli esempi</b> invece di seguire regole scritte da una persona (5.2 e 5.3). Si mostrano molti esempi, il sistema ne ricava un <b>modello</b> e lo usa sui casi nuovi, dando una risposta <b>probabile</b>. Il filtro antispam di Gmail (capitolo 3) funziona così: ha visto un enorme numero di email e ha ricavato da solo gli indizi che distinguono lo spam.</p>
   <p><b>Non tutta l’IA è machine learning</b>: un sistema a regole scritte a mano è IA, ma non impara dagli esempi.</p>
   <h3>Apprendimento profondo · Deep Learning (DL)</h3>
   <p>Il <span class="termine">deep learning</span> è un modo particolare di fare machine learning, adatto ai problemi più difficili, come riconoscere immagini e voce. Il modello è un sistema <b>molto grande, organizzato in molti livelli («strati»)</b> che elaborano l’informazione uno dopo l’altro: in una foto, per esempio, i primi livelli colgono i contorni, quelli successivi le forme e gli ultimi l’oggetto intero. Da qui «profondo»: tanti livelli uno sopra l’altro.</p>
-  <p>Il nome tecnico di questi sistemi è <b>rete neurale artificiale</b>, e ne riparlerete più avanti nel corso. Google Lens (capitolo 1), che riconosce una pianta da una foto, è un esempio.</p>
+  <p>Il nome tecnico di questi sistemi è <b>rete neurale artificiale</b>, e ne riparlerete più avanti nel corso. Google Lens (capitolo 3), che riconosce una pianta da una foto, è un esempio.</p>
   <h3>IA generativa · Generative AI (GenAI)</h3>
   <p>L’<span class="termine">IA generativa</span> è quella che <b>produce contenuti nuovi</b>: testi, immagini, musica, programmi. I sistemi visti finora <b>rispondono a una domanda</b> («è spam?», «che pianta è?»); un sistema generativo <b>crea qualcosa</b>, a partire da una richiesta scritta.</p>
-  <p>Di solito è fatta con il deep learning e con una grandissima quantità di esempi: per questo ciò che produce <b>somiglia a ciò che ha visto</b>, senza essere in genere una copia. Midjourney e Suno (capitolo 1) e i chatbot come ChatGPT sono IA generativa.</p>
+  <p>Di solito è fatta con il deep learning e con una grandissima quantità di esempi: per questo ciò che produce <b>somiglia a ciò che ha visto</b>, senza essere in genere una copia. Midjourney e Suno (capitolo 3) e i chatbot come ChatGPT sono IA generativa.</p>
   <h3>Come stanno insieme</h3>
   <p>Ogni cerchio sta dentro quello più grande: <b>un sistema di IA generativa è anche deep learning, machine learning e IA</b>. Non vale il contrario: un sistema a regole scritte a mano è IA ma non machine learning, e un riconoscitore di immagini è deep learning ma non genera nulla.</p>
   <figure>
@@ -150,17 +273,17 @@
       <tr><td>IA generativa</td><td>Generative AI (GenAI)</td><td>L’IA che produce contenuti nuovi: testi, immagini, suoni.</td><td>Midjourney, Suno, i chatbot</td></tr>
     </tbody></table></div>
 
-  <!-- ===================== 5.5 ===================== -->
+  <!-- ===================== 5.7 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p5"><span class="num">5.5</span>Quanto è «generale» un’IA</h2>
+  <h2 id="p7"><span class="num">5.7</span>Quanto è «generale» un’IA</h2>
   <p class="domanda">Un programma di scacchi che batte tutti i campioni del mondo è un’IA generale?</p>
   <p>Non tutte le IA sono uguali: alcune fanno <b>una cosa sola</b>, altre, in teoria, <b>qualsiasi cosa</b>. Possiamo immaginare <b>tre gradini</b>: l’IA specializzata, l’IA generale e la superintelligenza. Solo il primo esiste oggi, secondo la visione più diffusa.</p>
   <figure>
     <div class="tela passi-anim" id="f-gradini" data-titolo="Tre gradini" data-inizio="Una scala a tre gradini: solo il primo, con il contorno pieno, esiste oggi; gli altri due sono tratteggiati.">
       <svg viewBox="0 0 720 340" role="img" aria-label="Tre gradini: IA specializzata, che esiste oggi; IA generale e superintelligenza, ipotetiche."></svg>
       <ol class="passi-testo">
-        <li>IA specializzata: fa una cosa sola, anche molto bene, e fuori da quella non sa fare nulla. Gli esempi del capitolo 1, ciascuno con il suo compito.</li>
+        <li>IA specializzata: fa una cosa sola, anche molto bene, e fuori da quella non sa fare nulla. Gli esempi del capitolo 3, ciascuno con il suo compito.</li>
         <li>IA generale: saprebbe svolgere qualsiasi compito intellettuale come una persona. È ipotetica. Nel 2026 c’è chi dice che sia già stata raggiunta e molti esperti che non sono d’accordo.</li>
         <li>Superintelligenza: supererebbe le persone in praticamente tutto. È ipotetica.</li>
         <li>Tre gradini: il primo esiste oggi, gli altri due sono ipotetici.</li>
@@ -169,7 +292,7 @@
   </figure>
   <h3>IA specializzata · Narrow AI (ANI)</h3>
   <p>L’<span class="termine">IA specializzata</span> (in inglese <i>Narrow AI</i>, abbreviata ANI, in italiano anche «IA debole») <b>svolge un compito solo, anche molto bene</b>, e fuori da quello non sa fare nulla. Secondo la visione più diffusa, <b>l’IA che esiste oggi è di questo tipo</b>: più sotto si vede che per i chatbot c’è chi la pensa diversamente.</p>
-  <p>Gli esempi del capitolo 1 lo mostrano: <b>Stockfish</b> gioca a scacchi meglio di qualsiasi persona ma non sa riconoscere un volto; <b>Face ID</b> riconosce i volti ma non sa tradurre; <b>Google Lens</b> riconosce le piante ma non sa giocare a scacchi.</p>
+  <p>Gli esempi del capitolo 3 lo mostrano: <b>Stockfish</b> gioca a scacchi meglio di qualsiasi persona ma non sa riconoscere un volto; <b>Face ID</b> riconosce i volti ma non sa tradurre; <b>Google Lens</b> riconosce le piante ma non sa giocare a scacchi.</p>
   <h3>IA generale · Artificial General Intelligence (AGI)</h3>
   <p>L’<span class="termine">IA generale</span> (in inglese <i>Artificial General Intelligence</i>, abbreviata AGI, in italiano anche «IA forte») sarebbe un sistema capace di <b>svolgere qualsiasi compito intellettuale che sa fare una persona</b> e di <b>imparare compiti nuovi</b>, come una persona. È <b>ipotetica</b>: oggi non esiste un sistema che tutti riconoscano come tale.</p>
   <h3>Che cosa se ne dice oggi</h3>
@@ -189,7 +312,7 @@
     <figure><a class="fonte" href="https://cinema.everyeye.it/film/wall-e/" target="_blank" rel="noopener"><img src="https://images.everyeye.it/img-artwork/wall-e-v1-578067-1280x720.jpg" alt="WALL·E (2008): il piccolo robot spazzino, con un cubo di Rubik. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>WALL·E (2008): il piccolo robot spazzino, con un cubo di Rubik.</figcaption></figure>
     <figure><a class="fonte" href="https://www.independent.co.uk/arts-entertainment/films/features/2001-a-space-odyssey-50th-anniversary-future-predict-ai-artificial-intelligence-a8287056.html" target="_blank" rel="noopener"><img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/04/09/red-hal-eye.jpg" alt="2001: Odissea nello spazio (1968): l’occhio rosso del computer HAL 9000. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>2001: Odissea nello spazio (1968): l’occhio rosso del computer HAL 9000.</figcaption></figure>
   </div>
-  <p>Queste storie hanno spesso in comune tre cose che l’IA di oggi <b>non ha</b>: un corpo da robot, volontà proprie e sentimenti (capitolo 1, «Idee sbagliate sull’IA»). Sono <b>racconti, non descrizioni della realtà</b>.</p>
+  <p>Queste storie hanno spesso in comune tre cose che l’IA di oggi <b>non ha</b>: un corpo da robot, volontà proprie e sentimenti (capitolo 3, «Idee sbagliate sull’IA»). Sono <b>racconti, non descrizioni della realtà</b>.</p>
   <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
     <ul>
       <li>Riconoscere un gatto è facile per noi ma non si riesce a descrivere con regole: per ogni regola c’è un’eccezione.</li>

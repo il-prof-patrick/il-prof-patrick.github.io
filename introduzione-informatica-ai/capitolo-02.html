@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>2. Che cos’è l’intelligenza · Introduzione a informatica ed AI</title>
+<title>2. Il linguaggio del computer · Introduzione a informatica ed AI</title>
 <link rel="stylesheet" href="assets/sito.css">
 </head>
 <body data-capitolo="2">
@@ -11,82 +11,434 @@
 <nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
 <main class="lezione" lang="it">
   <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Introduzione a informatica ed AI · Capitolo 02</span></div>
-  <h1>Che cos’è l’intelligenza</h1>
+  <h1>Il linguaggio del computer</h1>
 
   <div class="contenuto">
 
   <!-- ===================== 2.1 ===================== -->
   <section class="sez">
-  <h2 id="p1"><span class="num">2.1</span>L’intelligenza umana e animale</h2>
-  <p class="domanda">Tu sei intelligente?</p>
-  <p>Non esiste una definizione di intelligenza accettata da tutti. Una delle più citate è contenuta in una dichiarazione del 1994 firmata da <b>52 ricercatori</b>, secondo cui l’intelligenza è <b>una capacità mentale generale</b> che comprende ragionare, pianificare, risolvere problemi, pensare in modo astratto, comprendere idee complesse, imparare in fretta e <b>imparare dall’esperienza</b>. Non si riduce a studiare sui libri: è la capacità di capire ciò che ci circonda.</p>
+  <h2 id="p1"><span class="num">2.1</span>Segnali analogici e digitali</h2>
+  <p class="domanda">Un orologio con le lancette e uno con i numeri: quale dei due «si accorge» del passare dei secondi in modo continuo?</p>
+  <p>Un <b>segnale</b> è una grandezza fisica che varia nel tempo e che porta con sé un’<b>informazione</b>: la pressione dell’aria in un suono, la tensione in un filo, la luce in una fibra ottica.</p>
+  <p>Un segnale può avere due nature molto diverse: <b>analogica</b> o <b>digitale</b>.</p>
   <div class="tab"><table>
-    <thead><tr><th>Capacità</th><th>Che cosa significa</th><th>Esempio quotidiano</th></tr></thead>
+    <thead><tr><th></th><th>Segnale <b>analogico</b></th><th>Segnale <b>digitale</b></th></tr></thead>
     <tbody>
-      <tr><td>Ragionare</td><td>trarre conclusioni da ciò che si sa</td><td>capire dall’orario che l’autobus è già passato</td></tr>
-      <tr><td>Pianificare</td><td>scegliere i passi per arrivare a uno scopo</td><td>organizzare una gita con trasporti e orari</td></tr>
-      <tr><td>Risolvere problemi</td><td>trovare una strada quando quella solita è chiusa</td><td>cambiare percorso per un incidente</td></tr>
-      <tr><td>Pensare in modo astratto</td><td>lavorare con idee e non solo con cose concrete</td><td>capire che “giustizia” non è un oggetto</td></tr>
-      <tr><td>Imparare dall’esperienza</td><td>cambiare comportamento dopo un errore</td><td>non toccare più una pentola calda</td></tr>
+      <tr><td><b>Valori</b></td><td><b>continui</b>: può assumere qualsiasi valore in un intervallo, infiniti valori</td><td><b>discreti</b>: può assumere solo un numero finito di valori ammessi (per esempio 8 livelli)</td></tr>
+      <tr><td><b>Nel tempo</b></td><td>è definito in ogni istante</td><td>è definito solo a istanti precisi (i campioni)</td></tr>
+      <tr><td><b>Esempi</b></td><td>voce, termometro a mercurio, lancette, disco in vinile, vecchia cassetta</td><td>orologio con i numeri, CD, file mp3, foto sul telefono, tutto ciò che sta in un computer</td></tr>
+      <tr><td><b>Pregi</b></td><td>molto fedele alla realtà</td><td>si copia senza perdere qualità e si ripulisce dal disturbo (rumore)</td></tr>
+      <tr><td><b>Difetti</b></td><td>ogni copia lo peggiora, il disturbo si accumula</td><td>è sempre un’approssimazione di quello vero</td></tr>
     </tbody></table></div>
-  <p>Non è una caratteristica solo umana. Il <b>corvo della Nuova Caledonia</b> si costruisce da solo piccoli ramoscelli adatti a pescare gli insetti nei buchi degli alberi; il <b>polpo</b>, chiuso in un barattolo, riesce a svitare il tappo dall’interno e a uscire.</p>
-  <figure class="foto-grande"><a class="fonte" href="https://arstechnica.com/science/2018/01/making-tools-gives-crows-a-big-food-boost/" target="_blank" rel="noopener"><img src="https://cdn.arstechnica.net/wp-content/uploads/2018/01/Crow-new-1.jpg" alt="Un corvo della Nuova Caledonia con un ramoscello nel becco. Da guardare nei dettagli: osserva lo strumento che tiene e come lo regge." referrerpolicy="no-referrer"></a><figcaption>Un corvo della Nuova Caledonia con un ramoscello nel becco. Osserva lo strumento che tiene e come lo regge.</figcaption></figure>
-  <figure class="foto-grande"><a class="fonte" href="https://thekidshouldseethis.com/post/octopus-opens-jar-from-inside" target="_blank" rel="noopener"><img src="https://thekidshouldseethis.com/wp-content/uploads/2014/05/octopus-escapes-jar_2015_tksst.jpg" alt="Un polpo chiuso in un barattolo che ne apre il tappo dall’interno. Da guardare nei dettagli: osserva dove si trovano i tentacoli rispetto al tappo." referrerpolicy="no-referrer"></a><figcaption>Un polpo chiuso in un barattolo che ne apre il tappo dall’interno. Osserva dove si trovano i tentacoli rispetto al tappo.</figcaption></figure>
-  <h3>Sembrare intelligenti non è esserlo</h3>
-  <p>Non sempre, però, ciò che sembra intelligenza lo è. Tra la fine dell’Ottocento e l’inizio del Novecento, in Germania, il cavallo <b>Hans</b> pareva saper fare i calcoli: il suo padrone, l’insegnante <b>Wilhelm von Osten</b>, gli poneva un’operazione e Hans rispondeva battendo lo zoccolo il numero giusto di volte.</p>
-  <figure class="foto-grande"><a class="fonte" href="https://www.britannica.com/topic/Clever-Hans" target="_blank" rel="noopener"><img src="https://cdn.britannica.com/07/180507-050-800508E8/Clever-Hans-Wilhelm-von-Osten-horse-1904.jpg" alt="Il cavallo Hans con Wilhelm von Osten davanti alla lavagna dei calcoli, 1904. Da guardare nei dettagli: osserva la lavagna e dove si trova l’uomo rispetto al cavallo." referrerpolicy="no-referrer"></a><figcaption>Il cavallo Hans con Wilhelm von Osten davanti alla lavagna dei calcoli, 1904. Osserva la lavagna e dove si trova l’uomo rispetto al cavallo.</figcaption></figure>
-  <p>Nel 1907 lo psicologo <b>Oskar Pfungst</b> scoprì che Hans non contava: <b>osservava i minimi movimenti involontari di chi lo interrogava</b> e smetteva di battere quando li vedeva cambiare. Rispondeva giusto solo se chi faceva la domanda conosceva la risposta e Hans poteva vederlo.</p>
-  <figure class="foto-margine"><a class="fonte" href="https://www.thesprucepets.com/top-talking-bird-species-390534" target="_blank" rel="noopener"><img src="https://www.thesprucepets.com/thmb/rSennhnkHYPFvYCkqHAQNpquimg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/close-up-of-african-grey-parrot-perching-on-pipe-by-plants-673169277-58ad8e823df78c345b864c59.jpg" alt="Un pappagallo cenerino, tra le specie che imitano meglio la voce umana." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un pappagallo cenerino</figcaption></figure>
-  <p>I <b>pappagalli</b> imitano le parole umane, ma <b>ripetere una frase non vuol dire capirla</b>: per questo in italiano si dice «ripetere come un pappagallo».</p>
-  <p>Hans e il pappagallo mostrano la stessa difficoltà: <b>pur non essendo intelligenti a nostro modo di vedere le cose inizialmente, possono comunque essere ritenuti tali?</b> Ritroveremo la domanda, con le macchine, nel capitolo 3.</p>
+  <figure>
+    <div class="tela schema" id="s-segnale"><p class="passi-titolo">Lo stesso segnale, analogico e digitale</p>
+      <svg viewBox="0 0 700 210" role="img" aria-label="A sinistra un segnale analogico: una curva continua. A destra lo stesso segnale digitale: pochi punti misurati a intervalli regolari e arrotondati a otto livelli.">
+        <g transform="translate(0 0)"><text x="170" y="18" text-anchor="middle" class="t-b">Analogico</text><path d="M40 160 H306 M40 160 V24" class="lin"/><text x="306" y="176" text-anchor="end" class="t-m">tempo</text><path d="M40.0 83.0 L42.2 79.6 L44.3 76.6 L46.5 74.0 L48.7 71.9 L50.8 70.2 L53.0 69.0 L55.2 68.2 L57.3 67.8 L59.5 67.8 L61.7 68.0 L63.8 68.5 L66.0 69.2 L68.2 69.9 L70.3 70.8 L72.5 71.6 L74.7 72.3 L76.8 72.8 L79.0 73.2 L81.2 73.3 L83.3 73.2 L85.5 72.8 L87.7 72.0 L89.8 71.0 L92.0 69.7 L94.2 68.1 L96.3 66.3 L98.5 64.3 L100.7 62.2 L102.8 60.0 L105.0 57.9 L107.2 55.8 L109.3 54.0 L111.5 52.3 L113.7 50.9 L115.8 49.9 L118.0 49.3 L120.2 49.2 L122.3 49.5 L124.5 50.4 L126.7 51.7 L128.8 53.6 L131.0 56.1 L133.2 58.9 L135.3 62.3 L137.5 66.0 L139.7 70.0 L141.8 74.3 L144.0 78.8 L146.2 83.4 L148.3 88.0 L150.5 92.5 L152.7 96.9 L154.8 101.1 L157.0 105.0 L159.2 108.6 L161.3 111.8 L163.5 114.6 L165.7 117.0 L167.8 118.9 L170.0 120.4 L172.2 121.4 L174.3 122.0 L176.5 122.2 L178.7 122.2 L180.8 121.8 L183.0 121.2 L185.2 120.5 L187.3 119.7 L189.5 118.9 L191.7 118.1 L193.8 117.4 L196.0 117.0 L198.2 116.7 L200.3 116.7 L202.5 117.0 L204.7 117.5 L206.8 118.4 L209.0 119.6 L211.2 121.0 L213.3 122.7 L215.5 124.6 L217.7 126.7 L219.8 128.8 L222.0 130.9 L224.2 133.0 L226.3 135.0 L228.5 136.8 L230.7 138.4 L232.8 139.6 L235.0 140.4 L237.2 140.8 L239.3 140.8 L241.5 140.2 L243.7 139.1 L245.8 137.5 L248.0 135.3 L250.2 132.7 L252.3 129.6 L254.5 126.1 L256.7 122.2 L258.8 118.1 L261.0 113.7 L263.2 109.2 L265.3 104.6 L267.5 100.0 L269.7 95.5 L271.8 91.2 L274.0 87.1 L276.2 83.3 L278.3 79.9 L280.5 76.8 L282.7 74.2 L284.8 72.1 L287.0 70.4 L289.2 69.1 L291.3 68.3 L293.5 67.8 L295.7 67.8 L297.8 68.0 L300.0 68.4" fill="none" stroke="var(--brand-600)" stroke-width="2.4" stroke-linecap="round"/><text x="170" y="196" text-anchor="middle" class="t-m">continuo: infiniti valori in ogni istante</text></g><g transform="translate(360 0)"><text x="170" y="18" text-anchor="middle" class="t-b">Digitale</text><path d="M40 160 H306 M40 160 V24" class="lin"/><text x="306" y="176" text-anchor="end" class="t-m">tempo</text><path d="M40.0 83.0 L42.2 79.6 L44.3 76.6 L46.5 74.0 L48.7 71.9 L50.8 70.2 L53.0 69.0 L55.2 68.2 L57.3 67.8 L59.5 67.8 L61.7 68.0 L63.8 68.5 L66.0 69.2 L68.2 69.9 L70.3 70.8 L72.5 71.6 L74.7 72.3 L76.8 72.8 L79.0 73.2 L81.2 73.3 L83.3 73.2 L85.5 72.8 L87.7 72.0 L89.8 71.0 L92.0 69.7 L94.2 68.1 L96.3 66.3 L98.5 64.3 L100.7 62.2 L102.8 60.0 L105.0 57.9 L107.2 55.8 L109.3 54.0 L111.5 52.3 L113.7 50.9 L115.8 49.9 L118.0 49.3 L120.2 49.2 L122.3 49.5 L124.5 50.4 L126.7 51.7 L128.8 53.6 L131.0 56.1 L133.2 58.9 L135.3 62.3 L137.5 66.0 L139.7 70.0 L141.8 74.3 L144.0 78.8 L146.2 83.4 L148.3 88.0 L150.5 92.5 L152.7 96.9 L154.8 101.1 L157.0 105.0 L159.2 108.6 L161.3 111.8 L163.5 114.6 L165.7 117.0 L167.8 118.9 L170.0 120.4 L172.2 121.4 L174.3 122.0 L176.5 122.2 L178.7 122.2 L180.8 121.8 L183.0 121.2 L185.2 120.5 L187.3 119.7 L189.5 118.9 L191.7 118.1 L193.8 117.4 L196.0 117.0 L198.2 116.7 L200.3 116.7 L202.5 117.0 L204.7 117.5 L206.8 118.4 L209.0 119.6 L211.2 121.0 L213.3 122.7 L215.5 124.6 L217.7 126.7 L219.8 128.8 L222.0 130.9 L224.2 133.0 L226.3 135.0 L228.5 136.8 L230.7 138.4 L232.8 139.6 L235.0 140.4 L237.2 140.8 L239.3 140.8 L241.5 140.2 L243.7 139.1 L245.8 137.5 L248.0 135.3 L250.2 132.7 L252.3 129.6 L254.5 126.1 L256.7 122.2 L258.8 118.1 L261.0 113.7 L263.2 109.2 L265.3 104.6 L267.5 100.0 L269.7 95.5 L271.8 91.2 L274.0 87.1 L276.2 83.3 L278.3 79.9 L280.5 76.8 L282.7 74.2 L284.8 72.1 L287.0 70.4 L289.2 69.1 L291.3 68.3 L293.5 67.8 L295.7 67.8 L297.8 68.0 L300.0 68.4" fill="none" stroke="var(--border-strong)" stroke-width="1.4" stroke-dasharray="4 4"/><path d="M40.0 85.7 L48.7 85.7 L48.7 67.1 L66.0 67.1 L66.0 67.1 L83.3 67.1 L83.3 67.1 L100.7 67.1 L100.7 48.6 L118.0 48.6 L118.0 48.6 L135.3 48.6 L135.3 85.7 L152.7 85.7 L152.7 104.3 L170.0 104.3 L170.0 122.9 L187.3 122.9 L187.3 122.9 L204.7 122.9 L204.7 122.9 L222.0 122.9 L222.0 141.4 L239.3 141.4 L239.3 141.4 L256.7 141.4 L256.7 104.3 L274.0 104.3 L274.0 67.1 L291.3 67.1 L291.3 67.1 L300.0 67.1 " fill="none" stroke="var(--brand-600)" stroke-width="2"/><circle cx="40.0" cy="85.7" r="3" fill="var(--brand-600)"/><circle cx="57.3" cy="67.1" r="3" fill="var(--brand-600)"/><circle cx="74.7" cy="67.1" r="3" fill="var(--brand-600)"/><circle cx="92.0" cy="67.1" r="3" fill="var(--brand-600)"/><circle cx="109.3" cy="48.6" r="3" fill="var(--brand-600)"/><circle cx="126.7" cy="48.6" r="3" fill="var(--brand-600)"/><circle cx="144.0" cy="85.7" r="3" fill="var(--brand-600)"/><circle cx="161.3" cy="104.3" r="3" fill="var(--brand-600)"/><circle cx="178.7" cy="122.9" r="3" fill="var(--brand-600)"/><circle cx="196.0" cy="122.9" r="3" fill="var(--brand-600)"/><circle cx="213.3" cy="122.9" r="3" fill="var(--brand-600)"/><circle cx="230.7" cy="141.4" r="3" fill="var(--brand-600)"/><circle cx="248.0" cy="141.4" r="3" fill="var(--brand-600)"/><circle cx="265.3" cy="104.3" r="3" fill="var(--brand-600)"/><circle cx="282.7" cy="67.1" r="3" fill="var(--brand-600)"/><circle cx="300.0" cy="67.1" r="3" fill="var(--brand-600)"/><text x="170" y="196" text-anchor="middle" class="t-m">16 campioni, 8 livelli: solo valori ammessi</text></g>
+      </svg>
+    </div>
+  </figure>
+  <h3>Perché il computer è digitale</h3>
+  <p>Digitale non vuol dire per forza «fatto di 0 e 1». Un segnale digitale può avere 3, 8 o 256 valori diversi: basta che siano un numero <b>finito</b>. Il <b>binario</b> è il caso particolare di digitale con <b>due soli valori</b>, 0 e 1, ed è quello che usano i computer.</p>
+  <p>Il motivo è semplice: un circuito elettronico distingue facilmente <b>due soli stati</b>: tensione alta e tensione bassa, acceso e spento, interruttore chiuso e aperto. Chiamiamo i due stati <b>0</b> e <b>1</b>: una cifra che può valere 0 o 1 si chiama <b>bit</b> (<i>binary digit</i>).</p>
+  <p>Distinguere due stati è così facile che il disturbo non li confonde: per questo i computer elaborano, copiano e trasmettono dati senza errori.</p>
+  <h3>Dall’analogico al digitale: tre passaggi</h3>
+  <ol class="passi-num">
+    <li><b>Campionamento</b>: si misura il segnale a intervalli di tempo regolari. Ogni misura è un <b>campione</b>.</li>
+    <li><b>Quantizzazione</b>: ogni misura si arrotonda al più vicino tra i livelli ammessi (per esempio 8 livelli).</li>
+    <li><b>Codifica</b>: ogni livello si scrive in binario. Con 8 livelli bastano 3 bit per campione.</li>
+  </ol>
+  <p>Più campioni e più livelli danno un segnale digitale più <b>fedele</b>, ma servono più bit: la qualità si paga in memoria.</p>
+  <p>Provate voi.</p>
+  <figure>
+    <div class="tela" data-widget="campiona"></div>
+  </figure>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p><b>Il CD.</b> Un CD audio misura il suono <b>44.100 volte al secondo</b> (campionamento) e dà a ogni misura uno tra <b>65.536 livelli</b> (16 bit). Un secondo di musica stereo (due canali) è quindi fatto di 44.100 × 16 × 2 = <b>1.411.200 bit</b>.</p></div>
 
   <!-- ===================== 2.2 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p2"><span class="num">2.2</span>Le intelligenze multiple (Gardner)</h2>
-  <p class="domanda">Fatemi un esempio di una persona a cui pensate quando si parla di intelligenza.</p>
-  <p>Secondo lo psicologo <b>Howard Gardner</b> (1983) l’intelligenza non è una sola capacità ma <b>più forme diverse</b>, ognuna con i suoi punti di forza. <b>Essere bravi in matematica è una forma di intelligenza, non l’unica</b>: chi va male in matematica non è per questo stupido. Le forme sono otto: le prime sette le descrisse nel 1983, l’ottava, quella naturalistica, la aggiunse più tardi.</p>
+  <h2 id="p2"><span class="num">2.2</span>I sistemi di numerazione</h2>
+  <p>Un <b>sistema di numerazione</b> è un insieme di <b>simboli</b> e di <b>regole</b> per scrivere i numeri. Ne sono stati inventati moltissimi, ma si dividono in due grandi famiglie.</p>
+  <h3>Sistemi additivi</h3>
+  <p>Nei sistemi <b>additivi</b> ogni simbolo ha un <b>valore fisso</b>, che non dipende dal posto in cui si trova. Il numero si ottiene <b>sommando</b> i valori dei simboli. L’esempio più noto è quello dei <b>numeri romani</b>: I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000.</p>
+  <pre class="codice"><code>XXVII = X + X + V + I + I = 10 + 10 + 5 + 1 + 1 = 27
+MDCLXVI = 1000 + 500 + 100 + 50 + 10 + 5 + 1 = 1666</code></pre>
+  <p>Per i numeri come 4 o 9 i romani usano anche una <b>regola sottrattiva</b> (IV = 5 − 1, IX = 10 − 1), ma il valore di ogni simbolo resta sempre lo stesso.</p>
+  <p>I sistemi additivi hanno però dei limiti: servono sempre più simboli per i numeri grandi, <b>non c’è lo zero</b> e fare i calcoli in colonna è quasi impossibile (provate a moltiplicare XXIV per XVII).</p>
+  <h3>Sistemi posizionali</h3>
+  <p>Nei sistemi <b>posizionali</b> il valore di una cifra dipende dalla <b>posizione</b> che occupa. Il numero di simboli diversi, le <b>cifre</b>, si chiama <b>base</b>. In <b>212</b> la cifra 2 compare due volte, ma la prima vale 200 e la seconda vale 2.</p>
+  <p>Così si può scrivere qualsiasi numero con pochissimi simboli e i calcoli in colonna funzionano. È il sistema che usiamo noi, e serve lo <b>zero</b> come segnaposto: senza, 205 e 25 si confonderebbero.</p>
   <div class="tab"><table>
-    <thead><tr><th>Intelligenza</th><th>In che cosa si vede</th><th>Esempio</th></tr></thead>
+    <thead><tr><th></th><th><b>Additivo</b></th><th><b>Posizionale</b></th></tr></thead>
     <tbody>
-      <tr><td>Linguistica</td><td>usare bene le parole, parlando e scrivendo</td><td>una scrittrice, un avvocato</td></tr>
-      <tr><td>Logico-matematica</td><td>ragionare con numeri, schemi e problemi</td><td>una matematica, un programmatore</td></tr>
-      <tr><td>Spaziale</td><td>immaginare e orientarsi nello spazio</td><td>un architetto, una pilota</td></tr>
-      <tr><td>Musicale</td><td>sentire e produrre ritmi e suoni</td><td>un musicista, una direttrice d’orchestra</td></tr>
-      <tr><td>Corporeo-cinestetica</td><td>usare il corpo con precisione</td><td>un’atleta, una danzatrice, un chirurgo</td></tr>
-      <tr><td>Interpersonale</td><td>capire gli altri e lavorare con loro</td><td>un’insegnante, un mediatore</td></tr>
-      <tr><td>Intrapersonale</td><td>conoscere se stessi e le proprie emozioni</td><td>chi sa dire che cosa prova e perché</td></tr>
-      <tr><td>Naturalistica</td><td>riconoscere e distinguere piante, animali e fenomeni naturali</td><td>un botanico, una guida naturalistica</td></tr>
+      <tr><td><b>Valore di un simbolo</b></td><td>fisso, sempre lo stesso</td><td>dipende dalla posizione</td></tr>
+      <tr><td><b>Come si legge</b></td><td>si sommano i simboli</td><td>si moltiplica ogni cifra per il peso della sua posizione e si somma</td></tr>
+      <tr><td><b>Zero</b></td><td>non serve</td><td>indispensabile (segnaposto)</td></tr>
+      <tr><td><b>Calcoli in colonna</b></td><td>difficili</td><td>facili</td></tr>
+      <tr><td><b>Esempi</b></td><td>numeri romani, egizi</td><td>decimale, binario, esadecimale</td></tr>
     </tbody></table></div>
-  <figure>
-    <div class="tela passi-anim" id="f-gardner" data-titolo="Chi è più intelligente?" data-inizio="Una scheda con il titolo «Chi è più intelligente?», un gruppo di persone e otto barre vuote, una per ogni forma di intelligenza.">
-      <svg viewBox="0 0 720 320" role="img" aria-label="Quattro ragazzi con profili diversi: Marta è forte in logica e matematica, Luca nella musica, Sara nel movimento e nello spazio, Omar nella natura. Nessuno è forte in tutto."></svg>
-      <ol class="passi-testo">
-        <li>Marta, che prende dieci in matematica: la barra logico-matematica è la più alta, le altre sono medie o basse.</li>
-        <li>Luca, che va male in matematica ma suona tre strumenti: la barra musicale è la più alta, quella logico-matematica è bassa.</li>
-        <li>Sara, che gioca a calcio e capisce lo spazio e la squadra: sono alte la barra corporeo-cinestetica e quella spaziale.</li>
-        <li>Omar, che conosce ogni pianta e ogni animale del parco: la barra naturalistica è la più alta.</li>
-        <li>Schermata finale: per ognuno la sua intelligenza più forte e la frase «Nessuno è forte in tutto, e andare male in matematica non vuol dire essere stupidi». Un ultimo clic fa ricominciare.</li>
-      </ol>
-    </div>
-  </figure>
+  <h3>Come si legge un numero posizionale</h3>
+  <p>In base <b>b</b> ogni posizione ha un <b>peso</b>: la prima a destra pesa b<sup>0</sup> = 1, poi b<sup>1</sup>, b<sup>2</sup>, b<sup>3</sup>… Il valore del numero è la <b>somma di ogni cifra per il suo peso</b>.</p>
+  <pre class="codice"><code>347 (base 10) = 3·10² + 4·10¹ + 7·10⁰ = 300 + 40 + 7
+1011 (base 2)  = 1·2³ + 0·2² + 1·2¹ + 1·2⁰ = 8 + 0 + 2 + 1 = 11</code></pre>
+  <p class="domanda">Nel numero 1010 in base 2 ci sono due cifre 1: valgono lo stesso? Quanto vale ciascuna?</p>
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
-    <p class="err-no">«Chi va male in matematica non è intelligente.»</p>
-    <p class="err-si">L’intelligenza ha <b>più forme</b>: la matematica è una (la logico-matematica), ma ci sono anche la musicale, la corporea, l’interpersonale e le altre.</p></div>
+    <p class="err-no">«Il numero 15 vale 1 + 5 = 6, come i numeri romani: si sommano i simboli.»</p>
+    <p class="err-si">Quella è la regola dei sistemi <b>additivi</b>. In un sistema <b>posizionale</b> ogni cifra si moltiplica per il peso della sua posizione: nel 15 la cifra 1 sta tra le decine e vale 10, quindi 15 = 1·10 + 5.</p></div>
 
   <!-- ===================== 2.3 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p3"><span class="num">2.3</span>Intelligenza naturale e artificiale</h2>
-  <p>L’<span class="termine">intelligenza naturale</span> è quella dei <b>viventi</b>: nasce con la vita e si sviluppa con l’esperienza. L’<b>intelligenza artificiale (IA)</b> è quella di sistemi <b>costruiti dalle persone</b>. Si chiama IA un <b>sistema che svolge compiti che, svolti da una persona, richiederebbero intelligenza</b>.</p>
-  <p>È una definizione <b>operativa</b>: guarda che cosa il sistema <b>fa</b>, non che cosa <b>è</b>. Se sia davvero intelligente o si limiti a sembrarlo, come Hans, è la domanda del capitolo 3.</p>
+  <h2 id="p3"><span class="num">2.3</span>Decimale, binario ed esadecimale</h2>
+  <p>Tre sistemi posizionali sono particolarmente importanti. Tutti funzionano nello stesso modo; cambiano la <b>base</b> e le <b>cifre</b>.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Sistema</th><th>Base</th><th>Cifre</th><th>Pesi (da destra)</th><th>Dove si usa</th></tr></thead>
+    <tbody>
+      <tr><td><b>Decimale</b></td><td>10</td><td>0 1 2 3 4 5 6 7 8 9</td><td>1, 10, 100, 1000…</td><td>la vita di tutti i giorni (forse perché abbiamo 10 dita)</td></tr>
+      <tr><td><b>Binario</b></td><td>2</td><td>0 1</td><td>1, 2, 4, 8, 16, 32, 64, 128…</td><td>dentro il computer: due stati, due cifre</td></tr>
+      <tr><td><b>Esadecimale</b></td><td>16</td><td>0–9 e A B C D E F (A = 10 … F = 15)</td><td>1, 16, 256, 4096…</td><td>colori (#FF8800), indirizzi MAC, memoria: è una scrittura corta del binario</td></tr>
+    </tbody></table></div>
+  <p>Per non confondersi si scrive la base come <b>pedice</b>: 1010<sub>2</sub> è un numero binario, 1010<sub>10</sub> è mille e dieci, 2A<sub>16</sub> è esadecimale. Nei programmi si usano i prefissi <code>0b</code> per il binario (<code>0b1010</code>) e <code>0x</code> per l’esadecimale (<code>0x2A</code>).</p>
+  <h3>I primi numeri nelle tre basi</h3>
+  <div class="tab"><table>
+    <thead><tr><th>Decimale</th><th>Binario</th><th>Esadecimale</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>0000</td><td>0</td></tr>
+      <tr><td>1</td><td>0001</td><td>1</td></tr>
+      <tr><td>2</td><td>0010</td><td>2</td></tr>
+      <tr><td>3</td><td>0011</td><td>3</td></tr>
+      <tr><td>4</td><td>0100</td><td>4</td></tr>
+      <tr><td>5</td><td>0101</td><td>5</td></tr>
+      <tr><td>6</td><td>0110</td><td>6</td></tr>
+      <tr><td>7</td><td>0111</td><td>7</td></tr>
+      <tr><td>8</td><td>1000</td><td>8</td></tr>
+      <tr><td>9</td><td>1001</td><td>9</td></tr>
+      <tr><td>10</td><td>1010</td><td>A</td></tr>
+      <tr><td>11</td><td>1011</td><td>B</td></tr>
+      <tr><td>12</td><td>1100</td><td>C</td></tr>
+      <tr><td>13</td><td>1101</td><td>D</td></tr>
+      <tr><td>14</td><td>1110</td><td>E</td></tr>
+      <tr><td>15</td><td>1111</td><td>F</td></tr>
+      <tr><td>16</td><td>10000</td><td>10</td></tr>
+    </tbody></table></div>
+  <p>Osservate le righe: ogni numero da 0 a 15 si scrive con <b>4 bit</b> e con <b>una sola cifra esadecimale</b>. Per questo, come vedremo, passare tra binario ed esadecimale è molto facile.</p>
+  <h3>Gli interruttori</h3>
+  <p>Un numero binario di 8 bit (un <b>byte</b>) è una fila di otto interruttori, ognuno con il suo peso: <b>128, 64, 32, 16, 8, 4, 2, 1</b>. Il numero è la somma dei pesi degli interruttori accesi.</p>
+  <p>Accendeteli e guardate il valore.</p>
+  <figure>
+    <div class="tela" data-widget="bit"></div>
+  </figure>
+
+  <!-- ===================== 2.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">2.4</span>Bit, byte e configurazioni</h2>
+  <p>Un <b>bit</b> è una cifra binaria; un <b>byte</b> sono <b>8 bit</b>. Con i bit si rappresenta qualsiasi informazione: ogni diversa sequenza di bit, cioè ogni <b>configurazione</b>, può indicare un numero, una lettera, un colore, un personaggio di un videogioco.</p>
+  <h3>Dati n bit, quante configurazioni?</h3>
+  <p>Con <b>1</b> bit ci sono 2 configurazioni (0, 1). Ogni bit in più <b>raddoppia</b> le possibilità, perché si può aggiungere uno 0 o un 1 a tutte le configurazioni di prima: con 2 bit ci sono 00, 01, 10, 11. Quindi con <b>n bit</b> le configurazioni sono <b>2<sup>n</sup></b>.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-config" data-titolo="Ogni bit in più raddoppia" data-inizio="Quante configurazioni si possono fare con 3 bit? Premi «Avanti» e aggiungi un bit alla volta.">
+      <svg viewBox="0 0 720 344" role="img" aria-label="Albero delle configurazioni: con 1 bit 0 e 1, con 2 bit quattro configurazioni, con 3 bit otto configurazioni."></svg>
+      <ol class="passi-testo">
+        <li>Con <b>1 bit</b> le configurazioni sono due: <b>0</b> e <b>1</b>.</li>
+        <li>Aggiungo un secondo bit: a ciascuna configurazione di prima posso attaccare uno <b>0</b> o un <b>1</b> (in verde). Le configurazioni <b>raddoppiano</b>: 2 × 2 = <b>4</b>.</li>
+        <li>Con il terzo bit raddoppiano ancora: 4 × 2 = <b>8</b>, cioè 2 × 2 × 2 = 2<sup>3</sup>.</li>
+        <li>Ogni bit in più raddoppia le configurazioni: con <b>n bit</b> sono <b>2<sup>n</sup></b>. Con un byte, 8 bit, sono 2<sup>8</sup> = <b>256</b>.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="tab"><table>
+    <thead><tr><th>Bit</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>10</th><th>16</th></tr></thead>
+    <tbody>
+      <tr><td>Configurazioni</td><td>2</td><td>4</td><td>8</td><td>16</td><td>32</td><td>64</td><td>128</td><td>256</td><td>1.024</td><td>65.536</td></tr>
+    </tbody></table></div>
+  <p><b>Come si fa</b>:</p>
+  <ol class="passi-num">
+    <li>Leggi quanti bit ci sono: è <b>n</b>.</li>
+    <li>Calcola 2 elevato a n, moltiplicando 2 per se stesso n volte (o partendo dalla tabella: 2<sup>10</sup> = 1.024 e raddoppiando).</li>
+    <li>Scrivi la risposta: «con n bit si possono rappresentare 2<sup>n</sup> configurazioni».</li>
+  </ol>
   <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
-    <p>Lo sblocco del telefono con il volto (<i>Face ID</i>, capitolo 1) è IA: se lo facesse una persona, riconoscere un volto fra tanti, anche con occhiali o barba, richiederebbe percezione e memoria.</p></div>
+    <p><b>Con 5 bit?</b> 2<sup>5</sup> = 2 × 2 × 2 × 2 × 2 = <b>32</b> configurazioni. <b>Con 10 bit?</b> 2<sup>10</sup> = <b>1.024</b>. <b>Con 11 bit?</b> il doppio di 1.024, cioè <b>2.048</b>.</p></div>
+  <h3>Date m configurazioni, quanti bit?</h3>
+  <p>È il problema inverso: devo identificare m cose diverse e voglio sapere <b>quanti bit servono almeno</b>. Si cerca il più piccolo n tale che <b>2<sup>n</sup> ≥ m</b>.</p>
+  <ol class="passi-num">
+    <li>Scrivi le potenze di 2 in ordine: 2, 4, 8, 16, 32, 64, 128, 256, 512, 1.024…</li>
+    <li>Trova la <b>prima potenza maggiore o uguale a m</b>.</li>
+    <li>L’esponente di quella potenza è il numero di bit. Non si può usare una frazione di bit: si arrotonda sempre <b>per eccesso</b>.</li>
+  </ol>
+  <figure>
+    <div class="tela passi-anim" id="f-bitper" data-titolo="Quanti bit per 40 canali?" data-inizio="Bisogna dare un codice diverso a 40 canali. Premi «Avanti» e prova le potenze di 2 in ordine.">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Colonne per 2, 4, 8, 16, 32 e 64 configurazioni a confronto con la linea dei 40 canali: solo 64 la supera."></svg>
+      <ol class="passi-testo">
+        <li>Con 1, 2, 3 e 4 bit si hanno 2, 4, 8 e 16 configurazioni: <b>troppo poche</b>, sono tutte sotto la linea dei 40 canali.</li>
+        <li>Con <b>5 bit</b> si arriva a 2<sup>5</sup> = 32: <b>non basta</b>. Otto canali resterebbero senza codice.</li>
+        <li>Con <b>6 bit</b> si arriva a 2<sup>6</sup> = 64, che è maggiore o uguale a 40: è la <b>prima potenza che basta</b>. Servono <b>6 bit</b>.</li>
+        <li>Avanzano 64 − 40 = <b>24 configurazioni</b> non usate, e va bene così: non esiste un «mezzo bit», quindi si arrotonda sempre <b>per eccesso</b>.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Per 40 canali servono 40 / 2 = 20 bit», oppure «servono 5 bit perché 2<sup>5</sup> = 32 è quasi 40».</p>
+    <p class="err-si">Non si divide per 2. Si cerca la <b>prima potenza di 2 che arriva almeno a m</b>, e <b>32 non basta</b>: con 5 bit si distinguono solo 32 canali, il canale 33 non ha un codice. Servono 6 bit.</p></div>
+  <h3>Contare in binario</h3>
+  <p>Contare in binario funziona come un <b>contachilometri</b> che ha solo le cifre 0 e 1: quando una cifra arriva a 1 e deve aumentare, torna a 0 e <b>«riporta» 1 alla cifra a sinistra</b>. Per scrivere il numero successivo si aggiunge 1:</p>
+  <ol class="passi-num">
+    <li>Parti dalla cifra più a destra.</li>
+    <li>Se è <b>0</b>, diventa <b>1</b> e hai finito.</li>
+    <li>Se è <b>1</b>, diventa <b>0</b> e passi alla cifra a sinistra, e ripeti. Se finiscono le cifre, aggiungi un 1 davanti.</li>
+  </ol>
+  <p>Per scrivere i prossimi 15 numeri, si applica la regola 15 volte, ogni volta partendo dal numero appena scritto.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-conta" data-titolo="Contare in binario dall’11 al 16" data-inizio="Partiamo da 1011, cioè 11. Ogni volta aggiungiamo 1, partendo dalla cifra più a destra.">
+      <svg viewBox="0 0 720 334" role="img" aria-label="I numeri binari da 1011 a 10000 uno sotto l’altro, con le cifre che cambiano evidenziate e i riporti."></svg>
+      <ol class="passi-testo">
+        <li>La cifra di destra è <b>1</b>: diventa <b>0</b> e <b>riporto 1</b> alla cifra a sinistra.</li>
+        <li>Anche la seconda cifra è <b>1</b>: diventa <b>0</b> e riporto ancora.</li>
+        <li>La terza cifra è <b>0</b>: diventa <b>1</b> e ho finito. La cifra a sinistra resta com’è: 1011 + 1 = <b>1100</b>, cioè 12.</li>
+        <li>Ora l’ultima cifra è <b>0</b>: basta farla diventare <b>1</b>. <b>1101</b>, cioè 13.</li>
+        <li>L’ultima cifra è 1: diventa 0 e riporto; la cifra a sinistra è 0 e diventa 1. <b>1110</b>, cioè 14.</li>
+        <li>L’ultima cifra è 0 e diventa 1: <b>1111</b>, cioè 15. Ora le cifre sono tutte 1.</li>
+        <li>Tutte le cifre sono 1: diventano <b>tutte 0</b> e, finite le cifre, si aggiunge un <b>1 davanti</b>. <b>10000</b>, cioè 16.</li>
+      </ol>
+    </div>
+  </figure>
+  <p>Un modo di <b>controllare</b>: le cifre di destra si alternano 0, 1, 0, 1; la penultima a coppie 0, 0, 1, 1; la terzultima a quattro a quattro…</p>
+  <h3>I multipli del byte</h3>
+  <p>Come per i metri e i grammi, anche per i byte si usano i <b>multipli</b>. Ce ne sono di due tipi. Il <b>sistema internazionale</b> (SI) usa i prefissi di sempre: <b>chilo = 1.000</b>, mega = un milione…, e ogni gradino è <b>1.000 volte</b> il precedente. Il <b>sistema binario</b> (IEC) segue invece le potenze di 2, come il computer: ogni gradino è <b>1.024 volte</b> il precedente (2<sup>10</sup> = 1.024, quasi mille), e i nomi hanno una <b>«i»</b> in più: <b>kibi</b>, <b>mebi</b>, <b>gibi</b>…</p>
+  <div class="tab"><table>
+    <thead><tr><th>Sistema internazionale</th><th>Sistema binario</th><th>Il binario è più grande del</th><th>Un esempio di questa grandezza</th></tr></thead>
+    <tbody>
+      <tr><td><b>byte</b> (B)<br>1 byte</td><td><b>byte</b> (B)<br>1 byte</td><td>—</td><td>una lettera o una cifra di un testo</td></tr>
+      <tr><td><b>kilobyte</b> (kB)<br>10³ = 1.000</td><td><b>kibibyte</b> (KiB)<br>2¹⁰ = 1.024</td><td>2,4%</td><td>un breve messaggio; una pagina di solo testo occupa qualche kB</td></tr>
+      <tr><td><b>megabyte</b> (MB)<br>10⁶ = 1.000.000</td><td><b>mebibyte</b> (MiB)<br>2²⁰ = 1.048.576</td><td>4,9%</td><td>una foto dello smartphone (qualche MB), una canzone in mp3 (circa 4 MB)</td></tr>
+      <tr><td><b>gigabyte</b> (GB)<br>10⁹</td><td><b>gibibyte</b> (GiB)<br>2³⁰ = 1.073.741.824</td><td>7,4%</td><td>un film in alta definizione (qualche GB), la memoria di un telefono (128 GB)</td></tr>
+      <tr><td><b>terabyte</b> (TB)<br>10¹²</td><td><b>tebibyte</b> (TiB)<br>2⁴⁰</td><td>10,0%</td><td>il disco di un computer (1 o 2 TB)</td></tr>
+      <tr><td><b>petabyte</b> (PB)<br>10¹⁵</td><td><b>pebibyte</b> (PiB)<br>2⁵⁰</td><td>12,6%</td><td>un grande data center: decine o centinaia di PB</td></tr>
+      <tr><td><b>exabyte</b> (EB)<br>10¹⁸</td><td><b>exbibyte</b> (EiB)<br>2⁶⁰</td><td>15,3%</td><td>tutto il traffico di internet nel mondo in un giorno: circa una decina di EB</td></tr>
+      <tr><td><b>zettabyte</b> (ZB)<br>10²¹</td><td><b>zebibyte</b> (ZiB)<br>2⁷⁰</td><td>18,1%</td><td>tutti i dati creati nel mondo in un anno: più di 100 ZB (stime recenti)</td></tr>
+      <tr><td><b>yottabyte</b> (YB)<br>10²⁴</td><td><b>yobibyte</b> (YiB)<br>2⁸⁰</td><td>20,9%</td><td>nessun archivio arriva ancora a tanto: 1 YB è mille ZB</td></tr>
+    </tbody></table></div>
+  <h3>MB o MiB? Che differenza c’è</h3>
+  <p>I due sistemi usano numeri vicini, ma non uguali. <b>1 MB = 1.000.000 byte</b>, mentre <b>1 MiB = 1.048.576 byte</b>: il mebibyte è più grande di 48.576 byte, cioè di circa il <b>4,9%</b>.</p>
+  <p>A ogni gradino la differenza <b>cresce</b>, perché il 1.024 si moltiplica per se stesso: per i kilo è il 2,4%, per i giga il 7,4%, per i tera già il 10%, e per gli yotta arriva quasi al 21% (l’ultima colonna della tabella).</p>
+  <h3>Perché ci interessa</h3>
+  <p>Chi vende dischi, chiavette e telefoni usa il <b>sistema internazionale</b>: un disco «da 1 TB» contiene 10<sup>12</sup> = 1.000.000.000.000 byte. Windows, invece, conta in <b>potenze di 2</b>, anche se scrive «GB» al posto di «GiB»: divide per 1.024 a ogni gradino e mostra circa <b>931 GB</b>.</p>
+  <p>Nessuno ci ha rubato spazio: è la stessa quantità di byte, misurata con due unità diverse. Allo stesso modo un telefono «da 128 GB» ne mostra circa 119, più lo spazio occupato dal sistema operativo. (I Mac, dal 2009, contano in base 10 e mostrano 1.000 GB.)</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«1 MB e 1 MiB sono la stessa cosa: sono tutti megabyte.»</p>
+    <p class="err-si">Sono diversi: <b>1 MB = 1.000.000 byte</b>, <b>1 MiB = 1.048.576 byte</b>. Per questo un disco da «1 TB» (10<sup>12</sup> byte) per il computer ne contiene circa <b>931 GiB</b>: non manca spazio, sono unità diverse.</p></div>
+  <h3>Come si fa un’equivalenza</h3>
+  <ol class="passi-num">
+    <li>Metti i multipli in fila: B, kB, MB, GB, TB… Ogni gradino vale ×1.000 nel sistema internazionale, ×1.024 in quello binario.</li>
+    <li>Conta quanti <b>gradini</b> ci sono tra l’unità di partenza e quella di arrivo.</li>
+    <li>Se vai <b>verso l’unità più piccola</b> (per esempio da MB a B) <b>moltiplichi</b> a ogni gradino; se vai verso la più grande <b>dividi</b>.</li>
+    <li>Se ti chiedono «quanti file», dividi la capacità totale per la dimensione di un file, <b>dopo averle portate alla stessa unità</b>.</li>
+  </ol>
+  <figure>
+    <div class="tela passi-anim" id="f-si" data-titolo="3 GB in kB" data-inizio="Mettiamo le unità in fila, come i gradini di una scala: ogni gradino vale 1.000. Premi «Avanti».">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Scala con i gradini B, kB, MB, GB, TB: da 3 GB si scende di due gradini moltiplicando per 1.000 e si arriva a 3.000.000 kB."></svg>
+      <ol class="passi-testo">
+        <li>Si parte dai <b>GB</b> (in verde) e si arriva ai <b>kB</b> (in ambra): tra le due unità ci sono <b>2 gradini</b>.</li>
+        <li>Primo gradino, da GB a MB: si scende verso un’unità più piccola, quindi si <b>moltiplica</b> per 1.000. 3 GB = <b>3.000 MB</b>.</li>
+        <li>Secondo gradino, da MB a kB: di nuovo × 1.000. 3.000 MB = <b>3.000.000 kB</b>.</li>
+        <li>Verso l’unità più piccola si <b>moltiplica</b>, verso quella più grande si <b>divide</b>: ogni gradino è una moltiplicazione o una divisione per 1.000.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p><b>Quanti brani da 5 MB in 1 GB?</b> Prima si portano le due misure alla stessa unità: 1 GB = 1.000 MB. Poi si divide: 1.000 : 5 = <b>200 brani</b>.</p></div>
+  <p>Nel sistema binario il metodo è lo stesso, ma a ogni gradino si moltiplica o si divide per <b>1.024</b> invece che per 1.000.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-iec" data-titolo="5 MiB in byte" data-inizio="La stessa scala, con le unità binarie: ogni gradino vale 1.024. Premi «Avanti».">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Scala con i gradini B, KiB, MiB, GiB, TiB: da 5 MiB si scende di due gradini moltiplicando per 1.024 e si arriva a 5.242.880 byte."></svg>
+      <ol class="passi-testo">
+        <li>Si parte dai <b>MiB</b> (in verde) e si arriva ai <b>byte</b> (in ambra): ci sono <b>2 gradini</b>.</li>
+        <li>Da MiB a KiB si scende: × 1.024. 5 MiB = <b>5.120 KiB</b>.</li>
+        <li>Da KiB a byte, ancora × 1.024. 5.120 KiB = <b>5.242.880 byte</b>.</li>
+        <li>Il metodo è lo stesso del sistema internazionale; cambia solo il numero: <b>1.024</b> invece di 1.000.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p><b>2 MiB in GiB?</b> Un gradino verso l’unità più grande, quindi si divide: 2 : 1.024 = <b>0,00195 GiB</b> (circa).</p></div>
+
+  <!-- ===================== 2.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">2.5</span>Le conversioni, passo passo</h2>
+  <h3>Da binario a decimale</h3>
+  <p>Si usa la regola della lettura posizionale: <b>somma dei pesi delle cifre uguali a 1</b>.</p>
+  <ol class="passi-num">
+    <li>Scrivi il numero e, sotto ogni cifra, il suo peso, partendo da destra con 1 e <b>raddoppiando</b> verso sinistra: 1, 2, 4, 8, 16, 32…</li>
+    <li>Cancella i pesi sotto le cifre <b>0</b>.</li>
+    <li>Somma i pesi rimasti.</li>
+  </ol>
+  <figure>
+    <div class="tela passi-anim" id="f-b2d" data-titolo="100110 in decimale" data-inizio="Convertiamo 100110 da binario a decimale. Premi «Avanti».">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Il numero 100110 con sotto i pesi 32, 16, 8, 4, 2, 1; i pesi sotto gli zeri sono cancellati e la somma dei rimanenti fa 38."></svg>
+      <ol class="passi-testo">
+        <li>Sotto ogni cifra scrivo il suo <b>peso</b>: si parte da destra con <b>1</b> e si <b>raddoppia</b> verso sinistra: 1, 2, 4, 8, 16, 32.</li>
+        <li>I pesi sotto gli <b>0</b> non contano: li <b>cancello</b>. Restano quelli sotto gli 1.</li>
+        <li>Sommo i pesi rimasti: 32 + 4 + 2 = <b>38</b>.</li>
+        <li>100110<sub>2</sub> = <b>38</b><sub>10</sub>. Controllo: rifacendo il conto al contrario, 38 diventa di nuovo 100110.</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>Da decimale a binario</h3>
+  <p>Si divide ripetutamente per 2 e si scrivono i <b>resti</b>.</p>
+  <ol class="passi-num">
+    <li>Dividi il numero per 2: scrivi il <b>quoziente</b> e il <b>resto</b> (che sarà 0 o 1).</li>
+    <li>Dividi il quoziente per 2, e così via, finché il quoziente diventa <b>0</b>.</li>
+    <li>Leggi i resti <b>dal basso verso l’alto</b>: l’ultimo resto è la cifra più a sinistra.</li>
+  </ol>
+  <figure>
+    <div class="tela passi-anim" id="f-d2b" data-titolo="37 in binario" data-inizio="Convertiamo 37 da decimale a binario: lo dividiamo per 2, poi dividiamo il quoziente, e così via.">
+      <svg viewBox="0 0 720 290" role="img" aria-label="Le divisioni per 2 di 37, una sotto l’altra, con i resti in un quadretto; i resti letti dal basso danno 100101."></svg>
+      <ol class="passi-testo">
+        <li>Divido 37 per 2: fa 18 con resto <b>1</b>. Il resto è sempre 0 o 1.</li>
+        <li>Divido il quoziente: 18 : 2 = 9, resto <b>0</b>.</li>
+        <li>Divido il quoziente: 9 : 2 = 4, resto <b>1</b>.</li>
+        <li>Divido il quoziente: 4 : 2 = 2, resto <b>0</b>.</li>
+        <li>Divido il quoziente: 2 : 2 = 1, resto <b>0</b>.</li>
+        <li>1 : 2 = 0, resto <b>1</b>. Il quoziente è 0: <b>mi fermo</b>.</li>
+        <li>Leggo i resti <b>dal basso verso l’alto</b>: 37 = <b>100101</b><sub>2</sub>.</li>
+      </ol>
+    </div>
+  </figure>
+  <p>Ora provate con un numero a vostra scelta, un passo alla volta.</p>
+  <figure>
+    <div class="tela" data-widget="divisioni"></div>
+  </figure>
+  <p><b>Controllo</b>: riconvertite il risultato in decimale con il metodo di prima. 100101 = 32 + 4 + 1 = 37. ✓</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Leggo i resti dall’alto: 37 diventa 101001.»</p>
+    <p class="err-si">I resti si leggono <b>dal basso verso l’alto</b>: il primo resto è la cifra di <b>peso 1</b> (la più a destra), l’ultimo è la più a sinistra. Controllo: 101001 vale 41, non 37.</p></div>
+  <h3>Da binario a esadecimale (con il trucchetto)</h3>
+  <p>Una cifra esadecimale equivale a 4 bit: basta raggruppare i bit a quattro a quattro.</p>
+  <ol class="passi-num">
+    <li>Dividi il numero binario in gruppi di <b>4 bit partendo da destra</b>.</li>
+    <li>Se il gruppo più a sinistra ha meno di 4 bit, <b>aggiungi zeri a sinistra</b>.</li>
+    <li>Sostituisci ogni gruppo con la sua cifra esadecimale, usando la tabella della 2.3.</li>
+  </ol>
+  <figure>
+    <div class="tela passi-anim" id="f-b2h" data-titolo="101101 in esadecimale" data-inizio="Convertiamo 101101 da binario a esadecimale con il trucchetto dei gruppi di 4 bit.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="101101 diviso in gruppi da destra: 10 e 1101; il primo gruppo diventa 0010; i gruppi diventano 2 e D."></svg>
+      <ol class="passi-testo">
+        <li>Divido i bit in gruppi di <b>4</b>, partendo da <b>destra</b>: 1101 e, avanzati, 10.</li>
+        <li>Il gruppo di sinistra ha solo 2 bit: aggiungo <b>due zeri a sinistra</b> (in ambra). Il valore non cambia.</li>
+        <li>Ogni gruppo diventa una cifra esadecimale: 0010 = <b>2</b>; 1101 = 8 + 4 + 1 = 13 = <b>D</b>.</li>
+        <li>101101<sub>2</sub> = <b>2D</b><sub>16</sub>.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«101101 si divide da sinistra: 1011 01 → B1.»</p>
+    <p class="err-si">I gruppi si formano partendo da <b>destra</b>, dove stanno le cifre di peso più piccolo. Dividendo da sinistra il valore cambia: B1<sub>16</sub> = 177, mentre 101101<sub>2</sub> = 45.</p></div>
+  <h3>Da esadecimale a binario (con il trucchetto)</h3>
+  <ol class="passi-num">
+    <li>Sostituisci ogni cifra esadecimale con il suo gruppo di <b>4 bit</b> (anche gli zeri a sinistra del gruppo).</li>
+    <li>Scrivi i gruppi uno dopo l’altro.</li>
+    <li>Togli gli zeri inutili a sinistra del numero intero.</li>
+  </ol>
+  <figure>
+    <div class="tela passi-anim" id="f-h2b" data-titolo="3C in binario" data-inizio="Convertiamo 3C da esadecimale a binario: ogni cifra diventa un gruppo di 4 bit.">
+      <svg viewBox="0 0 720 272" role="img" aria-label="Le cifre 3 e C diventano i gruppi 0011 e 1100; uniti e senza gli zeri iniziali danno 111100."></svg>
+      <ol class="passi-testo">
+        <li>La cifra <b>3</b> diventa <b>0011</b>: 3 = 2 + 1, con i pesi 8, 4, 2, 1.</li>
+        <li>La cifra <b>C</b> vale 12 e diventa <b>1100</b>: 12 = 8 + 4.</li>
+        <li>Scrivo i due gruppi uno dopo l’altro: 0011 1100.</li>
+        <li>Gli zeri a sinistra non servono e li tolgo: 3C<sub>16</sub> = <b>111100</b><sub>2</sub>.</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>Da una base n a una base m</h3>
+  <p>Quando nessuna delle due basi è 10 si passa dalla <b>base 10</b> come tappa intermedia: prima si converte il numero a decimale (con i pesi della base di partenza), poi dal decimale alla base di arrivo (con le divisioni per m).</p>
+  <ol class="passi-num">
+    <li><b>Da base n a base 10</b>: scrivi i pesi come potenze di n (1, n, n², …), moltiplica ogni cifra per il suo peso e somma.</li>
+    <li><b>Da base 10 a base m</b>: dividi per m, annota i resti e leggili dal basso verso l’alto. Se un resto supera 9 (in base 16) usa le lettere.</li>
+  </ol>
+  <figure>
+    <div class="tela passi-anim" id="f-nm" data-titolo="213 dalla base 4 alla base 6" data-inizio="Nessuna delle due basi è 10: passiamo dal decimale. Premi «Avanti».">
+      <svg viewBox="0 0 720 304" role="img" aria-label="A sinistra 213 in base 4 con i pesi 16, 4, 1 diventa 39; a destra le divisioni per 6 di 39 danno 103 in base 6."></svg>
+      <ol class="passi-testo">
+        <li>Prima tappa, dalla base 4 alla base 10. I pesi sono le potenze di 4, da destra: <b>1, 4, 16</b>.</li>
+        <li>Moltiplico ogni cifra per il suo peso e sommo: 2·16 + 1·4 + 3·1 = 32 + 4 + 3 = <b>39</b>.</li>
+        <li>Seconda tappa, dalla base 10 alla base 6: divido per <b>6</b>. 39 : 6 = 6, resto <b>3</b>.</li>
+        <li>6 : 6 = 1, resto <b>0</b>.</li>
+        <li>1 : 6 = 0, resto <b>1</b>. Il quoziente è 0: mi fermo.</li>
+        <li>Leggo i resti dal basso: 213<sub>4</sub> = <b>103</b><sub>6</sub>. Controllo: 1·36 + 0·6 + 3 = 39 ✓</li>
+      </ol>
+    </div>
+  </figure>
+
+  <!-- ===================== 2.6 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p6"><span class="num">2.6</span>Somma e sottrazione binaria</h2>
+  <h3>La somma</h3>
+  <p>Si fa in colonna, come in decimale, partendo da destra. Cambiano solo le regole, perché c’è soltanto 0 e 1:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Somma di due cifre</th><th>Risultato</th><th>Si scrive</th><th>Riporto</th></tr></thead>
+    <tbody>
+      <tr><td>0 + 0</td><td>0</td><td>0</td><td>—</td></tr>
+      <tr><td>0 + 1 oppure 1 + 0</td><td>1</td><td>1</td><td>—</td></tr>
+      <tr><td>1 + 1</td><td>2, cioè 10 in binario</td><td>0</td><td>1</td></tr>
+      <tr><td>1 + 1 + 1 (con riporto)</td><td>3, cioè 11</td><td>1</td><td>1</td></tr>
+    </tbody></table></div>
+  <ol class="passi-num">
+    <li>Incolonna i numeri a destra (aggiungi zeri a sinistra a quello più corto, se ti aiuta).</li>
+    <li>Somma ogni colonna da destra, aggiungendo l’eventuale <b>riporto</b> della colonna prima.</li>
+    <li>Scrivi la cifra e riporta 1 a sinistra se la colonna fa 2 o 3. Se alla fine resta un riporto, scrivilo davanti.</li>
+    <li><b>Controlla</b> convertendo in decimale.</li>
+  </ol>
+  <figure>
+    <div class="tela passi-anim" id="f-somma" data-titolo="1011 + 110" data-inizio="Sommiamo 1011 (11) e 110 (6) in colonna, partendo da destra.">
+      <svg viewBox="0 0 720 246" role="img" aria-label="Somma in colonna di 1011 e 110 con i riporti: il risultato è 10001."></svg>
+      <ol class="passi-testo">
+        <li>Prima colonna: 1 + 0 = <b>1</b>.</li>
+        <li>Seconda colonna: 1 + 1 = 2, che in binario è <b>10</b>: scrivo <b>0</b> e <b>riporto 1</b>.</li>
+        <li>Terza colonna: 0 + 1 + 1 di riporto = 10: scrivo <b>0</b> e riporto 1.</li>
+        <li>Quarta colonna: 1 + 1 di riporto = 10: scrivo <b>0</b> e riporto 1.</li>
+        <li>Il riporto finale si scrive davanti: <b>10001</b>, cioè 17. Controllo: 11 + 6 = 17 ✓</li>
+      </ol>
+    </div>
+  </figure>
+  <h3>La sottrazione</h3>
+  <p>Anche la sottrazione si fa in colonna da destra. Le regole sono: <b>0 − 0 = 0</b>, <b>1 − 0 = 1</b>, <b>1 − 1 = 0</b>.</p>
+  <p>Il caso difficile è <b>0 − 1</b>: non si può, quindi si chiede un <b>prestito</b> alla cifra a sinistra. Il prestito di un 1 vale <b>2</b> nella colonna dopo (10 in binario), quindi 0 − 1 diventa 10 − 1 = <b>1</b>.</p>
+  <ol class="passi-num">
+    <li>Incolonna i numeri a destra, il più grande sopra.</li>
+    <li>Sottrai ogni colonna da destra. Se serve 0 − 1, <b>prendi in prestito</b> dalla prima cifra 1 a sinistra: quella diventa 0, e le cifre 0 in mezzo diventano 1.</li>
+    <li>Controlla <b>sommando</b> il risultato al sottraendo: devi ritrovare il numero di partenza.</li>
+  </ol>
+  <figure>
+    <div class="tela passi-anim" id="f-sottr" data-titolo="1000 − 11" data-inizio="Sottraiamo 11 (3) da 1000 (8) in colonna, partendo da destra.">
+      <svg viewBox="0 0 720 246" role="img" aria-label="Sottrazione in colonna di 1000 meno 11 con il prestito: il risultato è 0101."></svg>
+      <ol class="passi-testo">
+        <li>Prima colonna: 0 − 1 <b>non si può</b>. Serve un <b>prestito</b>.</li>
+        <li>Il prestito si prende dal primo <b>1</b> a sinistra, che diventa <b>0</b>; gli 0 in mezzo diventano <b>1</b>, e la prima colonna riceve <b>10</b>, cioè 2.</li>
+        <li>Ora la prima colonna: 10 − 1 = <b>1</b>.</li>
+        <li>Seconda colonna: 1 − 1 = <b>0</b>.</li>
+        <li>Terza colonna: 1 − 0 = <b>1</b>.</li>
+        <li>Quarta colonna: 0 − 0 = 0. Risultato <b>0101</b>, cioè 5. Controllo: 101 + 11 = 1000 (5 + 3 = 8) ✓</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«100 − 1: nella colonna di destra 0 − 1 fa 1, il resto lo ricopio: 101.»</p>
+    <p class="err-si"><b>0 − 1 fa 1 solo con un prestito</b>, e il prestito va tolto alla colonna a sinistra. Qui 100 − 1 è 4 − 1 = 3, cioè <b>011</b>, e non 5 (101). Si controlla sempre in decimale.</p></div>
   <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
     <ul>
-      <li>L’intelligenza è la capacità di affrontare situazioni nuove, non è solo umana, e un comportamento che la imita non basta a provarla.</li>
-      <li>Secondo Gardner l’intelligenza ha più forme, quindi andare male in matematica non vuol dire essere stupidi.</li>
-      <li>Si chiama IA un sistema che svolge compiti che in una persona richiederebbero intelligenza, senza dire se sia davvero intelligente.</li>
+      <li>Un segnale <b>analogico</b> è continuo; uno <b>digitale</b> assume solo valori discreti. Il <b>binario</b> è il digitale con due soli valori, 0 e 1 (<b>bit</b>): è quello del computer.</li>
+      <li>Si passa dall’analogico al digitale con <b>campionamento</b>, <b>quantizzazione</b> e <b>codifica</b>; più campioni e più livelli = più fedeltà e più bit.</li>
+      <li><b>Additivo</b>: ogni simbolo ha un valore fisso e il numero è la somma (numeri romani). <b>Posizionale</b>: il valore della cifra dipende dalla posizione; il numero di cifre diverse è la <b>base</b>.</li>
+      <li><b>Decimale</b>: base 10, cifre 0–9. <b>Binario</b>: base 2, cifre 0 e 1, pesi 1, 2, 4, 8, 16… <b>Esadecimale</b>: base 16, cifre 0–9 e A–F; una cifra esadecimale = 4 bit.</li>
+      <li>Con <b>n bit</b> si hanno <b>2<sup>n</sup></b> configurazioni; per <b>m configurazioni</b> servono i bit n minimi con 2<sup>n</sup> ≥ m.</li>
+      <li>SI (kB, MB, GB…): ogni gradino è ×1.000. Binario (KiB, MiB, GiB…): ogni gradino è ×1.024.</li>
+      <li><b>2 → 10</b>: somma dei pesi sotto gli 1. <b>10 → 2</b>: divisioni per 2, resti letti dal basso. <b>2 ↔ 16</b>: gruppi di 4 bit da destra. <b>n → m</b>: si passa dal decimale.</li>
+      <li>Somma: 1 + 1 = 10 (scrivo 0, riporto 1). Sottrazione: 0 − 1 chiede un <b>prestito</b>. Si controlla sempre <b>in decimale</b>.</li>
     </ul></div>
   </section>
 

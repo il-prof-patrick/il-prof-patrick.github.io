@@ -62,7 +62,7 @@ window.AULA = {
     ],
     [
      "4.14",
-     "Siti, server e domini"
+     "Hosting e housing: dove vive un sito"
     ],
     [
      "4.15",
@@ -1312,8 +1312,8 @@ window.AULA = {
   {
    "tipo": "sezione",
    "num": "4.14",
-   "titolo": "Siti, server e domini",
-   "sotto": "Pubblicare un sito",
+   "titolo": "Hosting e housing: dove vive un sito",
+   "sotto": "Dove vive un sito",
    "foto": {
     "src": "https://images.unsplash.com/photo-1487338875411-8880f74114a2?w=1200&q=80&fm=jpg",
     "tit": "",
@@ -1321,43 +1321,84 @@ window.AULA = {
    }
   },
   {
-   "tipo": "tessere",
-   "titolo": "Per pubblicare un sito servono",
-   "msg": "File, un server web e un dominio",
-   "tessere": [
+   "tipo": "confronto",
+   "titolo": "Hosting e housing",
+   "msg": "Il server è del provider o è tuo?",
+   "a": {
+    "icona": "cloud",
+    "titolo": "Hosting",
+    "tono": "buono",
+    "righe": [
+     "• il provider **ti affitta** spazio su un suo server",
+     "• lo gestisce lui: economico, poche competenze",
+     "• controllo limitato"
+    ]
+   },
+   "b": {
+    "icona": "server",
+    "titolo": "Housing",
+    "tono": "vecchio",
+    "righe": [
+     "• il server è **tuo**, nel data center del provider",
+     "• il provider dà spazio, corrente e connessione",
+     "• controllo totale, più costi e competenze"
+    ]
+   },
+   "verdetto": "Hosting = **affitti l’appartamento** · Housing = **porti i tuoi mobili** in un magazzino con corrente e connessione"
+  },
+  {
+   "tipo": "tabella",
+   "titolo": "Che cosa cambia",
+   "msg": "Proprietà, gestione, costo, controllo e quando conviene",
+   "righe": [
     [
-     "file-code",
-     "I file",
-     "HTML, CSS, immagini"
+     "",
+     "Hosting",
+     "Housing"
     ],
     [
-     "server",
-     "Un server web",
-     "programma che risponde alle richieste HTTP (nginx, Apache) · di solito in **hosting**"
+     "**Di chi è il server**",
+     "del provider",
+     "tuo"
     ],
     [
-     "globe",
-     "Un dominio",
-     "si **registra** presso un **registrar**, a pagamento, e si rinnova"
+     "**Chi se ne occupa**",
+     "il provider",
+     "tu"
+    ],
+    [
+     "**Costo**",
+     "basso, anche gratis",
+     "più alto"
+    ],
+    [
+     "**Controllo**",
+     "limitato",
+     "totale"
+    ],
+    [
+     "**Quando conviene**",
+     "siti scolastici, blog, piccoli negozi",
+     "dati riservati, traffico enorme, GPU per l’IA"
     ]
    ]
   },
   {
    "tipo": "punti",
-   "titolo": "Esempi",
-   "msg": "Registro .it, Google Sites e GitHub Pages",
+   "titolo": "Il dominio e gli esempi",
+   "msg": "Serve in entrambi i casi, si registra e si rinnova",
    "punti": [
     [
+     "globe",
+     "**Dominio**: si registra presso un **registrar** e si rinnova ogni anno"
+    ],
+    [
      "map-pin",
-     "I domini **.it**: Registro .it, **CNR di Pisa** · oltre 3,5 milioni (indicativo)"
+     "I domini **.it**: Registro .it, **CNR di Pisa**"
     ],
     [
      "layout-template",
-     "**Google Sites**: editor visuale, pubblica su un indirizzo di Google"
-    ],
-    [
-     "code",
-     "**GitHub Pages**: siti statici gratis"
+     "**Google Sites** e **GitHub Pages**: hosting gratuiti già pronti"
     ]
    ]
   },
@@ -1382,13 +1423,13 @@ window.AULA = {
   },
   {
    "tipo": "errore",
-   "no": "«Se compro un dominio, ho già un sito.»",
-   "si": "Il dominio è **solo il nome**: servono anche l’**hosting** che conservi e distribuisca i file e i file stessi del sito. Senza hosting il dominio non porta da nessuna parte."
+   "no": "«Hosting e housing sono due nomi dello stesso servizio.»",
+   "si": "Con l’**hosting** si **affitta** un server (o una parte) del provider; con l’**housing** il server è **tuo** e si affitta solo il posto in cui tenerlo, con corrente e connessione. Cambiano proprietà, controllo e costi."
   },
   {
    "tipo": "domanda",
-   "testo": "Che cosa succede a un sito se il proprietario dimentica di rinnovare il dominio?",
-   "risposta": "Il nome smette di funzionare e, dopo un periodo, può essere registrato da chiunque, anche da truffatori che sfruttano le visite e i link verso il vecchio sito."
+   "testo": "Una classe vuole pubblicare il suo sito di quest’anno; una startup vuole far girare un modello di IA su server con GPU di sua proprietà. Chi sceglie hosting e chi housing?",
+   "risposta": "La classe sceglie un hosting, anche gratuito: è semplice ed economico. La startup sceglie l’housing: l’hardware è suo e speciale, e ha bisogno solo di uno spazio con corrente, raffreddamento e connessione veloce."
   },
   {
    "tipo": "sezione",

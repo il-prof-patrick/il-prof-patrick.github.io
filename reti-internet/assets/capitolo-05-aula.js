@@ -319,6 +319,59 @@ window.AULA = {
    "nota": "Le false corrono **più veloci**: sorprendono e suscitano **emozioni forti** (MIT, *Science*, 2018: le diffondono soprattutto persone, non bot)"
   },
   {
+   "tipo": "punti",
+   "titolo": "L’algoritmo di raccomandazione",
+   "msg": "Un’IA sceglie che cosa vedrai, in base all’engagement",
+   "punti": [
+    [
+     "list",
+     "Il **feed** e la pagina “Per te”: nessuno può vedere tutto"
+    ],
+    [
+     "bot",
+     "Un programma di **IA** sceglie ciò che guarderai a lungo, commenterai, condividerai"
+    ],
+    [
+     "timer",
+     "Pesano i segnali **che non controlli**: i secondi su un video, se lo riguardi"
+    ],
+    [
+     "magnet",
+     "Criterio principale: l’**engagement**, ciò che ti trattiene"
+    ]
+   ]
+  },
+  {
+   "tipo": "anim",
+   "titolo": "Come il feed impara",
+   "id": "f-feed",
+   "msg": "Ogni secondo che guardi un video insegna qualcosa al feed"
+  },
+  {
+   "tipo": "punti",
+   "titolo": "Bolle e camere dell’eco",
+   "msg": "Sempre più contenuti simili a quelli che già apprezzi",
+   "punti": [
+    [
+     "circle-dot",
+     "**Bolla dei filtri**: sempre più contenuti simili a quelli già apprezzati"
+    ],
+    [
+     "users",
+     "**Camere dell’eco**: gruppi in cui tutti la pensano allo stesso modo e si rafforzano"
+    ],
+    [
+     "volume-x",
+     "Le idee diverse non arrivano, o arrivano come **caricatura**"
+    ]
+   ]
+  },
+  {
+   "tipo": "errore",
+   "no": "«Il feed mi mostra ciò che succede, in ordine.»",
+   "si": "Il feed mostra ciò che **l’algoritmo prevede che ti tratterrà** di più, non tutto ciò che succede né in ordine di tempo; due persone vedono feed molto diversi."
+  },
+  {
    "tipo": "tabella",
    "titolo": "Prima di usare una fonte",
    "msg": "Chi, quando e perché: tre domande da farsi",
@@ -396,59 +449,6 @@ window.AULA = {
    "tipo": "errore",
    "no": "«Su Wikipedia può scrivere chiunque, quindi non è affidabile.»",
    "si": "Può scrivere chiunque, ma **può correggere chiunque**, e le voci più lette sono verificate di continuo. Il limite è un altro: va usata come **porta verso le fonti**, non come fonte unica."
-  },
-  {
-   "tipo": "punti",
-   "titolo": "L’algoritmo di raccomandazione",
-   "msg": "Un’IA sceglie che cosa vedrai, in base all’engagement",
-   "punti": [
-    [
-     "list",
-     "Il **feed** e la pagina “Per te”: nessuno può vedere tutto"
-    ],
-    [
-     "bot",
-     "Un programma di **IA** sceglie ciò che guarderai a lungo, commenterai, condividerai"
-    ],
-    [
-     "timer",
-     "Pesano i segnali **che non controlli**: i secondi su un video, se lo riguardi"
-    ],
-    [
-     "magnet",
-     "Criterio principale: l’**engagement**, ciò che ti trattiene"
-    ]
-   ]
-  },
-  {
-   "tipo": "anim",
-   "titolo": "Come il feed impara",
-   "id": "f-feed",
-   "msg": "Ogni secondo che guardi un video insegna qualcosa al feed"
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Bolle e camere dell’eco",
-   "msg": "Sempre più contenuti simili a quelli che già apprezzi",
-   "punti": [
-    [
-     "circle-dot",
-     "**Bolla dei filtri**: sempre più contenuti simili a quelli già apprezzati"
-    ],
-    [
-     "users",
-     "**Camere dell’eco**: gruppi in cui tutti la pensano allo stesso modo e si rafforzano"
-    ],
-    [
-     "volume-x",
-     "Le idee diverse non arrivano, o arrivano come **caricatura**"
-    ]
-   ]
-  },
-  {
-   "tipo": "errore",
-   "no": "«Il feed mi mostra ciò che succede, in ordine.»",
-   "si": "Il feed mostra ciò che **l’algoritmo prevede che ti tratterrà** di più, non tutto ciò che succede né in ordine di tempo; due persone vedono feed molto diversi."
   },
   {
    "tipo": "domanda",

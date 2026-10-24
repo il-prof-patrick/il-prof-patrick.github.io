@@ -1,4 +1,4 @@
-/* Capitolo 6 · Un po’ di storia — ELIZA e la curva dell’entusiasmo */
+/* Capitolo 8 · Un po’ di storia — ELIZA e la curva dell’entusiasmo */
 (function () {
   'use strict';
   var W = window.WIDGET, K = window.SCENA, S = K.S, costruisci = K.costruisci;
@@ -80,5 +80,3 @@
     A.path('M' + px(2026) + ' 16 l-6 10 m6 -10 l6 10', 'lin ok', { p: 7 }).style.strokeWidth = '3';
     A.txt(px(2026) - 20, 22, 'fuori scala', 't-b', { p: 7 }, 'end');
   });
-
-})();

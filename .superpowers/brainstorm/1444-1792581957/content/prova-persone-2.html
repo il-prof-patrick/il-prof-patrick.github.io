@@ -1,0 +1,75 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prova stili persone 2 (usa e getta)</title>
+<style>
+:root{--bg:#fbfaf6;--ink:#1c2b2a;--teal:#0a6f66;--mute:#5d6e6c}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+.wrap{max-width:1160px;margin:0 auto;padding:24px 20px}
+h1{font-size:22px;margin:0 0 4px}.sub{color:var(--mute);margin:0 0 20px;font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px}
+.card{background:#fff;border:1px solid #d7ded9;border-radius:14px;padding:14px 14px 16px}
+.card h2{font-size:17px;margin:2px 0 4px}.card p{margin:6px 0 0;color:var(--mute);font-size:14.5px;line-height:21px}
+svg{width:100%;height:auto;display:block;border-radius:10px;background:linear-gradient(#e6eeee,#f3f1e8)}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--teal);margin-bottom:2px}
+text{font-family:Inter,system-ui,sans-serif}
+</style></head><body><div class="wrap">
+<h1>Altre quattro idee per le persone</h1>
+<p class="sub">Alcune tolgono del tutto il volto, altre tolgono la persona e lasciano il gesto.</p>
+<div class="grid" id="g"></div>
+</div>
+<script>
+var floor='<rect y="238" width="380" height="42" fill="#d8cfb8"/><rect y="238" width="380" height="2.500" fill="#c3b898"/>';
+var desk='<rect x="232" y="188" width="110" height="9" rx="3" fill="#a6804a"/><rect x="240" y="197" width="7" height="41" fill="#8a6a3a"/><rect x="327" y="197" width="7" height="41" fill="#8a6a3a"/>';
+var lap='<path d="M262 188L270 156L316 156L322 188Z" fill="#cfd8dc" stroke="#9aa9b3" stroke-width="2"/><rect x="272" y="160" width="40" height="24" fill="#fff"/><path d="M276 168H306M276 176H298" stroke="#cfd8dc" stroke-width="3" stroke-linecap="round"/>';
+var chair='<rect x="184" y="138" width="14" height="100" rx="5" fill="#946a46"/><rect x="184" y="186" width="56" height="9" rx="4" fill="#946a46"/>';
+// 4) sagome piene con un accento
+function s4(){var d='#2c4a50',l='#4f7f86',ac='#e9a313';
+ var st='<g transform="translate(90 238)"><ellipse cx="0" cy="2" rx="40" ry="6" fill="#b9ad8d" opacity=".55"/>'+
+  '<rect x="-19" y="-72" width="18" height="72" rx="8" fill="'+d+'"/><rect x="1" y="-72" width="18" height="72" rx="8" fill="'+d+'"/><path d="M-22 -4H-2V4H-26Z M2 -4H22V4H-2Z" fill="'+d+'"/>'+
+  '<path d="M-27 -122Q-30 -90 -25 -64H25Q30 -90 27 -122Q0 -134 -27 -122Z" fill="'+d+'"/><path d="M-27 -116Q-40 -90 -38 -66M27 -116Q40 -90 38 -66" stroke="'+d+'" stroke-width="15" stroke-linecap="round" fill="none"/><circle cx="-38" cy="-60" r="8" fill="'+d+'"/><circle cx="38" cy="-60" r="8" fill="'+d+'"/>'+
+  '<rect x="-6" y="-140" width="12" height="16" rx="5" fill="'+d+'"/><ellipse cx="0" cy="-158" rx="20" ry="23" fill="'+d+'"/>'+
+  '<path d="M14 -176Q26 -160 18 -140" stroke="'+l+'" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M24 -118Q30 -90 24 -66" stroke="'+l+'" stroke-width="3" fill="none" stroke-linecap="round"/>'+
+  '<path d="M-26 -120L0 -112L26 -120L22 -108L0 -100L-22 -108Z" fill="'+ac+'"/></g>';
+ var se='<g>'+chair.replace(/#946a46/g,d)+'<g transform="translate(212 188)"><rect x="-4" y="-6" width="64" height="16" rx="8" fill="'+d+'"/><rect x="48" y="2" width="16" height="42" rx="8" fill="'+d+'"/><path d="M50 40H76V48H50Z" fill="'+d+'"/>'+
+  '<path d="M-14 -100Q-18 -66 -10 -4H34Q36 -60 28 -100Q8 -110 -14 -100Z" fill="'+d+'"/><path d="M20 -92Q40 -64 62 -48" stroke="'+d+'" stroke-width="14" stroke-linecap="round" fill="none"/><circle cx="64" cy="-46" r="7.500" fill="'+d+'"/>'+
+  '<rect x="4" y="-118" width="11" height="16" rx="5" fill="'+d+'"/><ellipse cx="10" cy="-134" rx="18" ry="21" fill="'+d+'"/><path d="M22 -150Q30 -134 24 -118" stroke="'+l+'" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M-14 -96L10 -90L28 -98L24 -86L10 -80L-10 -86Z" fill="'+ac+'"/></g></g>';
+ return floor+st+desk+se+lap;}
+// 5) solo contorno
+function s5(){var s='#0a6f66',f='#fff',t='#dcefec',sw='stroke="'+s+'" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"';
+ var st='<g transform="translate(90 238)"><ellipse cx="0" cy="2" rx="40" ry="6" fill="#b9ad8d" opacity=".55"/>'+
+  '<rect x="-19" y="-72" width="18" height="72" rx="8" fill="'+f+'" '+sw+'/><rect x="1" y="-72" width="18" height="72" rx="8" fill="'+f+'" '+sw+'/>'+
+  '<path d="M-27 -122Q-30 -90 -25 -64H25Q30 -90 27 -122Q0 -134 -27 -122Z" fill="'+t+'" '+sw+'/>'+
+  '<path d="M-27 -116Q-40 -90 -38 -66" fill="none" '+sw+' stroke-width="14" stroke="#fff"/><path d="M27 -116Q40 -90 38 -66" fill="none" stroke-width="14" stroke="#fff" stroke-linecap="round"/>'+
+  '<path d="M-27 -116Q-40 -90 -38 -66M27 -116Q40 -90 38 -66" fill="none" '+sw+'/><circle cx="-38" cy="-60" r="8" fill="'+f+'" '+sw+'/><circle cx="38" cy="-60" r="8" fill="'+f+'" '+sw+'/>'+
+  '<ellipse cx="0" cy="-158" rx="20" ry="23" fill="'+f+'" '+sw+'/><path d="M-19 -162Q-14 -180 4 -180Q18 -178 20 -164" fill="none" '+sw+'/></g>';
+ var se='<g>'+'<rect x="184" y="138" width="14" height="100" rx="5" fill="#fff" '+sw+'/><rect x="184" y="186" width="56" height="9" rx="4" fill="#fff" '+sw+'/>'+'<g transform="translate(212 188)"><rect x="-4" y="-6" width="64" height="16" rx="8" fill="'+f+'" '+sw+'/><rect x="48" y="2" width="16" height="42" rx="8" fill="'+f+'" '+sw+'/>'+
+  '<path d="M-14 -100Q-18 -66 -10 -4H34Q36 -60 28 -100Q8 -110 -14 -100Z" fill="'+t+'" '+sw+'/><path d="M20 -92Q40 -64 62 -48" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round"/><path d="M20 -92Q40 -64 62 -48" fill="none" '+sw+'/><circle cx="64" cy="-46" r="7.500" fill="'+f+'" '+sw+'/>'+
+  '<ellipse cx="10" cy="-134" rx="18" ry="21" fill="'+f+'" '+sw+'/><path d="M-6 -138Q-2 -154 12 -154Q26 -152 28 -138" fill="none" '+sw+'/></g></g>';
+ return floor+st+desk+se+lap;}
+// 6) solo le mani e gli oggetti
+function s6(){
+ var skin='#eab193',skinD='#d89877',cuff='#5a8fb5';
+ function mano(x,y,rot){return '<g transform="translate('+x+' '+y+') rotate('+rot+')"><rect x="-60" y="-16" width="52" height="32" rx="12" fill="'+cuff+'"/><rect x="-10" y="-14" width="14" height="28" rx="4" fill="#fff" opacity=".9"/>'+
+  '<path d="M4 -14Q30 -18 40 -8Q48 -4 44 4Q38 10 22 10L8 14Z" fill="'+skin+'"/><path d="M8 -16Q18 -26 34 -22" stroke="'+skin+'" stroke-width="10" stroke-linecap="round" fill="none"/><path d="M30 -14Q54 -8 52 2" stroke="'+skin+'" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M10 6Q30 22 44 12" stroke="'+skinD+'" stroke-width="3" fill="none" stroke-linecap="round"/></g>';}
+ var tab='<rect y="200" width="380" height="80" fill="#a6804a"/><g stroke="#946e3d" stroke-width="2" opacity=".6"><path d="M0 222H380M0 246H380M0 268H380"/></g>';
+ var box='<rect x="212" y="84" width="140" height="130" rx="10" fill="#cdb58a"/><rect x="222" y="94" width="120" height="110" rx="6" fill="#ddcba3"/><rect x="206" y="146" width="22" height="16" rx="3" fill="#4d3d1f"/>';
+ var pap='<g transform="translate(130 160) rotate(-6)"><rect x="-44" y="-24" width="88" height="48" rx="4" fill="#fff" stroke="#b8c4c0" stroke-width="2"/><text y="8" text-anchor="middle" font-size="19" style="fill:#1c2b2a;font-family:\'Microsoft YaHei\',\'Noto Sans SC\',sans-serif">你好吗？</text></g>';
+ return tab+box+pap+mano(76,172,-4)+'<path d="M92 142L106 132" stroke="#e9a313" stroke-width="3" stroke-linecap="round"/>'+'<text x="282" y="248" text-anchor="middle" font-size="13" font-weight="700" style="fill:#fff" opacity=".9">la persona non si vede</text>';}
+// 7) avatar di chat
+function s7(){
+ function av(x,y,c,glyph){return '<g transform="translate('+x+' '+y+')"><circle r="26" fill="'+c+'"/>'+glyph+'</g>';}
+ var per='<circle cy="-6" r="9" fill="#fff"/><path d="M-15 17Q0 -2 15 17Z" fill="#fff"/>';
+ var rob='<rect x="-13" y="-12" width="26" height="22" rx="6" fill="#fff"/><circle cx="-5" cy="-2" r="3" fill="#7d8fa0"/><circle cx="5" cy="-2" r="3" fill="#7d8fa0"/><rect x="-1.500" y="-19" width="3" height="7" fill="#fff"/><circle cy="-21" r="3" fill="#fff"/>';
+ function bub(x,y,w,txt,c,tc,left){return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="38" rx="14" fill="'+c+'" stroke="#b8c4c0"/><text x="'+(x+w/2)+'" y="'+(y+24)+'" text-anchor="middle" font-size="14" font-weight="600" style="fill:'+tc+'">'+txt+'</text>';}
+ return '<rect width="380" height="280" fill="#f3f1e8"/>'+
+  av(48,60,'#0a6f66',per)+bub(86,40,190,'Che cosa hai fatto ieri sera?','#e8f3f1','#1c2b2a')+
+  av(48,140,'#e9a313',per)+bub(86,120,246,'Pizza e poi a casa presto.','#fff','#1c2b2a')+
+  av(48,220,'#7d8fa0',rob)+bub(86,200,246,'Pizza, serie TV e a letto presto.','#fff','#1c2b2a')+
+  '<text x="48" y="104" text-anchor="middle" font-size="11" font-weight="700" style="fill:#0a6f66">Tu</text><text x="48" y="184" text-anchor="middle" font-size="11" font-weight="700" style="fill:#b36b00">A</text><text x="48" y="264" text-anchor="middle" font-size="11" font-weight="700" style="fill:#53687a">B</text>';}
+var items=[
+ ['IDEA 4','Sagome piene con un accento','Una sola tinta scura per la persona e un solo tocco di colore (una sciarpa ambra). Sembra una scena da graphic novel: elegante, quasi teatrale, e non ha volto. Funziona bene su fondo chiaro.',s4],
+ ['IDEA 5','Solo contorno','Linee verdi sottili su fondo bianco, con un leggero riempimento. È il più minimale, vicino al tuo gusto «fatto bene ma essenziale», e si anima benissimo. Rischia di sembrare un po’ da manuale tecnico.',s5],
+ ['IDEA 6','Solo le mani e gli oggetti','La persona non c’è: si vede soltanto la mano che passa il foglio nella fessura. Elimina il problema del volto e del corpo. Per la stanza cinese è perfetta (il foglio, la penna, il libro); meno adatta dove serve una persona intera.',s6],
+ ['IDEA 7','Avatar di chat','Per il test di Turing (e per ogni scena di conversazione) le persone diventano i cerchietti colorati che ormai tutti conosciamo: «Tu», «A» e «B». Il robot è un’icona. Niente corpi, e si capisce al volo.',s7]];
+var g=document.getElementById('g');
+items.forEach(function(it){var d=document.createElement('div');d.className='card';d.innerHTML='<div class="tag">'+it[0]+'</div><h2>'+it[1]+'</h2><svg viewBox="0 0 380 280" role="img" aria-label="'+it[1]+'">'+it[3]()+'</svg><p>'+it[2]+'</p>';g.appendChild(d);});
+</script></body></html>

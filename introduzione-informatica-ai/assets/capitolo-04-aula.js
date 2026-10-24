@@ -1,28 +1,28 @@
 window.AULA = {
  "modulo": "Introduzione a informatica ed AI",
  "n": "04",
- "titolo": "Come ragiona un computer",
+ "titolo": "Che cos’è l’intelligenza",
  "slide": [
   {
    "tipo": "copertina",
-   "titolo": "Come ragiona un computer",
-   "sotto": "Un computer non ragiona come una persona: esegue istruzioni, e un algoritmo è il modo di dirgli che cosa fare.",
+   "titolo": "Che cos’è l’intelligenza",
+   "sotto": "Che cosa vuol dire essere intelligenti, e che cosa significa chiamarla «artificiale».",
    "indice": [
     [
      "4.1",
-     "Il computer tradizionale"
+     "L’intelligenza umana e animale"
     ],
     [
      "4.2",
-     "Che cos’è un algoritmo"
+     "Le intelligenze multiple (Gardner)"
     ],
     [
      "4.3",
-     "Le proprietà di un algoritmo"
+     "Intelligenza naturale e artificiale"
     ],
     [
      "4.4",
-     "Come si rappresenta un algoritmo"
+     "Un computer può essere intelligente?"
     ]
    ],
    "foto": {
@@ -33,338 +33,606 @@ window.AULA = {
   },
   {
    "tipo": "domanda",
-   "testo": "Un computer fa in un istante conti che a noi richiederebbero ore: è più intelligente di noi?",
-   "risposta": "No: esegue istruzioni semplicissime, ma molto in fretta. È veloce, non intelligente: come la persona nella stanza cinese, esegue senza capire."
+   "testo": "Tu sei intelligente?",
+   "risposta": ""
   },
   {
    "tipo": "sezione",
    "num": "4.1",
-   "titolo": "Il computer tradizionale",
-   "sotto": "Esegue istruzioni semplicissime, ma molto in fretta",
-   "icona": "cpu"
+   "titolo": "L’intelligenza umana e animale",
+   "sotto": "Una definizione, e animali che la mettono alla prova",
+   "icona": "brain"
   },
   {
    "tipo": "punti",
-   "titolo": "Il computer tradizionale",
-   "msg": "Non ragiona: esegue istruzioni",
+   "titolo": "Definire l’intelligenza",
+   "msg": "Non esiste una definizione accettata da tutti",
    "punti": [
     [
-     "file-text",
-     "Esegue **istruzioni scritte da una persona**"
+     "users",
+     "Una delle più citate è in una **dichiarazione del 1994 firmata da 52 ricercatori**"
     ],
     [
-     "list-ordered",
-     "L’insieme delle istruzioni è il **programma**"
+     "brain",
+     "È una **capacità mentale generale**: ragionare, pianificare, risolvere problemi, pensare in modo astratto, imparare dall’esperienza"
     ],
     [
-     "circle-x",
-     "Un computer tradizionale **non ragiona**"
+     "book-open",
+     "**Non si riduce a studiare sui libri**: è la capacità di capire ciò che ci circonda"
     ]
    ]
   },
   {
-   "tipo": "tessere",
-   "titolo": "Che cosa sa fare il processore",
-   "msg": "Pochissimi tipi di istruzione, tutte semplicissime",
-   "tessere": [
+   "tipo": "tabella",
+   "titolo": "Le capacità dell’intelligenza",
+   "msg": "Che cosa significano e dove le usiamo ogni giorno",
+   "righe": [
     [
-     "calculator",
-     "Calcoli matematici",
-     "per esempio una somma"
+     "Capacità",
+     "Che cosa significa",
+     "Esempio quotidiano"
     ],
     [
-     "scale",
-     "Operazioni logiche",
-     "per esempio confrontare due numeri"
+     "Ragionare",
+     "trarre conclusioni da ciò che si sa",
+     "capire dall’orario che l’autobus è già passato"
     ],
     [
-     "memory-stick",
-     "Memoria e salti",
-     "leggere o scrivere un dato e passare a un’altra istruzione, anche solo se un confronto è vero"
+     "Pianificare",
+     "scegliere i passi per arrivare a uno scopo",
+     "organizzare una gita con trasporti e orari"
+    ],
+    [
+     "Risolvere problemi",
+     "trovare una strada quando quella solita è chiusa",
+     "cambiare percorso per un incidente"
+    ],
+    [
+     "Pensare in modo astratto",
+     "lavorare con idee e non solo con cose concrete",
+     "capire che “giustizia” non è un oggetto"
+    ],
+    [
+     "Imparare dall’esperienza",
+     "cambiare comportamento dopo un errore",
+     "non toccare più una pentola calda"
     ]
    ]
   },
   {
    "tipo": "punti",
-   "titolo": "Dai mattoni al videogioco",
-   "msg": "Tutto nasce combinando istruzioni semplici",
+   "titolo": "Non solo umana",
+   "msg": "Anche alcuni animali risolvono problemi",
    "punti": [
     [
-     "gamepad-2",
-     "Dal **videogioco** al **browser**: tutto nasce dalle stesse istruzioni semplicissime"
+     "bird",
+     "Il **corvo della Nuova Caledonia** si costruisce da solo piccoli ramoscelli adatti a pescare gli insetti nei buchi degli alberi"
     ],
     [
-     "gauge",
-     "Le istruzioni si combinano **a miliardi al secondo**"
+     "fish",
+     "Il **polpo**, chiuso in un barattolo, riesce a svitare il tappo dall’interno e a uscire"
+    ]
+   ]
+  },
+  {
+   "tipo": "foto",
+   "titolo": "Corvo e polpo",
+   "msg": "Osserva lo strumento del corvo e i tentacoli del polpo",
+   "foto": [
+    {
+     "src": "https://cdn.arstechnica.net/wp-content/uploads/2018/01/Crow-new-1.jpg",
+     "tit": "Un corvo della Nuova Caledonia con un ramoscello",
+     "alt": "Un corvo della Nuova Caledonia con un ramoscello nel becco. Da guardare nei dettagli: osserva lo strumento che tiene e come lo regge."
+    },
+    {
+     "src": "https://thekidshouldseethis.com/wp-content/uploads/2014/05/octopus-escapes-jar_2015_tksst.jpg",
+     "tit": "Un polpo che apre il tappo dall’interno",
+     "alt": "Un polpo chiuso in un barattolo che ne apre il tappo dall’interno. Da guardare nei dettagli: osserva dove si trovano i tentacoli rispetto al tappo."
+    }
+   ]
+  },
+  {
+   "tipo": "punti",
+   "titolo": "Sembrare intelligenti non è esserlo",
+   "msg": "Il cavallo Hans sapeva fare i calcoli?",
+   "punti": [
+    [
+     "calendar",
+     "Tra la fine dell’Ottocento e l’inizio del Novecento, in **Germania**"
+    ],
+    [
+     "user",
+     "L’insegnante **Wilhelm von Osten** poneva a Hans un’operazione"
+    ],
+    [
+     "hammer",
+     "Hans rispondeva **battendo lo zoccolo** il numero giusto di volte"
     ]
    ],
    "foto": {
-    "src": "https://images.pexels.com/photos/37368169/pexels-photo-37368169.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "tit": "Un processore (CPU)",
-    "alt": "Un processore (CPU): il chip che esegue le istruzioni. Di riconoscimento."
+    "src": "https://cdn.britannica.com/07/180507-050-800508E8/Clever-Hans-Wilhelm-von-Osten-horse-1904.jpg",
+    "tit": "Hans con von Osten davanti alla lavagna, 1904",
+    "alt": "Il cavallo Hans con Wilhelm von Osten davanti alla lavagna dei calcoli, 1904. Da guardare nei dettagli: osserva la lavagna e dove si trova l’uomo rispetto al cavallo."
    }
   },
   {
    "tipo": "punti",
-   "titolo": "Veloce, non intelligente",
-   "msg": "Dove un computer eccelle e dove no",
+   "titolo": "Hans non contava",
+   "msg": "Osservava chi lo interrogava",
    "punti": [
     [
-     "zap",
-     "Eccelle nella **velocità**: miliardi di istruzioni al secondo"
+     "calendar",
+     "Nel **1907** lo psicologo **Oskar Pfungst** scoprì come faceva"
     ],
     [
-     "database",
-     "Eccelle nella **memoria**: non dimentica e non si stanca"
+     "eye",
+     "Hans osservava i **minimi movimenti involontari** di chi lo interrogava"
+    ],
+    [
+     "hand",
+     "Smetteva di battere quando li vedeva cambiare"
     ],
     [
      "circle-x",
-     "Non eccelle in ciò che richiede di **capire**"
-    ],
-    [
-     "door-closed",
-     "Come la persona nella stanza cinese, **esegue regole** senza sapere che cosa significhino"
+     "Rispondeva giusto **solo se chi chiedeva conosceva la risposta** e Hans poteva vederlo"
     ]
    ]
   },
   {
    "tipo": "punti",
-   "titolo": "Una «macchina stupida»",
-   "msg": "Umberto Eco sul computer",
+   "titolo": "Il pappagallo",
+   "msg": "Ripetere una frase non vuol dire capirla",
    "punti": [
     [
+     "mic",
+     "I pappagalli **imitano le parole umane**"
+    ],
+    [
+     "circle-help",
+     "Ma ripetere una frase non vuol dire capirla"
+    ],
+    [
      "quote",
-     "Lo scrittore **Umberto Eco** lo disse in una prefazione"
+     "Per questo in italiano si dice **«ripetere come un pappagallo»**"
+    ]
+   ],
+   "foto": {
+    "src": "https://www.thesprucepets.com/thmb/rSennhnkHYPFvYCkqHAQNpquimg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/close-up-of-african-grey-parrot-perching-on-pipe-by-plants-673169277-58ad8e823df78c345b864c59.jpg",
+    "tit": "Un pappagallo cenerino",
+    "alt": "Un pappagallo cenerino, tra le specie che imitano meglio la voce umana. Di riconoscimento."
+   }
+  },
+  {
+   "tipo": "punti",
+   "titolo": "La stessa difficoltà",
+   "msg": "Hans e il pappagallo pongono la stessa domanda",
+   "punti": [
+    [
+     "circle-help",
+     "Pur non essendo intelligenti **a nostro modo di vedere**, possono comunque essere ritenuti tali?"
     ],
     [
      "bot",
-     "Per lui il computer non rende intelligente chi non lo è: è una **«macchina stupida»**"
-    ],
-    [
-     "users",
-     "Dà buoni risultati solo **nelle mani di persone intelligenti**"
+     "Ritroveremo la domanda, con le macchine, nel **capitolo 4**"
     ]
-   ],
-   "foto": {
-    "src": "https://cdn.britannica.com/33/225133-050-AD8BB3DB/Umberto-Eco-Italian-literary-critic-novelist-semiotician.jpg",
-    "tit": "Umberto Eco",
-    "alt": "Umberto Eco (1932-2016), scrittore e semiologo: nella prefazione a Claudio Pozzoli, «Come scrivere una tesi di laurea con il personal computer» (Rizzoli), definì il computer «una macchina stupida» che funziona bene solo in mano a persone intelligenti. Di riconoscimento."
-   }
-  },
-  {
-   "tipo": "errore",
-   "no": "«Un computer che calcola velocissimo è intelligente.»",
-   "si": "La **velocità non è intelligenza**: il computer esegue istruzioni semplicissime molto in fretta, ma non capisce che cosa sta calcolando."
+   ]
   },
   {
    "tipo": "sezione",
    "num": "4.2",
-   "titolo": "Che cos’è un algoritmo",
-   "sotto": "Un procedimento che trasforma dati in dati",
-   "icona": "list-ordered"
+   "titolo": "Le intelligenze multiple (Gardner)",
+   "sotto": "L’intelligenza non è una sola capacità",
+   "icona": "puzzle"
+  },
+  {
+   "tipo": "domanda",
+   "testo": "Fatemi un esempio di una persona a cui pensate quando si parla di intelligenza.",
+   "risposta": "Risposta attesa: quasi sempre scienziati o matematici (Einstein…). Quasi nessuno nomina un musicista, un’atleta o un amico che capisce gli altri: è proprio ciò che Gardner mette in discussione."
   },
   {
    "tipo": "punti",
-   "titolo": "Che cos’è un algoritmo",
-   "msg": "Un procedimento per risolvere un problema",
+   "titolo": "Le intelligenze multiple",
+   "msg": "Secondo Howard Gardner (1983) l’intelligenza ha più forme",
    "punti": [
     [
-     "flag",
-     "È un **procedimento finito**"
+     "puzzle",
+     "Non è una sola capacità: ogni forma ha i suoi **punti di forza**"
     ],
     [
-     "list-ordered",
-     "Formato da una **sequenza ordinata di passi elementari**"
+     "calculator",
+     "Essere bravi in matematica è **una forma**, non l’unica"
     ],
     [
-     "arrow-right-left",
-     "**Trasforma dati in ingresso** (*input*) **in dati in uscita** (*output*)"
+     "smile",
+     "Chi va male in matematica **non è per questo stupido**"
     ],
     [
-     "target",
-     "Serve a **risolvere un problema**"
+     "layers",
+     "Le forme sono **otto**: sette nel 1983, la naturalistica aggiunta più tardi"
+    ]
+   ]
+  },
+  {
+   "tipo": "tabella",
+   "titolo": "Le otto intelligenze",
+   "msg": "In che cosa si vedono e chi le mostra",
+   "righe": [
+    [
+     "Intelligenza",
+     "In che cosa si vede",
+     "Esempio"
+    ],
+    [
+     "Linguistica",
+     "usare bene le parole, parlando e scrivendo",
+     "una scrittrice, un avvocato"
+    ],
+    [
+     "Logico-matematica",
+     "ragionare con numeri, schemi e problemi",
+     "una matematica, un programmatore"
+    ],
+    [
+     "Spaziale",
+     "immaginare e orientarsi nello spazio",
+     "un architetto, una pilota"
+    ],
+    [
+     "Musicale",
+     "sentire e produrre ritmi e suoni",
+     "un musicista, una direttrice d’orchestra"
+    ],
+    [
+     "Corporeo-cinestetica",
+     "usare il corpo con precisione",
+     "un’atleta, una danzatrice, un chirurgo"
+    ],
+    [
+     "Interpersonale",
+     "capire gli altri e lavorare con loro",
+     "un’insegnante, un mediatore"
+    ],
+    [
+     "Intrapersonale",
+     "conoscere se stessi e le proprie emozioni",
+     "chi sa dire che cosa prova e perché"
+    ],
+    [
+     "Naturalistica",
+     "riconoscere e distinguere piante, animali e fenomeni naturali",
+     "un botanico, una guida naturalistica"
+    ]
+   ]
+  },
+  {
+   "tipo": "anim",
+   "titolo": "Chi è più intelligente?",
+   "id": "f-gardner"
+  },
+  {
+   "tipo": "errore",
+   "no": "«Chi va male in matematica non è intelligente.»",
+   "si": "L’intelligenza ha **più forme**: la matematica è una (la logico-matematica), ma ci sono anche la musicale, la corporea, l’interpersonale e le altre."
+  },
+  {
+   "tipo": "sezione",
+   "num": "4.3",
+   "titolo": "Intelligenza naturale e artificiale",
+   "sotto": "Naturale e artificiale",
+   "icona": "bot"
+  },
+  {
+   "tipo": "confronto",
+   "titolo": "Intelligenza naturale e artificiale",
+   "msg": "Chi la possiede e come nasce",
+   "a": {
+    "icona": "leaf",
+    "titolo": "Naturale",
+    "righe": [
+     "• è quella dei **viventi**",
+     "• nasce con la vita",
+     "• si sviluppa con l’**esperienza**"
+    ]
+   },
+   "b": {
+    "icona": "cpu",
+    "titolo": "Artificiale (IA)",
+    "tono": "buono",
+    "righe": [
+     "• è quella di **sistemi costruiti dalle persone**",
+     "• si chiama IA un sistema che svolge compiti che, svolti da una persona, **richiederebbero intelligenza**"
+    ]
+   }
+  },
+  {
+   "tipo": "punti",
+   "titolo": "Una definizione operativa",
+   "msg": "Guarda che cosa il sistema fa, non che cosa è",
+   "punti": [
+    [
+     "eye",
+     "Conta **ciò che il sistema fa**"
+    ],
+    [
+     "circle-help",
+     "Se sia **davvero intelligente** o si limiti a sembrarlo, come Hans, non lo dice"
+    ],
+    [
+     "bot",
+     "È la domanda del **capitolo 4**"
     ]
    ]
   },
   {
    "tipo": "punti",
-   "titolo": "Un esempio: il caffè",
-   "msg": "Che cosa serve per andare alle macchinette",
+   "titolo": "Un esempio: Face ID",
+   "msg": "Lo sblocco del telefono con il volto è IA",
    "punti": [
     [
-     "coffee",
-     "L’**output atteso** è il caffè"
+     "scan-face",
+     "**Face ID** (capitolo 3) riconosce un volto fra tanti, anche con occhiali o barba"
     ],
     [
-     "coins",
-     "Gli **input necessari** sono le monete e la scelta"
+     "user",
+     "Se lo facesse una persona, richiederebbe **percezione e memoria**"
     ],
     [
-     "list-ordered",
-     "I **passi** portano dagli input all’output"
-    ],
-    [
-     "file-code",
-     "Il **programma** è la traduzione di un algoritmo in istruzioni che il computer sa eseguire"
-    ]
-   ],
-   "foto": {
-    "src": "https://www.orasesta.com/wp-content/uploads/2023/02/macchina-illy-capsule-per-uffici-e-pmi-orasesta.jpg",
-    "tit": "Una macchinetta del caffè",
-    "alt": "Una macchinetta del caffè: un algoritmo che prende monete e scelta e restituisce un caffè. Di riconoscimento."
-   }
-  },
-  {
-   "tipo": "sezione",
-   "num": "4.3",
-   "titolo": "Le proprietà di un algoritmo",
-   "sotto": "Che cosa rende buono un algoritmo",
-   "icona": "list-checks"
-  },
-  {
-   "tipo": "domanda",
-   "testo": "«Aggiungi un po’ di zucchero» è una buona istruzione per un computer?",
-   "risposta": "No: il computer non sa che cosa voglia dire «un po’». Ogni passo deve avere un solo significato."
-  },
-  {
-   "tipo": "tabella",
-   "titolo": "Le proprietà di un algoritmo",
-   "msg": "Che cosa richiedono e perché servono",
-   "righe": [
-    [
-     "Proprietà",
-     "Che cosa richiede",
-     "Perché serve"
-    ],
-    [
-     "Finitezza",
-     "l’esecuzione termina in un tempo ragionevole",
-     "un procedimento infinito non dà mai una risposta"
-    ],
-    [
-     "Non ambiguità",
-     "ogni passo si interpreta in un solo modo",
-     "la macchina non può «indovinare» che cosa si intendeva"
-    ],
-    [
-     "Efficacia",
-     "il risultato è una soluzione adeguata al problema",
-     "un algoritmo che termina ma sbaglia è inutile"
-    ],
-    [
-     "Efficienza",
-     "usa poco tempo e poca memoria",
-     "per uno stesso problema esistono tanti algoritmi, alcuni molto più rapidi"
-    ],
-    [
-     "Generalità",
-     "risolve una classe di problemi e non uno solo",
-     "ordinare qualsiasi elenco, non solo uno"
-    ],
-    [
-     "Atomicità",
-     "i passi non sono ulteriormente scomponibili",
-     "il computer capisce solo istruzioni elementari"
+     "circle-check",
+     "Per questo è **IA**, secondo la definizione operativa"
     ]
    ]
   },
   {
    "tipo": "sezione",
    "num": "4.4",
-   "titolo": "Come si rappresenta un algoritmo",
-   "sotto": "Quattro modi di scrivere lo stesso algoritmo",
-   "icona": "file-code"
+   "titolo": "Un computer può essere intelligente?",
+   "sotto": "Il test di Turing e la stanza cinese danno risposte opposte",
+   "icona": "scale"
   },
   {
-   "tipo": "tessere",
-   "titolo": "Le quattro forme",
-   "msg": "Dalla più umana alla più vicina al computer",
-   "tessere": [
+   "tipo": "domanda",
+   "testo": "Chattate con uno sconosciuto: che domanda fareste per scoprire se è una macchina?",
+   "risposta": "Un calcolo difficile non basta: una macchina può fingere di sbagliare, e nel gioco qui sotto lo fa."
+  },
+  {
+   "tipo": "sezione",
+   "num": "4.4.1",
+   "titolo": "Il test di Turing",
+   "sotto": "Un gioco per sostituire una domanda troppo vaga",
+   "icona": "messages-square"
+  },
+  {
+   "tipo": "punti",
+   "titolo": "Alan Turing, 1950",
+   "msg": "Dalla domanda «le macchine possono pensare?» a un gioco",
+   "punti": [
+    [
+     "calendar",
+     "Nel **1950** il matematico britannico **Alan Turing** si chiede se le macchine possano pensare"
+    ],
+    [
+     "circle-help",
+     "La domanda è **troppo vaga**: non si sa che cosa voglia dire «pensare»"
+    ],
+    [
+     "gamepad-2",
+     "La sostituisce con un gioco: il **gioco dell’imitazione**, oggi detto **test di Turing**"
+    ]
+   ],
+   "foto": {
+    "src": "https://cdn.britannica.com/81/191581-050-3C5C0F9D/Alan-Turing.jpg",
+    "tit": "Alan Turing",
+    "alt": "Alan Turing, matematico britannico: nel 1950 propose il «gioco dell’imitazione». Di riconoscimento."
+   }
+  },
+  {
+   "tipo": "punti",
+   "titolo": "Le regole del gioco",
+   "msg": "Un interrogatore, una persona e una macchina",
+   "punti": [
     [
      "message-square",
-     "Linguaggio naturale",
-     "chiaro, ma può essere ambiguo"
+     "L’**interrogatore** conversa **per iscritto** con due interlocutori, senza vederli"
     ],
     [
-     "workflow",
-     "Diagramma di flusso",
-     "visivo: riquadri, frecce e rombi"
+     "users",
+     "Uno è una **persona**, l’altro è una **macchina**"
     ],
     [
-     "file-text",
-     "Pseudocodice",
-     "preciso, ma non eseguibile"
+     "circle-help",
+     "Può fare **tutte le domande** che vuole"
     ],
     [
-     "file-code",
-     "Codice",
-     "eseguibile dal computer"
+     "trophy",
+     "Se alla fine **non capisce quale sia la macchina**, la macchina **supera il test**"
     ]
    ]
   },
   {
+   "tipo": "widget",
+   "titolo": "Prova: sei tu l’interrogatore",
+   "w": "turing"
+  },
+  {
    "tipo": "punti",
-   "titolo": "Linguaggio naturale",
-   "msg": "La macchinetta del caffè, con il prezzo in centesimi",
+   "titolo": "Che cosa misura il test",
+   "msg": "Quanto bene una macchina imita una persona",
    "punti": [
     [
-     "circle-play",
-     "**Parti** da un credito di zero"
+     "drama",
+     "Misura **l’imitazione** in una conversazione, non quanto la macchina sia intelligente"
     ],
     [
-     "repeat",
-     "**Finché** il credito è minore del prezzo, chiedi una moneta e aggiungila"
+     "check",
+     "Nel primo giro la macchina **passa fingendo di sbagliare** e inventando ricordi"
     ],
     [
-     "coffee",
-     "**Quando** il credito basta, prepara il caffè"
+     "x",
+     "Nel secondo **fallisce perché è troppo brava**, pur facendo cose molto intelligenti"
     ],
     [
-     "coins",
-     "**Se** il credito supera il prezzo, restituisci la differenza come resto"
+     "paw-print",
+     "Superarlo **non prova che pensi**: come Hans, può sembrare intelligente senza esserlo"
+    ],
+    [
+     "brain",
+     "Non superarlo **non prova che non sia intelligente**"
     ]
    ]
   },
   {
-   "tipo": "schema",
-   "titolo": "Diagramma di flusso",
-   "sel": "#s-flusso"
+   "tipo": "domanda",
+   "testo": "Quante IA hanno superato oggi il test di Turing?",
+   "risposta": "Non c’è un conteggio ufficiale: dipende da come si fa il test. Nello studio più rigoroso (Università della California a San Diego, pubblicato su PNAS nel 2026), in conversazioni di cinque minuti con una persona e una macchina, GPT-4.5 è stato scambiato per la persona il 73% delle volte e LLaMa-3.1 il 56%, quasi come tirare a caso. Ma solo dopo essere stati istruiti a recitare una persona: senza quell’istruzione, no."
   },
   {
-   "tipo": "codice",
-   "titolo": "Pseudocodice",
-   "html": "credito ← 0\nleggi prezzo\nfinché credito &lt; prezzo\n    leggi moneta\n    credito ← credito + moneta\nscrivi «Caffè pronto»\nse credito &gt; prezzo\n    scrivi «Resto:», credito − prezzo",
-   "msg": "Preciso, ma non eseguibile: parole italiane usate come istruzioni"
+   "tipo": "errore",
+   "no": "«Il test di Turing dimostra che una macchina pensa.»",
+   "si": "Il test misura solo se una macchina **sembra una persona** in una conversazione. Una macchina può superarlo fingendo, e può fallirlo proprio perché è troppo brava."
   },
   {
-   "tipo": "codice",
-   "titolo": "Codice di programmazione",
-   "html": "prezzo = 120  # in centesimi\ncredito = 0\nwhile credito &lt; prezzo:\n    credito = credito + int(input(\"Moneta: \"))\nprint(\"Caffè pronto\")\nif credito &gt; prezzo:\n    print(\"Resto:\", credito - prezzo)",
-   "msg": "Eseguibile dal computer, secondo le regole di un linguaggio"
+   "tipo": "sezione",
+   "num": "4.4.2",
+   "titolo": "La stanza cinese",
+   "sotto": "Rispondere bene non basta per capire",
+   "icona": "door-closed"
+  },
+  {
+   "tipo": "domanda",
+   "testo": "Se un chatbot risponde sempre come una persona, vuol dire che capisce quello che dice?",
+   "risposta": "Non per forza: come nella stanza cinese, si può rispondere bene seguendo regole su simboli, senza capire."
   },
   {
    "tipo": "punti",
-   "titolo": "Da una forma all’altra",
-   "msg": "L’algoritmo resta lo stesso, cambia il modo di scriverlo",
+   "titolo": "John Searle, 1980",
+   "msg": "Un esperimento mentale contro il test di Turing",
    "punti": [
     [
+     "eye",
+     "Il test di Turing **guarda solo le risposte**"
+    ],
+    [
+     "calendar",
+     "Nel **1980** il filosofo statunitense **John Searle** propone un **esperimento mentale**"
+    ],
+    [
+     "lightbulb",
+     "È uno scenario **immaginato e non realizzato**"
+    ],
+    [
+     "door-closed",
+     "Vuole mostrare che **rispondere bene non basta per capire**: la **stanza cinese**"
+    ]
+   ],
+   "foto": {
+    "src": "https://cdn.britannica.com/28/241128-050-6B7E001E/American-philosopher-John-Searle.jpg",
+    "tit": "John Searle",
+    "alt": "John Searle, filosofo statunitense: nel 1980 propose l’esperimento mentale della stanza cinese. Di riconoscimento."
+   }
+  },
+  {
+   "tipo": "punti",
+   "titolo": "La stanza cinese",
+   "msg": "Dentro non capisce nessuno",
+   "punti": [
+    [
+     "user",
+     "Una persona che **non conosce il cinese** è chiusa in una stanza con un **libro di regole**"
+    ],
+    [
      "file-text",
-     "Dallo **pseudocodice** si arriva a **qualsiasi linguaggio** di programmazione"
+     "Da una fessura riceve **fogli con ideogrammi**; per ogni sequenza il libro dice quali segni **copiare e restituire**"
     ],
     [
-     "workflow",
-     "Lo stesso vale per il **diagramma di flusso**"
+     "circle-check",
+     "Fuori le risposte sembrano **perfette**: si pensa che dentro qualcuno capisca il cinese"
     ],
     [
-     "equal",
-     "Cambia solo **il modo di scriverlo**"
+     "circle-x",
+     "Invece la persona ha solo seguito regole su **simboli di cui non conosce il significato**"
     ]
    ]
   },
   {
    "tipo": "anim",
-   "titolo": "Quattro forme, un solo algoritmo",
-   "id": "f-quattro"
+   "titolo": "La stanza cinese",
+   "id": "f-stanza"
+  },
+  {
+   "tipo": "punti",
+   "titolo": "Il computer è nella stanza",
+   "msg": "Manipolare simboli non è capire",
+   "punti": [
+    [
+     "cpu",
+     "Per Searle un computer **esegue regole su simboli**, come la persona nella stanza"
+    ],
+    [
+     "message-circle",
+     "Anche se **supera il test di Turing**, non è detto che **capisca ciò che dice**"
+    ],
+    [
+     "book-x",
+     "**Manipolare simboli non è capire**"
+    ]
+   ]
+  },
+  {
+   "tipo": "sezione",
+   "num": "4.4.3",
+   "titolo": "Punti di vista a confronto",
+   "sotto": "Tre risposte, e nessuna è chiusa",
+   "icona": "scale"
+  },
+  {
+   "tipo": "tabella",
+   "titolo": "Un computer può essere intelligente?",
+   "msg": "Tre posizioni a confronto",
+   "righe": [
+    [
+     "Posizione",
+     "Idea",
+     "Chi la sostiene",
+     "Limite"
+    ],
+    [
+     "Sì",
+     "se si comporta in modo intelligente, è intelligente",
+     "Turing, con il suo test",
+     "il comportamento può ingannare, come con Hans"
+    ],
+    [
+     "No",
+     "senza comprensione non c’è intelligenza",
+     "Searle, con la stanza cinese",
+     "che cos’è esattamente la comprensione?"
+    ],
+    [
+     "Dipende",
+     "da che cosa intendiamo per intelligenza: svolgere compiti o capire",
+     "chi parte dalla definizione (capitolo 4)",
+     "rimanda la domanda alla definizione, ma non la risolve"
+    ]
+   ]
+  },
+  {
+   "tipo": "punti",
+   "titolo": "Una domanda aperta",
+   "msg": "La risposta dipende da che cosa chiamiamo intelligenza",
+   "punti": [
+    [
+     "scale",
+     "Se conta **ciò che il sistema fa**, vince la posizione di Turing: la definizione operativa del **capitolo 4**"
+    ],
+    [
+     "brain",
+     "Se conta **capire**, vince Searle: ma nessuno sa dire con precisione che cosa sia la comprensione"
+    ],
+    [
+     "book-open",
+     "Per questo **nessuna delle tre risposte è chiusa**"
+    ]
+   ]
   }
  ]
 };

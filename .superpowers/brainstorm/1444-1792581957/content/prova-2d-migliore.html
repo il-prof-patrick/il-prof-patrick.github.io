@@ -1,0 +1,140 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prova 2D migliorata (usa e getta)</title>
+<style>
+html,body{margin:0;height:100%;background:#050b14;color:#e8f1f5;font-family:Inter,system-ui,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:16px;display:grid;gap:12px}
+.tit{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#7fd4cb}
+svg{width:100%;height:auto;display:block;border-radius:14px;background:#06101d}
+.cap{min-height:56px;font-size:19px;line-height:28px}.cap b{color:#f4c14d}
+.bar{display:flex;gap:12px}
+button{font:600 16px Inter,system-ui,sans-serif;padding:12px 22px;border-radius:10px;border:1px solid #13a596;background:#0a6f66;color:#fff;cursor:pointer}
+button.s{background:transparent;color:#cfe}button:disabled{opacity:.4}
+text{font-family:Inter,system-ui,sans-serif}
+</style></head><body><div class="wrap">
+<div class="tit">Se un cavo si rompe · prova 2D migliorata</div>
+<svg id="sv" viewBox="0 0 960 480" role="img" aria-label="Un pacchetto da Roma a New York nel cavo A; un'ancora lo rompe e il traffico passa dal cavo B">
+<defs>
+ <linearGradient id="mare" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d2a45"/><stop offset=".55" stop-color="#08192b"/><stop offset="1" stop-color="#050d18"/></linearGradient>
+ <linearGradient id="terra" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d3a3a"/><stop offset="1" stop-color="#112626"/></linearGradient>
+ <radialGradient id="luce" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+ <filter id="gl" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4"/></filter>
+ <filter id="gl2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2"/></filter>
+ <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#3f6f6a" opacity=".55"/></pattern>
+ <clipPath id="clipL"><path id="tL" d="M0 40 L140 34 Q205 70 196 128 Q226 170 206 222 Q176 262 196 322 L132 480 L0 480Z"/></clipPath>
+ <clipPath id="clipR"><path id="tR" d="M960 30 L828 40 Q776 56 782 108 Q752 138 772 186 Q738 226 770 276 Q748 340 788 396 L826 480 L960 480Z"/></clipPath>
+</defs>
+<rect width="960" height="480" fill="url(#mare)"/>
+<g opacity=".18" stroke="#6fe" stroke-width=".6"><path d="M0 120H960M0 240H960M0 360H960M240 0V480M480 0V480M720 0V480"/></g>
+<g id="terraL"><use href="#tL" fill="url(#terra)"/><rect width="260" height="480" fill="url(#dots)" clip-path="url(#clipL)"/><use href="#tL" fill="none" stroke="#4fb9ad" stroke-opacity=".55" stroke-width="1.6"/></g>
+<g id="terraR"><use href="#tR" fill="url(#terra)"/><rect x="700" width="260" height="480" fill="url(#dots)" clip-path="url(#clipR)"/><use href="#tR" fill="none" stroke="#4fb9ad" stroke-opacity=".55" stroke-width="1.6"/></g>
+<text x="40" y="440" fill="#7fb8b0" font-size="15" font-weight="600" opacity=".8">AMERICA</text><text x="838" y="440" fill="#7fb8b0" font-size="15" font-weight="600" opacity=".8">EUROPA · AFRICA</text>
+<text x="480" y="456" fill="#4d7f9c" font-size="14" letter-spacing="6" text-anchor="middle" opacity=".7">OCEANO ATLANTICO</text>
+
+<!-- percorsi invisibili del pacchetto -->
+<path id="rotA" d="M840 150 L772 215 C620 330 380 320 200 185 L180 160" fill="none"/>
+<path id="rotB" d="M840 150 L790 105 C620 40 380 60 205 130 L180 160" fill="none"/>
+
+<!-- cavi: alone, nucleo, luce che scorre -->
+<g id="cavi" fill="none" stroke-linecap="round">
+ <g id="cB"><path class="al" d="M790 105 C620 40 380 60 205 130" stroke="#35e0ff" stroke-width="12" opacity=".35" filter="url(#gl)"/><path class="nu" d="M790 105 C620 40 380 60 205 130" stroke="#35e0ff" stroke-width="3.2"/><path class="fl" d="M790 105 C620 40 380 60 205 130" stroke="#fff" stroke-width="2" stroke-dasharray="2 26" opacity=".75"/></g>
+ <g id="cC"><path class="al" d="M780 160 C640 220 420 230 208 162" stroke="#35e0ff" stroke-width="12" opacity=".35" filter="url(#gl)"/><path class="nu" d="M780 160 C640 220 420 230 208 162" stroke="#35e0ff" stroke-width="3.2"/><path class="fl" d="M780 160 C640 220 420 230 208 162" stroke="#fff" stroke-width="2" stroke-dasharray="2 26" opacity=".75"/></g>
+ <g id="cA"><path class="al" id="aAl" d="M772 215 C620 330 380 320 200 185" stroke="#35e0ff" stroke-width="12" opacity=".35" filter="url(#gl)"/><path class="nu" id="aNu" d="M772 215 C620 330 380 320 200 185" stroke="#35e0ff" stroke-width="3.2"/><path class="nu" id="aNu2" d="M772 215 C620 330 380 320 200 185" stroke="#ff4d3d" stroke-width="3.2" opacity="0"/><path class="fl" id="aFl" d="M772 215 C620 330 380 320 200 185" stroke="#fff" stroke-width="2" stroke-dasharray="2 26" opacity=".75"/></g>
+</g>
+<!-- tratti di terra -->
+<g fill="none" stroke="#f4c14d" stroke-width="2.4" stroke-dasharray="3 6" opacity=".8"><path d="M840 150 L772 215"/><path d="M200 185 L180 160"/><path id="tB1" d="M840 150 L790 105" opacity="0"/><path id="tB2" d="M205 130 L180 160" opacity="0"/></g>
+<!-- etichette cavi -->
+<g font-size="15" font-weight="700" text-anchor="middle">
+ <g id="lA"><rect x="450" y="340" width="80" height="24" rx="8" fill="#06101d" stroke="#35e0ff" stroke-opacity=".6"/><text x="490" y="357" fill="#9eeeff">Cavo A</text></g>
+ <g><rect x="450" y="86" width="80" height="24" rx="8" fill="#06101d" stroke="#35e0ff" stroke-opacity=".6"/><text x="490" y="103" fill="#9eeeff">Cavo B</text></g>
+ <g><rect x="450" y="190" width="80" height="24" rx="8" fill="#06101d" stroke="#35e0ff" stroke-opacity=".6"/><text x="490" y="207" fill="#9eeeff">Cavo C</text></g>
+</g>
+<g id="lB2" opacity="0"><rect x="370" y="30" width="240" height="24" rx="8" fill="#3a2c05" stroke="#f4c14d"/><text x="490" y="47"text-anchor="middle" fill="#ffd77a" font-size="14" font-weight="700">più traffico: un po’ più lento</text></g>
+
+<!-- nodi -->
+<g id="roma"><circle id="rr" cx="840" cy="150" r="10" fill="none" stroke="#fff" opacity=".6"/><circle cx="840" cy="150" r="7" fill="#fff"/><text x="840" y="128" fill="#fff" font-size="17" font-weight="700" text-anchor="middle">Roma</text><text x="840" y="176" fill="#9fc" font-size="13" text-anchor="middle">il tuo telefono</text></g>
+<g id="ny"><circle id="nr" cx="180" cy="160" r="10" fill="none" stroke="#fff" opacity=".6"/><rect x="171" y="151" width="18" height="18" rx="3" fill="#fff"/><text x="180" y="132" fill="#fff" font-size="17" font-weight="700" text-anchor="middle">New York</text><text x="180" y="194" fill="#9fc" font-size="13" text-anchor="middle">il server</text></g>
+
+<!-- effetti -->
+<g id="fx">
+ <g id="ripples"></g><g id="sparks"></g>
+ <g id="ancora" opacity="0"><line id="fune" x1="0" y1="-300" x2="0" y2="-14" stroke="#9aa9b3" stroke-width="2.5"/><g><circle cy="-10" r="5" fill="none" stroke="#c7d3da" stroke-width="3"/><path d="M0 -6V22M-12 8Q-12 22 0 24Q12 22 12 8M-9 -1H9" fill="none" stroke="#c7d3da" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+ <path id="x" d="M-14 -14L14 14M14 -14L-14 14" stroke="#ff4d3d" stroke-width="6" stroke-linecap="round" opacity="0"/>
+ <path id="coda" fill="none" stroke="#ffd77a" stroke-width="7" stroke-linecap="round" filter="url(#gl2)" opacity="0"/>
+ <path id="coda2" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0"/>
+ <g id="pk" opacity="0"><circle r="20" fill="url(#luce)"/><circle r="6" fill="#fff"/></g>
+</g>
+</svg>
+<div class="cap" id="cap"></div>
+<div class="bar"><button id="b0" class="s">↺ Da capo</button><button id="b1">Avanti ▶</button></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+var $=function(s){return document.querySelector(s)};
+var NS='http://www.w3.org/2000/svg';
+var caps=['Roma vuole parlare con un server a <b>New York</b>. In mezzo, sul fondo dell’Atlantico, ci sono tre cavi: <b>A</b>, <b>B</b> e <b>C</b>.',
+ 'Il pacchetto lascia Roma, raggiunge la costa e si tuffa nel <b>cavo A</b>. Dentro il cavo viaggia come impulso di luce.',
+ 'Arriva a New York: tutto il viaggio è durato <b>meno di un decimo di secondo</b>.',
+ 'Una <b>nave getta l’ancora</b> e la trascina sul fondo: il cavo A si spezza.',
+ 'Il pacchetto successivo viene <b>deviato sul cavo B</b>. Arriva lo stesso, solo un po’ più lento.'];
+var cap=$('#cap'),b1=$('#b1'),seq=0,busy=false;
+function say(i){cap.innerHTML=caps[i];}
+// luce che scorre
+var flows=[];document.querySelectorAll('.fl').forEach(function(p){flows.push(gsap.to(p,{strokeDashoffset:-56,duration:1.6,repeat:-1,ease:'none'}));});
+// pulsazione nodi
+gsap.to('#rr',{attr:{r:22},opacity:0,duration:1.8,repeat:-1,ease:'power1.out'});
+gsap.to('#nr',{attr:{r:22},opacity:0,duration:1.8,repeat:-1,ease:'power1.out',delay:.9});
+// pacchetto lungo un percorso con coda cometa
+function run(pathSel,dur,done){
+ var path=$(pathSel),L=path.getTotalLength(),o={d:0},T=Math.min(150,L*.3);
+ var pk=$('#pk'),c1=$('#coda'),c2=$('#coda2');
+ [c1,c2].forEach(function(c){c.setAttribute('d',path.getAttribute('d'));c.style.strokeDasharray=T+' '+(L*3);});
+ gsap.set([pk,c1,c2],{opacity:1});
+ gsap.to(o,{d:L,duration:dur,ease:'power2.inOut',onUpdate:function(){
+   var p=path.getPointAtLength(o.d);pk.setAttribute('transform','translate('+p.x+' '+p.y+')');
+   [c1,c2].forEach(function(c){c.style.strokeDashoffset=T-o.d;});
+ },onComplete:function(){gsap.to([pk,c1,c2],{opacity:0,duration:.4});
+   var p=path.getPointAtLength(L);ping(p.x,p.y,'#ffd77a');done&&done();}});
+}
+function ping(x,y,col,n){n=n||2;for(var i=0;i<n;i++){var c=document.createElementNS(NS,'circle');c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',4);c.setAttribute('fill','none');c.setAttribute('stroke',col);c.setAttribute('stroke-width',2.5);$('#ripples').appendChild(c);
+ gsap.to(c,{attr:{r:46},opacity:0,duration:1.1,delay:i*.25,ease:'power2.out',onComplete:function(){this.targets()[0].remove();}});}}
+function sparks(x,y){for(var i=0;i<18;i++){var c=document.createElementNS(NS,'circle');c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',2+Math.random()*2.5);c.setAttribute('fill',i%3?'#ff6a4d':'#ffd77a');$('#sparks').appendChild(c);
+ var a=Math.random()*6.283,r=30+Math.random()*70;gsap.to(c,{x:Math.cos(a)*r,y:Math.sin(a)*r,opacity:0,duration:.9+Math.random()*.5,ease:'power3.out',onComplete:function(){this.targets()[0].remove();}});}}
+function step1(){say(1);run('#rotA',5.2,function(){say(2);busy=false;});}
+function step2(){
+ var L=$('#aNu').getTotalLength(),m=$('#aNu').getPointAtLength(L/2);
+ say(3);var an=$('#ancora');gsap.set(an,{x:m.x,y:-80,opacity:1,rotation:0,transformOrigin:'0 0'});
+ // la nave avvicina l'ancora, poi la lascia cadere: accelera come un peso vero
+ gsap.timeline({onComplete:function(){busy=false;}})
+  .to(an,{y:m.y-20,rotation:8,duration:1.0,ease:'power2.in'})
+  .add(function(){ping(m.x,m.y,'#9eeeff',3);})
+  .to(an,{y:m.y-2,rotation:-3,duration:.18,ease:'power1.in'},'>-.0')
+  .add(function(){
+    // il cavo si spezza: due metà si staccano con scintille
+    sparks(m.x,m.y);flows[2].kill();
+    var o={g:0};
+    gsap.set('#aFl',{opacity:0});
+    gsap.to(o,{g:1,duration:.5,ease:'power3.out',onUpdate:function(){
+      var g=o.g*12,h=L/2;
+      ['#aNu','#aAl'].forEach(function(s){var el=$(s);el.style.strokeDasharray=(h-g)+' '+L;});
+    }});
+    gsap.to('#aNu',{stroke:'#ff4d3d',duration:.4});gsap.to('#aAl',{stroke:'#ff4d3d',opacity:.2,duration:.4});
+    var s2=$('#aAl').cloneNode();s2.removeAttribute('id');s2.style.strokeDasharray=(L/2-12)+' '+L;s2.style.strokeDashoffset=-(L/2+12);s2.setAttribute('stroke','#ff4d3d');s2.setAttribute('opacity',.2);s2.setAttribute('filter','url(#gl)');$('#cA').appendChild(s2);
+    var s3=$('#aNu2');s3.style.strokeDasharray=(L/2-12)+' '+L;s3.style.strokeDashoffset=-(L/2+12);gsap.to(s3,{opacity:1,duration:.4});
+    gsap.set('#x',{x:m.x,y:m.y,scale:.2,opacity:1,transformOrigin:'0 0'});gsap.to('#x',{scale:1,duration:.5,ease:'back.out(3)'});
+    gsap.to('#cA',{keyframes:{x:[0,-3,3,-2,0]},duration:.4});
+    gsap.to('#lA text',{fill:'#ff8a7a',duration:.3});gsap.to('#lA rect',{stroke:'#ff4d3d',duration:.3});
+  })
+  .to(an,{y:m.y+60,opacity:0,duration:.9,ease:'power1.in'},'+=.1');
+}
+function step3(){
+ say(4);
+ gsap.to('#cB .nu',{stroke:'#ffd23a',duration:.5});gsap.to('#cB .al',{stroke:'#ffd23a',opacity:.6,duration:.5});
+ gsap.to('#lB2',{opacity:1,duration:.6,delay:.4});
+ run('#rotB',7,function(){gsap.to('#lB2',{opacity:1});busy=false;b1.disabled=true;});
+}
+b1.onclick=function(){if(busy)return;busy=true;seq++;(seq==1?step1:seq==2?step2:step3)();};
+$('#b0').onclick=function(){location.reload();};
+say(0);
+var m=location.hash.match(/go=(\d)/);
+if(m){var n=+m[1];gsap.globalTimeline.timeScale(25);var i=0;(function go(){if(i>=n){gsap.globalTimeline.timeScale(1);return;}busy=false;b1.onclick();i++;setTimeout(go,400);})();}
+</script></body></html>

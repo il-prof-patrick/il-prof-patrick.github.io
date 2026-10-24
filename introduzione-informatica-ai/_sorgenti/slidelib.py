@@ -4,7 +4,7 @@ Le slide di spiegazione (punti, tessere, confronto, formula, tabella, storia) si
 import json, os, re, importlib
 import html as _h
 from sitolib import F, scrivi_aula, configura, evidenzia
-from rendi import CONT, tit_breve
+from rendi import CONT, cap_json, tit_breve
 from webconv import Tmd
 
 QUI = os.path.dirname(os.path.abspath(__file__))
@@ -26,7 +26,7 @@ def fix(o, chiave=None):
 
 class Capitolo:
     def __init__(self, n):
-        self.n = n; self.C = CONT['chapters'][n - 1]
+        self.n = n; self.C = cap_json(n)
         self.conf = importlib.import_module('capitolo_%02d' % n)
         self.dom, self.err, self.fig, self.box = [], [], {}, []
         for si, S in enumerate(self.C['sezioni']):

@@ -644,6 +644,9 @@ body.presenta .indice-cap{display:none}
 
 /* titoletti dei paragrafi dentro un sottocapitolo (es. «Client-server» nel 2.4): barra laterale */
 .sez>h3{font-size:21px;line-height:28px;font-weight:700;margin:var(--space-6) 0 var(--space-2);padding-left:12px;border-left:4px solid var(--brand-500);color:var(--ink-forte);scroll-margin-top:72px}
+.sez>h3 .num{color:var(--brand-ink);margin-right:.35em}
+/* capitoli uniti: una sezione con le sottosezioni (h3) dentro; i titoletti dei loro paragrafi scendono a h4 */
+.sez>h4{clear:both;font-size:17px;line-height:24px;font-weight:700;margin:20px 0 6px;color:var(--ink-forte);scroll-margin-top:72px}
 /* nell'indice a lato: i titoletti del sottocapitolo in corso, rientrati */
 .indice-cap{max-height:calc(100vh - 96px);overflow-y:auto;scrollbar-width:thin}
 .indice-cap ol.sotto{display:none;margin:-2px 0 6px;padding:0}
@@ -684,7 +687,7 @@ code:not(pre code){background:none;padding:0;border-radius:0;color:inherit;font-
 .rf-foto .foto-tit{font-size:12px;line-height:16px;color:var(--ink-soft)}
 @media (max-width:640px){.riga-foto{grid-template-columns:1fr}.rf-foto{max-width:320px}}
 
-/* Capitoli 3–7: tre foto affiancate, gioco di Turing, ELIZA, diagramma di flusso */
+/* Capitoli 5–7: tre foto affiancate, gioco di Turing, ELIZA, diagramma di flusso */
 .foto-coppia.tre{grid-template-columns:repeat(3,minmax(0,1fr));max-width:900px}
 .foto-coppia.tre img{height:170px}
 @media (max-width:640px){.foto-coppia.tre{grid-template-columns:1fr}}
@@ -735,3 +738,58 @@ code:not(pre code){background:none;padding:0;border-radius:0;color:inherit;font-
 #palco .pl-galleria.n4{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:18px 30px}
 #palco .pl-figura #f-quattro svg:not(.ic){max-height:372px}
 #palco .pl-figura :is(#f-ondate,#f-gatti,#f-impara,#f-antispam,#f-cerchi,#f-gradini,#f-stanza) svg:not(.ic){max-height:350px}
+/* capitolo 1: schede grandi, due per riga; la foto riempie il riquadro 4:3 (ritagliata). Classi m-: alto = ritratto, destra = si tiene il lato destro,
+   intera = schema intero su fondo chiaro, cornice = foto molto allungata, intera con la stessa foto sfocata dietro (a.fonte.cornice) */
+.galleria{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-6) var(--space-5);margin:var(--space-6) 0}
+.galleria figure{margin:0;display:grid;gap:var(--space-2);align-content:start}
+.galleria a.fonte{display:block;width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius-md);background:var(--surface-200)}
+.galleria a.fonte:not(.cornice) img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.galleria .m-alto a.fonte img{object-position:center 18%}
+.galleria .m-destra a.fonte img{object-position:78% center}
+.galleria .m-intera a.fonte{background:var(--surface-000);border:1px solid var(--border)}
+.galleria .m-intera a.fonte img{object-fit:contain;padding:10px;box-sizing:border-box}
+.galleria figcaption{font-size:14px;line-height:21px;color:var(--ink-muted)}
+.galleria figcaption b{display:block;font-size:15px;color:var(--ink-testo)}
+@media (hover:hover){.galleria a.fonte{position:relative;transition:transform .3s ease,box-shadow .3s ease;cursor:zoom-in}
+  .galleria figure:nth-child(odd) a.fonte:hover{transform:scale(1.35);transform-origin:left center;box-shadow:0 18px 50px rgba(0,0,0,.3);z-index:30}
+  .galleria figure:nth-child(even) a.fonte:hover{transform:scale(1.35);transform-origin:right center;box-shadow:0 18px 50px rgba(0,0,0,.3);z-index:30}}
+@media (max-width:560px){.galleria{grid-template-columns:1fr}}
+
+/* capitolo 1: nelle slide le foto riempiono il riquadro come negli altri capitoli; il frammento dell'indirizzo sceglie l'inquadratura
+   (#alto ritratto, #destra, #intera schema su fondo chiaro, #cornice foto molto allungata intera con lo sfondo sfocato) */
+body[data-capitolo="1"] .pl-cornice img[src$="#alto"]{object-position:center 18%}
+body[data-capitolo="1"] .pl-cornice img[src$="#destra"]{object-position:78% center}
+body[data-capitolo="1"] .pl-cornice img[src$="#intera"]{object-fit:contain;background:var(--surface-000)}
+body[data-capitolo="1"] .pl-cornice:has(img[src$="#cornice"])::before{content:"";position:absolute;inset:-30px;background:var(--sf) center/cover no-repeat;filter:blur(24px) saturate(.9);opacity:.6}
+body[data-capitolo="1"] .pl-cornice img[src$="#cornice"]{object-fit:contain}
+
+/* capitolo 2: elenchi numerati dei passaggi, widget del binario */
+ol.passi-num{counter-reset:p;list-style:none;margin:var(--space-3) 0 var(--space-4);padding:0}
+ol.passi-num>li{counter-increment:p;position:relative;padding:2px 0 var(--space-2) 38px}
+ol.passi-num>li::before{content:counter(p);position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:50%;background:var(--brand-600);color:#fff;font:700 14px/26px var(--font-sans);text-align:center}
+.camp-tela svg{display:block;width:100%;height:auto;max-height:260px}
+.bit-riga{display:flex;gap:var(--space-2);flex-wrap:wrap}
+.bit-col{display:grid;gap:4px;justify-items:center}
+.bit-peso{font:600 12px/16px var(--font-mono);color:var(--ink-muted)}
+.bit-tasto{width:44px;min-height:52px;padding:0;font:700 22px/1 var(--font-mono)}
+.bit-tasto[aria-pressed="true"]{background:var(--brand-600);color:#fff;border-color:var(--brand-600)}
+.div-lista{margin:0;padding:0 0 0 var(--space-5);font:400 16px/28px var(--font-mono)}
+.div-resto{color:var(--ink-muted)}.div-resto b{color:var(--brand-ink)}
+.div-esito{margin:0;font-size:16px}.div-bin{font-family:var(--font-mono);font-size:20px;color:var(--brand-ink);letter-spacing:.08em}
+/* capitolo 2: animazioni degli esercizi svolti (cifre in quadretti, colonne evidenziate, riporti e prestiti in ambra) */
+.c2-cella{fill:none;stroke:var(--border-strong);stroke-width:1.5}
+.c2-evid{fill:var(--accent-100);stroke:var(--accent-500);stroke-width:2}
+.c2-ok{fill:var(--brand-100);stroke:var(--brand-600);stroke-width:2}
+.c2-cifra{fill:var(--ink);font:600 26px var(--font-mono)}
+.c2-cifra.nuova{fill:var(--brand-ink)}
+.c2-cifra.agg{fill:var(--accent-ink)}
+.c2-piccola{fill:var(--accent-ink);font:700 16px var(--font-mono)}
+.c2-peso{fill:var(--brand-ink);font:600 20px var(--font-mono)}
+.c2-riga{fill:var(--ink);font:500 21px var(--font-mono)}
+.c2-nota{fill:var(--ink);font:600 17px var(--font-mono)}
+.c2-grande{fill:var(--ink);font:700 24px var(--font-sans)}
+.c2-unita{fill:var(--ink);font:700 18px var(--font-sans)}
+.c2-barra{fill:none;stroke:var(--errore-ink);stroke-width:3;stroke-linecap:round}
+.c2-freccia{fill:none;stroke:var(--accent-500);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.c2-gruppo{fill:none;stroke:var(--brand-600);stroke-width:2;stroke-dasharray:5 4}
+.c2-avanzo{fill:var(--surface-000);stroke:var(--brand-600);stroke-width:1.5;stroke-dasharray:5 4}

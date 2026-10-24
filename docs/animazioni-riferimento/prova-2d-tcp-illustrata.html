@@ -1,0 +1,114 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prova 2D TCP illustrata (usa e getta)</title>
+<style>
+:root{--bg:#fbfaf6;--ink:#1c2b2a;--teal:#0a6f66}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:20px;display:grid;gap:14px}
+svg{width:100%;height:auto;display:block;border-radius:14px}
+.cap{min-height:60px;font-size:20px;line-height:30px;max-width:780px}.cap b{font-weight:600;color:var(--teal)}
+.bar{display:flex;gap:12px;align-items:center}
+button{font:600 16px Inter,system-ui,sans-serif;padding:11px 22px;border-radius:10px;border:1px solid var(--teal);background:var(--teal);color:#fff;cursor:pointer}
+button.s{background:transparent;color:var(--teal)}button:disabled{opacity:.35}
+.dots{display:flex;gap:8px;margin-left:8px}.dots i{width:8px;height:8px;border-radius:50%;background:#cfd6d3;transition:background .3s}.dots i.on{background:var(--teal)}
+text{font-family:Inter,system-ui,sans-serif}
+</style></head><body><div class="wrap">
+<svg viewBox="0 0 960 520" role="img" aria-label="Una foto viene divisa in quattro pezzi numerati che viaggiano su strade diverse, arrivano in disordine e il destinatario li rimette in ordine">
+<defs>
+ <filter id="ombra" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0b2a2a" flood-opacity=".28"/></filter>
+ <clipPath id="cl"><rect width="960" height="520" rx="14"/></clipPath>
+ <g id="foto"><rect width="88" height="88" fill="#bfe3ee"/><circle cx="62" cy="24" r="11" fill="#f6d77c"/><path d="M0 70L28 34L50 62L66 44L88 70V88H0Z" fill="#6f9a8a"/><path d="M0 76Q30 66 60 76T88 74V88H0Z" fill="#86b673"/></g>
+ <clipPath id="q0"><rect width="44" height="44"/></clipPath>
+</defs>
+<g clip-path="url(#cl)">
+<rect width="960" height="520" fill="#e3ecd6"/>
+<!-- paesaggio -->
+<ellipse cx="480" cy="408" rx="64" ry="20" fill="#bfe3ee"/><ellipse cx="480" cy="408" rx="64" ry="20" fill="none" stroke="#9ccbd8" stroke-width="2"/>
+<g fill="#9cc58a"><circle cx="40" cy="60" r="18"/><circle cx="66" cy="72" r="14"/><circle cx="900" cy="60" r="18"/><circle cx="930" cy="80" r="13"/><circle cx="560" cy="48" r="14"/><circle cx="410" cy="360" r="14"/><circle cx="550" cy="352" r="12"/><circle cx="260" cy="400" r="12"/></g>
+<g fill="#7aa96b"><circle cx="44" cy="56" r="10"/><circle cx="904" cy="56" r="10"/><circle cx="414" cy="356" r="8"/></g>
+<!-- strade -->
+<g fill="none" stroke-linejoin="round" stroke-linecap="round" id="strade">
+ <g stroke="#b9bfbb" stroke-width="26"><path d="M130 200L330 110L630 110L830 200"/><path d="M130 200L830 200"/><path d="M130 200L330 290L630 290L830 200"/><path d="M330 110V290M630 110V290"/></g>
+ <g stroke="#cfd4d0" stroke-width="22"><path d="M130 200L330 110L630 110L830 200"/><path d="M130 200L830 200"/><path d="M130 200L330 290L630 290L830 200"/><path d="M330 110V290M630 110V290"/></g>
+ <g stroke="#fff" stroke-width="2" stroke-dasharray="9 9" opacity=".85"><path d="M130 200L330 110L630 110L830 200"/><path d="M130 200L830 200"/><path d="M130 200L330 290L630 290L830 200"/></g>
+</g>
+<g id="auto"></g>
+<!-- router -->
+<g filter="url(#ombra)" id="router">
+ <g transform="translate(330 110)"><rect x="-13" y="-9" width="26" height="18" rx="3" fill="#2c4a50"/><circle cx="-6" cy="0" r="2" fill="#2fc4b2"/><circle cx="1" cy="0" r="2" fill="#2fc4b2"/><path d="M-8 -9V-18M8 -9V-18" stroke="#2c4a50" stroke-width="2"/></g>
+ <g transform="translate(630 110)"><rect x="-13" y="-9" width="26" height="18" rx="3" fill="#2c4a50"/><circle cx="-6" cy="0" r="2" fill="#2fc4b2"/><circle cx="1" cy="0" r="2" fill="#2fc4b2"/><path d="M-8 -9V-18M8 -9V-18" stroke="#2c4a50" stroke-width="2"/></g>
+ <g transform="translate(330 200)"><rect x="-13" y="-9" width="26" height="18" rx="3" fill="#2c4a50"/><circle cx="-6" cy="0" r="2" fill="#2fc4b2"/><circle cx="1" cy="0" r="2" fill="#2fc4b2"/><path d="M-8 -9V-18M8 -9V-18" stroke="#2c4a50" stroke-width="2"/></g>
+ <g transform="translate(630 200)"><rect x="-13" y="-9" width="26" height="18" rx="3" fill="#2c4a50"/><circle cx="-6" cy="0" r="2" fill="#2fc4b2"/><circle cx="1" cy="0" r="2" fill="#2fc4b2"/><path d="M-8 -9V-18M8 -9V-18" stroke="#2c4a50" stroke-width="2"/></g>
+ <g transform="translate(330 290)"><rect x="-13" y="-9" width="26" height="18" rx="3" fill="#2c4a50"/><circle cx="-6" cy="0" r="2" fill="#2fc4b2"/><circle cx="1" cy="0" r="2" fill="#2fc4b2"/><path d="M-8 -9V-18M8 -9V-18" stroke="#2c4a50" stroke-width="2"/></g>
+ <g transform="translate(630 290)"><rect x="-13" y="-9" width="26" height="18" rx="3" fill="#2c4a50"/><circle cx="-6" cy="0" r="2" fill="#2fc4b2"/><circle cx="1" cy="0" r="2" fill="#2fc4b2"/><path d="M-8 -9V-18M8 -9V-18" stroke="#2c4a50" stroke-width="2"/></g>
+</g>
+<text x="480" y="62" text-anchor="middle" font-size="13" letter-spacing="2" style="fill:#4b6a55">I ROUTER SCELGONO LA STRADA</text>
+<!-- case -->
+<g filter="url(#ombra)"><g transform="translate(110 200)"><rect x="-26" y="-18" width="52" height="40" fill="#fffaf0" stroke="#7d8f8d"/><path d="M-34 -16L0 -44L34 -16Z" fill="#c9674a"/><rect x="-8" y="2" width="16" height="20" fill="#8b6b4a"/><rect x="-20" y="-8" width="11" height="11" fill="#7fbcce"/><rect x="9" y="-8" width="11" height="11" fill="#7fbcce"/></g>
+<g transform="translate(850 200)"><rect x="-26" y="-18" width="52" height="40" fill="#fffaf0" stroke="#7d8f8d"/><path d="M-34 -16L0 -44L34 -16Z" fill="#4d8ea9"/><rect x="-8" y="2" width="16" height="20" fill="#8b6b4a"/><rect x="-20" y="-8" width="11" height="11" fill="#7fbcce"/><rect x="9" y="-8" width="11" height="11" fill="#7fbcce"/></g></g>
+<text x="110" y="256" font-size="16" font-weight="700" text-anchor="middle" style="fill:#1c2b2a">Tu</text><text x="850" y="256" font-size="16" font-weight="700" text-anchor="middle" style="fill:#1c2b2a">Il tuo amico</text>
+<!-- foto di partenza e cornice di arrivo -->
+<use id="fotoPart" href="#foto" x="60" y="352" filter="url(#ombra)"/><rect id="cornice0" x="60" y="352" width="88" height="88" fill="none" stroke="#fff" stroke-width="2" opacity=".0"/>
+<text x="104" y="462" font-size="14" font-weight="600" text-anchor="middle" style="fill:#1c2b2a" id="tf">La tua foto</text>
+<g id="cornice"><rect x="780" y="352" width="88" height="88" rx="4" fill="#f6f8f1" stroke="#9aaa9a" stroke-width="2" stroke-dasharray="5 5"/><path d="M824 352V440M780 396H868" stroke="#c9d3c6" stroke-width="1.5"/></g>
+<text x="824" y="462" font-size="14" font-weight="600" text-anchor="middle" id="tc" style="fill:#4b5f5d">La foto dell’amico</text>
+<!-- arrivi -->
+<text x="600" y="470" text-anchor="middle" font-size="12" letter-spacing="2" id="tr" style="fill:#4b6a55">ARRIVI, IN ORDINE DI ARRIVO</text>
+<g id="tiles"></g>
+</g></svg>
+<div class="cap" id="cap"></div>
+<div class="bar"><button id="b0" class="s">Da capo</button><button id="b1">Avanti</button><div class="dots" id="dots"><i></i><i></i><i></i></div></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+var NS='http://www.w3.org/2000/svg',$=function(s){return document.querySelector(s)};
+var caps=['Vuoi mandare una foto a un amico. È troppo grande per viaggiare tutta insieme.',
+ 'Viene <b>divisa in pezzi numerati</b> e ogni pezzo sceglie la sua strada: alcune sono libere, altre più lente.',
+ 'I pezzi arrivano <b>in disordine</b>: il 2 prima dell’1, il 3 per ultimo.',
+ 'L’amico guarda i numeri, li <b>rimette in ordine</b> e la foto torna intera.'];
+var seq=0,busy=false,cap=$('#cap'),b1=$('#b1'),dots=document.querySelectorAll('#dots i');
+function say(i,d){cap.innerHTML=caps[i];dots.forEach(function(x,k){x.className=k<=d?'on':'';});}
+var routes={t:'M130 200L330 110L630 110L830 200',m:'M130 200L830 200',b:'M130 200L330 290L630 290L830 200'};
+var plan=[{n:1,r:'t',dur:3.6,del:0},{n:2,r:'m',dur:2.2,del:.15},{n:3,r:'t',dur:3.8,del:1.6},{n:4,r:'b',dur:3.4,del:.4}];
+var T=[];plan.forEach(function(p,i){
+ var cx=i%2,cy=i>>1;
+ var g=document.createElementNS(NS,'g');
+ g.innerHTML='<clipPath id="qq'+i+'"><rect width="44" height="44"/></clipPath><g transform="translate(-22 -22)"><g clip-path="url(#qq'+i+')"><use href="#foto" x="'+(-cx*44)+'" y="'+(-cy*44)+'"/></g><rect width="44" height="44" fill="none" stroke="#fff" stroke-width="2"/></g><g class="bd"><circle cx="-12" cy="-12" r="10" fill="#0a6f66" stroke="#fff" stroke-width="2"/><text x="-12" y="-7" text-anchor="middle" font-size="13" font-weight="700" style="fill:#fff">'+p.n+'</text></g>';
+ g.setAttribute('filter','url(#ombra)');
+ gsap.set(g,{x:60+22+cx*44,y:352+22+cy*44,opacity:0});$('#tiles').appendChild(g);T.push(g);});
+// macchinine che girano sulle strade (vita ambientale)
+[['t',.05,'#d9794d',26],['t',.55,'#5a8fb5',26],['m',.2,'#e9a313',12],['m',.7,'#7a6fb5',12],['b',.35,'#5a8fb5',16],['b',.9,'#d9794d',16]].forEach(function(c){
+ var path=document.createElementNS(NS,'path');path.setAttribute('d',routes[c[0]]);var L=path.getTotalLength();
+ var r=document.createElementNS(NS,'rect');r.setAttribute('x',-7);r.setAttribute('y',-4);r.setAttribute('width',14);r.setAttribute('height',8);r.setAttribute('rx',2.5);r.setAttribute('fill',c[2]);r.setAttribute('opacity',.9);$('#auto').appendChild(r);
+ var o={d:c[1]*L};gsap.to(o,{d:c[1]*L+L,duration:c[3]*1.0,ease:'none',repeat:-1,onUpdate:function(){var d=o.d%L,q=path.getPointAtLength(d),q2=path.getPointAtLength(Math.min(L,d+2));
+  gsap.set(r,{x:q.x+0,y:q.y+5,rotation:Math.atan2(q2.y-q.y,q2.x-q.x)*180/Math.PI,transformOrigin:'0 0'});}});});
+var slot=function(k){return 560+k*60;};
+function s1(){say(1,1);
+ var tl=gsap.timeline({onComplete:function(){say(2,2);busy=false;}});
+ tl.to('#fotoPart',{opacity:.2,duration:.5},0);tl.to('#tf',{opacity:.3,duration:.5},0);
+ T.forEach(function(g,i){var cx=i%2,cy=i>>1;tl.set(g,{opacity:1},0);
+  tl.fromTo(g.querySelector('.bd'),{scale:0},{scale:1,duration:.4,ease:'back.out(3)',transformOrigin:'0 0'},.3+i*.08);
+  tl.to(g,{x:'+='+(cx?10:-10),y:'+='+(cy?10:-10),duration:.45,ease:'power2.out'},.4);});
+ var arr=0;
+ plan.forEach(function(p,i){
+   var path=document.createElementNS(NS,'path');path.setAttribute('d',routes[p.r]);var L=path.getTotalLength(),o={d:0};
+   tl.to(T[i],{x:130,y:200,scale:.6,duration:.8,ease:'power2.inOut'},1.2+p.del*.25);
+   tl.to(o,{d:L,duration:p.dur,ease:'power1.inOut',onUpdate:function(){var q=path.getPointAtLength(o.d);gsap.set(T[i],{x:q.x,y:q.y});},
+     onComplete:function(){var k=arr++;gsap.to(T[i],{x:slot(k),y:488,scale:1,duration:.7,ease:'power2.out'});}},2.0+p.del);
+ });
+}
+function s3(){say(3,2);
+ var tl=gsap.timeline({onComplete:function(){busy=false;b1.disabled=true;}});
+ T.forEach(function(g,i){tl.to(g,{y:'-=16',duration:.3,ease:'power2.out'},i*.1);});
+ tl.add(function(){gsap.to('#tr',{opacity:0,duration:.3});},.4);
+ T.forEach(function(g,i){var cx=i%2,cy=i>>1;tl.to(g,{x:780+22+cx*44,y:352+22+cy*44,duration:.9,ease:'power2.inOut'},.9+i*.05);});
+ T.forEach(function(g,i){tl.to(g.querySelector('.bd'),{scale:0,duration:.3,transformOrigin:'0 0'},2.0);});
+ tl.to('#cornice rect',{attr:{stroke:'#0a6f66','stroke-dasharray':'0 0'},duration:.4},2.0);
+ tl.add(function(){$('#tc').textContent='La foto è arrivata intera';$('#tc').style.fill='#0a6f66';$('#tc').style.fontWeight=700;},2.1);
+ tl.to(T,{scale:1.0,duration:.3},2.0);
+}
+b1.onclick=function(){if(busy)return;busy=true;seq++;if(seq==1){s1();}else{s3();}};
+$('#b0').onclick=function(){location.reload();};
+say(0,0);
+var m=location.hash.match(/go=(\d)/);
+if(m){var n=+m[1];gsap.ticker.lagSmoothing(0);gsap.globalTimeline.timeScale(25);var i=0;(function go(){if(i>=n){gsap.globalTimeline.timeScale(1);return;}busy=false;b1.onclick();i++;setTimeout(go,3000);})();}
+</script></body></html>

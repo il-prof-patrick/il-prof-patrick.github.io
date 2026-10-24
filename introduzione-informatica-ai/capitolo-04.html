@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>4. Come ragiona un computer · Introduzione a informatica ed AI</title>
+<title>4. Che cos’è l’intelligenza · Introduzione a informatica ed AI</title>
 <link rel="stylesheet" href="assets/sito.css">
 </head>
 <body data-capitolo="4">
@@ -11,127 +11,144 @@
 <nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
 <main class="lezione" lang="it">
   <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Introduzione a informatica ed AI · Capitolo 04</span></div>
-  <h1>Come ragiona un computer</h1>
+  <h1>Che cos’è l’intelligenza</h1>
 
   <div class="contenuto">
 
   <!-- ===================== 4.1 ===================== -->
   <section class="sez">
-  <h2 id="p1"><span class="num">4.1</span>Il computer tradizionale</h2>
-  <p class="domanda">Un computer fa in un istante conti che a noi richiederebbero ore: è più intelligente di noi?</p>
-  <p>Un <b>computer tradizionale non ragiona</b>: <b>esegue istruzioni</b> scritte da una persona, e l’insieme di quelle istruzioni è il <b>programma</b>.</p>
-  <figure class="foto-margine"><a class="fonte" href="https://www.pexels.com/photo/37368169/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/37368169/pexels-photo-37368169.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un processore (CPU): il chip che esegue le istruzioni." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un processore (CPU)</figcaption></figure>
-  <p>Il processore sa eseguire <b>pochissimi tipi di istruzione, tutte semplicissime</b>: i <b>calcoli matematici</b> (per esempio una somma), le <b>operazioni logiche</b> (per esempio confrontare due numeri), la <b>memoria e i salti</b> (leggere o scrivere un dato e passare a un’altra istruzione, anche solo se un confronto è vero). Tutto il resto, dal videogioco al browser, nasce <b>combinando miliardi di queste istruzioni al secondo</b>.</p>
-  <figure class="foto-margine"><a class="fonte" href="https://www.britannica.com/biography/Umberto-Eco" target="_blank" rel="noopener"><img src="https://cdn.britannica.com/33/225133-050-AD8BB3DB/Umberto-Eco-Italian-literary-critic-novelist-semiotician.jpg" alt="Umberto Eco (1932-2016), scrittore e semiologo: nella prefazione a Claudio Pozzoli, «Come scrivere una tesi di laurea con il personal computer» (Rizzoli), definì il computer «una macchina stupida» che funziona bene solo in mano a persone intelligenti." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Umberto Eco</figcaption></figure>
-  <p>Per questo un computer eccelle in due cose: la <b>velocità</b> (miliardi di istruzioni al secondo) e la <b>memoria</b> (non dimentica e non si stanca). Non eccelle in ciò che richiede di <b>capire</b>: come la persona nella stanza cinese, esegue regole senza sapere che cosa significhino.</p>
-  <p>Lo scrittore <b>Umberto Eco</b> lo disse in una prefazione: per lui il computer non rende intelligente chi non lo è, è una «macchina stupida» che dà buoni risultati solo <b>nelle mani di persone intelligenti</b>.</p>
-  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
-    <p class="err-no">«Un computer che calcola velocissimo è intelligente.»</p>
-    <p class="err-si">La <b>velocità non è intelligenza</b>: il computer esegue istruzioni semplicissime molto in fretta, ma non capisce che cosa sta calcolando.</p></div>
+  <h2 id="p1"><span class="num">4.1</span>L’intelligenza umana e animale</h2>
+  <p class="domanda">Tu sei intelligente?</p>
+  <p>Non esiste una definizione di intelligenza accettata da tutti. Una delle più citate è contenuta in una dichiarazione del 1994 firmata da <b>52 ricercatori</b>, secondo cui l’intelligenza è <b>una capacità mentale generale</b> che comprende ragionare, pianificare, risolvere problemi, pensare in modo astratto, comprendere idee complesse, imparare in fretta e <b>imparare dall’esperienza</b>. Non si riduce a studiare sui libri: è la capacità di capire ciò che ci circonda.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Capacità</th><th>Che cosa significa</th><th>Esempio quotidiano</th></tr></thead>
+    <tbody>
+      <tr><td>Ragionare</td><td>trarre conclusioni da ciò che si sa</td><td>capire dall’orario che l’autobus è già passato</td></tr>
+      <tr><td>Pianificare</td><td>scegliere i passi per arrivare a uno scopo</td><td>organizzare una gita con trasporti e orari</td></tr>
+      <tr><td>Risolvere problemi</td><td>trovare una strada quando quella solita è chiusa</td><td>cambiare percorso per un incidente</td></tr>
+      <tr><td>Pensare in modo astratto</td><td>lavorare con idee e non solo con cose concrete</td><td>capire che “giustizia” non è un oggetto</td></tr>
+      <tr><td>Imparare dall’esperienza</td><td>cambiare comportamento dopo un errore</td><td>non toccare più una pentola calda</td></tr>
+    </tbody></table></div>
+  <p>Non è una caratteristica solo umana. Il <b>corvo della Nuova Caledonia</b> si costruisce da solo piccoli ramoscelli adatti a pescare gli insetti nei buchi degli alberi; il <b>polpo</b>, chiuso in un barattolo, riesce a svitare il tappo dall’interno e a uscire.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://arstechnica.com/science/2018/01/making-tools-gives-crows-a-big-food-boost/" target="_blank" rel="noopener"><img src="https://cdn.arstechnica.net/wp-content/uploads/2018/01/Crow-new-1.jpg" alt="Un corvo della Nuova Caledonia con un ramoscello nel becco. Da guardare nei dettagli: osserva lo strumento che tiene e come lo regge." referrerpolicy="no-referrer"></a><figcaption>Un corvo della Nuova Caledonia con un ramoscello nel becco. Osserva lo strumento che tiene e come lo regge.</figcaption></figure>
+  <figure class="foto-grande"><a class="fonte" href="https://thekidshouldseethis.com/post/octopus-opens-jar-from-inside" target="_blank" rel="noopener"><img src="https://thekidshouldseethis.com/wp-content/uploads/2014/05/octopus-escapes-jar_2015_tksst.jpg" alt="Un polpo chiuso in un barattolo che ne apre il tappo dall’interno. Da guardare nei dettagli: osserva dove si trovano i tentacoli rispetto al tappo." referrerpolicy="no-referrer"></a><figcaption>Un polpo chiuso in un barattolo che ne apre il tappo dall’interno. Osserva dove si trovano i tentacoli rispetto al tappo.</figcaption></figure>
+  <h3>Sembrare intelligenti non è esserlo</h3>
+  <p>Non sempre, però, ciò che sembra intelligenza lo è. Tra la fine dell’Ottocento e l’inizio del Novecento, in Germania, il cavallo <b>Hans</b> pareva saper fare i calcoli: il suo padrone, l’insegnante <b>Wilhelm von Osten</b>, gli poneva un’operazione e Hans rispondeva battendo lo zoccolo il numero giusto di volte.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://www.britannica.com/topic/Clever-Hans" target="_blank" rel="noopener"><img src="https://cdn.britannica.com/07/180507-050-800508E8/Clever-Hans-Wilhelm-von-Osten-horse-1904.jpg" alt="Il cavallo Hans con Wilhelm von Osten davanti alla lavagna dei calcoli, 1904. Da guardare nei dettagli: osserva la lavagna e dove si trova l’uomo rispetto al cavallo." referrerpolicy="no-referrer"></a><figcaption>Il cavallo Hans con Wilhelm von Osten davanti alla lavagna dei calcoli, 1904. Osserva la lavagna e dove si trova l’uomo rispetto al cavallo.</figcaption></figure>
+  <p>Nel 1907 lo psicologo <b>Oskar Pfungst</b> scoprì che Hans non contava: <b>osservava i minimi movimenti involontari di chi lo interrogava</b> e smetteva di battere quando li vedeva cambiare. Rispondeva giusto solo se chi faceva la domanda conosceva la risposta e Hans poteva vederlo.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.thesprucepets.com/top-talking-bird-species-390534" target="_blank" rel="noopener"><img src="https://www.thesprucepets.com/thmb/rSennhnkHYPFvYCkqHAQNpquimg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/close-up-of-african-grey-parrot-perching-on-pipe-by-plants-673169277-58ad8e823df78c345b864c59.jpg" alt="Un pappagallo cenerino, tra le specie che imitano meglio la voce umana." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un pappagallo cenerino</figcaption></figure>
+  <p>I <b>pappagalli</b> imitano le parole umane, ma <b>ripetere una frase non vuol dire capirla</b>: per questo in italiano si dice «ripetere come un pappagallo».</p>
+  <p>Hans e il pappagallo mostrano la stessa difficoltà: <b>pur non essendo intelligenti a nostro modo di vedere le cose inizialmente, possono comunque essere ritenuti tali?</b> Ritroveremo la domanda, con le macchine, nel capitolo 4.</p>
 
   <!-- ===================== 4.2 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p2"><span class="num">4.2</span>Che cos’è un algoritmo</h2>
-  <p>Un <span class="termine">algoritmo</span> è un <b>procedimento finito</b>, formato da una <b>sequenza ordinata di passi elementari</b>, che <b>trasforma dati in ingresso</b> (<i>input</i>) <b>in dati in uscita</b> (<i>output</i>) per risolvere un problema.</p>
-  <figure class="foto-margine"><a class="fonte" href="https://www.orasesta.com/distributori-automatici-caffe-illy-per-uffici-e-aziende/" target="_blank" rel="noopener"><img src="https://www.orasesta.com/wp-content/uploads/2023/02/macchina-illy-capsule-per-uffici-e-pmi-orasesta.jpg" alt="Una macchinetta del caffè: un algoritmo che prende monete e scelta e restituisce un caffè." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Una macchinetta del caffè</figcaption></figure>
-  <p>Per andare alle macchinette a prendere un caffè bisogna definire l’<b>output atteso</b> (il caffè), gli <b>input necessari</b> (monete e scelta) e i <b>passi</b> che portano dagli uni all’altro. Il programma è la traduzione di un algoritmo in istruzioni che il computer sa eseguire.</p>
+  <h2 id="p2"><span class="num">4.2</span>Le intelligenze multiple (Gardner)</h2>
+  <p class="domanda">Fatemi un esempio di una persona a cui pensate quando si parla di intelligenza.</p>
+  <p>Secondo lo psicologo <b>Howard Gardner</b> (1983) l’intelligenza non è una sola capacità ma <b>più forme diverse</b>, ognuna con i suoi punti di forza. <b>Essere bravi in matematica è una forma di intelligenza, non l’unica</b>: chi va male in matematica non è per questo stupido. Le forme sono otto: le prime sette le descrisse nel 1983, l’ottava, quella naturalistica, la aggiunse più tardi.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Intelligenza</th><th>In che cosa si vede</th><th>Esempio</th></tr></thead>
+    <tbody>
+      <tr><td>Linguistica</td><td>usare bene le parole, parlando e scrivendo</td><td>una scrittrice, un avvocato</td></tr>
+      <tr><td>Logico-matematica</td><td>ragionare con numeri, schemi e problemi</td><td>una matematica, un programmatore</td></tr>
+      <tr><td>Spaziale</td><td>immaginare e orientarsi nello spazio</td><td>un architetto, una pilota</td></tr>
+      <tr><td>Musicale</td><td>sentire e produrre ritmi e suoni</td><td>un musicista, una direttrice d’orchestra</td></tr>
+      <tr><td>Corporeo-cinestetica</td><td>usare il corpo con precisione</td><td>un’atleta, una danzatrice, un chirurgo</td></tr>
+      <tr><td>Interpersonale</td><td>capire gli altri e lavorare con loro</td><td>un’insegnante, un mediatore</td></tr>
+      <tr><td>Intrapersonale</td><td>conoscere se stessi e le proprie emozioni</td><td>chi sa dire che cosa prova e perché</td></tr>
+      <tr><td>Naturalistica</td><td>riconoscere e distinguere piante, animali e fenomeni naturali</td><td>un botanico, una guida naturalistica</td></tr>
+    </tbody></table></div>
+  <figure>
+    <div class="tela passi-anim" id="f-gardner" data-titolo="Chi è più intelligente?" data-inizio="Una scheda con il titolo «Chi è più intelligente?», un gruppo di persone e otto barre vuote, una per ogni forma di intelligenza.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Quattro ragazzi con profili diversi: Marta è forte in logica e matematica, Luca nella musica, Sara nel movimento e nello spazio, Omar nella natura. Nessuno è forte in tutto."></svg>
+      <ol class="passi-testo">
+        <li>Marta, che prende dieci in matematica: la barra logico-matematica è la più alta, le altre sono medie o basse.</li>
+        <li>Luca, che va male in matematica ma suona tre strumenti: la barra musicale è la più alta, quella logico-matematica è bassa.</li>
+        <li>Sara, che gioca a calcio e capisce lo spazio e la squadra: sono alte la barra corporeo-cinestetica e quella spaziale.</li>
+        <li>Omar, che conosce ogni pianta e ogni animale del parco: la barra naturalistica è la più alta.</li>
+        <li>Schermata finale: per ognuno la sua intelligenza più forte e la frase «Nessuno è forte in tutto, e andare male in matematica non vuol dire essere stupidi». Un ultimo clic fa ricominciare.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Chi va male in matematica non è intelligente.»</p>
+    <p class="err-si">L’intelligenza ha <b>più forme</b>: la matematica è una (la logico-matematica), ma ci sono anche la musicale, la corporea, l’interpersonale e le altre.</p></div>
 
   <!-- ===================== 4.3 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p3"><span class="num">4.3</span>Le proprietà di un algoritmo</h2>
-  <p class="domanda">«Aggiungi un po’ di zucchero» è una buona istruzione per un computer?</p>
-  <p>Perché un procedimento sia un buon algoritmo deve avere alcune <b>proprietà</b>.</p>
-  <div class="tab"><table>
-    <thead><tr><th>Proprietà</th><th>Che cosa richiede</th><th>Perché serve</th></tr></thead>
-    <tbody>
-      <tr><td>Finitezza</td><td>l’esecuzione termina in un tempo ragionevole</td><td>un procedimento infinito non dà mai una risposta</td></tr>
-      <tr><td>Non ambiguità</td><td>ogni passo si interpreta in un solo modo</td><td>la macchina non può «indovinare» che cosa si intendeva</td></tr>
-      <tr><td>Efficacia</td><td>il risultato è una soluzione adeguata al problema</td><td>un algoritmo che termina ma sbaglia è inutile</td></tr>
-      <tr><td>Efficienza</td><td>usa poco tempo e poca memoria</td><td>per uno stesso problema esistono tanti algoritmi, alcuni molto più rapidi</td></tr>
-      <tr><td>Generalità</td><td>risolve una classe di problemi e non uno solo</td><td>ordinare qualsiasi elenco, non solo uno</td></tr>
-      <tr><td>Atomicità</td><td>i passi non sono ulteriormente scomponibili</td><td>il computer capisce solo istruzioni elementari</td></tr>
-    </tbody></table></div>
+  <h2 id="p3"><span class="num">4.3</span>Intelligenza naturale e artificiale</h2>
+  <p>L’<span class="termine">intelligenza naturale</span> è quella dei <b>viventi</b>: nasce con la vita e si sviluppa con l’esperienza. L’<b>intelligenza artificiale (IA)</b> è quella di sistemi <b>costruiti dalle persone</b>. Si chiama IA un <b>sistema che svolge compiti che, svolti da una persona, richiederebbero intelligenza</b>.</p>
+  <p>È una definizione <b>operativa</b>: guarda che cosa il sistema <b>fa</b>, non che cosa <b>è</b>. Se sia davvero intelligente o si limiti a sembrarlo, come Hans, è la domanda del capitolo 4.</p>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p>Lo sblocco del telefono con il volto (<i>Face ID</i>, capitolo 3) è IA: se lo facesse una persona, riconoscere un volto fra tanti, anche con occhiali o barba, richiederebbe percezione e memoria.</p></div>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>L’intelligenza è la capacità di affrontare situazioni nuove, non è solo umana, e un comportamento che la imita non basta a provarla.</li>
+      <li>Secondo Gardner l’intelligenza ha più forme, quindi andare male in matematica non vuol dire essere stupidi.</li>
+      <li>Si chiama IA un sistema che svolge compiti che in una persona richiederebbero intelligenza, senza dire se sia davvero intelligente.</li>
+    </ul></div>
+  </section>
 
   <!-- ===================== 4.4 ===================== -->
+  <section class="sez">
+  <h2 id="p4"><span class="num">4.4</span>Un computer può essere intelligente?</h2>
+  <!-- ===================== 4.4.1 ===================== -->
+  <section class="sez">
+  <h3 id="p4-1"><span class="num">4.4.1</span>Il test di Turing</h3>
+  <p class="domanda">Chattate con uno sconosciuto: che domanda fareste per scoprire se è una macchina?</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.britannica.com/biography/Alan-Turing" target="_blank" rel="noopener"><img src="https://cdn.britannica.com/81/191581-050-3C5C0F9D/Alan-Turing.jpg" alt="Alan Turing, matematico britannico: nel 1950 propose il «gioco dell’imitazione»." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Alan Turing, matematico britannico</figcaption></figure>
+  <p>Nel 1950 il matematico britannico <b>Alan Turing</b> si chiese «le macchine possono pensare?». La domanda era troppo vaga, perché non si sa che cosa voglia dire «pensare», e Turing la sostituì con un gioco: il <b>gioco dell’imitazione</b>, oggi detto <b>test di Turing</b>.</p>
+  <p>Un <b>interrogatore</b> conversa per iscritto, senza vederli, con due interlocutori: una persona e una macchina. Può fare tutte le domande che vuole. Se alla fine <b>non riesce a capire quale sia la macchina</b>, la macchina <b>supera il test</b>.</p>
+  <figure>
+    <div class="tela" data-widget="turing"></div>
+  </figure>
+  <p>Il gioco mostra che il test misura <b>quanto bene una macchina imita una persona in una conversazione</b>, non quanto sia intelligente. Nel primo giro la macchina passa fingendo di sbagliare e inventando ricordi; nel secondo fallisce proprio perché è troppo brava, pur facendo cose molto intelligenti. Quindi <b>superare il test non prova che una macchina pensi</b>, come Hans sembrava intelligente senza esserlo, e <b>non superarlo non prova che non sia intelligente</b>.</p>
+  <p class="domanda">Quante IA hanno superato oggi il test di Turing?</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il test di Turing dimostra che una macchina pensa.»</p>
+    <p class="err-si">Il test misura solo se una macchina <b>sembra una persona</b> in una conversazione. Una macchina può superarlo fingendo, e può fallirlo proprio perché è troppo brava.</p></div>
+
+  <!-- ===================== 4.4.2 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p4"><span class="num">4.4</span>Come si rappresenta un algoritmo</h2>
-  <p>Lo stesso algoritmo si può scrivere in <b>quattro forme</b>, dalla più umana alla più vicina al computer. Usiamo l’esempio della macchinetta del caffè, con il prezzo in centesimi per evitare i decimali.</p>
-  <h3>1 · Linguaggio naturale</h3>
-  <p>Chiaro per una persona, ma <b>può essere ambiguo</b>.</p>
-  <ol>
-    <li>Parti da un credito di zero.</li>
-    <li>Finché il credito è minore del prezzo, chiedi una moneta e aggiungila.</li>
-    <li>Quando il credito basta, prepara il caffè.</li>
-    <li>Se il credito supera il prezzo, restituisci la differenza come resto.</li>
-  </ol>
-  <h3>2 · Diagramma di flusso</h3>
-  <p><b>Visivo</b>: ogni passo è un riquadro, le frecce dicono in che ordine eseguirli e il rombo è una domanda con risposta sì o no.</p>
+  <h3 id="p4-2"><span class="num">4.4.2</span>La stanza cinese</h3>
+  <p class="domanda">Se un chatbot risponde sempre come una persona, vuol dire che capisce quello che dice?</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.britannica.com/biography/John-Searle" target="_blank" rel="noopener"><img src="https://cdn.britannica.com/28/241128-050-6B7E001E/American-philosopher-John-Searle.jpg" alt="John Searle, filosofo statunitense: nel 1980 propose l’esperimento mentale della stanza cinese." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">John Searle, filosofo statunitense</figcaption></figure>
+  <p>Il test di Turing guarda solo le risposte. Nel 1980 il filosofo statunitense <b>John Searle</b> propose un <b>esperimento mentale</b>, cioè uno scenario immaginato e non realizzato, per mostrare che <b>rispondere bene non basta per capire</b>: la <b>stanza cinese</b>.</p>
+  <p>Una persona che <b>non conosce il cinese</b> è chiusa in una stanza con un <b>libro di regole</b>. Da una fessura riceve fogli con ideogrammi cinesi; per ogni sequenza di segni il libro le dice quali altri segni copiare e restituire. Fuori, chi legge le risposte le trova perfette e pensa che dentro ci sia qualcuno che capisce il cinese. <b>Dentro non capisce nessuno</b>: la persona ha solo seguito regole su simboli di cui non conosce il significato.</p>
   <figure>
-    <div class="tela schema" id="s-flusso"><p class="passi-titolo">Diagramma di flusso della macchinetta del caffè</p>
-      <svg viewBox="0 0 720 420" role="img" aria-label="Diagramma di flusso della macchinetta del caffè: dopo Inizio il credito vale zero; finché il credito è minore del prezzo si aggiunge una moneta; poi si prepara il caffè; se il credito supera il prezzo si dà il resto; poi Fine.">
-        <rect x="264" y="14" width="72" height="24" rx="12" class="nodo evid"/><text x="300" y="31" text-anchor="middle" class="t-b">Inizio</text>
-        <rect x="220" y="61" width="160" height="30" rx="3" class="nodo"/><text x="300" y="81" text-anchor="middle" class="t">credito = 0</text>
-        <path d="M300 108 L400 140 L300 172 L200 140 Z" class="nodo"/><text x="300" y="145" text-anchor="middle" class="t">credito &lt; prezzo?</text>
-        <rect x="470" y="125" width="140" height="30" rx="3" class="nodo"/><text x="540" y="145" text-anchor="middle" class="t">aggiungi moneta</text>
-        <rect x="220" y="203" width="160" height="30" rx="3" class="nodo"/><text x="300" y="223" text-anchor="middle" class="t">prepara il caffè</text>
-        <path d="M300 260 L400 292 L300 324 L200 292 Z" class="nodo"/><text x="300" y="297" text-anchor="middle" class="t">credito &gt; prezzo?</text>
-        <rect x="470" y="277" width="140" height="30" rx="3" class="nodo"/><text x="540" y="297" text-anchor="middle" class="t">dai il resto</text>
-        <rect x="264" y="384" width="72" height="24" rx="12" class="nodo evid"/><text x="300" y="401" text-anchor="middle" class="t-b">Fine</text>
-        <path d="M300 38 V61" class="lin"/><path d="M295 54 L300 61 L305 54" class="lin"/>
-        <path d="M300 91 V108" class="lin"/><path d="M295 101 L300 108 L305 101" class="lin"/>
-        <path d="M400 140 H470" class="lin"/><path d="M463 135 L470 140 L463 145" class="lin"/>
-        <path d="M540 125 V99 H300" class="lin"/>
-        <path d="M300 172 V203" class="lin"/><path d="M295 196 L300 203 L305 196" class="lin"/>
-        <path d="M300 233 V260" class="lin"/><path d="M295 253 L300 260 L305 253" class="lin"/>
-        <path d="M400 292 H470" class="lin"/><path d="M463 287 L470 292 L463 297" class="lin"/>
-        <path d="M540 307 V396 H336" class="lin"/><path d="M343 391 L336 396 L343 401" class="lin"/>
-        <path d="M300 324 V384" class="lin"/><path d="M295 377 L300 384 L305 377" class="lin"/>
-        <text x="412" y="132" class="t-b">sì</text><text x="308" y="192" class="t-m">no</text><text x="412" y="284" class="t-b">sì</text><text x="308" y="344" class="t-m">no</text>
-      </svg>
-    </div>
-  </figure>
-  <h3>3 · Pseudocodice</h3>
-  <p><span class="termine">Preciso</span>, ma non eseguibile: usa parole italiane come se fossero istruzioni.</p>
-  <pre class="codice"><code>credito ← 0
-leggi prezzo
-finché credito &lt; prezzo
-    leggi moneta
-    credito ← credito + moneta
-scrivi «Caffè pronto»
-se credito &gt; prezzo
-    scrivi «Resto:», credito − prezzo</code></pre>
-  <h3>4 · Codice di programmazione</h3>
-  <p><span class="termine">Eseguibile dal computer</span>, ma scritto secondo le regole di un linguaggio di programmazione.</p>
-  <pre class="codice"><code>prezzo = 120  # in centesimi
-credito = 0
-while credito &lt; prezzo:
-    credito = credito + int(input("Moneta: "))
-print("Caffè pronto")
-if credito &gt; prezzo:
-    print("Resto:", credito - prezzo)</code></pre>
-  <p>Dallo <b>pseudocodice</b> o dal <b>diagramma di flusso</b> si può arrivare a <b>qualsiasi linguaggio di programmazione</b>: l’algoritmo resta lo stesso, cambia solo il modo di scriverlo.</p>
-  <figure>
-    <div class="tela passi-anim" id="f-quattro" data-titolo="Quattro forme, un solo algoritmo" data-inizio="Quattro schede con lo stesso algoritmo, dalla forma più umana a quella più vicina al computer: linguaggio naturale, diagramma di flusso, pseudocodice, codice.">
-      <svg viewBox="0 0 720 530" role="img" aria-label="Il caffè della macchinetta scritto in quattro forme. A ogni passo si accende lo stesso pezzo in tutte e quattro."></svg>
+    <div class="tela passi-anim" id="f-stanza" data-titolo="La stanza cinese" data-inizio="Una stanza chiusa con una fessura. Dentro c’è una persona che non conosce il cinese e un libro di regole; fuori, chi parla cinese.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Una persona fuori scrive una domanda in cinese e la infila nella fessura; dentro, chi non conosce il cinese cerca i segni nel libro di regole e copia la risposta, senza capire nulla."></svg>
       <ol class="passi-testo">
-        <li>Si parte da un credito di zero: è il primo passo, e le quattro forme lo scrivono nello stesso punto.</li>
-        <li>Si ripete finché il credito è minore del prezzo: si chiede una moneta e la si aggiunge.</li>
-        <li>Quando il credito basta, si prepara il caffè.</li>
-        <li>Se il credito supera il prezzo, si dà il resto.</li>
-        <li>Quattro forme, un solo algoritmo: dalla più umana alla più vicina al computer.</li>
+        <li>Fuori, la persona scrive su un foglio «你好吗？» (significa «Come stai?») e lo infila nella fessura.</li>
+        <li>Dentro, la persona cerca quei segni nel libro, che dice «Se vedi 你好吗？ scrivi 我很好，谢谢。», e li copia senza sapere che cosa vogliano dire.</li>
+        <li>Fuori arriva il foglio «我很好，谢谢。» (significa «Sto bene, grazie»): una risposta perfetta. Là dentro c’è qualcuno che capisce il cinese!</li>
+        <li>Dentro compare un fumetto: «Non ho capito niente: ho solo seguito delle regole.» Seguire regole su dei simboli basta per rispondere bene senza capire. Searle pensa che per un computer sia lo stesso.</li>
       </ol>
     </div>
   </figure>
+  <p>Per Searle un computer è nella stessa situazione: <b>esegue regole su simboli</b>. Quindi anche se supera il test di Turing, <b>non è detto che capisca</b> ciò che dice: manipolare simboli non è capire.</p>
+
+  <!-- ===================== 4.4.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h3 id="p4-3"><span class="num">4.4.3</span>Punti di vista a confronto</h3>
+  <p>Alla domanda «un computer può essere intelligente?» ci sono <b>tre risposte principali</b>, e nessuna è chiusa.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Posizione</th><th>Idea</th><th>Chi la sostiene</th><th>Limite</th></tr></thead>
+    <tbody>
+      <tr><td>Sì</td><td>se si comporta in modo intelligente, è intelligente</td><td>Turing, con il suo test</td><td>il comportamento può ingannare, come con Hans</td></tr>
+      <tr><td>No</td><td>senza comprensione non c’è intelligenza</td><td>Searle, con la stanza cinese</td><td>che cos’è esattamente la comprensione?</td></tr>
+      <tr><td>Dipende</td><td>da che cosa intendiamo per intelligenza: svolgere compiti o capire</td><td>chi parte dalla definizione (capitolo 4)</td><td>rimanda la domanda alla definizione, ma non la risolve</td></tr>
+    </tbody></table></div>
   <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
     <ul>
-      <li>Un computer esegue solo istruzioni semplicissime, di calcolo, logiche e di memoria e salto, ma velocissime: è veloce, non intelligente.</li>
-      <li>Un algoritmo è un procedimento finito di passi elementari che trasforma dati in ingresso in dati in uscita per risolvere un problema.</li>
-      <li>Un buon algoritmo è finito, non ambiguo, efficace, efficiente, generale e fatto di passi elementari che il computer sa eseguire.</li>
-      <li>Lo stesso algoritmo si scrive in forme diverse, e da pseudocodice o diagramma di flusso si arriva a qualsiasi linguaggio di programmazione.</li>
+      <li>Il test di Turing misura quanto bene una macchina imita una persona, non quanto sia intelligente: superarlo non prova che pensi.</li>
+      <li>Nella stanza cinese di Searle si risponde bene seguendo regole su simboli senza capire: manipolare simboli non è capire.</li>
+      <li>Se un computer possa essere intelligente resta una domanda aperta: la risposta dipende da che cosa chiamiamo intelligenza.</li>
     </ul></div>
+  </section>
   </section>
 
   </div>

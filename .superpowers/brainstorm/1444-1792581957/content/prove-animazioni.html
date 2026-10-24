@@ -1,0 +1,184 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@700;800&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<h2>Prove di animazione (usa e getta)</h2>
+<p class="subtitle">Due prove con GSAP e Three.js. Servono solo a giudicare la qualità: non entrano nel sito. Usa i pulsanti e, nella seconda, trascina con il mouse.</p>
+<style>
+  .pv{font-family:Inter,sans-serif;color:#e8eef4;background:#0a1b24;border-radius:12px;overflow:hidden;position:relative;margin:0 0 8px;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+  .pv .tt{position:absolute;left:24px;top:18px;z-index:3;font:800 24px/1.1 'Bricolage Grotesque',Inter;letter-spacing:-.02em}
+  .pv .tt small{display:block;font:600 12px Inter;letter-spacing:.1em;text-transform:uppercase;color:#7fe0d2;margin-bottom:4px}
+  .pv svg{display:block;width:100%;height:auto}
+  .pv .bar{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;gap:10px;padding:12px 18px;background:linear-gradient(transparent,rgba(5,14,20,.92) 40%);flex-wrap:wrap}
+  .pv .bar button{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;border-radius:99px;font:600 13px Inter;padding:8px 14px;cursor:pointer;backdrop-filter:blur(6px)}
+  .pv .bar button.p{background:#13a596;border-color:#13a596;color:#04211e}
+  .pv .bar .cap{flex:1 1 260px;font:500 15px/1.35 Inter;color:#cfe6ea;min-height:40px;display:flex;align-items:center}
+  .pv .bar .n{font:600 12px 'JetBrains Mono',monospace;color:#8fb3bd}
+  .lab3{margin:0 0 28px;font-size:.92em;opacity:.9}
+  #c3d{position:relative;height:460px;touch-action:none;cursor:grab}
+  #c3d canvas{display:block;width:100%;height:100%}
+  .pn{position:absolute;z-index:2;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:#13a596;color:#04211e;font:700 15px/30px Inter;text-align:center;box-shadow:0 0 0 4px rgba(255,255,255,.65),0 2px 10px rgba(0,0,0,.5);pointer-events:none;transition:opacity .3s}
+  .pnl{position:absolute;z-index:2;left:0;top:0;font:600 14px Inter;color:#fff;background:rgba(10,27,36,.8);border:1px solid rgba(127,224,210,.4);padding:4px 10px;border-radius:99px;pointer-events:none;transition:opacity .3s;white-space:nowrap}
+</style>
+
+<div class="label">PROVA 1 · GSAP + SVG · «Se un cavo si rompe»</div>
+<div class="pv" id="pv1">
+  <div class="tt"><small>4.2 · Cavi sottomarini</small>Il traffico trova un'altra strada</div>
+  <svg id="s1" viewBox="0 0 720 360">
+    <defs>
+      <radialGradient id="mare" cx="50%" cy="40%" r="75%"><stop offset="0" stop-color="#14465a"/><stop offset="1" stop-color="#071820"/></radialGradient>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <pattern id="onde" width="40" height="22" patternUnits="userSpaceOnUse"><path d="M0 11 Q10 5 20 11 T40 11" fill="none" stroke="#9fe3ee" stroke-opacity=".06" stroke-width="1.5"/></pattern>
+    </defs>
+    <rect width="720" height="360" fill="url(#mare)"/><rect width="720" height="360" fill="url(#onde)"/>
+    <path d="M0 0 H150 C140 40 120 70 90 95 C70 115 40 118 0 130Z" fill="#1c5668"/>
+    <path d="M720 0 H600 C610 50 640 80 665 112 C690 140 705 150 720 150Z" fill="#1c5668"/>
+    <path id="cC" d="M90 170 C230 150 490 150 630 170" fill="none" stroke="#7fe0d2" stroke-opacity=".18" stroke-width="3"/>
+    <path id="cA" d="M90 170 C220 70 500 70 630 170" fill="none" stroke="#7fe0d2" stroke-opacity=".35" stroke-width="4"/>
+    <path id="cB" d="M90 170 C230 250 490 250 630 170" fill="none" stroke="#7fe0d2" stroke-opacity=".35" stroke-width="4"/>
+    <path id="lA" d="M90 170 C220 70 500 70 630 170" fill="none" stroke="#f2c46a" stroke-width="4.5" stroke-linecap="round" filter="url(#glow)"/>
+    <path id="lB" d="M90 170 C230 250 490 250 630 170" fill="none" stroke="#7fe0d2" stroke-width="4.5" stroke-linecap="round" filter="url(#glow)"/>
+    <g font-family="Inter" font-size="13" font-weight="600" fill="#cfe6ea" text-anchor="middle">
+      <text x="360" y="62" id="tA">cavo A</text><text x="360" y="262" id="tB">cavo B</text>
+    </g>
+    <g id="roma"><circle cx="90" cy="170" r="16" fill="#0a1b24" stroke="#fff" stroke-width="3"/><circle cx="90" cy="170" r="6" fill="#fff"/><text x="90" y="205" font-family="Inter" font-weight="700" font-size="15" fill="#fff" text-anchor="middle">Roma</text></g>
+    <g id="ny"><circle cx="630" cy="170" r="16" fill="#0a1b24" stroke="#fff" stroke-width="3"/><circle cx="630" cy="170" r="6" fill="#fff"/><text x="630" y="205" font-family="Inter" font-weight="700" font-size="15" fill="#fff" text-anchor="middle">New York</text></g>
+    <g id="ok" opacity="0"><circle cx="630" cy="170" r="16" fill="none" stroke="#7fe0d2" stroke-width="3"/></g>
+    <g id="ring" opacity="0"><circle cx="360" cy="95" r="10" fill="none" stroke="#ff6b5a" stroke-width="3"/></g>
+    <g id="ancora" transform="translate(360 -60)"><g stroke="#e8eef4" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="0" cy="-22" r="5"/><path d="M0 -17 V22 M-12 -6 H12 M-22 8 C-22 22 -8 28 0 22 C8 28 22 22 22 8"/></g></g>
+    <g id="x" opacity="0" transform="translate(360 95)"><circle r="15" fill="#3a1511" stroke="#ff6b5a" stroke-width="2.5"/><path d="M-5.5 -5.5l11 11M5.5 -5.5l-11 11" stroke="#ff6b5a" stroke-width="3" stroke-linecap="round"/></g>
+    <g id="pk" opacity="0"><circle r="13" fill="#f2c46a" opacity=".28"/><circle r="7" fill="#fff3d0" stroke="#f2c46a" stroke-width="2"/></g>
+    <g id="lat" transform="translate(24 262)"><rect width="170" height="34" rx="17" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.2)"/><text x="16" y="22" font-family="Inter" font-size="13" font-weight="600" fill="#8fb3bd">ritardo</text><text id="ms" x="154" y="23" font-family="Inter" font-size="16" font-weight="700" fill="#fff" text-anchor="end">70 ms</text></g>
+  </svg>
+  <div class="bar"><button id="b1p">◀</button><button class="p" id="b1n">Avanti ▶</button><button id="b1r">Ricomincia</button><span class="n" id="n1">1 / 4</span><div class="cap" id="cap1"></div></div>
+</div>
+<p class="lab3"><b>Cosa guardare:</b> il pacchetto (luce) scorre lungo il cavo con una scia che si disegna; l'ancora cade con un piccolo rimbalzo; il cavo si spezza con un anello d'urto; il traffico passa su B e il ritardo sale da 70 a 94 ms con un contatore. I movimenti hanno accelerazioni naturali, non lineari.</p>
+
+<div class="label">PROVA 2 · Three.js · il cavo in 3D (trascina per ruotare)</div>
+<div class="pv" id="pv2">
+  <div class="tt"><small>4.2 · Dentro il cavo</small>Strato dopo strato</div>
+  <div id="c3d"></div>
+  <div class="pn" id="p1">1</div><div class="pn" id="p2">2</div><div class="pn" id="p3">3</div>
+  <div class="pnl" id="l1">Fibre ottiche</div><div class="pnl" id="l2">Armatura d'acciaio</div><div class="pnl" id="l3">Nylon e catrame</div>
+  <div class="bar"><button class="p" id="b2e">Apri a strati</button><button id="b2c">Richiudi</button><div class="cap">Trascina con il mouse per girare il cavo; i numeri sono gli stessi della foto.</div></div>
+</div>
+<p class="lab3"><b>Cosa guardare:</b> il cavo vero in 3D, che puoi girare; «Apri a strati» lo scompone dalla fibra all'esterno. I numeri seguono gli strati mentre ruoti.</p>
+
+<script>
+(function(){
+  gsap.registerPlugin(MotionPathPlugin);
+  var $=function(s){return document.querySelector(s)};
+  var len=function(id){return $(id).getTotalLength()};
+  var LA=len('#lA'), LB=len('#lB');
+  gsap.set('#lA',{strokeDasharray:LA,strokeDashoffset:LA});
+  gsap.set('#lB',{strokeDasharray:LB,strokeDashoffset:LB});
+  gsap.set('#pk',{transformOrigin:'50% 50%'});
+  var caps=[
+    'Un pacchetto parte da Roma e scende nel cavo A.',
+    'Attraversa l\'oceano nel cavo A e arriva a New York.',
+    'Un\'ancora danneggia il cavo A: il collegamento si interrompe.',
+    'Il pacchetto successivo viene deviato sul cavo B: arriva lo stesso, un po\' più lento.'
+  ];
+  var ms={v:70};
+  function setCap(i){var e=$('#cap1');gsap.to(e,{opacity:0,y:6,duration:.15,onComplete:function(){e.textContent=caps[i];$('#n1').textContent=(i+1)+' / 4';gsap.to(e,{opacity:1,y:0,duration:.3})}})}
+  var tl=gsap.timeline({paused:true,defaults:{ease:'power2.inOut'}});
+  // 1: il pacchetto parte
+  tl.addLabel('s1').call(setCap,[0],'s1')
+    .set('#pk',{opacity:1,motionPath:{path:'#cA',align:'#cA',alignOrigin:[.5,.5],start:0,end:0}},'s1')
+    .fromTo('#pk',{scale:0},{scale:1,duration:.5,ease:'back.out(2)'},'s1')
+    .to('#lA',{strokeDashoffset:LA*.72,duration:1.1,ease:'power1.in'},'s1+=.2')
+    .to('#pk',{motionPath:{path:'#cA',align:'#cA',alignOrigin:[.5,.5],start:0,end:.28},duration:1.1,ease:'power1.in'},'s1+=.2');
+  // 2: attraversa
+  tl.addLabel('s2').call(setCap,[1],'s2')
+    .to('#lA',{strokeDashoffset:0,duration:1.8,ease:'power1.inOut'},'s2')
+    .to('#pk',{motionPath:{path:'#cA',align:'#cA',alignOrigin:[.5,.5],start:.28,end:1},duration:1.8,ease:'power1.inOut'},'s2')
+    .to('#ok',{opacity:1,duration:.1},'s2+=1.75')
+    .fromTo('#ok circle',{attr:{r:16},strokeOpacity:1},{attr:{r:34},strokeOpacity:0,duration:.9,ease:'power2.out'},'s2+=1.75')
+    .to('#pk',{scale:0,opacity:0,duration:.3},'s2+=1.8');
+  // 3: l'ancora
+  tl.addLabel('s3').call(setCap,[2],'s3')
+    .to('#ancora',{y:150,duration:.7,ease:'power3.in'},'s3')
+    .to('#ancora',{y:140,duration:.18,ease:'power2.out'},'s3+=.7')
+    .set('#ring',{opacity:1},'s3+=.7')
+    .fromTo('#ring circle',{attr:{r:8},strokeOpacity:1,strokeWidth:5},{attr:{r:46},strokeOpacity:0,strokeWidth:1,duration:.8,ease:'power2.out'},'s3+=.7')
+    .to('#lA',{stroke:'#ff6b5a',duration:.15},'s3+=.7')
+    .to('#lA',{opacity:.2,duration:.5},'s3+=.9')
+    .to('#cA',{strokeOpacity:.12,stroke:'#ff6b5a',strokeDasharray:'6 8',duration:.4},'s3+=.9')
+    .fromTo('#x',{opacity:0,scale:0},{opacity:1,scale:1,duration:.4,ease:'back.out(3)'},'s3+=.95')
+    .to('#ancora',{opacity:0,y:200,duration:.6,ease:'power1.in'},'s3+=1.2')
+    .to('#tA',{fill:'#ff9e94',duration:.3},'s3+=.9');
+  // 4: deviazione su B
+  tl.addLabel('s4').call(setCap,[3],'s4')
+    .set('#pk',{opacity:1,scale:1,motionPath:{path:'#cB',align:'#cB',alignOrigin:[.5,.5],start:0,end:0}},'s4')
+    .to('#lB',{strokeDashoffset:0,duration:2.2,ease:'power1.inOut'},'s4')
+    .to('#pk',{motionPath:{path:'#cB',align:'#cB',alignOrigin:[.5,.5],start:0,end:1},duration:2.2,ease:'power1.inOut'},'s4')
+    .to('#cB',{strokeOpacity:.7,duration:.4},'s4')
+    .to(ms,{v:94,duration:2.2,ease:'power1.inOut',onUpdate:function(){$('#ms').textContent=Math.round(ms.v)+' ms'}},'s4')
+    .to('#ms',{fill:'#f2c46a',duration:.4},'s4+=1.2')
+    .set('#ok',{opacity:1},'s4+=2.15')
+    .fromTo('#ok circle',{attr:{r:16},strokeOpacity:1},{attr:{r:34},strokeOpacity:0,duration:.9,ease:'power2.out'},'s4+=2.15')
+    .to('#pk',{scale:0,opacity:0,duration:.3},'s4+=2.2');
+  var order=['s1','s2','s3','s4'],cur=-1;
+  // avvio: tutto il passo i va da label i a label i+1; si parte dall'inizio dello stato giusto
+  function play(i){
+    i=Math.max(0,Math.min(3,i)); cur=i;
+    var a=tl.labels[order[i]], b=i<3?tl.labels[order[i+1]]:tl.duration();
+    tl.pause(); gsap.killTweensOf(tl);
+    tl.time(a); tl.tweenTo(b,{ease:'none',duration:b-a});
+  }
+  $('#b1n').onclick=function(){play(cur<3?cur+1:3)};
+  $('#b1p').onclick=function(){play(cur>0?cur-1:0)};
+  $('#b1r').onclick=function(){tl.pause(0);gsap.set('#cA',{strokeOpacity:.35,stroke:'#7fe0d2',strokeDasharray:'none'});gsap.set('#tA',{fill:'#cfe6ea'});gsap.set('#ms',{fill:'#fff'});ms.v=70;$('#ms').textContent='70 ms';gsap.set('#lA',{stroke:'#f2c46a',opacity:1});gsap.set('#x,#ok,#ring,#pk',{opacity:0});gsap.set('#ancora',{y:0,opacity:1});cur=-1;play(0)};
+  var h=(location.hash.match(/p1=(\d)/)||[]);
+  if(h[1]){var k=+h[1];tl.seek(k<3?tl.labels[order[k+1]]:tl.duration()); cur=k; $('#cap1').textContent=caps[k]; $('#n1').textContent=(k+1)+' / 4'; $('#ms').textContent=k>2?'94 ms':'70 ms'}
+  else{ $('#cap1').textContent=caps[0]; $('#b1r').click(); }
+})();
+
+(function(){
+  var box=document.getElementById('c3d'); if(!box||!window.THREE)return;
+  var W=box.clientWidth,H=box.clientHeight;
+  var scene=new THREE.Scene(); scene.background=new THREE.Color(0x0a1b24);
+  var cam=new THREE.PerspectiveCamera(38,W/H,.1,100); cam.position.set(0,.8,8.6);
+  var ren=new THREE.WebGLRenderer({antialias:true}); ren.setPixelRatio(Math.min(devicePixelRatio,2)); ren.setSize(W,H); box.appendChild(ren.domElement);
+  scene.add(new THREE.AmbientLight(0xffffff,.8));
+  var d1=new THREE.DirectionalLight(0xffffff,1.3); d1.position.set(4,6,6); scene.add(d1);
+  var d2=new THREE.DirectionalLight(0x7fe0d2,.35); d2.position.set(-5,-2,-3); scene.add(d2);
+  var cable=new THREE.Group(); scene.add(cable);
+  var L=1.2;
+  function disc(r,h,color,opt){var m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,h,72),new THREE.MeshStandardMaterial(Object.assign({color:color,roughness:.6,metalness:.1},opt||{})));m.rotation.x=Math.PI/2;return m}
+  var gOut=new THREE.Group(); gOut.add(disc(1.9,L,0x2b3038,{roughness:.85})); var inner=disc(1.62,L+.02,0x3a414b,{roughness:.85}); gOut.add(inner);
+  var gArm=new THREE.Group(); for(var i=0;i<20;i++){var a=i/20*Math.PI*2;var w=disc(.2,L+.04,0xc9cfd6,{metalness:.85,roughness:.28});w.position.set(Math.cos(a)*1.28,Math.sin(a)*1.28,0);gArm.add(w)}
+  var gIns=new THREE.Group(); gIns.add(disc(.98,L,0xf1f1ee,{roughness:.5}));
+  var gCu=new THREE.Group(); var tube=new THREE.Mesh(new THREE.TorusGeometry(.64,.12,24,64),new THREE.MeshStandardMaterial({color:0xe08a3c,metalness:.7,roughness:.3}));tube.scale.z=1.4;gCu.add(tube); gCu.add(disc(.5,L*.7,0x9aa6ad,{metalness:.6,roughness:.4}));
+  var gFib=new THREE.Group(); gFib.add(disc(.12,L+.5,0x7fe0d2,{emissive:0x23b8a6,emissiveIntensity:.9,roughness:.2}));
+  [gOut,gArm,gIns,gCu,gFib].forEach(function(g){cable.add(g)});
+  cable.rotation.set(-.3,.95,0);
+  var tgt={y:.7},auto=true,drag=false,px=0,py=0;
+  var el=ren.domElement;
+  el.addEventListener('pointerdown',function(e){drag=true;auto=false;px=e.clientX;py=e.clientY;el.setPointerCapture(e.pointerId);box.style.cursor='grabbing'});
+  el.addEventListener('pointerup',function(){drag=false;box.style.cursor='grab'});
+  el.addEventListener('pointermove',function(e){if(!drag)return;cable.rotation.y+=(e.clientX-px)*.01;cable.rotation.x=Math.max(-1.2,Math.min(1.2,cable.rotation.x+(e.clientY-py)*.008));px=e.clientX;py=e.clientY});
+  var vec=new THREE.Vector3();
+  function pin(id,idl,obj,dx,dy){var p=document.getElementById(id),l=document.getElementById(idl);vec.setFromMatrixPosition(obj.matrixWorld);vec.project(cam);var x=(vec.x*.5+.5)*box.clientWidth,y=(-vec.y*.5+.5)*box.clientHeight;p.style.left=x+'px';p.style.top=y+'px';l.style.left=(x+dx)+'px';l.style.top=(y+dy-12)+'px'}
+  var A1=new THREE.Object3D(),A2=new THREE.Object3D(),A3=new THREE.Object3D();
+  gFib.add(A1);A1.position.set(0,0,.55);
+  gArm.add(A2);A2.position.set(1.28*Math.cos(.8),1.28*Math.sin(.8),.2);
+  gOut.add(A3);A3.position.set(-1.5,-.9,.62);
+  var T={e:0};
+  function layout(){
+    var e=T.e;
+    gOut.position.z=-1.5*e; gArm.position.z=-.5*e; gIns.position.z=.5*e; gCu.position.z=1.4*e; gFib.position.z=2.3*e;
+  }
+  var run=function(){
+    requestAnimationFrame(run);
+    if(auto&&!drag)cable.rotation.y+=.004;
+    layout(); cable.updateMatrixWorld(true);
+    pin('p1','l1',A1,22,-8);pin('p2','l2',A2,22,-8);pin('p3','l3',A3,-170,18);
+    ren.render(scene,cam);
+  }; run();
+  document.getElementById('b2e').onclick=function(){gsap.to(T,{e:1,duration:1.4,ease:'power3.inOut'})};
+  document.getElementById('b2c').onclick=function(){gsap.to(T,{e:0,duration:1.1,ease:'power3.inOut'})};
+  window.addEventListener('resize',function(){var w=box.clientWidth,h=box.clientHeight;ren.setSize(w,h);cam.aspect=w/h;cam.updateProjectionMatrix()});
+  if(/p2=1/.test(location.hash)){T.e=1}else{setTimeout(function(){gsap.to(T,{e:1,duration:1.6,ease:'power3.inOut'})},900)}
+})();
+</script>

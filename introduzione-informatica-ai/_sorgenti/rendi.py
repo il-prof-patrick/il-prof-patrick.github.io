@@ -16,6 +16,7 @@ from webconv import T
 
 QUI = os.path.dirname(os.path.abspath(__file__))
 CONT = json.load(open(os.path.join(QUI, 'contenuto.json'), encoding='utf8'))
+def cap_json(n): return next(c for c in CONT['chapters'] if c['n'] == n)
 
 
 def html(s):
@@ -39,7 +40,7 @@ def tit_breve(x):
 
 
 def capitolo(n, conf, out):
-    C = CONT['chapters'][n - 1]
+    C = cap_json(n)
     corr = conf.get('CORREZIONI', [])      # rimandi e piccoli errori del Word da sistemare prima di rendere
     if corr:
         j = json.dumps(C, ensure_ascii=False)

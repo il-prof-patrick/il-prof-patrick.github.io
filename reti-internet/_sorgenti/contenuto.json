@@ -3013,28 +3013,67 @@
      "num": "4.13"
     },
     {
-     "titolo": "Siti, server e domini",
+     "titolo": "Hosting e housing: dove vive un sito",
      "blocchi": [
       {
        "t": "p",
-       "x": "Per pubblicare un sito servono tre cose: i **file del sito** (HTML, CSS, immagini), un **server web** sempre acceso e collegato a Internet che li distribuisca, e un **nome a dominio** che le persone possano ricordare."
+       "x": "Un sito ha bisogno di un **server web** sempre acceso e collegato a Internet. Ma di chi è quel computer, e chi se ne occupa? Ci sono due soluzioni, **hosting** e **housing**, che sono spesso confuse."
       },
       {
        "t": "list",
        "items": [
-        "Un **server web** è **un programma che ascolta le richieste HTTP e risponde inviando le risorse**, e per estensione il computer su cui gira. I programmi più diffusi sono nginx e Apache;",
-        "l’**hosting** è **il servizio con cui un’azienda ospita i file di un sito sui propri server**, a pagamento o gratis: quasi nessuno tiene il server a casa propria;",
-        "il **dominio** si **registra** pagando una piccola cifra annuale a un **registrar**, un’azienda autorizzata; il dominio resta proprio finché si rinnova la registrazione."
+        "l’**hosting** è **il servizio con cui un’azienda, il provider, ti affitta spazio e risorse su un proprio server**, spesso condiviso con altri siti. Il server è del provider, che lo gestisce, lo aggiorna e lo ripara;",
+        "l’**housing** (detto anche *colocation*) è **il servizio con cui un’azienda ospita nel proprio data center un server che è tuo**. Il provider mette a disposizione spazio, corrente, raffreddamento e connessione a Internet; il server e il software li gestisci tu."
        ]
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "",
+         "Hosting",
+         "Housing"
+        ],
+        [
+         "**Di chi è il server**",
+         "del provider, spesso condiviso con altri clienti",
+         "tuo, in uno spazio affittato nel data center"
+        ],
+        [
+         "**Chi se ne occupa**",
+         "il provider",
+         "tu: hardware, sistema e programmi"
+        ],
+        [
+         "**Costo**",
+         "basso, da pochi euro al mese (anche gratis)",
+         "più alto: si compra il server e si paga lo spazio"
+        ],
+        [
+         "**Controllo**",
+         "limitato a ciò che il provider permette",
+         "totale, anche sull’hardware"
+        ],
+        [
+         "**Competenze**",
+         "poche",
+         "molte"
+        ],
+        [
+         "**Quando conviene**",
+         "siti scolastici, blog, piccoli negozi online",
+         "dati molto riservati, traffico enorme, hardware speciale (ad esempio server con GPU per l’IA)"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "In entrambi i casi serve anche un **dominio**, il nome che le persone ricordano. Si **registra** pagando una piccola cifra annuale a un **registrar**, un’azienda autorizzata, e resta proprio finché si rinnova la registrazione. I domini **.it** sono gestiti dal **Registro .it** presso il **CNR di Pisa**, la città da cui partì la prima connessione italiana a Internet nel 1986."
       },
       {
        "t": "box",
        "k": "esempio",
-       "x": "I domini .it sono gestiti dal **Registro .it**, che ha sede presso l’Istituto di Informatica e Telematica del **CNR di Pisa**: la stessa città da cui partì la prima connessione italiana a Internet nel 1986. Esistono oggi più di tre milioni e mezzo di domini .it (valore indicativo)."
-      },
-      {
-       "t": "p",
-       "x": "Per un sito semplice esistono anche servizi **gratuiti** che fanno tutto insieme: **Google Sites** permette di costruire un sito con un editor visuale e lo pubblica su un indirizzo di Google; GitHub Pages pubblica gratis siti fatti di file statici."
+       "x": "Un servizio **gratuito** come **GitHub Pages** (siti fatti di file statici) o **Google Sites** (editor visuale, indirizzo di Google) è un hosting già pronto: file, server e indirizzo in un unico servizio, senza dominio proprio."
       },
       {
        "t": "box",
@@ -3043,14 +3082,14 @@
       },
       {
        "t": "errore",
-       "errata": "«Se compro un dominio, ho già un sito.»",
-       "corretta": "Il dominio è **solo il nome**: servono anche l’**hosting** che conservi e distribuisca i file e i file stessi del sito. Senza hosting il dominio non porta da nessuna parte."
+       "errata": "«Hosting e housing sono due nomi dello stesso servizio.»",
+       "corretta": "Con l’**hosting** si **affitta** un server (o una parte) del provider; con l’**housing** il server è **tuo** e si affitta solo il posto in cui tenerlo, con corrente e connessione. Cambiano proprietà, controllo e costi."
       },
       {
        "t": "domanda",
-       "q": "Che cosa succede a un sito se il proprietario dimentica di rinnovare il dominio?",
-       "scopo": "far anticipare il ragionamento",
-       "risposta": "Il nome smette di funzionare e, dopo un periodo, può essere registrato da chiunque, anche da truffatori che sfruttano le visite e i link verso il vecchio sito."
+       "q": "Una classe vuole pubblicare il suo sito di quest’anno; una startup vuole far girare un modello di IA su server con GPU di sua proprietà. Chi sceglie hosting e chi housing?",
+       "scopo": "applicare il confronto",
+       "risposta": "La classe sceglie un hosting, anche gratuito: è semplice ed economico. La startup sceglie l’housing: l’hardware è suo e speciale, e ha bisogno solo di uno spazio con corrente, raffreddamento e connessione veloce."
       }
      ],
      "num": "4.14"
@@ -3106,7 +3145,7 @@
     "Una pagina è fatta di **HTML** (struttura e contenuto, linguaggio di **marcatura**), **CSS** (aspetto) e **JavaScript** (comportamento). Le pagine **statiche** sono uguali per tutti, quelle **dinamiche** sono generate dal server a ogni richiesta.",
     "Il **browser** è il client che chiede, interpreta e mostra le pagine con il suo **motore di rendering**; i principali sono Chrome, Safari, Edge e Firefox. **Mosaic** (1993) portò le immagini nel Web.",
     "La **cronologia** elenca le pagine viste, la **cache** ne conserva copie per caricarle prima, i **cookie** permettono ai siti di ricordarsi dell’utente; quelli di **profilazione** e di **terze parti** richiedono il **consenso**. L’**incognito** non salva tracce sul dispositivo ma **non rende anonimi**.",
-    "Per pubblicare un sito servono **file**, un **server web** (spesso in **hosting**) e un **dominio** registrato presso un **registrar**; i .it sono gestiti dal Registro del **CNR di Pisa**.",
+    "Un sito ha bisogno di un **server web** e di un **dominio**: con l’**hosting** si affitta un server del provider (economico, poco controllo), con l’**housing** si porta il proprio server nel data center di un provider (più costoso, controllo totale, serve competenza); il dominio si registra presso un **registrar** e i .it sono gestiti dal Registro del **CNR di Pisa**.",
     "Il **surface web** è indicizzato; il **deep web**, la parte più grande e normale, no; il **dark web** è una piccola parte raggiungibile solo con software come **Tor**."
    ]
   },
@@ -3253,6 +3292,43 @@
        "x": "Le notizie false si diffondono **più velocemente** di quelle vere: sono spesso più sorprendenti e suscitano **emozioni forti** (rabbia, paura, indignazione), e chi le riceve le condivide prima di controllare. Una ricerca del MIT pubblicata nel **2018** su *Science* ha mostrato che su Twitter le notizie false raggiungevano le persone molto più in fretta di quelle vere, e che a diffonderle erano soprattutto persone, non bot."
       },
       {
+       "t": "h3",
+       "x": "Il feed e l’algoritmo di raccomandazione"
+      },
+      {
+       "t": "p",
+       "x": "Ogni giorno vengono pubblicati miliardi di contenuti: nessuno potrebbe vederli tutti. Il **feed** (la pagina che scorre) e la pagina “Per te” sono costruiti da un **algoritmo di raccomandazione**: **un programma che sceglie, tra tutti i contenuti disponibili, quelli che una persona ha più probabilità di guardare a lungo, apprezzare, commentare o condividere**, e li mette in ordine."
+      },
+      {
+       "t": "p",
+       "x": "Gli algoritmi moderni sono sistemi di **intelligenza artificiale** basati sull’apprendimento automatico: **imparano da ciò che ogni utente fa**. Non contano solo i “mi piace”: pesano moltissimo i segnali che non si controllano consapevolmente, come **quanti secondi si resta su un video**, se lo si riguarda, se si scorre via subito. Il criterio principale è l’**engagement** (coinvolgimento): ciò che trattiene l’utente."
+      },
+      {
+       "t": "figura",
+       "tipo": "animazione",
+       "id": "F8.3.1",
+       "x": "Fa capire: come il feed impara in fretta da piccoli segnali e si restringe su un tema. Scena iniziale: un telefono con un feed di video di colori diversi (sport, musica, cucina, animali, videogiochi); a lato un pannello “profilo” con barre degli interessi tutte basse e uguali.",
+       "passi": [
+        "L’utente scorre: su un video di cucina si ferma 20 secondi; la barra “cucina” sale.",
+        "Il feed propone due video di cucina in più; l’utente li guarda entrambi fino alla fine; la barra sale ancora.",
+        "Dopo pochi minuti quasi tutti i video sono di cucina, ed è sparita la varietà iniziale.",
+        "L’utente guarda per sbaglio un video di una lite: lo guarda fino alla fine. Compaiono subito altri video di liti: l’algoritmo ha registrato che “trattengono”."
+       ]
+      },
+      {
+       "t": "h3",
+       "x": "Bolle e camere dell’eco"
+      },
+      {
+       "t": "p",
+       "x": "Poiché l’algoritmo mostra ciò che piace, ogni utente tende a vedere **sempre più contenuti simili a quelli che ha già apprezzato**: è la **bolla dei filtri**. Nelle discussioni politiche e sociali questo può creare **camere dell’eco** (*echo chambers*): **gruppi in cui tutti la pensano allo stesso modo e si rafforzano a vicenda**, mentre le idee diverse non arrivano o arrivano solo come caricatura."
+      },
+      {
+       "t": "errore",
+       "errata": "«Il feed mi mostra ciò che succede, in ordine.»",
+       "corretta": "Il feed mostra ciò che **l’algoritmo prevede che ti tratterrà** di più, non tutto ciò che succede né in ordine di tempo; due persone vedono feed molto diversi."
+      },
+      {
        "t": "p",
        "x": "Trovare un’informazione è facile; **capire se è affidabile è la vera competenza**. Su Internet chiunque può pubblicare qualsiasi cosa, senza nessun controllo preventivo. Prima di usare una fonte conviene farsi alcune domande:"
       },
@@ -3306,39 +3382,6 @@
        "t": "errore",
        "errata": "«Su Wikipedia può scrivere chiunque, quindi non è affidabile.»",
        "corretta": "Può scrivere chiunque, ma **può correggere chiunque**, e le voci più lette sono verificate di continuo. Il limite è un altro: va usata come **porta verso le fonti**, non come fonte unica."
-      },
-      {
-       "t": "p",
-       "x": "Ogni giorno vengono pubblicati miliardi di contenuti: nessuno potrebbe vederli tutti. Il **feed** (la pagina che scorre) e la pagina “Per te” sono costruiti da un **algoritmo di raccomandazione**: **un programma che sceglie, tra tutti i contenuti disponibili, quelli che una persona ha più probabilità di guardare a lungo, apprezzare, commentare o condividere**, e li mette in ordine."
-      },
-      {
-       "t": "p",
-       "x": "Gli algoritmi moderni sono sistemi di **intelligenza artificiale** basati sull’apprendimento automatico: **imparano da ciò che ogni utente fa**. Non contano solo i “mi piace”: pesano moltissimo i segnali che non si controllano consapevolmente, come **quanti secondi si resta su un video**, se lo si riguarda, se si scorre via subito. Il criterio principale è l’**engagement** (coinvolgimento): ciò che trattiene l’utente."
-      },
-      {
-       "t": "figura",
-       "tipo": "animazione",
-       "id": "F8.3.1",
-       "x": "Fa capire: come il feed impara in fretta da piccoli segnali e si restringe su un tema. Scena iniziale: un telefono con un feed di video di colori diversi (sport, musica, cucina, animali, videogiochi); a lato un pannello “profilo” con barre degli interessi tutte basse e uguali.",
-       "passi": [
-        "L’utente scorre: su un video di cucina si ferma 20 secondi; la barra “cucina” sale.",
-        "Il feed propone due video di cucina in più; l’utente li guarda entrambi fino alla fine; la barra sale ancora.",
-        "Dopo pochi minuti quasi tutti i video sono di cucina, ed è sparita la varietà iniziale.",
-        "L’utente guarda per sbaglio un video di una lite: lo guarda fino alla fine. Compaiono subito altri video di liti: l’algoritmo ha registrato che “trattengono”."
-       ]
-      },
-      {
-       "t": "h3",
-       "x": "Bolle e camere dell’eco"
-      },
-      {
-       "t": "p",
-       "x": "Poiché l’algoritmo mostra ciò che piace, ogni utente tende a vedere **sempre più contenuti simili a quelli che ha già apprezzato**: è la **bolla dei filtri**. Nelle discussioni politiche e sociali questo può creare **camere dell’eco** (*echo chambers*): **gruppi in cui tutti la pensano allo stesso modo e si rafforzano a vicenda**, mentre le idee diverse non arrivano o arrivano solo come caricatura."
-      },
-      {
-       "t": "errore",
-       "errata": "«Il feed mi mostra ciò che succede, in ordine.»",
-       "corretta": "Il feed mostra ciò che **l’algoritmo prevede che ti tratterrà** di più, non tutto ciò che succede né in ordine di tempo; due persone vedono feed molto diversi."
       },
       {
        "t": "domanda",
@@ -4197,7 +4240,7 @@
        "t": "list",
        "items": [
         "**fidarsi diventa più difficile**: recensioni, commenti, numeri di follower e di visualizzazioni possono essere gonfiati, e quindi **non sono più una prova di popolarità o di qualità**;",
-        "**l’opinione pubblica può essere falsata**: migliaia di account automatici possono far sembrare maggioritaria un’idea che non lo è;",
+        "**l’opinione pubblica può essere falsata**: migliaia di account automatici possono far sembrare maggioritaria un’idea che non lo è, e il feed premia ciò che trattiene (paragrafo 5.4): i bot lo sfruttano per amplificare i contenuti più emotivi;",
         "**la qualità del Web si abbassa**: pagine scritte in serie per comparire nei motori di ricerca rendono più difficile trovare informazioni buone (paragrafo 5.1);",
         "**l’IA rischia di “mangiare se stessa”**: se i nuovi modelli vengono addestrati su testi scritti da altri modelli, la qualità può peggiorare di generazione in generazione. Uno studio pubblicato su *Nature* nel **2024** ha chiamato questo fenomeno **collasso del modello** (*model collapse*). Per questo i testi scritti da persone stanno diventando **sempre più preziosi**."
        ]

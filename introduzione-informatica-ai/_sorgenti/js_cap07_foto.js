@@ -1,4 +1,4 @@
-/* Capitolo 5 · indirizzi delle foto usate dalle scene (generato da capitolo_05.py) */
+/* Capitolo 7 · indirizzi delle foto usate dalle scene (generato da capitolo_07.py) */
 window.FU5 = {
   "gatto": "https://images.pexels.com/photos/8305815/pexels-photo-8305815.jpeg?auto=compress&cs=tinysrgb&w=1200",
   "volpe": "https://images.pexels.com/photos/247399/pexels-photo-247399.jpeg?auto=compress&cs=tinysrgb&w=1200",

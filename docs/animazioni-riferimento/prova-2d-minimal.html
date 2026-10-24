@@ -1,0 +1,72 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prova 2D minimal (usa e getta)</title>
+<style>
+:root{--bg:#fbfaf6;--ink:#1c2b2a;--mute:#6d7b79;--line:#cfd6d3;--teal:#0a6f66;--amber:#d9930a;--red:#c0392b}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 20px;display:grid;gap:16px}
+svg{width:100%;height:auto;display:block}
+.cap{min-height:60px;font-size:20px;line-height:30px;max-width:760px}.cap b{font-weight:600;color:var(--teal)}
+.bar{display:flex;gap:12px;align-items:center}
+button{font:600 16px Inter,system-ui,sans-serif;padding:11px 22px;border-radius:10px;border:1px solid var(--teal);background:var(--teal);color:var(--bg);cursor:pointer}
+button.s{background:transparent;color:var(--teal)}button:disabled{opacity:.35}
+.dots{display:flex;gap:8px;margin-left:8px}.dots i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .3s}.dots i.on{background:var(--teal)}
+text{font-family:Inter,system-ui,sans-serif;fill:var(--ink)}.m{fill:var(--mute)}
+</style></head><body><div class="wrap">
+<svg viewBox="0 0 960 420" role="img" aria-label="Un pacchetto va da Roma a New York nel cavo A; l’ancora lo rompe e il traffico passa dal cavo B">
+ <!-- coste -->
+ <g stroke="var(--line)" stroke-width="1.5"><line x1="250" y1="40" x2="250" y2="390"/><line x1="710" y1="40" x2="710" y2="390"/></g>
+ <g class="m" font-size="13" letter-spacing="2" text-anchor="middle"><text class="m" x="250" y="30">COSTA EUROPA</text><text class="m" x="710" y="30">COSTA AMERICA</text></g>
+ <!-- tratti di terra -->
+ <g fill="none" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="2 6" stroke-linecap="round"><path d="M110 210L250 130M110 210L250 210M110 210L250 330M850 210L710 130M850 210L710 210M850 210L710 330"/></g>
+ <!-- cavi -->
+ <g stroke="var(--line)" stroke-width="3" stroke-linecap="round"><line x1="250" y1="130" x2="710" y2="130"/><line x1="250" y1="210" x2="710" y2="210"/><line id="cA" x1="250" y1="330" x2="710" y2="330"/></g>
+ <g class="m" font-size="15" font-weight="600" text-anchor="middle"><text class="m" x="480" y="118">Cavo B</text><text class="m" x="480" y="198">Cavo C</text><text class="m" id="tA" x="480" y="354">Cavo A</text></g>
+ <text id="tB" x="480" y="150" text-anchor="middle" font-size="14" style="fill:var(--amber)" opacity="0">più traffico, un po’ più lento</text>
+ <text id="tR" x="480" y="372" text-anchor="middle" font-size="14" style="fill:var(--red)" opacity="0">interrotto</text>
+ <!-- punti di approdo -->
+ <g fill="var(--bg)" stroke="var(--mute)" stroke-width="2"><circle cx="250" cy="130" r="4"/><circle cx="250" cy="210" r="4"/><circle cx="250" cy="330" r="4"/><circle cx="710" cy="130" r="4"/><circle cx="710" cy="210" r="4"/><circle cx="710" cy="330" r="4"/></g>
+ <!-- taglio del cavo A -->
+ <rect id="gap" x="480" y="322" width="0" height="16" fill="var(--bg)"/>
+ <g id="ticks" opacity="0" stroke="var(--red)" stroke-width="3" stroke-linecap="round"><line x1="468" y1="321" x2="468" y2="339"/><line x1="492" y1="321" x2="492" y2="339"/></g>
+ <!-- percorso percorso -->
+ <path id="pA" d="M110 210L250 330L710 330L850 210" fill="none" stroke="var(--teal)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
+ <path id="pB" d="M110 210L250 130L710 130L850 210" fill="none" stroke="var(--amber)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
+ <!-- nodi -->
+ <g><circle cx="110" cy="210" r="9" style="fill:var(--ink)"/><text x="110" y="184" font-size="18" font-weight="600" text-anchor="middle">Roma</text><text class="m" x="110" y="246" font-size="14" text-anchor="middle">il tuo telefono</text></g>
+ <g><rect x="841" y="201" width="18" height="18" rx="3" style="fill:var(--ink)"/><text x="850" y="184" font-size="18" font-weight="600" text-anchor="middle">New York</text><text class="m" x="850" y="246" font-size="14" text-anchor="middle">il server</text></g>
+ <!-- ancora -->
+ <g id="anc" opacity="0" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="0" y1="-400" x2="0" y2="-14"/><circle cy="-10" r="4"/><path d="M0 -6V16M-10 5Q-10 17 0 18Q10 17 10 5M-7 -1H7"/></g>
+ <circle id="pk" r="7" cx="0" cy="0" style="fill:var(--ink)" opacity="0"/>
+</svg>
+<div class="cap" id="cap"></div>
+<div class="bar"><button id="b0" class="s">Da capo</button><button id="b1">Avanti</button><div class="dots" id="dots"><i></i><i></i><i></i><i></i></div></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+var $=function(s){return document.querySelector(s)};
+var caps=['Roma vuole parlare con un server a <b>New York</b>. In mezzo, sul fondo dell’oceano, ci sono tre cavi.',
+ 'Il pacchetto arriva alla costa e attraversa l’oceano nel <b>cavo A</b>.',
+ 'Arriva a New York in <b>meno di un decimo di secondo</b>.',
+ 'Un’<b>ancora</b> trascinata da una nave spezza il cavo A.',
+ 'Il pacchetto successivo passa dal <b>cavo B</b>: arriva lo stesso, solo un po’ più lento.'];
+var seq=0,busy=false,cap=$('#cap'),b1=$('#b1'),dots=document.querySelectorAll('#dots i');
+function say(i,d){cap.innerHTML=caps[i];dots.forEach(function(x,k){x.className=k<=d?'on':'';});}
+function run(sel,dur,done){var p=$(sel),L=p.getTotalLength(),o={d:0},pk=$('#pk');
+ p.style.strokeDasharray=L+' '+L;p.style.strokeDashoffset=L;gsap.set([p,pk],{opacity:1});
+ gsap.to(o,{d:L,duration:dur,ease:'power2.inOut',onUpdate:function(){var q=p.getPointAtLength(o.d);pk.setAttribute('cx',q.x);pk.setAttribute('cy',q.y);p.style.strokeDashoffset=L-o.d;},
+  onComplete:function(){gsap.to(pk,{opacity:0,duration:.3});done&&done();}});}
+function s1(){say(1,1);run('#pA',4.5,function(){say(2,1);busy=false;});}
+function s2(){say(3,2);var an=$('#anc');gsap.set(an,{x:480,y:60,opacity:1});
+ gsap.timeline({onComplete:function(){busy=false;}})
+  .to(an,{y:322,duration:.9,ease:'power3.in'})
+  .add(function(){gsap.set('#gap',{attr:{x:468,width:0}});gsap.to('#gap',{attr:{width:24},duration:.35,ease:'power2.out'});
+    gsap.to('#ticks',{opacity:1,duration:.3});gsap.to('#tR',{opacity:1,duration:.4});gsap.to('#tA',{opacity:.4,duration:.3});
+    gsap.to('#pA',{opacity:.0,duration:.01});gsap.to('#cA',{stroke:'var(--red)',opacity:.55,duration:.4});})
+  .to(an,{y:an._gsap?340:340,opacity:0,duration:.6,ease:'power1.in'},'+=.15');}
+function s3(){say(4,3);gsap.to('#tB',{opacity:1,duration:.5,delay:.5});run('#pB',5.5,function(){busy=false;b1.disabled=true;});}
+b1.onclick=function(){if(busy)return;busy=true;seq++;(seq==1?s1:seq==2?s2:s3)();};
+$('#b0').onclick=function(){location.reload();};
+say(0,0);
+var m=location.hash.match(/go=(\d)/);
+if(m){var n=+m[1];gsap.ticker.lagSmoothing(0);gsap.globalTimeline.timeScale(25);var i=0;(function go(){if(i>=n){gsap.globalTimeline.timeScale(1);return;}busy=false;b1.onclick();i++;setTimeout(go,400);})();}
+</script></body></html>

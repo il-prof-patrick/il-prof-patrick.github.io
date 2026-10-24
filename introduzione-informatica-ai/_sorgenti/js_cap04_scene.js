@@ -1,81 +1,54 @@
-/* Capitolo 4 · Come ragiona un computer — le quattro forme dello stesso algoritmo */
+/* Capitolo 4 · Che cos’è l’intelligenza — animazione sulle intelligenze multiple */
 (function () {
   'use strict';
   var K = window.SCENA, S = K.S, costruisci = K.costruisci;
-  var NB = '    ';
 
-  /* ===================== 4.4 · lo stesso algoritmo in quattro forme ===================== */
-  costruisci('f-quattro', function (svg, A) {
-    var LW = 350, LH = 256;
-    var CELLE = [[6, 6], [364, 6], [6, 268], [364, 268]];
-    var TIT = ['1 · Linguaggio naturale', '2 · Diagramma di flusso', '3 · Pseudocodice', '4 · Codice di programmazione'];
-    CELLE.forEach(function (c, i) {
-      A.box(c[0], c[1], LW, LH, 'nodo');
-      A.txt(c[0] + 14, c[1] + 22, TIT[i], 't-eti', {}, 'start');
+  /* ===================== 2.2 · chi è più intelligente? ===================== */
+  var FORME = ['Linguistica', 'Logico-matematica', 'Spaziale', 'Musicale', 'Corporeo-cinestetica', 'Interpersonale', 'Intrapersonale', 'Naturalistica'];
+  // punteggi di fantasia, da 0 a 10: servono solo a far vedere che i profili sono diversi
+  var RAGAZZI = [
+    ['Marta', 'prende dieci in matematica', 'calculator', [5, 10, 6, 3, 4, 5, 5, 4]],
+    ['Luca', 'va male in matematica ma suona tre strumenti', 'music', [5, 2, 4, 10, 5, 6, 6, 3]],
+    ['Sara', 'gioca a calcio: capisce lo spazio e la squadra', 'trophy', [4, 5, 9, 4, 10, 6, 5, 3]],
+    ['Omar', 'conosce ogni pianta e ogni animale del parco', 'leaf', [5, 5, 5, 3, 4, 5, 6, 10]]
+  ];
+  costruisci('f-gardner', function (svg, A) {
+    var X0 = 410, LARG = 290, Y0 = 18, PASSO = 36;
+    // scheda a sinistra
+    A.box(10, 14, 240, 292, 'fondo', { f: 4 });
+    A.icona('users', 130, 100, { s: 70, f: 0 });
+    A.txt(130, 170, 'Chi è più intelligente?', 't-b', { f: 0 });
+    A.txt(130, 200, 'Quattro ragazzi.', 't', { f: 0 });
+    A.txt(130, 220, 'Premi Avanti e guarda', 't-m', { f: 0 });
+    A.txt(130, 238, 'in che cosa sono forti.', 't-m', { f: 0 });
+    RAGAZZI.forEach(function (r, i) {
+      var P = { p: i + 1, f: i + 1 };
+      A.icona(r[2], 130, 90, { s: 64, tono: 'accent', p: i + 1, f: i + 1 });
+      A.txt(130, 160, r[0], 't-b', P);
+      var parole = r[1].split(' '), riga = '', righe = [];
+      parole.forEach(function (w) { if ((riga + ' ' + w).length > 28) { righe.push(riga); riga = w; } else riga = riga ? riga + ' ' + w : w; });
+      righe.push(riga);
+      righe.forEach(function (t, k) { A.txt(130, 190 + k * 20, t, 't', P); });
     });
-
-    // elenchi di righe [testo, passo]: prima le strisce che si accendono, poi il testo
-    function righe(cella, lista, passo, mono, fs) {
-      var x = CELLE[cella][0] + 14, y0 = CELLE[cella][1] + 56;
-      var y = y0, pos = [];
-      lista.forEach(function (r, k) { if (k && r[1] !== lista[k - 1][1]) y += 8; pos.push(y); y += passo; });
-      lista.forEach(function (r, k) { A.box(x - 6, pos[k] - 16, LW - 16, passo - 2, 'nodo evid', { p: r[1], f: r[1] }); });
-      lista.forEach(function (r, k) { var t = A.txt(x, pos[k], r[0], mono ? 't-mono' : 't', {}, 'start'); if (fs) t.style.fontSize = fs + 'px'; });
-    }
-    righe(0, [
-      ['1. Parti da un credito di zero.', 1],
-      ['2. Finché il credito è minore del prezzo,', 2], [NB + 'chiedi una moneta e aggiungila.', 2],
-      ['3. Quando il credito basta,', 3], [NB + 'prepara il caffè.', 3],
-      ['4. Se il credito supera il prezzo,', 4], [NB + 'restituisci la differenza come resto.', 4]], 24, false, 14);
-    righe(2, [
-      ['credito ← 0', 1], ['leggi prezzo', 1],
-      ['finché credito < prezzo', 2], [NB + 'leggi moneta', 2], [NB + 'credito ← credito + moneta', 2],
-      ['scrivi «Caffè pronto»', 3],
-      ['se credito > prezzo', 4], [NB + 'scrivi «Resto:», credito − prezzo', 4]], 23, true, 13);
-    righe(3, [
-      ['prezzo = 120  # in centesimi', 1], ['credito = 0', 1],
-      ['while credito < prezzo:', 2], [NB + 'credito = credito + int(input("Moneta: "))', 2],
-      ['print("Caffè pronto")', 3],
-      ['if credito > prezzo:', 4], [NB + 'print("Resto:", credito - prezzo)', 4]], 28, true, 11);
-
-    // diagramma di flusso
-    var X0 = CELLE[1][0], Y0 = CELLE[1][1], cx = X0 + 112, rx = X0 + 284;
-    function ovale(y, t) { S(svg, 'rect', { x: cx - 36, y: y - 10, width: 72, height: 20, rx: 10, 'class': 'nodo' }); A.txt(cx, y + 5, t, 't'); }
-    function riq(x, y, w, t, passo) {
-      A.box(x - w / 2, y - 11, w, 22, 'nodo');
-      if (passo) A.box(x - w / 2, y - 11, w, 22, 'nodo evid', { p: passo, f: passo });
-      A.txt(x, y + 5, t, 't');
-    }
-    function rombo(y, t, passo) {
-      var d = 'M' + cx + ' ' + (y - 22) + ' L' + (cx + 82) + ' ' + y + ' L' + cx + ' ' + (y + 22) + ' L' + (cx - 82) + ' ' + y + ' Z';
-      A.path(d, 'nodo');
-      if (passo) A.path(d, 'nodo evid', { p: passo, f: passo });
-      A.txt(cx, y + 4, t, 't').style.fontSize = '12px';
-    }
-    function freccia(d, ux, uy, dir) { // linea con punta (dir: 'g' giù, 'd' destra, 's' sinistra, 'u' su)
-      A.path(d, 'lin');
-      var h = dir === 'g' ? [-5, -6, 0, 0, 5, -6] : dir === 'd' ? [-6, -5, 0, 0, -6, 5] : dir === 's' ? [6, -5, 0, 0, 6, 5] : [-5, 6, 0, 0, 5, 6];
-      A.path('M' + (ux + h[0]) + ' ' + (uy + h[1]) + ' L' + (ux + h[2]) + ' ' + (uy + h[3]) + ' L' + (ux + h[4]) + ' ' + (uy + h[5]), 'lin');
-    }
-    var yI = Y0 + 42, yC = Y0 + 72, yD1 = Y0 + 116, yP = Y0 + 158, yD2 = Y0 + 198, yF = Y0 + 240;
-    ovale(yI, 'Inizio');
-    riq(cx, yC, 130, 'credito = 0', 1);
-    rombo(yD1, 'credito < prezzo?', 2);
-    riq(rx, yD1, 116, 'aggiungi moneta', 2);
-    riq(cx, yP, 130, 'prepara il caffè', 3);
-    rombo(yD2, 'credito > prezzo?', 4);
-    riq(rx, yD2, 116, 'dai il resto', 4);
-    ovale(yF, 'Fine');
-    freccia('M' + cx + ' ' + (yI + 10) + ' V' + (yC - 11), cx, yC - 11, 'g');
-    freccia('M' + cx + ' ' + (yC + 11) + ' V' + (yD1 - 22), cx, yD1 - 22, 'g');
-    freccia('M' + (cx + 82) + ' ' + yD1 + ' H' + (rx - 58), rx - 58, yD1, 'd');
-    A.path('M' + rx + ' ' + (yD1 - 11) + ' V' + (yC + 22) + ' H' + cx, 'lin');   // la moneta aggiunta ricomincia il controllo
-    freccia('M' + cx + ' ' + (yD1 + 22) + ' V' + (yP - 11), cx, yP - 11, 'g');
-    freccia('M' + cx + ' ' + (yP + 11) + ' V' + (yD2 - 22), cx, yD2 - 22, 'g');
-    freccia('M' + (cx + 82) + ' ' + yD2 + ' H' + (rx - 58), rx - 58, yD2, 'd');
-    freccia('M' + rx + ' ' + (yD2 + 11) + ' V' + yF + ' H' + (cx + 36), cx + 36, yF, 's');
-    freccia('M' + cx + ' ' + (yD2 + 22) + ' V' + (yF - 10), cx, yF - 10, 'g');
-    A.txt(cx + 90, yD1 - 5, 'sì', 't-b', {}, 'start'); A.txt(cx + 6, yD1 + 34, 'no', 't-m', {}, 'start');
-    A.txt(cx + 90, yD2 - 5, 'sì', 't-b', {}, 'start'); A.txt(cx + 6, yD2 + 34, 'no', 't-m', {}, 'start');
-
+    // le otto barre
+    FORME.forEach(function (nome, k) {
+      var y = Y0 + k * PASSO;
+      A.txt(X0 - 10, y + 17, nome, 't-m', { f: 4 }, 'end');
+      A.box(X0, y, LARG, 22, 'fondo', { f: 4 });
+      RAGAZZI.forEach(function (r, i) {
+        var v = r[3][k];
+        A.box(X0, y, LARG * v / 10, 22, v >= 8 ? 'nodo attivo' : 'nodo', { p: i + 1, f: i + 1 });
+      });
+    });
+    // schermata finale: la forza di ciascuno
+    var FORTE = ['logico-matematica', 'musicale', 'corporeo-cinestetica', 'naturalistica'];
+    RAGAZZI.forEach(function (r, i) {
+      var y = 22 + i * 58;
+      A.box(140, y, 440, 46, 'fondo', { p: 5 });
+      A.icona(r[2], 172, y + 23, { s: 30, tono: 'accent', p: 5 });
+      A.txt(204, y + 29, r[0], 't-b', { p: 5 }, 'start');
+      A.txt(560, y + 29, 'più forte: ' + FORTE[i], 't', { p: 5 }, 'end');
+    });
+    A.txt(360, 280, 'Nessuno è forte in tutto, e andare male', 't-b', { p: 5 });
+    A.txt(360, 302, 'in matematica non vuol dire essere stupidi', 't-b', { p: 5 });
   });

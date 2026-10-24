@@ -1,83 +1,192 @@
-/* Capitolo 4 · Come ragiona un computer — le quattro forme dello stesso algoritmo */
+/* Capitolo 4 · Che cos’è l’intelligenza — animazione sulle intelligenze multiple */
 (function () {
   'use strict';
   var K = window.SCENA, S = K.S, costruisci = K.costruisci;
-  var NB = '    ';
 
-  /* ===================== 4.4 · lo stesso algoritmo in quattro forme ===================== */
-  costruisci('f-quattro', function (svg, A) {
-    var LW = 350, LH = 256;
-    var CELLE = [[6, 6], [364, 6], [6, 268], [364, 268]];
-    var TIT = ['1 · Linguaggio naturale', '2 · Diagramma di flusso', '3 · Pseudocodice', '4 · Codice di programmazione'];
-    CELLE.forEach(function (c, i) {
-      A.box(c[0], c[1], LW, LH, 'nodo');
-      A.txt(c[0] + 14, c[1] + 22, TIT[i], 't-eti', {}, 'start');
+  /* ===================== 2.2 · chi è più intelligente? ===================== */
+  var FORME = ['Linguistica', 'Logico-matematica', 'Spaziale', 'Musicale', 'Corporeo-cinestetica', 'Interpersonale', 'Intrapersonale', 'Naturalistica'];
+  // punteggi di fantasia, da 0 a 10: servono solo a far vedere che i profili sono diversi
+  var RAGAZZI = [
+    ['Marta', 'prende dieci in matematica', 'calculator', [5, 10, 6, 3, 4, 5, 5, 4]],
+    ['Luca', 'va male in matematica ma suona tre strumenti', 'music', [5, 2, 4, 10, 5, 6, 6, 3]],
+    ['Sara', 'gioca a calcio: capisce lo spazio e la squadra', 'trophy', [4, 5, 9, 4, 10, 6, 5, 3]],
+    ['Omar', 'conosce ogni pianta e ogni animale del parco', 'leaf', [5, 5, 5, 3, 4, 5, 6, 10]]
+  ];
+  costruisci('f-gardner', function (svg, A) {
+    var X0 = 410, LARG = 290, Y0 = 18, PASSO = 36;
+    // scheda a sinistra
+    A.box(10, 14, 240, 292, 'fondo', { f: 4 });
+    A.icona('users', 130, 100, { s: 70, f: 0 });
+    A.txt(130, 170, 'Chi è più intelligente?', 't-b', { f: 0 });
+    A.txt(130, 200, 'Quattro ragazzi.', 't', { f: 0 });
+    A.txt(130, 220, 'Premi Avanti e guarda', 't-m', { f: 0 });
+    A.txt(130, 238, 'in che cosa sono forti.', 't-m', { f: 0 });
+    RAGAZZI.forEach(function (r, i) {
+      var P = { p: i + 1, f: i + 1 };
+      A.icona(r[2], 130, 90, { s: 64, tono: 'accent', p: i + 1, f: i + 1 });
+      A.txt(130, 160, r[0], 't-b', P);
+      var parole = r[1].split(' '), riga = '', righe = [];
+      parole.forEach(function (w) { if ((riga + ' ' + w).length > 28) { righe.push(riga); riga = w; } else riga = riga ? riga + ' ' + w : w; });
+      righe.push(riga);
+      righe.forEach(function (t, k) { A.txt(130, 190 + k * 20, t, 't', P); });
     });
+    // le otto barre
+    FORME.forEach(function (nome, k) {
+      var y = Y0 + k * PASSO;
+      A.txt(X0 - 10, y + 17, nome, 't-m', { f: 4 }, 'end');
+      A.box(X0, y, LARG, 22, 'fondo', { f: 4 });
+      RAGAZZI.forEach(function (r, i) {
+        var v = r[3][k];
+        A.box(X0, y, LARG * v / 10, 22, v >= 8 ? 'nodo attivo' : 'nodo', { p: i + 1, f: i + 1 });
+      });
+    });
+    // schermata finale: la forza di ciascuno
+    var FORTE = ['logico-matematica', 'musicale', 'corporeo-cinestetica', 'naturalistica'];
+    RAGAZZI.forEach(function (r, i) {
+      var y = 22 + i * 58;
+      A.box(140, y, 440, 46, 'fondo', { p: 5 });
+      A.icona(r[2], 172, y + 23, { s: 30, tono: 'accent', p: 5 });
+      A.txt(204, y + 29, r[0], 't-b', { p: 5 }, 'start');
+      A.txt(560, y + 29, 'più forte: ' + FORTE[i], 't', { p: 5 }, 'end');
+    });
+    A.txt(360, 280, 'Nessuno è forte in tutto, e andare male', 't-b', { p: 5 });
+    A.txt(360, 302, 'in matematica non vuol dire essere stupidi', 't-b', { p: 5 });
+  });
 
-    // elenchi di righe [testo, passo]: prima le strisce che si accendono, poi il testo
-    function righe(cella, lista, passo, mono, fs) {
-      var x = CELLE[cella][0] + 14, y0 = CELLE[cella][1] + 56;
-      var y = y0, pos = [];
-      lista.forEach(function (r, k) { if (k && r[1] !== lista[k - 1][1]) y += 8; pos.push(y); y += passo; });
-      lista.forEach(function (r, k) { A.box(x - 6, pos[k] - 16, LW - 16, passo - 2, 'nodo evid', { p: r[1], f: r[1] }); });
-      lista.forEach(function (r, k) { var t = A.txt(x, pos[k], r[0], mono ? 't-mono' : 't', {}, 'start'); if (fs) t.style.fontSize = fs + 'px'; });
-    }
-    righe(0, [
-      ['1. Parti da un credito di zero.', 1],
-      ['2. Finché il credito è minore del prezzo,', 2], [NB + 'chiedi una moneta e aggiungila.', 2],
-      ['3. Quando il credito basta,', 3], [NB + 'prepara il caffè.', 3],
-      ['4. Se il credito supera il prezzo,', 4], [NB + 'restituisci la differenza come resto.', 4]], 24, false, 14);
-    righe(2, [
-      ['credito ← 0', 1], ['leggi prezzo', 1],
-      ['finché credito < prezzo', 2], [NB + 'leggi moneta', 2], [NB + 'credito ← credito + moneta', 2],
-      ['scrivi «Caffè pronto»', 3],
-      ['se credito > prezzo', 4], [NB + 'scrivi «Resto:», credito − prezzo', 4]], 23, true, 13);
-    righe(3, [
-      ['prezzo = 120  # in centesimi', 1], ['credito = 0', 1],
-      ['while credito < prezzo:', 2], [NB + 'credito = credito + int(input("Moneta: "))', 2],
-      ['print("Caffè pronto")', 3],
-      ['if credito > prezzo:', 4], [NB + 'print("Resto:", credito - prezzo)', 4]], 28, true, 11);
+})();
 
-    // diagramma di flusso
-    var X0 = CELLE[1][0], Y0 = CELLE[1][1], cx = X0 + 112, rx = X0 + 284;
-    function ovale(y, t) { S(svg, 'rect', { x: cx - 36, y: y - 10, width: 72, height: 20, rx: 10, 'class': 'nodo' }); A.txt(cx, y + 5, t, 't'); }
-    function riq(x, y, w, t, passo) {
-      A.box(x - w / 2, y - 11, w, 22, 'nodo');
-      if (passo) A.box(x - w / 2, y - 11, w, 22, 'nodo evid', { p: passo, f: passo });
-      A.txt(x, y + 5, t, 't');
-    }
-    function rombo(y, t, passo) {
-      var d = 'M' + cx + ' ' + (y - 22) + ' L' + (cx + 82) + ' ' + y + ' L' + cx + ' ' + (y + 22) + ' L' + (cx - 82) + ' ' + y + ' Z';
-      A.path(d, 'nodo');
-      if (passo) A.path(d, 'nodo evid', { p: passo, f: passo });
-      A.txt(cx, y + 4, t, 't').style.fontSize = '12px';
-    }
-    function freccia(d, ux, uy, dir) { // linea con punta (dir: 'g' giù, 'd' destra, 's' sinistra, 'u' su)
-      A.path(d, 'lin');
-      var h = dir === 'g' ? [-5, -6, 0, 0, 5, -6] : dir === 'd' ? [-6, -5, 0, 0, -6, 5] : dir === 's' ? [6, -5, 0, 0, 6, 5] : [-5, 6, 0, 0, 5, 6];
-      A.path('M' + (ux + h[0]) + ' ' + (uy + h[1]) + ' L' + (ux + h[2]) + ' ' + (uy + h[3]) + ' L' + (ux + h[4]) + ' ' + (uy + h[5]), 'lin');
-    }
-    var yI = Y0 + 42, yC = Y0 + 72, yD1 = Y0 + 116, yP = Y0 + 158, yD2 = Y0 + 198, yF = Y0 + 240;
-    ovale(yI, 'Inizio');
-    riq(cx, yC, 130, 'credito = 0', 1);
-    rombo(yD1, 'credito < prezzo?', 2);
-    riq(rx, yD1, 116, 'aggiungi moneta', 2);
-    riq(cx, yP, 130, 'prepara il caffè', 3);
-    rombo(yD2, 'credito > prezzo?', 4);
-    riq(rx, yD2, 116, 'dai il resto', 4);
-    ovale(yF, 'Fine');
-    freccia('M' + cx + ' ' + (yI + 10) + ' V' + (yC - 11), cx, yC - 11, 'g');
-    freccia('M' + cx + ' ' + (yC + 11) + ' V' + (yD1 - 22), cx, yD1 - 22, 'g');
-    freccia('M' + (cx + 82) + ' ' + yD1 + ' H' + (rx - 58), rx - 58, yD1, 'd');
-    A.path('M' + rx + ' ' + (yD1 - 11) + ' V' + (yC + 22) + ' H' + cx, 'lin');   // la moneta aggiunta ricomincia il controllo
-    freccia('M' + cx + ' ' + (yD1 + 22) + ' V' + (yP - 11), cx, yP - 11, 'g');
-    freccia('M' + cx + ' ' + (yP + 11) + ' V' + (yD2 - 22), cx, yD2 - 22, 'g');
-    freccia('M' + (cx + 82) + ' ' + yD2 + ' H' + (rx - 58), rx - 58, yD2, 'd');
-    freccia('M' + rx + ' ' + (yD2 + 11) + ' V' + yF + ' H' + (cx + 36), cx + 36, yF, 's');
-    freccia('M' + cx + ' ' + (yD2 + 22) + ' V' + (yF - 10), cx, yF - 10, 'g');
-    A.txt(cx + 90, yD1 - 5, 'sì', 't-b', {}, 'start'); A.txt(cx + 6, yD1 + 34, 'no', 't-m', {}, 'start');
-    A.txt(cx + 90, yD2 - 5, 'sì', 't-b', {}, 'start'); A.txt(cx + 6, yD2 + 34, 'no', 't-m', {}, 'start');
+/* Capitolo 6 · Un computer può essere intelligente? — gioco di Turing e stanza cinese */
+(function () {
+  'use strict';
+  var W = window.WIDGET, K = window.SCENA, S = K.S, costruisci = K.costruisci;
 
+  /* ===================== 3.1 · il gioco dell’imitazione ===================== */
+  // risposte scritte a mano: la macchina è sempre B
+  var GIRI = [
+    { titolo: 'Giro 1', domande: [
+      ['Che cosa hai fatto ieri sera?', 'Sono uscita con le mie amiche: pizza e poi a casa presto.', 'Niente di speciale: pizza, un po’ di serie TV e a letto presto.'],
+      ['Quanto fa 34 957 + 70 764?', '105 721.', 'Uh, aspetta… più o meno 105 000, direi.'],
+      ['Com’è il profumo del mare?', 'Sa di sale e di alghe, e con la bassa marea è fortissimo.', 'Mi ricorda le vacanze dalla nonna: sale, crema solare e pesce fritto.']],
+      esito: function (scelta) {
+        return 'La macchina era B: ha finto di non saper fare il conto e ha inventato dei ricordi. ' +
+          (scelta === 'A' ? 'Ti ha ingannato: la macchina supera il test.' : 'L’hai riconosciuta, ma le sue risposte erano molto da persona.'); } },
+    { titolo: 'Giro 2', domande: [
+      ['Quanto fa 34 957 × 70 764?', 'Boh, è troppo difficile.', '2 473 697 148.'],
+      ['Elenca i numeri primi tra 1000 e 1060.', 'Ehm… forse 1001?', '1009, 1013, 1019, 1021, 1031, 1033, 1039, 1049, 1051.'],
+      ['Traduci in francese: «domani piove, ma io esco lo stesso».', 'Non parlo francese.', 'Demain il pleut, mais je sors quand même.']],
+      esito: function (scelta) {
+        return 'La macchina era B, e la si riconosce subito, perché sa fare cose che una persona non sa fare. ' +
+          (scelta === 'A' ? 'Hai scelto A, che era la persona. ' : '') + 'La macchina non supera il test, ma ha fatto cose molto intelligenti.'; } }
+  ];
+  W.registra('turing', function (el) {
+    var b = W.base(el, 'Prova tu · il gioco dell’imitazione', 'giro 1 di 2');
+    var badge = el.querySelector('.wid-badge');
+    var giro = 0, n = 0, fase = 'domande';
+    b.ctrl.className = 'wid-turing';
+    var info = W.h('p', { 'class': 'tu-info' });
+    var colA = W.h('div', { 'class': 'tu-col' }), colB = W.h('div', { 'class': 'tu-col' });
+    var cols = W.h('div', { 'class': 'tu-cols' }, [colA, colB]);
+    var esito = W.h('p', { 'class': 'tu-esito' });
+    var tasti = W.h('div', { 'class': 'tu-tasti' });
+    b.ctrl.appendChild(info); b.ctrl.appendChild(cols); b.ctrl.appendChild(esito); b.ctrl.appendChild(tasti);
+    b.chiudi();
+
+    function intesta(col, nome) {
+      col.innerHTML = '';
+      var svg = W.s('svg', { viewBox: '0 0 24 24', 'class': 'ic tu-ic', 'aria-hidden': 'true' });
+      svg.innerHTML = (window.ICONE || {})['message-circle'] || '';
+      col.appendChild(W.h('div', { 'class': 'tu-nome' }, [svg, W.h('span', { testo: nome })]));
+    }
+    function scambio(col, d, i) {
+      var box = W.h('div', { 'class': 'tu-scambio' }, [W.h('p', { 'class': 'tu-q', testo: d[0] }), W.h('p', { 'class': 'tu-r', testo: d[i] })]);
+      col.appendChild(box);
+    }
+    function tasto(t, fn, tipo) { tasti.appendChild(W.bottone(t, fn, tipo)); }
+    function disegna() {
+      var G = GIRI[giro];
+      badge.textContent = fase === 'fine' ? 'conclusione' : G.titolo.toLowerCase() + ' di 2';
+      tasti.innerHTML = ''; esito.textContent = ''; esito.className = 'tu-esito';
+      if (fase === 'fine') {
+        cols.hidden = true;
+        info.textContent = 'Che cosa dimostra il test di Turing?';
+        esito.className = 'tu-esito fine';
+        esito.textContent = 'Quanto bene una macchina imita una persona, non quanto sia intelligente. Superarlo non prova che pensi; non superarlo non prova che non sia intelligente.';
+        tasto('Ricomincia', function () { giro = 0; n = 0; fase = 'domande'; riparti(); }, 'primario');
+        b.dica('Dal gioco: la macchina passa fingendo di sbagliare e fallisce quando è troppo brava.', 'ok');
+        return;
+      }
+      cols.hidden = false;
+      intesta(colA, 'Interlocutore A'); intesta(colB, 'Interlocutore B');
+      for (var i = 0; i < n; i++) { scambio(colA, G.domande[i], 1); scambio(colB, G.domande[i], 2); }
+      if (fase === 'domande') {
+        info.textContent = G.titolo + ' · Tu sei l’interrogatore. Una persona e una macchina ti rispondono per iscritto. Non sai chi è chi.';
+        if (n < 3) tasto(n === 0 ? 'Fai la prima domanda' : 'Fai un’altra domanda', function () { n++; disegna(); }, 'primario');
+        else {
+          info.textContent = G.titolo + ' · Dopo tre domande, chi è la macchina?';
+          tasto('A è la macchina', function () { fase = 'scelta'; scegli('A'); });
+          tasto('B è la macchina', function () { fase = 'scelta'; scegli('B'); });
+        }
+        b.dica(n < 3 ? 'Ogni domanda compare in piccolo sopra le due risposte.' : 'Scegli: quale delle due è la macchina?');
+      }
+    }
+    function scegli(s) {
+      var G = GIRI[giro];
+      disegna();
+      tasti.innerHTML = '';
+      info.textContent = G.titolo + ' · Risultato';
+      esito.textContent = G.esito(s);
+      esito.className = 'tu-esito ' + (giro === 0 ? (s === 'A' ? 'no' : 'ok') : (s === 'B' ? 'ok' : 'no'));
+      tasto(giro === 0 ? 'Giro 2 · domande difficilissime' : 'Che cosa dimostra?', function () {
+        if (giro === 0) { giro = 1; n = 0; fase = 'domande'; } else fase = 'fine';
+        disegna();
+      }, 'primario');
+      b.dica('La macchina è sempre B.');
+    }
+    function riparti() { disegna(); }
+    disegna();
+  });
+
+  /* ===================== 3.2 · la stanza cinese ===================== */
+  costruisci('f-stanza', function (svg, A) {
+    var Y = 104;
+    // a sinistra, fuori
+    A.icona('user', 90, Y, { s: 64, nome: 'Fuori', sotto: 'chi parla cinese' });
+    // frecce: ciò che entra e ciò che esce
+    function freccia(x1, x2, y) {
+      var v = x2 > x1 ? 1 : -1;
+      A.path('M' + x1 + ' ' + y + ' H' + x2, 'lin');
+      A.path('M' + (x2 - 8 * v) + ' ' + (y - 6) + ' L' + x2 + ' ' + y + ' L' + (x2 - 8 * v) + ' ' + (y + 6), 'lin');
+    }
+    freccia(260, 400, 52);
+    freccia(400, 260, 156);
+    // la stanza chiusa, con una fessura nella parete di sinistra
+    A.box(430, 24, 270, 280, 'fondo');
+    A.box(430, 24, 270, 280, 'nodo');
+    A.box(426, Y - 20, 8, 40, 'nodo evid');
+    A.txt(418, Y + 38, 'fessura', 't-m', {}, 'end');
+    A.txt(565, 48, 'La stanza chiusa', 't-eti');
+    A.icona('user', 500, 108, { s: 56, nome: 'Dentro', sotto: 'non sa il cinese' });
+    A.icona('book-open', 640, 108, { s: 56, tono: 'accent', nome: 'Libro di regole' });
+    // 1: la domanda entra
+    A.via('st1', 'M190 ' + Y + ' L450 ' + Y);
+    A.pk('st1', { p: 1, f: 1, resta: true, d: 1400 }, '你好吗？', 'pkt', 86);
+    A.txt(90, 210, '«Come stai?»', 't-b', { p: 1, f: 1 });
+    // 2: dentro si cerca nel libro e si copia
+    A.box(442, 176, 246, 56, 'nodo evid', { p: 2, f: 3 });
+    A.txt(565, 198, 'Se vedi 你好吗？', 't', { p: 2, f: 3 });
+    A.txt(565, 220, 'scrivi 我很好，谢谢。', 't-b', { p: 2, f: 3 });
+    // 3: la risposta esce
+    A.via('st2', 'M450 ' + Y + ' L190 ' + Y);
+    A.pk('st2', { p: 3, f: 3, resta: true, d: 1400 }, '我很好，谢谢。', 'pkt-ok', 118);
+    A.txt(90, 210, '«Sto bene, grazie»', 't-b', { p: 3, f: 3 });
+    A.txt(90, 242, 'Una risposta perfetta!', 't-m', { p: 3, f: 3 });
+    // 4: dentro non si è capito niente
+    A.box(442, 244, 246, 48, 'nodo guasto', { p: 4 });
+    A.txt(565, 264, 'Non ho capito niente:', 't-e', { p: 4 });
+    A.txt(565, 282, 'ho solo seguito delle regole.', 't-e', { p: 4 });
+    A.txt(90, 210, 'Fuori, tutti pensano', 't', { p: 4 });
+    A.txt(90, 230, 'che dentro qualcuno', 't', { p: 4 });
+    A.txt(90, 250, 'capisca il cinese.', 't', { p: 4 });
   });
 
 })();

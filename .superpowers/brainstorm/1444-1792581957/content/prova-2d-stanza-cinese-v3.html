@@ -1,0 +1,206 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prova 2D stanza cinese v3 senza volto (usa e getta)</title>
+<style>
+:root{--bg:#fbfaf6;--ink:#1c2b2a;--teal:#0a6f66}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:20px;display:grid;gap:14px}
+svg{width:100%;height:auto;display:block;border-radius:14px}
+.cap{min-height:64px;font-size:20px;line-height:30px;max-width:800px}.cap b{font-weight:600;color:var(--teal)}
+.bar{display:flex;gap:12px;align-items:center}
+button{font:600 16px Inter,system-ui,sans-serif;padding:11px 22px;border-radius:10px;border:1px solid var(--teal);background:var(--teal);color:#fff;cursor:pointer}
+button.s{background:transparent;color:var(--teal)}button:disabled{opacity:.35}
+.dots{display:flex;gap:8px;margin-left:8px}.dots i{width:8px;height:8px;border-radius:50%;background:#cfd6d3;transition:background .3s}.dots i.on{background:var(--teal)}
+text{font-family:Inter,system-ui,sans-serif}.cn{font-family:"Microsoft YaHei","Noto Sans SC","PingFang SC","Hiragino Sans GB",sans-serif}
+</style></head><body><div class="wrap">
+<svg viewBox="0 0 960 540" role="img" aria-label="Una persona fuori passa un foglio in cinese da una fessura; dentro una persona che non sa il cinese cerca i segni in un libro di regole e copia la risposta, senza capire">
+<defs>
+ <filter id="ombra" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0b2a2a" flood-opacity=".25"/></filter>
+ <filter id="ombraL" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#0b2a2a" flood-opacity=".25"/></filter>
+ <radialGradient id="luce" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe9a8" stop-opacity=".75"/><stop offset="1" stop-color="#ffe9a8" stop-opacity="0"/></radialGradient>
+ <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6eeee"/><stop offset="1" stop-color="#f3f1e8"/></linearGradient>
+ <linearGradient id="parete" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7efdc"/><stop offset="1" stop-color="#efe3c8"/></linearGradient>
+ <clipPath id="cl"><rect width="960" height="540" rx="14"/></clipPath>
+ <clipPath id="clInt"><rect x="314" y="114" width="572" height="342"/></clipPath>
+</defs>
+<g clip-path="url(#cl)">
+<rect width="960" height="540" fill="url(#cielo)"/>
+<rect y="470" width="960" height="70" fill="#c9dcbc"/><rect y="470" width="960" height="3" fill="#b3cba3"/>
+<!-- stanza -->
+<g filter="url(#ombraL)"><rect x="300" y="100" width="600" height="370" rx="10" fill="#cdb58a"/></g>
+<rect x="314" y="114" width="572" height="342" fill="url(#parete)"/>
+<g clip-path="url(#clInt)">
+ <g stroke="#e4d6b6" stroke-width="2" opacity=".7"><path d="M360 114V440M420 114V440M480 114V440M540 114V440M600 114V440M660 114V440M720 114V440M780 114V440M840 114V440"/></g>
+ <rect x="314" y="436" width="572" height="20" fill="#d9c49a"/><g stroke="#c9b27f" stroke-width="1.500"><path d="M314 446H886M470 436V456M610 436V456M760 436V456"/></g>
+ <!-- tappeto -->
+ <ellipse cx="640" cy="446" rx="190" ry="10" fill="#b5584a" opacity=".85"/><ellipse cx="640" cy="446" rx="170" ry="7" fill="none" stroke="#e9c9a8" stroke-width="2" opacity=".8"/>
+ <!-- lampada e luce -->
+ <ellipse cx="520" cy="390" rx="170" ry="140" fill="url(#luce)"/>
+ <path d="M520 114V150" stroke="#7a6a50" stroke-width="2"/><path d="M500 172L508 150H532L540 172Z" fill="#e9a313"/><circle cx="520" cy="173" r="5" fill="#fff3c4"/>
+ <!-- scaffale -->
+ <g><rect x="790" y="150" width="96" height="8" fill="#a6804a"/><rect x="790" y="206" width="96" height="8" fill="#a6804a"/>
+  <g fill="#c9674a"><rect x="796" y="122" width="11" height="28"/><rect x="810" y="118" width="11" height="32"/></g><g fill="#5a8fb5"><rect x="824" y="124" width="11" height="26"/><rect x="838" y="120" width="11" height="30"/></g><g fill="#86b673"><rect x="852" y="122" width="11" height="28"/><rect x="866" y="126" width="11" height="24"/></g>
+  <g fill="#e9a313"><rect x="796" y="180" width="11" height="26"/><rect x="810" y="176" width="11" height="30"/></g><g fill="#7a6fb5"><rect x="824" y="178" width="11" height="28"/><rect x="838" y="182" width="11" height="24"/><rect x="852" y="176" width="11" height="30"/></g></g>
+ <!-- pianta -->
+ <g><path d="M332 440L340 412H362L370 440Z" fill="#c9674a"/><path d="M351 412Q336 380 328 372M351 412Q352 372 356 362M351 412Q366 384 378 378" stroke="#5f9a58" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+</g>
+<text x="600" y="92" text-anchor="middle" font-size="13" letter-spacing="2" style="fill:#6b5a38">UNA STANZA CHIUSA</text>
+<!-- fessure con piccolo bordo -->
+<g><rect x="298" y="322" width="18" height="20" rx="2" fill="#4d3d1f"/><rect x="298" y="376" width="18" height="18" rx="2" fill="#4d3d1f"/></g>
+<text x="307" y="314" text-anchor="middle" font-size="11" style="fill:#6b5a38">fessura</text>
+
+<!-- tavolino fuori -->
+<g><rect x="180" y="400" width="118" height="10" rx="3" fill="#a6804a"/><rect x="188" y="410" width="8" height="60" fill="#8a6a3a"/><rect x="282" y="410" width="8" height="60" fill="#8a6a3a"/></g>
+<!-- scrivania dentro -->
+<g id="scriv"><rect x="380" y="394" width="500" height="14" rx="3" fill="#a6804a"/><rect x="380" y="408" width="500" height="24" fill="#8f6c3b"/><g stroke="#7a5a2f" stroke-width="1.500" opacity=".6"><path d="M392 400H870M392 404H870"/></g><rect x="392" y="432" width="12" height="24" fill="#7a5a2f"/><rect x="858" y="432" width="12" height="24" fill="#7a5a2f"/><rect x="760" y="414" width="64" height="14" rx="3" fill="#7d5c30"/><rect x="784" y="419" width="16" height="4" rx="2" fill="#d8c08a"/></g>
+
+<!-- persona dentro (seduta) -->
+<g id="dentro">
+ <rect x="632" y="338" width="58" height="62" rx="9" fill="#946a46"/>
+ <g id="tD">
+  <path d="M630 396Q632 348 662 342Q692 348 694 396Z" fill="#c9674a"/><path d="M662 342Q692 348 694 396H662Z" fill="#b5584a"/>
+  <rect x="655" y="330" width="14" height="16" rx="5" fill="#d99a78"/>
+  <g id="testaD"><ellipse cx="662" cy="320" rx="18" ry="21" fill="#e9b090"/><path d="M662 299Q681 301 680 320Q677 311 670 307Q658 303 646 314Q646 301 662 299Z" fill="#6b4a2e"/><path d="M662 299Q681 301 680 320Q677 311 670 307Z" fill="#523820"/></g>
+ </g>
+ <path id="bracD2" d="" fill="none" stroke="#b5533a" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><circle id="manD2" r="6.500" fill="#d99a78"/>
+ <path id="bracD" d="" fill="none" stroke="#c9674a" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><circle id="manD" r="6.500" fill="#e9b090"/>
+</g>
+<g id="pD1"></g><g id="pD2"></g><g id="pF"></g><path id="boccaD" d="" style="display:none"/><path id="sopr" d="" style="display:none"/><path id="boccaF" d="" style="display:none"/>
+<g id="punti" opacity="0" font-size="22" font-weight="700" style="fill:#b36b00"><text x="628" y="286">?</text><text x="658" y="274">?</text><text x="688" y="286">?</text></g>
+<!-- libro -->
+<g id="libro" filter="url(#ombra)"><path d="M690 394V340L760 346L830 340V394Z" fill="#fff" stroke="#b8c4c0" stroke-width="2"/><path d="M760 346V394" stroke="#b8c4c0" stroke-width="2"/></g>
+<g fill="#e2e8e6"><rect x="698" y="351" width="54" height="4" rx="2"/><rect x="768" y="351" width="54" height="4" rx="2"/><rect x="698" y="384" width="54" height="3" rx="1.500"/><rect x="768" y="384" width="54" height="3" rx="1.500"/></g>
+<rect id="hl1" x="697" y="360" width="56" height="17" rx="4" fill="#fbd98a" opacity="0"/><rect id="hl2" x="767" y="360" width="56" height="17" rx="4" fill="#fbd98a" opacity="0"/>
+<text x="725" y="372" text-anchor="middle" font-size="13" class="cn" style="fill:#1c2b2a">你好吗？</text><text x="795" y="372" text-anchor="middle" font-size="11.500" class="cn" style="fill:#1c2b2a">我很好，谢谢。</text>
+<text x="760" y="332" text-anchor="middle" font-size="13" font-weight="600" style="fill:#4b5f5d">libro di regole</text>
+<text x="640" y="488" text-anchor="middle" font-size="14" font-weight="700" style="fill:#1c2b2a">Dentro: non sa il cinese</text>
+
+<!-- persona fuori (in piedi) -->
+<ellipse cx="112" cy="470" rx="46" ry="7" fill="#9fb690" opacity=".6"/>
+<g id="fuori">
+ <rect x="92" y="420" width="16" height="50" rx="7" fill="#3b4a5a"/><rect x="114" y="420" width="16" height="50" rx="7" fill="#2c3a47"/><path d="M88 468H110V474H84Z" fill="#222c30"/><path d="M112 468H134V474H108Z" fill="#222c30"/>
+ <g id="tF"><path d="M84 426Q80 346 112 338Q146 346 142 426Z" fill="#5a8fb5"/><path d="M112 338Q146 346 142 426H112Z" fill="#4a7ea0"/>
+  <rect x="104" y="318" width="16" height="22" rx="6" fill="#d99a78"/>
+  <g id="testaF"><ellipse cx="112" cy="302" rx="19" ry="22" fill="#e9b090"/><path d="M112 280Q132 282 131 302Q128 292 120 288Q106 284 94 296Q94 282 112 280Z" fill="#3a2a22"/><path d="M112 280Q132 282 131 302Q128 292 120 288Z" fill="#2c1f19"/></g>
+ </g>
+ <path id="bracF2" d="" fill="none" stroke="#4a7ea0" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><circle id="manF2" r="6.500" fill="#d99a78"/>
+ <path id="bracF" d="" fill="none" stroke="#5a8fb5" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><circle id="manF" r="6.500" fill="#e9b090"/>
+</g>
+<text x="112" y="502" text-anchor="middle" font-size="14" font-weight="700" style="fill:#1c2b2a">Fuori: chi parla cinese</text>
+
+<!-- fogli e collegamenti -->
+<g id="coll" fill="none" stroke="#e9a313" stroke-width="2.200" stroke-dasharray="4 4" stroke-linecap="round"></g>
+<g id="fogli"></g>
+<!-- traduzione -->
+<g id="trad" opacity="0"><rect x="490" y="412" width="330" height="26" rx="8" fill="#fff" stroke="#b8c4c0"/><text x="655" y="430" text-anchor="middle" font-size="13" style="fill:#4b5f5d">Il libro dice: «Come stai?» → «Sto bene, grazie»</text></g>
+<!-- nuvolette -->
+<g id="bF" opacity="0" filter="url(#ombra)"><rect x="24" y="150" width="236" height="66" rx="14" fill="#fff"/><path d="M96 216L112 250L128 216Z" fill="#fff"/><text x="142" y="176" text-anchor="middle" font-size="15" font-weight="600" style="fill:#1c2b2a">Là dentro c’è qualcuno</text><text x="142" y="198" text-anchor="middle" font-size="15" font-weight="600" style="fill:#1c2b2a">che capisce il cinese!</text></g>
+<g id="bD" opacity="0" filter="url(#ombra)"><rect x="500" y="150" width="262" height="66" rx="14" fill="#fff" stroke="#c9674a" stroke-width="2"/><path d="M640 216L660 254L676 216Z" fill="#fff" stroke="#c9674a" stroke-width="2"/><path d="M642 214H674" stroke="#fff" stroke-width="4"/><text x="631" y="176" text-anchor="middle" font-size="15" font-weight="600" style="fill:#1c2b2a">Non ho capito niente:</text><text x="631" y="198" text-anchor="middle" font-size="15" font-weight="600" style="fill:#1c2b2a">ho solo seguito delle regole.</text></g>
+</g></svg>
+<div class="cap" id="cap"></div>
+<div class="bar"><button id="b0" class="s">Da capo</button><button id="b1">Avanti</button><div class="dots" id="dots"><i></i><i></i><i></i><i></i></div></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+var NS='http://www.w3.org/2000/svg',$=function(s){return document.querySelector(s)};
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);(p||$('svg')).appendChild(e);return e;}
+var caps=['Una stanza chiusa con una fessura. Dentro c’è una persona che <b>non conosce il cinese</b> e un libro di regole.',
+ 'Fuori, qualcuno scrive <b>你好吗？</b> («Come stai?») su un foglio e lo infila nella fessura.',
+ 'Dentro, la persona cerca quei segni nel libro, che le dice quali altri segni copiare. Li copia <b>senza sapere che cosa vogliano dire</b>.',
+ 'Fuori arriva <b>我很好，谢谢。</b> («Sto bene, grazie»): una risposta perfetta. «Là dentro c’è qualcuno che capisce il cinese!»',
+ 'Ma dentro <b>non ha capito niente</b>: ha solo seguito delle regole. Searle pensa che per un computer sia lo stesso.'];
+var seq=0,busy=false,cap=$('#cap'),b1=$('#b1'),dots=document.querySelectorAll('#dots i');
+function say(i){cap.innerHTML=caps[i];dots.forEach(function(x,k){x.className=k<i?'on':'';});}
+// braccia con cinematica inversa a due segmenti
+function Arm(path,hand,sh,l1,l2,dir,start){var a={x:start[0],y:start[1],sh:sh};
+ a.draw=function(){var dx=a.x-sh[0],dy=a.y-sh[1],d=Math.min(Math.hypot(dx,dy),l1+l2-.5),ang=Math.atan2(dy,dx),c=(l1*l1+d*d-l2*l2)/(2*l1*d),b=Math.acos(Math.max(-1,Math.min(1,c))),ea=ang+dir*b,
+  ex=sh[0]+l1*Math.cos(ea),ey=sh[1]+l1*Math.sin(ea),hx=sh[0]+d*Math.cos(ang),hy=sh[1]+d*Math.sin(ang);
+  $(path).setAttribute('d','M'+sh[0]+' '+sh[1]+'L'+ex+' '+ey+'L'+hx+' '+hy);$(hand).setAttribute('cx',hx);$(hand).setAttribute('cy',hy);};
+ a.to=function(tl,x,y,dur,ease,at){tl.to(a,{x:x,y:y,duration:dur,ease:ease||'power2.inOut',onUpdate:a.draw},at);return tl;};a.draw();return a;}
+var AF=Arm('#bracF','#manF',[112,344],52,52,1,[132,424]),AF2=Arm('#bracF2','#manF2',[108,346],52,52,1,[94,420]);
+var AD=Arm('#bracD','#manD',[664,350],54,54,1,[690,392]),AD2=Arm('#bracD2','#manD2',[656,352],54,54,1,[640,392]);
+// fogli: testo che si scrive con un'onda di rivelazione
+var uid=0;
+function foglio(w,txt){var id='cp'+(uid++),g=el('g',{opacity:0,filter:'url(#ombra)'},$('#fogli')),cp=el('clipPath',{id:id},g),r=el('rect',{x:-w/2+6,y:-20,width:0,height:40},cp);
+ el('rect',{x:-w/2,y:-22,width:w,height:44,rx:4,fill:'#fff',stroke:'#b8c4c0','stroke-width':2},g);el('path',{d:'M'+(-w/2+8)+' 16H'+(w/2-8),stroke:'#e2e8e6','stroke-width':1.500},g);
+ var t=el('text',{y:7,'text-anchor':'middle','font-size':17,class:'cn',style:'fill:#1c2b2a','clip-path':'url(#'+id+')'},g);t.textContent=txt;
+ g._w=w;g._r=r;g._rev={v:0};return g;}
+function scrivi(g,dur,tl,at,onFront){tl.to(g._rev,{v:1,duration:dur,ease:'none',onUpdate:function(){g._r.setAttribute('width',(g._w-12)*g._rev.v);if(onFront)onFront(g._rev.v);}},at);}
+function coll(x1,y1,x2,y2,tl,at){var p=el('path',{d:'M'+x1+' '+y1+'Q'+((x1+x2)/2)+' '+(Math.min(y1,y2)-26)+' '+x2+' '+y2},$('#coll'));var L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;
+ tl.to(p,{strokeDashoffset:0,duration:.6,ease:'power2.inOut'},at);return p;}
+// vita: respiro e sguardo
+gsap.to('#tF',{y:-1.500,duration:1.8,yoyo:true,repeat:-1,ease:'sine.inOut'});gsap.to('#tD',{y:-1.500,duration:2.1,yoyo:true,repeat:-1,ease:'sine.inOut'});
+(function blink(){gsap.to(['#pD1','#pD2','#pF'],{scaleY:.1,transformOrigin:'center',duration:.08,yoyo:true,repeat:1,delay:2.5+Math.random()*3,onComplete:blink});})();
+function guarda(tl,dx,dy,at){tl.to('#pD1',{x:dx,y:dy,duration:.3},at).to('#pD2',{x:dx,y:dy,duration:.3},at);}
+var fIn,fOut;
+function s1(){say(1);fIn=foglio(100,'你好吗？');var tl=gsap.timeline({onComplete:function(){busy=false;}});
+ gsap.set(fIn,{x:240,y:384,rotation:-3,scaleY:.86});
+ tl.to(fIn,{opacity:1,duration:.3});
+ // la mano scrive: segue il fronte del testo
+ AF.to(tl,214,382,.6,'power2.out','<');
+ scrivi(fIn,1.1,tl,'>',function(v){AF.x=214+v*(fIn._w-30);AF.y=382+Math.sin(v*38)*2;AF.draw();});
+ // prende il foglio, lo solleva
+ AF.to(tl,196,384,.35);
+ tl.to(fIn,{x:226,y:336,rotation:0,scaleY:1,duration:.55,ease:'back.out(1.6)'},'<');
+ AF.to(tl,176,338,.55,'back.out(1.6)','<');
+ tl.to('#testaF',{rotation:-3,svgOrigin:'112 322',duration:.3},'<');
+ // lo infila nella fessura
+ tl.to(fIn,{x:296,duration:.5,ease:'power2.in'},'+=.25');AF.to(tl,246,338,.5,'power2.in','<');
+ tl.to(fIn,{scaleY:.34,duration:.16},'-=.22');tl.to(fIn,{x:372,duration:.45,ease:'none'},'<');tl.to(fIn,{scaleY:1,duration:.2},'-=.18');
+ AF.to(tl,150,404,.6,'power2.inOut','-=.2');
+ // cade sulla scrivania e scivola verso di lui
+ tl.to(fIn,{x:430,y:372,rotation:-6,duration:.4,ease:'power2.in'},'<');
+ tl.to(fIn,{y:386,scaleY:.86,rotation:-3,duration:.35,ease:'bounce.out'});
+ tl.to(fIn,{x:520,duration:.7,ease:'power3.out'});
+ tl.to('#testaF',{rotation:0,duration:.4},'<');
+ AF.to(tl,132,424,.5,'power2.inOut','<');
+ guarda(tl,-1,2,'<');}
+function s2(){say(2);fOut=foglio(140,'我很好，谢谢。');var tl=gsap.timeline({onComplete:function(){busy=false;}});
+ gsap.to('#punti',{opacity:1,duration:.4});gsap.to('#punti text',{y:'-=6',duration:.55,yoyo:true,repeat:-1,stagger:.18,ease:'sine.inOut'});
+ gsap.to('#boccaD',{attr:{d:'M654 333Q662 329 670 333'},duration:.3});gsap.to('#sopr',{attr:{d:'M650 311L658 312M666 312L674 311'},duration:.3});
+ // lui prende il foglio, lo mette accanto al libro e cerca la regola
+ AD2.to(tl,540,390,.6);
+ tl.to(fIn,{x:560,y:372,scaleY:1,rotation:0,duration:.5,ease:'power2.out'},'<.3');
+ AD2.to(tl,640,394,.5,'power2.inOut','>');
+ guarda(tl,2,3,'<');
+ AD.to(tl,724,376,.6,'power2.out');
+ tl.to('#hl1',{opacity:1,duration:.3},'<.3');
+ coll(560,356,725,360,tl,'>');
+ tl.to('#testaD',{rotation:-5,svgOrigin:'662 340',duration:.3,yoyo:true,repeat:1},'<');
+ // la regola dice quale risposta copiare
+ AD.to(tl,796,376,.6,'power2.inOut','+=.2');tl.to('#hl2',{opacity:1,duration:.3},'<.3');
+ // nuovo foglio: copia segno dopo segno
+ gsap.set(fOut,{x:586,y:386,rotation:-2,scaleY:.86});
+ tl.to(fOut,{opacity:1,duration:.3},'+=.1');
+ AD.to(tl,544,384,.6,'power2.inOut','<');
+ var p=coll(796,360,590,376,tl,'<');
+ scrivi(fOut,1.8,tl,'>',function(v){AD.x=530+v*(fOut._w-30);AD.y=384+Math.sin(v*40)*2;AD.draw();});
+ tl.to(fIn,{opacity:0,duration:.3},'<');
+ AD.to(tl,684,392,.5,'power2.inOut');guarda(tl,0,0,'<');}
+function s3(){say(3);var tl=gsap.timeline({onComplete:function(){busy=false;}});
+ tl.to('#punti',{opacity:0,duration:.3});tl.to(['#hl1','#hl2'],{opacity:0,duration:.3},'<');tl.to('#coll path',{opacity:0,duration:.3},'<');
+ gsap.to('#boccaD',{attr:{d:'M654 332H670'},duration:.4,delay:.2});gsap.to('#sopr',{attr:{d:'M650 313Q654 310 658 312M666 312Q670 310 674 313'},duration:.4,delay:.2});
+ // spinge il foglio verso la fessura sulla scrivania
+ AD2.to(tl,606,392,.4,'power2.out');
+ tl.to(fOut,{x:400,y:386,duration:.9,ease:'power2.inOut'},'<');AD2.to(tl,520,392,.9,'power2.inOut','<');
+ tl.to(fOut,{scaleY:.34,duration:.16},'-=.2');tl.to(fOut,{x:296,duration:.4,ease:'none'},'<').to(fOut,{x:252,y:386,scaleY:.86,rotation:2,duration:.45,ease:'power2.out'});
+ AD2.to(tl,640,394,.5,'power2.inOut','<');
+ // fuori: la persona prende il foglio e lo legge
+ AF.to(tl,204,382,.6,'power2.inOut','-=.5');
+ guarda(tl,0,0,'<');
+ tl.to(fOut,{x:216,y:340,rotation:0,scaleY:1,duration:.6,ease:'back.out(1.5)'},'+=.1');AF.to(tl,158,344,.6,'back.out(1.5)','<');
+ tl.to('#pF',{x:3,duration:.3},'<');
+ tl.to('#boccaF',{attr:{d:'M114 313Q123 324 132 313'},duration:.3},'<');
+ tl.to('#bF',{opacity:1,y:0,duration:.5,ease:'back.out(1.7)'},'+=.1');
+ tl.to('#testaF',{y:-6,duration:.18,yoyo:true,repeat:1},'<');}
+function s4(){say(4);var tl=gsap.timeline({onComplete:function(){busy=false;b1.disabled=true;}});
+ gsap.set('#bD',{y:8});
+ tl.to('#bD',{opacity:1,y:0,duration:.55,ease:'back.out(1.7)'});
+ tl.to('#testaD',{rotation:6,svgOrigin:'662 340',duration:.5,ease:'sine.inOut'},'<');tl.to('#tD',{y:-5,duration:.25,yoyo:true,repeat:1,ease:'sine.out'},'<.1');
+ tl.to('#bF',{opacity:.4,duration:.4},'<');
+ tl.to('#trad',{opacity:1,duration:.5},'+=.4');}
+b1.onclick=function(){if(busy)return;busy=true;seq++;[null,s1,s2,s3,s4][seq]();};
+$('#b0').onclick=function(){location.reload();};
+say(0);
+var m=location.hash.match(/go=(\d)/);
+if(m){var n=+m[1];gsap.ticker.lagSmoothing(0);gsap.globalTimeline.timeScale(25);var i=0;(function go(){if(i>=n){gsap.globalTimeline.timeScale(1);return;}busy=false;b1.onclick();i++;setTimeout(go,5000);})();}
+</script></body></html>

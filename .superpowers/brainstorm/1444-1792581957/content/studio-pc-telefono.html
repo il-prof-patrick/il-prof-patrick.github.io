@@ -1,0 +1,103 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Inter:wght@400;500;600;700&display=swap">
+<h2>Pagina per studiare: una sola impostazione, PC e telefono</h2>
+<p class="subtitle">Pensata per chi recupera una lezione e studia da solo. Colonna di lettura comoda, immagini nel punto giusto, aiuti per capire e ripassare.</p>
+<style>
+  .row{display:grid;grid-template-columns:2.6fr 1fr;gap:20px;align-items:start}
+  .pc,.ph{font-family:Inter,system-ui,sans-serif;background:#fff;color:#0e161f;border:1px solid #cdd6df;border-radius:10px;overflow:hidden;position:relative}
+  .pc{container-type:inline-size;aspect-ratio:16/11}
+  .ph{container-type:inline-size;aspect-ratio:9/19;border-radius:22px;border-width:3px;border-color:#2a3744}
+  .d{font-family:'Bricolage Grotesque',Inter,sans-serif}
+  .photo{background:url(https://www.circleid.com/images/uploads/13954a.jpg) center/cover #223}
+  .k{font-size:1.1cqw;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#0a6f66}
+  .ph .k{font-size:3.4cqw}
+
+  /* PC */
+  .pc .top{height:4cqw;border-bottom:1px solid #dbe2ea;display:flex;align-items:center;gap:1.6cqw;padding:0 2cqw;font-size:1.15cqw;color:#5f7183}
+  .pc .top b{color:#075c54}
+  .pc .top .pr{margin-left:auto;width:12cqw;height:.45cqw;background:#e7ecf2;border-radius:9px;overflow:hidden}.pc .top .pr i{display:block;width:34%;height:100%;background:#0f8d80}
+  .pc .ind{position:absolute;left:2cqw;top:6cqw;width:15cqw;font-size:1.15cqw;line-height:1.4}
+  .pc .ind div{padding:.5cqw 0 .5cqw 1.2cqw;border-left:.25cqw solid #dbe2ea;color:#5f7183}
+  .pc .ind div.on{border-color:#0f8d80;color:#075c54;font-weight:700}
+  .pc .ind small{display:block;margin:2cqw 0 .6cqw;font-size:1cqw;letter-spacing:.12em;text-transform:uppercase;color:#78889a}
+  .pc .ind .t{border:0;padding:.3cqw 0;color:#33404f}
+  .pc .col{position:absolute;left:20cqw;width:46cqw;top:6cqw}
+  .pc h1{font-size:3.3cqw;line-height:1.02;letter-spacing:-.03em;margin:.8cqw 0 1.2cqw;font-weight:800}
+  .pc p{font-size:1.45cqw;line-height:1.6;color:#27323f;margin:0 0 1.1cqw}
+  .pc mark{background:#fbe8a8;color:#2a1c00;padding:0 .25cqw;border-radius:.3cqw}
+  .pc .term{border-bottom:.2cqw dotted #0a6f66;color:#075c54;font-weight:600}
+  .pc .fig{margin:1.6cqw 0;border-radius:1cqw;overflow:hidden;position:relative;height:15cqw}
+  .pc .fig .photo{position:absolute;inset:0}
+  .pc .fig em{position:absolute;left:1cqw;bottom:1cqw;font-style:normal;font-size:1.1cqw;color:#fff;background:rgba(0,0,0,.6);padding:.5cqw 1cqw;border-radius:.6cqw}
+  .pc .fig b{position:absolute;right:1cqw;top:1cqw;font-size:1.1cqw;background:#e9a313;color:#2a1c00;padding:.5cqw 1cqw;border-radius:99px}
+  .pc .side{position:absolute;right:2cqw;top:6cqw;width:22cqw;font-size:1.2cqw;line-height:1.45}
+  .pc .rec{background:#ddf0ed;border-left:.35cqw solid #0f8d80;border-radius:0 .8cqw .8cqw 0;padding:1.2cqw 1.4cqw}
+  .pc .rec b{display:block;font-size:1cqw;letter-spacing:.12em;text-transform:uppercase;color:#075c54;margin-bottom:.5cqw}
+  .pc .err{margin-top:1.4cqw;background:#fbe5e3;border-left:.35cqw solid #d1867f;border-radius:0 .8cqw .8cqw 0;padding:1.2cqw 1.4cqw;color:#7a1f18}
+  .pc .err b{display:block;font-size:1cqw;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5cqw}
+  .pc .chk{margin-top:1.4cqw;border:1px solid #cf9f45;background:#fcf0d6;border-radius:.8cqw;padding:1.2cqw 1.4cqw;color:#5d3a02}
+  .pc .chk u{display:block;margin-top:.7cqw;font-weight:700;text-decoration:none;color:#845403}
+
+  /* telefono */
+  .ph .ptop{height:7%;display:flex;align-items:center;padding:0 5cqw;gap:3cqw;font-size:3.4cqw;color:#5f7183;border-bottom:1px solid #dbe2ea}
+  .ph .ptop b{color:#075c54}
+  .ph .ptop .pr{margin-left:auto;width:20cqw;height:1.2cqw;background:#e7ecf2;border-radius:9px;overflow:hidden}.ph .ptop .pr i{display:block;width:34%;height:100%;background:#0f8d80}
+  .ph .body{padding:5cqw 6cqw}
+  .ph h1{font-size:8.6cqw;line-height:1.02;letter-spacing:-.03em;margin:2cqw 0 3.4cqw;font-weight:800}
+  .ph p{font-size:4.4cqw;line-height:1.55;color:#27323f;margin:0 0 3cqw}
+  .ph .fig{margin:3cqw -6cqw;height:30cqw;position:relative}
+  .ph .fig .photo{position:absolute;inset:0}
+  .ph .fig em{position:absolute;left:4cqw;bottom:2.4cqw;font-style:normal;font-size:3.2cqw;color:#fff;background:rgba(0,0,0,.6);padding:1cqw 2.4cqw;border-radius:2cqw}
+  .ph .rec{background:#ddf0ed;border-left:1.2cqw solid #0f8d80;border-radius:0 3cqw 3cqw 0;padding:3.4cqw 4cqw;font-size:4.1cqw;line-height:1.45}
+  .ph .rec b{display:block;font-size:3.2cqw;letter-spacing:.12em;text-transform:uppercase;color:#075c54;margin-bottom:1.2cqw}
+  .ph .tab{position:absolute;left:0;right:0;bottom:0;height:9%;border-top:1px solid #dbe2ea;background:#fff;display:flex;justify-content:space-around;align-items:center;font-size:3.2cqw;color:#5f7183}
+  .ph .tab span:first-child{color:#075c54;font-weight:700}
+  .tt{font-weight:400;opacity:.75}
+</style>
+
+<div class="row">
+<div>
+<div class="label">PC</div>
+<div class="pc">
+  <div class="top"><b>Reti e Internet</b><span>4 · Internet</span><span>4.2 L'infrastruttura fisica</span><div class="pr"><i></i></div></div>
+  <div class="ind"><small>In questo capitolo</small>
+    <div>4.1 La rete delle reti</div><div class="on">4.2 L'infrastruttura fisica</div><div>4.3 Chi è online</div><div>4.4 Limiti e problemi</div>
+    <small>Ripasso</small><div class="t">★ Parole chiave</div><div class="t">✎ Verifica di 5 domande</div></div>
+  <div class="col">
+    <div class="k">4.2</div>
+    <h1 class="d">Internet è fatta di oggetti</h1>
+    <p>Quando si dice «Internet» si pensa a qualcosa di immateriale. In realtà sono <b>cavi in fibra</b> sotto le strade e sotto il mare, armadi di router e edifici pieni di <span class="term">server</span>.</p>
+    <p>Quasi tutto il traffico tra i continenti, <mark>oltre il 95%</mark>, non passa dai satelliti ma da <span class="term">cavi sottomarini</span>: una coppia di fibre porta più dati di un satellite, con meno ritardo.</p>
+    <div class="fig"><div class="photo"></div><em>Sezione di un cavo sottomarino</em><b>▶ animazione</b></div>
+  </div>
+  <div class="side">
+    <div class="rec"><b>Da ricordare</b>Il 95% dei dati tra i continenti viaggia in cavi sottomarini, non nello spazio.</div>
+    <div class="err"><b>Errore tipico</b>«Internet passa dai satelliti.»</div>
+    <div class="chk">Fermati un attimo: perché si usano i cavi e non i satelliti?<u>Mostra la risposta ▾</u></div>
+  </div>
+</div>
+</div>
+
+<div>
+<div class="label">TELEFONO</div>
+<div class="ph">
+  <div class="ptop"><b>4.2</b><span>Infrastruttura</span><div class="pr"><i></i></div></div>
+  <div class="body">
+    <div class="k">4.2</div>
+    <h1 class="d">Internet è fatta di oggetti</h1>
+    <p>Quasi tutto il traffico tra i continenti, <mark style="background:#fbe8a8">oltre il 95%</mark>, passa da <b style="color:#075c54">cavi sottomarini</b>, non dai satelliti.</p>
+    <div class="fig"><div class="photo"></div><em>Sezione di un cavo ▶</em></div>
+    <div class="rec"><b>Da ricordare</b>Cavi, non satelliti: più dati e meno ritardo.</div>
+  </div>
+  <div class="tab"><span>Leggi</span><span>Indice</span><span>Parole</span><span>Verifica</span></div>
+</div>
+</div>
+</div>
+
+<div class="section" style="margin-top:1.4em">
+  <h3>Cosa propongo per il sito (mio ragionamento, da correggere)</h3>
+  <p>• <b>Una colonna di lettura comoda</b> con la figura nel punto in cui serve. Le animazioni sono incorporate nel testo, partono quando le tocchi.</p>
+  <p>• <b>Aiuti allo studio sempre uguali</b>: «Da ricordare», «Errore tipico» e «Fermati un attimo» (domanda con risposta nascosta) in margine su PC e sotto al paragrafo su telefono.</p>
+  <p>• <b>Orientamento</b>: indice del capitolo a sinistra su PC e barra in basso su telefono; barra di avanzamento; parole chiave spiegate al tocco.</p>
+  <p>• <b>Ripasso</b>: elenco delle parole chiave e verifica finale di poche domande, per quando prepara la verifica.</p>
+  <p>• <b>Testo</b>: riscritto più asciutto, i dettagli in più dietro un tocco.</p>
+</div>

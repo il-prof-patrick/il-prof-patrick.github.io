@@ -1,0 +1,147 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prova 2D test di Turing (usa e getta)</title>
+<style>
+:root{--bg:#fbfaf6;--ink:#1c2b2a;--teal:#0a6f66;--amber:#d9930a}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:20px;display:grid;gap:14px}
+svg{width:100%;height:auto;display:block;border-radius:14px}
+.cap{min-height:64px;font-size:20px;line-height:30px;max-width:820px}.cap b{font-weight:600;color:var(--teal)}
+.bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+button{font:600 16px Inter,system-ui,sans-serif;padding:11px 22px;border-radius:10px;border:1px solid var(--teal);background:var(--teal);color:#fff;cursor:pointer}
+button.s{background:transparent;color:var(--teal)}button:disabled{opacity:.35}[hidden]{display:none}
+.dots{display:flex;gap:8px;margin-left:8px}.dots i{width:8px;height:8px;border-radius:50%;background:#cfd6d3;transition:background .3s}.dots i.on{background:var(--teal)}
+text{font-family:Inter,system-ui,sans-serif}
+</style></head><body><div class="wrap">
+<svg id="sv" viewBox="0 0 960 540" role="img" aria-label="Un interrogatore scrive domande a due interlocutori nascosti, A e B, uno è una persona e uno è una macchina; alla fine deve indovinare quale è la macchina">
+<defs>
+ <filter id="ombra" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0b2a2a" flood-opacity=".25"/></filter>
+ <linearGradient id="fondo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6eeee"/><stop offset="1" stop-color="#f3f1e8"/></linearGradient>
+ <clipPath id="cl"><rect width="960" height="540" rx="14"/></clipPath>
+ <clipPath id="fa"><rect x="430" y="225" width="140" height="120"/></clipPath><clipPath id="fb"><rect x="690" y="225" width="140" height="120"/></clipPath>
+</defs>
+<g clip-path="url(#cl)">
+<rect width="960" height="540" fill="url(#fondo)"/>
+<rect y="470" width="960" height="70" fill="#d8cfb8"/><rect y="470" width="960" height="3" fill="#c3b898"/>
+<text id="chip" x="30" y="40" font-size="14" font-weight="700" letter-spacing="1.500" style="fill:#4b6a65">GIRO 1</text>
+<!-- postazione interrogatore -->
+<g><ellipse cx="150" cy="474" rx="110" ry="8" fill="#b9ad8d" opacity=".6"/>
+ <rect x="48" y="360" width="26" height="110" rx="6" fill="#946a46"/><rect x="170" y="428" width="120" height="12" rx="3" fill="#a6804a"/><rect x="180" y="440" width="8" height="30" fill="#8a6a3a"/><rect x="272" y="440" width="8" height="30" fill="#8a6a3a"/>
+ <g id="intT"><path d="M66 438Q68 368 108 356Q150 366 152 432Z" fill="#5a8fb5"/><rect x="100" y="334" width="16" height="22" rx="6" fill="#e0a07f"/>
+  <g id="intH"><circle cx="112" cy="316" r="21" fill="#e9a98a"/><path d="M91 312Q92 290 114 291Q134 292 133 312Q124 300 108 302Q98 303 91 312Z" fill="#3a2a22"/><ellipse cx="121" cy="318" rx="4.400" ry="4.800" fill="#fff"/><circle id="intP" cx="123" cy="318" r="2.100" fill="#2c3b3a"/><path d="M116 328H128" stroke="#8a4a3a" stroke-width="2.200" stroke-linecap="round" id="intM"/><path d="M116 310Q121 307 127 309" stroke="#3a2a22" stroke-width="1.800" fill="none" stroke-linecap="round"/></g></g>
+ <path d="M130 396L182 424" stroke="#4a7ea0" stroke-width="13" stroke-linecap="round"/><circle cx="184" cy="424" r="6.500" fill="#e9a98a"/>
+ <path d="M196 430L214 372L262 372L282 430Z" fill="#cfd8dc" stroke="#9aa9b3" stroke-width="2"/><rect x="204" y="378" width="52" height="38" fill="#fff"/><g stroke="#cfd8dc" stroke-width="3" stroke-linecap="round"><path d="M210 388H248M210 398H236M210 408H244"/></g>
+</g>
+<text x="170" y="502" text-anchor="middle" font-size="14" font-weight="700" style="fill:#1c2b2a">Tu, l’interrogatore</text>
+<!-- cabine -->
+<g id="cabine"></g>
+<!-- messaggi in volo, nuvolette -->
+<g id="vol"></g><g id="nuv"></g>
+<g id="dom" opacity="0"></g>
+<!-- esito -->
+<g id="esito" opacity="0"><rect x="300" y="478" width="360" height="38" rx="19" fill="#fff" stroke="#b8c4c0" filter="url(#ombra)" id="esR"/><text id="esT" x="480" y="503" text-anchor="middle" font-size="16" font-weight="700" style="fill:#1c2b2a"></text></g>
+<!-- scheda finale -->
+<g id="fin" opacity="0"><rect width="960" height="540" fill="#fbfaf6" opacity=".92"/><g filter="url(#ombra)"><rect x="150" y="130" width="660" height="260" rx="18" fill="#fff" stroke="#b8c4c0"/></g>
+ <text x="480" y="186" text-anchor="middle" font-size="16" letter-spacing="2" style="fill:#6d7b79">CHE COSA DIMOSTRA IL TEST DI TURING?</text>
+ <text x="480" y="244" text-anchor="middle" font-size="26" font-weight="700" style="fill:#0a6f66">Quanto bene una macchina imita una persona,</text><text x="480" y="278" text-anchor="middle" font-size="26" font-weight="700" style="fill:#0a6f66">non quanto sia intelligente.</text>
+ <text x="480" y="334" text-anchor="middle" font-size="17" style="fill:#4b5f5d">Superarlo non prova che pensi.</text><text x="480" y="360" text-anchor="middle" font-size="17" style="fill:#4b5f5d">Non superarlo non prova che non sia intelligente.</text></g>
+</g></svg>
+<div class="cap" id="cap"></div>
+<div class="bar"><button id="b0" class="s">Da capo</button><button id="b1">Fai la prima domanda</button><button id="bA" hidden>A è la macchina</button><button id="bB" hidden>B è la macchina</button><div class="dots" id="dots"></div></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+var NS='http://www.w3.org/2000/svg',$=function(s){return document.querySelector(s)};
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);(p||$('#sv')).appendChild(e);return e;}
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)gsap.globalTimeline.timeScale(60);
+var G=[ [
+ ['Che cosa hai fatto ieri sera?','Sono uscita con le mie amiche: pizza e poi a casa presto.','Niente di speciale: pizza, un po’ di serie TV e a letto presto.',1.5,1.1],
+ ['Quanto fa 34 957 + 70 764?','105 721.','Uh, aspetta… più o meno 105 000, direi.',1.0,2.0],
+ ['Com’è il profumo del mare?','Sa di sale e di alghe, e con la bassa marea è fortissimo.','Mi ricorda le vacanze dalla nonna: sale, crema solare e pesce fritto.',1.6,1.5]],[
+ ['Quanto fa 34 957 × 70 764?','Boh, è troppo difficile.','2 473 697 148.',1.8,.35],
+ ['Elenca i numeri primi tra 1000 e 1060','Ehm… forse 1001?','1009, 1013, 1019, 1021, 1031, 1033, 1039, 1049, 1051.',2.0,.35],
+ ['Traduci in francese: domani piove, ma io esco lo stesso','Non parlo francese.','Demain il pleut, mais je sors quand même.',1.4,.35]]];
+// cabine A e B
+var Cb={};
+['A','B'].forEach(function(L,i){var cx=i?760:500,g=el('g',{},$('#cabine'));
+ el('rect',{x:cx-100,y:190,width:200,height:280,rx:10,fill:'#c9b48a',filter:'url(#ombra)'},g);el('rect',{x:cx-90,y:200,width:180,height:262,rx:6,fill:'#ddcba3'},g);
+ el('circle',{cx:cx,cy:220-2,r:0},g);
+ var wc=el('g',{'clip-path':'url(#f'+L.toLowerCase()+')'},g);el('rect',{x:cx-70,y:225,width:140,height:120,fill:'#dfe9ee'},wc);
+ var cont=el('g',{opacity:0},wc);
+ if(i==1){ // robot
+  var r=el('g',{transform:'translate('+cx+' 345)'},cont);el('rect',{x:-40,y:-30,width:80,height:30,rx:6,fill:'#7d8fa0'},r);el('rect',{x:-30,y:-88,width:60,height:52,rx:10,fill:'#9fb1c0'},r);el('rect',{x:-3,y:-104,width:6,height:16,fill:'#7d8fa0'},r);el('circle',{cy:-106,r:6,fill:'#e9a313'},r);
+  el('circle',{cx:-12,cy:-66,r:7,fill:'#2fc4b2'},r);el('circle',{cx:12,cy:-66,r:7,fill:'#2fc4b2'},r);el('rect',{x:-14,y:-50,width:28,height:6,rx:3,fill:'#53687a'},r);
+ }else{ // persona
+  var p=el('g',{transform:'translate('+cx+' 345)'},cont);el('path',{d:'M-42 0Q-40 -36 0 -42Q40 -36 42 0Z',fill:'#c9674a'},p);el('circle',{cy:-68,r:24,fill:'#e9a98a'},p);el('path',{d:'M-24 -72Q-22 -96 2 -94Q24 -94 24 -72Q14 -86 -4 -84Q-16 -83 -24 -72Z',fill:'#6b4a2e'},p);
+  el('circle',{cx:-8,cy:-66,r:2.400,fill:'#2c3b3a'},p);el('circle',{cx:9,cy:-66,r:2.400,fill:'#2c3b3a'},p);el('path',{d:'M-8 -54Q0 -46 9 -54',fill:'none',stroke:'#8a4a3a','stroke-width':2.400,'stroke-linecap':'round'},p);
+ }
+ var cur=el('g',{},wc);el('rect',{x:cx-70,y:225,width:140,height:120,fill:'#8a9794'},cur);el('path',{d:'M'+(cx-70)+' 245H'+(cx+70)+'M'+(cx-70)+' 285H'+(cx+70)+'M'+(cx-70)+' 325H'+(cx+70),stroke:'#7a8784','stroke-width':3},cur);
+ var q=el('text',{x:cx,y:306,'text-anchor':'middle','font-size':54,'font-weight':700,style:'fill:#d7dfdd'},cur);q.textContent='?';
+ el('rect',{x:cx-76,y:345,width:152,height:10,rx:3,fill:'#a6804a'},g);
+ var ring=el('rect',{x:cx-104,y:186,width:208,height:288,rx:12,fill:'none',stroke:'#e9a313','stroke-width':4,opacity:0},g);
+ var tl=el('text',{x:cx,y:398,'text-anchor':'middle','font-size':17,'font-weight':700,style:'fill:#1c2b2a'},g);tl.textContent='Interlocutore '+L;
+ var big=el('circle',{cx:cx,cy:422,r:0},g);
+ Cb[L]={cx:cx,cur:cur,cont:cont,ring:ring};});
+// nuvolette
+function wrap(s,n){var w=s.split(' '),l=[],c='';w.forEach(function(x){if((c+' '+x).trim().length>n&&c){l.push(c);c=x;}else c=(c+' '+x).trim();});if(c)l.push(c);return l;}
+function bolla(cx,bottom,txt,col,stroke,maxw){var ls=wrap(txt,maxw||27),h=ls.length*20+22,w=Math.min(236,Math.max(80,Math.max.apply(null,ls.map(function(x){return x.length}))*7.6+26)),g=el('g',{opacity:0,filter:'url(#ombra)'},$('#nuv'));
+ el('rect',{x:cx-w/2,y:bottom-h,width:w,height:h,rx:14,fill:col,stroke:stroke||'none','stroke-width':2},g);el('path',{d:'M'+(cx-9)+' '+bottom+'L'+cx+' '+(bottom+16)+'L'+(cx+9)+' '+bottom+'Z',fill:col,stroke:stroke||'none','stroke-width':2},g);el('path',{d:'M'+(cx-7)+' '+(bottom-1)+'H'+(cx+7),stroke:col,'stroke-width':3},g);
+ ls.forEach(function(l,i){var t=el('text',{x:cx,y:bottom-h+25+i*20,'text-anchor':'middle','font-size':14.500,'font-weight':600,style:'fill:#1c2b2a'},g);t.textContent=l;});g._h=h;return g;}
+function dotsBolla(cx){var g=el('g',{opacity:0},$('#nuv'));el('rect',{x:cx-30,y:128,width:60,height:32,rx:16,fill:'#fff',stroke:'#b8c4c0'},g);var d=[-12,0,12].map(function(x){return el('circle',{cx:cx+x,cy:144,r:3.600,fill:'#6d7b79'},g);});g._d=d;return g;}
+var CAP=['<b>Giro 1.</b> Tu sei l’interrogatore: una persona e una macchina ti rispondono per iscritto. Non sai chi è chi.'];
+var cap=$('#cap'),b1=$('#b1'),bA=$('#bA'),bB=$('#bB'),chip=$('#chip'),dots=$('#dots');
+function say(h){cap.innerHTML=h;}
+function setDots(n,k){dots.innerHTML='';for(var i=0;i<n;i++){var d=document.createElement('i');if(i<k)d.className='on';dots.appendChild(d);}}
+function clearNuv(tl){tl.to('#nuv',{opacity:0,duration:.25}).add(function(){$('#nuv').innerHTML='';gsap.set('#nuv',{opacity:1});});}
+// stato
+var st={r:0,q:0,phase:'start',busy:false,choice:null};
+gsap.to('#intH',{y:-1.500,duration:1.9,yoyo:true,repeat:-1,ease:'sine.inOut'});
+function ask(){var Q=G[st.r][st.q],tl=gsap.timeline({onComplete:function(){st.busy=false;b1.disabled=false;}});
+ chip.textContent='GIRO '+(st.r+1)+' · DOMANDA '+(st.q+1)+' DI 3';
+ b1.disabled=true;st.busy=true;
+ clearNuv(tl);
+ // domanda dell'interrogatore
+ tl.add(function(){var b=bolla(150,262,Q[0],'#e8f3f1','#0a6f66',24);b.id='dq';gsap.set(b,{opacity:0,scale:.8,transformOrigin:'150px 262px'});gsap.to(b,{opacity:1,scale:1,duration:.4,ease:'back.out(1.8)'});});
+ tl.to('#intH',{rotation:-4,svgOrigin:'112 336',duration:.25,yoyo:true,repeat:1},'<');
+ // il messaggio parte verso A e B
+ tl.add(function(){['A','B'].forEach(function(L,i){var m=el('circle',{r:7,fill:'#0a6f66',cx:0,cy:0},$('#vol'));gsap.set(m,{x:250,y:262});
+   gsap.to(m,{keyframes:[{x:(250+Cb[L].cx)/2,y:150-i*10,duration:.5,ease:'sine.out'},{x:Cb[L].cx,y:200,duration:.4,ease:'sine.in'}],delay:.15*i,onComplete:function(){m.remove();gsap.fromTo(Cb[L].ring,{opacity:.9},{opacity:0,duration:.6});}});});},'+=.3');
+ // "sta scrivendo"
+ tl.add(function(){var da=dotsBolla(500),db=dotsBolla(760);[da,db].forEach(function(g,i){gsap.to(g,{opacity:1,duration:.2,delay:.9});g._d.forEach(function(c,k){gsap.to(c,{y:-4,duration:.3,yoyo:true,repeat:-1,delay:k*.12+.9});});});
+  var tA=Q[3],tB=Q[4];
+  gsap.delayedCall(.9+tA,function(){gsap.to(da,{opacity:0,duration:.15,onComplete:function(){da.remove();}});var b=bolla(500,162,Q[1],'#fff','#b8c4c0');gsap.set(b,{opacity:0,scale:.85,transformOrigin:'500px 162px'});gsap.to(b,{opacity:1,scale:1,duration:.35,ease:'back.out(1.8)'});});
+  gsap.delayedCall(.9+tB,function(){gsap.to(db,{opacity:0,duration:.15,onComplete:function(){db.remove();}});var b=bolla(760,162,Q[2],'#fff','#b8c4c0');gsap.set(b,{opacity:0,scale:.85,transformOrigin:'760px 162px'});gsap.to(b,{opacity:1,scale:1,duration:.35,ease:'back.out(1.8)'});});
+},'+=.1');
+ tl.to({},{duration:.9+Math.max(Q[3],Q[4])+.5},'<');
+ tl.add(function(){gsap.to('#intH',{rotation:3,svgOrigin:'112 336',duration:.5,yoyo:true,repeat:1});});
+}
+function showChoice(){st.phase='choice';b1.hidden=true;bA.hidden=false;bB.hidden=false;say('Chi è la macchina? <b>Scegli.</b>');}
+function reveal(ch){st.choice=ch;bA.hidden=true;bB.hidden=true;b1.hidden=false;b1.disabled=true;st.busy=true;
+ var tl=gsap.timeline({onComplete:function(){st.busy=false;b1.disabled=false;}});
+ tl.to(Cb[ch].ring,{opacity:1,duration:.3});
+ tl.to(['#nuv'],{opacity:.35,duration:.3},'<');
+ ['A','B'].forEach(function(L,i){tl.to(Cb[L].cont,{opacity:1,duration:.1},'+=.0');tl.to(Cb[L].cur.childNodes,{y:-130,duration:.9,ease:'power3.inOut'},'<.05');});
+ tl.add(function(){var win=st.r==0,txt,ok=(ch=='B');
+  $('#esT').textContent=win?'LA MACCHINA SUPERA IL TEST':'LA MACCHINA NON SUPERA IL TEST';
+  $('#esR').setAttribute('stroke',win?'#e9a313':'#0a6f66');
+  gsap.fromTo('#esito',{opacity:0,y:10},{opacity:1,y:0,duration:.5,ease:'back.out(1.6)'});
+  if(win){say((ok?'La macchina era B e l’hai riconosciuta, ma ':'<b>Ti ha ingannato.</b> La macchina era B: ')+'ha <b>finto di non saper fare il conto</b> e ha <b>inventato dei ricordi</b>. Per questo supera il test.');}
+  else{say('La macchina è B e la si riconosce subito, perché <b>sa fare cose che una persona non sa fare</b>. Non supera il test, ma ha fatto cose molto intelligenti.');}
+  b1.textContent=win?'Giro 2: domande difficilissime':'Che cosa dimostra?';},'+=.1');
+ st.phase=(st.r==0)?'res1':'res2';}
+function resetStage(){clearTimeout(0);$('#nuv').innerHTML='';$('#vol').innerHTML='';gsap.set('#nuv',{opacity:1});gsap.to('#esito',{opacity:0,duration:.2});
+ ['A','B'].forEach(function(L){gsap.set(Cb[L].cont,{opacity:0});gsap.set(Cb[L].cur.childNodes,{y:0});gsap.set(Cb[L].ring,{opacity:0});});}
+function main(){if(st.busy)return;
+ if(st.phase=='start'){st.phase='q';st.r=0;st.q=0;ask();}
+ else if(st.phase=='q'){if(st.q<2){st.q++;ask();}else showChoice();}
+ else if(st.phase=='res1'){resetStage();st.r=1;st.q=0;st.phase='q';say('<b>Giro 2.</b> Stessi interlocutori, ma domande difficilissime.');gsap.delayedCall(.6,ask);b1.textContent='Prossima domanda';}
+ else if(st.phase=='res2'){gsap.to('#fin',{opacity:1,duration:.6});gsap.to('#esito',{opacity:0,duration:.3});say('<b>Il test misura l’imitazione, non l’intelligenza.</b>');st.phase='fine';b1.textContent='Ricomincia';}
+ else if(st.phase=='fine'){location.reload();}}
+b1.onclick=main;bA.onclick=function(){reveal('A');};bB.onclick=function(){reveal('B');};$('#b0').onclick=function(){location.reload();};
+// il testo del pulsante cambia con la fase; dopo la prima domanda diventa "Prossima domanda"
+var _ask=ask;ask=function(){_ask();b1.textContent=(st.q<2)?'Prossima domanda':'Ora scegli';};
+say(CAP[0]);setDots(0,0);
+var m=location.hash.match(/go=(\d+)/);
+if(m){var n=+m[1];gsap.ticker.lagSmoothing(0);
+ var adv=function(sec){for(var k=0;k<sec*10;k++){gsap.globalTimeline.totalTime(gsap.globalTimeline.totalTime()+.1);}};
+ for(var i=0;i<n;i++){st.busy=false;if(st.phase=='choice'){reveal(st.r==0?'A':'B');}else{main();}adv(14);}}
+</script></body></html>

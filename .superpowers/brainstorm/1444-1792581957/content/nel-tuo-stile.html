@@ -1,0 +1,302 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<h2>Con il tuo stile, più i punti sulle immagini</h2>
+<p class="subtitle">Stessi colori, caratteri, menu a sinistra e riquadri del tuo sito. Aggiunte le cose che ti sono piaciute e alcune mie. Le novità hanno l'etichetta gialla «NUOVO». Scorri dentro la finestra.</p>
+<style>
+.sx{--surface-100:#f4f7fa;--surface-000:#fff;--surface-200:#e7ecf2;--border:#dbe2ea;--border-strong:#78889a;--ink:#0e161f;--ink-muted:#46566a;--ink-soft:#5f7183;
+ --brand-600:#0a6f66;--brand-500:#0f8d80;--brand-100:#ddf0ed;--brand-ink:#075c54;--on-brand:#fff;--accent-500:#e9a313;--accent-ink:#845403;--attenzione-bg:#fcf0d6;--attenzione-border:#cf9f45;
+ --errore-bg:#fbe5e3;--errore-border:#d1867f;--errore-ink:#a62a20;--nota-bg:#ddf0ed;--nota-border:#6fb8ae;--mark-bg:#fbe8a8;--mark-ink:#2a1c00;
+ font-family:Inter,system-ui,sans-serif;font-size:18px;line-height:30px;color:var(--ink);background:var(--surface-100)}
+.sx *{box-sizing:border-box}
+.win{container-type:inline-size;border:1px solid #cdd6df;border-radius:12px;overflow:hidden auto;box-shadow:0 6px 24px rgba(0,0,0,.12);background:#f4f7fa}
+.win.pcw{height:920px}
+.win.phw{width:390px;height:790px;border-radius:30px;border:4px solid #2a3744;margin:0 auto}
+.sx .barra{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;min-height:52px;background:rgba(255,255,255,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.sx .marchio{display:flex;align-items:center;gap:11px;font-size:15px;letter-spacing:-.01em}
+.sx .logo{width:28px;height:28px;border-radius:7px;background:var(--brand-600);display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px;line-height:1}
+.sx .marchio span{color:var(--ink-muted)}
+.sx .tasto{display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:0 12px;background:#fff;border:1px solid var(--border-strong);border-radius:999px;font:600 13px/18px Inter;color:var(--ink)}
+.sx .tasto.p{background:var(--brand-600);border-color:var(--brand-600);color:#fff}
+.sx .tasto.q{width:36px;height:36px;padding:0}
+.sx .corpo{display:grid;grid-template-columns:250px minmax(0,1fr);align-items:start}
+.sx .menu{position:sticky;top:52px;background:#fff;border-right:1px solid var(--border);padding-bottom:24px;height:calc(100% - 0px);min-height:860px}
+.sx .menu .mt{padding:12px;border-bottom:1px solid var(--border);font-size:15px;line-height:20px;font-weight:700}
+.sx .menu .g{display:block;padding:16px 12px 4px;color:var(--ink-soft);font-size:12px;line-height:16px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.sx .voce{display:grid;grid-template-columns:26px 1fr;gap:8px;align-items:baseline;padding:8px 12px;border-left:2px solid transparent;font-size:14px;line-height:20px}
+.sx .voce .n{font:12px 'JetBrains Mono',ui-monospace,monospace;color:var(--ink-soft)}
+.sx .voce.on{background:var(--brand-100);border-left-color:var(--brand-600);color:var(--brand-ink);font-weight:600}
+.sx .sub{margin:2px 0 6px 46px;border-left:1px solid var(--border);padding-left:0}
+.sx .sub div{padding:4px 10px;font-size:13px;line-height:18px;color:var(--ink-muted);position:relative}
+.sx .sub div.on{color:var(--brand-ink);font-weight:600}
+.sx .sub div.on::before{content:"";position:absolute;left:-4px;top:50%;width:7px;height:7px;margin-top:-3px;border-radius:50%;background:var(--brand-600)}
+.sx .sub div.fatto::before{content:"";position:absolute;left:-3px;top:50%;width:5px;height:5px;margin-top:-2px;border-radius:50%;background:var(--border-strong)}
+.sx .lez{max-width:880px;margin:0 auto;padding:32px 40px 72px}
+.sx .meta{display:flex;flex-wrap:wrap;gap:12px;color:var(--ink-soft);font-size:12px;line-height:16px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.sx h1{margin:12px 0 16px;font-family:'Bricolage Grotesque',Inter;font-size:50px;line-height:52px;font-weight:800;letter-spacing:-.025em;font-stretch:94%}
+.sx h1 .n{color:var(--brand-600)}
+.sx .obiettivo{font-size:21px;line-height:33px;color:var(--ink-muted);margin:0 0 24px}
+.sx h2{margin:48px 0 12px;font-size:28px;line-height:36px;font-weight:700;letter-spacing:-.012em}
+.sx h2 .num{color:var(--brand-ink);margin-right:.35em;font-family:'JetBrains Mono',monospace;font-size:.7em;font-weight:500}
+.sx p{margin:0 0 16px}
+.sx mark{background:var(--mark-bg);color:var(--mark-ink);padding:0 2px}
+.sx .termine{color:var(--brand-ink);font-weight:700}
+.sx .breve{display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:0 24px;align-items:center;background:#fff;border:1px solid var(--border);border-left:4px solid var(--brand-600);border-radius:4px;padding:16px 20px;margin:0 0 8px}
+.sx .breve .k{font-size:12px;line-height:16px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-ink)}
+.sx .breve b{display:block;font-family:'Bricolage Grotesque';font-size:34px;line-height:36px;font-weight:800;color:var(--brand-600);letter-spacing:-.02em}
+.sx .breve small{font-size:13px;line-height:18px;color:var(--ink-muted);display:block}
+.sx .hero{margin:28px 0 8px;display:grid;gap:8px}
+.sx .foto{position:relative;background-size:cover;background-position:center;background-color:#223;border-radius:4px;overflow:hidden}
+.sx .cable{background-image:url(https://www.circleid.com/images/uploads/13954a.jpg)}
+.sx .dc{background-image:url(https://shieldenstrut.com/wp-content/uploads/2026/03/server-room-cable-tray-overhead-data-center-layout.jpg)}
+.sx .mapimg{background-image:url(https://www2.telegeography.com/hubfs/2025/Blog%20Assets/Submarine_Cable_Map_2025_Global-656609b2ac4cce708aa8385ae0ff644b-1.jpg);background-color:#0b2530}
+.sx figcaption{color:var(--ink-muted);font-size:15px;line-height:24px}
+.sx figcaption b{color:var(--ink);font-weight:600}
+.sx figure{margin:0}
+.sx .pt{position:absolute;width:30px;height:30px;border-radius:50%;background:var(--brand-600);color:#fff;font:700 15px/30px Inter;text-align:center;box-shadow:0 0 0 4px rgba(255,255,255,.7),0 2px 8px rgba(0,0,0,.4)}
+.sx .pt::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(255,255,255,.8);animation:pls 2.2s infinite}
+@keyframes pls{from{transform:scale(1);opacity:.9}to{transform:scale(1.7);opacity:0}}
+.sx .rif{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--brand-600);color:#fff;font:700 12px/1 Inter;vertical-align:1px;margin:0 1px}
+.sx .cable .a{left:46%;top:44%}.sx .cable .b{left:72%;top:68%}
+.sx .dc .a{left:30%;top:52%}.sx .dc .b{left:62%;top:18%}
+.sx .lato{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:32px;align-items:start;margin:8px 0 8px}
+.sx .lato.inv{grid-template-columns:300px minmax(0,1fr)}
+.sx .lato .foto{height:340px}
+.sx .leg{display:grid;gap:6px;margin:10px 0 0;padding:0;list-style:none;font-size:15px;line-height:22px}
+.sx .leg li{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start;margin:0}
+.sx .leg .rif{margin:0}
+.sx .rotta{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);margin:20px 0 4px;padding:0;position:relative}
+.sx .rotta::before{content:"";position:absolute;left:10%;right:10%;top:17px;height:2px;background:var(--border-strong);opacity:.5}
+.sx .rotta li{text-align:center;font-size:14px;line-height:19px;font-weight:600;position:relative;margin:0}
+.sx .rotta b{display:grid;place-items:center;width:36px;height:36px;margin:0 auto 6px;border-radius:50%;background:#fff;border:2px solid var(--brand-600);color:var(--brand-ink);font:600 14px 'JetBrains Mono',monospace}
+.sx .rotta li.on b{background:var(--brand-600);color:#fff}
+.sx .rotta small{display:block;font-weight:400;color:var(--ink-muted);font-size:13px;line-height:17px}
+.sx .box{border:1px solid;border-radius:4px;padding:16px;margin:24px 0}
+.sx .box h3{display:flex;align-items:center;gap:8px;margin:0 0 6px;font-size:17px;line-height:24px;font-weight:600}
+.sx .box p{font-size:16px;line-height:26px;margin:0}
+.sx .errore{background:var(--errore-bg);border-color:var(--errore-border);color:var(--errore-ink)}
+.sx .storia{background:var(--attenzione-bg);border-color:var(--attenzione-border)}
+.sx .storia h3{color:var(--accent-ink)}
+.sx .nota{background:var(--nota-bg);border-color:var(--nota-border);color:var(--brand-ink)}
+.sx .tela{background:#fff;border:1px solid var(--border);border-radius:4px;padding:16px;margin:0}
+.sx .tela svg{display:block;width:100%;height:auto}
+.sx .passi{display:flex;align-items:center;gap:8px;margin:12px 0 0;flex-wrap:wrap}
+.sx .passi .conta{margin-left:auto;font:13px 'JetBrains Mono',monospace;color:var(--ink-soft)}
+.sx .stato{margin-top:10px;font:13px/20px 'JetBrains Mono',monospace;background:var(--surface-200);border:1px solid var(--border);border-radius:4px;padding:8px 12px}
+.sx .stato::before{content:"› ";color:var(--ink-soft)}
+.sx .flow{animation:fl 1.5s linear infinite}@keyframes fl{to{stroke-dashoffset:-44}}
+.sx details.ap{margin:24px 0;background:#fff;border:1px solid var(--border);border-radius:4px}
+.sx details.ap summary{list-style:none;display:flex;align-items:center;gap:12px;padding:12px 16px;font-size:16px;line-height:24px;font-weight:600}
+.sx .badge{background:var(--accent-500);color:#2a1c00;font-size:11px;line-height:16px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:2px}
+.sx details.ap summary i{margin-left:auto;font-style:normal;color:var(--ink-muted)}
+.sx .verifica{background:#fff;border:1px solid var(--border);border-radius:4px;padding:18px 20px;margin:36px 0 0}
+.sx .verifica .k{font-size:12px;line-height:16px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-ink)}
+.sx .verifica .q{font-weight:600;font-size:18px;line-height:28px;margin:6px 0 12px}
+.sx .opz{display:grid;gap:8px}
+.sx .opz div{border:1px solid var(--border-strong);border-radius:4px;padding:8px 14px;font-size:16px;line-height:24px;background:#fff}
+.sx .opz div.ok{background:var(--brand-100);border-color:var(--brand-600);color:var(--brand-ink);font-weight:600}
+.sx .fine{display:flex;justify-content:space-between;gap:16px;margin-top:48px;padding-top:16px;border-top:1px solid var(--border)}
+.sx .salto{display:grid;gap:2px;font-size:12px;line-height:16px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.sx .salto b{font-size:15px;line-height:22px;text-transform:none;letter-spacing:0;color:var(--brand-ink);text-decoration:underline;text-underline-offset:2px}
+.sx .wide .foto{height:340px}
+.sx .nuovo{position:relative}
+.sx .nuovo::after{content:"NUOVO";position:absolute;right:-6px;top:-10px;background:var(--accent-500);color:#2a1c00;font:700 10px/16px Inter;letter-spacing:.08em;padding:0 6px;border-radius:2px}
+
+@container (max-width:860px){
+ .sx .corpo{grid-template-columns:minmax(0,1fr)}
+ .sx .menu{display:none}
+ .sx .lez{padding:24px 16px 64px}
+ .sx h1{font-size:34px;line-height:38px}
+ .sx .obiettivo{font-size:18px;line-height:29px}
+ .sx h2{font-size:24px;line-height:31px}
+ .sx .breve{grid-template-columns:1fr 1fr 1fr;gap:8px 12px;padding:14px}.sx .breve .k{grid-column:1/-1}.sx .breve b{font-size:26px;line-height:28px}
+ .sx .lato,.sx .lato.inv{grid-template-columns:1fr;gap:12px}.sx .lato.inv .foto{order:-1}.sx .lato .foto{height:230px}
+ .sx .rotta{grid-template-columns:1fr;gap:10px}.sx .rotta::before{left:17px;right:auto;top:18px;bottom:18px;width:2px;height:auto}
+ .sx .rotta li{display:grid;grid-template-columns:36px 1fr;gap:0 12px;text-align:left;align-items:center}.sx .rotta b{margin:0;grid-row:span 2}
+ .sx .wide .foto{height:200px}
+ .sx .fine{flex-direction:column}
+ .sx .barra .nome{display:none}
+}
+.lab2{font-size:.92em;margin:.6em 0 1.4em;opacity:.9}
+.lab2 li{margin:.3em 0}
+</style>
+<div class="label">COME È ADESSO · la tua pagina vera, paragrafo 4.2 (schermata del sito, tema chiaro)</div><div style="border:1px solid #cdd6df;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.12);margin-bottom:8px"><img src="/files/attuale-pc.png" style="display:block;width:100%"></div><div class="lab2" style="margin-bottom:28px"><b>In questa schermata:</b> testo giustificato in una sola lunga colonna, grassetti molto lunghi, sottotitoli con barretta verde, una foto piccola a destra del testo (la sezione del cavo), nessun riferimento numerato.</div><div class="label">LA PROPOSTA · stesso paragrafo (computer, scorri dentro la finestra)</div><div class="win pcw">
+<div class="sx">
+ <div class="barra"><div class="marchio"><div class="logo">IP</div><div class="nome"><b>Informatica</b> <span>con il Prof. Patrick</span></div></div>
+   <div style="display:flex;gap:8px"><span class="tasto q">☰</span><span class="tasto q">◐</span></div></div>
+ <div class="corpo">
+  <nav class="menu">
+    <div class="mt">Reti e Internet</div>
+    <span class="g">Il modulo</span>
+    <div class="voce"><span class="n">3</span><span>Le reti locali</span></div>
+    <div class="voce on"><span class="n">4</span><span>Internet</span></div>
+    <div class="sub"><div class="fatto">4.1 La rete delle reti</div><div class="on">4.2 L'infrastruttura fisica</div><div>4.3 Chi è online</div><div>4.4 Limiti e problemi</div><div>4.5 Reti private e VPN</div></div>
+    <div class="voce"><span class="n">5</span><span>Il Web</span></div>
+    <span class="g">Per ripassare</span>
+    <div class="voce"><span class="n">★</span><span>Parole chiave</span></div>
+    <div class="voce"><span class="n">✎</span><span>Verifica</span></div>
+  </nav>
+  <main class="lez">
+    <div class="meta"><span>Capitolo 4 · Internet</span><span>4.2</span><span>9 min</span></div>
+    <h1><span class="n">4.2</span> Internet è fatta di oggetti</h1>
+    <p class="obiettivo">Quando guardi un video, i dati arrivano da un edificio che esiste davvero, attraverso cavi posati sotto strade e oceani. Seguiamo il viaggio.</p>
+
+    <div class="breve nuovo"><div class="k">In breve</div>
+      <div><b>95%</b><small>del traffico tra i continenti passa da cavi sottomarini</small></div>
+      <div><b>500+</b><small>cavi nel mondo, più di un milione di km</small></div>
+      <div><b>24/7</b><small>i data center non si spengono mai</small></div></div>
+
+    <figure class="hero"><div class="foto cable" style="height:340px"><span class="pt a">1</span><span class="pt b">2</span></div>
+      <figcaption><b>Figura 4.1</b> · Sezione di un cavo sottomarino. Al centro ci sono poche <b>fibre</b> <span class="rif">1</span>, intorno gli strati di protezione e l'<b>armatura d'acciaio</b> <span class="rif">2</span>.</figcaption></figure>
+
+    <p>Quando si dice «Internet» si pensa a qualcosa di immateriale. In realtà <mark>Internet è fatta di oggetti fisici</mark>: cavi in fibra sotto le strade e sotto il mare, armadi pieni di router, edifici enormi pieni di server. Per capirla conviene seguire un pacchetto di dati dal telefono fino a un server dall'altra parte del mondo.</p>
+
+    <ol class="rotta nuovo"><li class="on"><b>1</b>Casa<small>Wi-Fi, router</small></li><li><b>2</b>ISP<small>la centrale</small></li><li><b>3</b>Dorsale<small>fibra tra città</small></li><li><b>4</b>Cavo<small>sotto l'oceano</small></li><li><b>5</b>Data center<small>il server</small></li></ol>
+
+    <h2><span class="num">4.2.1</span>L'ISP e le dorsali</h2>
+    <p>Il primo anello è l'<span class="termine">ISP</span> (<i>Internet Service Provider</i>), l'azienda che ti collega a Internet: TIM, Vodafone, WindTre, Iliad, Fastweb. Ogni ISP ha le sue centrali e i suoi router e li collega a quelli degli altri.</p>
+    <p>Tra le città i dati viaggiano sulle <span class="termine">dorsali</span> (<i>backbone</i>), collegamenti in fibra ottica ad altissima capacità. Corrono spesso lungo autostrade e ferrovie, dove è più facile posare i cavi.</p>
+
+    <h2><span class="num">4.2.2</span>Sotto il mare, non nello spazio</h2>
+    <div class="lato">
+      <div><p>Per attraversare un oceano molti pensano ai satelliti. Non è così: <mark>oltre il 95% del traffico tra i continenti passa da cavi in fibra ottica posati sul fondo del mare</mark>. Una coppia di fibre porta più dati di un intero satellite, con meno ritardo e a costi più bassi.</p>
+      <p>Un cavo è grosso come un tubo da giardino. Lungo il percorso dei <span class="termine">ripetitori</span> amplificano la luce, e vicino alla costa un'armatura <span class="rif">2</span> lo protegge da ancore e reti da pesca.</p></div>
+      <figure><div class="foto cable"><span class="pt a">1</span><span class="pt b">2</span></div>
+        <ul class="leg nuovo"><li><span class="rif">1</span>fibre ottiche: portano la luce</li><li><span class="rif">2</span>armatura d'acciaio</li></ul></figure>
+    </div>
+
+    <div class="box errore"><h3>Errore tipico</h3><p>«I dati tra Europa e America passano dai satelliti.» No: passano quasi tutti da cavi sul fondo dell'oceano.</p></div>
+
+    <h2><span class="num">4.2.3</span>E se un cavo si rompe?</h2>
+    <p>Succede: ancore, reti da pesca, terremoti. Di solito non te ne accorgi, perché il traffico cambia strada. Provalo passo per passo.</p>
+    <figure><div class="tela">
+      <svg viewBox="0 0 640 220">
+        <circle cx="70" cy="110" r="12" fill="#e7ecf2" stroke="#78889a" stroke-width="2"/><circle cx="570" cy="110" r="12" fill="#e7ecf2" stroke="#78889a" stroke-width="2"/>
+        <text x="70" y="145" text-anchor="middle" font-size="14" font-weight="600" fill="#0e161f">Roma</text><text x="570" y="145" text-anchor="middle" font-size="14" font-weight="600" fill="#0e161f">New York</text>
+        <path d="M82 110 C200 30 440 30 558 110" fill="none" stroke="#d1867f" stroke-width="3" stroke-dasharray="6 5"/>
+        <g transform="translate(320 52)"><circle r="15" fill="#fbe5e3" stroke="#a62a20" stroke-width="2"/><path d="M-5 -5l10 10M5 -5l-10 10" stroke="#a62a20" stroke-width="2.6" stroke-linecap="round"/></g>
+        <text x="320" y="18" text-anchor="middle" font-size="13" font-weight="600" fill="#a62a20">cavo A · interrotto</text>
+        <path d="M82 110 C200 190 440 190 558 110" fill="none" stroke="#0a6f66" stroke-opacity=".25" stroke-width="3"/>
+        <path d="M82 110 C200 190 440 190 558 110" fill="none" stroke="#0a6f66" stroke-width="3" stroke-dasharray="10 9" class="flow"/>
+        <text x="320" y="212" text-anchor="middle" font-size="13" font-weight="600" fill="#075c54">cavo B · il traffico passa da qui</text>
+      </svg></div>
+      <div class="passi"><span class="tasto q">◀</span><span class="tasto p">Avanti ▶</span><span class="tasto">Ricomincia</span><span class="conta">passo 2 / 4</span></div>
+      <div class="stato">Il cavo A si rompe: i pacchetti vengono deviati sul cavo B. Più lento, ma arriva.</div></figure>
+    <p style="margin-top:16px">Il rischio vero ce l'hanno i paesi collegati da pochissimi cavi: nel 2022 le isole <b>Tonga</b> rimasero isolate per settimane dopo un'eruzione vulcanica.</p>
+
+    <figure class="wide" style="margin-top:24px"><div class="foto mapimg"></div><figcaption><b>Figura 4.3</b> · La mappa dei cavi sottomarini. <b>Osserva</b> quanti attraversano l'Atlantico e il Mediterraneo, e quanti pochi raggiungono alcune isole del Pacifico.</figcaption></figure>
+
+    <div class="box storia"><h3>Nella storia</h3><p>Il 29 ottobre 1969, da Los Angeles, partì il primo messaggio di ARPANET. Si doveva scrivere «LOGIN», ma il sistema si bloccò dopo due lettere: il primo messaggio fu «LO».</p></div>
+
+    <h2><span class="num">4.2.4</span>All'altro capo: i data center</h2>
+    <div class="lato inv">
+      <figure><div class="foto dc"><span class="pt a">1</span><span class="pt b">2</span></div>
+        <ul class="leg"><li><span class="rif">1</span>armadi (rack) con i server</li><li><span class="rif">2</span>canaline dei cavi</li></ul></figure>
+      <div><p>Il viaggio finisce in un <span class="termine">data center</span>: un edificio con migliaia di server, alimentazione, raffreddamento e rete <b>doppi</b>, perché non devono fermarsi mai.</p>
+      <p>I server stanno negli armadi <span class="rif">1</span>, collegati da fasci di cavi che corrono sopra le file <span class="rif">2</span>. Un grande data center consuma quanto una cittadina: per questo si costruisce vicino a centrali elettriche, a fonti d'acqua o nei paesi freddi.</p></div>
+    </div>
+
+    <details class="ap"><summary><span class="badge">Approfondisci</span>Perché il data center consuma tanta acqua? <i>▾</i></summary></details>
+
+    <div class="verifica nuovo"><div class="k">Fermati un attimo</div><div class="q">Perché per attraversare l'oceano si usano i cavi e non i satelliti?</div>
+      <div class="opz"><div>I satelliti sono vietati dalla legge</div><div class="ok">Una coppia di fibre porta più dati, con meno ritardo e costi più bassi ✓</div><div>I cavi sono più facili da riparare</div></div></div>
+
+    <div class="fine"><div class="salto">← Precedente<b>4.1 La rete delle reti</b></div><div class="salto" style="text-align:right">Successivo →<b>4.3 Chi è online e chi no</b></div></div>
+  </main>
+ </div>
+</div>
+</div>
+<div class="lab2"><b>Quello che ho tenuto:</b> barra in alto, menu del modulo a sinistra, colonna di lettura, riquadri «Errore tipico» e «Nella storia», «Approfondisci», animazione a passi, «Avanti/Indietro» in fondo.
+<ul>
+<li><b>I punti numerati</b> sulle foto, con la legenda sotto e gli stessi numeri richiamati nel testo (tua idea).</li>
+<li><b>«In breve»</b> in apertura con tre numeri chiave: lo studente sa subito cosa deve portarsi a casa.</li>
+<li><b>Percorso del pacchetto</b> (casa, ISP, dorsale, cavo, data center): una mappa del paragrafo che torna come filo conduttore.</li>
+<li><b>Menu con sottosezioni</b> della pagina e pallini che mostrano cosa hai già letto.</li>
+<li><b>«Fermati un attimo»</b> con risposte da scegliere, in fondo: si autocorregge.</li>
+<li><b>Testo allineato a sinistra</b> invece che giustificato (si legge meglio, soprattutto su telefono) e <b>titolo più grande</b> in Bricolage Grotesque come nella home.</li>
+</ul></div>
+<div class="label">TELEFONO</div><div class="win phw">
+<div class="sx">
+ <div class="barra"><div class="marchio"><div class="logo">IP</div><div class="nome"><b>Informatica</b> <span>con il Prof. Patrick</span></div></div>
+   <div style="display:flex;gap:8px"><span class="tasto q">☰</span><span class="tasto q">◐</span></div></div>
+ <div class="corpo">
+  <nav class="menu">
+    <div class="mt">Reti e Internet</div>
+    <span class="g">Il modulo</span>
+    <div class="voce"><span class="n">3</span><span>Le reti locali</span></div>
+    <div class="voce on"><span class="n">4</span><span>Internet</span></div>
+    <div class="sub"><div class="fatto">4.1 La rete delle reti</div><div class="on">4.2 L'infrastruttura fisica</div><div>4.3 Chi è online</div><div>4.4 Limiti e problemi</div><div>4.5 Reti private e VPN</div></div>
+    <div class="voce"><span class="n">5</span><span>Il Web</span></div>
+    <span class="g">Per ripassare</span>
+    <div class="voce"><span class="n">★</span><span>Parole chiave</span></div>
+    <div class="voce"><span class="n">✎</span><span>Verifica</span></div>
+  </nav>
+  <main class="lez">
+    <div class="meta"><span>Capitolo 4 · Internet</span><span>4.2</span><span>9 min</span></div>
+    <h1><span class="n">4.2</span> Internet è fatta di oggetti</h1>
+    <p class="obiettivo">Quando guardi un video, i dati arrivano da un edificio che esiste davvero, attraverso cavi posati sotto strade e oceani. Seguiamo il viaggio.</p>
+
+    <div class="breve nuovo"><div class="k">In breve</div>
+      <div><b>95%</b><small>del traffico tra i continenti passa da cavi sottomarini</small></div>
+      <div><b>500+</b><small>cavi nel mondo, più di un milione di km</small></div>
+      <div><b>24/7</b><small>i data center non si spengono mai</small></div></div>
+
+    <figure class="hero"><div class="foto cable" style="height:340px"><span class="pt a">1</span><span class="pt b">2</span></div>
+      <figcaption><b>Figura 4.1</b> · Sezione di un cavo sottomarino. Al centro ci sono poche <b>fibre</b> <span class="rif">1</span>, intorno gli strati di protezione e l'<b>armatura d'acciaio</b> <span class="rif">2</span>.</figcaption></figure>
+
+    <p>Quando si dice «Internet» si pensa a qualcosa di immateriale. In realtà <mark>Internet è fatta di oggetti fisici</mark>: cavi in fibra sotto le strade e sotto il mare, armadi pieni di router, edifici enormi pieni di server. Per capirla conviene seguire un pacchetto di dati dal telefono fino a un server dall'altra parte del mondo.</p>
+
+    <ol class="rotta nuovo"><li class="on"><b>1</b>Casa<small>Wi-Fi, router</small></li><li><b>2</b>ISP<small>la centrale</small></li><li><b>3</b>Dorsale<small>fibra tra città</small></li><li><b>4</b>Cavo<small>sotto l'oceano</small></li><li><b>5</b>Data center<small>il server</small></li></ol>
+
+    <h2><span class="num">4.2.1</span>L'ISP e le dorsali</h2>
+    <p>Il primo anello è l'<span class="termine">ISP</span> (<i>Internet Service Provider</i>), l'azienda che ti collega a Internet: TIM, Vodafone, WindTre, Iliad, Fastweb. Ogni ISP ha le sue centrali e i suoi router e li collega a quelli degli altri.</p>
+    <p>Tra le città i dati viaggiano sulle <span class="termine">dorsali</span> (<i>backbone</i>), collegamenti in fibra ottica ad altissima capacità. Corrono spesso lungo autostrade e ferrovie, dove è più facile posare i cavi.</p>
+
+    <h2><span class="num">4.2.2</span>Sotto il mare, non nello spazio</h2>
+    <div class="lato">
+      <div><p>Per attraversare un oceano molti pensano ai satelliti. Non è così: <mark>oltre il 95% del traffico tra i continenti passa da cavi in fibra ottica posati sul fondo del mare</mark>. Una coppia di fibre porta più dati di un intero satellite, con meno ritardo e a costi più bassi.</p>
+      <p>Un cavo è grosso come un tubo da giardino. Lungo il percorso dei <span class="termine">ripetitori</span> amplificano la luce, e vicino alla costa un'armatura <span class="rif">2</span> lo protegge da ancore e reti da pesca.</p></div>
+      <figure><div class="foto cable"><span class="pt a">1</span><span class="pt b">2</span></div>
+        <ul class="leg nuovo"><li><span class="rif">1</span>fibre ottiche: portano la luce</li><li><span class="rif">2</span>armatura d'acciaio</li></ul></figure>
+    </div>
+
+    <div class="box errore"><h3>Errore tipico</h3><p>«I dati tra Europa e America passano dai satelliti.» No: passano quasi tutti da cavi sul fondo dell'oceano.</p></div>
+
+    <h2><span class="num">4.2.3</span>E se un cavo si rompe?</h2>
+    <p>Succede: ancore, reti da pesca, terremoti. Di solito non te ne accorgi, perché il traffico cambia strada. Provalo passo per passo.</p>
+    <figure><div class="tela">
+      <svg viewBox="0 0 640 220">
+        <circle cx="70" cy="110" r="12" fill="#e7ecf2" stroke="#78889a" stroke-width="2"/><circle cx="570" cy="110" r="12" fill="#e7ecf2" stroke="#78889a" stroke-width="2"/>
+        <text x="70" y="145" text-anchor="middle" font-size="14" font-weight="600" fill="#0e161f">Roma</text><text x="570" y="145" text-anchor="middle" font-size="14" font-weight="600" fill="#0e161f">New York</text>
+        <path d="M82 110 C200 30 440 30 558 110" fill="none" stroke="#d1867f" stroke-width="3" stroke-dasharray="6 5"/>
+        <g transform="translate(320 52)"><circle r="15" fill="#fbe5e3" stroke="#a62a20" stroke-width="2"/><path d="M-5 -5l10 10M5 -5l-10 10" stroke="#a62a20" stroke-width="2.6" stroke-linecap="round"/></g>
+        <text x="320" y="18" text-anchor="middle" font-size="13" font-weight="600" fill="#a62a20">cavo A · interrotto</text>
+        <path d="M82 110 C200 190 440 190 558 110" fill="none" stroke="#0a6f66" stroke-opacity=".25" stroke-width="3"/>
+        <path d="M82 110 C200 190 440 190 558 110" fill="none" stroke="#0a6f66" stroke-width="3" stroke-dasharray="10 9" class="flow"/>
+        <text x="320" y="212" text-anchor="middle" font-size="13" font-weight="600" fill="#075c54">cavo B · il traffico passa da qui</text>
+      </svg></div>
+      <div class="passi"><span class="tasto q">◀</span><span class="tasto p">Avanti ▶</span><span class="tasto">Ricomincia</span><span class="conta">passo 2 / 4</span></div>
+      <div class="stato">Il cavo A si rompe: i pacchetti vengono deviati sul cavo B. Più lento, ma arriva.</div></figure>
+    <p style="margin-top:16px">Il rischio vero ce l'hanno i paesi collegati da pochissimi cavi: nel 2022 le isole <b>Tonga</b> rimasero isolate per settimane dopo un'eruzione vulcanica.</p>
+
+    <figure class="wide" style="margin-top:24px"><div class="foto mapimg"></div><figcaption><b>Figura 4.3</b> · La mappa dei cavi sottomarini. <b>Osserva</b> quanti attraversano l'Atlantico e il Mediterraneo, e quanti pochi raggiungono alcune isole del Pacifico.</figcaption></figure>
+
+    <div class="box storia"><h3>Nella storia</h3><p>Il 29 ottobre 1969, da Los Angeles, partì il primo messaggio di ARPANET. Si doveva scrivere «LOGIN», ma il sistema si bloccò dopo due lettere: il primo messaggio fu «LO».</p></div>
+
+    <h2><span class="num">4.2.4</span>All'altro capo: i data center</h2>
+    <div class="lato inv">
+      <figure><div class="foto dc"><span class="pt a">1</span><span class="pt b">2</span></div>
+        <ul class="leg"><li><span class="rif">1</span>armadi (rack) con i server</li><li><span class="rif">2</span>canaline dei cavi</li></ul></figure>
+      <div><p>Il viaggio finisce in un <span class="termine">data center</span>: un edificio con migliaia di server, alimentazione, raffreddamento e rete <b>doppi</b>, perché non devono fermarsi mai.</p>
+      <p>I server stanno negli armadi <span class="rif">1</span>, collegati da fasci di cavi che corrono sopra le file <span class="rif">2</span>. Un grande data center consuma quanto una cittadina: per questo si costruisce vicino a centrali elettriche, a fonti d'acqua o nei paesi freddi.</p></div>
+    </div>
+
+    <details class="ap"><summary><span class="badge">Approfondisci</span>Perché il data center consuma tanta acqua? <i>▾</i></summary></details>
+
+    <div class="verifica nuovo"><div class="k">Fermati un attimo</div><div class="q">Perché per attraversare l'oceano si usano i cavi e non i satelliti?</div>
+      <div class="opz"><div>I satelliti sono vietati dalla legge</div><div class="ok">Una coppia di fibre porta più dati, con meno ritardo e costi più bassi ✓</div><div>I cavi sono più facili da riparare</div></div></div>
+
+    <div class="fine"><div class="salto">← Precedente<b>4.1 La rete delle reti</b></div><div class="salto" style="text-align:right">Successivo →<b>4.3 Chi è online e chi no</b></div></div>
+  </main>
+ </div>
+</div>
+</div>
+<div class="lab2">Su telefono il menu si apre dal pulsante in alto, le foto passano sopra al testo e il percorso diventa verticale.</div>

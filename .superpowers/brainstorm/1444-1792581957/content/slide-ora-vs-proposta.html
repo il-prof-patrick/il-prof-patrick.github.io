@@ -1,0 +1,70 @@
+<h2>Presenta in aula: com'è ora e come potrebbe essere</h2>
+<p class="subtitle">Stesso contenuto (cap. 4, «Sotto il mare, non nello spazio»). A sinistra la slide attuale, a destra una proposta. Non sono definitivi: servono a reagire.</p>
+
+<style>
+  .sl{aspect-ratio:16/9;width:100%;border-radius:6px;overflow:hidden;position:relative;font-family:Inter,system-ui,sans-serif;border:1px solid #cdd6df}
+  .ora{background:#fff;color:#0e161f;padding:5% 5%}
+  .ora h4{margin:0;font-size:clamp(14px,2.3vw,26px);font-weight:800}
+  .ora .m{margin:.3em 0 .8em;color:#0a6f66;font-weight:600;font-size:clamp(9px,1.35vw,15px)}
+  .ora li{list-style:none;display:flex;gap:.6em;margin:.55em 0;font-size:clamp(8px,1.25vw,14px);line-height:1.3}
+  .ora li i{flex:none;width:1.4em;height:1.4em;border-radius:50%;background:#ddf0ed;display:inline-block}
+  .ora .ph{position:absolute;right:5%;top:30%;width:30%;height:42%;background:#e7ecf2;border-radius:3px;font-size:10px;color:#78889a;display:grid;place-items:center}
+  .pro{background:#0b2530;color:#fff}
+  .pro svg{position:absolute;inset:0;width:100%;height:100%}
+  .pro .big{position:absolute;left:5%;top:7%;font-weight:800;font-size:clamp(28px,6vw,70px);line-height:1;color:#7fe0d2;letter-spacing:-.03em}
+  .pro .cap{position:absolute;left:5%;top:30%;width:40%;font-size:clamp(11px,1.9vw,22px);font-weight:600;line-height:1.2}
+  .pro .tag{position:absolute;left:5%;bottom:5%;font-size:clamp(8px,1.1vw,12px);color:#8fb3bd;letter-spacing:.06em;text-transform:uppercase}
+  .pro .click{position:absolute;right:4%;bottom:5%;font-size:clamp(8px,1.1vw,12px);color:#f2c46a}
+  @keyframes corri{from{offset-distance:0%}to{offset-distance:100%}}
+  .dot{animation:flow 3.2s linear infinite}
+  @keyframes flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-40}}
+</style>
+
+<div class="split">
+  <div>
+    <div class="label">ORA · 1 slide, 4 frasi + foto</div>
+    <div class="sl ora">
+      <h4>Sotto il mare, non nello spazio</h4>
+      <p class="m">Oltre il 95% del traffico tra continenti viaggia in cavi</p>
+      <ul style="padding:0;margin:0;width:62%">
+        <li><i></i><span><b>Oltre il 95%</b> del traffico tra continenti viaggia in <b>cavi sottomarini</b></span></li>
+        <li><i></i><span>Una coppia di fibre porta <b>più dati di un satellite</b>, con meno ritardo e meno costi</span></li>
+        <li><i></i><span>Grosso come un tubo da giardino · <b>ripetitori</b> che amplificano la luce</span></li>
+        <li><i></i><span>Ancore, reti da pesca, terremoti, sabotaggi: <b>infrastrutture strategiche</b></span></li>
+      </ul>
+      <div class="ph">foto</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="label">PROPOSTA · 1 idea, 1 immagine che si muove</div>
+    <div class="sl pro">
+      <svg viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice">
+        <defs><linearGradient id="mare" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f3a4a"/><stop offset="1" stop-color="#071820"/></linearGradient></defs>
+        <rect width="160" height="90" fill="url(#mare)"/>
+        <path d="M0 60 Q20 56 36 62 T62 66 Q80 72 98 66 T128 62 Q146 58 160 62 L160 90 L0 90Z" fill="#0a2230"/>
+        <path d="M0 18 Q10 14 22 18 L28 28 L20 40 L8 44 L0 40Z" fill="#1d4f5e"/>
+        <path d="M128 14 Q144 10 160 16 L160 46 L146 48 L134 38Z" fill="#1d4f5e"/>
+        <path d="M24 34 C50 66 74 74 98 68 S128 52 138 36" fill="none" stroke="#7fe0d2" stroke-width="1.2" opacity=".35"/>
+        <path d="M24 34 C50 66 74 74 98 68 S128 52 138 36" fill="none" stroke="#f2c46a" stroke-width="1.6" stroke-dasharray="3 7" class="dot"/>
+        <circle cx="24" cy="34" r="2.4" fill="#fff"/><circle cx="138" cy="36" r="2.4" fill="#fff"/>
+        <text x="24" y="30" font-size="3.4" fill="#cfe6ea" text-anchor="middle">Europa</text>
+        <text x="138" y="32" font-size="3.4" fill="#cfe6ea" text-anchor="middle">America</text>
+        <g transform="translate(88 18)" opacity=".8"><circle r="2.2" fill="#e8eef4"/><path d="M-5 0h10M0 -5v10" stroke="#e8eef4" stroke-width=".5" opacity=".0"/><text y="6" font-size="3" fill="#8fb3bd" text-anchor="middle">satellite: poco</text></g>
+        <text x="80" y="82" font-size="3.2" fill="#8fb3bd" text-anchor="middle">oltre 500 cavi · più di un milione di km</text>
+      </svg>
+      <div class="big">95%</div>
+      <div class="cap">dei dati tra i continenti passa sotto il mare</div>
+      <div class="tag">4.2 · Cavi sottomarini</div>
+      <div class="click">clic ▸ perché non i satelliti?</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:1.2em">
+  <h3>Idee della proposta (mie, da correggere)</h3>
+  <p>• Una slide = <b>un'idea</b>. Quello che oggi sono 4 punti diventa 3–4 slide o clic successivi sullo stesso disegno.</p>
+  <p>• Il disegno è il protagonista: i dati scorrono sul cavo, un clic fa comparire il satellite e il confronto, un altro rompe il cavo e il traffico si sposta.</p>
+  <p>• Parole: un titolo-affermazione, un numero grande, al massimo una riga. Il resto lo dici tu a voce.</p>
+  <p>• Sfondo scuro per le schemi/animazioni, chiaro per titoli e storia: ritmo diverso durante la lezione.</p>
+</div>

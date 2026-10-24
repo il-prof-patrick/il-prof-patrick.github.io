@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>3. Un computer può essere intelligente? · Introduzione a informatica ed AI</title>
+<title>3. L’IA nella vita di tutti i giorni · Introduzione a informatica ed AI</title>
 <link rel="stylesheet" href="assets/sito.css">
 </head>
 <body data-capitolo="3">
@@ -11,65 +11,320 @@
 <nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
 <main class="lezione" lang="it">
   <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Introduzione a informatica ed AI · Capitolo 03</span></div>
-  <h1>Un computer può essere intelligente?</h1>
+  <h1>L’IA nella vita di tutti i giorni</h1>
 
   <div class="contenuto">
 
   <!-- ===================== 3.1 ===================== -->
   <section class="sez">
-  <h2 id="p1"><span class="num">3.1</span>Il test di Turing</h2>
-  <p class="domanda">Chattate con uno sconosciuto: che domanda fareste per scoprire se è una macchina?</p>
-  <figure class="foto-margine"><a class="fonte" href="https://www.britannica.com/biography/Alan-Turing" target="_blank" rel="noopener"><img src="https://cdn.britannica.com/81/191581-050-3C5C0F9D/Alan-Turing.jpg" alt="Alan Turing, matematico britannico: nel 1950 propose il «gioco dell’imitazione»." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Alan Turing, matematico britannico</figcaption></figure>
-  <p>Nel 1950 il matematico britannico <b>Alan Turing</b> si chiese «le macchine possono pensare?». La domanda era troppo vaga, perché non si sa che cosa voglia dire «pensare», e Turing la sostituì con un gioco: il <b>gioco dell’imitazione</b>, oggi detto <b>test di Turing</b>.</p>
-  <p>Un <b>interrogatore</b> conversa per iscritto, senza vederli, con due interlocutori: una persona e una macchina. Può fare tutte le domande che vuole. Se alla fine <b>non riesce a capire quale sia la macchina</b>, la macchina <b>supera il test</b>.</p>
+  <h2 id="p1"><span class="num">3.1</span>Una giornata piena di IA</h2>
+  <p class="domanda">Quante volte avete usato un’IA stamattina, prima di arrivare a scuola?</p>
+  <p>Prima ancora di chiedersi che cos’è l’<b>intelligenza artificiale (IA)</b>, conviene accorgersi che <b>la si usa già</b>. In una giornata normale ci sono molti momenti in cui un sistema di IA lavora per te: alcuni li noti, altri <b>lavorano di nascosto</b>.</p>
   <figure>
-    <div class="tela" data-widget="turing"></div>
+    <div class="tela passi-anim" id="f-giornata" data-titolo="Una giornata piena di IA" data-inizio="In alto otto pallini grigi, uno per ora, e il contatore «IA incontrate: 0»; sotto, un riquadro con la scritta «Una giornata come tante».">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Otto momenti di una giornata, dalle 7:00 alle 21:00: in ognuno un sistema di IA lavora per te. Cinque li noti, tre lavorano di nascosto."></svg>
+      <ol class="passi-testo">
+        <li>7:00, telefono che si sblocca guardandolo. Face ID riconosce il volto anche con occhiali o capelli diversi (verde: te ne accorgi).</li>
+        <li>7:30, altoparlante a colazione. Siri capisce la voce e risponde sul tempo (blu).</li>
+        <li>8:00, mappa sul telefono. Google Maps prevede il traffico e sceglie la strada più veloce (blu).</li>
+        <li>10:00, pagina di inglese. Google Traduttore traduce il testo da una lingua all’altra (blu).</li>
+        <li>13:00, schermo con video. YouTube sceglie lui che cosa mostrarti dopo (giallo: lavora di nascosto).</li>
+        <li>16:00, fotocamera con gli amici. Trova i volti e mette a fuoco su di loro (giallo).</li>
+        <li>18:00, busta di posta. Il filtro antispam di Gmail butta via la posta indesiderata prima che tu la veda (giallo).</li>
+        <li>21:00, finestra di chat. ChatGPT capisce la domanda del compito e scrive una risposta (blu).</li>
+        <li>Schermata finale: «8 IA in una sola giornata. Te ne sei accorto di 5, le altre 3 lavorano senza che tu le veda». Un ultimo clic fa ricominciare.</li>
+      </ol>
+    </div>
   </figure>
-  <p>Il gioco mostra che il test misura <b>quanto bene una macchina imita una persona in una conversazione</b>, non quanto sia intelligente. Nel primo giro la macchina passa fingendo di sbagliare e inventando ricordi; nel secondo fallisce proprio perché è troppo brava, pur facendo cose molto intelligenti. Quindi <b>superare il test non prova che una macchina pensi</b>, come Hans sembrava intelligente senza esserlo, e <b>non superarlo non prova che non sia intelligente</b>.</p>
-  <p class="domanda">Quante IA hanno superato oggi il test di Turing?</p>
-  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
-    <p class="err-no">«Il test di Turing dimostra che una macchina pensa.»</p>
-    <p class="err-si">Il test misura solo se una macchina <b>sembra una persona</b> in una conversazione. Una macchina può superarlo fingendo, e può fallirlo proprio perché è troppo brava.</p></div>
+  <h3>Gli otto momenti</h3>
+  <div class="riga-foto">
+    <p><b>7:00 · Face ID.</b> Il telefono si sblocca quando lo guardi: <b>riconosce il tuo volto</b> anche con occhiali, barba o capelli diversi.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://osxdaily.com/2017/11/10/can-use-iphone-x-without-face-id/" target="_blank" rel="noopener"><img src="https://cdn.osxdaily.com/wp-content/uploads/2017/11/use-iphone-x-without-face-id.jpg" alt="Face ID: lo sblocco con il volto." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Face ID</figcaption></figure>
+  </div>
+  <div class="riga-foto">
+    <p><b>7:30 · Siri.</b> A colazione chiedi che tempo fa: l’assistente vocale <b>capisce la tua voce</b> e risponde.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://www.pcmag.com/how-to/apple-siri-tips-and-tricks" target="_blank" rel="noopener"><img src="https://i.pcmag.com/imagery/articles/02l1csH5Q0saE8idorcBLmM-27..v1637090084.jpg" alt="Siri: l’assistente vocale dell’iPhone." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Siri</figcaption></figure>
+  </div>
+  <div class="riga-foto">
+    <p><b>8:00 · Google Maps.</b> Il navigatore <b>prevede il traffico</b> e sceglie la strada più veloce per andare a scuola.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://indianexpress.com/article/technology/techook/google-maps-glanceable-information-feature-9185316/" target="_blank" rel="noopener"><img src="https://images.indianexpress.com/2024/02/Google-Maps-Pixabay.jpg" alt="Google Maps: la navigazione sul telefono." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Google Maps</figcaption></figure>
+  </div>
+  <div class="riga-foto">
+    <p><b>10:00 · Google Traduttore.</b> Per il compito di inglese l’app <b>traduce un testo</b> da una lingua all’altra.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://uk.pcmag.com/mobile-apps/88750/how-to-use-googles-translate-app" target="_blank" rel="noopener"><img src="https://sm.pcmag.com/pcmag_uk/news/h/how-to-use/how-to-use-googles-translate-app_v5aj.jpg" alt="Google Traduttore: l’app su smartphone." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Google Traduttore</figcaption></figure>
+  </div>
+  <div class="riga-foto">
+    <p><b>13:00 · YouTube.</b> Finito un video, ne parte un altro: <b>a sceglierlo è il sistema</b>, in base a ciò che hai guardato prima.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://qz.com/1178125/youtubes-recommendations-drive-70-of-what-we-watch" target="_blank" rel="noopener"><img src="https://assets.qz.com/media/fde6fa52af15a10b8ed69b6e33c2f4bc.jpg" alt="YouTube: i video consigliati." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">YouTube</figcaption></figure>
+  </div>
+  <div class="riga-foto">
+    <p><b>16:00 · La fotocamera.</b> Nella foto con gli amici lo smartphone <b>trova i volti</b> nell’inquadratura e mette a fuoco su di loro.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://www.vecteezy.com/photo/72671042-three-girls-friends-with-coffee-take-away-outdoors-and-someone-pov-view-taking-photos-at-digital-camera-of-smartphone-young-females-at-mobile-screen-having-fun-in-summer-park-lifestyle-portrait" target="_blank" rel="noopener"><img src="assets/immagini/ia-fotocamera-volti.jpg" alt="La fotocamera dello smartphone." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">La fotocamera</figcaption></figure>
+  </div>
+  <div class="riga-foto">
+    <p><b>18:00 · Gmail.</b> Il servizio di posta manda nella cartella Spam la posta indesiderata prima che tu la veda: se funziona bene, <b>non te ne accorgi</b>.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://www.tecnologia.libero.it/" target="_blank" rel="noopener"><img src="https://wips.plug.it/cips/tecnologia/cms/2020/02/gmail.jpg" alt="Gmail: la cartella Spam. Da guardare nei dettagli: osserva il pulsante «Empty spam now», cioè «Svuota spam»." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Gmail: la cartella Spam. Osserva il pulsante «Empty spam now», cioè «Svuota spam».</figcaption></figure>
+  </div>
+  <div class="riga-foto">
+    <p><b>21:00 · ChatGPT.</b> Per un compito chiedi aiuto a un <b>chatbot</b>, un programma con cui si conversa per iscritto: <b>capisce la domanda</b> e scrive una risposta.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://forums.macrumors.com/threads/chatgpt-for-iphone-and-ipad-can-now-read-responses-out-loud.2421086/" target="_blank" rel="noopener"><img src="https://images.macrumors.com/article-new/2023/05/chatgpt-for-iphone-feature.jpg" alt="ChatGPT: una conversazione sul telefono." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">ChatGPT</figcaption></figure>
+  </div>
+  <h3>E fuori dalla giornata di uno studente</h3>
+  <div class="riga-foto">
+    <p><b>In casa · Roomba.</b> I modelli più recenti di questo aspirapolvere robot <b>riconoscono gli ostacoli</b> sul pavimento, come cavi e calzini, e li evitano.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://vacuumwars.com/irobot-roomba-combo-j7-review/" target="_blank" rel="noopener"><img src="https://vacuumwars.com/wp-content/uploads/2022/11/Vacuuming-Carpet-iRobot-Roomba-Combo-j7-1024x538.jpg" alt="Roomba: l’aspirapolvere robot al lavoro." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Roomba</figcaption></figure>
+  </div>
+  <div class="riga-foto">
+    <p><b>In auto · guida assistita.</b> Sistemi come quello di Tesla, fino al 2026 chiamato <i>Autopilot</i> e oggi <i>Full Self-Driving (Supervised)</i>, <b>tengono la corsia e regolano la velocità</b>. Il guidatore deve restare attento: non è una guida autonoma.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://www.consumerreports.org/tesla/tesla-new-autopilot-better-but-needs-improvement/" target="_blank" rel="noopener"><img src="https://cf-images.us-east-1.prod.boltdns.net/v1/static/1078702682/ed8d8aa2-70bf-4793-8430-a8e2aaf69085/d45eb94a-b12c-4f80-b60d-1a62cd0034db/1920x1080/match/image.jpg" alt="Lo schermo di una Tesla in guida assistita, quando il sistema si chiamava Autopilot." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Tesla in guida assistita</figcaption></figure>
+  </div>
+  <div class="riga-foto">
+    <p><b>In ospedale · analisi delle radiografie.</b> Programmi come <i>qXR</i> di Qure.ai <b>segnalano ai medici le zone sospette</b> di una radiografia del torace. La decisione resta del medico.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://www.qure.ai/product/qxr" target="_blank" rel="noopener"><img src="https://qure-website-images.s3.ap-south-1.amazonaws.com/Chest_X_ray_reporting_747c180b0e.webp" alt="qXR: una radiografia del torace analizzata dal programma. Da guardare nei dettagli: osserva le zone segnalate sull’immagine." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">qXR: una radiografia del torace analizzata dal programma. Osserva le zone segnalate sull’immagine.</figcaption></figure>
+  </div>
 
   <!-- ===================== 3.2 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p2"><span class="num">3.2</span>La stanza cinese</h2>
-  <p class="domanda">Se un chatbot risponde sempre come una persona, vuol dire che capisce quello che dice?</p>
-  <figure class="foto-margine"><a class="fonte" href="https://www.britannica.com/biography/John-Searle" target="_blank" rel="noopener"><img src="https://cdn.britannica.com/28/241128-050-6B7E001E/American-philosopher-John-Searle.jpg" alt="John Searle, filosofo statunitense: nel 1980 propose l’esperimento mentale della stanza cinese." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">John Searle, filosofo statunitense</figcaption></figure>
-  <p>Il test di Turing guarda solo le risposte. Nel 1980 il filosofo statunitense <b>John Searle</b> propose un <b>esperimento mentale</b>, cioè uno scenario immaginato e non realizzato, per mostrare che <b>rispondere bene non basta per capire</b>: la <b>stanza cinese</b>.</p>
-  <p>Una persona che <b>non conosce il cinese</b> è chiusa in una stanza con un <b>libro di regole</b>. Da una fessura riceve fogli con ideogrammi cinesi; per ogni sequenza di segni il libro le dice quali altri segni copiare e restituire. Fuori, chi legge le risposte le trova perfette e pensa che dentro ci sia qualcuno che capisce il cinese. <b>Dentro non capisce nessuno</b>: la persona ha solo seguito regole su simboli di cui non conosce il significato.</p>
-  <figure>
-    <div class="tela passi-anim" id="f-stanza" data-titolo="La stanza cinese" data-inizio="Una stanza chiusa con una fessura. Dentro c’è una persona che non conosce il cinese e un libro di regole; fuori, chi parla cinese.">
-      <svg viewBox="0 0 720 320" role="img" aria-label="Una persona fuori scrive una domanda in cinese e la infila nella fessura; dentro, chi non conosce il cinese cerca i segni nel libro di regole e copia la risposta, senza capire nulla."></svg>
-      <ol class="passi-testo">
-        <li>Fuori, la persona scrive su un foglio «你好吗？» (significa «Come stai?») e lo infila nella fessura.</li>
-        <li>Dentro, la persona cerca quei segni nel libro, che dice «Se vedi 你好吗？ scrivi 我很好，谢谢。», e li copia senza sapere che cosa vogliano dire.</li>
-        <li>Fuori arriva il foglio «我很好，谢谢。» (significa «Sto bene, grazie»): una risposta perfetta. Là dentro c’è qualcuno che capisce il cinese!</li>
-        <li>Dentro compare un fumetto: «Non ho capito niente: ho solo seguito delle regole.» Seguire regole su dei simboli basta per rispondere bene senza capire. Searle pensa che per un computer sia lo stesso.</li>
-      </ol>
-    </div>
-  </figure>
-  <p>Per Searle un computer è nella stessa situazione: <b>esegue regole su simboli</b>. Quindi anche se supera il test di Turing, <b>non è detto che capisca</b> ciò che dice: manipolare simboli non è capire.</p>
+  <h2 id="p2"><span class="num">3.2</span>Riconoscere</h2>
+  <p><b>Google Lens</b> guarda una pianta attraverso la fotocamera e ti dice <b>come si chiama</b>.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://www.digitalcitizen.life/identify-plants-with-google-lens/" target="_blank" rel="noopener"><img src="assets/immagini/ia-google-lens-pianta.webp" alt="Google Lens: il riconoscimento di una pianta. Da guardare nei dettagli: osserva i risultati, cioè le piante simili che il sistema propone." referrerpolicy="no-referrer"></a><figcaption>Google Lens: il riconoscimento di una pianta. Osserva i risultati, cioè le piante simili che il sistema propone.</figcaption></figure>
+  <p>Questo è il compito di <b>riconoscere</b>: l’IA <b>trasforma ciò che vede o sente in un’etichetta o in un testo</b> («è un’orchidea», «la frase è questa»). Vale per le immagini e i volti, per i suoni e la musica, per la voce.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.pcmag.com/news/shazam-now-works-through-headphones-on-android" target="_blank" rel="noopener"><img src="https://i.pcmag.com/imagery/articles/04V5PM0Sr9b0FH0UQsEp8oU-1..v1569491633.png" alt="Shazam: l’app mentre ascolta una canzone." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Shazam</figcaption></figure>
+  <p><b>Shazam</b> ascolta pochi secondi di una canzone e ti dice titolo e autore.</p>
+  <p>I <b>sottotitoli automatici</b> di YouTube trasformano la voce di chi parla in testo scritto.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://www.malaymail.com/news/tech/gadgets/2021/10/12/youtube-rolls-out-automatic-captions-for-all-video/2012692" target="_blank" rel="noopener"><img src="https://www.malaymail.com/uploads/imported_images/2021/2021-10/20211012_YouTube_Caption_Auto.jpg" alt="I sottotitoli automatici di YouTube. Da guardare nei dettagli: osserva le parole scritte sotto il video." referrerpolicy="no-referrer"></a><figcaption>I sottotitoli automatici di YouTube. Osserva le parole scritte sotto il video.</figcaption></figure>
 
   <!-- ===================== 3.3 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p3"><span class="num">3.3</span>Punti di vista a confronto</h2>
-  <p>Alla domanda «un computer può essere intelligente?» ci sono <b>tre risposte principali</b>, e nessuna è chiusa.</p>
-  <div class="tab"><table>
-    <thead><tr><th>Posizione</th><th>Idea</th><th>Chi la sostiene</th><th>Limite</th></tr></thead>
-    <tbody>
-      <tr><td>Sì</td><td>se si comporta in modo intelligente, è intelligente</td><td>Turing, con il suo test</td><td>il comportamento può ingannare, come con Hans</td></tr>
-      <tr><td>No</td><td>senza comprensione non c’è intelligenza</td><td>Searle, con la stanza cinese</td><td>che cos’è esattamente la comprensione?</td></tr>
-      <tr><td>Dipende</td><td>da che cosa intendiamo per intelligenza: svolgere compiti o capire</td><td>chi parte dalla definizione (capitolo 2)</td><td>rimanda la domanda alla definizione, ma non la risolve</td></tr>
-    </tbody></table></div>
+  <h2 id="p3"><span class="num">3.3</span>Capire e produrre linguaggio</h2>
+  <p>Durante una videochiamata su <b>Google Meet</b> compaiono in tempo reale i <b>sottotitoli</b> di ciò che si sta dicendo.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://mashable.com/article/google-meet-live-translated-captions" target="_blank" rel="noopener"><img src="https://helios-i.mashable.com/imagery/articles/04WTqG8z5PopdwPJ81KEzyf/hero-image.fill.size_1248x702.v1632813606.png" alt="Google Meet: i sottotitoli in tempo reale. Da guardare nei dettagli: osserva il testo sotto i volti." referrerpolicy="no-referrer"></a><figcaption>Google Meet: i sottotitoli in tempo reale. Osserva il testo sotto i volti.</figcaption></figure>
+  <p>Questo è il compito di <b>capire e produrre il linguaggio</b>: l’IA non si limita a leggere le parole, le <b>elabora</b>. Può trascriverle, tradurle, riassumerle e rispondere a una domanda.</p>
+  <p><span class="termine">Otter.ai</span>, per esempio, trascrive una riunione e ne ricava un <b>riassunto</b> da rileggere.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://otter.ai/blog/how-to-transcribe-any-video-meetings-with-otter-ai" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/61a05ff14c09ecacc06eec05/6936f366bc8bf574a26c413e_cover-how-to-transcribe-any-video-meetings-with-otter-ai.webp" alt="Otter.ai: la trascrizione di una riunione. Da guardare nei dettagli: osserva il testo accanto ai volti dei partecipanti." referrerpolicy="no-referrer"></a><figcaption>Otter.ai: la trascrizione di una riunione. Osserva il testo accanto ai volti dei partecipanti.</figcaption></figure>
+  <p>Il linguaggio è difficile per una macchina perché <b>il significato dipende dal contesto</b>. In «Ho visto Marco con il binocolo» non si capisce chi abbia il binocolo: una persona lo capisce solo da ciò che sa della situazione.</p>
+
+  <!-- ===================== 3.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">3.4</span>Prevedere e consigliare</h2>
+  <p>Sotto un prodotto di <b>Amazon</b> compare «Acquistati insieme di frequente»: il sito <b>ti consiglia</b> che cosa comprare in più.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://cdn.prod.website-files.com/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/663e17fff238bd97b0a022cd/6645d94cef2950a240114cec_amazon-product-recommendations-homepage_600x600.jpeg" alt="Amazon: i prodotti acquistati insieme. Da guardare nei dettagli: osserva i tre prodotti proposti insieme e il prezzo totale." referrerpolicy="no-referrer"></a><figcaption>Amazon: i prodotti acquistati insieme. Osserva i tre prodotti proposti insieme e il prezzo totale.</figcaption></figure>
+  <p>Questo è il compito di <b>prevedere e consigliare</b>: l’IA parte da ciò che <b>è già successo</b> (acquisti, video visti, dati del tempo) e <b>stima che cosa succederà o che cosa ti piacerà</b>. È una <b>stima, non una certezza</b>: per questo ogni tanto sbaglia.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.weathercompany.com/media/max-mobile/" target="_blank" rel="noopener"><img src="https://www.weathercompany.com/wp-content/uploads/2024/01/Hero-Max-Mobile-1.jpg" alt="Un’app meteo sul telefono." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un’app meteo</figcaption></figure>
+  <p>Funzionano così anche le app meteo: oltre ai modelli fisici dell’atmosfera usano modelli di IA per stimare il tempo delle prossime ore.</p>
+  <p>E funziona così l’<b>antifrode</b> della banca: conosce le tue abitudini di spesa e <b>segnala un pagamento insolito</b>.</p>
+  <figure>
+    <div class="tela schema" id="s-antifrode"><p class="passi-titolo">L’antifrode della carta di pagamento</p>
+      <svg viewBox="0 0 720 250" role="img" aria-label="Tre passaggi in fila: un pagamento a Milano alle 15:00 è normale; un pagamento a Tokyo alle 15:10 è insolito, perché non si può essere in due posti; la banca blocca la carta e ti avvisa.">
+        <defs><marker id="af-fr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--ink-muted)"/></marker></defs>
+        <rect x="14" y="14" width="206" height="170" rx="3" class="nodo evid"/>
+        <rect x="257" y="14" width="206" height="170" rx="3" class="nodo guasto"/>
+        <rect x="500" y="14" width="206" height="170" rx="3" class="nodo"/>
+        <g class="carta"><rect x="74" y="30" width="86" height="54" rx="6" class="nodo"/><rect x="74" y="42" width="86" height="10" style="fill:var(--ink-muted);stroke:none"/><rect x="82" y="62" width="30" height="6" rx="2" style="fill:var(--border-strong);stroke:none"/></g>
+        <g class="carta"><rect x="317" y="30" width="86" height="54" rx="6" class="nodo"/><rect x="317" y="42" width="86" height="10" style="fill:var(--ink-muted);stroke:none"/><rect x="325" y="62" width="30" height="6" rx="2" style="fill:var(--border-strong);stroke:none"/></g>
+        <g class="carta"><rect x="560" y="30" width="86" height="54" rx="6" class="nodo"/><rect x="560" y="42" width="86" height="10" style="fill:var(--ink-muted);stroke:none"/><rect x="568" y="62" width="30" height="6" rx="2" style="fill:var(--border-strong);stroke:none"/></g>
+        <path d="M566 34 L640 80 M640 34 L566 80" class="lin err"/>
+        <text x="117" y="112" text-anchor="middle" class="t-b">Pagamento a Milano</text>
+        <text x="117" y="132" text-anchor="middle" class="t">alle 15:00</text>
+        <text x="117" y="156" text-anchor="middle" class="t-m">normale</text>
+        <text x="360" y="112" text-anchor="middle" class="t-e">Pagamento a Tokyo</text>
+        <text x="360" y="132" text-anchor="middle" class="t">alle 15:10</text>
+        <text x="360" y="156" text-anchor="middle" class="t-e">insolito</text>
+        <text x="360" y="174" text-anchor="middle" class="t-m">non si può essere in due posti</text>
+        <text x="603" y="112" text-anchor="middle" class="t-b">La banca blocca la carta</text>
+        <text x="603" y="132" text-anchor="middle" class="t">e ti avvisa</text>
+        <path d="M222 92 H255" class="lin" marker-end="url(#af-fr)"/>
+        <path d="M465 92 H498" class="lin" marker-end="url(#af-fr)"/>
+        <text x="360" y="214" text-anchor="middle" class="t-m">L’IA non sa che la carta è stata rubata:</text>
+        <text x="360" y="234" text-anchor="middle" class="t-m">stima che quel pagamento sia improbabile.</text>
+      </svg>
+    </div>
+  </figure>
+
+  <!-- ===================== 3.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">3.5</span>Giocare e decidere</h2>
+  <p>Sul telefono puoi installare <b>Stockfish</b>, un programma di scacchi che <b>nessun giocatore umano riesce più a battere</b>.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://stockfishchess.org/" target="_blank" rel="noopener"><img src="https://stockfishchess.org/images/gui/lichess_gui.webp" alt="Stockfish: una partita analizzata dal programma. Da guardare nei dettagli: osserva la scacchiera e le linee di analisi a lato." referrerpolicy="no-referrer"></a><figcaption>Stockfish: una partita analizzata dal programma. Osserva la scacchiera e le linee di analisi a lato.</figcaption></figure>
+  <p>I giochi sono il banco di prova ideale per l’IA: hanno <b>regole chiare</b> e <b>un vincitore</b>. Questo è il compito di <b>giocare e decidere</b>: l’IA <b>prova le mosse in anticipo</b> e sceglie quella con le conseguenze migliori.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-tris" data-titolo="Come sceglie il computer" data-inizio="La griglia del tris a metà partita: X in alto a sinistra, O al centro, X in basso a destra. Tocca a O, cioè al computer.">
+      <svg viewBox="0 0 720 400" role="img" aria-label="Il computer prova due mosse in anticipo: l’angolo in alto a destra lo fa perdere, il lato in alto porta al pareggio, e sceglie quella."></svg>
+      <ol class="passi-testo">
+        <li>Il computer immagina di giocare nell’angolo in alto a destra: sotto la griglia compaiono le mosse successive (X blocca in basso a sinistra e ottiene due tris possibili insieme). Il ramo diventa rosso e la scritta dice «perde».</li>
+        <li>Si torna alla scena iniziale e il computer immagina di giocare sul lato in alto: compaiono le mosse successive fino alla griglia piena, senza tris. Il ramo diventa verde e la scritta dice «pareggia».</li>
+        <li>Il computer sceglie il lato in alto e lo gioca davvero: la O compare nella griglia di partenza.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="riga-foto">
+    <p>Non vale solo per i giochi: i taxi senza conducente di <b>Waymo</b>, in diverse città degli Stati Uniti, <b>decidono</b> di continuo quando frenare, svoltare e dare la precedenza.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://www.bloomberg.com/news/newsletters/2024-07-05/waymo-s-robotaxi-rollout-is-a-landmark-moment-for-driverless-cars" target="_blank" rel="noopener"><img src="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ioPF9z1qdBLI/v0/-1x-1.webp" alt="Waymo: un taxi senza conducente in strada." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Waymo</figcaption></figure>
+  </div>
+
+  <!-- ===================== 3.6 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p6"><span class="num">3.6</span>Creare</h2>
+  <p>Su <b>Suno</b> scrivi «una canzone jazz sull’annaffiare le piante» e il sistema <b>compone una canzone nuova</b>, che nessuno aveva mai scritto.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://tad.ai/hub/suno-review" target="_blank" rel="noopener"><img src="https://static-lib.s3.amazonaws.com/cms/suno_496a093af5.jpg" alt="Suno: la pagina in cui si scrive la richiesta. Da guardare nei dettagli: osserva la frase di esempio nella casella di testo." referrerpolicy="no-referrer"></a><figcaption>Suno: la pagina in cui si scrive la richiesta. Osserva la frase di esempio nella casella di testo.</figcaption></figure>
+  <p>Questo è il compito di <b>creare</b>: l’<b>IA generativa</b> parte da una <b>richiesta scritta</b> e <b>produce</b> un contenuto nuovo, invece di cercarne uno già esistente. Lo stesso vale per i testi, come le risposte del chatbot visto prima.</p>
+  <p><span class="termine">Midjourney</span>, per esempio, produce <b>immagini</b> a partire da una descrizione.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://www.alphr.com/create-ai-image-midjourney/" target="_blank" rel="noopener"><img src="https://www.alphr.com/wp-content/uploads/2022/09/midjourney6.png" alt="Midjourney: la richiesta e le immagini prodotte. Da guardare nei dettagli: osserva la descrizione scritta e le quattro immagini ottenute." referrerpolicy="no-referrer"></a><figcaption>Midjourney: la richiesta e le immagini prodotte. Osserva la descrizione scritta e le quattro immagini ottenute.</figcaption></figure>
+
+  <!-- ===================== 3.7 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p7"><span class="num">3.7</span>Idee sbagliate sull’IA</h2>
+  <p class="domanda">Un braccio robotico in fabbrica salda tutto il giorno gli stessi movimenti: è un’IA?</p>
+  <figure>
+    <div class="tela" data-widget="iaonon"></div>
+  </figure>
+  <p><b>L’IA non è un robot.</b> Il robot è una macchina con un corpo; l’IA è un <b>programma</b> (<i>software</i>) che può stare in un telefono, in un sito o dentro un robot. Quasi tutti gli esempi di questo capitolo non hanno corpo.</p>
+  <p><b>L’IA non è un cervello elettronico.</b> Svolge compiti che per una persona richiedono intelligenza, ma <b>non è detto che li svolga come un cervello</b>: se sia davvero intelligente è la domanda del capitolo 4. Soprattutto, potrebbe <b>svolgere i propri compiti in maniera meccanica e seguendo semplicemente ordini precisi.</b></p>
+  <p><b>L’IA non sa tutto.</b> Ogni sistema è <b>bravo in un compito</b> e sbaglia fuori da quello: Face ID non sa tradurre, Stockfish non sa riconoscere un volto.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«L’IA è un robot che pensa come noi.»</p>
+    <p class="err-si">Un robot è una <b>macchina con un corpo</b>, l’IA è un <b>programma</b>: quasi sempre vive in un telefono o in un sito, e non c’è nessuna prova che «pensi» come una persona.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Un chatbot sa tutto perché è collegato a internet.»</p>
+    <p class="err-si">Un chatbot <b>può sbagliare anche quando risponde con sicurezza</b>: scrive la risposta che gli sembra più probabile, non controlla un archivio di verità.</p></div>
   <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
     <ul>
-      <li>Il test di Turing misura quanto bene una macchina imita una persona, non quanto sia intelligente: superarlo non prova che pensi.</li>
-      <li>Nella stanza cinese di Searle si risponde bene seguendo regole su simboli senza capire: manipolare simboli non è capire.</li>
-      <li>Se un computer possa essere intelligente resta una domanda aperta: la risposta dipende da che cosa chiamiamo intelligenza.</li>
+      <li>L’IA è già presente in gran parte della giornata, ma spesso lavora di nascosto e non ce ne accorgiamo.</li>
+      <li>Riconoscere significa trasformare ciò che l’IA vede o sente in un’etichetta o in un testo.</li>
+      <li>Capire e produrre linguaggio vuol dire elaborare le parole, non solo leggerle: il significato dipende dal contesto.</li>
+      <li>Prevedere e consigliare è stimare, da ciò che è già successo, che cosa accadrà o piacerà: una stima, non una certezza.</li>
+      <li>Nei giochi l’IA prova le mosse in anticipo e sceglie quella dalle conseguenze migliori; lo stesso vale nel mondo reale.</li>
+      <li>Creare è il compito dell’IA generativa: dalla richiesta produce un contenuto nuovo invece di cercarne uno già esistente.</li>
+      <li>L’IA non è un robot, non è un cervello elettronico e non sa tutto: è software bravo in un compito alla volta.</li>
     </ul></div>
+  </section>
+
+  <!-- ===================== 3.8 ===================== -->
+  <section class="sez">
+  <h2 id="p8"><span class="num">3.8</span>Un po’ di storia</h2>
+  <!-- ===================== 3.8.1 ===================== -->
+  <section class="sez">
+  <h3 id="p8-1"><span class="num">3.8.1</span>Le origini</h3>
+  <p class="domanda">Quando è nata l’Intelligenza Artificiale? Quando è nato il primo chatbot e il primo veicolo a guida autonoma? Quando l’IA ha iniziato a diventare di dominio pubblico?</p>
+  <p>L’intelligenza artificiale ci sembra recentissima, ma ha quasi settant’anni. Vediamo le tappe che l’hanno preparata e fatta nascere.</p>
+  <h4>Prima dell’IA: gli automi (dal Seicento all’Ottocento)</h4>
+  <div class="riga-foto">
+    <p>Per secoli si sono costruiti <b>automi</b>: macchine che imitano i gesti di una persona, di solito per spettacolo. Orologiai e artigiani facevano scrivere, suonare o disegnare piccole figure meccaniche.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://www.thisiscolossal.com/2013/11/the-writer-automata/" target="_blank" rel="noopener"><img src="https://www.thisiscolossal.com/wp-content/uploads/2013/11/boy-1.jpg" alt="Un automa del Settecento: una figura meccanica che imita un gesto umano." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un automa del Settecento</figcaption></figure>
+  </div>
+  <p>Il più famoso fu il <b>Turco meccanico</b>, mostrato nel 1770 da Wolfgang von Kempelen: sembrava giocare a scacchi da solo, ma i pezzi erano mossi da <b>un maestro di scacchi nascosto dentro la macchina</b>. Non era un’IA: era un inganno, e per decenni la gente ci credette, come con il cavallo Hans (capitolo 4). Fu distrutto da un incendio nel 1854.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://www.worldhistory.org/image/20947/the-mechanical-turk/" target="_blank" rel="noopener"><img src="https://www.worldhistory.org/img/c/p/1200x627/20947.png.webp" alt="Il Turco meccanico: il disegno mostra dove si nascondeva il giocatore. Da guardare nei dettagli: osserva lo spazio dentro il mobile." referrerpolicy="no-referrer"></a><figcaption>Il Turco meccanico: il disegno mostra dove si nascondeva il giocatore. Osserva lo spazio dentro il mobile.</figcaption></figure>
+  <h4>1943 · Il primo neurone artificiale</h4>
+  <p>Il neurofisiologo <b>Warren McCulloch</b> e il matematico <b>Walter Pitts</b> descrivono quello che è considerato il <b>primo modello matematico di neurone artificiale</b>: un elemento semplicissimo che riceve segnali, li somma e decide se «accendersi». È l’antenato delle reti neurali. Il <b>percettrone</b>, un neurone artificiale che regola da solo i propri valori imparando dagli esempi, arriva più tardi, con Frank Rosenblatt (1957).</p>
+  <figure class="foto-grande"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Mcculloch-pitts-neuron-model.png" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Mcculloch-pitts-neuron-model.png" alt="Il neurone di McCulloch e Pitts: due ingressi, una soglia e un’uscita che vale 0 o 1. Da guardare nei dettagli: osserva gli ingressi a sinistra e l’uscita a destra." referrerpolicy="no-referrer"></a><figcaption>Il neurone di McCulloch e Pitts: gli ingressi, la somma, una soglia e un’uscita. Osserva gli ingressi a sinistra e l’uscita a destra.</figcaption></figure>
+  <h4>1950 · Turing</h4>
+  <p><b>Alan Turing</b> pubblica «Computing Machinery and Intelligence» e propone il <b>gioco dell’imitazione</b>, poi chiamato test di Turing (capitolo 4).</p>
+  <h4>1956 · Dartmouth: nasce il nome</h4>
+  <p>In una conferenza estiva al Dartmouth College, negli Stati Uniti, un gruppo di ricercatori (McCarthy, Minsky, Rochester e Shannon) decide di studiare come costruire macchine che simulino l’intelligenza. <b>Il termine «intelligenza artificiale» è di John McCarthy</b>, e da quel momento nasce la disciplina.</p>
+  <div class="foto-coppia">
+    <figure><a class="fonte" href="https://www.wired.com/2011/10/john-mccarthy-father-of-ai-and-lisp-dies-at-84/" target="_blank" rel="noopener"><img src="http://media.wired.com/photos/59327c782a990b06268ab0b1/master/pass/john-mccarthy.png" alt="John McCarthy, che inventò il termine «intelligenza artificiale» per la conferenza di Dartmouth del 1956." referrerpolicy="no-referrer"></a><figcaption>John McCarthy, che inventò il termine «intelligenza artificiale» per la conferenza di Dartmouth del 1956</figcaption></figure>
+    <figure><a class="fonte" href="https://macloo.github.io/ai-timeline/" target="_blank" rel="noopener"><img src="https://macloo.github.io/ai-timeline/images/Dartmouth-1956-Conference_CROPPED.jpg" alt="Alcuni partecipanti alla conferenza di Dartmouth del 1956. Di riconoscimento." referrerpolicy="no-referrer"></a><figcaption>Alcuni partecipanti alla conferenza di Dartmouth del 1956</figcaption></figure>
+  </div>
+
+  <!-- ===================== 3.8.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h3 id="p8-2"><span class="num">3.8.2</span>Le prime IA</h3>
+  <h4>1961-1962 · IBM Shoebox, il riconoscimento vocale</h4>
+  <figure class="foto-margine"><a class="fonte" href="https://www.ibm.com/history/voice-recognition" target="_blank" rel="noopener"><img src="https://www.ibm.com/content/dam/connectedassets-adobe-cms/worldwide-content/arc/cf/ul/g/b3/8c/1961_IBM_Shoebox_Speech_Translation.jpg/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg" alt="IBM Shoebox: la macchina che riconosceva 16 parole pronunciate." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">IBM Shoebox</figcaption></figure>
+  <p>Il <b>riconoscimento vocale</b> nasce nel 1952 ai Bell Labs con <b>Audrey</b>, che capisce solo le <b>cifre da 0 a 9</b> pronunciate da una voce sola. L’<b>IBM Shoebox</b>, sviluppato nel 1961 e mostrato al pubblico nel 1962, fa un passo avanti: riconosce <b>16 parole</b> pronunciate ad alta voce, le dieci cifre e sei comandi, e con quelli aziona una macchina per sommare.</p>
+  <h4>1965 · La prima rete neurale funzionante</h4>
+  <div class="riga-foto">
+    <p>Il matematico <b>Alexey Ivakhnenko</b>, insieme a Valentin Lapa, mette a punto il primo metodo funzionante per far imparare una rete a <b>più livelli</b>: per molti è la prima rete di deep learning, piccola ma funzionante.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://esu.com.ua/article-13566" target="_blank" rel="noopener"><img src="https://esu.com.ua/images/article_images/I/Ivahnenko%20Oleksiy%20Grigorovich2.jpg" alt="Alexey Ivakhnenko, che nel 1965 creò la prima rete neurale a più livelli funzionante." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Alexey Ivakhnenko, che nel 1965 creò la prima rete neurale a più livelli funzionante</figcaption></figure>
+  </div>
+  <h4>1966 · ELIZA, il primo chatbot</h4>
+  <figure class="foto-margine"><a class="fonte" href="https://mitmuseum.mit.edu/collections/person/12176" target="_blank" rel="noopener"><img src="https://assets.mitmuseum.mit.edu/iiifimg3/67149759/full/800,/0/default.jpg" alt="Joseph Weizenbaum, l’autore di ELIZA." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Joseph Weizenbaum, l’autore di ELIZA</figcaption></figure>
+  <p><span class="termine">ELIZA</span>, scritto al MIT da <b>Joseph Weizenbaum</b>, è considerato il <b>primo chatbot della storia</b>. Sostituisce parole con poche <b>regole scritte da una persona</b>: se scrivi «mi sento triste», risponde «perché ti senti triste?». Eppure molti, soprattutto chi sapeva poco di computer, erano convinti che capisse davvero: come con Hans e con il pappagallo del capitolo 4, <b>sembrare intelligente non è esserlo</b>.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:ELIZA_conversation.png" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/7/79/ELIZA_conversation.png" alt="Una conversazione con ELIZA. Da guardare nei dettagli: osserva come le risposte riprendono le parole dell’utente." referrerpolicy="no-referrer"></a><figcaption>Una conversazione con ELIZA (in una ricostruzione moderna). Osserva come le risposte riprendono le parole dell’utente.</figcaption></figure>
+  <figure>
+    <div class="tela" data-widget="eliza"></div>
+  </figure>
+  <p>Negli anni Settanta e Ottanta la strada principale diventa quella dei <b>sistemi esperti</b>: programmi con le <b>regole scritte da specialisti</b>, per esempio medici, per dare consigli in un campo preciso.</p>
+
+  <!-- ===================== 3.8.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h3 id="p8-3"><span class="num">3.8.3</span>Alti e bassi</h3>
+  <p>La storia dell’IA procede a <b>ondate</b>: grandi promesse, poi delusioni, poi nuove speranze. Le fasi di delusione si chiamano <b>«inverni dell’IA»</b>, perché i finanziamenti si congelano e l’interesse svanisce.</p>
+  <p>Il <b>primo inverno (1974–1980)</b> arriva quando le promesse dei primi anni non si realizzano: un rapporto molto critico in Gran Bretagna (1973) e i tagli dei finanziamenti negli Stati Uniti fanno calare la fiducia. Negli anni Ottanta i <b>sistemi esperti</b> riaccendono le speranze e le aziende investono molto. Ma costano troppo da mantenere e il mercato crolla nel 1987: è il <b>secondo inverno (1987–1993)</b>.</p>
+  <p>Le cause sono più d’una: <b>promesse esagerate</b>, computer ancora poco potenti, pochi dati da cui imparare e, per i sistemi esperti, <b>regole scritte a mano</b> costose da mantenere (capitolo 5). La svolta arriverà quando ci saranno anche i mezzi per far imparare i sistemi dagli esempi.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-ondate" data-titolo="Dal 1950 a oggi" data-inizio="Una curva dell’entusiasmo per l’IA dal 1950 al 2026: la si traccia un tratto alla volta. La curva è indicativa e non rappresenta dati.">
+      <svg viewBox="0 0 720 330" role="img" aria-label="La curva dell’entusiasmo per l’IA: sale fino al 1973, scende nel primo inverno, risale con i sistemi esperti, scende nel secondo inverno, risale piano, cresce con il deep learning e dal 2022 esce dal grafico."></svg>
+      <ol class="passi-testo">
+        <li>1956–1973, entusiasmo: la curva sale. Nasce il nome (Dartmouth, 1956) e arrivano le prime promesse; ELIZA (1966) fa credere a molti che le macchine capiscano.</li>
+        <li>1974–1980, primo inverno: la curva scende. Le promesse non si realizzano e i finanziamenti calano.</li>
+        <li>1980–1987, i sistemi esperti: la curva risale. Tornano le speranze e le aziende investono.</li>
+        <li>1987–1993, secondo inverno: la curva scende di nuovo. I sistemi esperti costano troppo da mantenere e il mercato crolla.</li>
+        <li>1993–2011, ripresa lenta: la curva risale piano. Nel 1997 Deep Blue batte Kasparov a scacchi.</li>
+        <li>2012–2021, crescita: la curva sale più rapida con il deep learning (AlexNet, 2012) e AlphaGo (2016).</li>
+        <li>Dal 2022, impennata clamorosa: la curva schizza quasi in verticale con ChatGPT, che porta l’IA a tutti, e continua a salire fino a uscire dal grafico.</li>
+      </ol>
+    </div>
+  </figure>
+
+  <!-- ===================== 3.8.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h3 id="p8-4"><span class="num">3.8.4</span>Dalle sfide simbolo a oggi</h3>
+  <p>Nei decenni successivi i giochi e i quiz sono stati le <b>sfide simbolo</b>: prove chiare, con un vincitore, per misurare quanto una macchina fosse brava.</p>
+  <h4>1986 · Uno dei primi veicoli a guida autonoma</h4>
+  <figure class="foto-margine"><a class="fonte" href="https://dyna-vision.de/home/review-2020/time-line-road-vehicles-with-the-sense-of-vision-unibwm/" target="_blank" rel="noopener"><img src="https://dyna-vision.de/wp-content/uploads/2021/03/A367image002.jpg" alt="Il furgone Mercedes sperimentale di Dickmanns (VaMoRs)." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Il furgone Mercedes sperimentale di Dickmanns (VaMoRs)</figcaption></figure>
+  <p>In Germania <b>Ernst Dickmanns</b> equipaggia un furgone Mercedes-Benz con telecamere e computer. Nel 1986 il furgone guida da solo e nel 1987 percorre un tratto di autostrada vuota fino a <b>96 km/h</b>. Non fu l’unico: già nel 1977 in Giappone un veicolo con telecamere andava a circa 30 km/h su un percorso preparato, e negli stessi anni si costruivano veicoli simili anche negli Stati Uniti. Quale sia «il primo» dipende da che cosa si intende per guida autonoma; quello di Dickmanns è considerato il <b>pioniere della guida autonoma ad alta velocità</b>.</p>
+  <h4>1997 · Deep Blue batte Kasparov</h4>
+  <figure class="foto-margine"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Deep_Blue.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Deep_Blue.jpg" alt="Deep Blue, il computer IBM che nel 1997 batté Kasparov" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Deep Blue</figcaption></figure>
+  <p>Il computer <b>Deep Blue</b> di IBM batte il campione del mondo di scacchi <b>Garry Kasparov</b> per 3,5 a 2,5. È la prima volta che un computer batte il campione del mondo di scacchi in un match, e la notizia fa il giro del mondo. Funziona con <b>regole scritte da programmatori</b> e con un calcolo velocissimo, che esamina moltissime mosse in un secondo.</p>
+  <p>Sembrò che una macchina fosse «più intelligente» di un uomo, ma lo era <b>in un compito solo</b>: è un’IA specializzata (capitolo 5, paragrafo 5.5.5).</p>
+  <h4>2011 · Watson vince a Jeopardy!</h4>
+  <div class="riga-foto">
+    <p><b>Watson</b>, un sistema di IBM che risponde a domande in linguaggio naturale, batte due campioni del quiz televisivo americano <b>Jeopardy!</b> in tre puntate, il 14, 15 e 16 febbraio 2011.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://www.pbs.org/newshour/science/watson-wins-ibms-machine-rages-against-jeopardy-champs" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/YgYSv2KSyWg/maxresdefault.jpg" alt="Watson alla sfida di Jeopardy! tra i due campioni umani." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Watson alla sfida di Jeopardy! tra i due campioni umani</figcaption></figure>
+  </div>
+  <h4>2016 · AlphaGo batte Lee Sedol</h4>
+  <div class="riga-foto">
+    <p>Il programma <b>AlphaGo</b> di DeepMind batte il campione di <b>Go Lee Sedol</b> per 4 a 1, a Seoul, a marzo 2016. A differenza di Deep Blue, <b>ha imparato dagli esempi</b>: ha guardato partite di esperti umani e poi ne ha giocate milioni contro se stesso.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://www.nature.com/articles/nature.2016.19575" target="_blank" rel="noopener"><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fnature.2016.19575/MediaObjects/41586_2016_Article_BFnature201619575_Figb_HTML.jpg" alt="La sfida tra AlphaGo e Lee Sedol a Seoul, nel 2016." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">La sfida tra AlphaGo e Lee Sedol a Seoul, nel 2016</figcaption></figure>
+  </div>
+  <h4>2022 · I chatbot per tutti</h4>
+  <p>Il <b>30 novembre 2022</b> esce <b>ChatGPT</b>, un chatbot gratuito e facile da usare: in due mesi arriva a circa <b>100 milioni di utenti</b> (secondo una stima della banca UBS). Per la prima volta un’IA generativa è alla portata di chiunque: basta scrivere una frase.</p>
+
+  <!-- ===================== 3.8.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h3 id="p8-5"><span class="num">3.8.5</span>Perché è esplosa proprio ora</h3>
+  <p>Se l’IA ha settant’anni, perché ne parliamo tanto soltanto adesso? Perché <b>le idee c’erano da decenni</b>, ma servivano le condizioni giuste. Sono arrivate insieme.</p>
+  <figure class="foto-margine"><a class="fonte" href="https://www.techradar.com/reviews/pc-mac/pc-components/graphics-cards/nvidia-geforce-gtx-580-906690/review" target="_blank" rel="noopener"><img src="https://cdn.mos.cms.futurecdn.net/849b7e2a8252e98ad1bd200159a2471a.jpg" alt="Una scheda grafica GeForce GTX 580, come quelle su cui fu addestrato AlexNet." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Una scheda grafica GeForce GTX 580, come quelle su cui fu addestrato AlexNet</figcaption></figure>
+  <p><b>1 · Più potenza di calcolo.</b> I computer sono diventati molto più veloci, soprattutto grazie alle <b>schede grafiche</b> (GPU), che calcolano moltissime operazioni in parallelo. Nel 2012 la rete <b>AlexNet</b>, che vinse la gara ImageNet di riconoscimento delle immagini con un enorme distacco, fu addestrata su due schede grafiche da gioco.</p>
+  <p><b>2 · Esplosione dei Big Data.</b> Internet e gli smartphone producono ogni giorno foto, testi e voci in quantità immensa: sono gli esempi da cui un sistema può imparare. Per ImageNet servirono milioni di immagini.</p>
+  <p><b>3 · Modelli di machine learning migliori.</b> Dopo anni di prove, il deep learning si dimostra molto più bravo dei metodi precedenti nel riconoscere immagini, voce e linguaggio.</p>
+  <div class="riga-foto">
+    <p><b>4 · Archiviazione in cloud a basso costo.</b> Conservare e condividere enormi quantità di dati su internet costa sempre meno, e questo rende possibile addestrare sistemi giganteschi.</p>
+    <figure class="rf-foto"><a class="fonte" href="https://www.pexels.com/photo/4508751/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/4508751/pexels-photo-4508751.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un centro dati, dove si conservano e si elaborano i dati nel cloud." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un centro dati, dove si conservano e si elaborano i dati nel cloud</figcaption></figure>
+  </div>
+  <p><b>5 · Grandi investimenti.</b> Aziende e Stati investono somme enormi nello sviluppo dell’IA, anche in quella <b>aperta</b> (<i>open source</i>), i cui modelli sono condivisi e utilizzabili da tutti.</p>
+  <p><b>6 · Popolarità crescente.</b> Più l’IA funziona, più persone la usano e più si investe: un <b>circolo vizioso</b> (in senso buono) che la fa crescere sempre più in fretta. ChatGPT, nel 2022, è il punto in cui questo circolo diventa visibile a tutti.</p>
+  <p>Nessuno di questi fattori da solo basta: è <b>la combinazione</b> che ha fatto esplodere l’IA. La curva del paragrafo «Alti e bassi» mostra proprio questa impennata.</p>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>L’IA ha quasi settant’anni: dagli automi e dal primo modello di neurone artificiale arriva a Turing e al nome «intelligenza artificiale» nel 1956.</li>
+      <li>Le prime IA riconoscono parole, imparano in piccolo e conversano con regole scritte a mano: ELIZA sembra capire ma applica soltanto regole.</li>
+      <li>L’IA procede a ondate: due inverni, quando le promesse non si realizzano, e poi una ripresa che dal 2022 diventa un’impennata.</li>
+      <li>Le sfide simbolo, dagli scacchi al quiz, a Go, mostrano macchine bravissime in un compito solo, fino ai chatbot per tutti del 2022.</li>
+      <li>L’IA è esplosa ora perché sono arrivati insieme più potenza di calcolo, tanti dati, metodi migliori, cloud, investimenti e popolarità.</li>
+    </ul></div>
+  </section>
   </section>
 
   </div>

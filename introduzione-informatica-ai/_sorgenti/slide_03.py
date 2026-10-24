@@ -1,4 +1,4 @@
-# Slide di Presenta in aula · Capitolo 3 · Un computer può essere intelligente?
+# Slide di Presenta in aula · Capitolo 3 · L’IA nella vita di tutti i giorni
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from slidelib import *
@@ -7,59 +7,74 @@ c = Capitolo(3)
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(QUI, '..')
 
 S = [
- c.COP('Il test di Turing e la stanza cinese danno risposte opposte alla stessa domanda.'),
+ c.COP('Dove si incontra l’IA, che cosa sa fare e che cosa non è.'),
  c.DOM(0),
- # 3.1
- c.SEZ('3.1', 'Un gioco per sostituire una domanda troppo vaga', 'messages-square'),
- {'tipo': 'punti', 'titolo': 'Alan Turing, 1950', 'msg': 'Dalla domanda «le macchine possono pensare?» a un gioco', 'punti': [
-   ['calendar', 'Nel **1950** il matematico britannico **Alan Turing** si chiede se le macchine possano pensare'],
-   ['circle-help', 'La domanda è **troppo vaga**: non si sa che cosa voglia dire «pensare»'],
-   ['gamepad-2', 'La sostituisce con un gioco: il **gioco dell’imitazione**, oggi detto **test di Turing**']],
-  'foto': c.FO('F3.1.1', 'Alan Turing')},
- {'tipo': 'punti', 'titolo': 'Le regole del gioco', 'msg': 'Un interrogatore, una persona e una macchina', 'punti': [
-   ['message-square', 'L’**interrogatore** conversa **per iscritto** con due interlocutori, senza vederli'],
-   ['users', 'Uno è una **persona**, l’altro è una **macchina**'],
-   ['circle-help', 'Può fare **tutte le domande** che vuole'],
-   ['trophy', 'Se alla fine **non capisce quale sia la macchina**, la macchina **supera il test**']]},
- c.WG('turing', 'Prova: sei tu l’interrogatore'),
- {'tipo': 'punti', 'titolo': 'Che cosa misura il test', 'msg': 'Quanto bene una macchina imita una persona', 'punti': [
-   ['drama', 'Misura **l’imitazione** in una conversazione, non quanto la macchina sia intelligente'],
-   ['check', 'Nel primo giro la macchina **passa fingendo di sbagliare** e inventando ricordi'],
-   ['x', 'Nel secondo **fallisce perché è troppo brava**, pur facendo cose molto intelligenti'],
-   ['paw-print', 'Superarlo **non prova che pensi**: come Hans, può sembrare intelligente senza esserlo'],
-   ['brain', 'Non superarlo **non prova che non sia intelligente**']]},
+ # 1.1
+ c.SEZ('3.1', 'In una giornata normale lavora per te, spesso di nascosto', 'smartphone'),
+ c.AN('F3.1.1', 'Una giornata piena di IA'),
+ {'tipo': 'foto', 'titolo': 'La mattina', 'msg': 'Tre momenti prima di arrivare a scuola',
+  'foto': [c.FO('F3.1.2', 'Face ID: lo sblocco con il volto'), c.FO('F3.1.3', 'Siri: l’assistente vocale'), c.FO('F3.1.4', 'Google Maps: la navigazione')]},
+ {'tipo': 'foto', 'titolo': 'A scuola e nel pomeriggio', 'msg': 'Traduzioni, video consigliati e volti riconosciuti',
+  'foto': [c.FO('F3.1.5', 'Google Traduttore'), c.FO('F3.1.6', 'YouTube: i video consigliati'), c.FO('F3.1.7', 'La fotocamera dello smartphone')]},
+ {'tipo': 'foto', 'titolo': 'La sera', 'msg': 'Il filtro che butta via la posta indesiderata e il chatbot per i compiti',
+  'foto': [c.FO('F3.1.8', 'Gmail: la cartella Spam'), c.FO('F3.1.9', 'ChatGPT: una conversazione')]},
+ {'tipo': 'foto', 'titolo': 'Roomba, Tesla, qXR', 'msg': 'Tre esempi fuori dalla giornata di uno studente',
+  'foto': [c.FO('F3.1.10', 'Roomba: l’aspirapolvere robot'), c.FO('F3.1.11', 'Una Tesla in guida assistita'), c.FO('F3.1.12', 'qXR: una radiografia analizzata')]},
+ # 1.2
+ c.SEZ('3.2', 'Trasformare ciò che si vede o si sente in un’etichetta o in un testo', 'scan-eye'),
+ {'tipo': 'tessere', 'titolo': 'Riconoscere', 'msg': 'L’IA trasforma ciò che vede o sente in un’etichetta o in un testo', 'tessere': [
+   ['scan-eye', 'Immagini e volti', 'Google Lens: «è un’orchidea»'], ['music', 'Suoni e musica', 'Shazam: titolo e autore'], ['mic', 'La voce', 'sottotitoli automatici: «la frase è questa»']]},
+ {'tipo': 'foto', 'titolo': 'Riconoscere in tre app', 'msg': 'Una pianta, una canzone, una voce',
+  'foto': [c.FO('F3.2.1', 'Google Lens: una pianta'), c.FO('F3.2.2', 'Shazam: una canzone'), c.FO('F3.2.3', 'Sottotitoli automatici di YouTube')]},
+ # 1.3
+ c.SEZ('3.3', 'L’IA non si limita a leggere le parole: le elabora', 'languages'),
+ {'tipo': 'punti', 'titolo': 'Capire e produrre linguaggio', 'msg': 'Elabora le parole, non solo le legge', 'punti': [
+   ['captions', '**Trascrive** quello che si dice, anche in una videochiamata'], ['languages', '**Traduce** un testo da una lingua all’altra'],
+   ['file-text', '**Riassume** una riunione in un testo da rileggere'], ['message-circle', '**Risponde** a una domanda']]},
+ {'tipo': 'foto', 'titolo': 'Sottotitoli e trascrizioni', 'msg': 'Il testo compare in tempo reale e una riunione diventa un riassunto',
+  'foto': [c.FO('F3.3.1', 'Google Meet: i sottotitoli in tempo reale'), c.FO('F3.3.2', 'Otter.ai: la trascrizione di una riunione')]},
+ {'tipo': 'punti', 'titolo': 'Perché il linguaggio è difficile', 'msg': 'Per una macchina il significato dipende dal contesto', 'punti': [
+   ['quote', 'Prendi la frase **«Ho visto Marco con il binocolo»**'], ['circle-help', 'Non si capisce **chi abbia il binocolo**'],
+   ['brain', 'Una persona lo capisce solo da **ciò che sa della situazione**']]},
+ # 1.4
+ c.SEZ('3.4', 'Da ciò che è già successo a ciò che succederà', 'trending-up'),
+ {'tipo': 'punti', 'titolo': 'Prevedere e consigliare', 'msg': 'È una stima, non una certezza', 'punti': [
+   ['history', 'Parte da **ciò che è già successo**: acquisti, video visti, dati del tempo'], ['sparkles', 'Stima **che cosa succederà** o che cosa ti piacerà'],
+   ['circle-x', 'Per questo **ogni tanto sbaglia**']],
+  'foto': c.FO('F3.4.1', 'Amazon: «Acquistati insieme di frequente»')},
+ {'tipo': 'punti', 'titolo': 'Le app meteo', 'msg': 'Funzionano così anche loro', 'punti': [
+   ['cloud', 'Usano i **modelli fisici dell’atmosfera**'], ['cpu', 'E in più **modelli di IA** per stimare il tempo delle prossime ore']],
+  'foto': c.FO('F3.4.2', 'Un’app meteo sul telefono')},
+ c.SC('F3.4.3', 'L’antifrode della carta di pagamento'),
+ # 1.5
+ c.SEZ('3.5', 'Provare le mosse in anticipo e scegliere la migliore', 'swords'),
+ {'tipo': 'punti', 'titolo': 'Giocare e decidere', 'msg': 'L’IA prova le mosse in anticipo e sceglie quella dalle conseguenze migliori', 'punti': [
+   ['dices', 'I giochi sono il **banco di prova ideale**: regole chiare e un vincitore'], ['crown', '**Stockfish**, un programma di scacchi, non lo batte più nessun giocatore umano'],
+   ['smartphone', 'Si può installare **sul telefono**']],
+  'foto': c.FO('F3.5.1', 'Stockfish: una partita analizzata')},
+ c.AN('F3.5.2', 'Il computer prova le mosse'),
+ {'tipo': 'punti', 'titolo': 'Non solo giochi', 'msg': 'Anche una macchina in strada deve decidere', 'punti': [
+   ['car', 'I taxi senza conducente di **Waymo** circolano in diverse città degli Stati Uniti'], ['gauge', 'Decidono di continuo **quando frenare, svoltare e dare la precedenza**']],
+  'foto': c.FO('F3.5.3', 'Waymo: un taxi senza conducente')},
+ # 1.6
+ c.SEZ('3.6', 'Dalla richiesta scritta a un contenuto nuovo', 'wand-sparkles'),
+ {'tipo': 'punti', 'titolo': 'Creare', 'msg': 'L’IA generativa produce un contenuto nuovo invece di cercarne uno esistente', 'punti': [
+   ['pen-line', 'Parte da una **richiesta scritta**'], ['music', 'Su **Suno** «una canzone jazz sull’annaffiare le piante» diventa una canzone che nessuno aveva mai scritto'],
+   ['message-circle', 'Lo stesso vale per i **testi**, come le risposte del chatbot']],
+  'foto': c.FO('F3.6.1', 'Suno: la richiesta scritta')},
+ {'tipo': 'punti', 'titolo': 'Midjourney', 'msg': 'Immagini a partire da una descrizione', 'punti': [
+   ['pen-line', 'Scrivi **che cosa vuoi vedere**'], ['image', 'Il sistema produce **quattro immagini nuove**']],
+  'foto': c.FO('F3.6.2', 'Midjourney: richiesta e immagini')},
+ # 1.7
+ c.SEZ('3.7', 'Che cosa l’IA non è', 'circle-help'),
  c.DOM(1),
+ c.WG('iaonon', 'È IA o non è IA?'),
+ {'tipo': 'tessere', 'titolo': 'Tre idee sbagliate', 'msg': 'Che cosa l’IA non è', 'tessere': [
+   ['bot', 'Non è un robot', 'il robot è una macchina con un corpo; l’IA è un programma'], ['brain', 'Non è un cervello', 'può svolgere i compiti in modo meccanico, seguendo ordini precisi'],
+   ['circle-help', 'Non sa tutto', 'è brava in un compito e sbaglia fuori da quello']],
+  'nota': 'Face ID non sa tradurre e Stockfish non sa riconoscere un volto.'},
  c.ERR(0),
- # 3.2
- c.SEZ('3.2', 'Rispondere bene non basta per capire', 'door-closed'),
- c.DOM(2),
- {'tipo': 'punti', 'titolo': 'John Searle, 1980', 'msg': 'Un esperimento mentale contro il test di Turing', 'punti': [
-   ['eye', 'Il test di Turing **guarda solo le risposte**'],
-   ['calendar', 'Nel **1980** il filosofo statunitense **John Searle** propone un **esperimento mentale**'],
-   ['lightbulb', 'È uno scenario **immaginato e non realizzato**'],
-   ['door-closed', 'Vuole mostrare che **rispondere bene non basta per capire**: la **stanza cinese**']],
-  'foto': c.FO('F3.2.1', 'John Searle')},
- {'tipo': 'punti', 'titolo': 'La stanza cinese', 'msg': 'Dentro non capisce nessuno', 'punti': [
-   ['user', 'Una persona che **non conosce il cinese** è chiusa in una stanza con un **libro di regole**'],
-   ['file-text', 'Da una fessura riceve **fogli con ideogrammi**; per ogni sequenza il libro dice quali segni **copiare e restituire**'],
-   ['circle-check', 'Fuori le risposte sembrano **perfette**: si pensa che dentro qualcuno capisca il cinese'],
-   ['circle-x', 'Invece la persona ha solo seguito regole su **simboli di cui non conosce il significato**']]},
- c.AN('F3.2.2', 'La stanza cinese'),
- {'tipo': 'punti', 'titolo': 'Il computer è nella stanza', 'msg': 'Manipolare simboli non è capire', 'punti': [
-   ['cpu', 'Per Searle un computer **esegue regole su simboli**, come la persona nella stanza'],
-   ['message-circle', 'Anche se **supera il test di Turing**, non è detto che **capisca ciò che dice**'],
-   ['book-x', '**Manipolare simboli non è capire**']]},
- # 3.3
- c.SEZ('3.3', 'Tre risposte, e nessuna è chiusa', 'scale'),
- {'tipo': 'tabella', 'titolo': 'Un computer può essere intelligente?', 'msg': 'Tre posizioni a confronto', 'righe': [
-   ['Posizione', 'Idea', 'Chi la sostiene', 'Limite'],
-   ['Sì', 'se si comporta in modo intelligente, è intelligente', 'Turing, con il suo test', 'il comportamento può ingannare, come con Hans'],
-   ['No', 'senza comprensione non c’è intelligenza', 'Searle, con la stanza cinese', 'che cos’è esattamente la comprensione?'],
-   ['Dipende', 'da che cosa intendiamo per intelligenza: svolgere compiti o capire', 'chi parte dalla definizione (capitolo 2)', 'rimanda la domanda alla definizione, ma non la risolve']]},
- {'tipo': 'punti', 'titolo': 'Una domanda aperta', 'msg': 'La risposta dipende da che cosa chiamiamo intelligenza', 'punti': [
-   ['scale', 'Se conta **ciò che il sistema fa**, vince la posizione di Turing: la definizione operativa del **capitolo 2**'],
-   ['brain', 'Se conta **capire**, vince Searle: ma nessuno sa dire con precisione che cosa sia la comprensione'],
-   ['book-open', 'Per questo **nessuna delle tre risposte è chiusa**']]},
+ c.ERR(1),
 ]
 
 if __name__ == '__main__':

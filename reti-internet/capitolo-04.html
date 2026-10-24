@@ -356,22 +356,31 @@
   <!-- ===================== 4.14 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p14"><span class="num">4.14</span>Siti, server e domini</h2>
-  <p>Per pubblicare un sito servono tre cose: i <b>file del sito</b> (HTML, CSS, immagini), un <b>server web</b> sempre acceso e collegato a Internet che li distribuisca, e un <b>nome a dominio</b> che le persone possano ricordare.</p>
+  <h2 id="p14"><span class="num">4.14</span>Hosting e housing: dove vive un sito</h2>
+  <p>Un sito ha bisogno di un <b>server web</b> sempre acceso e collegato a Internet. Ma di chi è quel computer, e chi se ne occupa? Ci sono due soluzioni, <b>hosting</b> e <b>housing</b>, che sono spesso confuse.</p>
   <ul>
-    <li>Un <span class="termine">server web</span> è <b>un programma che ascolta le richieste HTTP e risponde inviando le risorse</b>, e per estensione il computer su cui gira. I programmi più diffusi sono nginx e Apache;</li>
-    <li>l’<b>hosting</b> è <b>il servizio con cui un’azienda ospita i file di un sito sui propri server</b>, a pagamento o gratis: quasi nessuno tiene il server a casa propria;</li>
-    <li>il <b>dominio</b> si <b>registra</b> pagando una piccola cifra annuale a un <b>registrar</b>, un’azienda autorizzata; il dominio resta proprio finché si rinnova la registrazione.</li>
+    <li>l’<b>hosting</b> è <b>il servizio con cui un’azienda, il provider, ti affitta spazio e risorse su un proprio server</b>, spesso condiviso con altri siti. Il server è del provider, che lo gestisce, lo aggiorna e lo ripara;</li>
+    <li>l’<b>housing</b> (detto anche <i>colocation</i>) è <b>il servizio con cui un’azienda ospita nel proprio data center un server che è tuo</b>. Il provider mette a disposizione spazio, corrente, raffreddamento e connessione a Internet; il server e il software li gestisci tu.</li>
   </ul>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Hosting</th><th>Housing</th></tr></thead>
+    <tbody>
+      <tr><td><b>Di chi è il server</b></td><td>del provider, spesso condiviso con altri clienti</td><td>tuo, in uno spazio affittato nel data center</td></tr>
+      <tr><td><b>Chi se ne occupa</b></td><td>il provider</td><td>tu: hardware, sistema e programmi</td></tr>
+      <tr><td><b>Costo</b></td><td>basso, da pochi euro al mese (anche gratis)</td><td>più alto: si compra il server e si paga lo spazio</td></tr>
+      <tr><td><b>Controllo</b></td><td>limitato a ciò che il provider permette</td><td>totale, anche sull’hardware</td></tr>
+      <tr><td><b>Competenze</b></td><td>poche</td><td>molte</td></tr>
+      <tr><td><b>Quando conviene</b></td><td>siti scolastici, blog, piccoli negozi online</td><td>dati molto riservati, traffico enorme, hardware speciale (ad esempio server con GPU per l’IA)</td></tr>
+    </tbody></table></div>
+  <p>In entrambi i casi serve anche un <b>dominio</b>, il nome che le persone ricordano. Si <b>registra</b> pagando una piccola cifra annuale a un <b>registrar</b>, un’azienda autorizzata, e resta proprio finché si rinnova la registrazione. I domini <b>.it</b> sono gestiti dal <b>Registro .it</b> presso il <b>CNR di Pisa</b>, la città da cui partì la prima connessione italiana a Internet nel 1986.</p>
   <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
-    <p>I domini .it sono gestiti dal <b>Registro .it</b>, che ha sede presso l’Istituto di Informatica e Telematica del <b>CNR di Pisa</b>: la stessa città da cui partì la prima connessione italiana a Internet nel 1986. Esistono oggi più di tre milioni e mezzo di domini .it (valore indicativo).</p></div>
-  <p>Per un sito semplice esistono anche servizi <b>gratuiti</b> che fanno tutto insieme: <b>Google Sites</b> permette di costruire un sito con un editor visuale e lo pubblica su un indirizzo di Google; GitHub Pages pubblica gratis siti fatti di file statici.</p>
+    <p>Un servizio <b>gratuito</b> come <b>GitHub Pages</b> (siti fatti di file statici) o <b>Google Sites</b> (editor visuale, indirizzo di Google) è un hosting già pronto: file, server e indirizzo in un unico servizio, senza dominio proprio.</p></div>
   <div class="box lab"><h3><i data-ic="users" class="ic-20"></i> In laboratorio</h3>
     <p>Con <b>Google Sites</b> costruire a gruppi un piccolo sito sul modulo “Reti e Internet”: una pagina per capitolo, immagini con testo alternativo, link tra le pagine e verso fonti esterne. Pubblicarlo solo per l’account della scuola e scambiarsi gli indirizzi tra gruppi.</p></div>
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
-    <p class="err-no">«Se compro un dominio, ho già un sito.»</p>
-    <p class="err-si">Il dominio è <b>solo il nome</b>: servono anche l’<b>hosting</b> che conservi e distribuisca i file e i file stessi del sito. Senza hosting il dominio non porta da nessuna parte.</p></div>
-  <p class="domanda">Che cosa succede a un sito se il proprietario dimentica di rinnovare il dominio?</p>
+    <p class="err-no">«Hosting e housing sono due nomi dello stesso servizio.»</p>
+    <p class="err-si">Con l’<b>hosting</b> si <b>affitta</b> un server (o una parte) del provider; con l’<b>housing</b> il server è <b>tuo</b> e si affitta solo il posto in cui tenerlo, con corrente e connessione. Cambiano proprietà, controllo e costi.</p></div>
+  <p class="domanda">Una classe vuole pubblicare il suo sito di quest’anno; una startup vuole far girare un modello di IA su server con GPU di sua proprietà. Chi sceglie hosting e chi housing?</p>
 
   <!-- ===================== 4.15 ===================== -->
   </section>
@@ -407,7 +416,7 @@
       <li>Una pagina è fatta di <b>HTML</b> (struttura e contenuto, linguaggio di <b>marcatura</b>), <b>CSS</b> (aspetto) e <b>JavaScript</b> (comportamento). Le pagine <b>statiche</b> sono uguali per tutti, quelle <b>dinamiche</b> sono generate dal server a ogni richiesta.</li>
       <li>Il <b>browser</b> è il client che chiede, interpreta e mostra le pagine con il suo <b>motore di rendering</b>; i principali sono Chrome, Safari, Edge e Firefox. <b>Mosaic</b> (1993) portò le immagini nel Web.</li>
       <li>La <b>cronologia</b> elenca le pagine viste, la <b>cache</b> ne conserva copie per caricarle prima, i <b>cookie</b> permettono ai siti di ricordarsi dell’utente; quelli di <b>profilazione</b> e di <b>terze parti</b> richiedono il <b>consenso</b>. L’<b>incognito</b> non salva tracce sul dispositivo ma <b>non rende anonimi</b>.</li>
-      <li>Per pubblicare un sito servono <b>file</b>, un <b>server web</b> (spesso in <b>hosting</b>) e un <b>dominio</b> registrato presso un <b>registrar</b>; i .it sono gestiti dal Registro del <b>CNR di Pisa</b>.</li>
+      <li>Un sito ha bisogno di un <b>server web</b> e di un <b>dominio</b>: con l’<b>hosting</b> si affitta un server del provider (economico, poco controllo), con l’<b>housing</b> si porta il proprio server nel data center di un provider (più costoso, controllo totale, serve competenza); il dominio si registra presso un <b>registrar</b> e i .it sono gestiti dal Registro del <b>CNR di Pisa</b>.</li>
       <li>Il <b>surface web</b> è indicizzato; il <b>deep web</b>, la parte più grande e normale, no; il <b>dark web</b> è una piccola parte raggiungibile solo con software come <b>Tor</b>.</li>
     </ul></div>
   </section>

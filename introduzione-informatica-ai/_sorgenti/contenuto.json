@@ -3,7 +3,7 @@
  "header": "Reti e Internet · Seconda liceo",
  "chapters": [
   {
-   "n": 1,
+   "n": 3,
    "titolo": "L’IA nella vita di tutti i giorni",
    "intro": "Prima di definire l’intelligenza artificiale la si incontra: dove si trova, che cosa sa fare e che cosa, invece, non è.",
    "sezioni": [
@@ -23,7 +23,7 @@
       {
        "t": "figura",
        "tipo": "animazione",
-       "id": "F1.1.1",
+       "id": "F3.1.1",
        "x": "Fa capire: quante IA si incontrano in una sola giornata e che molte non si vedono. Scena iniziale: in alto una striscia con otto pallini grigi, uno per ora (7:00, 7:30, 8:00, 10:00, 13:00, 16:00, 18:00, 21:00), accanto il contatore «IA incontrate: 0»; sotto, un riquadro con la scritta «Una giornata come tante» e il pulsante «Avanti». Ogni clic accende il pallino successivo e mostra, con l’oggetto disegnato (telefono, altoparlante, mappa, pagina tradotta, schermo video, fotocamera, busta di posta, finestra di chat), l’ora, che cosa fa la persona, il nome del sistema e che cosa fa l’IA. Il pallino è blu se «te ne accorgi» e giallo se «lavora di nascosto»; il contatore sale di uno. Nota per la fase 2: la grafica va resa più curata della bozza vista in chat.",
        "passi": [
         "7:00, telefono che si sblocca guardandolo. Face ID riconosce il volto anche con occhiali o capelli diversi (blu: te ne accorgi).",
@@ -48,7 +48,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.1.2",
+       "id": "F3.1.2",
        "x": "Face ID: lo sblocco con il volto. Di riconoscimento.",
        "foto": {
         "url": "https://cdn.osxdaily.com/wp-content/uploads/2017/11/use-iphone-x-without-face-id.jpg",
@@ -63,7 +63,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.1.3",
+       "id": "F3.1.3",
        "x": "Siri: l’assistente vocale dell’iPhone. Di riconoscimento.",
        "foto": {
         "url": "https://i.pcmag.com/imagery/articles/02l1csH5Q0saE8idorcBLmM-27..v1637090084.jpg",
@@ -78,7 +78,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.1.4",
+       "id": "F3.1.4",
        "x": "Google Maps: la navigazione sul telefono. Di riconoscimento.",
        "foto": {
         "url": "https://images.indianexpress.com/2024/02/Google-Maps-Pixabay.jpg",
@@ -93,7 +93,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.1.5",
+       "id": "F3.1.5",
        "x": "Google Traduttore: l’app su smartphone. Di riconoscimento.",
        "foto": {
         "url": "https://sm.pcmag.com/pcmag_uk/news/h/how-to-use/how-to-use-googles-translate-app_v5aj.jpg",
@@ -108,7 +108,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.1.6",
+       "id": "F3.1.6",
        "x": "YouTube: i video consigliati. Di riconoscimento.",
        "foto": {
         "url": "https://assets.qz.com/media/fde6fa52af15a10b8ed69b6e33c2f4bc.jpg",
@@ -123,7 +123,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.1.7",
+       "id": "F3.1.7",
        "x": "La fotocamera dello smartphone. Di riconoscimento.",
        "foto": {
         "url": "https://static.vecteezy.com/system/resources/previews/072/671/030/non_2x/two-girls-friends-outdoors-and-someone-pov-view-takings-at-digital-camera-of-smartphone-young-females-at-mobile-screen-laughing-and-having-fun-in-summer-park-lifestyle-portrait-photo.jpg",
@@ -138,7 +138,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.1.8",
+       "id": "F3.1.8",
        "x": "Gmail: la cartella Spam. Da guardare nei dettagli: osserva il pulsante «Empty spam now», cioè «Svuota spam».",
        "foto": {
         "url": "https://yamm.com/images/blog/how-to-check-spam-folder-on-gmail/gmail-mobile-spam-folder-with-empty-spam-now-highlighted.webp",
@@ -153,7 +153,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.1.9",
+       "id": "F3.1.9",
        "x": "ChatGPT: una conversazione sul telefono. Di riconoscimento.",
        "foto": {
         "url": "https://images.macrumors.com/article-new/2023/05/chatgpt-for-iphone-feature.jpg",
@@ -172,7 +172,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.1.10",
+       "id": "F3.1.10",
        "x": "Roomba: l’aspirapolvere robot al lavoro. Di riconoscimento.",
        "foto": {
         "url": "https://vacuumwars.com/wp-content/uploads/2022/11/Vacuuming-Carpet-iRobot-Roomba-Combo-j7-1024x538.jpg",
@@ -187,7 +187,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.1.11",
+       "id": "F3.1.11",
        "x": "Lo schermo di una Tesla in guida assistita, quando il sistema si chiamava Autopilot. Di riconoscimento.",
        "foto": {
         "url": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/1078702682/ed8d8aa2-70bf-4793-8430-a8e2aaf69085/d45eb94a-b12c-4f80-b60d-1a62cd0034db/1920x1080/match/image.jpg",
@@ -202,7 +202,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.1.12",
+       "id": "F3.1.12",
        "x": "qXR: una radiografia del torace analizzata dal programma. Da guardare nei dettagli: osserva le zone segnalate sull’immagine.",
        "foto": {
         "url": "https://qure-website-images.s3.ap-south-1.amazonaws.com/Chest_X_ray_reporting_747c180b0e.webp",
@@ -211,7 +211,7 @@
        }
       }
      ],
-     "num": "1.1"
+     "num": "3.1"
     },
     {
      "titolo": "Riconoscere",
@@ -223,7 +223,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.2.1",
+       "id": "F3.2.1",
        "x": "Google Lens: il riconoscimento di una pianta. Da guardare nei dettagli: osserva i risultati, cioè le piante simili che il sistema propone.",
        "foto": {
         "url": "https://www.digitalcitizen.life/wp-content/uploads/2025/11/google-photos-plant-id-android-selecting-plant.webp",
@@ -242,7 +242,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.2.2",
+       "id": "F3.2.2",
        "x": "Shazam: l’app mentre ascolta una canzone. Di riconoscimento.",
        "foto": {
         "url": "https://i.pcmag.com/imagery/articles/04V5PM0Sr9b0FH0UQsEp8oU-1..v1569491633.png",
@@ -257,7 +257,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.2.3",
+       "id": "F3.2.3",
        "x": "I sottotitoli automatici di YouTube. Da guardare nei dettagli: osserva le parole scritte sotto il video.",
        "foto": {
         "url": "https://www.malaymail.com/uploads/imported_images/2021/2021-10/20211012_YouTube_Caption_Auto.jpg",
@@ -266,7 +266,7 @@
        }
       }
      ],
-     "num": "1.2"
+     "num": "3.2"
     },
     {
      "titolo": "Capire e produrre linguaggio",
@@ -278,7 +278,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.3.1",
+       "id": "F3.3.1",
        "x": "Google Meet: i sottotitoli in tempo reale. Da guardare nei dettagli: osserva il testo sotto i volti.",
        "foto": {
         "url": "https://helios-i.mashable.com/imagery/articles/04WTqG8z5PopdwPJ81KEzyf/hero-image.fill.size_1248x702.v1632813606.png",
@@ -297,7 +297,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.3.2",
+       "id": "F3.3.2",
        "x": "Otter.ai: la trascrizione di una riunione. Da guardare nei dettagli: osserva il testo accanto ai volti dei partecipanti.",
        "foto": {
         "url": "https://cdn.prod.website-files.com/61a05ff14c09ecacc06eec05/6936f366bc8bf574a26c413e_cover-how-to-transcribe-any-video-meetings-with-otter-ai.webp",
@@ -310,7 +310,7 @@
        "x": "Il linguaggio è difficile per una macchina perché **il significato dipende dal contesto**. In «Ho visto Marco con il binocolo» non si capisce chi abbia il binocolo: una persona lo capisce solo da ciò che sa della situazione."
       }
      ],
-     "num": "1.3"
+     "num": "3.3"
     },
     {
      "titolo": "Prevedere e consigliare",
@@ -322,7 +322,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.4.1",
+       "id": "F3.4.1",
        "x": "Amazon: i prodotti acquistati insieme. Da guardare nei dettagli: osserva i tre prodotti proposti insieme e il prezzo totale.",
        "foto": {
         "url": "https://miro.medium.com/v2/resize:fit:1200/1*aPORhi6r-dZEvJxNNVPEDQ.png",
@@ -341,7 +341,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.4.2",
+       "id": "F3.4.2",
        "x": "Un’app meteo sul telefono. Di riconoscimento.",
        "foto": {
         "url": "https://www.weathercompany.com/wp-content/uploads/2024/01/Hero-Max-Mobile-1.jpg",
@@ -356,12 +356,12 @@
       {
        "t": "figura",
        "tipo": "schema",
-       "id": "F1.4.3",
+       "id": "F3.4.3",
        "x": "Antifrode della carta di pagamento. Tre passaggi in fila, con la carta disegnata al centro: «Pagamento a Milano alle 15:00» (normale, verde); «Pagamento a Tokyo alle 15:10» (insolito, rosso: non si può essere in due posti); «La banca blocca la carta e ti avvisa». Fa capire che l’IA non sa che la carta è stata rubata: **stima che quel pagamento sia improbabile**.",
        "passi": []
       }
      ],
-     "num": "1.4"
+     "num": "3.4"
     },
     {
      "titolo": "Giocare e decidere",
@@ -373,7 +373,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.5.1",
+       "id": "F3.5.1",
        "x": "Stockfish: una partita analizzata dal programma. Da guardare nei dettagli: osserva la scacchiera e le linee di analisi a lato.",
        "foto": {
         "url": "https://stockfishchess.org/images/gui/lichess_gui.webp",
@@ -388,7 +388,7 @@
       {
        "t": "figura",
        "tipo": "animazione",
-       "id": "F1.5.2",
+       "id": "F3.5.2",
        "x": "Fa capire: il computer non «sente» la mossa giusta, ne prova molte in anticipo. Scena iniziale: la griglia del tris a metà partita, con X in alto a sinistra, O al centro e X in basso a destra; tocca a O, cioè al computer. Sotto la griglia la scritta «Il computer sta decidendo» e il pulsante «Avanti».",
        "passi": [
         "Il computer immagina di giocare nell’angolo in alto a destra: sotto la griglia compaiono le mosse successive (X blocca in basso a sinistra e ottiene due tris possibili insieme). Il ramo diventa rosso e la scritta dice «perde».",
@@ -403,7 +403,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.5.3",
+       "id": "F3.5.3",
        "x": "Waymo: un taxi senza conducente in strada. Di riconoscimento.",
        "foto": {
         "url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ioPF9z1qdBLI/v0/-1x-1.webp",
@@ -412,7 +412,7 @@
        }
       }
      ],
-     "num": "1.5"
+     "num": "3.5"
     },
     {
      "titolo": "Creare",
@@ -424,7 +424,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.6.1",
+       "id": "F3.6.1",
        "x": "Suno: la pagina in cui si scrive la richiesta. Da guardare nei dettagli: osserva la frase di esempio nella casella di testo.",
        "foto": {
         "url": "https://static-lib.s3.amazonaws.com/cms/suno_496a093af5.jpg",
@@ -443,7 +443,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F1.6.2",
+       "id": "F3.6.2",
        "x": "Midjourney: la richiesta e le immagini prodotte. Da guardare nei dettagli: osserva la descrizione scritta e le quattro immagini ottenute.",
        "foto": {
         "url": "https://www.alphr.com/wp-content/uploads/2022/09/midjourney6.png",
@@ -452,7 +452,7 @@
        }
       }
      ],
-     "num": "1.6"
+     "num": "3.6"
     },
     {
      "titolo": "Idee sbagliate sull’IA",
@@ -466,7 +466,7 @@
       {
        "t": "figura",
        "tipo": "animazione",
-       "id": "F1.7.1",
+       "id": "F3.7.1",
        "x": "Fa capire: che cosa è IA e che cosa no, mettendo alla prova le idee della classe. È un solo visivo che scorre da un caso all’altro, per dieci casi. Ogni caso mostra la foto grande dell’oggetto o del servizio, il nome, il contatore «caso n di 10», i punti e due pulsanti, «È IA» e «Non è IA». Scena iniziale: il caso 1 con i due pulsanti. Dopo la scelta compaiono «Giusto» o «Non proprio», la risposta e il motivo breve; il pulsante «Avanti» passa al caso successivo. Le foto dei dieci oggetti vanno cercate nella fase 2.",
        "passi": [
         "Caso 1 · Calcolatrice: non è IA. «Fa solo il calcolo che le dai, sempre allo stesso modo.»",
@@ -478,7 +478,7 @@
         "Caso 7 · Ascensore: non è IA. «Va al piano del pulsante premuto: non decide nulla.»",
         "Caso 8 · Lettura delle targhe ai varchi delle zone a traffico limitato: è IA. «Legge lettere e numeri di una targa da una fotografia.»",
         "Caso 9 · Playlist «Discover Weekly» di Spotify: è IA. «Sceglie le canzoni in base a ciò che hai ascoltato tu.»",
-        "Caso 10 · Distributore automatico di bevande: non è IA. «Dà la bevanda in base al tasto premuto e ai soldi inseriti.» Schermata finale con il punteggio su dieci e la frase «Il criterio completo lo costruiamo nei capitoli 2 e 5»."
+        "Caso 10 · Distributore automatico di bevande: non è IA. «Dà la bevanda in base al tasto premuto e ai soldi inseriti.» Schermata finale con il punteggio su dieci e la frase «Il criterio completo lo costruiamo nel capitolo 4»."
        ]
       },
       {
@@ -487,7 +487,7 @@
       },
       {
        "t": "p",
-       "x": "**L’IA non è un cervello elettronico.** Svolge compiti che per una persona richiedono intelligenza, ma **non è detto che li svolga come un cervello**: se sia davvero intelligente è la domanda del capitolo 3. Soprattutto, potrebbe **svolgere i propri compiti in maniera meccanica e seguendo semplicemente ordini precisi.**"
+       "x": "**L’IA non è un cervello elettronico.** Svolge compiti che per una persona richiedono intelligenza, ma **non è detto che li svolga come un cervello**: se sia davvero intelligente è la domanda del capitolo 4. Soprattutto, potrebbe **svolgere i propri compiti in maniera meccanica e seguendo semplicemente ordini precisi.**"
       },
       {
        "t": "p",
@@ -504,7 +504,7 @@
        "corretta": "Un chatbot **può sbagliare anche quando risponde con sicurezza**: scrive la risposta che gli sembra più probabile, non controlla un archivio di verità."
       }
      ],
-     "num": "1.7"
+     "num": "3.7"
     }
    ],
    "ricorda": [
@@ -518,7 +518,7 @@
    ]
   },
   {
-   "n": 2,
+   "n": 4,
    "titolo": "Che cos’è l’intelligenza",
    "intro": "Prima di chiedersi se una macchina può essere intelligente bisogna chiarire che cosa vuol dire esserlo, e che cosa significa chiamarla «artificiale».",
    "sezioni": [
@@ -577,7 +577,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F2.1.1",
+       "id": "F4.1.1",
        "x": "Un corvo della Nuova Caledonia con un ramoscello nel becco. Da guardare nei dettagli: osserva lo strumento che tiene e come lo regge.",
        "foto": {
         "url": "https://cdn.arstechnica.net/wp-content/uploads/2018/01/Crow-new-1.jpg",
@@ -588,7 +588,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F2.1.2",
+       "id": "F4.1.2",
        "x": "Un polpo chiuso in un barattolo che ne apre il tappo dall’interno. Da guardare nei dettagli: osserva dove si trovano i tentacoli rispetto al tappo.",
        "foto": {
         "url": "https://thekidshouldseethis.com/wp-content/uploads/2014/05/octopus-escapes-jar_2015_tksst.jpg",
@@ -607,7 +607,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F2.1.3",
+       "id": "F4.1.3",
        "x": "Il cavallo Hans con Wilhelm von Osten davanti alla lavagna dei calcoli, 1904. Da guardare nei dettagli: osserva la lavagna e dove si trova l’uomo rispetto al cavallo.",
        "foto": {
         "url": "https://cdn.britannica.com/07/180507-050-800508E8/Clever-Hans-Wilhelm-von-Osten-horse-1904.jpg",
@@ -626,7 +626,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F2.1.4",
+       "id": "F4.1.4",
        "x": "Un pappagallo cenerino, tra le specie che imitano meglio la voce umana. Di riconoscimento.",
        "foto": {
         "url": "https://www.thesprucepets.com/thmb/rSennhnkHYPFvYCkqHAQNpquimg=/1500x0/filters:no_upscale(",
@@ -636,10 +636,10 @@
       },
       {
        "t": "p",
-       "x": "Hans e il pappagallo mostrano la stessa difficoltà: **pur non essendo intelligenti a nostro modo di vedere le cose inizialmente, possono comunque essere ritenuti tali?** Ritroveremo la domanda, con le macchine, nel capitolo 3."
+       "x": "Hans e il pappagallo mostrano la stessa difficoltà: **pur non essendo intelligenti a nostro modo di vedere le cose inizialmente, possono comunque essere ritenuti tali?** Ritroveremo la domanda, con le macchine, nel capitolo 4."
       }
      ],
-     "num": "2.1"
+     "num": "4.1"
     },
     {
      "titolo": "Le intelligenze multiple (Gardner)",
@@ -707,7 +707,7 @@
       {
        "t": "figura",
        "tipo": "animazione",
-       "id": "F2.2.1",
+       "id": "F4.2.1",
        "x": "Fa capire: che nessuno è forte in tutto e che la matematica è solo una delle forme. Scena iniziale: una scheda con il titolo «Chi è più intelligente?», un cerchio con l’icona di un gruppo di persone, il testo «Quattro ragazzi. Premi Avanti e guarda in che cosa sono forti», otto barre orizzontali vuote con le etichette delle otto intelligenze e il pulsante «Avanti». Ogni clic presenta un ragazzo (icona, nome, una riga) e riempie le barre; le barre che arrivano a 8 su 10 o più si colorano di blu. Le barre sono di fantasia e servono solo a far vedere che i profili sono diversi.",
        "passi": [
         "Marta, che prende dieci in matematica: la barra logico-matematica è la più alta, le altre sono medie o basse.",
@@ -723,7 +723,7 @@
        "corretta": "L’intelligenza ha **più forme**: la matematica è una (la logico-matematica), ma ci sono anche la musicale, la corporea, l’interpersonale e le altre."
       }
      ],
-     "num": "2.2"
+     "num": "4.2"
     },
     {
      "titolo": "Intelligenza naturale e artificiale",
@@ -734,15 +734,15 @@
       },
       {
        "t": "p",
-       "x": "È una definizione **operativa**: guarda che cosa il sistema **fa**, non che cosa **è**. Se sia davvero intelligente o si limiti a sembrarlo, come Hans, è la domanda del capitolo 3."
+       "x": "È una definizione **operativa**: guarda che cosa il sistema **fa**, non che cosa **è**. Se sia davvero intelligente o si limiti a sembrarlo, come Hans, è la domanda del capitolo 4."
       },
       {
        "t": "box",
        "k": "esempio",
-       "x": "Lo sblocco del telefono con il volto (*Face ID*, capitolo 1) è IA: se lo facesse una persona, riconoscere un volto fra tanti, anche con occhiali o barba, richiederebbe percezione e memoria."
+       "x": "Lo sblocco del telefono con il volto (*Face ID*, capitolo 3) è IA: se lo facesse una persona, riconoscere un volto fra tanti, anche con occhiali o barba, richiederebbe percezione e memoria."
       }
      ],
-     "num": "2.3"
+     "num": "4.3"
     }
    ],
    "ricorda": [
@@ -752,7 +752,7 @@
    ]
   },
   {
-   "n": 3,
+   "n": 6,
    "titolo": "Un computer può essere intelligente?",
    "intro": "Due proposte famose, il test di Turing e la stanza cinese, danno risposte opposte alla stessa domanda: guardare che cosa fa una macchina basta per dire che è intelligente?",
    "sezioni": [
@@ -772,7 +772,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F3.1.1",
+       "id": "F6.1.1",
        "x": "Alan Turing, matematico britannico: nel 1950 propose il «gioco dell’imitazione». Di riconoscimento.",
        "foto": {
         "url": "https://cdn.britannica.com/81/191581-050-3C5C0F9D/Alan-Turing.jpg",
@@ -787,7 +787,7 @@
       {
        "t": "figura",
        "tipo": "animazione",
-       "id": "F3.1.2",
+       "id": "F6.1.2",
        "x": "Fa capire: che il test misura quanto bene una macchina imita una persona, non quanto sia intelligente. Scena iniziale: due colonne affiancate, «Interlocutore A» e «Interlocutore B», ciascuna con l’icona di un fumetto e ancora vuota; in alto la scritta «Giro 1 · Tu sei l’interrogatore. Una persona e una macchina ti rispondono per iscritto. Non sai chi è chi» e il pulsante «Fai la prima domanda». Ogni domanda compare in piccolo sopra la risposta, in entrambe le colonne; le risposte sono in nuvolette. Le risposte sono scritte a mano e la macchina è sempre B.",
        "passi": [
         "Giro 1, domanda 1 «Che cosa hai fatto ieri sera?». A: «Sono uscita con le mie amiche: pizza e poi a casa presto.» B: «Niente di speciale: pizza, un po’ di serie TV e a letto presto.»",
@@ -817,7 +817,7 @@
        "corretta": "Il test misura solo se una macchina **sembra una persona** in una conversazione. Una macchina può superarlo fingendo, e può fallirlo proprio perché è troppo brava."
       }
      ],
-     "num": "3.1"
+     "num": "6.1"
     },
     {
      "titolo": "La stanza cinese",
@@ -835,7 +835,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F3.2.1",
+       "id": "F6.2.1",
        "x": "John Searle, filosofo statunitense: nel 1980 propose l’esperimento mentale della stanza cinese. Di riconoscimento.",
        "foto": {
         "url": "https://cdn.britannica.com/28/241128-050-6B7E001E/American-philosopher-John-Searle.jpg",
@@ -850,7 +850,7 @@
       {
        "t": "figura",
        "tipo": "animazione",
-       "id": "F3.2.2",
+       "id": "F6.2.2",
        "x": "Fa capire: che si può rispondere bene a una domanda senza capirla. Scena iniziale: a sinistra una persona con l’etichetta «Fuori: chi parla cinese»; al centro una fessura con due frecce; a destra una stanza chiusa con dentro una seconda persona («non sa il cinese») e un libro («libro di regole»). Sotto la scena la didascalia «Una stanza chiusa con una fessura. Dentro c’è una persona che non conosce il cinese e un libro di regole» e il pulsante «Avanti». Gli ideogrammi sono veri e, sotto, c’è il significato in italiano (si può nascondere fino all’ultimo clic).",
        "passi": [
         "Fuori, la persona scrive su un foglio «你好吗？» (significa «Come stai?») e lo infila nella fessura.",
@@ -864,7 +864,7 @@
        "x": "Per Searle un computer è nella stessa situazione: **esegue regole su simboli**. Quindi anche se supera il test di Turing, **non è detto che capisca** ciò che dice: manipolare simboli non è capire."
       }
      ],
-     "num": "3.2"
+     "num": "6.2"
     },
     {
      "titolo": "Punti di vista a confronto",
@@ -897,13 +897,13 @@
         [
          "Dipende",
          "da che cosa intendiamo per intelligenza: svolgere compiti o capire",
-         "chi parte dalla definizione (capitolo 2)",
+         "chi parte dalla definizione (capitolo 4)",
          "rimanda la domanda alla definizione, ma non la risolve"
         ]
        ]
       }
      ],
-     "num": "3.3"
+     "num": "6.3"
     }
    ],
    "ricorda": [
@@ -913,8 +913,8 @@
    ]
   },
   {
-   "n": 4,
-   "titolo": "Come ragiona un computer",
+   "n": 5,
+   "titolo": "Dall’algoritmo all’apprendimento",
    "intro": "Un computer non ragiona come una persona: esegue istruzioni semplicissime, e un algoritmo è il modo di dirgli che cosa fare.",
    "sezioni": [
     {
@@ -937,7 +937,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F4.1.1",
+       "id": "F5.1.1",
        "x": "Un processore (CPU): il chip che esegue le istruzioni. Di riconoscimento.",
        "foto": {
         "url": "https://images.pexels.com/photos/37368169/pexels-photo-37368169/free-photo-of-close-up-of-intel-cpu-on-motherboard.jpeg",
@@ -956,7 +956,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F4.1.2",
+       "id": "F5.1.2",
        "x": "Umberto Eco (1932-2016), scrittore e semiologo: nella prefazione a Claudio Pozzoli, «Come scrivere una tesi di laurea con il personal computer» (Rizzoli), definì il computer «una macchina stupida» che funziona bene solo in mano a persone intelligenti. Di riconoscimento.",
        "foto": {
         "url": "https://cdn.britannica.com/33/225133-050-AD8BB3DB/Umberto-Eco-Italian-literary-critic-novelist-semiotician.jpg",
@@ -970,7 +970,7 @@
        "corretta": "La **velocità non è intelligenza**: il computer esegue istruzioni semplicissime molto in fretta, ma non capisce che cosa sta calcolando."
       }
      ],
-     "num": "4.1"
+     "num": "5.1"
     },
     {
      "titolo": "Che cos’è un algoritmo",
@@ -986,7 +986,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F4.2.1",
+       "id": "F5.2.1",
        "x": "Una macchinetta del caffè: un algoritmo che prende monete e scelta e restituisce un caffè. Di riconoscimento.",
        "foto": {
         "url": "https://www.orasesta.com/wp-content/uploads/2023/02/macchina-illy-capsule-per-uffici-e-pmi-orasesta.jpg",
@@ -995,7 +995,7 @@
        }
       }
      ],
-     "num": "4.2"
+     "num": "5.2"
     },
     {
      "titolo": "Le proprietà di un algoritmo",
@@ -1051,7 +1051,7 @@
        ]
       }
      ],
-     "num": "4.3"
+     "num": "5.3"
     },
     {
      "titolo": "Come si rappresenta un algoritmo",
@@ -1088,7 +1088,7 @@
       {
        "t": "figura",
        "tipo": "schema",
-       "id": "F4.4.1",
+       "id": "F5.4.1",
        "x": "Diagramma di flusso della macchinetta del caffè. Dall’alto: ovale «Inizio», riquadro «credito = 0», rombo «credito < prezzo?»; con «sì» si va al riquadro «aggiungi moneta» e si torna al rombo, con «no» si va al riquadro «prepara il caffè», poi al rombo «credito > prezzo?»; con «sì» si va al riquadro «dai il resto» e poi all’ovale «Fine», con «no» direttamente a «Fine». Fa capire dove l’algoritmo si ripete e dove sceglie.",
        "passi": []
       },
@@ -1140,7 +1140,7 @@
       {
        "t": "figura",
        "tipo": "animazione",
-       "id": "F4.4.2",
+       "id": "F5.4.2",
        "x": "Fa capire: che le quattro forme descrivono lo stesso algoritmo. Scena iniziale: quattro schede affiancate, «1 · Linguaggio naturale», «2 · Diagramma di flusso», «3 · Pseudocodice» e «4 · Codice di programmazione», ciascuna con l’algoritmo completo; sopra, la didascalia «Lo stesso algoritmo in quattro forme. Premi Avanti: a ogni clic si accende lo stesso passo in tutte e quattro» e il pulsante «Avanti». Ogni clic accende in blu, in tutte e quattro le schede, le righe o i riquadri dello stesso passo.",
        "passi": [
         "Passo 1, si parte da un credito di zero e dal prezzo: si accendono il punto 1 del testo, il riquadro «credito = 0», le prime righe dello pseudocodice e del codice.",
@@ -1151,7 +1151,7 @@
        ]
       }
      ],
-     "num": "4.4"
+     "num": "5.4"
     }
    ],
    "ricorda": [
@@ -1162,7 +1162,7 @@
    ]
   },
   {
-   "n": 5,
+   "n": 7,
    "titolo": "Dall’algoritmo all’IA che impara",
    "intro": "Alcuni problemi non si riescono a scrivere come regole: per risolverli si cambia strada, e si fa imparare il sistema dagli esempi.",
    "sezioni": [
@@ -1177,12 +1177,12 @@
       },
       {
        "t": "p",
-       "x": "Riconoscere un gatto in una foto è **facilissimo per una persona**, ma non si riesce a **descriverlo con regole precise**, e un computer tradizionale **funziona solo con regole precise** (capitolo 4)."
+       "x": "Riconoscere un gatto in una foto è **facilissimo per una persona**, ma non si riesce a **descriverlo con regole precise**, e un computer tradizionale **funziona solo con regole precise** (capitolo 5)."
       },
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.1.1",
+       "id": "F7.1.1",
        "x": "Un gatto: per una persona è immediato riconoscerlo. Di riconoscimento.",
        "foto": {
         "url": "https://images.pexels.com/photos/8305815/pexels-photo-8305815.jpeg",
@@ -1201,7 +1201,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.1.2",
+       "id": "F7.1.2",
        "x": "Anche una volpe ha le orecchie a punta, ma non è un gatto. Di riconoscimento.",
        "foto": {
         "url": "https://images.pexels.com/photos/247399/pexels-photo-247399.jpeg",
@@ -1212,7 +1212,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.1.3",
+       "id": "F7.1.3",
        "x": "Un gatto Scottish Fold ha le orecchie piegate, ma è un gatto. Di riconoscimento.",
        "foto": {
         "url": "https://images.pexels.com/photos/156934/pexels-photo-156934.jpeg",
@@ -1223,7 +1223,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.1.4",
+       "id": "F7.1.4",
        "x": "Un gatto che spunta da una fessura di una scatola: l’oggetto ne nasconde le orecchie e quasi tutto il muso. Di riconoscimento.",
        "foto": {
         "url": "https://images.pexels.com/photos/9823020/pexels-photo-9823020.jpeg",
@@ -1242,7 +1242,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.1.5",
+       "id": "F7.1.5",
        "x": "Un gatto sphynx non ha il pelo, ma è un gatto. Di riconoscimento.",
        "foto": {
         "url": "https://images.squarespace-cdn.com/content/v1/53c5b010e4b0c3db71b3067c/1472801684905-BXYK2YRQY81GSO0LI5O9/close-up-portrait-sphynx-hairless-cat-alicia-rius-animal-photographer.jpg",
@@ -1257,7 +1257,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.1.6",
+       "id": "F7.1.6",
        "x": "Un gatto visto di spalle: non si vedono né baffi né muso. Di riconoscimento.",
        "foto": {
         "url": "https://images.pexels.com/photos/10066594/pexels-photo-10066594.jpeg",
@@ -1268,7 +1268,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.1.7",
+       "id": "F7.1.7",
        "x": "Un gatto raggomitolato che dorme: il muso è nascosto. Di riconoscimento.",
        "foto": {
         "url": "https://articles.hepper.com/wp-content/uploads/2021/09/tabby-cat-sleeping-in-a-ball-position-on-a-cat-tree.jpg",
@@ -1279,7 +1279,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.1.8",
+       "id": "F7.1.8",
        "x": "Un gatto in controluce: si vede solo la sagoma. Di riconoscimento.",
        "foto": {
         "url": "https://images.pexels.com/photos/13516205/pexels-photo-13516205.jpeg",
@@ -1294,7 +1294,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.1.9",
+       "id": "F7.1.9",
        "x": "Un gatto in salto, appeso a una tenda: nessuna zampa a terra. Di riconoscimento.",
        "foto": {
         "url": "https://i.chzbgr.com/full/9037549056/h54637546/freeze-frame-photo-of-a-cat-in-mid-air-in-the-bedroom",
@@ -1305,7 +1305,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.1.10",
+       "id": "F7.1.10",
        "x": "Un gatto a pancia in su con le zampe in aria. Di riconoscimento.",
        "foto": {
         "url": "https://images.pexels.com/photos/35247528/pexels-photo-35247528/free-photo-of-adorable-kitten-sleeping-on-a-cozy-blanket.jpeg",
@@ -1320,18 +1320,18 @@
       {
        "t": "figura",
        "tipo": "animazione",
-       "id": "F5.1.11",
-       "x": "Fa capire: che per riconoscere un gatto le regole non bastano mai. Usa le foto vere, non disegni. Scena iniziale: al centro la foto grande del gatto (F5.1.1) con la scritta «Riconoscere un gatto: per noi è facile» e il pulsante «Avanti». Ogni clic scrive una regola e mostra le foto delle sue eccezioni, ciascuna con un’etichetta rossa.",
+       "id": "F7.1.11",
+       "x": "Fa capire: che per riconoscere un gatto le regole non bastano mai. Usa le foto vere, non disegni. Scena iniziale: al centro la foto grande del gatto (F7.1.1) con la scritta «Riconoscere un gatto: per noi è facile» e il pulsante «Avanti». Ogni clic scrive una regola e mostra le foto delle sue eccezioni, ciascuna con un’etichetta rossa.",
        "passi": [
-        "Regola 1, «Ha le orecchie a punta»: compaiono la foto della volpe (F5.1.2), con l’etichetta «non è un gatto», quella del Scottish Fold (F5.1.3), con «è un gatto senza orecchie a punta», e quella del gatto che spunta da una scatola (F5.1.4), con «è un gatto, ma l’oggetto ne nasconde le orecchie».",
-        "Regola 2, «Ha il pelo»: compare la foto del gatto sphynx (F5.1.5), con «è un gatto senza pelo»; resta accanto la volpe, con «ha il pelo e non è un gatto».",
-        "Regola 3, «Si vedono baffi e muso»: compaiono le foto del gatto di spalle (F5.1.6), raggomitolato (F5.1.7) e in controluce (F5.1.8), ciascuna con «è un gatto, ma non si vede il muso».",
-        "Regola 4, «Sta in piedi sulle quattro zampe»: compaiono le foto del gatto in salto (F5.1.9) e a pancia in su (F5.1.10), con «è un gatto, ma in una posa insolita».",
+        "Regola 1, «Ha le orecchie a punta»: compaiono la foto della volpe (F7.1.2), con l’etichetta «non è un gatto», quella del Scottish Fold (F7.1.3), con «è un gatto senza orecchie a punta», e quella del gatto che spunta da una scatola (F7.1.4), con «è un gatto, ma l’oggetto ne nasconde le orecchie».",
+        "Regola 2, «Ha il pelo»: compare la foto del gatto sphynx (F7.1.5), con «è un gatto senza pelo»; resta accanto la volpe, con «ha il pelo e non è un gatto».",
+        "Regola 3, «Si vedono baffi e muso»: compaiono le foto del gatto di spalle (F7.1.6), raggomitolato (F7.1.7) e in controluce (F7.1.8), ciascuna con «è un gatto, ma non si vede il muso».",
+        "Regola 4, «Sta in piedi sulle quattro zampe»: compaiono le foto del gatto in salto (F7.1.9) e a pancia in su (F7.1.10), con «è un gatto, ma in una posa insolita».",
         "Schermata finale: tutte le foto delle eccezioni affiancate in un mosaico e la frase «Per ogni regola c’è un’eccezione: servirebbero migliaia di regole, e non basterebbero lo stesso». Un ultimo clic fa ricominciare."
        ]
       }
      ],
-     "num": "5.1"
+     "num": "7.1"
     },
     {
      "titolo": "Imparare dagli esempi",
@@ -1347,7 +1347,7 @@
       {
        "t": "figura",
        "tipo": "animazione",
-       "id": "F5.2.1",
+       "id": "F7.2.1",
        "x": "Fa capire: come un sistema impara senza che nessuno gli scriva le regole. Usa foto vere. Scena iniziale: il testo «Impara dagli esempi» e il pulsante «Avanti».",
        "passi": [
         "Compare un mucchio di foto vere: tanti gatti di razze e pose diverse e tanti non-gatti (cani, uccelli, auto).",
@@ -1366,7 +1366,7 @@
        "corretta": "Ha trovato **schemi che distinguono** i gatti dagli altri animali: non è detto che sappia che cos’è un gatto."
       }
      ],
-     "num": "5.2"
+     "num": "7.2"
     },
     {
      "titolo": "Algoritmi tradizionali e algoritmi di apprendimento automatico a confronto",
@@ -1429,7 +1429,7 @@
       {
        "t": "figura",
        "tipo": "animazione",
-       "id": "F5.3.1",
+       "id": "F7.3.1",
        "x": "Fa capire: come lo stesso problema, il filtro antispam, viene risolto nei due modi, e perché il risultato è certo da una parte e probabile dall’altra. Scena iniziale: in alto un riquadro «Arrivano tre email, una alla volta»; sotto due colonne affiancate, «Algoritmo tradizionale» (con la regola «se c’è “gratis” o “vinci”, è spam») e «Apprendimento automatico» (con «ha visto migliaia di email spam e non spam»), e il pulsante «Avanti». A ogni clic arriva un’email e ogni colonna mostra il suo verdetto, verde se giusto e rosso se sbagliato.",
        "passi": [
         "Email «VINCI un telefono GRATIS, clicca qui!»: tradizionale «spam», giusto; apprendimento automatico «spam al 99%», giusto. Didascalia: «Un caso facile: le due strade sono d’accordo».",
@@ -1438,7 +1438,7 @@
        ]
       }
      ],
-     "num": "5.3"
+     "num": "7.3"
     },
     {
      "titolo": "La mappa dei termini: i quattro cerchi",
@@ -1453,7 +1453,7 @@
       },
       {
        "t": "p",
-       "x": "L’**intelligenza artificiale** è il cerchio più grande: comprende **qualsiasi sistema che svolge compiti che, svolti da una persona, richiederebbero intelligenza** (capitolo 2). Il termine **non dice come** il sistema ci riesce. Può riuscirci seguendo regole scritte a mano da una persona, come i primi programmi di conversazione, oppure imparando dagli esempi: sono tutte IA."
+       "x": "L’**intelligenza artificiale** è il cerchio più grande: comprende **qualsiasi sistema che svolge compiti che, svolti da una persona, richiederebbero intelligenza** (capitolo 4). Il termine **non dice come** il sistema ci riesce. Può riuscirci seguendo regole scritte a mano da una persona, come i primi programmi di conversazione, oppure imparando dagli esempi: sono tutte IA."
       },
       {
        "t": "h3",
@@ -1461,7 +1461,7 @@
       },
       {
        "t": "p",
-       "x": "Il **machine learning** è la parte dell’IA in cui il sistema **impara dagli esempi** invece di seguire regole scritte da una persona (5.2 e 5.3). Si mostrano molti esempi, il sistema ne ricava un **modello** e lo usa sui casi nuovi, dando una risposta **probabile**. Il filtro antispam di Gmail (capitolo 1) funziona così: ha visto un enorme numero di email e ha ricavato da solo gli indizi che distinguono lo spam."
+       "x": "Il **machine learning** è la parte dell’IA in cui il sistema **impara dagli esempi** invece di seguire regole scritte da una persona (5.2 e 5.3). Si mostrano molti esempi, il sistema ne ricava un **modello** e lo usa sui casi nuovi, dando una risposta **probabile**. Il filtro antispam di Gmail (capitolo 3) funziona così: ha visto un enorme numero di email e ha ricavato da solo gli indizi che distinguono lo spam."
       },
       {
        "t": "p",
@@ -1477,7 +1477,7 @@
       },
       {
        "t": "p",
-       "x": "Il nome tecnico di questi sistemi è **rete neurale artificiale**, e ne riparlerete più avanti nel corso. Google Lens (capitolo 1), che riconosce una pianta da una foto, è un esempio."
+       "x": "Il nome tecnico di questi sistemi è **rete neurale artificiale**, e ne riparlerete più avanti nel corso. Google Lens (capitolo 3), che riconosce una pianta da una foto, è un esempio."
       },
       {
        "t": "h3",
@@ -1489,7 +1489,7 @@
       },
       {
        "t": "p",
-       "x": "Di solito è fatta con il deep learning e con una grandissima quantità di esempi: per questo ciò che produce **somiglia a ciò che ha visto**, senza essere in genere una copia. Midjourney e Suno (capitolo 1) e i chatbot come ChatGPT sono IA generativa."
+       "x": "Di solito è fatta con il deep learning e con una grandissima quantità di esempi: per questo ciò che produce **somiglia a ciò che ha visto**, senza essere in genere una copia. Midjourney e Suno (capitolo 3) e i chatbot come ChatGPT sono IA generativa."
       },
       {
        "t": "h3",
@@ -1502,8 +1502,8 @@
       {
        "t": "figura",
        "tipo": "animazione",
-       "id": "F5.4.1",
-       "x": "Fa capire: che i quattro termini stanno uno dentro l’altro. Scena iniziale: a sinistra quattro cerchi concentrici vuoti appoggiati sulla stessa base, dal più grande al più piccolo; a destra un pannello di testo con «Quattro termini, uno dentro l’altro» e il pulsante «Avanti». A ogni clic si accende un cerchio e il pannello mostra i due nomi, la definizione e un esempio preso dal capitolo 1.",
+       "id": "F7.4.1",
+       "x": "Fa capire: che i quattro termini stanno uno dentro l’altro. Scena iniziale: a sinistra quattro cerchi concentrici vuoti appoggiati sulla stessa base, dal più grande al più piccolo; a destra un pannello di testo con «Quattro termini, uno dentro l’altro» e il pulsante «Avanti». A ogni clic si accende un cerchio e il pannello mostra i due nomi, la definizione e un esempio preso dal capitolo 3.",
        "passi": [
         "Si accende il cerchio più grande, «IA · Artificial Intelligence (AI)»: tutto ciò che svolge compiti che richiederebbero intelligenza. Esempio: i sistemi a regole scritte a mano, come i primi programmi di conversazione.",
         "Si accende il secondo, «Apprendimento automatico · Machine Learning (ML)»: l’IA che impara dagli esempi. Esempio: il filtro antispam di Gmail.",
@@ -1552,7 +1552,7 @@
        ]
       }
      ],
-     "num": "5.4"
+     "num": "7.4"
     },
     {
      "titolo": "Quanto è «generale» un’IA",
@@ -1570,10 +1570,10 @@
       {
        "t": "figura",
        "tipo": "animazione",
-       "id": "F5.5.1",
+       "id": "F7.5.1",
        "x": "Fa capire: che le IA si distinguono per quanto sono «generali», e che solo il primo gradino esiste. Scena iniziale: una scala a tre gradini di altezza crescente, da sinistra a destra, vuota, con il testo «Tre gradini» e il pulsante «Avanti». Il primo gradino ha un contorno pieno, gli altri due tratteggiato, e le etichette «esiste oggi» e «ipotetica».",
        "passi": [
-        "Si accende il primo gradino, «IA specializzata · Narrow AI (ANI)»: fa una cosa sola, anche molto bene, e fuori da quella non sa fare nulla. Sopra compaiono le foto degli esempi del capitolo 1, ciascuna con il suo compito: Stockfish (scacchi), Google Lens (piante), Face ID (volti), il filtro antispam di Gmail.",
+        "Si accende il primo gradino, «IA specializzata · Narrow AI (ANI)»: fa una cosa sola, anche molto bene, e fuori da quella non sa fare nulla. Sopra compaiono le foto degli esempi del capitolo 3, ciascuna con il suo compito: Stockfish (scacchi), Google Lens (piante), Face ID (volti), il filtro antispam di Gmail.",
         "Si accende il secondo gradino, tratteggiato, «IA generale · Artificial General Intelligence (AGI)»: saprebbe svolgere qualsiasi compito intellettuale come una persona. È ipotetica. Didascalia: «Nel 2026 c’è chi dice che sia già stata raggiunta e molti esperti che non sono d’accordo».",
         "Si accende il terzo gradino, tratteggiato, «Superintelligenza · Artificial Super Intelligence (ASI)»: supererebbe le persone in praticamente tutto. È ipotetica.",
         "Schermata finale: i tre gradini con le etichette «esiste oggi», «ipotetica», «ipotetica». Un ultimo clic fa ricominciare."
@@ -1589,7 +1589,7 @@
       },
       {
        "t": "p",
-       "x": "Gli esempi del capitolo 1 lo mostrano: **Stockfish** gioca a scacchi meglio di qualsiasi persona ma non sa riconoscere un volto; **Face ID** riconosce i volti ma non sa tradurre; **Google Lens** riconosce le piante ma non sa giocare a scacchi."
+       "x": "Gli esempi del capitolo 3 lo mostrano: **Stockfish** gioca a scacchi meglio di qualsiasi persona ma non sa riconoscere un volto; **Face ID** riconosce i volti ma non sa tradurre; **Google Lens** riconosce le piante ma non sa giocare a scacchi."
       },
       {
        "t": "h3",
@@ -1614,7 +1614,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.5.2",
+       "id": "F7.5.2",
        "x": "Jensen Huang, capo di Nvidia: a marzo 2026 ha detto di pensare che l’AGI sia stata raggiunta. Di riconoscimento.",
        "foto": {
         "url": "https://cdn.britannica.com/60/257460-050-62FF74CB/NVIDIA-Jensen-Huang.jpg",
@@ -1629,7 +1629,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.5.3",
+       "id": "F7.5.3",
        "x": "Yann LeCun, ricercatore premio Turing: preferisce parlare di «Advanced Machine Intelligence» e dice che anche l’intelligenza umana è specializzata. Di riconoscimento.",
        "foto": {
         "url": "https://capacityglobal.com/wp-content/uploads/2025/11/Yann-LeCun.png",
@@ -1660,7 +1660,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.5.4",
+       "id": "F7.5.4",
        "x": "Terminator (1984): lo scheletro metallico del T-800, creato dalla rete Skynet. Di riconoscimento.",
        "foto": {
         "url": "https://i.ytimg.com/vi/F76ttUhSkhs/maxresdefault.jpg",
@@ -1671,7 +1671,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.5.5",
+       "id": "F7.5.5",
        "x": "Io, Robot (2004): il robot Sonny. Di riconoscimento.",
        "foto": {
         "url": "https://www.looper.com/img/gallery/the-actor-who-plays-sonny-in-i-robot-might-surprise-you/l-intro-1624582212.jpg",
@@ -1682,7 +1682,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.5.6",
+       "id": "F7.5.6",
        "x": "WALL·E (2008): il piccolo robot spazzino, con un cubo di Rubik. Di riconoscimento.",
        "foto": {
         "url": "https://images.everyeye.it/img-artwork/wall-e-v1-578067-1280x720.jpg",
@@ -1693,7 +1693,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F5.5.7",
+       "id": "F7.5.7",
        "x": "2001: Odissea nello spazio (1968): l’occhio rosso del computer HAL 9000. Di riconoscimento.",
        "foto": {
         "url": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/04/09/red-hal-eye.jpg",
@@ -1704,16 +1704,16 @@
       {
        "t": "figura",
        "tipo": "schema",
-       "id": "F5.5.8",
+       "id": "F7.5.8",
        "x": "Mosaico dei film. Un’unica immagine più grande divisa in quattro quadranti uguali, due sopra e due sotto, ciascuno con una piccola immagine di un film (Terminator, Io, Robot, WALL·E, 2001: Odissea nello spazio) e il titolo in basso. Fa capire a colpo d’occhio che sono storie di fantasia.",
        "passi": []
       },
       {
        "t": "p",
-       "x": "Queste storie hanno spesso in comune tre cose che l’IA di oggi **non ha**: un corpo da robot, volontà proprie e sentimenti (capitolo 1, «Idee sbagliate sull’IA»). Sono **racconti, non descrizioni della realtà**."
+       "x": "Queste storie hanno spesso in comune tre cose che l’IA di oggi **non ha**: un corpo da robot, volontà proprie e sentimenti (capitolo 3, «Idee sbagliate sull’IA»). Sono **racconti, non descrizioni della realtà**."
       }
      ],
-     "num": "5.5"
+     "num": "7.5"
     }
    ],
    "ricorda": [
@@ -1725,7 +1725,7 @@
    ]
   },
   {
-   "n": 6,
+   "n": 8,
    "titolo": "Un po’ di storia",
    "intro": "L’IA ha quasi settant’anni: la sua storia è fatta di idee antiche, di grandi promesse, di delusioni e, da pochi anni, di un’esplosione.",
    "sezioni": [
@@ -1753,7 +1753,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.1.1",
+       "id": "F8.1.1",
        "x": "Un automa del Settecento: una figura meccanica che imita un gesto umano. Di riconoscimento.",
        "foto": {
         "url": "https://www.thisiscolossal.com/wp-content/uploads/2013/11/boy-1.jpg",
@@ -1763,12 +1763,12 @@
       },
       {
        "t": "p",
-       "x": "Il più famoso fu il **Turco meccanico**, mostrato nel 1770 da Wolfgang von Kempelen: sembrava giocare a scacchi da solo, ma i pezzi erano mossi da **un maestro di scacchi nascosto dentro la macchina**. Non era un’IA: era un inganno, e per decenni la gente ci credette, come con il cavallo Hans (capitolo 2). Fu distrutto da un incendio nel 1854."
+       "x": "Il più famoso fu il **Turco meccanico**, mostrato nel 1770 da Wolfgang von Kempelen: sembrava giocare a scacchi da solo, ma i pezzi erano mossi da **un maestro di scacchi nascosto dentro la macchina**. Non era un’IA: era un inganno, e per decenni la gente ci credette, come con il cavallo Hans (capitolo 4). Fu distrutto da un incendio nel 1854."
       },
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.1.2",
+       "id": "F8.1.2",
        "x": "Il Turco meccanico: il disegno mostra dove si nascondeva il giocatore. Da guardare nei dettagli: osserva lo spazio dentro il mobile.",
        "foto": {
         "url": "https://www.worldhistory.org/img/c/p/1200x627/20947.png.webp",
@@ -1787,7 +1787,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.1.3",
+       "id": "F8.1.3",
        "x": "Il neurone di McCulloch e Pitts: due ingressi, una soglia e un’uscita che vale 0 o 1. Da guardare nei dettagli: osserva gli ingressi a sinistra e l’uscita a destra.",
        "foto": {
         "url": "https://miro.medium.com/v2/resize:fit:1400/1*ErKKEr1uMBht6474K7Vf4g.png",
@@ -1801,7 +1801,7 @@
       },
       {
        "t": "p",
-       "x": "**Alan Turing** pubblica «Computing Machinery and Intelligence» e propone il **gioco dell’imitazione**, poi chiamato test di Turing (capitolo 3)."
+       "x": "**Alan Turing** pubblica «Computing Machinery and Intelligence» e propone il **gioco dell’imitazione**, poi chiamato test di Turing (capitolo 4)."
       },
       {
        "t": "h3",
@@ -1814,7 +1814,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.1.4",
+       "id": "F8.1.4",
        "x": "John McCarthy, che inventò il termine «intelligenza artificiale» per la conferenza di Dartmouth del 1956. Di riconoscimento.",
        "foto": {
         "url": "http://media.wired.com/photos/59327c782a990b06268ab0b1/master/pass/john-mccarthy.png",
@@ -1825,7 +1825,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.1.5",
+       "id": "F8.1.5",
        "x": "Alcuni partecipanti alla conferenza di Dartmouth del 1956. Di riconoscimento.",
        "foto": {
         "url": "https://macloo.github.io/ai-timeline/images/Dartmouth-1956-Conference_CROPPED.jpg",
@@ -1834,7 +1834,7 @@
        }
       }
      ],
-     "num": "6.1"
+     "num": "8.1"
     },
     {
      "titolo": "Le prime IA",
@@ -1850,7 +1850,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.2.1",
+       "id": "F8.2.1",
        "x": "IBM Shoebox: la macchina che riconosceva 16 parole pronunciate. Di riconoscimento.",
        "foto": {
         "url": "https://www.ibm.com/content/dam/connectedassets-adobe-cms/worldwide-content/arc/cf/ul/g/b3/8c/1961_IBM_Shoebox_Speech_Translation.jpg/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg",
@@ -1869,7 +1869,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.2.2",
+       "id": "F8.2.2",
        "x": "Alexey Ivakhnenko, che nel 1965 creò la prima rete neurale a più livelli funzionante. Di riconoscimento.",
        "foto": {
         "url": "https://esu.com.ua/images/article_images/I/Ivahnenko%20Oleksiy%20Grigorovich2.jpg",
@@ -1883,12 +1883,12 @@
       },
       {
        "t": "p",
-       "x": "**ELIZA**, scritto al MIT da **Joseph Weizenbaum**, è considerato il **primo chatbot della storia**. Sostituisce parole con poche **regole scritte da una persona**: se scrivi «mi sento triste», risponde «perché ti senti triste?». Eppure molti, soprattutto chi sapeva poco di computer, erano convinti che capisse davvero: come con Hans e con il pappagallo del capitolo 2, **sembrare intelligente non è esserlo**."
+       "x": "**ELIZA**, scritto al MIT da **Joseph Weizenbaum**, è considerato il **primo chatbot della storia**. Sostituisce parole con poche **regole scritte da una persona**: se scrivi «mi sento triste», risponde «perché ti senti triste?». Eppure molti, soprattutto chi sapeva poco di computer, erano convinti che capisse davvero: come con Hans e con il pappagallo del capitolo 4, **sembrare intelligente non è esserlo**."
       },
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.2.3",
+       "id": "F8.2.3",
        "x": "Una conversazione con ELIZA. Da guardare nei dettagli: osserva come le risposte riprendono le parole dell’utente.",
        "foto": {
         "url": "https://miro.medium.com/1*WQf97Q5hWV9Q_5y52YR1TA.png",
@@ -1899,7 +1899,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.2.4",
+       "id": "F8.2.4",
        "x": "Joseph Weizenbaum, l’autore di ELIZA. Di riconoscimento.",
        "foto": {
         "url": "https://assets.mitmuseum.mit.edu/iiifimg3/67149759/full/800,/0/default.jpg",
@@ -1910,7 +1910,7 @@
       {
        "t": "figura",
        "tipo": "animazione",
-       "id": "F6.2.5",
+       "id": "F8.2.5",
        "x": "Fa capire: che ELIZA non capisce, applica regole. Scena iniziale: una finestra di conversazione vuota con il testo «Scegli una frase da dire. Il programma ha poche regole scritte da una persona» e quattro pulsanti con le frasi. Ogni scelta mostra la frase, la risposta di ELIZA e, in giallo, la regola che è scattata.",
        "passi": [
         "«Mi sento triste.» Risposta «Perché ti senti triste?». Regola: «Mi sento X» diventa «Perché ti senti X?».",
@@ -1925,7 +1925,7 @@
        "x": "Negli anni Settanta e Ottanta la strada principale diventa quella dei **sistemi esperti**: programmi con le **regole scritte da specialisti**, per esempio medici, per dare consigli in un campo preciso."
       }
      ],
-     "num": "6.2"
+     "num": "8.2"
     },
     {
      "titolo": "Alti e bassi",
@@ -1945,7 +1945,7 @@
       {
        "t": "figura",
        "tipo": "animazione",
-       "id": "F6.3.1",
+       "id": "F8.3.1",
        "x": "Fa capire: che l’IA è cresciuta a ondate, con due inverni, e che dal 2022 c’è stata un’impennata clamorosa. La curva è indicativa e non rappresenta dati. Scena iniziale: due assi, in basso gli anni dal 1950 al 2026 e a sinistra «entusiasmo» da «basso» ad «alto»; sopra il titolo «Dal 1950 a oggi» e il pulsante «Avanti». A ogni clic si traccia un tratto della curva, con i suoi anni e una frase; il tratto attuale è blu e gli inverni sono gialli.",
        "passi": [
         "1956–1973, Entusiasmo: la curva sale. Nasce il nome (Dartmouth, 1956) e arrivano le prime promesse; ELIZA (1966) fa credere a molti che le macchine capiscano.",
@@ -1958,7 +1958,7 @@
        ]
       }
      ],
-     "num": "6.3"
+     "num": "8.3"
     },
     {
      "titolo": "Dalle sfide simbolo a oggi",
@@ -1978,7 +1978,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.4.1",
+       "id": "F8.4.1",
        "x": "Il furgone Mercedes sperimentale di Dickmanns (VaMoRs). Di riconoscimento.",
        "foto": {
         "url": "https://dyna-vision.de/wp-content/uploads/2021/03/A367image002.jpg",
@@ -1996,12 +1996,12 @@
       },
       {
        "t": "p",
-       "x": "Sembrò che una macchina fosse «più intelligente» di un uomo, ma lo era **in un compito solo**: è un’IA specializzata (capitolo 5, 5.5)."
+       "x": "Sembrò che una macchina fosse «più intelligente» di un uomo, ma lo era **in un compito solo**: è un’IA specializzata (capitolo 5, paragrafo 5.5.5)."
       },
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.4.2",
+       "id": "F8.4.2",
        "x": "Garry Kasparov alla scacchiera contro Deep Blue, nel 1997. Di riconoscimento.",
        "foto": {
         "url": "https://cdnph.upi.com/sv/ph/og/upi/5971652110350/2022/1/6a0429fa1ada13e8ae7f5558b9deaf88/v1.5/On-This-Day-IBMs-Deep-Blue-defeats-Garry-Kasparov-in-rematch.jpg",
@@ -2020,7 +2020,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.4.3",
+       "id": "F8.4.3",
        "x": "Watson alla sfida di Jeopardy! tra i due campioni umani. Di riconoscimento.",
        "foto": {
         "url": "https://i.ytimg.com/vi/YgYSv2KSyWg/maxresdefault.jpg",
@@ -2039,7 +2039,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.4.4",
+       "id": "F8.4.4",
        "x": "La sfida tra AlphaGo e Lee Sedol a Seoul, nel 2016. Di riconoscimento.",
        "foto": {
         "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fnature.2016.19575/MediaObjects/41586_2016_Article_BFnature201619575_Figb_HTML.jpg",
@@ -2056,7 +2056,7 @@
        "x": "Il **30 novembre 2022** esce **ChatGPT**, un chatbot gratuito e facile da usare: in due mesi arriva a circa **100 milioni di utenti** (secondo una stima della banca UBS). Per la prima volta un’IA generativa è alla portata di chiunque: basta scrivere una frase."
       }
      ],
-     "num": "6.4"
+     "num": "8.4"
     },
     {
      "titolo": "Perché è esplosa proprio ora",
@@ -2072,7 +2072,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.5.1",
+       "id": "F8.5.1",
        "x": "Una scheda grafica GeForce GTX 580, come quelle su cui fu addestrato AlexNet. Di riconoscimento.",
        "foto": {
         "url": "https://cdn.mos.cms.futurecdn.net/849b7e2a8252e98ad1bd200159a2471a.jpg",
@@ -2095,7 +2095,7 @@
       {
        "t": "figura",
        "tipo": "foto",
-       "id": "F6.5.2",
+       "id": "F8.5.2",
        "x": "Un centro dati, dove si conservano e si elaborano i dati nel cloud. Di riconoscimento.",
        "foto": {
         "url": "https://images.pexels.com/photos/4508751/pexels-photo-4508751.jpeg",
@@ -2116,7 +2116,7 @@
        "x": "Nessuno di questi fattori da solo basta: è **la combinazione** che ha fatto esplodere l’IA. La curva del paragrafo «Alti e bassi» mostra proprio questa impennata."
       }
      ],
-     "num": "6.5"
+     "num": "8.5"
     }
    ],
    "ricorda": [
@@ -2126,139 +2126,6 @@
     "Le sfide simbolo, dagli scacchi al quiz, a Go, mostrano macchine bravissime in un compito solo, fino ai chatbot per tutti del 2022.",
     "L’IA è esplosa ora perché sono arrivati insieme più potenza di calcolo, tanti dati, metodi migliori, cloud, investimenti e popolarità."
    ]
-  },
-  {
-   "n": 7,
-   "titolo": "Linea del tempo",
-   "intro": "",
-   "sezioni": [
-    {
-     "titolo": "",
-     "blocchi": [
-      {
-       "t": "table",
-       "rows": [
-        [
-         "Quando",
-         "Chi",
-         "Che cosa",
-         "Cap."
-        ],
-        [
-         "Dal Seicento all’Ottocento",
-         "vari costruttori",
-         "Automi che imitano gesti umani, di solito per spettacolo",
-         "6"
-        ],
-        [
-         "1770",
-         "W. von Kempelen",
-         "Il Turco meccanico: sembra giocare a scacchi, ma dentro c’è una persona",
-         "6"
-        ],
-        [
-         "1943",
-         "W. McCulloch, W. Pitts",
-         "Primo modello matematico di neurone artificiale",
-         "6"
-        ],
-        [
-         "1950",
-         "A. Turing",
-         "Il gioco dell’imitazione, poi test di Turing",
-         "3"
-        ],
-        [
-         "1952",
-         "Bell Labs",
-         "Audrey: riconosce le cifre da 0 a 9 dette da una voce sola",
-         "6"
-        ],
-        [
-         "1956",
-         "J. McCarthy e altri",
-         "Conferenza di Dartmouth: nasce il termine «intelligenza artificiale»",
-         "6"
-        ],
-        [
-         "1961–1962",
-         "IBM",
-         "Shoebox: riconosce 16 parole pronunciate",
-         "6"
-        ],
-        [
-         "1965",
-         "A. Ivakhnenko, V. Lapa",
-         "Primo metodo funzionante per far imparare una rete a più livelli",
-         "6"
-        ],
-        [
-         "1966",
-         "J. Weizenbaum",
-         "ELIZA, considerato il primo chatbot",
-         "6"
-        ],
-        [
-         "1974–1980",
-         "—",
-         "Primo inverno dell’IA",
-         "6"
-        ],
-        [
-         "1977",
-         "Università di Tsukuba (Giappone)",
-         "Veicolo guidato da telecamere, a circa 30 km/h su un percorso preparato",
-         "6"
-        ],
-        [
-         "1986–1987",
-         "E. Dickmanns",
-         "Uno dei primi veicoli a guida autonoma: furgone Mercedes fino a 96 km/h nel 1987",
-         "6"
-        ],
-        [
-         "1987–1993",
-         "—",
-         "Secondo inverno dell’IA",
-         "6"
-        ],
-        [
-         "1997",
-         "IBM",
-         "Deep Blue batte Kasparov a scacchi",
-         "6"
-        ],
-        [
-         "2011",
-         "IBM",
-         "Watson batte due campioni di Jeopardy!",
-         "6"
-        ],
-        [
-         "2012",
-         "A. Krizhevsky, I. Sutskever, G. Hinton",
-         "AlexNet vince ImageNet e apre l’era del deep learning",
-         "6"
-        ],
-        [
-         "2016",
-         "DeepMind",
-         "AlphaGo batte Lee Sedol a Go",
-         "6"
-        ],
-        [
-         "2022",
-         "OpenAI",
-         "ChatGPT: i chatbot per tutti",
-         "6"
-        ]
-       ]
-      }
-     ],
-     "num": "7.1"
-    }
-   ],
-   "ricorda": []
   }
  ]
 }

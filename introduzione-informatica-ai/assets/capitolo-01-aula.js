@@ -1,40 +1,36 @@
 window.AULA = {
  "modulo": "Introduzione a informatica ed AI",
  "n": "01",
- "titolo": "L’IA nella vita di tutti i giorni",
+ "titolo": "Che cos’è l’informatica",
  "slide": [
   {
    "tipo": "copertina",
-   "titolo": "L’IA nella vita di tutti i giorni",
-   "sotto": "Dove si incontra l’IA, che cosa sa fare e che cosa non è.",
+   "titolo": "Che cos’è l’informatica",
+   "sotto": "Prima di parlare di intelligenza artificiale: che cosa studia l’informatica e che cos’è un computer.",
    "indice": [
     [
      "1.1",
-     "Una giornata piena di IA"
+     "Che cos’è l’informatica"
     ],
     [
      "1.2",
-     "Riconoscere"
+     "Dati, informazioni e conoscenza"
     ],
     [
      "1.3",
-     "Capire e produrre linguaggio"
+     "Che cosa significa elaborare"
     ],
     [
      "1.4",
-     "Prevedere e consigliare"
+     "Che cos’è un computer"
     ],
     [
      "1.5",
-     "Giocare e decidere"
+     "Breve storia dei computer"
     ],
     [
      "1.6",
-     "Creare"
-    ],
-    [
-     "1.7",
-     "Idee sbagliate sull’IA"
+     "Come parlare con un computer"
     ]
    ],
    "foto": {
@@ -45,433 +41,859 @@ window.AULA = {
   },
   {
    "tipo": "domanda",
-   "testo": "Quante volte avete usato un’IA stamattina, prima di arrivare a scuola?",
-   "risposta": "Risposta istintiva: «nessuna, o al massimo ChatGPT». In realtà molte: sblocco del telefono, assistente vocale, navigatore, consigli dei video. Quasi tutte lavorano senza che ce ne accorgiamo."
+   "testo": "Che cosa vi viene in mente se vi dico «informatica»? E che cosa studia, secondo voi, chi studia informatica?",
+   "risposta": "Non solo computer, programmi e internet: l’informatica studia come si trattano le **informazioni**."
   },
   {
    "tipo": "sezione",
    "num": "1.1",
-   "titolo": "Una giornata piena di IA",
-   "sotto": "In una giornata normale lavora per te, spesso di nascosto",
-   "icona": "smartphone"
+   "titolo": "Che cos’è l’informatica",
+   "sotto": "Informazione automatica: la scienza che elabora le informazioni",
+   "icona": "cpu"
   },
   {
-   "tipo": "anim",
-   "titolo": "Una giornata piena di IA",
-   "id": "f-giornata"
+   "tipo": "punti",
+   "titolo": "Informatica",
+   "msg": "Informazione + automatica",
+   "punti": [
+    [
+     "file-text",
+     "Si occupa della **rappresentazione** delle informazioni"
+    ],
+    [
+     "folder-tree",
+     "Della loro **organizzazione**"
+    ],
+    [
+     "cpu",
+     "E della loro **elaborazione automatica**"
+    ],
+    [
+     "puzzle",
+     "Per **risolvere problemi**"
+    ],
+    [
+     "list-checks",
+     "Attraverso la creazione e l’uso di **algoritmi**"
+    ]
+   ]
   },
   {
-   "tipo": "foto",
-   "titolo": "La mattina",
-   "msg": "Tre momenti prima di arrivare a scuola",
-   "foto": [
-    {
-     "src": "https://cdn.osxdaily.com/wp-content/uploads/2017/11/use-iphone-x-without-face-id.jpg",
-     "tit": "Face ID: lo sblocco con il volto",
-     "alt": "Face ID: lo sblocco con il volto. Di riconoscimento."
-    },
-    {
-     "src": "https://i.pcmag.com/imagery/articles/02l1csH5Q0saE8idorcBLmM-27..v1637090084.jpg",
-     "tit": "Siri: l’assistente vocale",
-     "alt": "Siri: l’assistente vocale dell’iPhone. Di riconoscimento."
-    },
-    {
-     "src": "https://images.indianexpress.com/2024/02/Google-Maps-Pixabay.jpg",
-     "tit": "Google Maps: la navigazione",
-     "alt": "Google Maps: la navigazione sul telefono. Di riconoscimento."
-    }
+   "tipo": "punti",
+   "titolo": "Dijkstra e il telescopio",
+   "msg": "Il computer è lo strumento, l’informatica è la scienza",
+   "punti": [
+    [
+     "quote",
+     "«L’informatica non riguarda i **computer** più di quanto l’**astronomia** riguardi i **telescopi**»"
+    ],
+    [
+     "telescope",
+     "Il telescopio serve a **studiare il cielo**: non è la scienza del cielo"
+    ],
+    [
+     "cpu",
+     "Il computer serve a **trattare le informazioni**: è lo strumento dell’informatica"
+    ]
+   ],
+   "foto": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Edsger_Wybe_Dijkstra.jpg?width=1000#alto",
+    "tit": "Edsger Dijkstra (1930–2002)",
+    "alt": "Edsger Dijkstra (1930–2002)"
+   }
+  },
+  {
+   "tipo": "punti",
+   "titolo": "Che cosa non è",
+   "msg": "Tante cose utili, ma non sono l’informatica",
+   "punti": [
+    [
+     "wrench",
+     "**Montare o smontare** computer, «smanettare» con i dispositivi"
+    ],
+    [
+     "package",
+     "**Installare o usare** pacchetti software, navigare su internet"
+    ],
+    [
+     "code",
+     "Conoscere tanti **linguaggi** di programmazione"
+    ],
+    [
+     "wifi",
+     "**Configurare** reti Wi-Fi o router"
+    ],
+    [
+     "smartphone",
+     "Essere esperti di **social media** o di piattaforme digitali"
+    ]
+   ],
+   "foto": {
+    "src": "https://images.pexels.com/photos/6754846/pexels-photo-6754846.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "tit": "Riparare computer? Non è informatica",
+    "alt": "Riparare computer? Non è informatica"
+   }
+  },
+  {
+   "tipo": "punti",
+   "titolo": "Una scienza",
+   "msg": "Come la biologia e la fisica",
+   "punti": [
+    [
+     "sigma",
+     "**Teorie, modelli e principi formali** di tipo matematico, utili anche alle altre scienze"
+    ],
+    [
+     "flask-conical",
+     "**Metodo scientifico**: ipotesi, esperimenti, conclusioni che si possono **ripetere e verificare**"
+    ],
+    [
+     "layers",
+     "**Progresso cumulativo**: si parte dalle conoscenze esistenti per migliorarle"
+    ]
    ]
   },
   {
    "tipo": "foto",
-   "titolo": "A scuola e nel pomeriggio",
-   "msg": "Traduzioni, video consigliati e volti riconosciuti",
+   "titolo": "La mappa dell’informatica",
+   "msg": "Dalla teoria alle applicazioni di tutti i giorni",
    "foto": [
     {
-     "src": "https://sm.pcmag.com/pcmag_uk/news/h/how-to-use/how-to-use-googles-translate-app_v5aj.jpg",
-     "tit": "Google Traduttore",
-     "alt": "Google Traduttore: l’app su smartphone. Di riconoscimento."
-    },
-    {
-     "src": "https://assets.qz.com/media/fde6fa52af15a10b8ed69b6e33c2f4bc.jpg",
-     "tit": "YouTube: i video consigliati",
-     "alt": "YouTube: i video consigliati. Di riconoscimento."
-    },
-    {
-     "src": "assets/immagini/ia-fotocamera-volti.jpg",
-     "tit": "La fotocamera dello smartphone",
-     "alt": "La fotocamera dello smartphone. Di riconoscimento."
-    }
-   ]
-  },
-  {
-   "tipo": "foto",
-   "titolo": "La sera",
-   "msg": "Il filtro che butta via la posta indesiderata e il chatbot per i compiti",
-   "foto": [
-    {
-     "src": "https://wips.plug.it/cips/tecnologia/cms/2020/02/gmail.jpg",
-     "tit": "Gmail: la cartella Spam",
-     "alt": "Gmail: la cartella Spam. Da guardare nei dettagli: osserva il pulsante «Empty spam now», cioè «Svuota spam»."
-    },
-    {
-     "src": "https://images.macrumors.com/article-new/2023/05/chatgpt-for-iphone-feature.jpg",
-     "tit": "ChatGPT: una conversazione",
-     "alt": "ChatGPT: una conversazione sul telefono. Di riconoscimento."
-    }
-   ]
-  },
-  {
-   "tipo": "foto",
-   "titolo": "Roomba, Tesla, qXR",
-   "msg": "Tre esempi fuori dalla giornata di uno studente",
-   "foto": [
-    {
-     "src": "https://vacuumwars.com/wp-content/uploads/2022/11/Vacuuming-Carpet-iRobot-Roomba-Combo-j7-1024x538.jpg",
-     "tit": "Roomba: l’aspirapolvere robot",
-     "alt": "Roomba: l’aspirapolvere robot al lavoro. Di riconoscimento."
-    },
-    {
-     "src": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/1078702682/ed8d8aa2-70bf-4793-8430-a8e2aaf69085/d45eb94a-b12c-4f80-b60d-1a62cd0034db/1920x1080/match/image.jpg",
-     "tit": "Una Tesla in guida assistita",
-     "alt": "Lo schermo di una Tesla in guida assistita, quando il sistema si chiamava Autopilot. Di riconoscimento."
-    },
-    {
-     "src": "https://qure-website-images.s3.ap-south-1.amazonaws.com/Chest_X_ray_reporting_747c180b0e.webp",
-     "tit": "qXR: una radiografia analizzata",
-     "alt": "qXR: una radiografia del torace analizzata dal programma. Da guardare nei dettagli: osserva le zone segnalate sull’immagine."
+     "src": "assets/immagini/info/mappa.jpg#intera",
+     "tit": "Map of Computer Science",
+     "alt": "Map of Computer Science"
     }
    ]
   },
   {
    "tipo": "sezione",
    "num": "1.2",
-   "titolo": "Riconoscere",
-   "sotto": "Trasformare ciò che si vede o si sente in un’etichetta o in un testo",
-   "icona": "scan-eye"
+   "titolo": "Dati, informazioni e conoscenza",
+   "sotto": "Tre livelli da non confondere",
+   "icona": "database"
   },
   {
    "tipo": "tessere",
-   "titolo": "Riconoscere",
-   "msg": "L’IA trasforma ciò che vede o sente in un’etichetta o in un testo",
+   "titolo": "Tre livelli",
+   "msg": "Dai valori grezzi al significato",
    "tessere": [
     [
-     "scan-eye",
-     "Immagini e volti",
-     "Google Lens: «è un’orchidea»"
+     "binary",
+     "Dati",
+     "Valori alfanumerici **oggettivi**, in forma grezza e non organizzata"
     ],
     [
-     "music",
-     "Suoni e musica",
-     "Shazam: titolo e autore"
+     "table",
+     "Informazioni",
+     "Dati **elaborati e organizzati**, con un contesto e un significato"
     ],
     [
-     "mic",
-     "La voce",
-     "sottotitoli automatici: «la frase è questa»"
+     "lightbulb",
+     "Conoscenza",
+     "Il **significato** che diamo alle informazioni, secondo le nostre esperienze"
     ]
    ]
   },
   {
    "tipo": "foto",
-   "titolo": "Riconoscere in tre app",
-   "msg": "Una pianta, una canzone, una voce",
+   "titolo": "Dai punti ai collegamenti",
+   "msg": "Sparsi, organizzati, collegati",
    "foto": [
     {
-     "src": "assets/immagini/ia-google-lens-pianta.webp",
-     "tit": "Google Lens: una pianta",
-     "alt": "Google Lens: il riconoscimento di una pianta. Da guardare nei dettagli: osserva i risultati, cioè le piante simili che il sistema propone."
-    },
-    {
-     "src": "https://i.pcmag.com/imagery/articles/04V5PM0Sr9b0FH0UQsEp8oU-1..v1569491633.png",
-     "tit": "Shazam: una canzone",
-     "alt": "Shazam: l’app mentre ascolta una canzone. Di riconoscimento."
-    },
-    {
-     "src": "https://www.malaymail.com/uploads/imported_images/2021/2021-10/20211012_YouTube_Caption_Auto.jpg",
-     "tit": "Sottotitoli automatici di YouTube",
-     "alt": "I sottotitoli automatici di YouTube. Da guardare nei dettagli: osserva le parole scritte sotto il video."
+     "src": "assets/immagini/info/dati.jpg#intera",
+     "tit": "Data, information, knowledge",
+     "alt": "Data, information, knowledge"
     }
+   ]
+  },
+  {
+   "tipo": "punti",
+   "titolo": "Esempio: i voti",
+   "msg": "Da un elenco di numeri a una decisione",
+   "punti": [
+    [
+     "list-ordered",
+     "**Dati**: 4, 6, 7, 8, 5. Da soli non dicono molto"
+    ],
+    [
+     "calculator",
+     "**Informazione**: «il voto medio del quadrimestre è 6»"
+    ],
+    [
+     "target",
+     "**Conoscenza**: «posso farmi interrogare per ottenere un voto più alto»"
+    ],
+    [
+     "user",
+     "La conoscenza è **soggettiva**: per qualcuno 6 è una buona media da mantenere"
+    ]
+   ]
+  },
+  {
+   "tipo": "tabella",
+   "titolo": "Esercizio: le temperature",
+   "msg": "Che cosa si ricava da questi dati?",
+   "righe": [
+    [
+     "Città",
+     "Lunedì",
+     "Martedì",
+     "Mercoledì",
+     "Giovedì",
+     "Venerdì"
+    ],
+    [
+     "Milano",
+     "15 °C",
+     "17 °C",
+     "16 °C",
+     "14 °C",
+     "18 °C"
+    ],
+    [
+     "Torino",
+     "20 °C",
+     "22 °C",
+     "21 °C",
+     "19 °C",
+     "23 °C"
+    ],
+    [
+     "Roma",
+     "18 °C",
+     "19 °C",
+     "20 °C",
+     "17 °C",
+     "21 °C"
+    ]
+   ]
+  },
+  {
+   "tipo": "domanda",
+   "testo": "Informazioni: qual è la temperatura media di ogni città, il giorno più caldo, la città più calda e quella più fredda? Conoscenza: dove andreste la prossima settimana e perché?",
+   "risposta": "Medie: **Milano 16 °C, Torino 21 °C, Roma 19 °C**. Giorno più caldo: il **venerdì** ovunque. Massima: Torino, 23 °C. Minima: Milano, 14 °C (giovedì). Chi vuole il caldo sceglie Torino, chi vuole il fresco Milano: la scelta è **soggettiva**."
+  },
+  {
+   "tipo": "punti",
+   "titolo": "Manipolare le informazioni",
+   "msg": "Un’agenzia vuole far sembrare Torino la meta migliore",
+   "punti": [
+    [
+     "megaphone",
+     "«Torino è la meta ideale! Milano ha temperature **bassissime (14 °C)**, Roma un clima **incerto**»"
+    ],
+    [
+     "zoom-in",
+     "**Esagerazione**: la minima di Milano è un solo giorno, non una media"
+    ],
+    [
+     "eye-off",
+     "**Omissione**: Torino ha avuto anche una minima di 19 °C, Milano è fresca ma moderata"
+    ],
+    [
+     "scale",
+     "**Confronto distorto**: si cita la massima di Torino come se fosse sempre così"
+    ]
+   ]
+  },
+  {
+   "tipo": "tessere",
+   "titolo": "Oggettivo e soggettivo",
+   "msg": "Dove sta l’oggettività",
+   "tessere": [
+    [
+     "binary",
+     "Dati",
+     "**Oggettivi**: sono rilevazioni di valori grezzi"
+    ],
+    [
+     "table",
+     "Informazioni",
+     "**Dovrebbero** esserlo, ma si possono **interpretare in modo manipolativo**"
+    ],
+    [
+     "lightbulb",
+     "Conoscenza",
+     "**Soggettiva**: coinvolge le interpretazioni personali"
+    ]
    ]
   },
   {
    "tipo": "sezione",
    "num": "1.3",
-   "titolo": "Capire e produrre linguaggio",
-   "sotto": "L’IA non si limita a leggere le parole: le elabora",
-   "icona": "languages"
+   "titolo": "Che cosa significa elaborare",
+   "sotto": "Dati grezzi dentro, informazioni fuori",
+   "icona": "arrow-right-left"
   },
   {
    "tipo": "punti",
-   "titolo": "Capire e produrre linguaggio",
-   "msg": "Elabora le parole, non solo le legge",
+   "titolo": "Elaborare",
+   "msg": "Dai dati grezzi alle informazioni",
    "punti": [
     [
-     "captions",
-     "**Trascrive** quello che si dice, anche in una videochiamata"
+     "download",
+     "Il computer prende in **input** dati grezzi"
     ],
+    [
+     "settings",
+     "Li **manipola** secondo una serie di istruzioni: un **algoritmo**"
+    ],
+    [
+     "upload",
+     "Fornisce in **output** informazioni significative"
+    ],
+    [
+     "calculator",
+     "Può essere logica o aritmetica, semplice o molto complessa"
+    ]
+   ]
+  },
+  {
+   "tipo": "schema",
+   "titolo": "Input, process, output",
+   "msg": "Lo schema di ogni elaborazione",
+   "sel": "#s-ipo"
+  },
+  {
+   "tipo": "foto",
+   "titolo": "Elaborazioni semplici e complesse",
+   "msg": "Una somma, un grafico, un rendering 3D",
+   "aClic": true,
+   "foto": [
+    {
+     "src": "https://images.pexels.com/photos/7054402/pexels-photo-7054402.jpeg?auto=compress&cs=tinysrgb&w=1200",
+     "tit": "Somma di due numeri",
+     "alt": "Somma di due numeri"
+    },
+    {
+     "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Normal_distribution_random_sample_vs_theory.svg?width=1000#intera",
+     "tit": "Un grafico statistico",
+     "alt": "Un grafico statistico"
+    },
+    {
+     "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Utah_teapot_simple.png?width=1000",
+     "tit": "Rendering 3D di una teiera",
+     "alt": "Rendering 3D di una teiera"
+    }
+   ]
+  },
+  {
+   "tipo": "domanda",
+   "testo": "Quando scrivete un messaggio sul telefono e premete «invia», qual è l’input, qual è il processo e qual è l’output?",
+   "risposta": "Input: il testo e il destinatario. Processo: il telefono lo codifica e lo spedisce in rete. Output: il messaggio che compare sullo schermo di chi lo riceve."
+  },
+  {
+   "tipo": "sezione",
+   "num": "1.4",
+   "titolo": "Che cos’è un computer",
+   "sotto": "Una macchina che elabora informazioni",
+   "icona": "laptop"
+  },
+  {
+   "tipo": "punti",
+   "titolo": "Computer",
+   "msg": "Letteralmente «colui che computa»",
+   "punti": [
     [
      "languages",
-     "**Traduce** un testo da una lingua all’altra"
+     "In italiano si dice anche **elaboratore** o **calcolatore**"
     ],
     [
-     "file-text",
-     "**Riassume** una riunione in un testo da rileggere"
+     "cog",
+     "È una **macchina** in grado di elaborare informazioni"
     ],
     [
-     "message-circle",
-     "**Risponde** a una domanda"
+     "bot",
+     "Lo fa **in modo automatico**, senza intervento dell’uomo"
+    ],
+    [
+     "calculator",
+     "Sa eseguire solo **pochi tipi di semplici operazioni** logico-matematiche"
+    ]
+   ],
+   "foto": {
+    "src": "https://images.unsplash.com/photo-1589652717406-1c69efaf1ff8?w=1200&q=80&fm=jpg",
+    "tit": "Usare un calcolatore",
+    "alt": "Usare un calcolatore"
+   }
+  },
+  {
+   "tipo": "tessere",
+   "titolo": "Le caratteristiche",
+   "msg": "Perché i computer sono così utili",
+   "tessere": [
+    [
+     "zap",
+     "Velocità",
+     "Tantissimi dati in pochissimo tempo"
+    ],
+    [
+     "target",
+     "Precisione",
+     "Compiti ripetitivi senza errori né stanchezza"
+    ],
+    [
+     "shield-check",
+     "Affidabilità",
+     "Lo stesso risultato a ogni esecuzione"
+    ],
+    [
+     "shapes",
+     "Versatilità",
+     "Compiti e funzioni di ogni tipo"
+    ],
+    [
+     "bot",
+     "Automazione",
+     "Elaborano senza intervento umano"
     ]
    ]
   },
   {
    "tipo": "foto",
-   "titolo": "Sottotitoli e trascrizioni",
-   "msg": "Il testo compare in tempo reale e una riunione diventa un riassunto",
+   "titolo": "Computer da scrivania e da tasca",
+   "msg": "Quelli che conosciamo meglio",
+   "aClic": true,
    "foto": [
     {
-     "src": "https://helios-i.mashable.com/imagery/articles/04WTqG8z5PopdwPJ81KEzyf/hero-image.fill.size_1248x702.v1632813606.png",
-     "tit": "Google Meet: i sottotitoli in tempo reale",
-     "alt": "Google Meet: i sottotitoli in tempo reale. Da guardare nei dettagli: osserva il testo sotto i volti."
+     "src": "https://images.unsplash.com/photo-1593640495253-23196b27a87f?w=1200&q=80&fm=jpg#destra",
+     "tit": "Desktop computer",
+     "alt": "Postazione con monitor curvo, tastiera, mouse e case del computer"
     },
     {
-     "src": "https://cdn.prod.website-files.com/61a05ff14c09ecacc06eec05/6936f366bc8bf574a26c413e_cover-how-to-transcribe-any-video-meetings-with-otter-ai.webp",
-     "tit": "Otter.ai: la trascrizione di una riunione",
-     "alt": "Otter.ai: la trascrizione di una riunione. Da guardare nei dettagli: osserva il testo accanto ai volti dei partecipanti."
+     "src": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=1200&q=80&fm=jpg",
+     "tit": "Laptop",
+     "alt": "Computer portatile aperto su una scrivania di legno"
+    },
+    {
+     "src": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=1200&q=80&fm=jpg",
+     "tit": "Tablet",
+     "alt": "Tablet con la penna appoggiata accanto"
     }
    ]
   },
   {
-   "tipo": "punti",
-   "titolo": "Perché il linguaggio è difficile",
-   "msg": "Per una macchina il significato dipende dal contesto",
-   "punti": [
-    [
-     "quote",
-     "Prendi la frase **«Ho visto Marco con il binocolo»**"
-    ],
-    [
-     "circle-help",
-     "Non si capisce **chi abbia il binocolo**"
-    ],
-    [
-     "brain",
-     "Una persona lo capisce solo da **ciò che sa della situazione**"
-    ]
+   "tipo": "foto",
+   "titolo": "Giochi, telefoni e orologi",
+   "msg": "Anche questi sono computer",
+   "aClic": true,
+   "foto": [
+    {
+     "src": "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=1200&q=80&fm=jpg",
+     "tit": "Console",
+     "alt": "Console PlayStation 5 bianca con il controller"
+    },
+    {
+     "src": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200&q=80&fm=jpg",
+     "tit": "Smartphone",
+     "alt": "Smartphone con lo schermo pieno di app"
+    },
+    {
+     "src": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=1200&q=80&fm=jpg",
+     "tit": "Wearable",
+     "alt": "Orologio intelligente con le icone delle app sullo schermo"
+    }
    ]
   },
   {
-   "tipo": "sezione",
-   "num": "1.4",
-   "titolo": "Prevedere e consigliare",
-   "sotto": "Da ciò che è già successo a ciò che succederà",
-   "icona": "trending-up"
+   "tipo": "foto",
+   "titolo": "In casa e in rete",
+   "msg": "Smart TV e server: computer che non sembrano computer",
+   "aClic": true,
+   "foto": [
+    {
+     "src": "https://images.unsplash.com/photo-1601944177325-f8867652837f?w=1200&q=80&fm=jpg",
+     "tit": "Smart TV",
+     "alt": "Televisore in un soggiorno con la schermata di un servizio di streaming"
+    },
+    {
+     "src": "https://images.unsplash.com/photo-1762163516269-3c143e04175c?w=1200&q=80&fm=jpg",
+     "tit": "Server",
+     "alt": "Armadio di server con le spie verdi accese"
+    }
+   ]
   },
   {
-   "tipo": "punti",
-   "titolo": "Prevedere e consigliare",
-   "msg": "È una stima, non una certezza",
-   "punti": [
-    [
-     "history",
-     "Parte da **ciò che è già successo**: acquisti, video visti, dati del tempo"
-    ],
-    [
-     "sparkles",
-     "Stima **che cosa succederà** o che cosa ti piacerà"
-    ],
-    [
-     "circle-x",
-     "Per questo **ogni tanto sbaglia**"
-    ]
-   ],
-   "foto": {
-    "src": "https://cdn.prod.website-files.com/663e17fff238bd97b0a022cd/6645d94cef2950a240114cec_amazon-product-recommendations-homepage_600x600.jpeg",
-    "tit": "Amazon: «Acquistati insieme di frequente»",
-    "alt": "Amazon: i prodotti acquistati insieme. Da guardare nei dettagli: osserva i tre prodotti proposti insieme e il prezzo totale."
-   }
+   "tipo": "foto",
+   "titolo": "I più potenti",
+   "msg": "Supercomputer e computer quantistici",
+   "aClic": true,
+   "foto": [
+    {
+     "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_supercomputer.png?width=1000",
+     "tit": "Supercomputer",
+     "alt": "Sala del supercomputer Leonardo, a Bologna"
+    },
+    {
+     "src": "https://images.unsplash.com/photo-1681908571122-97f349e1ace0?w=1200&q=80&fm=jpg",
+     "tit": "Computer quantistici",
+     "alt": "Il cuore dorato di un computer quantistico, pieno di cavi"
+    }
+   ]
   },
   {
-   "tipo": "punti",
-   "titolo": "Le app meteo",
-   "msg": "Funzionano così anche loro",
-   "punti": [
-    [
-     "cloud",
-     "Usano i **modelli fisici dell’atmosfera**"
-    ],
-    [
-     "cpu",
-     "E in più **modelli di IA** per stimare il tempo delle prossime ore"
-    ]
-   ],
-   "foto": {
-    "src": "https://www.weathercompany.com/wp-content/uploads/2024/01/Hero-Max-Mobile-1.jpg",
-    "tit": "Un’app meteo sul telefono",
-    "alt": "Un’app meteo sul telefono. Di riconoscimento."
-   }
-  },
-  {
-   "tipo": "schema",
-   "titolo": "L’antifrode della carta di pagamento",
-   "sel": "#s-antifrode"
+   "tipo": "domanda",
+   "testo": "Quanti computer avete addosso o nello zaino in questo momento? E in casa?",
+   "risposta": "Molti più di quanti ne contiamo: telefono, orologio, cuffie, console, televisore, router, elettrodomestici… **ogni macchina che elabora informazioni è un computer**."
   },
   {
    "tipo": "sezione",
    "num": "1.5",
-   "titolo": "Giocare e decidere",
-   "sotto": "Provare le mosse in anticipo e scegliere la migliore",
-   "icona": "swords"
+   "titolo": "Breve storia dei computer",
+   "sotto": "Dall’abaco a ChatGPT",
+   "icona": "history"
   },
   {
-   "tipo": "punti",
-   "titolo": "Giocare e decidere",
-   "msg": "L’IA prova le mosse in anticipo e sceglie quella dalle conseguenze migliori",
+   "tipo": "storia",
+   "titolo": "L’abaco",
+   "anno": "Antichità",
+   "foto": {
+    "src": "https://images.unsplash.com/photo-1773507119465-99a51f58cdd3?w=1200&q=80&fm=jpg",
+    "tit": "Un abaco",
+    "alt": "Un abaco"
+   },
    "punti": [
     [
-     "dices",
-     "I giochi sono il **banco di prova ideale**: regole chiare e un vincitore"
+     "calculator",
+     "Il bisogno di **contare** è antichissimo: Babilonesi, Greci, Romani, Cinesi"
     ],
     [
-     "crown",
-     "**Stockfish**, un programma di scacchi, non lo batte più nessun giocatore umano"
+     "grid-3x3",
+     "Palline su aste: ogni asta è una **cifra** (unità, decine, centinaia)"
     ],
     [
-     "smartphone",
-     "Si può installare **sul telefono**"
+     "user",
+     "Il calcolo lo fa ancora la **persona**: l’abaco la aiuta a non perdere il conto"
     ]
-   ],
+   ]
+  },
+  {
+   "tipo": "storia",
+   "titolo": "La Pascalina",
+   "anno": "1642",
    "foto": {
-    "src": "https://stockfishchess.org/images/gui/lichess_gui.webp",
-    "tit": "Stockfish: una partita analizzata",
-    "alt": "Stockfish: una partita analizzata dal programma. Da guardare nei dettagli: osserva la scacchiera e le linee di analisi a lato."
-   }
-  },
-  {
-   "tipo": "anim",
-   "titolo": "Il computer prova le mosse",
-   "id": "f-tris"
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Non solo giochi",
-   "msg": "Anche una macchina in strada deve decidere",
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Arts_et_Metiers_Pascaline_dsc03869.jpg?width=1000#cornice",
+    "tit": "La Pascalina",
+    "alt": "La Pascalina"
+   },
    "punti": [
     [
-     "car",
-     "I taxi senza conducente di **Waymo** circolano in diverse città degli Stati Uniti"
+     "user",
+     "**Blaise Pascal**, a 19 anni, la costruisce per aiutare il padre con i conti delle tasse"
     ],
     [
-     "gauge",
-     "Decidono di continuo **quando frenare, svoltare e dare la precedenza**"
+     "cog",
+     "Dentro ci sono **ruote dentate**, una per ogni cifra"
+    ],
+    [
+     "repeat",
+     "Il **riporto automatico**: dopo il 9, la ruota fa avanzare di uno scatto quella accanto"
     ]
-   ],
+   ]
+  },
+  {
+   "tipo": "storia",
+   "titolo": "Babbage e Ada Lovelace",
+   "anno": "Ottocento",
    "foto": {
-    "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ioPF9z1qdBLI/v0/-1x-1.webp",
-    "tit": "Waymo: un taxi senza conducente",
-    "alt": "Waymo: un taxi senza conducente in strada. Di riconoscimento."
-   }
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Babbages_Analytical_Engine%2C_1834-1871._%289660574685%29.jpg?width=1000#cornice",
+    "tit": "La macchina analitica",
+    "alt": "La macchina analitica"
+   },
+   "punti": [
+    [
+     "table",
+     "Le tabelle di numeri calcolate a mano sono **piene di errori**"
+    ],
+    [
+     "cog",
+     "Babbage progetta la macchina **analitica**: segue istruzioni lette da **schede perforate**"
+    ],
+    [
+     "cpu",
+     "Un «magazzino» e un «mulino»: **memoria** e **processore**, come oggi"
+    ],
+    [
+     "code",
+     "**Ada Lovelace** scrive il primo **programma**: è la prima programmatrice"
+    ]
+   ]
+  },
+  {
+   "tipo": "storia",
+   "titolo": "Turing e il Colossus",
+   "anno": "1936–1945",
+   "foto": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Colossus.jpg?width=1000#cornice",
+    "tit": "Il Colossus",
+    "alt": "Il Colossus"
+   },
+   "punti": [
+    [
+     "book-open",
+     "Nel **1936** Turing immagina la **macchina di Turing**, modello di ogni computer"
+    ],
+    [
+     "lock-open",
+     "In guerra, a Bletchley Park, aiuta a **decifrare Enigma**"
+    ],
+    [
+     "cpu",
+     "Tommy Flowers costruisce il **Colossus**, uno dei primi computer **elettronici**"
+    ]
+   ]
+  },
+  {
+   "tipo": "storia",
+   "titolo": "I calcolatori umani",
+   "anno": "’50 – ’60",
+   "foto": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Human_computers_-_Dryden.jpg?width=1000#cornice",
+    "tit": "Human computers",
+    "alt": "Human computers"
+   },
+   "punti": [
+    [
+     "building",
+     "I primi computer occupano **intere stanze**: solo università, governi e grandi aziende"
+    ],
+    [
+     "users",
+     "«Computer» era un **lavoro**: persone, spesso **donne**, che calcolavano a mano"
+    ],
+    [
+     "rocket",
+     "**Katherine Johnson** calcola le traiettorie dei voli spaziali («Il diritto di contare»)"
+    ]
+   ]
+  },
+  {
+   "tipo": "storia",
+   "titolo": "Il personal computer",
+   "anno": "’70 – ’80",
+   "foto": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/IBM_PC_5150.jpg?width=1000#cornice",
+    "tit": "IBM PC (1981)",
+    "alt": "IBM PC (1981)"
+   },
+   "punti": [
+    [
+     "microchip",
+     "Il **transistor** (1947), poi il **microprocessore** (1971): un processore in un chip"
+    ],
+    [
+     "monitor",
+     "Nascono i **personal computer**: Apple I (1976) e IBM PC (1981)"
+    ],
+    [
+     "code",
+     "Si diffondono i linguaggi ad alto livello: *Fortran*, *COBOL*, *C*"
+    ]
+   ]
+  },
+  {
+   "tipo": "foto",
+   "titolo": "Oggi (e domani)",
+   "msg": "Computer onnipresenti: la potenza è esplosa e il mondo è connesso",
+   "aClic": true,
+   "foto": [
+    {
+     "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Spot_by_Boston_Dynamics.jpg?width=1000",
+     "tit": "Robotica",
+     "alt": "Robotica"
+    },
+    {
+     "src": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80&fm=jpg",
+     "tit": "Intelligenza artificiale",
+     "alt": "Intelligenza artificiale"
+    },
+    {
+     "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Cloud_computing.svg?width=1000#intera",
+     "tit": "Cloud computing",
+     "alt": "Cloud computing"
+    }
+   ]
+  },
+  {
+   "tipo": "foto",
+   "titolo": "Internet of Things",
+   "msg": "Dal cloud agli oggetti di casa",
+   "foto": [
+    {
+     "src": "https://images.pexels.com/photos/18721086/pexels-photo-18721086.jpeg?auto=compress&cs=tinysrgb&w=1200",
+     "tit": "Internet of Things",
+     "alt": "Internet of Things"
+    }
+   ]
+  },
+  {
+   "tipo": "domanda",
+   "testo": "Che cosa è cambiato di più in questa storia: la dimensione dei computer, la loro potenza o chi li può usare?",
+   "risposta": "Tutte e tre, e insieme: computer più **piccoli**, più **potenti** e **per tutti** hanno portato l’informatica in ogni attività."
   },
   {
    "tipo": "sezione",
    "num": "1.6",
-   "titolo": "Creare",
-   "sotto": "Dalla richiesta scritta a un contenuto nuovo",
-   "icona": "wand-sparkles"
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Creare",
-   "msg": "L’IA generativa produce un contenuto nuovo invece di cercarne uno esistente",
-   "punti": [
-    [
-     "pen-line",
-     "Parte da una **richiesta scritta**"
-    ],
-    [
-     "music",
-     "Su **Suno** «una canzone jazz sull’annaffiare le piante» diventa una canzone che nessuno aveva mai scritto"
-    ],
-    [
-     "message-circle",
-     "Lo stesso vale per i **testi**, come le risposte del chatbot"
-    ]
-   ],
-   "foto": {
-    "src": "https://static-lib.s3.amazonaws.com/cms/suno_496a093af5.jpg",
-    "tit": "Suno: la richiesta scritta",
-    "alt": "Suno: la pagina in cui si scrive la richiesta. Da guardare nei dettagli: osserva la frase di esempio nella casella di testo."
-   }
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Midjourney",
-   "msg": "Immagini a partire da una descrizione",
-   "punti": [
-    [
-     "pen-line",
-     "Scrivi **che cosa vuoi vedere**"
-    ],
-    [
-     "image",
-     "Il sistema produce **quattro immagini nuove**"
-    ]
-   ],
-   "foto": {
-    "src": "https://www.alphr.com/wp-content/uploads/2022/09/midjourney6.png",
-    "tit": "Midjourney: richiesta e immagini",
-    "alt": "Midjourney: la richiesta e le immagini prodotte. Da guardare nei dettagli: osserva la descrizione scritta e le quattro immagini ottenute."
-   }
-  },
-  {
-   "tipo": "sezione",
-   "num": "1.7",
-   "titolo": "Idee sbagliate sull’IA",
-   "sotto": "Che cosa l’IA non è",
-   "icona": "circle-help"
+   "titolo": "Come parlare con un computer",
+   "sotto": "Tre linguaggi e quattro elementi",
+   "icona": "languages"
   },
   {
    "tipo": "domanda",
-   "testo": "Un braccio robotico in fabbrica salda tutto il giorno gli stessi movimenti: è un’IA?",
-   "risposta": "Risposta istintiva: «sì, è un robot, quindi ha un’IA». No: ripete movimenti decisi da una persona, senza riconoscere né decidere nulla. Un robot può non avere nessuna IA, e quasi tutte le IA di questo capitolo sono programmi senza corpo."
+   "testo": "Se un computer sa fare solo operazioni semplicissime, in che lingua gli date le istruzioni?",
+   "risposta": "Non in italiano: serve una lingua **senza ambiguità**. Le prossime slide ne confrontano tre."
   },
   {
-   "tipo": "widget",
-   "titolo": "È IA o non è IA?",
-   "w": "iaonon"
+   "tipo": "tabella",
+   "titolo": "Tre linguaggi",
+   "msg": "Dal più umano al più vicino alla macchina",
+   "righe": [
+    [
+     "Linguaggio",
+     "Che cos’è",
+     "Caratteristiche"
+    ],
+    [
+     "Naturale",
+     "Si è evoluto tra gli esseri umani: italiano, inglese, spagnolo…",
+     "Ricco ma ambiguo, ridondante, con figure retoriche e ironia"
+    ],
+    [
+     "Macchina",
+     "Quello dei programmi che il computer esegue",
+     "Solo 0 e 1; accesso diretto alla memoria; comandi semplici; legato al calcolatore"
+    ],
+    [
+     "Di programmazione",
+     "Linguaggio artificiale e formale per scrivere algoritmi",
+     "Leggibile per l’uomo, portabile, senza i problemi del naturale"
+    ]
+   ]
+  },
+  {
+   "tipo": "schema",
+   "titolo": "Due modi di comunicare",
+   "msg": "Parole per noi, sequenze di 0 e 1 per il computer",
+   "sel": "#s-lingue"
+  },
+  {
+   "tipo": "codice",
+   "titolo": "Python",
+   "msg": "Un linguaggio di programmazione a metà strada",
+   "html": "def add_two_numbers(num1, num2):\n    return num1 + num2\n\nprint('The sum is', add_two_numbers(3, 5))\n# The sum is 8",
+   "note": [
+    [
+     "user",
+     "Si legge quasi come **inglese**"
+    ],
+    [
+     "cpu",
+     "Il computer lo **traduce in linguaggio macchina** (solo 0 e 1)"
+    ],
+    [
+     "check",
+     "Ogni istruzione ha **un solo significato**"
+    ]
+   ]
   },
   {
    "tipo": "tessere",
-   "titolo": "Tre idee sbagliate",
-   "msg": "Che cosa l’IA non è",
+   "titolo": "Gli elementi del linguaggio",
+   "msg": "Ogni linguaggio ha quattro livelli di regole",
    "tessere": [
     [
-     "bot",
-     "Non è un robot",
-     "il robot è una macchina con un corpo; l’IA è un programma"
+     "a-large-small",
+     "Alfabeto",
+     "I **simboli** ammessi: a, M, 2, !"
     ],
     [
-     "brain",
-     "Non è un cervello",
-     "può svolgere i compiti in modo meccanico, seguendo ordini precisi"
+     "book-a",
+     "Lessico",
+     "Le **parole** ammesse: cane, quadro, twittare"
     ],
     [
-     "circle-help",
-     "Non sa tutto",
-     "è brava in un compito e sbaglia fuori da quello"
+     "workflow",
+     "Sintassi",
+     "Le **frasi** ammesse: come si combinano le parole"
+    ],
+    [
+     "message-circle",
+     "Semantica",
+     "Il **significato** di parole e frasi"
     ]
-   ],
-   "nota": "Face ID non sa tradurre e Stockfish non sa riconoscere un volto."
+   ]
   },
   {
-   "tipo": "errore",
-   "no": "«L’IA è un robot che pensa come noi.»",
-   "si": "Un robot è una **macchina con un corpo**, l’IA è un **programma**: quasi sempre vive in un telefono o in un sito, e non c’è nessuna prova che «pensi» come una persona."
+   "tipo": "tabella",
+   "titolo": "Alfabeto e lessico",
+   "msg": "Prima i simboli, poi le parole",
+   "righe": [
+    [
+     "Elemento",
+     "Corretti",
+     "Errati"
+    ],
+    [
+     "Alfabeto: simboli ammessi",
+     "a, M, p, !, 2",
+     "ç, ñ, ∞, #, µ"
+    ],
+    [
+     "Lessico: vocaboli ammessi",
+     "cane, quadro, twittare, sottone",
+     "hello, melpo, streaming, déjà-vu"
+    ]
+   ]
   },
   {
-   "tipo": "errore",
-   "no": "«Un chatbot sa tutto perché è collegato a internet.»",
-   "si": "Un chatbot **può sbagliare anche quando risponde con sicurezza**: scrive la risposta che gli sembra più probabile, non controlla un archivio di verità."
+   "tipo": "tabella",
+   "titolo": "Sintassi e semantica",
+   "msg": "Prima le frasi, poi il significato",
+   "righe": [
+    [
+     "Elemento",
+     "Corretti",
+     "Errati"
+    ],
+    [
+     "Sintassi: frasi ammesse",
+     "studio informatica; sono andato al mare; zitto!; la mamma mangia un quadro",
+     "andata mamma mare al; !sono andato al mare!; casa libro mare casa"
+    ],
+    [
+     "Semantica: significato",
+     "questa è una mela (indicando una mela); la mamma mangia una mela; adoro la pesca!",
+     "questa è una mela (indicando una pera); la mamma mangia un quadro; il mio cane pesca"
+    ]
+   ]
+  },
+  {
+   "tipo": "foto",
+   "titolo": "I quattro elementi",
+   "msg": "Dai simboli al significato",
+   "aClic": true,
+   "foto": [
+    {
+     "src": "https://images.pexels.com/photos/7335365/pexels-photo-7335365.jpeg?auto=compress&cs=tinysrgb&w=1200",
+     "tit": "Alfabeto",
+     "alt": "Alfabeto"
+    },
+    {
+     "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Syntax_tree.svg?width=1000#intera",
+     "tit": "Sintassi: l’albero di «Colorless green ideas sleep furiously»",
+     "alt": "Sintassi: l’albero di «Colorless green ideas sleep furiously»"
+    },
+    {
+     "src": "https://commons.wikimedia.org/wiki/Special:FilePath/SemanticNetExample.jpg?width=1000#intera",
+     "tit": "Semantica",
+     "alt": "Semantica"
+    }
+   ]
+  },
+  {
+   "tipo": "domanda",
+   "testo": "«La mamma mangia un quadro»: che cosa funziona in questa frase e che cosa no? Alfabeto, lessico, sintassi o semantica?",
+   "risposta": "Alfabeto, lessico e **sintassi** vanno bene; è sbagliata la **semantica**: un quadro non si mangia. Un computer controlla le regole, non il buon senso: per questo servono linguaggi **formali**."
   }
  ]
 };

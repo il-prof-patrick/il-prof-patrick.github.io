@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Inter:wght@400;500;600;700&display=swap">
+<h2>La pagina di studio: tre proposte</h2>
+<p class="subtitle">Stesso contenuto (par. 4.2, l'infrastruttura fisica), visto come lo vedrebbe uno studente al computer. Tengo i colori del tuo sito. Solo impostazione, non finitura.</p>
+
+<style>
+  .p{container-type:inline-size;width:100%;aspect-ratio:16/10;position:relative;overflow:hidden;border-radius:10px;font-family:Inter,system-ui,sans-serif;border:1px solid #cdd6df;background:#fff;color:#0e161f;margin-bottom:6px}
+  .p h1,.p h2,.p .d{font-family:'Bricolage Grotesque',Inter,sans-serif}
+  .ph{background:url(https://www.circleid.com/images/uploads/13954a.jpg) center/cover #223}
+  .bar{position:absolute;left:0;right:0;top:0;height:4.2cqw;display:flex;align-items:center;gap:2cqw;padding:0 2.5cqw;font-size:1.3cqw;border-bottom:1px solid #dbe2ea;background:#fff;z-index:5}
+  .bar b{color:#075c54}.bar span{color:#5f7183}
+  .bar .pr{margin-left:auto;width:14cqw;height:.5cqw;background:#e7ecf2;border-radius:9px;overflow:hidden}.bar .pr i{display:block;width:34%;height:100%;background:#0f8d80}
+  .k{font-size:1.2cqw;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#0a6f66}
+
+  /* 1 scrollytelling */
+  .P1 .col{position:absolute;left:3.5cqw;top:7cqw;width:40cqw}
+  .P1 h1{font-size:3.6cqw;line-height:1.02;letter-spacing:-.03em;margin:1cqw 0 1.4cqw;font-weight:800}
+  .P1 p{font-size:1.45cqw;line-height:1.55;color:#33404f;margin:0 0 1.2cqw}
+  .P1 .step{border-left:.3cqw solid #0f8d80;padding-left:1.4cqw;margin-bottom:2cqw}
+  .P1 .step.off{border-color:#dbe2ea;opacity:.45}
+  .P1 .step h3{font-size:1.7cqw;margin:0 0 .5cqw;font-family:'Bricolage Grotesque';font-weight:700}
+  .P1 .stick{position:absolute;left:49cqw;right:2.5cqw;top:6.4cqw;bottom:2.5cqw;border-radius:1.4cqw;background:#0b2530;overflow:hidden}
+  .P1 .stick .ph{position:absolute;left:0;right:0;top:0;height:55%}
+  .P1 .stick .cap{position:absolute;left:1.6cqw;right:1.6cqw;bottom:1.6cqw;color:#fff}
+  .P1 .stick .cap b{display:block;font-family:'Bricolage Grotesque';font-size:2.4cqw;line-height:1.1;color:#7fe0d2;margin-bottom:.5cqw}
+  .P1 .stick .cap span{font-size:1.3cqw;color:#cfe6ea}
+  .P1 .dots{position:absolute;left:1.6cqw;top:57%;display:flex;gap:.6cqw}
+  .P1 .dots i{width:2.4cqw;height:.4cqw;background:rgba(255,255,255,.25);border-radius:9px}.P1 .dots i:first-child{background:#7fe0d2}
+
+  /* 2 schede */
+  .P2{background:#f4f7fa}
+  .P2 .hero{position:absolute;left:0;right:0;top:4.2cqw;height:22cqw;background:linear-gradient(90deg,#0b2530 35%,rgba(11,37,48,.1)),url(https://www.circleid.com/images/uploads/13954a.jpg) right/cover}
+  .P2 .hero .t{position:absolute;left:3.5cqw;top:3.5cqw;color:#fff;width:34cqw}
+  .P2 .hero h1{font-size:3.6cqw;line-height:1;letter-spacing:-.03em;margin:.8cqw 0 0;font-weight:800}
+  .P2 .hero .k{color:#7fe0d2}
+  .P2 .ric{position:absolute;left:3.5cqw;right:3.5cqw;top:22cqw;background:#fff;border-radius:1.2cqw;box-shadow:0 .8cqw 2.4cqw rgba(14,22,31,.12);padding:1.6cqw 2cqw;display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:2cqw;align-items:center;z-index:3}
+  .P2 .ric .k{writing-mode:horizontal-tb}
+  .P2 .ric div div{font-size:1.25cqw;line-height:1.35;color:#33404f}
+  .P2 .ric b{display:block;font-size:2.2cqw;font-family:'Bricolage Grotesque';color:#0a6f66;line-height:1}
+  .P2 .cards{position:absolute;left:3.5cqw;right:3.5cqw;top:33cqw;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.6cqw}
+  .P2 .c{background:#fff;border-radius:1.2cqw;border:1px solid #dbe2ea;padding:1.6cqw}
+  .P2 .c i{display:grid;place-items:center;width:3.6cqw;height:3.6cqw;border-radius:50%;background:#ddf0ed;color:#075c54;font-style:normal;font-weight:700;font-size:1.6cqw;margin-bottom:1cqw}
+  .P2 .c h3{margin:0 0 .5cqw;font-size:1.7cqw;font-family:'Bricolage Grotesque'}
+  .P2 .c p{margin:0;font-size:1.2cqw;line-height:1.45;color:#46566a}
+  .P2 .c u{display:block;margin-top:1cqw;font-size:1.15cqw;color:#075c54;text-decoration:none;font-weight:600}
+
+  /* 3 percorso */
+  .P3{background:#fbfaf6}
+  .P3 .rail{position:absolute;left:3cqw;top:7cqw;bottom:3cqw;width:.3cqw;background:#dcd6c8}
+  .P3 .rail i{position:absolute;left:-.9cqw;width:2.1cqw;height:2.1cqw;border-radius:50%;background:#fbfaf6;border:.3cqw solid #0f8d80}
+  .P3 .rail i.on{background:#0f8d80}
+  .P3 .main{position:absolute;left:8cqw;right:3.5cqw;top:6cqw}
+  .P3 .tit{display:flex;align-items:baseline;gap:1.4cqw}
+  .P3 .tit span{font-family:'Bricolage Grotesque';font-weight:800;font-size:6cqw;color:#0f8d80;line-height:1}
+  .P3 h1{font-size:3.4cqw;margin:0;letter-spacing:-.03em;font-weight:800;line-height:1}
+  .P3 .sec20{margin:1.6cqw 0;background:#ddf0ed;border-radius:1cqw;padding:1.2cqw 1.6cqw;display:flex;gap:1.4cqw;align-items:flex-start}
+  .P3 .sec20 b{flex:none;font-size:1.2cqw;letter-spacing:.12em;text-transform:uppercase;color:#075c54;padding-top:.2cqw}
+  .P3 .sec20 span{font-size:1.5cqw;line-height:1.4;color:#0e161f}
+  .P3 .row{display:grid;grid-template-columns:1.1fr 1fr;gap:2.4cqw;align-items:start}
+  .P3 .row p{font-size:1.45cqw;line-height:1.55;color:#33404f;margin:0 0 1cqw}
+  .P3 .fig{border-radius:1cqw;overflow:hidden;position:relative;height:17cqw}
+  .P3 .fig .ph{position:absolute;inset:0}
+  .P3 .fig em{position:absolute;left:1cqw;bottom:1cqw;right:1cqw;font-size:1.15cqw;font-style:normal;color:#fff;background:rgba(0,0,0,.6);padding:.6cqw 1cqw;border-radius:.6cqw}
+  .P3 .chk{margin-top:1.6cqw;border:.2cqw dashed #cf9f45;background:#fcf0d6;border-radius:1cqw;padding:1cqw 1.6cqw;font-size:1.35cqw;color:#845403;font-weight:600}
+  .tt{font-weight:400;opacity:.75}
+</style>
+
+<div class="section"><h3>1 · Racconto a scorrimento <span class="tt">— l'immagine resta fissa a destra e cambia mentre scorri il testo</span></h3>
+<div class="p P1">
+  <div class="bar"><b>Reti e Internet</b><span>4 · Internet</span><span>4.2 L'infrastruttura fisica</span><div class="pr"><i></i></div></div>
+  <div class="col">
+    <div class="k">4.2 · Infrastruttura</div>
+    <h1 class="d">Internet è fatta di oggetti</h1>
+    <div class="step"><h3>Il cavo sotto il mare</h3><p>Oltre il 95% del traffico tra i continenti passa da cavi in fibra sul fondo degli oceani, non dai satelliti. Una coppia di fibre porta più dati di un satellite.</p></div>
+    <div class="step off"><h3>Se un cavo si rompe</h3><p>Il traffico viene deviato…</p></div>
+  </div>
+  <div class="stick"><div class="ph"></div><div class="dots"><i></i><i></i><i></i></div>
+    <div class="cap"><b>Grosso come un tubo da giardino</b><span>Poche fibre al centro, strati di protezione intorno.</span></div></div>
+</div>
+<p style="font-size:.9em;opacity:.8">Cosa cambia: l'immagine (foto o animazione) è sempre accanto al paragrafo che la spiega. Niente figure sparse tra i capoversi. Su telefono l'immagine passa sopra al testo.</p></div>
+
+<div class="section"><h3>2 · Schede <span class="tt">— in apertura «Da sapere» e il paragrafo diviso in blocchi con dettaglio a richiesta</span></h3>
+<div class="p P2">
+  <div class="bar"><b>Reti e Internet</b><span>4 · Internet</span><span>4.2 L'infrastruttura fisica</span><div class="pr"><i></i></div></div>
+  <div class="hero"><div class="t"><div class="k">4.2</div><h1 class="d">Internet è fatta di oggetti</h1></div></div>
+  <div class="ric"><div class="k">In 20 secondi</div><div><b>95%</b><div>dei dati tra i continenti viaggia sotto il mare</div></div><div><b>500+</b><div>cavi, più di un milione di km</div></div><div><b>Pochi</b><div>punti di approdo, quindi infrastrutture strategiche</div></div></div>
+  <div class="cards">
+    <div class="c"><i>1</i><h3>L'ISP</h3><p>L'azienda che ti collega a Internet: TIM, Vodafone, Iliad, Fastweb…</p><u>Approfondisci ▾</u></div>
+    <div class="c"><i>2</i><h3>Le dorsali</h3><p>Fibra ad altissima capacità lungo autostrade e ferrovie.</p><u>Approfondisci ▾</u></div>
+    <div class="c"><i>3</i><h3>I cavi sottomarini</h3><p>Grossi come un tubo da giardino, con ripetitori che amplificano la luce.</p><u>Approfondisci ▾</u></div>
+  </div>
+</div>
+<p style="font-size:.9em;opacity:.8">Cosa cambia: una pagina che si può «scansionare» in 20 secondi e poi leggere nel dettaglio. Ottima per ripassare prima della verifica.</p></div>
+
+<div class="section"><h3>3 · Percorso a tappe <span class="tt">— come una rivista: numero grande, riassunto, testo e figura affiancati, domanda finale</span></h3>
+<div class="p P3">
+  <div class="bar"><b>Reti e Internet</b><span>4 · Internet</span><span>4.2 L'infrastruttura fisica</span><div class="pr"><i></i></div></div>
+  <div class="rail"><i class="on" style="top:2cqw"></i><i style="top:14cqw"></i><i style="top:26cqw"></i></div>
+  <div class="main">
+    <div class="tit"><span>4.2</span><h1 class="d">Internet è fatta di oggetti</h1></div>
+    <div class="sec20"><b>In breve</b><span>Quasi tutto il traffico tra i continenti passa da cavi in fibra sotto il mare. Se uno si rompe, i dati cambiano strada.</span></div>
+    <div class="row">
+      <div><p>Quando si dice «Internet» si pensa a qualcosa di immateriale. In realtà è fatta di cavi, armadi pieni di router ed edifici pieni di server.</p><p>I cavi sottomarini sono oltre 500, per più di un milione di chilometri.</p></div>
+      <div class="fig"><div class="ph"></div><em>Sezione di un cavo sottomarino</em></div>
+    </div>
+    <div class="chk">✎ Verifica: perché i cavi e non i satelliti?</div>
+  </div>
+</div>
+<p style="font-size:.9em;opacity:.8">Cosa cambia: più aria, gerarchia chiara, riassunto in apertura e domanda di controllo a fine tappa. È la più vicina a quello che hai ora, ma più pulita.</p></div>
+
+<div class="section"><h3>Comune a tutte e tre (mie proposte)</h3>
+<p>• <b>Testo riscritto</b>: frasi corte e concrete, un'idea per paragrafo, niente ripetizioni; i dettagli secondari nei blocchi a richiesta.</p>
+<p>• <b>Animazioni nuove</b>, stesse di Presenta in aula, per i processi (pacchetto, cavo che si rompe, richiesta HTTP).</p>
+<p>• Tema chiaro/scuro, indice del capitolo sempre a portata, parole chiave con spiegazione al passaggio del mouse.</p>
+<p style="opacity:.8">Il mockup 3 ha tre punti nella barra a sinistra: indicano il progresso nella pagina. Le foto sono quelle già nel tuo capitolo.</p></div>

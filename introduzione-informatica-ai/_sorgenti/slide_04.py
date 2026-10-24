@@ -1,84 +1,83 @@
-# Slide di Presenta in aula · Capitolo 4 · Come ragiona un computer
+# Slide di Presenta in aula · Capitolo 4 · Che cos’è l’intelligenza
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from slidelib import *
 configura(modulo='Introduzione a informatica ed AI')
 c = Capitolo(4)
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(QUI, '..')
-PSEUDO, PYTHON = c.conf.PSEUDO, c.conf.PYTHON
 
 S = [
- c.COP('Un computer non ragiona come una persona: esegue istruzioni, e un algoritmo è il modo di dirgli che cosa fare.'),
+ c.COP('Che cosa vuol dire essere intelligenti, e che cosa significa chiamarla «artificiale».'),
  c.DOM(0),
- # 4.1
- c.SEZ('4.1', 'Esegue istruzioni semplicissime, ma molto in fretta', 'cpu'),
- {'tipo': 'punti', 'titolo': 'Il computer tradizionale', 'msg': 'Non ragiona: esegue istruzioni', 'punti': [
-   ['file-text', 'Esegue **istruzioni scritte da una persona**'],
-   ['list-ordered', 'L’insieme delle istruzioni è il **programma**'],
-   ['circle-x', 'Un computer tradizionale **non ragiona**']]},
- {'tipo': 'tessere', 'titolo': 'Che cosa sa fare il processore', 'msg': 'Pochissimi tipi di istruzione, tutte semplicissime', 'tessere': [
-   ['calculator', 'Calcoli matematici', 'per esempio una somma'],
-   ['scale', 'Operazioni logiche', 'per esempio confrontare due numeri'],
-   ['memory-stick', 'Memoria e salti', 'leggere o scrivere un dato e passare a un’altra istruzione, anche solo se un confronto è vero']]},
- {'tipo': 'punti', 'titolo': 'Dai mattoni al videogioco', 'msg': 'Tutto nasce combinando istruzioni semplici', 'punti': [
-   ['gamepad-2', 'Dal **videogioco** al **browser**: tutto nasce dalle stesse istruzioni semplicissime'],
-   ['gauge', 'Le istruzioni si combinano **a miliardi al secondo**']],
-  'foto': c.FO('F4.1.1', 'Un processore (CPU)')},
- {'tipo': 'punti', 'titolo': 'Veloce, non intelligente', 'msg': 'Dove un computer eccelle e dove no', 'punti': [
-   ['zap', 'Eccelle nella **velocità**: miliardi di istruzioni al secondo'],
-   ['database', 'Eccelle nella **memoria**: non dimentica e non si stanca'],
-   ['circle-x', 'Non eccelle in ciò che richiede di **capire**'],
-   ['door-closed', 'Come la persona nella stanza cinese, **esegue regole** senza sapere che cosa significhino']]},
- {'tipo': 'punti', 'titolo': 'Una «macchina stupida»', 'msg': 'Umberto Eco sul computer', 'punti': [
-   ['quote', 'Lo scrittore **Umberto Eco** lo disse in una prefazione'],
-   ['bot', 'Per lui il computer non rende intelligente chi non lo è: è una **«macchina stupida»**'],
-   ['users', 'Dà buoni risultati solo **nelle mani di persone intelligenti**']],
-  'foto': c.FO('F4.1.2', 'Umberto Eco')},
- c.ERR(0),
- # 4.2
- c.SEZ('4.2', 'Un procedimento che trasforma dati in dati', 'list-ordered'),
- {'tipo': 'punti', 'titolo': 'Che cos’è un algoritmo', 'msg': 'Un procedimento per risolvere un problema', 'punti': [
-   ['flag', 'È un **procedimento finito**'],
-   ['list-ordered', 'Formato da una **sequenza ordinata di passi elementari**'],
-   ['arrow-right-left', '**Trasforma dati in ingresso** (*input*) **in dati in uscita** (*output*)'],
-   ['target', 'Serve a **risolvere un problema**']]},
- {'tipo': 'punti', 'titolo': 'Un esempio: il caffè', 'msg': 'Che cosa serve per andare alle macchinette', 'punti': [
-   ['coffee', 'L’**output atteso** è il caffè'],
-   ['coins', 'Gli **input necessari** sono le monete e la scelta'],
-   ['list-ordered', 'I **passi** portano dagli input all’output'],
-   ['file-code', 'Il **programma** è la traduzione di un algoritmo in istruzioni che il computer sa eseguire']],
-  'foto': c.FO('F4.2.1', 'Una macchinetta del caffè')},
- # 4.3
- c.SEZ('4.3', 'Che cosa rende buono un algoritmo', 'list-checks'),
+ # 2.1
+ c.SEZ('4.1', 'Una definizione, e animali che la mettono alla prova', 'brain'),
+ {'tipo': 'punti', 'titolo': 'Definire l’intelligenza', 'msg': 'Non esiste una definizione accettata da tutti', 'punti': [
+   ['users', 'Una delle più citate è in una **dichiarazione del 1994 firmata da 52 ricercatori**'],
+   ['brain', 'È una **capacità mentale generale**: ragionare, pianificare, risolvere problemi, pensare in modo astratto, imparare dall’esperienza'],
+   ['book-open', '**Non si riduce a studiare sui libri**: è la capacità di capire ciò che ci circonda']]},
+ {'tipo': 'tabella', 'titolo': 'Le capacità dell’intelligenza', 'msg': 'Che cosa significano e dove le usiamo ogni giorno', 'righe': [
+   ['Capacità', 'Che cosa significa', 'Esempio quotidiano'],
+   ['Ragionare', 'trarre conclusioni da ciò che si sa', 'capire dall’orario che l’autobus è già passato'],
+   ['Pianificare', 'scegliere i passi per arrivare a uno scopo', 'organizzare una gita con trasporti e orari'],
+   ['Risolvere problemi', 'trovare una strada quando quella solita è chiusa', 'cambiare percorso per un incidente'],
+   ['Pensare in modo astratto', 'lavorare con idee e non solo con cose concrete', 'capire che “giustizia” non è un oggetto'],
+   ['Imparare dall’esperienza', 'cambiare comportamento dopo un errore', 'non toccare più una pentola calda']]},
+ {'tipo': 'punti', 'titolo': 'Non solo umana', 'msg': 'Anche alcuni animali risolvono problemi', 'punti': [
+   ['bird', 'Il **corvo della Nuova Caledonia** si costruisce da solo piccoli ramoscelli adatti a pescare gli insetti nei buchi degli alberi'],
+   ['fish', 'Il **polpo**, chiuso in un barattolo, riesce a svitare il tappo dall’interno e a uscire']]},
+ {'tipo': 'foto', 'titolo': 'Corvo e polpo', 'msg': 'Osserva lo strumento del corvo e i tentacoli del polpo',
+  'foto': [c.FO('F4.1.1', 'Un corvo della Nuova Caledonia con un ramoscello'), c.FO('F4.1.2', 'Un polpo che apre il tappo dall’interno')]},
+ {'tipo': 'punti', 'titolo': 'Sembrare intelligenti non è esserlo', 'msg': 'Il cavallo Hans sapeva fare i calcoli?', 'punti': [
+   ['calendar', 'Tra la fine dell’Ottocento e l’inizio del Novecento, in **Germania**'],
+   ['user', 'L’insegnante **Wilhelm von Osten** poneva a Hans un’operazione'],
+   ['hammer', 'Hans rispondeva **battendo lo zoccolo** il numero giusto di volte']],
+  'foto': c.FO('F4.1.3', 'Hans con von Osten davanti alla lavagna, 1904')},
+ {'tipo': 'punti', 'titolo': 'Hans non contava', 'msg': 'Osservava chi lo interrogava', 'punti': [
+   ['calendar', 'Nel **1907** lo psicologo **Oskar Pfungst** scoprì come faceva'],
+   ['eye', 'Hans osservava i **minimi movimenti involontari** di chi lo interrogava'],
+   ['hand', 'Smetteva di battere quando li vedeva cambiare'],
+   ['circle-x', 'Rispondeva giusto **solo se chi chiedeva conosceva la risposta** e Hans poteva vederlo']]},
+ {'tipo': 'punti', 'titolo': 'Il pappagallo', 'msg': 'Ripetere una frase non vuol dire capirla', 'punti': [
+   ['mic', 'I pappagalli **imitano le parole umane**'],
+   ['circle-help', 'Ma ripetere una frase non vuol dire capirla'],
+   ['quote', 'Per questo in italiano si dice **«ripetere come un pappagallo»**']],
+  'foto': c.FO('F4.1.4', 'Un pappagallo cenerino')},
+ {'tipo': 'punti', 'titolo': 'La stessa difficoltà', 'msg': 'Hans e il pappagallo pongono la stessa domanda', 'punti': [
+   ['circle-help', 'Pur non essendo intelligenti **a nostro modo di vedere**, possono comunque essere ritenuti tali?'],
+   ['bot', 'Ritroveremo la domanda, con le macchine, nel **capitolo 4**']]},
+ # 2.2
+ c.SEZ('4.2', 'L’intelligenza non è una sola capacità', 'puzzle'),
  c.DOM(1),
- {'tipo': 'tabella', 'titolo': 'Le proprietà di un algoritmo', 'msg': 'Che cosa richiedono e perché servono', 'righe': [
-   ['Proprietà', 'Che cosa richiede', 'Perché serve'],
-   ['Finitezza', 'l’esecuzione termina in un tempo ragionevole', 'un procedimento infinito non dà mai una risposta'],
-   ['Non ambiguità', 'ogni passo si interpreta in un solo modo', 'la macchina non può «indovinare» che cosa si intendeva'],
-   ['Efficacia', 'il risultato è una soluzione adeguata al problema', 'un algoritmo che termina ma sbaglia è inutile'],
-   ['Efficienza', 'usa poco tempo e poca memoria', 'per uno stesso problema esistono tanti algoritmi, alcuni molto più rapidi'],
-   ['Generalità', 'risolve una classe di problemi e non uno solo', 'ordinare qualsiasi elenco, non solo uno'],
-   ['Atomicità', 'i passi non sono ulteriormente scomponibili', 'il computer capisce solo istruzioni elementari']]},
- # 4.4
- c.SEZ('4.4', 'Quattro modi di scrivere lo stesso algoritmo', 'file-code'),
- {'tipo': 'tessere', 'titolo': 'Le quattro forme', 'msg': 'Dalla più umana alla più vicina al computer', 'tessere': [
-   ['message-square', 'Linguaggio naturale', 'chiaro, ma può essere ambiguo'],
-   ['workflow', 'Diagramma di flusso', 'visivo: riquadri, frecce e rombi'],
-   ['file-text', 'Pseudocodice', 'preciso, ma non eseguibile'],
-   ['file-code', 'Codice', 'eseguibile dal computer']]},
- {'tipo': 'punti', 'titolo': 'Linguaggio naturale', 'msg': 'La macchinetta del caffè, con il prezzo in centesimi', 'punti': [
-   ['circle-play', '**Parti** da un credito di zero'],
-   ['repeat', '**Finché** il credito è minore del prezzo, chiedi una moneta e aggiungila'],
-   ['coffee', '**Quando** il credito basta, prepara il caffè'],
-   ['coins', '**Se** il credito supera il prezzo, restituisci la differenza come resto']]},
- c.SC('F4.4.1', 'Diagramma di flusso'),
- dict(c.COD(PSEUDO, 'Pseudocodice'), msg='Preciso, ma non eseguibile: parole italiane usate come istruzioni'),
- dict(c.COD(PYTHON, 'Codice di programmazione'), msg='Eseguibile dal computer, secondo le regole di un linguaggio'),
- {'tipo': 'punti', 'titolo': 'Da una forma all’altra', 'msg': 'L’algoritmo resta lo stesso, cambia il modo di scriverlo', 'punti': [
-   ['file-text', 'Dallo **pseudocodice** si arriva a **qualsiasi linguaggio** di programmazione'],
-   ['workflow', 'Lo stesso vale per il **diagramma di flusso**'],
-   ['equal', 'Cambia solo **il modo di scriverlo**']]},
- c.AN('F4.4.2', 'Quattro forme, un solo algoritmo'),
+ {'tipo': 'punti', 'titolo': 'Le intelligenze multiple', 'msg': 'Secondo Howard Gardner (1983) l’intelligenza ha più forme', 'punti': [
+   ['puzzle', 'Non è una sola capacità: ogni forma ha i suoi **punti di forza**'],
+   ['calculator', 'Essere bravi in matematica è **una forma**, non l’unica'],
+   ['smile', 'Chi va male in matematica **non è per questo stupido**'],
+   ['layers', 'Le forme sono **otto**: sette nel 1983, la naturalistica aggiunta più tardi']]},
+ {'tipo': 'tabella', 'titolo': 'Le otto intelligenze', 'msg': 'In che cosa si vedono e chi le mostra', 'righe': [
+   ['Intelligenza', 'In che cosa si vede', 'Esempio'],
+   ['Linguistica', 'usare bene le parole, parlando e scrivendo', 'una scrittrice, un avvocato'],
+   ['Logico-matematica', 'ragionare con numeri, schemi e problemi', 'una matematica, un programmatore'],
+   ['Spaziale', 'immaginare e orientarsi nello spazio', 'un architetto, una pilota'],
+   ['Musicale', 'sentire e produrre ritmi e suoni', 'un musicista, una direttrice d’orchestra'],
+   ['Corporeo-cinestetica', 'usare il corpo con precisione', 'un’atleta, una danzatrice, un chirurgo'],
+   ['Interpersonale', 'capire gli altri e lavorare con loro', 'un’insegnante, un mediatore'],
+   ['Intrapersonale', 'conoscere se stessi e le proprie emozioni', 'chi sa dire che cosa prova e perché'],
+   ['Naturalistica', 'riconoscere e distinguere piante, animali e fenomeni naturali', 'un botanico, una guida naturalistica']]},
+ c.AN('F4.2.1', 'Chi è più intelligente?'),
+ c.ERR(0),
+ # 2.3
+ c.SEZ('4.3', 'Naturale e artificiale', 'bot'),
+ {'tipo': 'confronto', 'titolo': 'Intelligenza naturale e artificiale', 'msg': 'Chi la possiede e come nasce',
+  'a': {'icona': 'leaf', 'titolo': 'Naturale', 'righe': ['• è quella dei **viventi**', '• nasce con la vita', '• si sviluppa con l’**esperienza**']},
+  'b': {'icona': 'cpu', 'titolo': 'Artificiale (IA)', 'tono': 'buono', 'righe': ['• è quella di **sistemi costruiti dalle persone**', '• si chiama IA un sistema che svolge compiti che, svolti da una persona, **richiederebbero intelligenza**']}},
+ {'tipo': 'punti', 'titolo': 'Una definizione operativa', 'msg': 'Guarda che cosa il sistema fa, non che cosa è', 'punti': [
+   ['eye', 'Conta **ciò che il sistema fa**'],
+   ['circle-help', 'Se sia **davvero intelligente** o si limiti a sembrarlo, come Hans, non lo dice'],
+   ['bot', 'È la domanda del **capitolo 4**']]},
+ {'tipo': 'punti', 'titolo': 'Un esempio: Face ID', 'msg': 'Lo sblocco del telefono con il volto è IA', 'punti': [
+   ['scan-face', '**Face ID** (capitolo 3) riconosce un volto fra tanti, anche con occhiali o barba'],
+   ['user', 'Se lo facesse una persona, richiederebbe **percezione e memoria**'],
+   ['circle-check', 'Per questo è **IA**, secondo la definizione operativa']]},
 ]
 
 if __name__ == '__main__':

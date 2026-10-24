@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>1. L’IA nella vita di tutti i giorni · Introduzione a informatica ed AI</title>
+<title>1. Che cos’è l’informatica · Introduzione a informatica ed AI</title>
 <link rel="stylesheet" href="assets/sito.css">
 </head>
 <body data-capitolo="1">
@@ -11,197 +11,260 @@
 <nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
 <main class="lezione" lang="it">
   <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Introduzione a informatica ed AI · Capitolo 01</span></div>
-  <h1>L’IA nella vita di tutti i giorni</h1>
+  <h1>Che cos’è l’informatica</h1>
 
   <div class="contenuto">
 
   <!-- ===================== 1.1 ===================== -->
   <section class="sez">
-  <h2 id="p1"><span class="num">1.1</span>Una giornata piena di IA</h2>
-  <p class="domanda">Quante volte avete usato un’IA stamattina, prima di arrivare a scuola?</p>
-  <p>Prima ancora di chiedersi che cos’è l’<b>intelligenza artificiale (IA)</b>, conviene accorgersi che <b>la si usa già</b>. In una giornata normale ci sono molti momenti in cui un sistema di IA lavora per te: alcuni li noti, altri <b>lavorano di nascosto</b>.</p>
-  <figure>
-    <div class="tela passi-anim" id="f-giornata" data-titolo="Una giornata piena di IA" data-inizio="In alto otto pallini grigi, uno per ora, e il contatore «IA incontrate: 0»; sotto, un riquadro con la scritta «Una giornata come tante».">
-      <svg viewBox="0 0 720 320" role="img" aria-label="Otto momenti di una giornata, dalle 7:00 alle 21:00: in ognuno un sistema di IA lavora per te. Cinque li noti, tre lavorano di nascosto."></svg>
-      <ol class="passi-testo">
-        <li>7:00, telefono che si sblocca guardandolo. Face ID riconosce il volto anche con occhiali o capelli diversi (verde: te ne accorgi).</li>
-        <li>7:30, altoparlante a colazione. Siri capisce la voce e risponde sul tempo (blu).</li>
-        <li>8:00, mappa sul telefono. Google Maps prevede il traffico e sceglie la strada più veloce (blu).</li>
-        <li>10:00, pagina di inglese. Google Traduttore traduce il testo da una lingua all’altra (blu).</li>
-        <li>13:00, schermo con video. YouTube sceglie lui che cosa mostrarti dopo (giallo: lavora di nascosto).</li>
-        <li>16:00, fotocamera con gli amici. Trova i volti e mette a fuoco su di loro (giallo).</li>
-        <li>18:00, busta di posta. Il filtro antispam di Gmail butta via la posta indesiderata prima che tu la veda (giallo).</li>
-        <li>21:00, finestra di chat. ChatGPT capisce la domanda del compito e scrive una risposta (blu).</li>
-        <li>Schermata finale: «8 IA in una sola giornata. Te ne sei accorto di 5, le altre 3 lavorano senza che tu le veda». Un ultimo clic fa ricominciare.</li>
-      </ol>
-    </div>
-  </figure>
-  <h3>Gli otto momenti</h3>
-  <div class="riga-foto">
-    <p><b>7:00 · Face ID.</b> Il telefono si sblocca quando lo guardi: <b>riconosce il tuo volto</b> anche con occhiali, barba o capelli diversi.</p>
-    <figure class="rf-foto"><a class="fonte" href="https://osxdaily.com/2017/11/10/can-use-iphone-x-without-face-id/" target="_blank" rel="noopener"><img src="https://cdn.osxdaily.com/wp-content/uploads/2017/11/use-iphone-x-without-face-id.jpg" alt="Face ID: lo sblocco con il volto." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Face ID</figcaption></figure>
-  </div>
-  <div class="riga-foto">
-    <p><b>7:30 · Siri.</b> A colazione chiedi che tempo fa: l’assistente vocale <b>capisce la tua voce</b> e risponde.</p>
-    <figure class="rf-foto"><a class="fonte" href="https://www.pcmag.com/how-to/apple-siri-tips-and-tricks" target="_blank" rel="noopener"><img src="https://i.pcmag.com/imagery/articles/02l1csH5Q0saE8idorcBLmM-27..v1637090084.jpg" alt="Siri: l’assistente vocale dell’iPhone." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Siri</figcaption></figure>
-  </div>
-  <div class="riga-foto">
-    <p><b>8:00 · Google Maps.</b> Il navigatore <b>prevede il traffico</b> e sceglie la strada più veloce per andare a scuola.</p>
-    <figure class="rf-foto"><a class="fonte" href="https://indianexpress.com/article/technology/techook/google-maps-glanceable-information-feature-9185316/" target="_blank" rel="noopener"><img src="https://images.indianexpress.com/2024/02/Google-Maps-Pixabay.jpg" alt="Google Maps: la navigazione sul telefono." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Google Maps</figcaption></figure>
-  </div>
-  <div class="riga-foto">
-    <p><b>10:00 · Google Traduttore.</b> Per il compito di inglese l’app <b>traduce un testo</b> da una lingua all’altra.</p>
-    <figure class="rf-foto"><a class="fonte" href="https://uk.pcmag.com/mobile-apps/88750/how-to-use-googles-translate-app" target="_blank" rel="noopener"><img src="https://sm.pcmag.com/pcmag_uk/news/h/how-to-use/how-to-use-googles-translate-app_v5aj.jpg" alt="Google Traduttore: l’app su smartphone." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Google Traduttore</figcaption></figure>
-  </div>
-  <div class="riga-foto">
-    <p><b>13:00 · YouTube.</b> Finito un video, ne parte un altro: <b>a sceglierlo è il sistema</b>, in base a ciò che hai guardato prima.</p>
-    <figure class="rf-foto"><a class="fonte" href="https://qz.com/1178125/youtubes-recommendations-drive-70-of-what-we-watch" target="_blank" rel="noopener"><img src="https://assets.qz.com/media/fde6fa52af15a10b8ed69b6e33c2f4bc.jpg" alt="YouTube: i video consigliati." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">YouTube</figcaption></figure>
-  </div>
-  <div class="riga-foto">
-    <p><b>16:00 · La fotocamera.</b> Nella foto con gli amici lo smartphone <b>trova i volti</b> nell’inquadratura e mette a fuoco su di loro.</p>
-    <figure class="rf-foto"><a class="fonte" href="https://www.vecteezy.com/photo/72671042-three-girls-friends-with-coffee-take-away-outdoors-and-someone-pov-view-taking-photos-at-digital-camera-of-smartphone-young-females-at-mobile-screen-having-fun-in-summer-park-lifestyle-portrait" target="_blank" rel="noopener"><img src="assets/immagini/ia-fotocamera-volti.jpg" alt="La fotocamera dello smartphone." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">La fotocamera</figcaption></figure>
-  </div>
-  <div class="riga-foto">
-    <p><b>18:00 · Gmail.</b> Il servizio di posta manda nella cartella Spam la posta indesiderata prima che tu la veda: se funziona bene, <b>non te ne accorgi</b>.</p>
-    <figure class="rf-foto"><a class="fonte" href="https://www.tecnologia.libero.it/" target="_blank" rel="noopener"><img src="https://wips.plug.it/cips/tecnologia/cms/2020/02/gmail.jpg" alt="Gmail: la cartella Spam. Da guardare nei dettagli: osserva il pulsante «Empty spam now», cioè «Svuota spam»." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Gmail: la cartella Spam. Osserva il pulsante «Empty spam now», cioè «Svuota spam».</figcaption></figure>
-  </div>
-  <div class="riga-foto">
-    <p><b>21:00 · ChatGPT.</b> Per un compito chiedi aiuto a un <b>chatbot</b>, un programma con cui si conversa per iscritto: <b>capisce la domanda</b> e scrive una risposta.</p>
-    <figure class="rf-foto"><a class="fonte" href="https://forums.macrumors.com/threads/chatgpt-for-iphone-and-ipad-can-now-read-responses-out-loud.2421086/" target="_blank" rel="noopener"><img src="https://images.macrumors.com/article-new/2023/05/chatgpt-for-iphone-feature.jpg" alt="ChatGPT: una conversazione sul telefono." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">ChatGPT</figcaption></figure>
-  </div>
-  <h3>E fuori dalla giornata di uno studente</h3>
-  <div class="riga-foto">
-    <p><b>In casa · Roomba.</b> I modelli più recenti di questo aspirapolvere robot <b>riconoscono gli ostacoli</b> sul pavimento, come cavi e calzini, e li evitano.</p>
-    <figure class="rf-foto"><a class="fonte" href="https://vacuumwars.com/irobot-roomba-combo-j7-review/" target="_blank" rel="noopener"><img src="https://vacuumwars.com/wp-content/uploads/2022/11/Vacuuming-Carpet-iRobot-Roomba-Combo-j7-1024x538.jpg" alt="Roomba: l’aspirapolvere robot al lavoro." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Roomba</figcaption></figure>
-  </div>
-  <div class="riga-foto">
-    <p><b>In auto · guida assistita.</b> Sistemi come quello di Tesla, fino al 2026 chiamato <i>Autopilot</i> e oggi <i>Full Self-Driving (Supervised)</i>, <b>tengono la corsia e regolano la velocità</b>. Il guidatore deve restare attento: non è una guida autonoma.</p>
-    <figure class="rf-foto"><a class="fonte" href="https://www.consumerreports.org/tesla/tesla-new-autopilot-better-but-needs-improvement/" target="_blank" rel="noopener"><img src="https://cf-images.us-east-1.prod.boltdns.net/v1/static/1078702682/ed8d8aa2-70bf-4793-8430-a8e2aaf69085/d45eb94a-b12c-4f80-b60d-1a62cd0034db/1920x1080/match/image.jpg" alt="Lo schermo di una Tesla in guida assistita, quando il sistema si chiamava Autopilot." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Tesla in guida assistita</figcaption></figure>
-  </div>
-  <div class="riga-foto">
-    <p><b>In ospedale · analisi delle radiografie.</b> Programmi come <i>qXR</i> di Qure.ai <b>segnalano ai medici le zone sospette</b> di una radiografia del torace. La decisione resta del medico.</p>
-    <figure class="rf-foto"><a class="fonte" href="https://www.qure.ai/product/qxr" target="_blank" rel="noopener"><img src="https://qure-website-images.s3.ap-south-1.amazonaws.com/Chest_X_ray_reporting_747c180b0e.webp" alt="qXR: una radiografia del torace analizzata dal programma. Da guardare nei dettagli: osserva le zone segnalate sull’immagine." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">qXR: una radiografia del torace analizzata dal programma. Osserva le zone segnalate sull’immagine.</figcaption></figure>
-  </div>
+  <h2 id="p1"><span class="num">1.1</span>Che cos’è l’informatica</h2>
+  <p class="domanda">Che cosa vi viene in mente se vi dico «informatica»? E che cosa studia, secondo voi, chi studia informatica?</p>
+  <figure class="foto-margine"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Edsger_Wybe_Dijkstra.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Edsger_Wybe_Dijkstra.jpg?width=1000" alt="Ritratto di Edsger Dijkstra, informatico (1930–2002)" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Edsger Dijkstra</figcaption></figure>
+  <p>Il nome dice già molto: <b>informatica</b> viene da <i>informazione automatica</i>. È la disciplina che si occupa della <b>rappresentazione</b>, dell’<b>organizzazione</b> e dell’<b>elaborazione automatica delle informazioni</b> per la <b>risoluzione dei problemi</b>, attraverso la creazione e l’uso di <b>algoritmi</b>.</p>
+  <p>Edsger Dijkstra, uno dei padri dell’informatica, lo diceva così: «<b>L’informatica non riguarda i computer più di quanto l’astronomia riguardi i telescopi</b>». Il computer è lo <b>strumento</b>; l’informatica è la <b>scienza</b> che studia come trattare le informazioni.</p>
+  <p>È un campo vastissimo, che va dalla matematica più astratta alle applicazioni che usiamo tutti i giorni:</p>
+  <figure class="foto-grande"><a class="fonte" href="https://mymodernmet.com/science-infographics-dominic-walliman/" target="_blank" rel="noopener"><img src="assets/immagini/info/mappa.jpg" alt="«Map of Computer Science»: mappa illustrata di tutti i campi dell’informatica" referrerpolicy="no-referrer"></a><figcaption>Una mappa dei campi dell’informatica: dalla teoria della computazione all’hardware e all’architettura dei computer, dal software ai sistemi operativi, fino alle applicazioni come l’intelligenza artificiale, la robotica e la realtà virtuale.</figcaption></figure>
+  <h3>Che cosa non è</h3>
+  <figure class="foto-margine"><a class="fonte" href="https://www.pexels.com/photo/6754846/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/6754846/pexels-photo-6754846.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Un tecnico ripara un computer aperto con il saldatore" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Riparare computer? Non è informatica</figcaption></figure>
+  <p>Studiare informatica <b>non</b> è semplicemente:</p>
+  <ul>
+    <li>montare o smontare computer;</li>
+    <li>«smanettare» con la tecnologia o con i dispositivi;</li>
+    <li>installare o usare pacchetti software;</li>
+    <li>navigare su internet;</li>
+    <li>conoscere tanti linguaggi di programmazione;</li>
+    <li>configurare reti Wi-Fi o router;</li>
+    <li>essere esperti di social media o di piattaforme digitali.</li>
+  </ul>
+  <p>Sono tutte cose che si <b>possono</b> fare con l’informatica, ma l’informatica è <b>altro</b>: capire come si rappresentano, si organizzano e si elaborano le informazioni.</p>
+  <h3>Una scienza</h3>
+  <p>L’informatica è considerata una <b>scienza</b>, come la biologia o la fisica, per tre ragioni:</p>
+  <ul>
+    <li>si basa su <b>teorie, modelli e principi matematici</b>, che permettono di trovare soluzioni generali, utili anche alle altre scienze;</li>
+    <li>segue il <b>metodo scientifico</b>: si osserva un problema, si formula un’ipotesi, la si mette alla prova con degli esperimenti e si traggono le conclusioni, in modo che chiunque possa <b>ripetere</b> il procedimento e <b>verificare</b> i risultati;</li>
+    <li>ha un <b>progresso cumulativo</b>: ogni scoperta parte da quelle precedenti e le migliora.</li>
+  </ul>
 
   <!-- ===================== 1.2 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p2"><span class="num">1.2</span>Riconoscere</h2>
-  <p><b>Google Lens</b> guarda una pianta attraverso la fotocamera e ti dice <b>come si chiama</b>.</p>
-  <figure class="foto-grande"><a class="fonte" href="https://www.digitalcitizen.life/identify-plants-with-google-lens/" target="_blank" rel="noopener"><img src="assets/immagini/ia-google-lens-pianta.webp" alt="Google Lens: il riconoscimento di una pianta. Da guardare nei dettagli: osserva i risultati, cioè le piante simili che il sistema propone." referrerpolicy="no-referrer"></a><figcaption>Google Lens: il riconoscimento di una pianta. Osserva i risultati, cioè le piante simili che il sistema propone.</figcaption></figure>
-  <p>Questo è il compito di <b>riconoscere</b>: l’IA <b>trasforma ciò che vede o sente in un’etichetta o in un testo</b> («è un’orchidea», «la frase è questa»). Vale per le immagini e i volti, per i suoni e la musica, per la voce.</p>
-  <figure class="foto-margine"><a class="fonte" href="https://www.pcmag.com/news/shazam-now-works-through-headphones-on-android" target="_blank" rel="noopener"><img src="https://i.pcmag.com/imagery/articles/04V5PM0Sr9b0FH0UQsEp8oU-1..v1569491633.png" alt="Shazam: l’app mentre ascolta una canzone." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Shazam</figcaption></figure>
-  <p><b>Shazam</b> ascolta pochi secondi di una canzone e ti dice titolo e autore.</p>
-  <p>I <b>sottotitoli automatici</b> di YouTube trasformano la voce di chi parla in testo scritto.</p>
-  <figure class="foto-grande"><a class="fonte" href="https://www.malaymail.com/news/tech/gadgets/2021/10/12/youtube-rolls-out-automatic-captions-for-all-video/2012692" target="_blank" rel="noopener"><img src="https://www.malaymail.com/uploads/imported_images/2021/2021-10/20211012_YouTube_Caption_Auto.jpg" alt="I sottotitoli automatici di YouTube. Da guardare nei dettagli: osserva le parole scritte sotto il video." referrerpolicy="no-referrer"></a><figcaption>I sottotitoli automatici di YouTube. Osserva le parole scritte sotto il video.</figcaption></figure>
+  <h2 id="p2"><span class="num">1.2</span>Dati, informazioni e conoscenza</h2>
+  <p class="domanda">Un voto, «6», è un dato, un’informazione o una conoscenza? Che cosa manca per decidere?</p>
+  <p>Se l’informatica elabora <b>informazioni</b>, bisogna prima capire che cosa sono. Conviene distinguere tre livelli:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Livello</th><th>Che cos’è</th></tr></thead>
+    <tbody>
+      <tr><td><b>Dati</b></td><td>Valori alfanumerici <b>oggettivi</b>, in forma grezza e non organizzata, ottenuti attraverso diversi metodi di acquisizione.</td></tr>
+      <tr><td><b>Informazioni</b></td><td>Si creano quando i dati vengono <b>elaborati, organizzati o strutturati</b> per fornire un contesto e un significato.</td></tr>
+      <tr><td><b>Conoscenza</b></td><td>Il <b>significato</b> che attribuiamo alle informazioni, influenzato dalle nostre esperienze passate e dalle intuizioni personali.</td></tr>
+    </tbody></table></div>
+  <figure class="foto-grande"><a class="fonte" href="https://www.gapingvoid.com/want-to-know-how-to-turn-change-into-a-movement/" target="_blank" rel="noopener"><img src="assets/immagini/info/dati.jpg" alt="Tre riquadri: «data» con punti sparsi, «information» con punti colorati di diverse sfumature, «knowledge» con punti collegati da linee" referrerpolicy="no-referrer"></a><figcaption>Dati: punti sparsi. Informazione: punti distinti per colore, cioè organizzati. Conoscenza: punti collegati tra loro, con un significato.</figcaption></figure>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio: i voti</h3>
+    <p>Uno studente ha ricevuto questi voti durante il quadrimestre: 4, 6, 7, 8, 5. Sono <b>dati</b>: da soli non dicono molto, perché manca un contesto.</p>
+    <p>Se li mettiamo insieme e facciamo un calcolo, la media, otteniamo un’<b>informazione</b>: «il voto medio del quadrimestre è 6».</p>
+    <p>Con questa informazione lo studente può capire meglio la situazione e decidere che cosa fare: «con questa media mi conviene farmi interrogare, per alzarla». Questa è <b>conoscenza</b>, ed è <b>soggettiva</b>: un altro studente potrebbe trovare 6 una buona media e accontentarsi. Ma questo non cambia l’informazione, che resta oggettiva: la media è 6 per tutti.</p></div>
+  <h3>Proviamo: le temperature</h3>
+  <p>Proviamo con un caso un po’ più ricco. Durante una settimana sono state rilevate queste temperature in tre città: sono i nostri <b>dati</b>.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Città</th><th>Lunedì</th><th>Martedì</th><th>Mercoledì</th><th>Giovedì</th><th>Venerdì</th></tr></thead>
+    <tbody>
+      <tr><td>Milano</td><td>15 °C</td><td>17 °C</td><td>16 °C</td><td>14 °C</td><td>18 °C</td></tr>
+      <tr><td>Torino</td><td>20 °C</td><td>22 °C</td><td>21 °C</td><td>19 °C</td><td>23 °C</td></tr>
+      <tr><td>Roma</td><td>18 °C</td><td>19 °C</td><td>20 °C</td><td>17 °C</td><td>21 °C</td></tr>
+    </tbody></table></div>
+  <p>Così come sono, sono solo quindici numeri. Per trasformarli in <b>informazioni</b> dobbiamo elaborarli, per esempio calcolando la temperatura media di ogni città: si sommano le cinque temperature e si divide per cinque. Milano ha una media di <b>16 °C</b> (80 : 5), Torino di <b>21 °C</b> (105 : 5), Roma di <b>19 °C</b> (95 : 5). Guardando meglio la tabella scopriamo anche che il giorno più caldo è stato il <b>venerdì</b> in tutte e tre le città, e che la temperatura più alta della settimana è quella di Torino (23 °C, venerdì), la più bassa quella di Milano (14 °C, giovedì).</p>
+  <p>Con queste informazioni possiamo farci un’idea e prendere delle decisioni: è la <b>conoscenza</b>. Se dovessimo visitare una di queste città la settimana prossima, quale sceglieremmo? Chi ama il caldo andrebbe a Torino, che ha la media più alta e anche il picco massimo; chi preferisce il fresco sceglierebbe Milano. E che cosa metteremmo in valigia? Una felpa per Milano, qualcosa di più leggero per Torino. Due persone con le stesse informazioni possono arrivare a conclusioni diverse, perché la conoscenza dipende dai gusti e dalle esperienze di ciascuno.</p>
+  <p class="domanda">Se doveste partire la settimana prossima, in quale di queste città andreste? Perché?</p>
+  <h3>Oggettività e soggettività</h3>
+  <p>Le informazioni, però, si possono anche presentare in modo scorretto. Immaginiamo un’agenzia turistica che vuole vendere viaggi a Torino e far sembrare la città più attraente di Milano e di Roma. Partendo dalle stesse informazioni che abbiamo ricavato noi, scrive questa pubblicità:</p>
+  <div class="box esempio"><h3><i data-ic="megaphone" class="ic-20"></i> La pubblicità</h3>
+    <p><b>«Torino è la meta ideale per chi cerca il miglior clima della settimana!</b> A differenza di Milano, che ha registrato temperature bassissime (14 °C), e di Roma, dove il clima è incerto e mutevole, Torino offre temperature costantemente piacevoli e più calde (fino a 23 °C). Se non vuoi rischiare di congelare a Milano o di trovarti con brutte sorprese a Roma, <b>Torino è la scelta perfetta!</b>»</p></div>
+  <p>Nessun numero è inventato, eppure il messaggio inganna. Le tecniche di <b>manipolazione</b> usate sono tre:</p>
+  <ul>
+    <li><b>esagerazione</b>: chiama «bassissime» le temperature di Milano citando la minima di un solo giorno (14 °C), come se fosse la regola e non un caso isolato;</li>
+    <li><b>omissione</b>: tace quello che non le conviene, cioè che Milano è fresca ma con temperature comunque moderate, e che anche Torino ha avuto la sua giornata più fresca (19 °C, giovedì);</li>
+    <li><b>confronto distorto</b>: usa la massima di Torino (23 °C) per far credere che lì faccia sempre caldo, e chiama «incerto» il clima di Roma, che in realtà è stato molto stabile.</li>
+  </ul>
+  <p>Ecco allora la differenza tra i tre livelli: i <b>dati</b> sono <b>oggettivi</b>, perché sono semplici rilevazioni; le <b>informazioni</b> dovrebbero esserlo, ma si possono presentare in modo da <b>manipolare</b> chi le legge; la <b>conoscenza</b> è <b>soggettiva</b>, perché dipende da come ciascuno interpreta le informazioni.</p>
 
   <!-- ===================== 1.3 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p3"><span class="num">1.3</span>Capire e produrre linguaggio</h2>
-  <p>Durante una videochiamata su <b>Google Meet</b> compaiono in tempo reale i <b>sottotitoli</b> di ciò che si sta dicendo.</p>
-  <figure class="foto-grande"><a class="fonte" href="https://mashable.com/article/google-meet-live-translated-captions" target="_blank" rel="noopener"><img src="https://helios-i.mashable.com/imagery/articles/04WTqG8z5PopdwPJ81KEzyf/hero-image.fill.size_1248x702.v1632813606.png" alt="Google Meet: i sottotitoli in tempo reale. Da guardare nei dettagli: osserva il testo sotto i volti." referrerpolicy="no-referrer"></a><figcaption>Google Meet: i sottotitoli in tempo reale. Osserva il testo sotto i volti.</figcaption></figure>
-  <p>Questo è il compito di <b>capire e produrre il linguaggio</b>: l’IA non si limita a leggere le parole, le <b>elabora</b>. Può trascriverle, tradurle, riassumerle e rispondere a una domanda.</p>
-  <p><span class="termine">Otter.ai</span>, per esempio, trascrive una riunione e ne ricava un <b>riassunto</b> da rileggere.</p>
-  <figure class="foto-grande"><a class="fonte" href="https://otter.ai/blog/how-to-transcribe-any-video-meetings-with-otter-ai" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/61a05ff14c09ecacc06eec05/6936f366bc8bf574a26c413e_cover-how-to-transcribe-any-video-meetings-with-otter-ai.webp" alt="Otter.ai: la trascrizione di una riunione. Da guardare nei dettagli: osserva il testo accanto ai volti dei partecipanti." referrerpolicy="no-referrer"></a><figcaption>Otter.ai: la trascrizione di una riunione. Osserva il testo accanto ai volti dei partecipanti.</figcaption></figure>
-  <p>Il linguaggio è difficile per una macchina perché <b>il significato dipende dal contesto</b>. In «Ho visto Marco con il binocolo» non si capisce chi abbia il binocolo: una persona lo capisce solo da ciò che sa della situazione.</p>
+  <h2 id="p3"><span class="num">1.3</span>Che cosa significa elaborare</h2>
+  <p>In informatica <b>elaborare</b> (o <i>computare</i>, cioè calcolare) significa prendere dei dati grezzi in <b>input</b>, trasformarli seguendo una serie precisa di istruzioni, cioè un <b>algoritmo</b>, e restituire in <b>output</b> delle informazioni utili. È quello che fa ogni computer, dalla calcolatrice al supercomputer.</p>
+  <figure>
+    <div class="tela schema" id="s-ipo"><p class="passi-titolo">Elaborare: input, processo, output</p>
+      <svg viewBox="0 0 640 200" role="img" aria-label="Schema: l’input (dati grezzi) entra nel processo (algoritmo) ed esce l’output (informazioni).">
+        <rect x="40" y="70" width="140" height="60" rx="10" class="nodo"/><text x="110" y="106" text-anchor="middle" class="t-b">Input</text>
+        <path d="M180 100 H220" class="lin"/><path d="M213 93 L220 100 L213 107" class="lin"/>
+        <rect x="250" y="70" width="140" height="60" rx="10" class="nodo evid"/><text x="320" y="106" text-anchor="middle" class="t-b">Process</text>
+        <path d="M390 100 H430" class="lin"/><path d="M423 93 L430 100 L423 107" class="lin"/>
+        <rect x="460" y="70" width="140" height="60" rx="10" class="nodo"/><text x="530" y="106" text-anchor="middle" class="t-b">Output</text>
+        <text x="110" y="160" text-anchor="middle" class="t-m">dati grezzi</text>
+        <text x="320" y="160" text-anchor="middle" class="t-m">algoritmo</text>
+        <text x="530" y="160" text-anchor="middle" class="t-m">informazioni</text>
+      </svg>
+    </div>
+  </figure>
+  <p>L’elaborazione può essere <b>aritmetica</b>, quando si fanno calcoli con i numeri, o <b>logica</b>, quando si confrontano dei valori per scegliere che cosa fare («questo numero è più grande di quello?»). Può essere semplicissima, come sommare due numeri, o molto complessa, come il <i>rendering</i> 3D, in cui il computer calcola la luce e il colore di milioni di punti per disegnare un oggetto che sembra vero.</p>
+  <div class="foto-coppia tre">
+    <figure><a class="fonte" href="https://www.pexels.com/photo/7054402/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/7054402/pexels-photo-7054402.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Una mano preme i tasti di una calcolatrice" referrerpolicy="no-referrer"></a><figcaption>Una calcolatrice: due numeri in input, la somma in output</figcaption></figure>
+    <figure><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Normal_distribution_random_sample_vs_theory.svg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Normal_distribution_random_sample_vs_theory.svg?width=1000" alt="Istogramma di un campione con la curva della distribuzione normale" referrerpolicy="no-referrer"></a><figcaption>Un grafico statistico calcolato dai dati</figcaption></figure>
+    <figure><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Utah_teapot_simple.png" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Utah_teapot_simple.png?width=1000" alt="Teiera grigia disegnata in 3D" referrerpolicy="no-referrer"></a><figcaption>Il rendering 3D della teiera di Utah, un classico della grafica al computer</figcaption></figure>
+  </div>
+  <p class="domanda">Quando scrivete un messaggio sul telefono e premete «invia», qual è l’input, qual è il processo e qual è l’output?</p>
 
   <!-- ===================== 1.4 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p4"><span class="num">1.4</span>Prevedere e consigliare</h2>
-  <p>Sotto un prodotto di <b>Amazon</b> compare «Acquistati insieme di frequente»: il sito <b>ti consiglia</b> che cosa comprare in più.</p>
-  <figure class="foto-grande"><a class="fonte" href="https://cdn.prod.website-files.com/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/663e17fff238bd97b0a022cd/6645d94cef2950a240114cec_amazon-product-recommendations-homepage_600x600.jpeg" alt="Amazon: i prodotti acquistati insieme. Da guardare nei dettagli: osserva i tre prodotti proposti insieme e il prezzo totale." referrerpolicy="no-referrer"></a><figcaption>Amazon: i prodotti acquistati insieme. Osserva i tre prodotti proposti insieme e il prezzo totale.</figcaption></figure>
-  <p>Questo è il compito di <b>prevedere e consigliare</b>: l’IA parte da ciò che <b>è già successo</b> (acquisti, video visti, dati del tempo) e <b>stima che cosa succederà o che cosa ti piacerà</b>. È una <b>stima, non una certezza</b>: per questo ogni tanto sbaglia.</p>
-  <figure class="foto-margine"><a class="fonte" href="https://www.weathercompany.com/media/max-mobile/" target="_blank" rel="noopener"><img src="https://www.weathercompany.com/wp-content/uploads/2024/01/Hero-Max-Mobile-1.jpg" alt="Un’app meteo sul telefono." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Un’app meteo</figcaption></figure>
-  <p>Funzionano così anche le app meteo: oltre ai modelli fisici dell’atmosfera usano modelli di IA per stimare il tempo delle prossime ore.</p>
-  <p>E funziona così l’<b>antifrode</b> della banca: conosce le tue abitudini di spesa e <b>segnala un pagamento insolito</b>.</p>
-  <figure>
-    <div class="tela schema" id="s-antifrode"><p class="passi-titolo">L’antifrode della carta di pagamento</p>
-      <svg viewBox="0 0 720 250" role="img" aria-label="Tre passaggi in fila: un pagamento a Milano alle 15:00 è normale; un pagamento a Tokyo alle 15:10 è insolito, perché non si può essere in due posti; la banca blocca la carta e ti avvisa.">
-        <defs><marker id="af-fr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--ink-muted)"/></marker></defs>
-        <rect x="14" y="14" width="206" height="170" rx="3" class="nodo evid"/>
-        <rect x="257" y="14" width="206" height="170" rx="3" class="nodo guasto"/>
-        <rect x="500" y="14" width="206" height="170" rx="3" class="nodo"/>
-        <g class="carta"><rect x="74" y="30" width="86" height="54" rx="6" class="nodo"/><rect x="74" y="42" width="86" height="10" style="fill:var(--ink-muted);stroke:none"/><rect x="82" y="62" width="30" height="6" rx="2" style="fill:var(--border-strong);stroke:none"/></g>
-        <g class="carta"><rect x="317" y="30" width="86" height="54" rx="6" class="nodo"/><rect x="317" y="42" width="86" height="10" style="fill:var(--ink-muted);stroke:none"/><rect x="325" y="62" width="30" height="6" rx="2" style="fill:var(--border-strong);stroke:none"/></g>
-        <g class="carta"><rect x="560" y="30" width="86" height="54" rx="6" class="nodo"/><rect x="560" y="42" width="86" height="10" style="fill:var(--ink-muted);stroke:none"/><rect x="568" y="62" width="30" height="6" rx="2" style="fill:var(--border-strong);stroke:none"/></g>
-        <path d="M566 34 L640 80 M640 34 L566 80" class="lin err"/>
-        <text x="117" y="112" text-anchor="middle" class="t-b">Pagamento a Milano</text>
-        <text x="117" y="132" text-anchor="middle" class="t">alle 15:00</text>
-        <text x="117" y="156" text-anchor="middle" class="t-m">normale</text>
-        <text x="360" y="112" text-anchor="middle" class="t-e">Pagamento a Tokyo</text>
-        <text x="360" y="132" text-anchor="middle" class="t">alle 15:10</text>
-        <text x="360" y="156" text-anchor="middle" class="t-e">insolito</text>
-        <text x="360" y="174" text-anchor="middle" class="t-m">non si può essere in due posti</text>
-        <text x="603" y="112" text-anchor="middle" class="t-b">La banca blocca la carta</text>
-        <text x="603" y="132" text-anchor="middle" class="t">e ti avvisa</text>
-        <path d="M222 92 H255" class="lin" marker-end="url(#af-fr)"/>
-        <path d="M465 92 H498" class="lin" marker-end="url(#af-fr)"/>
-        <text x="360" y="214" text-anchor="middle" class="t-m">L’IA non sa che la carta è stata rubata:</text>
-        <text x="360" y="234" text-anchor="middle" class="t-m">stima che quel pagamento sia improbabile.</text>
-      </svg>
-    </div>
-  </figure>
+  <h2 id="p4"><span class="num">1.4</span>Che cos’è un computer</h2>
+  <figure class="foto-margine"><a class="fonte" href="https://unsplash.com/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1589652717406-1c69efaf1ff8?w=1200&q=80&fm=jpg" alt="Un cane con gli occhiali e il maglione davanti a un tablet con la tastiera" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Usare un calcolatore</figcaption></figure>
+  <p>Il computer prende il nome proprio da questo processo: in inglese <i>computer</i> significa letteralmente «colui che computa», cioè che fa i calcoli. In italiano si dice anche <b>elaboratore</b> o <b>calcolatore</b>. Un computer, quindi, è semplicemente una <b>macchina in grado di elaborare informazioni in modo automatico</b>.</p>
+  <p>Sa fare pochi tipi di operazioni, e molto semplici, ma le fa in un modo che nessun essere umano può eguagliare. Le sue caratteristiche principali sono:</p>
+  <ul>
+    <li><b>velocità</b>: esegue miliardi di operazioni al secondo;</li>
+    <li><b>precisione</b>: non si distrae e non si stanca, quindi può ripetere lo stesso compito migliaia di volte senza sbagliare;</li>
+    <li><b>affidabilità</b>: con gli stessi dati e le stesse istruzioni dà sempre lo stesso risultato;</li>
+    <li><b>versatilità</b>: cambiando il programma, la stessa macchina può fare cose diversissime, dal videogioco al foglio di calcolo;</li>
+    <li><b>automazione</b>: una volta avviato, lavora da solo, senza bisogno che qualcuno intervenga.</li>
+  </ul>
+  <h3>Esempi di computer</h3>
+  <p>Non sono solo i computer che teniamo sulla scrivania. Un computer è <b>qualsiasi macchina che elabora informazioni</b>: ce ne sono di tanti tipi, e molti non li chiamiamo nemmeno «computer».</p>
+  <div class="galleria">
+    <figure class="m-destra"><a class="fonte" href="https://unsplash.com/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1593640495253-23196b27a87f?w=1200&q=80&fm=jpg" alt="Postazione con monitor curvo, tastiera, mouse e case del computer" referrerpolicy="no-referrer"></a><figcaption><b>Desktop computer</b> Il classico computer da scrivania, con monitor, tastiera e mouse.</figcaption></figure>
+    <figure><a class="fonte" href="https://unsplash.com/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=1200&q=80&fm=jpg" alt="Computer portatile aperto su una scrivania di legno" referrerpolicy="no-referrer"></a><figcaption><b>Laptop</b> Il portatile: tutto in un solo pezzo, con la batteria.</figcaption></figure>
+    <figure><a class="fonte" href="https://unsplash.com/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=1200&q=80&fm=jpg" alt="Tablet con la penna appoggiata accanto" referrerpolicy="no-referrer"></a><figcaption><b>Tablet</b> Uno schermo touch, da usare con le dita o con una penna.</figcaption></figure>
+    <figure><a class="fonte" href="https://unsplash.com/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=1200&q=80&fm=jpg" alt="Console PlayStation 5 bianca con il controller" referrerpolicy="no-referrer"></a><figcaption><b>Console</b> Un computer pensato per i videogiochi.</figcaption></figure>
+    <figure><a class="fonte" href="https://unsplash.com/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200&q=80&fm=jpg" alt="Smartphone con lo schermo pieno di app" referrerpolicy="no-referrer"></a><figcaption><b>Smartphone</b> Un computer completo che sta in tasca.</figcaption></figure>
+    <figure><a class="fonte" href="https://unsplash.com/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=1200&q=80&fm=jpg" alt="Orologio intelligente con le icone delle app sullo schermo" referrerpolicy="no-referrer"></a><figcaption><b>Wearable</b> Dispositivi «da indossare», come lo smartwatch.</figcaption></figure>
+    <figure><a class="fonte" href="https://unsplash.com/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1601944177325-f8867652837f?w=1200&q=80&fm=jpg" alt="Televisore in un soggiorno con la schermata di un servizio di streaming" referrerpolicy="no-referrer"></a><figcaption><b>Smart TV</b> Un televisore che si collega a internet ed esegue app.</figcaption></figure>
+    <figure><a class="fonte" href="https://unsplash.com/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1762163516269-3c143e04175c?w=1200&q=80&fm=jpg" alt="Armadio di server con le spie verdi accese" referrerpolicy="no-referrer"></a><figcaption><b>Server</b> Computer che lavorano per altri computer: siti, posta, archivi.</figcaption></figure>
+    <figure><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Leonardo_supercomputer.png" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_supercomputer.png?width=1000" alt="Sala del supercomputer Leonardo, a Bologna" referrerpolicy="no-referrer"></a><figcaption><b>Supercomputer</b> Migliaia di processori insieme: qui Leonardo, a Bologna, che simula il clima e studia nuovi farmaci.</figcaption></figure>
+    <figure><a class="fonte" href="https://unsplash.com/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1681908571122-97f349e1ace0?w=1200&q=80&fm=jpg" alt="Il cuore dorato di un computer quantistico, pieno di cavi" referrerpolicy="no-referrer"></a><figcaption><b>Computer quantistici</b> Funzionano con le leggi della fisica quantistica e sono ancora sperimentali.</figcaption></figure>
+  </div>
+  <p class="domanda">Quanti computer avete addosso o nello zaino in questo momento? E in casa?</p>
 
   <!-- ===================== 1.5 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p5"><span class="num">1.5</span>Giocare e decidere</h2>
-  <p>Sul telefono puoi installare <b>Stockfish</b>, un programma di scacchi che <b>nessun giocatore umano riesce più a battere</b>.</p>
-  <figure class="foto-grande"><a class="fonte" href="https://stockfishchess.org/" target="_blank" rel="noopener"><img src="https://stockfishchess.org/images/gui/lichess_gui.webp" alt="Stockfish: una partita analizzata dal programma. Da guardare nei dettagli: osserva la scacchiera e le linee di analisi a lato." referrerpolicy="no-referrer"></a><figcaption>Stockfish: una partita analizzata dal programma. Osserva la scacchiera e le linee di analisi a lato.</figcaption></figure>
-  <p>I giochi sono il banco di prova ideale per l’IA: hanno <b>regole chiare</b> e <b>un vincitore</b>. Questo è il compito di <b>giocare e decidere</b>: l’IA <b>prova le mosse in anticipo</b> e sceglie quella con le conseguenze migliori.</p>
-  <figure>
-    <div class="tela passi-anim" id="f-tris" data-titolo="Come sceglie il computer" data-inizio="La griglia del tris a metà partita: X in alto a sinistra, O al centro, X in basso a destra. Tocca a O, cioè al computer.">
-      <svg viewBox="0 0 720 400" role="img" aria-label="Il computer prova due mosse in anticipo: l’angolo in alto a destra lo fa perdere, il lato in alto porta al pareggio, e sceglie quella."></svg>
-      <ol class="passi-testo">
-        <li>Il computer immagina di giocare nell’angolo in alto a destra: sotto la griglia compaiono le mosse successive (X blocca in basso a sinistra e ottiene due tris possibili insieme). Il ramo diventa rosso e la scritta dice «perde».</li>
-        <li>Si torna alla scena iniziale e il computer immagina di giocare sul lato in alto: compaiono le mosse successive fino alla griglia piena, senza tris. Il ramo diventa verde e la scritta dice «pareggia».</li>
-        <li>Il computer sceglie il lato in alto e lo gioca davvero: la O compare nella griglia di partenza.</li>
-      </ol>
-    </div>
-  </figure>
-  <div class="riga-foto">
-    <p>Non vale solo per i giochi: i taxi senza conducente di <b>Waymo</b>, in diverse città degli Stati Uniti, <b>decidono</b> di continuo quando frenare, svoltare e dare la precedenza.</p>
-    <figure class="rf-foto"><a class="fonte" href="https://www.bloomberg.com/news/newsletters/2024-07-05/waymo-s-robotaxi-rollout-is-a-landmark-moment-for-driverless-cars" target="_blank" rel="noopener"><img src="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ioPF9z1qdBLI/v0/-1x-1.webp" alt="Waymo: un taxi senza conducente in strada." referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Waymo</figcaption></figure>
+  <h2 id="p5"><span class="num">1.5</span>Breve storia dei computer</h2>
+  <h3>Antichità</h3>
+  <p>Il bisogno di contare e di fare calcoli è antichissimo. Uno dei primi strumenti inventati per aiutarsi è l’<b>abaco</b>, usato da Babilonesi, Greci, Romani e Cinesi. È fatto di palline che scorrono su delle aste: ogni asta rappresenta una cifra del numero (le unità, le decine, le centinaia…) e, spostando le palline, si rappresentano i numeri e si fanno addizioni e sottrazioni. Il calcolo lo fa ancora la persona, ma l’abaco la aiuta a non perdere il conto.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://unsplash.com/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1773507119465-99a51f58cdd3?w=1200&q=80&fm=jpg" alt="Abaco di legno con le palline scure infilate su aste di metallo" referrerpolicy="no-referrer"></a><figcaption>Un abaco di legno: ogni asta è una cifra del numero.</figcaption></figure>
+  <h3>XVII – XIX secolo</h3>
+  <p>Nel <b>1642</b> il filosofo e matematico francese <b>Blaise Pascal</b>, a soli 19 anni, costruì una macchina per aiutare il padre, che passava le giornate a fare i conti delle tasse: la <b>Pascalina</b>. Dentro una scatola di ottone c’erano delle <b>ruote dentate</b>, una per ogni cifra: si impostava un numero girando le ruote, e la macchina lo sommava a quello che c’era già. Il trucco geniale era il <b>riporto automatico</b>: quando una ruota passava dal 9 allo 0, faceva avanzare di uno scatto la ruota accanto, proprio come facciamo noi quando scriviamo «riporto 1». Per la prima volta una macchina faceva da sola una parte del calcolo.</p>
+  <div class="galleria">
+    <figure class="m-alto"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Blaise_Pascal_Versailles.JPG" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Blaise_Pascal_Versailles.JPG?width=800" alt="Ritratto di Blaise Pascal" referrerpolicy="no-referrer"></a><figcaption><b>Blaise Pascal</b></figcaption></figure>
+    <figure class="m-cornice"><a class="fonte cornice" style="--sf:url(&quot;https://commons.wikimedia.org/wiki/Special:FilePath/Arts_et_Metiers_Pascaline_dsc03869.jpg?width=1000&quot;)" href="https://commons.wikimedia.org/wiki/File:Arts_et_Metiers_Pascaline_dsc03869.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Arts_et_Metiers_Pascaline_dsc03869.jpg?width=1000" alt="La Pascalina, calcolatrice meccanica di ottone con le ruote sul coperchio" referrerpolicy="no-referrer"></a><figcaption><b>La Pascalina</b></figcaption></figure>
   </div>
+  <p>Nell’Ottocento scienziati, ingegneri e navigatori usavano grandi tabelle di numeri già calcolati, compilate a mano e piene di errori. L’inglese <b>Charles Babbage</b> progettò allora una <b>macchina differenziale</b> che le calcolasse e le stampasse da sola. Poi ebbe un’idea ancora più ambiziosa: la <b>macchina analitica</b>, che non avrebbe fatto un solo tipo di calcolo, ma qualunque calcolo le venisse descritto con una serie di istruzioni, lette da <b>schede perforate</b>. Aveva una parte che conservava i numeri, il «magazzino», e una che faceva i calcoli, il «mulino»: le stesse due parti, <b>memoria</b> e <b>processore</b>, che troviamo nei computer di oggi. Per questo Babbage è considerato il <b>padre dell’informatica</b>, anche se la sua macchina, troppo complessa per la meccanica dell’epoca, non fu mai completata.</p>
+  <div class="galleria">
+    <figure class="m-alto"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Charles_Babbage_-_1860.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Charles_Babbage_-_1860.jpg?width=800" alt="Fotografia di Charles Babbage" referrerpolicy="no-referrer"></a><figcaption><b>Charles Babbage</b></figcaption></figure>
+    <figure><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Babbages_Analytical_Engine%2C_1834-1871._%289660574685%29.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Babbages_Analytical_Engine%2C_1834-1871._%289660574685%29.jpg?width=1000" alt="Un pezzo della macchina analitica costruito da Babbage: colonne di ingranaggi" referrerpolicy="no-referrer"></a><figcaption><b>La macchina analitica</b> Il pezzo che Babbage riuscì a costruire.</figcaption></figure>
+  </div>
+  <p>Della macchina analitica si appassionò <b>Ada Lovelace</b>, matematica e figlia del poeta Lord Byron. Traducendo un articolo sulla macchina, vi aggiunse delle note più lunghe dell’articolo stesso; in una di queste descrisse passo per passo come far calcolare alla macchina una complicata serie di numeri, i numeri di Bernoulli. È considerato il <b>primo programma</b> della storia, e Ada la <b>prima programmatrice</b>. Intuì anche che una macchina così avrebbe potuto lavorare non solo con i numeri, ma con qualunque simbolo, perfino con le note musicali.</p>
+  <div class="galleria">
+    <figure class="m-alto"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Ada_Lovelace_Chalon_portrait.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ada_Lovelace_Chalon_portrait.jpg?width=800" alt="Ritratto di Ada Lovelace" referrerpolicy="no-referrer"></a><figcaption><b>Ada Lovelace</b></figcaption></figure>
+    <figure class="m-intera"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Diagram_for_the_computation_of_Bernoulli_numbers.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diagram_for_the_computation_of_Bernoulli_numbers.jpg?width=1200" alt="Tabella con i passi del calcolo dei numeri di Bernoulli, dalle note di Ada Lovelace" referrerpolicy="no-referrer"></a><figcaption><b>Il programma di Ada</b> La tabella dei passi per calcolare i numeri di Bernoulli.</figcaption></figure>
+  </div>
+  <h3>Seconda guerra mondiale</h3>
+  <p>Nel <b>1936</b>, prima ancora che esistessero i computer, il matematico inglese <b>Alan Turing</b> immaginò una macchina ideale, la <b>macchina di Turing</b>: un nastro diviso in caselle e una testina che legge e scrive simboli seguendo poche regole. Turing dimostrò che una macchina così semplice può eseguire qualunque calcolo si possa descrivere con un algoritmo: è il modello teorico alla base di tutti i computer moderni.</p>
+  <p>Durante la Seconda guerra mondiale i tedeschi comunicavano con messaggi cifrati. In Inghilterra, a Bletchley Park, una squadra di matematici, tra cui lo stesso Turing, lavorò per decifrarli: Turing progettò la <b>Bomba</b>, una macchina elettromeccanica che aiutava a trovare le chiavi di <b>Enigma</b>, la macchina cifrante tedesca. Per i messaggi più segreti dell’alto comando l’ingegnere <b>Tommy Flowers</b> costruì tra il 1943 e il 1944 il <b>Colossus</b>, uno dei primi computer <b>elettronici</b> della storia: al posto degli ingranaggi usava migliaia di valvole e leggeva i messaggi da un nastro di carta perforata, a grande velocità.</p>
+  <div class="galleria">
+    <figure class="m-alto"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Alan_Turing_%281951%29.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Alan_Turing_%281951%29.jpg?width=800" alt="Ritratto di Alan Turing" referrerpolicy="no-referrer"></a><figcaption><b>Alan Turing</b></figcaption></figure>
+    <figure><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Colossus.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Colossus.jpg?width=1000" alt="Il computer Colossus con due operatrici" referrerpolicy="no-referrer"></a><figcaption><b>Il Colossus</b></figcaption></figure>
+  </div>
+  <h3>Anni ’50 – ’60</h3>
+  <p>Dopo la guerra nascono i primi computer commerciali. Sono enormi, occupano intere stanze e costano moltissimo: se li possono permettere solo università, governi e grandi aziende. Per molti calcoli, però, si usano ancora le persone. Prima di diventare il nome di una macchina, infatti, «<i>computer</i>» era il nome di un lavoro: i <i>human computers</i>, «calcolatori umani», erano gruppi di persone, spesso donne, che svolgevano a mano lunghissimi calcoli per progetti scientifici e ingegneristici. Alla NASA, per esempio, la matematica <b>Katherine Johnson</b> calcolò le traiettorie dei primi voli spaziali americani: la sua storia è raccontata nel film «Il diritto di contare».</p>
+  <div class="galleria">
+    <figure><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Human_computers_-_Dryden.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Human_computers_-_Dryden.jpg?width=1000" alt="Donne alla scrivania che eseguono calcoli in un ufficio della NACA, nel 1949" referrerpolicy="no-referrer"></a><figcaption><b>Human computers</b></figcaption></figure>
+    <figure class="m-alto"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Katherine_Johnson_at_NASA%2C_in_1966.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Katherine_Johnson_at_NASA%2C_in_1966.jpg?width=800" alt="Katherine Johnson alla scrivania, alla NASA, nel 1966" referrerpolicy="no-referrer"></a><figcaption><b>Katherine Johnson</b></figcaption></figure>
+  </div>
+  <h3>Anni ’70 – ’80</h3>
+  <p>Il <b>transistor</b>, inventato nel 1947, aveva preso il posto delle valvole: era più piccolo, più veloce, consumava meno e non si bruciava. Poi i transistor vennero rimpiccioliti e stampati a migliaia su una piccola piastrina di silicio, il <b>chip</b>, e nel 1971 un intero processore entrò in un solo chip: il <b>microprocessore</b>. I computer diventarono abbastanza piccoli ed economici da entrare nelle case e negli uffici: nascono i <b>personal computer</b>, come l’Apple I (1976) e l’IBM PC (1981), con il suo sistema operativo, l’MS-DOS. Intanto si diffondono i <b>linguaggi di programmazione ad alto livello</b>, più vicini al modo di ragionare delle persone, come <i>Fortran</i>, <i>COBOL</i> e <i>C</i>.</p>
+  <div class="galleria">
+    <figure><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Apple_I_Computer.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Apple_I_Computer.jpg?width=1000" alt="Il computer Apple I in una cassa di legno, con la tastiera" referrerpolicy="no-referrer"></a><figcaption><b>Apple I (1976)</b></figcaption></figure>
+    <figure><a class="fonte" href="https://commons.wikimedia.org/wiki/File:IBM_PC_5150.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/IBM_PC_5150.jpg?width=1000" alt="Il personal computer IBM 5150 con monitor e tastiera" referrerpolicy="no-referrer"></a><figcaption><b>IBM PC (1981)</b></figcaption></figure>
+  </div>
+  <h3>Oggi (e domani)</h3>
+  <p>Con il nuovo millennio i computer sono diventati <b>onnipresenti</b>: stanno in tasca, al polso, in macchina, negli elettrodomestici. <b>Internet</b> li ha collegati tutti tra loro; con il <i>cloud computing</i> i nostri dati e i nostri programmi stanno su server lontani, raggiungibili da qualunque dispositivo; con l’<i>Internet of Things</i> anche gli oggetti di casa, come lampadine e telecamere, si collegano alla rete. La <b>robotica</b> e l’<b>intelligenza artificiale</b>, infine, stanno cambiando il modo in cui lavoriamo, studiamo e comunichiamo.</p>
+  <div class="galleria">
+    <figure><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Spot_by_Boston_Dynamics.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Spot_by_Boston_Dynamics.jpg?width=1000" alt="Il robot quadrupede Spot su un sentiero nel bosco" referrerpolicy="no-referrer"></a><figcaption><b>Robotica</b></figcaption></figure>
+    <figure><a class="fonte" href="https://unsplash.com/" target="_blank" rel="noopener"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=80&fm=jpg" alt="Cervello disegnato come un circuito elettronico" referrerpolicy="no-referrer"></a><figcaption><b>Intelligenza artificiale</b></figcaption></figure>
+    <figure class="m-intera"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Cloud_computing.svg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cloud_computing.svg?width=1000" alt="Schema del cloud: una nuvola di servizi collegata a computer, tablet e telefoni" referrerpolicy="no-referrer"></a><figcaption><b>Cloud computing</b></figcaption></figure>
+    <figure><a class="fonte" href="https://www.pexels.com/photo/18721086/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/18721086/pexels-photo-18721086.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Lampadine, prese, telecamera e sensori intelligenti intorno a un tablet" referrerpolicy="no-referrer"></a><figcaption><b>Internet of Things</b></figcaption></figure>
+  </div>
+  <p class="domanda">Che cosa è cambiato di più in questa storia: la dimensione dei computer, la loro potenza o chi li può usare?</p>
 
   <!-- ===================== 1.6 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p6"><span class="num">1.6</span>Creare</h2>
-  <p>Su <b>Suno</b> scrivi «una canzone jazz sull’annaffiare le piante» e il sistema <b>compone una canzone nuova</b>, che nessuno aveva mai scritto.</p>
-  <figure class="foto-grande"><a class="fonte" href="https://tad.ai/hub/suno-review" target="_blank" rel="noopener"><img src="https://static-lib.s3.amazonaws.com/cms/suno_496a093af5.jpg" alt="Suno: la pagina in cui si scrive la richiesta. Da guardare nei dettagli: osserva la frase di esempio nella casella di testo." referrerpolicy="no-referrer"></a><figcaption>Suno: la pagina in cui si scrive la richiesta. Osserva la frase di esempio nella casella di testo.</figcaption></figure>
-  <p>Questo è il compito di <b>creare</b>: l’<b>IA generativa</b> parte da una <b>richiesta scritta</b> e <b>produce</b> un contenuto nuovo, invece di cercarne uno già esistente. Lo stesso vale per i testi, come le risposte del chatbot visto prima.</p>
-  <p><span class="termine">Midjourney</span>, per esempio, produce <b>immagini</b> a partire da una descrizione.</p>
-  <figure class="foto-grande"><a class="fonte" href="https://www.alphr.com/create-ai-image-midjourney/" target="_blank" rel="noopener"><img src="https://www.alphr.com/wp-content/uploads/2022/09/midjourney6.png" alt="Midjourney: la richiesta e le immagini prodotte. Da guardare nei dettagli: osserva la descrizione scritta e le quattro immagini ottenute." referrerpolicy="no-referrer"></a><figcaption>Midjourney: la richiesta e le immagini prodotte. Osserva la descrizione scritta e le quattro immagini ottenute.</figcaption></figure>
-
-  <!-- ===================== 1.7 ===================== -->
-  </section>
-  <section class="sez">
-  <h2 id="p7"><span class="num">1.7</span>Idee sbagliate sull’IA</h2>
-  <p class="domanda">Un braccio robotico in fabbrica salda tutto il giorno gli stessi movimenti: è un’IA?</p>
+  <h2 id="p6"><span class="num">1.6</span>Come parlare con un computer</h2>
+  <p class="domanda">Se un computer sa fare solo operazioni semplicissime, in che lingua gli date le istruzioni?</p>
+  <p>Il computer, come abbiamo visto, sa fare solo operazioni semplicissime e capisce soltanto sequenze di 0 e 1; noi invece parliamo con frasi piene di sfumature. Per farci capire serve una lingua che stia a metà strada. Si distinguono tre tipi di linguaggio:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Linguaggio</th><th>Che cos’è</th><th>Caratteristiche</th></tr></thead>
+    <tbody>
+      <tr><td><b>Naturale</b></td><td>Qualsiasi linguaggio che si sia evoluto naturalmente tra gli esseri umani (italiano, inglese, spagnolo…).</td><td>Ricchezza espressiva; ambiguità e ridondanza; figure retoriche e ironia.</td></tr>
+      <tr><td><b>Macchina</b></td><td>Il linguaggio rigido e complicato in cui sono scritti i programmi eseguibili dal computer.</td><td>Codifica tramite soli 0 e 1; accesso diretto alle celle di memoria; comandi molto semplici; legato allo specifico calcolatore.</td></tr>
+      <tr><td><b>Di programmazione</b></td><td>Linguaggio artificiale formale, usato per scrivere algoritmi e controllare il comportamento della macchina con istruzioni comprensibili dal calcolatore e più semplici per l’uomo.</td><td>Trasparenza rispetto alla necessità del linguaggio macchina; portabilità e leggibilità; linguaggio formale privo dei problemi del linguaggio naturale.</td></tr>
+    </tbody></table></div>
   <figure>
-    <div class="tela" data-widget="iaonon"></div>
+    <div class="tela schema" id="s-lingue"><p class="passi-titolo">Due modi di comunicare molto diversi</p>
+      <svg viewBox="0 0 700 260" role="img" aria-label="Una persona dice «Se piove, prendi l’ombrello!»; il computer risponde con una fila di 0 e 1. Entrambi hanno un punto interrogativo: non si capiscono.">
+        <path d="M58 252 Q60 188 120 184 Q180 188 182 252 Z" class="nodo evid"/>
+        <circle cx="120" cy="132" r="44" class="nodo"/>
+        <path d="M77 124 Q82 86 120 85 Q158 86 163 122 Q148 102 120 104 Q94 102 77 124 Z" fill="var(--ink-muted)"/>
+        <circle cx="104" cy="136" r="4.5" fill="var(--ink)"/><circle cx="136" cy="136" r="4.5" fill="var(--ink)"/>
+        <path d="M96 124 Q104 119 111 123 M129 123 Q136 119 144 124" class="lin"/>
+        <path d="M108 156 Q120 165 132 156" class="lin"/>
+        <path d="M192 20 H428 Q440 20 440 32 V80 Q440 92 428 92 H214 L172 118 L196 92 H192 Q180 92 180 80 V32 Q180 20 192 20 Z" class="nodo"/>
+        <text x="310" y="50" text-anchor="middle" class="t" style="font-size:18px">«Se piove,</text>
+        <text x="310" y="76" text-anchor="middle" class="t" style="font-size:18px">prendi l’ombrello!»</text>
+        <rect x="520" y="96" width="140" height="96" rx="8" class="nodo"/>
+        <rect x="531" y="107" width="118" height="72" rx="3" class="nodo evid"/>
+        <text x="590" y="138" text-anchor="middle" class="t-mono">01101</text><text x="590" y="162" text-anchor="middle" class="t-mono">10010</text>
+        <path d="M576 192 L569 214 M604 192 L611 214 M552 216 H628" class="lin"/>
+        <path d="M262 160 H466 L522 140 L490 160 H486 Q498 160 498 172 V214 Q498 226 486 226 H262 Q250 226 250 214 V172 Q250 160 262 160 Z" class="nodo"/>
+        <text x="374" y="189" text-anchor="middle" class="t-mono" style="font-size:17px">10100001 10111100</text>
+        <text x="374" y="213" text-anchor="middle" class="t-mono" style="font-size:17px">10010011 00000100</text>
+        <text x="46" y="104" class="t-a" style="font-size:32px">?</text><text x="672" y="94" class="t-a" style="font-size:32px">?</text>
+      </svg>
+    </div>
   </figure>
-  <p><b>L’IA non è un robot.</b> Il robot è una macchina con un corpo; l’IA è un <b>programma</b> (<i>software</i>) che può stare in un telefono, in un sito o dentro un robot. Quasi tutti gli esempi di questo capitolo non hanno corpo.</p>
-  <p><b>L’IA non è un cervello elettronico.</b> Svolge compiti che per una persona richiedono intelligenza, ma <b>non è detto che li svolga come un cervello</b>: se sia davvero intelligente è la domanda del capitolo 3. Soprattutto, potrebbe <b>svolgere i propri compiti in maniera meccanica e seguendo semplicemente ordini precisi.</b></p>
-  <p><b>L’IA non sa tutto.</b> Ogni sistema è <b>bravo in un compito</b> e sbaglia fuori da quello: Face ID non sa tradurre, Stockfish non sa riconoscere un volto.</p>
-  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
-    <p class="err-no">«L’IA è un robot che pensa come noi.»</p>
-    <p class="err-si">Un robot è una <b>macchina con un corpo</b>, l’IA è un <b>programma</b>: quasi sempre vive in un telefono o in un sito, e non c’è nessuna prova che «pensi» come una persona.</p></div>
-  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
-    <p class="err-no">«Un chatbot sa tutto perché è collegato a internet.»</p>
-    <p class="err-si">Un chatbot <b>può sbagliare anche quando risponde con sicurezza</b>: scrive la risposta che gli sembra più probabile, non controlla un archivio di verità.</p></div>
+  <p>Un esempio di linguaggio naturale: «se piove prendi l’ombrello», «prendi l’ombrello se piove», «ricordati l’ombrello se piove»: tre frasi diverse per dire la stessa cosa. Un esempio di linguaggio macchina: <code>10100001 10111100 10010011 00000100 …</code>, che significa <code>z = x + y</code>. Un esempio di linguaggio di programmazione (Python):</p>
+  <pre class="codice"><code>def add_two_numbers(num1, num2):
+    return num1 + num2
+
+print('The sum is', add_two_numbers(3, 5))
+# The sum is 8</code></pre>
+  <p>Il programma in Python si legge quasi come una frase in inglese, ma ogni istruzione ha un solo significato possibile; prima di eseguirlo, il computer lo traduce in linguaggio macchina.</p>
+  <h3>Elementi del linguaggio</h3>
+  <p>Ogni linguaggio, naturale o artificiale, è fatto di quattro elementi. Il computer li controlla tutti e quattro, e se uno solo non va, non capisce.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Elemento</th><th>Che cos’è</th><th>Esempi corretti</th><th>Esempi errati</th></tr></thead>
+    <tbody>
+      <tr><td><b>Alfabeto</b></td><td>Insieme finito di elementi (chiamati simboli o caratteri) ammessi.</td><td>a, M, p, !, 2</td><td>ç, ñ, ∞, #, µ</td></tr>
+      <tr><td><b>Lessico</b></td><td>Insieme di regole formali per la combinazione degli elementi dell’alfabeto per la scrittura di vocaboli ammessi.</td><td>cane, quadro, twittare, sottone</td><td>hello, melpo, streaming, déjà-vu</td></tr>
+      <tr><td><b>Sintassi</b></td><td>Insieme di regole formali per la combinazione degli elementi del lessico per la scrittura di frasi ammesse.</td><td>studio informatica; sono andato al mare; zitto!; la mamma mangia un quadro</td><td>andata mamma mare al; !sono andato al mare!; casa libro mare casa</td></tr>
+      <tr><td><b>Semantica</b></td><td>Insieme dei significati da attribuire ai vocaboli lessicalmente corretti e alle frasi sintatticamente corrette: stabiliscono dunque come interpretare vocaboli e frasi, attribuendo loro un senso.</td><td>questa è una mela (indicando una mela); la mamma mangia una mela; adoro la pesca!</td><td>questa è una mela (indicando una pera); la mamma mangia un quadro; il mio cane pesca</td></tr>
+    </tbody></table></div>
+  <div class="galleria">
+    <figure><a class="fonte" href="https://www.pexels.com/photo/7335365/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/7335365/pexels-photo-7335365.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Lettere dell’alfabeto di legno colorato" referrerpolicy="no-referrer"></a><figcaption><b>Alfabeto</b></figcaption></figure>
+    <figure><a class="fonte" href="https://www.pexels.com/photo/267669/" target="_blank" rel="noopener"><img src="https://images.pexels.com/photos/267669/pexels-photo-267669.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Pagina di un dizionario inglese con la voce «dictionary»" referrerpolicy="no-referrer"></a><figcaption><b>Lessico</b></figcaption></figure>
+    <figure class="m-intera"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Syntax_tree.svg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Syntax_tree.svg?width=1000" alt="Albero sintattico della frase inglese «Colorless green ideas sleep furiously»" referrerpolicy="no-referrer"></a><figcaption><b>Sintassi</b></figcaption></figure>
+    <figure class="m-intera"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:SemanticNetExample.jpg" target="_blank" rel="noopener"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/SemanticNetExample.jpg?width=1000" alt="Rete semantica: i nomi Max e Sparky collegati con frecce a «dog», «cat», «kibble» e «mice»" referrerpolicy="no-referrer"></a><figcaption><b>Semantica</b></figcaption></figure>
+  </div>
+  <p>Nota: «la mamma mangia un quadro» è corretta per sintassi ma <b>sbagliata</b> per semantica, come la famosa frase di Chomsky dell’albero qui sopra, «Colorless green ideas sleep furiously» («idee verdi incolori dormono furiosamente»); «il mio cane pesca» invece è ambigua. Per questo ai computer non si parla in linguaggio naturale: servono <b>linguaggi formali</b>, senza ambiguità, dove ogni frase ha un solo significato.</p>
+  <p class="domanda">«La mamma mangia un quadro»: che cosa funziona in questa frase e che cosa no? Alfabeto, lessico, sintassi o semantica?</p>
   <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
     <ul>
-      <li>L’IA è già presente in gran parte della giornata, ma spesso lavora di nascosto e non ce ne accorgiamo.</li>
-      <li>Riconoscere significa trasformare ciò che l’IA vede o sente in un’etichetta o in un testo.</li>
-      <li>Capire e produrre linguaggio vuol dire elaborare le parole, non solo leggerle: il significato dipende dal contesto.</li>
-      <li>Prevedere e consigliare è stimare, da ciò che è già successo, che cosa accadrà o piacerà: una stima, non una certezza.</li>
-      <li>Nei giochi l’IA prova le mosse in anticipo e sceglie quella dalle conseguenze migliori; lo stesso vale nel mondo reale.</li>
-      <li>Creare è il compito dell’IA generativa: dalla richiesta produce un contenuto nuovo invece di cercarne uno già esistente.</li>
-      <li>L’IA non è un robot, non è un cervello elettronico e non sa tutto: è software bravo in un compito alla volta.</li>
+      <li>L’informatica è la <b>scienza</b> che si occupa della <b>rappresentazione, organizzazione ed elaborazione automatica delle informazioni</b> per risolvere problemi con gli <b>algoritmi</b>. Il computer è il suo strumento, come il telescopio per l’astronomia.</li>
+      <li><b>Dati</b> grezzi e oggettivi → <b>informazioni</b> organizzate, con un contesto → <b>conoscenza</b>, cioè il significato che ci diamo, soggettivo. Le informazioni si possono presentare in modo manipolativo.</li>
+      <li><b>Elaborare</b> = prendere <b>dati</b> in input, applicare un <b>algoritmo</b>, produrre <b>informazioni</b> in output.</li>
+      <li>Un <b>computer</b> è una macchina che elabora informazioni in modo automatico: veloce, preciso, affidabile, versatile, automatico. Sono computer anche smartphone, console, smart TV, server e supercomputer.</li>
+      <li>Storia: abaco, Pascalina, macchina analitica di Babbage e Ada Lovelace, Turing e il Colossus, human computers, personal computer, e oggi Internet, cloud, IoT, robot e IA.</li>
+      <li>Il computer capisce solo il <b>linguaggio macchina</b> (0 e 1). Per scrivere algoritmi usiamo i <b>linguaggi di programmazione</b>, formali e senza ambiguità. Ogni linguaggio ha <b>alfabeto, lessico, sintassi, semantica</b>.</li>
     </ul></div>
   </section>
 

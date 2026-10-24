@@ -1,16 +1,16 @@
 """sitolib - libreria per generare le pagine del sito didattico e le slide di Presenta in aula.
 
-Uso tipico (vedi examples/capitolo-04/genera_capitolo_04.py):
+Uso tipico (vedi examples/capitolo-05/genera_capitolo_05.py):
 
     import sys; sys.path.insert(0, '<cartella della skill>/scripts')
     from sitolib import *
     configura(modulo='Reti e Internet')
     c = ''
-    c += h2('4.1', 'p1', 'La scheda di rete')
+    c += h2('5.1', 'p1', 'La scheda di rete')
     c += mg('Ethernet_pci_card.jpg', 'Scheda di rete Ethernet', 'Testo alternativo')
     c += '  <p>Testo con <b>idea chiave</b>…</p>\\n'
     ...
-    scrivi('sito/capitolo-04.html', pagina(4, 'I dispositivi di rete', c, 'capitolo-04.js'))
+    scrivi('sito/capitolo-05.html', pagina(5, 'I dispositivi di rete', c, 'capitolo-05.js'))
 
 Foto: chiave 'pexels:<ID>', 'unsplash:photo-<…>' oppure il nome del file su Wikimedia Commons
 ('Nome_file.jpg'). Le fonti vengono raccolte da sole e stampate in fondo alla pagina.
