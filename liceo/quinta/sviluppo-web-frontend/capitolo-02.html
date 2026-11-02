@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2. HTML: introduzione · Sviluppo Web - Front end</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="2">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Sviluppo Web - Front end · Capitolo 02</span></div>
+  <h1>HTML: introduzione</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 2.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">2.1</span>Tag, elementi e attributi</h2>
+  <p>Un documento HTML è un <b>file di testo</b> (con estensione <code>.html</code>) in cui il contenuto è “marcato” con dei <b>tag</b>. Un <b>tag</b> è <b>un’etichetta racchiusa tra parentesi angolari</b> <code>&lt; &gt;</code> che dice al browser che cosa rappresenta un pezzo di contenuto.</p>
+  <pre class="codice"><code><span class="k">&lt;p</span><span class="k">&gt;</span>Il Web è nato al CERN.<span class="k">&lt;/p</span><span class="k">&gt;</span></code></pre>
+  <p>Il <b>tag di apertura</b> <code>&lt;p&gt; segna l’inizio, il **tag di chiusura** &lt;/p&gt;</code> (con la barra) segna la fine. <b>Tag di apertura, contenuto e tag di chiusura formano insieme un elemento</b>: qui un elemento paragrafo. Spesso si dice “il tag p” per indicare l’elemento: va bene nel parlato, ma è utile sapere che sono due cose diverse.</p>
+  <figure>
+    <div class="tela schema" id="s-elemento"><p class="passi-titolo">Anatomia di un elemento</p>
+      <svg viewBox="0 0 720 230" role="img" aria-label="L’elemento <a href="https://info.cern.ch">Primo sito</a> con indicati il nome del tag, l’attributo, il tag di apertura, il contenuto, il tag di chiusura e, sotto tutto, l’elemento"></svg>
+    </div>
+  </figure>
+  <h3>Elementi vuoti</h3>
+  <p>Alcuni elementi <b>non hanno contenuto e quindi non hanno il tag di chiusura</b>: si chiamano <b>elementi vuoti</b> (<i>void elements</i>). I più usati sono <code>&lt;img&gt;</code> (immagine), <code>&lt;br&gt;</code> (a capo), <code>&lt;hr&gt;</code> (linea di separazione), <code>&lt;input&gt;</code> (campo di un modulo), <code>&lt;meta&gt;</code> e <code>&lt;link&gt;</code>. Si può trovare anche la forma <code>&lt;br /&gt;</code> con la barra finale: in HTML è accettata ma non obbligatoria, ed è un’eredità del vecchio XHTML.</p>
+  <h3>Attributi</h3>
+  <p>Gli <b>attributi aggiungono informazioni a un elemento</b> e si scrivono <b>solo nel tag di apertura</b>, nella forma <code>nome="valore"</code>. Un elemento può averne più di uno, separati da spazi, in qualsiasi ordine.</p>
+  <pre class="codice"><code><span class="k">&lt;img</span> <span class="a">src</span>=<span class="s">"gatto.jpg"</span> <span class="a">alt</span>=<span class="s">"Gatto rosso che dorme sul divano"</span> <span class="a">width</span>=<span class="s">"400"</span><span class="k">&gt;</span>
+<span class="k">&lt;a</span> <span class="a">href</span>=<span class="s">"contatti.html"</span> <span class="a">title</span>=<span class="s">"Scrivici"</span><span class="k">&gt;</span>Contatti<span class="k">&lt;/a</span><span class="k">&gt;</span></code></pre>
+  <p>Alcuni attributi sono <b>booleani</b>: <b>basta scriverli per attivarli</b>, senza valore. Per esempio <code>&lt;input required&gt;</code> rende un campo obbligatorio e <code>&lt;video controls&gt;</code> mostra i comandi del video. Scrivere <code>required="false"</code> <b>non</b> lo disattiva: per disattivarlo bisogna togliere l’attributo.</p>
+  <h3>Attributi globali</h3>
+  <p>Gli <b>attributi globali</b> si possono usare <b>su qualsiasi elemento</b>. I più importanti:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Attributo</th><th>A che cosa serve</th><th>Esempio</th></tr></thead>
+    <tbody>
+      <tr><td><code>id</code></td><td>Dà all’elemento un nome <b>unico nella pagina</b>; serve per i link interni, il CSS e JavaScript</td><td><code>&lt;section id="contatti"&gt;</code></td></tr>
+      <tr><td><code>class</code></td><td>Assegna l’elemento a uno o più <b>gruppi</b> (separati da spazi) a cui dare lo stesso stile</td><td><code>&lt;p class="nota importante"&gt;</code></td></tr>
+      <tr><td><code>title</code></td><td>Testo che compare passando il mouse sopra (non visibile su telefono)</td><td><code>&lt;abbr title="World Wide Web"&gt;WWW&lt;/abbr&gt;</code></td></tr>
+      <tr><td><code>style</code></td><td>Stile CSS scritto direttamente sull’elemento (da evitare, 5.1)</td><td><code>&lt;p style="color:red"&gt;</code></td></tr>
+      <tr><td><code>data-*</code></td><td>Dati personalizzati da usare con JavaScript</td><td><code>&lt;button data-taglia="M"&gt;</code></td></tr>
+    </tbody></table></div>
+  <h3>Annidamento</h3>
+  <p>Gli elementi si possono <b>annidare</b>, cioè mettere uno dentro l’altro. La regola è una sola: <b>l’ultimo elemento aperto è il primo che va chiuso</b>, come le scatole cinesi o le parentesi in matematica. Gli elementi non si possono “accavallare”.</p>
+  <pre class="codice"><code><span class="c">&lt;!-- corretto --&gt;</span>
+<span class="k">&lt;p</span><span class="k">&gt;</span>Questo è <span class="k">&lt;strong</span><span class="k">&gt;</span>molto <span class="k">&lt;em</span><span class="k">&gt;</span>importante<span class="k">&lt;/em</span><span class="k">&gt;</span><span class="k">&lt;/strong</span><span class="k">&gt;</span>.<span class="k">&lt;/p</span><span class="k">&gt;</span>
+<span class="c">&lt;!-- sbagliato: strong si chiude prima di em --&gt;</span>
+<span class="k">&lt;p</span><span class="k">&gt;</span>Questo è <span class="k">&lt;strong</span><span class="k">&gt;</span>molto <span class="k">&lt;em</span><span class="k">&gt;</span>importante<span class="k">&lt;/strong</span><span class="k">&gt;</span><span class="k">&lt;/em</span><span class="k">&gt;</span>.<span class="k">&lt;/p</span><span class="k">&gt;</span></code></pre>
+  <p>L’elemento che ne contiene un altro si chiama <b>genitore</b> (<i>parent</i>), quello contenuto <b>figlio</b> (<i>child</i>); elementi con lo stesso genitore sono <b>fratelli</b> (<i>siblings</i>). Questa “famiglia” servirà di continuo nel CSS e in JavaScript. Per rendere visibile l’annidamento si usa l’<b>indentazione</b>: ogni livello interno si sposta a destra di due o quattro spazi.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-annidamento" data-titolo="Chiudere gli elementi nell’ordine giusto" data-inizio="In alto il codice corretto, un paragrafo con una parola importante e una enfatizzata; sotto un piano vuoto dove compariranno le scatole.">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Il browser apre una scatola p, dentro una scatola strong e dentro una scatola em; le chiude dalla più interna; con le chiusure incrociate la scatola em esce dal bordo e il browser la chiude in anticipo e ne apre un’altra"></svg>
+      <ol class="passi-testo">
+        <li>Il browser legge <code>&lt;p&gt;</code>: a destra si apre una scatola grande “p”.</li>
+        <li>Legge <code>&lt;strong&gt;</code>: dentro la scatola p si apre una scatola “<code>strong</code>”; poi <code>&lt;em&gt;</code>, una scatola “<code>em</code>” dentro <code>strong</code>.</li>
+        <li>Legge <code>&lt;/em&gt;</code>, <code>&lt;/strong&gt;</code>, <code>&lt;/p&gt;</code>: le scatole si chiudono una dopo l’altra dalla più interna alla più esterna; tutto è in ordine.</li>
+        <li>Si cambia il codice in <code>&lt;strong&gt;</code>importante <code>&lt;em&gt;</code>davvero<code>&lt;/strong&gt;</code><code>&lt;/em&gt;</code>: il browser deve chiudere <code>strong</code> mentre <code>em</code> è ancora aperta; la scatola <code>em</code> resta “a cavallo” del bordo e lampeggia in rosso.</li>
+        <li>Il browser rimedia da solo: chiude <code>em</code> in anticipo e ne riapre una nuova. La pagina sembra giusta, ma la struttura non è quella scritta: per trovare questi errori serve il validatore.</li>
+      </ol>
+    </div>
+  </figure>
+  <p>Il browser è tollerante (1.2): <b>una pagina con errori viene comunque disegnata</b>, ma il browser deve indovinare che cosa intendeva l’autore e browser diversi possono indovinare in modo diverso. Per trovare gli errori si usa il <b>validatore</b>, un programma che <b>confronta il codice con le regole dello standard HTML</b> e segnala ogni violazione con il numero di riga.</p>
+  <h3>Gli errori più frequenti</h3>
+  <div class="tab"><table>
+    <thead><tr><th>Errore</th><th>Esempio sbagliato</th><th>Corretto</th></tr></thead>
+    <tbody>
+      <tr><td>Tag non chiuso</td><td><code>&lt;p&gt;</code>Testo <code>&lt;strong&gt;</code>importante<code>&lt;/p&gt;</code></td><td><code>&lt;p&gt;</code>Testo <code>&lt;strong&gt;importante&lt;/strong&gt;</code><code>&lt;/p&gt;</code></td></tr>
+      <tr><td>Annidamento incrociato</td><td><code>&lt;em&gt;</code><code>&lt;strong&gt;</code>x<code>&lt;/em&gt;</code><code>&lt;/strong&gt;</code></td><td><code>&lt;em&gt;</code><code>&lt;strong&gt;x&lt;/strong&gt;</code><code>&lt;/em&gt;</code></td></tr>
+      <tr><td>Virgolette dimenticate</td><td><code>&lt;a href="pagina.html&gt;</code></td><td><code>&lt;a href="pagina.html"&gt;</code></td></tr>
+      <tr><td>Id ripetuto</td><td>due elementi con <code>id="foto"</code></td><td><code>class="foto"</code></td></tr>
+      <tr><td>Blocco dentro un paragrafo</td><td><code>&lt;p&gt;</code><code>&lt;ul&gt;…&lt;/ul&gt;</code><code>&lt;/p&gt;</code></td><td>chiudere il p prima dell’elenco</td></tr>
+      <tr><td>Attributo nel tag di chiusura</td><td><code>&lt;/img src="…"&gt;</code></td><td><code>&lt;img src="…" alt="…"&gt;</code></td></tr>
+      <tr><td>Barra rovesciata nei percorsi</td><td><code>src="img\foto.jpg"</code></td><td><code>src="img/foto.jpg"</code></td></tr>
+      <tr><td>Tag inventato o con errore di battitura</td><td><code>&lt;pargraph&gt;</code></td><td><code>&lt;p&gt;</code></td></tr>
+    </tbody></table></div>
+  <h3>Ispezionare con F12</h3>
+  <p>Gli <span class="termine">strumenti per sviluppatori</span> (<i>DevTools</i>) del browser si aprono con <b>F12</b> (o tasto destro › <i>Ispeziona</i>). Nella scheda <i>Elements</i> / <i>Elementi</i> si vede <b>come il browser ha interpretato il codice</b>: passando con il mouse sopra un elemento lo si evidenzia nella pagina; a destra si vedono gli stili applicati. Se un elemento è finito in un posto diverso da quello voluto, lì si vede subito. La differenza tra ciò che si vede qui e il codice sorgente scritto si approfondisce in 4.9.</p>
+  <h3>Abitudini che evitano gli errori</h3>
+  <ul>
+    <li><b>Indentare</b> sempre il codice: con Alt+Maiusc+F VS Code lo formatta da solo.</li>
+    <li>Scrivere <b>apertura e chiusura insieme</b> e poi riempire in mezzo (Emmet lo fa da solo).</li>
+    <li><span class="termine">Salvare e controllare spesso</span>, non dopo aver scritto cento righe.</li>
+    <li>Leggere i <b>colori dell’editor</b>: se dopo un punto il testo cambia colore in modo strano, di solito manca una virgoletta.</li>
+    <li>Usare l’estensione <b>HTMLHint</b> di VS Code, che sottolinea gli errori mentre si scrive.</li>
+  </ul>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«La pagina si vede bene, quindi il codice è giusto.»</p>
+    <p class="err-si">Il browser <b>corregge da solo molti errori</b>, quindi “si vede bene” non vuol dire “è giusto”. Lo stesso errore può rompere la pagina in un altro browser, peggiorarne l’accessibilità o far fallire JavaScript. <b>Il controllo vero è il validatore.</b></p></div>
+  <h3>Commenti</h3>
+  <p>Un <b>commento</b> si scrive tra <code>&lt;!-- e --&gt;</code>: <b>il browser lo ignora</b> e non lo mostra. Serve per spiegare il codice o per “spegnere” temporaneamente una parte. Attenzione: <b>i commenti sono visibili a chiunque apra il sorgente</b> della pagina.</p>
+  <h3>Maiuscole, spazi e virgolette</h3>
+  <ul>
+    <li>I nomi dei tag e degli attributi <b>non distinguono maiuscole e minuscole</b> (<code>&lt;P&gt;</code> e <code>&lt;p&gt;</code> sono uguali), ma per convenzione si scrivono <b>sempre in minuscolo</b>.</li>
+    <li>I valori degli attributi si scrivono <b>tra virgolette doppie</b>; sono obbligatorie se il valore contiene spazi.</li>
+    <li>Il valore di <code>id</code> e <code>class</code>, invece, distingue maiuscole e minuscole: Menu e menu sono due classi diverse.</li>
+  </ul>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Ho scritto l’attributo nel tag di chiusura: <code>&lt;/a href="pagina.html"&gt;</code>.»</p>
+    <p class="err-si">Gli attributi <b>si scrivono solo nel tag di apertura</b>. Il tag di chiusura contiene soltanto la barra e il nome: <code>&lt;/a&gt;</code>.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Ho dato <code>id="foto"</code> a tutte le immagini della galleria, così hanno lo stesso stile.»</p>
+    <p class="err-si">L’<code>id</code> deve essere <b>unico nella pagina</b>. Per dare lo stesso stile a più elementi si usa <b>la stessa classe</b>: <code>class="foto"</code>. JavaScript, cercando un <code>id</code> ripetuto, troverebbe solo il primo.</p></div>
+  <p class="domanda">Che differenza c’è tra “tag” ed “elemento”?</p>
+
+  <!-- ===================== 2.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">2.2</span>Lo scheletro della pagina</h2>
+  <p>Ogni documento HTML ha <b>sempre la stessa struttura di base</b>, lo “scheletro”, a cui poi si aggiunge il contenuto.</p>
+  <pre class="codice"><code><span class="k">&lt;!DOCTYPE html&gt;</span>
+<span class="k">&lt;html</span> <span class="a">lang</span>=<span class="s">"it"</span><span class="k">&gt;</span>
+<span class="k">&lt;head</span><span class="k">&gt;</span>
+<span class="k">&lt;meta</span> <span class="a">charset</span>=<span class="s">"UTF-8"</span><span class="k">&gt;</span>
+<span class="k">&lt;meta</span> <span class="a">name</span>=<span class="s">"viewport"</span> <span class="a">content</span>=<span class="s">"width=device-width, initial-scale=1.0"</span><span class="k">&gt;</span>
+<span class="k">&lt;title</span><span class="k">&gt;</span>Le mie ricette<span class="k">&lt;/title</span><span class="k">&gt;</span>
+<span class="k">&lt;link</span> <span class="a">rel</span>=<span class="s">"stylesheet"</span> <span class="a">href</span>=<span class="s">"style.css"</span><span class="k">&gt;</span>
+<span class="k">&lt;/head</span><span class="k">&gt;</span>
+<span class="k">&lt;body</span><span class="k">&gt;</span>
+<span class="k">&lt;h1</span><span class="k">&gt;</span>Le mie ricette<span class="k">&lt;/h1</span><span class="k">&gt;</span>
+<span class="k">&lt;p</span><span class="k">&gt;</span>Benvenuti nel mio ricettario.<span class="k">&lt;/p</span><span class="k">&gt;</span>
+<span class="k">&lt;script</span> <span class="a">src</span>=<span class="s">"script.js"</span> <span class="a">defer</span><span class="k">&gt;</span><span class="k">&lt;/script</span><span class="k">&gt;</span>
+<span class="k">&lt;/body</span><span class="k">&gt;</span>
+<span class="k">&lt;/html</span><span class="k">&gt;</span></code></pre>
+  <div class="tab"><table>
+    <thead><tr><th>Riga</th><th>A che cosa serve</th></tr></thead>
+    <tbody>
+      <tr><td><code>&lt;!DOCTYPE html&gt;</code></td><td><b>Dichiara che il documento è HTML moderno (HTML5).</b> Senza, il browser entra in “modalità di compatibilità” (<i>quirks mode</i>) e imita il comportamento dei browser degli anni Novanta, con risultati strani nel CSS. Non è un tag ma un’istruzione per il browser.</td></tr>
+      <tr><td><code>&lt;html lang="it"&gt;</code></td><td><b>L’elemento radice, che contiene tutto il resto.</b> <code>lang</code> indica la lingua principale: serve agli screen reader per la pronuncia, ai traduttori automatici e ai motori di ricerca.</td></tr>
+      <tr><td><code>&lt;head&gt;</code></td><td><b>Informazioni sulla pagina che non si vedono nella pagina</b>: titolo, codifica, collegamenti a CSS, descrizione per i motori di ricerca.</td></tr>
+      <tr><td><code>&lt;meta charset="UTF-8"&gt;</code></td><td><b>La codifica dei caratteri.</b> UTF-8 comprende tutti i caratteri del mondo (lettere accentate, emoji, alfabeti non latini). Senza, le lettere accentate possono comparire come “Ã¨”. Va messo come prima riga di <code>head</code>.</td></tr>
+      <tr><td><code>&lt;meta name="viewport" …&gt;</code></td><td><b>Dice al telefono di usare la sua vera larghezza</b>, invece di fingere di essere uno schermo da computer largo 980 pixel e rimpicciolire tutto. È indispensabile per il responsive design (7.3).</td></tr>
+      <tr><td><code>&lt;title&gt;</code></td><td><b>Il titolo della pagina</b>: compare nella scheda del browser, nei preferiti e come titolo blu nei risultati di Google. Non è il titolo visibile nella pagina (quello è <code>h1</code>).</td></tr>
+      <tr><td><code>&lt;link rel="stylesheet"&gt;</code></td><td>Collega un foglio di stile CSS esterno (cap. 5–7).</td></tr>
+      <tr><td><code>&lt;body&gt;</code></td><td><b>Tutto ciò che si vede nella pagina</b>: testi, immagini, link, moduli.</td></tr>
+      <tr><td><code>&lt;script&gt;</code></td><td>Collega un file JavaScript (cap. 8).</td></tr>
+    </tbody></table></div>
+  <p><b><code>head</code> e <code>body</code> sono figli di <code>html</code> e fratelli tra loro.</b> Dentro <code>head</code> va solo ciò che riguarda la pagina nel suo insieme, dentro <code>body</code> ciò che l’utente vede.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Ho messo <code>&lt;h1&gt;</code> dentro <code>&lt;head&gt;</code>, tanto è in cima.»</p>
+    <p class="err-si">In <code>head</code> vanno <b>solo informazioni sulla pagina</b>, non contenuto visibile. Il browser, trovando un <code>h1</code> nel posto sbagliato, chiude <code>head</code> da solo e lo sposta in <code>body</code>, ma la struttura scritta è sbagliata e il validatore lo segnala.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il <code>title</code> è il titolo grande che si vede in cima alla pagina.»</p>
+    <p class="err-si">Il <code>title</code> compare <b>nella scheda del browser e nei risultati di Google</b>, non nella pagina. Il titolo visibile si scrive con <code>&lt;h1&gt;</code> nel <code>body</code>.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Nella mia pagina le lettere accentate escono come “perchÃ©”.»</p>
+    <p class="err-si">Manca <code>&lt;meta charset="UTF-8"&gt;</code>, oppure il file è stato salvato con un’altra codifica. <b>La codifica dichiarata e quella usata per salvare il file devono coincidere</b>: in VS Code si legge in basso a destra (“UTF-8”).</p></div>
+  <h3>File, cartelle e nomi</h3>
+  <p>Un sito è <b>una cartella</b> memorizzata su un server che contiene i file HTML, di solito con sottocartelle per CSS, script e immagini. <b>La home si chiama sempre <code>index.html</code></b> ed è il file che il server invia quando si chiede la cartella (1.4).</p>
+  <pre class="codice"><code>mio-sito/
+├── index.html
+├── chi-siamo.html
+├── contatti.html
+├── css/
+│ └── style.css
+├── js/
+│ └── script.js
+└── img/
+├── logo.svg
+└── foto-classe.jpg</code></pre>
+  <p>Regole per i nomi dei file: <b>tutto minuscolo, niente spazi né lettere accentate, parole separate da trattini</b> (<code>chi-siamo.html</code>, non Chi <code>Siamo.html</code>). Il motivo: <b>i server Linux, dove finiscono quasi tutti i siti, distinguono maiuscole e minuscole</b>, e gli spazi negli URL diventano %20. Un sito che funziona su Windows (che non distingue Foto.JPG da <code>foto.jpg</code>) può quindi rompersi una volta pubblicato.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Sul mio computer l’immagine si vede, online no: il sito è rotto.»</p>
+    <p class="err-si">Quasi sempre è un problema di <b>maiuscole nel nome del file</b>: nel codice c’è <code>foto.jpg</code>, il file si chiama Foto.JPG. Windows li considera uguali, il server online no. Per questo i nomi si scrivono sempre in minuscolo.</p></div>
+  <p class="domanda">Togliamo la riga <code>&lt;meta name="viewport"&gt;</code> e apriamo la pagina sul telefono. Che cosa vi aspettate?</p>
+
+  <!-- ===================== 2.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">2.3</span>Elementi di blocco ed elementi in linea</h2>
+  <p>Gli elementi HTML si dispongono nella pagina in due modi diversi.</p>
+  <ul>
+    <li><span class="termine">Elementi di blocco</span> (<i>block</i>): <b>iniziano su una nuova riga e occupano tutta la larghezza disponibile</b>, anche se il loro contenuto è corto. Sono di blocco <code>h1–h6</code>, p, <code>ul</code>, <code>ol</code>, li, <code>table</code>, <code>form</code>, <code>blockquote</code>, <code>div</code> e i tag semantici (<code>header</code>, <code>section</code>, <code>footer</code>…).</li>
+    <li><span class="termine">Elementi in linea</span> (<i>inline</i>): <b>restano dentro la riga del testo e occupano solo lo spazio del loro contenuto</b>. Sono in linea a, <code>strong</code>, <code>em</code>, <code>span</code>, <code>code</code>, <code>abbr</code>, <code>img</code>, <code>input</code>, <code>button</code>.</li>
+  </ul>
+  <figure>
+    <div class="tela schema" id="s-blocchi"><p class="passi-titolo">Elementi di blocco ed elementi in linea</p>
+      <svg viewBox="0 0 720 256" role="img" aria-label="Una pagina con i contorni visibili: h1, p e ul sono blocchi che occupano tutta la riga; dentro il paragrafo a, strong ed em restano sulla riga del testo"></svg>
+    </div>
+  </figure>
+  <p><b>Regola di annidamento</b>: un elemento in linea può stare dentro un blocco, ma <b>un blocco non dovrebbe stare dentro un elemento in linea</b> (un p dentro uno <code>strong</code>). Inoltre <b>un p non può contenere altri blocchi</b>, nemmeno un altro p: se il browser trova un blocco dentro un paragrafo, chiude il paragrafo prima. Fa eccezione a, che in HTML5 può avvolgere un blocco intero (per esempio una card cliccabile).</p>
+  <h3><code>div</code> e <code>span</code>, i contenitori generici</h3>
+  <p><code>&lt;div&gt;</code> (<i>division</i>) e <code>&lt;span&gt;</code> sono <b>contenitori senza alcun significato</b>: servono <b>solo a raggruppare</b> elementi per dare loro uno stile o per trovarli con JavaScript. <code>div</code> è di blocco e raggruppa parti di pagina; <code>span</code> è in linea e marca un pezzo di testo.</p>
+  <pre class="codice"><code><span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"card"</span><span class="k">&gt;</span>
+<span class="k">&lt;h3</span><span class="k">&gt;</span>Tiramisù<span class="k">&lt;/h3</span><span class="k">&gt;</span>
+<span class="k">&lt;p</span><span class="k">&gt;</span>Difficoltà: <span class="k">&lt;span</span> <span class="a">class</span>=<span class="s">"facile"</span><span class="k">&gt;</span>facile<span class="k">&lt;/span</span><span class="k">&gt;</span><span class="k">&lt;/p</span><span class="k">&gt;</span>
+<span class="k">&lt;/div</span><span class="k">&gt;</span></code></pre>
+  <p><b>Prima di usare un <code>div</code> si controlla se esiste un tag con un significato</b> (<code>section</code>, <code>article</code>, <code>nav</code>, <code>header</code>…; 4.3): <code>div</code> è l’ultima scelta, quando nessun tag semantico va bene.</p>
+  <p>Il modo di disporsi <b>si può cambiare con il CSS</b> (<code>display</code>, 6.4): un link può diventare un blocco, un elemento di elenco può mettersi in linea. <b>La natura di blocco o in linea è solo il comportamento predefinito.</b></p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Ho messo due <code>&lt;div&gt;</code> uno accanto all’altro nel codice, ma nel browser vengono uno sotto l’altro.»</p>
+    <p class="err-si">Il <code>div</code> è <b>di blocco</b>: occupa tutta la riga e il successivo va a capo, qualunque sia la disposizione nel codice. Per affiancarli serve il CSS (Flexbox o Grid, 7.1–7.2).</p></div>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>Un elemento è formato da tag di apertura, contenuto e tag di chiusura; gli elementi vuoti (<code>img</code>, <code>br</code>, <code>input</code>, meta) non hanno chiusura; gli attributi si scrivono solo nel tag di apertura come <code>nome="valore"</code>.</li>
+      <li>Gli elementi si annidano chiudendo per primo l’ultimo aperto; <code>id</code> è unico nella pagina, <code>class</code> si può ripetere e raggruppa elementi con lo stesso stile.</li>
+      <li>Ogni pagina ha lo scheletro DOCTYPE, <code>html</code> con <code>lang</code>, <code>head</code> (<code>charset</code> UTF-8, viewport, <code>title</code>) e <code>body</code>; i nomi dei file sono minuscoli, senza spazi, e la home si chiama <code>index.html</code>.</li>
+      <li>Gli elementi di blocco occupano tutta la riga e vanno a capo, quelli in linea restano nel testo; <code>div</code> e <code>span</code> sono contenitori senza significato, da usare quando non c’è un tag semantico adatto.</li>
+      <li>Una pagina che si vede bene non è per forza corretta: gli errori si cercano con il validatore e si osserva con F12 come il browser ha interpretato il codice.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/kit.js"></script>
+<script src="assets/capitolo-02.js"></script>
+<script src="assets/capitolo-02-aula.js"></script>
+</body>
+</html>

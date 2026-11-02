@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3. HTML: base · Sviluppo Web - Front end</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="3">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Sviluppo Web - Front end · Capitolo 03</span></div>
+  <h1>HTML: base</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 3.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">3.1</span>Il testo</h2>
+  <h3>Titoli</h3>
+  <p>I <b>titoli</b> vanno da <code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code> (<i>heading</i>): <code>h1</code> è il titolo principale, <code>h2</code> i titoli delle sezioni, <code>h3</code> le sottosezioni, e così via. <b>I titoli descrivono la struttura del documento, come l’indice di un libro</b>, non la grandezza del testo: se un titolo è troppo grande, si cambia con il CSS, non scegliendo un livello diverso.</p>
+  <pre class="codice"><code><span class="k">&lt;h1</span><span class="k">&gt;</span>Le mie ricette<span class="k">&lt;/h1</span><span class="k">&gt;</span>
+<span class="k">&lt;h2</span><span class="k">&gt;</span>Primi piatti<span class="k">&lt;/h2</span><span class="k">&gt;</span>
+<span class="k">&lt;h3</span><span class="k">&gt;</span>Pasta alla carbonara<span class="k">&lt;/h3</span><span class="k">&gt;</span>
+<span class="k">&lt;h3</span><span class="k">&gt;</span>Risotto ai funghi<span class="k">&lt;/h3</span><span class="k">&gt;</span>
+<span class="k">&lt;h2</span><span class="k">&gt;</span>Dolci<span class="k">&lt;/h2</span><span class="k">&gt;</span>
+<span class="k">&lt;h3</span><span class="k">&gt;</span>Tiramisù<span class="k">&lt;/h3</span><span class="k">&gt;</span></code></pre>
+  <p>Regole: <b>un solo <code>h1</code> per pagina</b> (l’argomento della pagina), e <b>non si saltano livelli</b> (dopo un <code>h2</code> viene un <code>h3</code>, non un <code>h5</code>). <b>Gli utenti degli screen reader navigano saltando da un titolo all’altro</b>, e anche Google usa i titoli per capire di che cosa parla la pagina.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Uso <code>&lt;h4&gt;</code> perché <code>&lt;h1&gt;</code> è troppo grande.»</p>
+    <p class="err-si">Il livello del titolo si sceglie <b>in base alla struttura</b>, non all’aspetto. La dimensione si cambia con il CSS (<code>font-size</code>). Scegliere i titoli per l’aspetto rovina la navigazione con gli screen reader e l’indicizzazione.</p></div>
+  <h3>Paragrafi, a capo e linee</h3>
+  <p>Il <b>paragrafo</b> si scrive con <code>&lt;p&gt;</code>. <code>&lt;br&gt;</code> va <b>a capo dentro lo stesso paragrafo</b> (indirizzi, poesie); <code>&lt;hr&gt;</code> indica un <b>cambio di argomento</b> e appare come una linea orizzontale.</p>
+  <h3>Gli spazi bianchi si riducono a uno</h3>
+  <p><b>Il browser riduce ogni sequenza di spazi, tabulazioni e a capo a un solo spazio.</b> Andare a capo nel codice non manda a capo il testo, e dieci spazi diventano uno. Così si può indentare il codice liberamente senza cambiare l’aspetto della pagina.</p>
+  <pre class="codice"><code><span class="k">&lt;p</span><span class="k">&gt;</span>Questa frase
+è scritta
+su tre righe.<span class="k">&lt;/p</span><span class="k">&gt;</span>
+<span class="c">&lt;!-- nel browser: "Questa frase è scritta su tre righe." --&gt;</span></code></pre>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Per staccare i paragrafi ho messo cinque <code>&lt;br&gt;</code> di fila.»</p>
+    <p class="err-si">Lo spazio tra i blocchi <b>si regola con il CSS</b> (<code>margin</code>), non con i <code>&lt;br&gt;</code>. I <code>&lt;br&gt;</code> vanno usati solo dove l’a capo fa parte del contenuto (un indirizzo, i versi di una poesia).</p></div>
+  <h3>Enfasi e significato</h3>
+  <p>Alcuni tag danno al testo un <b>significato</b>, altri solo un <b>aspetto</b>. <code>&lt;strong&gt;</code> indica <b>importanza</b> e <code>&lt;em&gt;</code> <b>enfasi</b> (l’accento che si darebbe leggendo ad alta voce): gli screen reader possono pronunciarli diversamente. <code>&lt;b&gt;</code> e <code>&lt;i&gt;</code> danno solo grassetto e corsivo <b>senza significato aggiunto</b>: <code>&lt;i&gt;</code> si usa per termini stranieri, nomi scientifici, titoli di opere.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Tag</th><th>Significato</th><th>Esempio</th></tr></thead>
+    <tbody>
+      <tr><td><code>&lt;strong&gt;</code></td><td>Importanza, serietà, urgenza</td><td>Non toccare: <b>alta tensione</b></td></tr>
+      <tr><td><code>&lt;em&gt;</code></td><td>Enfasi che cambia il senso della frase</td><td>Io <i>non</i> ho detto questo</td></tr>
+      <tr><td><code>&lt;b&gt;</code></td><td>Evidenziato senza importanza particolare (parole chiave)</td><td>Nome del prodotto in una recensione</td></tr>
+      <tr><td><code>&lt;i&gt;</code></td><td>Voce o tono diverso: termini stranieri, nomi scientifici</td><td><i>Homo sapiens</i>, il <i>download</i></td></tr>
+      <tr><td><code>&lt;mark&gt;</code></td><td>Evidenziato perché rilevante in quel contesto</td><td>Parole cercate nei risultati</td></tr>
+      <tr><td><code>&lt;small&gt;</code></td><td>Note a margine, avvertenze legali</td><td>© 2026, tutti i diritti riservati</td></tr>
+      <tr><td><code>&lt;sub&gt;</code>, <code>&lt;sup&gt;</code></td><td>Pedice e apice</td><td>H<code>&lt;sub&gt;2&lt;/sub&gt;</code>O, x<code>&lt;sup&gt;2&lt;/sup&gt;</code></td></tr>
+      <tr><td><code>&lt;code&gt;</code></td><td>Codice informatico in una frase</td><td>Il tag <code>&lt;p&gt;</code></td></tr>
+      <tr><td><code>&lt;pre&gt;</code></td><td>Testo preformattato: spazi e a capo restano come sono scritti</td><td>Blocchi di codice, ASCII art</td></tr>
+      <tr><td><code>&lt;blockquote&gt;</code></td><td>Citazione lunga, a blocco (con cite per la fonte)</td><td>Una citazione di un autore</td></tr>
+      <tr><td><code>&lt;q&gt;</code></td><td>Citazione breve nella frase (aggiunge le virgolette)</td><td>Disse <code>&lt;q&gt;Eureka&lt;/q&gt;</code></td></tr>
+      <tr><td><code>&lt;abbr&gt;</code></td><td>Abbreviazione o sigla (con <code>title</code> per lo scioglimento)</td><td><code>&lt;abbr title="Uniform Resource Locator"&gt;URL&lt;/abbr&gt;</code></td></tr>
+      <tr><td><code>&lt;time&gt;</code></td><td>Data od ora leggibile anche dalle macchine</td><td><code>&lt;time datetime="2026-10-07"&gt;7 ottobre&lt;/time&gt;</code></td></tr>
+      <tr><td><code>&lt;del&gt;</code>, <code>&lt;ins&gt;</code></td><td>Testo cancellato e inserito</td><td>Prezzo: <code>&lt;del&gt;30 €&lt;/del&gt;</code> <code>&lt;ins&gt;20 €&lt;/ins&gt;</code></td></tr>
+    </tbody></table></div>
+  <h3>Entità</h3>
+  <p>Alcuni caratteri hanno un significato speciale in HTML e non si possono scrivere direttamente: se si scrive &lt; il browser crede che inizi un tag. Si usano allora le <b>entità</b> (<i>character references</i>), <b>codici che iniziano con &amp; e finiscono con ;</b>.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Entità</th><th>Carattere</th><th>Quando serve</th></tr></thead>
+    <tbody>
+      <tr><td><code>&amp;lt;</code> e <code>&amp;gt;</code></td><td>&lt; e &gt;</td><td>Per mostrare un tag come testo: <code>&amp;lt;</code>p<code>&amp;gt;</code></td></tr>
+      <tr><td><code>&amp;amp;</code></td><td>&amp;</td><td>La “e commerciale” stessa</td></tr>
+      <tr><td><code>&amp;quot;</code></td><td>"</td><td>Virgolette dentro il valore di un attributo</td></tr>
+      <tr><td><code>&amp;nbsp;</code></td><td>spazio indivisibile</td><td>Tiene uniti “10 kg”, “pag. 5”: non si va a capo tra le due parole</td></tr>
+      <tr><td><code>&amp;copy;</code>, <code>&amp;reg;</code>, <code>&amp;trade;</code></td><td>©, ®, ™</td><td>Simboli di diritti e marchi</td></tr>
+      <tr><td><code>&amp;euro;</code></td><td>€</td><td>Simbolo dell’euro (con UTF-8 si può anche scrivere direttamente)</td></tr>
+    </tbody></table></div>
+  <p><b>Con la codifica UTF-8 le lettere accentate e quasi tutti i simboli si scrivono direttamente</b>: le entità servono soprattutto per &lt;, &gt;, &amp; e lo spazio indivisibile.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Uso <code>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</code> per spostare il testo a destra.»</p>
+    <p class="err-si">Lo spazio indivisibile serve a <b>non spezzare</b> due parole a fine riga, non a impaginare. Rientri e spaziature si fanno con il CSS (<code>padding</code>, <code>margin</code>, <code>text-indent</code>).</p></div>
+  <p class="domanda">Perché esistono sia <code>&lt;strong&gt;</code> sia <code>&lt;b&gt;</code>, se tutti e due mettono in grassetto?</p>
+
+  <!-- ===================== 3.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">3.2</span>Elenchi</h2>
+  <p>HTML ha tre tipi di elenco, <b>scelti in base al significato dell’ordine</b>.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Tipo</th><th>Tag</th><th>Quando si usa</th></tr></thead>
+    <tbody>
+      <tr><td>Elenco puntato (non ordinato)</td><td><code>&lt;ul&gt;</code> (<i>unordered list</i>) + <code>&lt;li&gt;</code></td><td>L’ordine delle voci non conta: ingredienti, caratteristiche, menu</td></tr>
+      <tr><td>Elenco numerato (ordinato)</td><td><code>&lt;ol&gt;</code> (<i>ordered list</i>) + <code>&lt;li&gt;</code></td><td>L’ordine conta: passaggi di una ricetta, classifica, istruzioni</td></tr>
+      <tr><td>Elenco di definizioni</td><td><code>&lt;dl&gt;</code> (<i>description list</i>) + <code>&lt;dt&gt;</code> termine + <code>&lt;dd&gt;</code> descrizione</td><td>Glossari, coppie nome–valore (scheda tecnica)</td></tr>
+    </tbody></table></div>
+  <pre class="codice"><code><span class="k">&lt;ol</span><span class="k">&gt;</span>
+<span class="k">&lt;li</span><span class="k">&gt;</span>Cuocere la pasta.<span class="k">&lt;/li</span><span class="k">&gt;</span>
+<span class="k">&lt;li</span><span class="k">&gt;</span>Rosolare il guanciale.<span class="k">&lt;/li</span><span class="k">&gt;</span>
+<span class="k">&lt;li</span><span class="k">&gt;</span>Mescolare uova e pecorino.<span class="k">&lt;/li</span><span class="k">&gt;</span>
+<span class="k">&lt;/ol</span><span class="k">&gt;</span>
+<span class="k">&lt;dl</span><span class="k">&gt;</span>
+<span class="k">&lt;dt</span><span class="k">&gt;</span>HTML<span class="k">&lt;/dt</span><span class="k">&gt;</span>
+<span class="k">&lt;dd</span><span class="k">&gt;</span>Linguaggio di markup per la struttura delle pagine.<span class="k">&lt;/dd</span><span class="k">&gt;</span>
+<span class="k">&lt;dt</span><span class="k">&gt;</span>CSS<span class="k">&lt;/dt</span><span class="k">&gt;</span>
+<span class="k">&lt;dd</span><span class="k">&gt;</span>Linguaggio per l’aspetto delle pagine.<span class="k">&lt;/dd</span><span class="k">&gt;</span>
+<span class="k">&lt;/dl</span><span class="k">&gt;</span></code></pre>
+  <p>Attributi utili di <code>&lt;ol&gt;</code>: <code>start="5"</code> fa iniziare la numerazione da 5, reversed la fa scendere (classifiche dal decimo al primo), <code>type</code> cambia lo stile (a, A, i, I per lettere e numeri romani). <b>Lo stile dei puntini e dei numeri si cambia però di solito con il CSS</b> (<code>list-style</code>).</p>
+  <h3>Elenchi annidati</h3>
+  <p>Un elenco può contenere un altro elenco, <b>ma il sottoelenco va dentro un <code>&lt;li&gt;</code></b>, non direttamente dentro <code>&lt;ul&gt;</code>: <b><code>ul</code> e <code>ol</code> possono avere come figli solo elementi li</b>.</p>
+  <pre class="codice"><code><span class="k">&lt;ul</span><span class="k">&gt;</span>
+<span class="k">&lt;li</span><span class="k">&gt;</span>Frontend
+<span class="k">&lt;ul</span><span class="k">&gt;</span>
+<span class="k">&lt;li</span><span class="k">&gt;</span>HTML<span class="k">&lt;/li</span><span class="k">&gt;</span>
+<span class="k">&lt;li</span><span class="k">&gt;</span>CSS<span class="k">&lt;/li</span><span class="k">&gt;</span>
+<span class="k">&lt;/ul</span><span class="k">&gt;</span>
+<span class="k">&lt;/li</span><span class="k">&gt;</span>
+<span class="k">&lt;li</span><span class="k">&gt;</span>Backend<span class="k">&lt;/li</span><span class="k">&gt;</span>
+<span class="k">&lt;/ul</span><span class="k">&gt;</span></code></pre>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Ho messo il sottoelenco tra un <code>&lt;/li&gt;</code> e il successivo <code>&lt;li&gt;</code>.»</p>
+    <p class="err-si">Dentro <code>ul</code> e <code>ol</code> ci possono essere <b>solo elementi li</b>. Il sottoelenco va <b>dentro</b> la voce a cui appartiene, prima del suo <code>&lt;/li&gt;</code>.</p></div>
+  <p><b>I menu di navigazione sono elenchi</b>: una serie di link è un elenco di voci il cui ordine non conta, e infatti quasi tutti i menu dei siti sono scritti come <code>ul</code> con un li per ogni link e poi trasformati dal CSS in barre orizzontali (7.1).</p>
+  <div class="box lab"><h3><i data-ic="users" class="ic-20"></i> In laboratorio</h3>
+    <p>Nel curriculum aggiungere: le competenze con un <code>ul</code> annidato (Informatica › HTML, CSS, JavaScript; Lingue › Inglese, Francese), la top 5 dei film preferiti con un <code>ol</code> reversed, un piccolo glossario con <code>dl</code>. Con Emmet: <code>ul&gt;li*3&gt;a</code> genera tre voci con un link ciascuna.</p></div>
+
+  <!-- ===================== 3.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">3.3</span>Collegamenti</h2>
+  <p>I <span class="termine">collegamenti</span> (<i>link</i>, o <b>ipertesto</b>) sono l’idea che ha dato il nome all’HTML (<i>HyperText</i>): <b>permettono di saltare da un documento a un altro</b>. Si scrivono con l’elemento <code>&lt;a&gt;</code> (<i>anchor</i>, ancora) e l’attributo <code>href</code> (<i>hypertext reference</i>), che contiene l’indirizzo di destinazione. Il contenuto di a è la parte cliccabile.</p>
+  <pre class="codice"><code><span class="k">&lt;a</span> <span class="a">href</span>=<span class="s">"https://it.wikipedia.org/wiki/World_Wide_Web"</span><span class="k">&gt;</span>La voce di Wikipedia sul Web<span class="k">&lt;/a</span><span class="k">&gt;</span></code></pre>
+  <p><b>Il testo del link deve dire dove porta.</b> “Clicca qui” o “qui” non dicono niente fuori dal contesto: chi usa uno screen reader spesso si fa leggere solo l’elenco dei link della pagina, e anche Google usa quel testo per capire di che cosa parla la pagina di destinazione.</p>
+  <h3>Percorsi assoluti e relativi</h3>
+  <p>Un <span class="termine">percorso assoluto</span> (URL assoluto) <b>contiene l’indirizzo completo</b>, a partire dal protocollo: https://www.scuola.it/<code>corsi/index.html</code>. Si usa <b>per i link verso altri siti</b>.</p>
+  <p>Un <b>percorso relativo indica dove si trova il file a partire dalla posizione della pagina in cui è scritto il link</b>. Si usa <b>per i link tra pagine dello stesso sito</b>: così il sito funziona uguale sul proprio computer e una volta pubblicato, e si può spostare tutta la cartella senza rompere niente.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Percorso</th><th>Significato</th></tr></thead>
+    <tbody>
+      <tr><td><code>contatti.html</code></td><td>Il file nella <b>stessa cartella</b> della pagina corrente</td></tr>
+      <tr><td><code>img/logo.png</code></td><td>Il file dentro la sottocartella <code>img</code></td></tr>
+      <tr><td>../<code>index.html</code></td><td>Il file nella <b>cartella superiore</b> (.. = “sali di un livello”)</td></tr>
+      <tr><td>../../<code>css/style.css</code></td><td>Sali di due livelli, poi entra in css</td></tr>
+      <tr><td><code>/img/logo.png</code></td><td>Con la barra iniziale: a partire dalla <b>radice del sito</b> (funziona solo su un server, non aprendo il file con doppio clic)</td></tr>
+    </tbody></table></div>
+  <figure>
+    <div class="tela passi-anim" id="f-percorso" data-titolo="Come si legge un percorso relativo" data-inizio="A sinistra le cartelle del sito: mio-sito con index.html, la cartella img con logo.png, la cartella ricette con primi.html e dolci.html; il segnaposto è sulla cartella ricette, perché il link è scritto in primi.html.">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Il segnaposto parte dalla cartella ricette, con .. sale in mio-sito, con img/ entra nella cartella img e con logo.png raggiunge il file; senza ../ cerca img dentro ricette, non la trova e l’immagine risulta rotta"></svg>
+      <ol class="passi-testo">
+        <li>Si evidenzia ..: l’omino sale dalla cartella ricette alla cartella mio-sito.</li>
+        <li>Si evidenzia <code>img</code>/: l’omino entra nella cartella <code>img</code>.</li>
+        <li>Si evidenzia <code>logo.png</code>: l’omino raggiunge il file, che si illumina in verde.</li>
+        <li>Errore: si toglie ../ e si legge <code>img/logo.png</code> partendo da ricette; l’omino cerca una cartella <code>img</code> dentro ricette, non la trova, e compare l’icona dell’immagine rotta.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Ho scritto il link C:\Users\Marco\Desktop\sito\<code>foto.jpg</code> e sul mio computer funziona.»</p>
+    <p class="err-si">È un percorso che esiste <b>solo sul computer di Marco</b>: online, o sul computer del professore, quel file non c’è. Nei siti si usano <b>percorsi relativi</b> alla pagina, con le barre normali /.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il link ../<code>index.html</code> non funziona, eppure il file c’è.»</p>
+    <p class="err-si">Il percorso relativo si calcola <b>a partire dalla cartella della pagina che contiene il link</b>, non dalla cartella principale del sito. Se la pagina è già nella cartella principale, ../ esce dal sito.</p></div>
+  <h3>Ancore: link a un punto della pagina</h3>
+  <p>Se <code>href</code> contiene # seguito da un <b><code>id</code></b>, il link porta <b>al punto della pagina con quell’<code>id</code></b>. Così si fanno gli indici in cima alle pagine lunghe e i pulsanti “torna su”. Si può anche andare a un punto di un’altra pagina: <code>regolamento.html</code>#orari.</p>
+  <pre class="codice"><code><span class="k">&lt;a</span> <span class="a">href</span>=<span class="s">"#ingredienti"</span><span class="k">&gt;</span>Vai agli ingredienti<span class="k">&lt;/a</span><span class="k">&gt;</span>
+…
+<span class="k">&lt;h2</span> <span class="a">id</span>=<span class="s">"ingredienti"</span><span class="k">&gt;</span>Ingredienti<span class="k">&lt;/h2</span><span class="k">&gt;</span>
+…
+<span class="k">&lt;a</span> <span class="a">href</span>=<span class="s">"#"</span><span class="k">&gt;</span>Torna su<span class="k">&lt;/a</span><span class="k">&gt;</span></code></pre>
+  <h3>Altri attributi e link speciali</h3>
+  <div class="tab"><table>
+    <thead><tr><th>Codice</th><th>Che cosa fa</th></tr></thead>
+    <tbody>
+      <tr><td><code>target="_blank"</code></td><td>Apre il link in una <b>nuova scheda</b>. Va usato con misura: per l’utente è più prevedibile restare nella stessa scheda. I browser moderni aggiungono automaticamente la protezione <code>rel="noopener"</code>, che impedisce alla nuova pagina di controllare quella di partenza.</td></tr>
+      <tr><td><code>href="mailto:segreteria@scuola.it"</code></td><td>Apre il programma di posta con il destinatario già scritto</td></tr>
+      <tr><td><code>href="tel:+390612345678"</code></td><td>Sul telefono avvia la chiamata</td></tr>
+      <tr><td>download</td><td>Scarica il file invece di aprirlo: <code>&lt;a href="programma.pdf" download&gt;</code></td></tr>
+    </tbody></table></div>
+  <p><b>Un link porta da qualche parte; un pulsante fa qualcosa.</b> Per un’azione nella stessa pagina (aprire un menu, inviare un modulo, cambiare tema) si usa <code>&lt;button&gt;</code>, non un <code>&lt;a href="#"&gt;</code>: è più corretto e funziona meglio con tastiera e screen reader.</p>
+  <p class="domanda">Che differenza c’è tra <code>href="contatti.html"</code> e <code>href="https://www.miosito.it/contatti.html"</code>? Quale conviene usare tra le pagine del vostro sito?</p>
+
+  <!-- ===================== 3.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">3.4</span>Immagini</h2>
+  <p>Le immagini si inseriscono con l’elemento vuoto <code>&lt;img&gt;</code>. <b>L’immagine non sta dentro il file HTML: è un file separato che il browser chiede al server</b> (1.2). Il tag dice soltanto dove trovarla e come descriverla.</p>
+  <pre class="codice"><code><span class="k">&lt;img</span> <span class="a">src</span>=<span class="s">"img/tiramisu.jpg"</span> <span class="a">alt</span>=<span class="s">"Fetta di tiramisù con cacao in polvere su un piattino bianco"</span> <span class="a">width</span>=<span class="s">"800"</span> <span class="a">height</span>=<span class="s">"600"</span><span class="k">&gt;</span></code></pre>
+  <div class="tab"><table>
+    <thead><tr><th>Attributo</th><th>A che cosa serve</th></tr></thead>
+    <tbody>
+      <tr><td><code>src</code></td><td>Il percorso del file dell’immagine (<i>source</i>); vale tutto quello che si è detto sui percorsi relativi</td></tr>
+      <tr><td><code>alt</code></td><td><b>Il testo alternativo</b>: descrive l’immagine a chi non la può vedere e se non viene caricata</td></tr>
+      <tr><td><code>width</code>, <code>height</code></td><td>Le dimensioni originali in pixel, <b>senza unità</b>. Servono al browser per <b>riservare lo spazio</b> prima che l’immagine arrivi, così il testo non “salta” quando l’immagine compare. Le dimensioni visualizzate si decidono poi con il CSS.</td></tr>
+      <tr><td><code>loading="lazy"</code></td><td>Carica l’immagine <b>solo quando l’utente sta per arrivarci scorrendo</b>: le pagine lunghe diventano più leggere</td></tr>
+    </tbody></table></div>
+  <h3>Il testo alternativo</h3>
+  <p>L’attributo <b><code>alt</code> è obbligatorio</b>. Viene <b>letto dagli screen reader</b> alle persone cieche, <b>mostrato al posto dell’immagine</b> se questa non si carica e <b>usato dai motori di ricerca</b> per capire che cosa rappresenta. Un buon <code>alt</code> <b>descrive ciò che l’immagine comunica nel contesto</b>, in poche parole, senza iniziare con “immagine di”.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Situazione</th><th><code>alt</code> sbagliato</th><th><code>alt</code> corretto</th></tr></thead>
+    <tbody>
+      <tr><td>Foto in un articolo</td><td><code>alt="foto1.jpg"</code> oppure <code>alt="immagine"</code></td><td><code>alt="Studenti in laboratorio davanti ai computer"</code></td></tr>
+      <tr><td>Logo che porta alla home</td><td><code>alt="logo"</code></td><td><code>alt="Liceo Spinelli, home page"</code></td></tr>
+      <tr><td>Icona di un pulsante senza testo</td><td>nessun <code>alt</code></td><td><code>alt="Cerca"</code> (dice la funzione, non “lente”)</td></tr>
+      <tr><td>Immagine solo decorativa</td><td><code>alt="decorazione con fiori"</code></td><td><code>alt=""</code> (vuoto: lo screen reader la salta)</td></tr>
+    </tbody></table></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«L’<code>alt</code> lo lascio vuoto, tanto l’immagine si vede.»</p>
+    <p class="err-si">Non si vede per <b>chi è cieco</b>, per chi ha una connessione lenta o se il percorso è sbagliato. Un <code>alt</code> mancante viene letto dagli screen reader con il nome del file (“d-s-c-zero-zero-quattro-due punto jpg”). <b>L’<code>alt</code> vuoto <code>alt=""</code> si usa solo per le immagini decorative</b>.</p></div>
+  <h3>I formati delle immagini</h3>
+  <p>Ogni formato <b>comprime</b> l’immagine in modo diverso. La <b>compressione con perdita</b> (<i>lossy</i>) butta via dettagli che l’occhio nota poco, ottenendo file molto più piccoli; la <b>compressione senza perdita</b> (<i>lossless</i>) conserva ogni pixel. Le immagini <b>raster</b> sono griglie di pixel; le immagini <b>vettoriali</b> sono descritte da forme geometriche e si possono ingrandire all’infinito senza sgranare.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Formato</th><th>Tipo</th><th>Trasparenza</th><th>Quando usarlo</th></tr></thead>
+    <tbody>
+      <tr><td><b>JPEG</b> (.jpg)</td><td>Raster, con perdita</td><td>No</td><td>Fotografie</td></tr>
+      <tr><td><b>PNG</b></td><td>Raster, senza perdita</td><td>Sì</td><td>Grafiche con testo, contorni netti, schermate, loghi raster</td></tr>
+      <tr><td><b>GIF</b></td><td>Raster, <code>max</code> 256 colori</td><td>Sì (solo on/off)</td><td>Piccole animazioni (oggi spesso meglio un video)</td></tr>
+      <tr><td><b>SVG</b></td><td>Vettoriale (è un testo XML)</td><td>Sì</td><td>Loghi, icone, grafici, illustrazioni piatte</td></tr>
+      <tr><td><b>WebP</b></td><td>Raster, con o senza perdita</td><td>Sì</td><td>Come JPEG e PNG ma più leggero (circa 25–35% in meno)</td></tr>
+      <tr><td><b>AVIF</b></td><td>Raster, con o senza perdita</td><td>Sì</td><td>Il più efficiente, supportato dai browser recenti</td></tr>
+    </tbody></table></div>
+  <figure class="foto-grande"><a class="fonte" href="assets/immagini/jpeg-contro-png.png" target="_blank" rel="noopener"><img src="assets/immagini/jpeg-contro-png.png" alt="Lo stesso logo con testo ingrandito al 400%, in JPEG di bassa qualità con aloni e quadratini e in PNG con bordi netti" referrerpolicy="no-referrer"></a><figcaption>Lo stesso logo con testo, ingrandito al 400%: a sinistra in JPEG di bassa qualità, con aloni e quadratini intorno alle lettere; a destra in PNG, con i bordi netti. Osservare i contorni delle lettere.</figcaption></figure>
+  <h3>Peso e ottimizzazione</h3>
+  <p>Le immagini sono <b>la parte più pesante della maggior parte delle pagine</b>. Una foto presa dal telefono è larga circa 4000 pixel e pesa 3–5 MB; in una pagina viene mostrata larga al massimo 1000–1500 pixel. <b>Ridurre le dimensioni in pixel alla misura in cui l’immagine verrà mostrata e scegliere un formato compresso</b> può portare quella foto a 150–300 KB, venti volte meno, senza differenze visibili.</p>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p><b>Esempio svolto.</b> Una galleria di 20 foto da 4 MB pesa 80 MB: con una connessione mobile da 20 Mbps (circa 2,5 MB/s) servono più di 30 secondi solo per le immagini, e si consuma il traffico dati dell’utente. Ridimensionate a 1200 pixel e salvate in WebP a circa 200 KB, le stesse foto pesano 4 MB in tutto: meno di 2 secondi.</p></div>
+  <h3>figure e figcaption</h3>
+  <p>Quando un’immagine ha una <b>didascalia</b>, si racchiudono immagine e didascalia in <code>&lt;figure&gt;</code>, e la didascalia va in <code>&lt;figcaption&gt;</code>: <b>così il browser e gli screen reader sanno che quella didascalia si riferisce a quell’immagine</b>. figure si usa anche per grafici, schemi, porzioni di codice.</p>
+  <pre class="codice"><code><span class="k">&lt;figure</span><span class="k">&gt;</span>
+<span class="k">&lt;img</span> <span class="a">src</span>=<span class="s">"img/server-cern.jpg"</span> <span class="a">alt</span>=<span class="s">"Computer NeXT con un’etichetta scritta a mano sul case"</span><span class="k">&gt;</span>
+<span class="k">&lt;figcaption</span><span class="k">&gt;</span>Il primo web server della storia, al CERN (1990).<span class="k">&lt;/figcaption</span><span class="k">&gt;</span>
+<span class="k">&lt;/figure</span><span class="k">&gt;</span></code></pre>
+  <p><code>alt</code> e didascalia hanno compiti diversi: <b><code>alt</code> sostituisce l’immagine</b> per chi non la vede, <b>la didascalia la commenta</b> per tutti.</p>
+  <h3>La favicon</h3>
+  <p>La <span class="termine">favicon</span> è <b>l’iconcina che compare nella scheda del browser e nei preferiti</b>. Si collega nel <code>head</code>: <code>&lt;link rel="icon" href="img/favicon.svg"&gt;</code>. Può essere un file .ico, .png (32×32 pixel) o .svg.</p>
+
+  <!-- ===================== 3.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">3.5</span>Tabelle</h2>
+  <p>Una <b>tabella</b> organizza <b>dati in righe e colonne</b>, quando ogni dato ha senso solo incrociando la sua riga con la sua colonna: un orario, una classifica, i risultati di un esperimento. <b>In HTML la tabella si costruisce riga per riga</b>: <code>&lt;table&gt;</code> contiene le righe <code>&lt;tr&gt;</code> (<i><code>table</code> row</i>), e ogni riga contiene le celle <code>&lt;td&gt;</code> (<i><code>table</code> data</i>) o le celle di intestazione <code>&lt;th&gt;</code> (<i><code>table</code> <code>header</code></i>).</p>
+  <pre class="codice"><code><span class="k">&lt;table</span><span class="k">&gt;</span>
+<span class="k">&lt;caption</span><span class="k">&gt;</span>Orario del lunedì<span class="k">&lt;/caption</span><span class="k">&gt;</span>
+<span class="k">&lt;thead</span><span class="k">&gt;</span>
+<span class="k">&lt;tr</span><span class="k">&gt;</span>
+<span class="k">&lt;th</span> <span class="a">scope</span>=<span class="s">"col"</span><span class="k">&gt;</span>Ora<span class="k">&lt;/th</span><span class="k">&gt;</span>
+<span class="k">&lt;th</span> <span class="a">scope</span>=<span class="s">"col"</span><span class="k">&gt;</span>Materia<span class="k">&lt;/th</span><span class="k">&gt;</span>
+<span class="k">&lt;th</span> <span class="a">scope</span>=<span class="s">"col"</span><span class="k">&gt;</span>Aula<span class="k">&lt;/th</span><span class="k">&gt;</span>
+<span class="k">&lt;/tr</span><span class="k">&gt;</span>
+<span class="k">&lt;/thead</span><span class="k">&gt;</span>
+<span class="k">&lt;tbody</span><span class="k">&gt;</span>
+<span class="k">&lt;tr</span><span class="k">&gt;</span>
+<span class="k">&lt;th</span> <span class="a">scope</span>=<span class="s">"row"</span><span class="k">&gt;</span>8:00<span class="k">&lt;/th</span><span class="k">&gt;</span>
+<span class="k">&lt;td</span><span class="k">&gt;</span>Informatica<span class="k">&lt;/td</span><span class="k">&gt;</span>
+<span class="k">&lt;td</span><span class="k">&gt;</span>Lab 2<span class="k">&lt;/td</span><span class="k">&gt;</span>
+<span class="k">&lt;/tr</span><span class="k">&gt;</span>
+<span class="k">&lt;tr</span><span class="k">&gt;</span>
+<span class="k">&lt;th</span> <span class="a">scope</span>=<span class="s">"row"</span><span class="k">&gt;</span>9:00<span class="k">&lt;/th</span><span class="k">&gt;</span>
+<span class="k">&lt;td</span><span class="k">&gt;</span>Matematica<span class="k">&lt;/td</span><span class="k">&gt;</span>
+<span class="k">&lt;td</span><span class="k">&gt;</span>4B<span class="k">&lt;/td</span><span class="k">&gt;</span>
+<span class="k">&lt;/tr</span><span class="k">&gt;</span>
+<span class="k">&lt;/tbody</span><span class="k">&gt;</span>
+<span class="k">&lt;/table</span><span class="k">&gt;</span></code></pre>
+  <p>Nel browser si vede una griglia di tre colonne con le intestazioni in grassetto e centrate; <b>senza CSS la tabella non ha bordi</b>: le linee si aggiungono nel foglio di stile (7.5).</p>
+  <div class="tab"><table>
+    <thead><tr><th>Elemento</th><th>Ruolo</th></tr></thead>
+    <tbody>
+      <tr><td><code>&lt;caption&gt;</code></td><td>Il <b>titolo della tabella</b>: va subito dopo <code>&lt;table&gt;</code>; gli screen reader lo leggono per primo</td></tr>
+      <tr><td><code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code></td><td><b>Raggruppano le righe</b> di intestazione, di corpo e di piede (totali). Nelle tabelle lunghe stampate, l’intestazione si ripete su ogni pagina</td></tr>
+      <tr><td><code>&lt;th&gt;</code></td><td>Cella di <b>intestazione</b> di una colonna o di una riga</td></tr>
+    </tbody></table></div>
+  <h3>Celle unite: <code>colspan</code> e <code>rowspan</code></h3>
+  <p><code>colspan="2"</code> fa <b>occupare a una cella due colonne</b>, <code>rowspan="2"</code> <b>due righe</b>. <b>Le celle “coperte” da una cella unita non si scrivono</b>: se in una riga una cella ha <code>colspan="2"</code>, quella riga avrà una cella in meno nel codice.</p>
+  <pre class="codice"><code><span class="k">&lt;table</span><span class="k">&gt;</span>
+<span class="k">&lt;tr</span><span class="k">&gt;</span><span class="k">&lt;th</span><span class="k">&gt;</span>Giorno<span class="k">&lt;/th</span><span class="k">&gt;</span><span class="k">&lt;th</span><span class="k">&gt;</span>Mattina<span class="k">&lt;/th</span><span class="k">&gt;</span><span class="k">&lt;th</span><span class="k">&gt;</span>Pomeriggio<span class="k">&lt;/th</span><span class="k">&gt;</span><span class="k">&lt;/tr</span><span class="k">&gt;</span>
+<span class="k">&lt;tr</span><span class="k">&gt;</span><span class="k">&lt;td</span><span class="k">&gt;</span>Lunedì<span class="k">&lt;/td</span><span class="k">&gt;</span><span class="k">&lt;td</span> <span class="a">colspan</span>=<span class="s">"2"</span><span class="k">&gt;</span>Gita a Firenze (tutto il giorno)<span class="k">&lt;/td</span><span class="k">&gt;</span><span class="k">&lt;/tr</span><span class="k">&gt;</span>
+<span class="k">&lt;tr</span><span class="k">&gt;</span><span class="k">&lt;td</span> <span class="a">rowspan</span>=<span class="s">"2"</span><span class="k">&gt;</span>Martedì e mercoledì<span class="k">&lt;/td</span><span class="k">&gt;</span><span class="k">&lt;td</span><span class="k">&gt;</span>Lezione<span class="k">&lt;/td</span><span class="k">&gt;</span><span class="k">&lt;td</span><span class="k">&gt;</span>Laboratorio<span class="k">&lt;/td</span><span class="k">&gt;</span><span class="k">&lt;/tr</span><span class="k">&gt;</span>
+<span class="k">&lt;tr</span><span class="k">&gt;</span><span class="k">&lt;td</span><span class="k">&gt;</span>Lezione<span class="k">&lt;/td</span><span class="k">&gt;</span><span class="k">&lt;td</span><span class="k">&gt;</span>Libero<span class="k">&lt;/td</span><span class="k">&gt;</span><span class="k">&lt;/tr</span><span class="k">&gt;</span>
+<span class="k">&lt;/table</span><span class="k">&gt;</span></code></pre>
+  <figure>
+    <div class="tela schema" id="s-celleunite"><p class="passi-titolo">Celle unite: colspan e rowspan</p>
+      <svg viewBox="0 0 720 246" role="img" aria-label="Una tabella su una griglia di tre colonne e quattro righe: la cella «Gita a Firenze» copre due colonne e la cella «Martedì e mercoledì» due righe; i quadretti coperti non si scrivono"></svg>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Ho messo <code>colspan="2"</code> ma la riga ha una cella in più che sporge a destra.»</p>
+    <p class="err-si">Una cella che occupa due colonne <b>sostituisce due celle</b>: nella riga se ne deve scrivere una in meno. Conviene disegnare la griglia su carta e contare le celle riga per riga.</p></div>
+  <h3>Le tabelle non servono per impaginare</h3>
+  <p>Negli anni Novanta, prima del CSS moderno, <b>le tabelle si usavano per costruire l’impaginazione</b> (colonne laterali, intestazioni). <b>Oggi è un errore</b>: il codice diventa enorme e difficile da modificare, lo screen reader legge la pagina come se fosse una griglia di dati, e soprattutto <b>una tabella non si adatta allo schermo del telefono</b>. L’impaginazione si fa con Flexbox e Grid (7.1–7.2).</p>
+  <div class="box storia"><h3><i data-ic="history" class="ic-20"></i> Nella storia</h3>
+    <p>Il sito del film <i>Space Jam</i>, pubblicato nel 1996, è rimasto online quasi identico per oltre vent’anni ed è diventato un “museo” del Web di allora: impaginazione fatta con tabelle, immagini GIF e sfondo stellato. Aprirlo con F12 mostra quanto fosse diverso il modo di costruire le pagine.</p></div>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>I titoli <code>h1–h6</code> descrivono la struttura come un indice (un solo <code>h1</code>, nessun livello saltato); il browser riduce gli spazi a uno; <code>strong</code> ed <code>em</code> danno significato, b e i solo aspetto; i caratteri speciali si scrivono con le entità.</li>
+      <li><code>ul</code> si usa quando l’ordine non conta, <code>ol</code> quando conta, <code>dl</code> per termini e definizioni; <code>ul</code> e <code>ol</code> contengono solo li, e i sottoelenchi vanno dentro un li.</li>
+      <li>Il link si scrive con a e <code>href</code>; tra pagine dello stesso sito si usano percorsi relativi alla pagina che contiene il link (../ sale di una cartella); #id porta a un punto della pagina; il testo del link dice dove porta.</li>
+      <li>Ogni immagine ha <code>src</code>, un <code>alt</code> che ne descrive il significato (vuoto solo se decorativa) e <code>width</code>/height; JPEG per le foto, PNG per grafiche nitide, SVG per loghi e icone, WebP e AVIF per alleggerire; le immagini vanno ridimensionate prima di essere pubblicate.</li>
+      <li>Le tabelle servono per i dati, mai per impaginare: si costruiscono riga per riga con tr, <code>td</code> e <code>th</code>, <code>caption</code>, <code>thead</code>, <code>tbody</code>, <code>tfoot</code>; <code>colspan</code> e <code>rowspan</code> uniscono le celle.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/kit.js"></script>
+<script src="assets/capitolo-02.js"></script>
+<script src="assets/capitolo-03-aula.js"></script>
+</body>
+</html>

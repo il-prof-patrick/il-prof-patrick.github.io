@@ -169,7 +169,7 @@
     var vecchie = [];
     function mostra(dietro, senzaMoto) {
       var s = S[i], sec = document.createElement('section');
-      sec.className = 'pl pl-t-' + s.tipo + (senzaMoto ? '' : (dietro ? ' ind' : ' av'));
+      sec.className = 'pl pl-t-' + s.tipo + (s.ruolo ? ' pl-r-' + s.ruolo : '') + (senzaMoto ? '' : (dietro ? ' ind' : ' av'));
       sec.innerHTML = R[s.tipo](s) + (s.tipo === 'copertina' ? '' :
         '<footer class="pl-piede"><span>' + md(etichetta(s)) + '</span><span class="pl-pag">' + (i + 1) + ' / ' + S.length + '</span></footer>');
       // la slide che esce resta sotto finché la nuova non è arrivata

@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2. La logica proposizionale · Logica e IA simbolica</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="2">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Logica e IA simbolica · Capitolo 02</span></div>
+  <h1>La logica proposizionale</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 2.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">2.1</span>Le proposizioni e i principi della logica classica</h2>
+  <p>Nella base di conoscenza della casa smart ci sono frasi come «è sera», «fuori è buio», «Marco è in casa». Hanno una cosa in comune: in ogni momento <b>sono vere oppure false</b>. Sono i mattoni della logica.</p>
+  <p>Una <span class="termine">proposizione</span> è <b>una frase dichiarativa, cioè che afferma qualcosa, a cui si può attribuire uno e un solo valore di verità: vero (V) oppure falso (F)</b>.</p>
+  <p class="domanda">“7 è un numero pari” è una proposizione?</p>
+  <p><b>Una proposizione può benissimo essere falsa</b>: «7 è un numero pari» è una proposizione falsa. Non sono proposizioni, invece:</p>
+  <ul>
+    <li>le <b>domande</b> («Che ore sono?») e gli <b>ordini</b> («Chiudi la porta!»): non affermano niente, quindi non sono né vere né false;</li>
+    <li>i <b>giudizi personali</b> («La pizza è il cibo più buono»): il loro valore cambia da persona a persona;</li>
+    <li>le <b>frasi paradossali</b> che parlano di sé stesse («Questa frase è falsa»): vedi il riquadro sui paradossi.</li>
+  </ul>
+  <figure>
+    <div class="tela" data-widget="proposizione"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«“La pizza è il cibo più buono” è una proposizione: per me è vera.»</p>
+    <p class="err-si">Non è una proposizione: è un <b>giudizio personale</b>. Per qualcuno è vera, per qualcun altro falsa: non ha un valore di verità uguale per tutti.</p></div>
+  <p>La logica di questo modulo si chiama <b>logica classica</b> e si basa su tre principi, che dicono con precisione che cosa significa «o vera o falsa»:</p>
+  <ul>
+    <li><b>principio di bivalenza</b>: i valori di verità sono <b>solo due</b>, vero e falso;</li>
+    <li><b>principio di non contraddizione</b>: una proposizione <b>non può essere vera e falsa nello stesso momento</b>;</li>
+    <li><b>principio del terzo escluso</b>: una proposizione <b>è vera oppure falsa</b>, non esiste una terza possibilità (in latino <i>tertium non datur</i>, «un terzo non è dato»).</li>
+  </ul>
+  <p>Due soli valori sono esattamente ciò che un computer sa gestire: <b>vero e falso corrispondono ai due stati di un bit, 1 e 0</b>. Nella programmazione si chiamano valori <b>booleani</b>, dal nome del matematico George Boole, e il tipo di dato che li contiene è il tipo <b>booleano</b>: in Flowgorithm una variabile di tipo <i>Boolean</i> vale <code>true</code> oppure <code>false</code>. <b>Ogni condizione di un blocco «Se» è una proposizione</b>: «voto ≥ 6» è vera o falsa, e a seconda del valore il programma prende un ramo o l’altro.</p>
+  <div class="box storia"><figure class="foto-lato testa dx"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:George_Boole_color.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/George_Boole_color.jpg" alt="George Boole" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">George Boole</figcaption></figure><h3><i data-ic="history" class="ic-20"></i> Nella storia · George Boole e l’algebra del pensiero</h3>
+    <p>George Boole (1815–1864), figlio di un calzolaio inglese, studiò quasi da solo e diventò professore di matematica a Cork, in Irlanda. Nel 1854 pubblicò <i>Le leggi del pensiero</i> (<i>An Investigation of the Laws of Thought</i>), in cui <b>il ragionamento diventa un calcolo con due soli valori, 1 e 0</b>: è l’<b>algebra di Boole</b>. Da lui prendono il nome i valori e il tipo <b>booleani</b>.</p></div>
+  <div class="box storia"><figure class="foto-lato testa dx"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Bertrand_Russell_in_1936.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Bertrand_Russell_in_1936.jpg" alt="Bertrand Russell" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Bertrand Russell</figcaption></figure><h3><i data-ic="history" class="ic-20"></i> Nella storia · I paradossi: frasi che non possono essere né vere né false</h3>
+    <p>Già nel IV secolo a.C. il filosofo greco Eubulide di Mileto proponeva il <b>paradosso del mentitore</b>: un uomo dice «Io sto mentendo». Se la frase è vera, allora sta mentendo, quindi è falsa; se è falsa, allora non sta mentendo, quindi è vera. Non può avere nessuno dei due valori: <b>non è una proposizione</b>. Nel 1918 il filosofo e matematico inglese <b>Bertrand Russell</b> (1872–1970) raccontò un paradosso simile con la storia del <b>barbiere</b>: in un villaggio il barbiere rade tutti e soli gli uomini che non si radono da soli. Chi rade il barbiere? Se si rade da solo, non dovrebbe farlo; se non si rade, dovrebbe radersi. Conclusione: <b>un barbiere così non può esistere</b>. Russell usava questa storia per spiegare un paradosso che aveva scoperto nel 1901 nella teoria degli insiemi e che mise in crisi le basi della matematica.</p></div>
+
+  <!-- ===================== 2.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">2.2</span>Proposizioni atomiche e composte</h2>
+  <p>«Se piove e non ho l’ombrello, mi bagno» è una proposizione, ma dentro ne contiene altre più piccole: «piove», «ho l’ombrello», «mi bagno».</p>
+  <p>Una proposizione è <b>atomica</b> se <b>non si può scomporre in proposizioni più semplici</b> («piove»). È <b>composta</b> se è <b>formata da proposizioni più semplici unite da parole come «non», «e», «o», «se… allora»</b>, che si chiamano <b>connettivi</b>. Anche «non piove» è composta: è «piove» con davanti il connettivo «non».</p>
+  <p>Il punto importante è che <b>il valore di verità di una proposizione composta dipende solo dai valori delle proposizioni atomiche e dai connettivi che le uniscono</b>. Se so se piove e se ho l’ombrello, so anche se mi bagno secondo la regola: non serve sapere altro.</p>
+  <p>Per non riscrivere ogni volta le frasi, le proposizioni atomiche si indicano con lettere minuscole: p = «piove», q = «ho l’ombrello», r = «mi bagno». Queste lettere si chiamano <b>variabili proposizionali</b>: come la x in algebra sta al posto di un numero qualsiasi, <b>una variabile proposizionale sta al posto di una proposizione qualsiasi</b>. La frase diventa: «se p e non q, allora r».</p>
+  <figure>
+    <div class="tela schema" id="s-smonta"><p class="passi-titolo">Smontare una frase</p>
+      <svg viewBox="0 0 720 250" role="img" aria-label="La frase «Se piove e non ho l’ombrello, mi bagno»: i connettivi se-allora, e, non in ambra; le proposizioni atomiche piove, ho l’ombrello, mi bagno in verde, con le lettere p, q, r. Sotto: se p e non q, allora r."></svg>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«“Marco e Luca sono fratelli” è una proposizione composta, perché c’è la “e”.»</p>
+    <p class="err-si">È <b>atomica</b>: qui «e» indica una <b>relazione</b> tra due persone, non unisce due proposizioni. Prova a dividerla: «Marco è fratello» da sola non ha senso. Invece «Marco e Luca sono alti» è composta: «Marco è alto» <b>e</b> «Luca è alto».</p></div>
+
+  <!-- ===================== 2.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">2.3</span>I connettivi NOT, AND, OR e XOR</h2>
+  <p>Le regole che incontriamo ogni giorno sono proposizioni composte, e spesso basta una parola a cambiarne il significato:</p>
+  <ul>
+    <li>«Puoi uscire prima se hai l’autorizzazione dei genitori <b>e</b> il permesso della presidenza»;</li>
+    <li>«Sconto per chi ha meno di 18 anni <b>o</b> è studente»;</li>
+    <li>«Il menù comprende primo <b>o</b> secondo».</li>
+  </ul>
+  <p>Ogni connettivo è definito dalla sua <b>tavola di verità</b>: una tabella che, per ogni combinazione dei valori delle proposizioni di partenza, dice il valore della proposizione composta. Un connettivo è <b>unario</b> se agisce su una sola proposizione, <b>binario</b> se ne unisce due (il numero di proposizioni su cui agisce si chiama <b>arietà</b>).</p>
+  <figure>
+    <div class="tela" data-widget="interruttori"></div>
+  </figure>
+  <h3>NOT – negazione</h3>
+  <div class="tab"><table>
+    <thead><tr><th>Nome</th><th>Simboli</th><th>Arietà</th></tr></thead>
+    <tbody>
+      <tr><td>negazione, «non»</td><td>¬p · ~p · p̄ · NOT p · in Flowgorithm <code>not p</code> o <code>!p</code></td><td>unario</td></tr>
+    </tbody></table></div>
+  <p><b>La negazione rovescia il valore di verità</b>: se p è vera, ¬p è falsa, e viceversa.</p>
+  <div class="tab verita"><table>
+    <thead><tr><th>p</th><th>¬p</th></tr></thead>
+    <tbody>
+      <tr><td><span class="ff">F</span></td><td><span class="vv">V</span></td></tr>
+      <tr><td><span class="vv">V</span></td><td><span class="ff">F</span></td></tr>
+    </tbody></table></div>
+  <p>Esempi: «Non piove» (¬p, con p = «piove»); «Marco non è in casa»; «Non è vero che 7 è pari» (vera, perché «7 è pari» è falsa).</p>
+  <h3>AND – congiunzione</h3>
+  <div class="tab"><table>
+    <thead><tr><th>Nome</th><th>Simboli</th><th>Arietà</th></tr></thead>
+    <tbody>
+      <tr><td>congiunzione, «e»</td><td>p ∧ q · p · q · p &amp; q · p AND q · in Flowgorithm <code>p and q</code> o <code>p &amp;&amp; q</code></td><td>binario</td></tr>
+    </tbody></table></div>
+  <p><b>La congiunzione è vera solo quando sono vere entrambe le proposizioni</b>; basta che una sia falsa perché sia falsa.</p>
+  <div class="tab verita"><table>
+    <thead><tr><th>p</th><th>q</th><th>p ∧ q</th></tr></thead>
+    <tbody>
+      <tr><td><span class="ff">F</span></td><td><span class="ff">F</span></td><td><span class="ff">F</span></td></tr>
+      <tr><td><span class="ff">F</span></td><td><span class="vv">V</span></td><td><span class="ff">F</span></td></tr>
+      <tr><td><span class="vv">V</span></td><td><span class="ff">F</span></td><td><span class="ff">F</span></td></tr>
+      <tr><td><span class="vv">V</span></td><td><span class="vv">V</span></td><td><span class="vv">V</span></td></tr>
+    </tbody></table></div>
+  <p>Esempi: «È sera e fuori è buio»; «Puoi uscire prima se hai l’autorizzazione dei genitori e il permesso della presidenza» (non ne basta una). Anche <b>«ma», «però», «anche se», «eppure» sono congiunzioni</b>: «È bravo ma pigro» afferma che è bravo <b>e</b> che è pigro; la sfumatura di contrasto, in logica, si perde.</p>
+  <p class="domanda">“Sconto per chi ha meno di 18 anni o è studente” e “il menù comprende primo o secondo”: in tutti e due i casi posso avere entrambe le cose?</p>
+  <h3>OR – disgiunzione inclusiva</h3>
+  <div class="tab"><table>
+    <thead><tr><th>Nome</th><th>Simboli</th><th>Arietà</th></tr></thead>
+    <tbody>
+      <tr><td>disgiunzione inclusiva, «o», latino <i>vel</i></td><td>p ∨ q · p + q · p OR q · in Flowgorithm <code>p or q</code> o <code>p || q</code></td><td>binario</td></tr>
+    </tbody></table></div>
+  <p><b>La disgiunzione inclusiva è vera quando è vera almeno una delle due proposizioni, anche entrambe</b>; è falsa solo se sono false tutte e due.</p>
+  <div class="tab verita"><table>
+    <thead><tr><th>p</th><th>q</th><th>p ∨ q</th></tr></thead>
+    <tbody>
+      <tr><td><span class="ff">F</span></td><td><span class="ff">F</span></td><td><span class="ff">F</span></td></tr>
+      <tr><td><span class="ff">F</span></td><td><span class="vv">V</span></td><td><span class="vv">V</span></td></tr>
+      <tr><td><span class="vv">V</span></td><td><span class="ff">F</span></td><td><span class="vv">V</span></td></tr>
+      <tr><td><span class="vv">V</span></td><td><span class="vv">V</span></td><td><span class="vv">V</span></td></tr>
+    </tbody></table></div>
+  <p>Esempi: «Sconto per chi ha meno di 18 anni o è studente»; «Per entrare serve la tessera o un documento» (se li hai entrambi, entri lo stesso).</p>
+  <h3>XOR – disgiunzione esclusiva</h3>
+  <div class="tab"><table>
+    <thead><tr><th>Nome</th><th>Simboli</th><th>Arietà</th></tr></thead>
+    <tbody>
+      <tr><td>disgiunzione esclusiva, «o… o…», latino <i>aut aut</i></td><td>p ⊕ q · p ⊻ q · p XOR q · in Flowgorithm non c’è un operatore apposito: si scrive <code>p != q</code></td><td>binario</td></tr>
+    </tbody></table></div>
+  <p><b>La disgiunzione esclusiva è vera quando è vera una sola delle due proposizioni</b>: è falsa se sono entrambe vere o entrambe false. Rispetto all’OR cambia solo l’ultima riga.</p>
+  <div class="tab verita"><table>
+    <thead><tr><th>p</th><th>q</th><th>p ⊕ q</th></tr></thead>
+    <tbody>
+      <tr><td><span class="ff">F</span></td><td><span class="ff">F</span></td><td><span class="ff">F</span></td></tr>
+      <tr><td><span class="ff">F</span></td><td><span class="vv">V</span></td><td><span class="vv">V</span></td></tr>
+      <tr><td><span class="vv">V</span></td><td><span class="ff">F</span></td><td><span class="vv">V</span></td></tr>
+      <tr><td><span class="vv">V</span></td><td><span class="vv">V</span></td><td><span class="ff">F</span></td></tr>
+    </tbody></table></div>
+  <p>Esempi: «Il menù comprende primo o secondo»; «O vieni con noi o resti a casa»; «Testa o croce». È la risposta all’ambiguità del capitolo 1, «domani c’è la verifica <b>o</b> l’interrogazione»: se possono esserci entrambe è un OR, se ce n’è una sola è uno XOR. In italiano, quando si vuole l’esclusiva, si dice «o… o…» oppure «oppure… ma non entrambi».</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«“Sconto per chi ha meno di 18 anni o è studente”: se ho 16 anni e sono studente lo sconto non vale, perché la “o” vuol dire una sola delle due.»</p>
+    <p class="err-si">In logica <b>«o» è inclusiva</b>, salvo che si dica esplicitamente il contrario: la proposizione è vera anche quando sono vere entrambe. Lo sconto vale.</p></div>
+  <h3>I connettivi dentro il computer</h3>
+  <p>Dentro il processore di un computer ogni connettivo è un piccolo circuito elettronico, la <b>porta logica</b>: <b>riceve in ingresso dei bit (1 = vero, 0 = falso) e restituisce il valore di verità del connettivo</b>. Per farsi un’idea bastano interruttori e lampadina: <b>due interruttori in fila (in serie) fanno un AND</b>, perché la corrente passa solo se sono chiusi entrambi; <b>due interruttori affiancati (in parallelo) fanno un OR</b>, perché basta che ne sia chiuso uno. Nei computer gli interruttori sono i <b>transistor</b>, e un processore di oggi ne contiene miliardi: tutto ciò che fa un computer, anche sommare due numeri, nasce dal combinare porte logiche. Fu l’ingegnere americano Claude Shannon, nel 1937, ad accorgersi che l’algebra di Boole descriveva proprio questi circuiti. Con un solo tipo di porta, la <b>NAND</b> («non e»), si possono costruire tutte le altre; e la memoria «flash NAND» delle chiavette USB e dei telefoni deve il nome a questa porta, perché le sue celle sono collegate come in una NAND.</p>
+
+  <!-- ===================== 2.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">2.4</span>Implicazione e doppia implicazione</h2>
+  <p>«Se prendi 8 alla verifica, ti porto al cinema.» È una promessa, cioè una proposizione composta: quando si può dire che è stata <b>tradita</b>?</p>
+  <h3>Implicazione – «se… allora…»</h3>
+  <div class="tab"><table>
+    <thead><tr><th>Nome</th><th>Simboli</th><th>Arietà</th></tr></thead>
+    <tbody>
+      <tr><td>implicazione (o condizionale), «se… allora…»</td><td>p → q · p ⇒ q · p ⊃ q · in Flowgorithm non c’è un operatore apposito: si scrive <code>not p or q</code> (nel capitolo 3 vedremo perché)</td><td>binario</td></tr>
+    </tbody></table></div>
+  <p>In «se p allora q» la prima proposizione si chiama <b>antecedente</b> (p), la seconda <b>conseguente</b> (q). <b>L’implicazione è falsa solo quando l’antecedente è vero e il conseguente è falso</b>: in tutti gli altri casi è vera.</p>
+  <div class="tab verita"><table>
+    <thead><tr><th>p</th><th>q</th><th>p → q</th></tr></thead>
+    <tbody>
+      <tr><td><span class="ff">F</span></td><td><span class="ff">F</span></td><td><span class="vv">V</span></td></tr>
+      <tr><td><span class="ff">F</span></td><td><span class="vv">V</span></td><td><span class="vv">V</span></td></tr>
+      <tr><td><span class="vv">V</span></td><td><span class="ff">F</span></td><td><span class="ff">F</span></td></tr>
+      <tr><td><span class="vv">V</span></td><td><span class="vv">V</span></td><td><span class="vv">V</span></td></tr>
+    </tbody></table></div>
+  <p>Le prime due righe, quelle con l’antecedente falso, sorprendono sempre. Il motivo è che <b>l’implicazione dice che cosa succede solo quando l’antecedente è vero</b>: se prendi 5, la promessa non dice niente, quindi non può essere tradita, qualunque cosa succeda. E dato che per il principio di bivalenza ogni proposizione deve essere vera o falsa, «non tradita» vuol dire vera. Per questo si dice anche <i>ex falso quodlibet</i>, «dal falso segue qualunque cosa»: con un antecedente falso l’implicazione è vera, qualunque sia il conseguente.</p>
+  <p class="domanda">Prendi 5, ma ti porto al cinema lo stesso: ho tradito la promessa?</p>
+  <figure>
+    <div class="tela passi-anim" id="f-promessa" data-titolo="La promessa è stata mantenuta?" data-inizio="La promessa collega due proposizioni: p “prendi 8” e q “ti porto al cinema”. Vediamo i quattro casi possibili.">
+      <svg viewBox="0 0 720 330" role="img" aria-label="Il fumetto dice «Se prendi 8, ti porto al cinema». Quattro casi riempiono la tavola dell’implicazione: 8 e cinema, vera; 8 e niente cinema, falsa, l’unico caso; 5 e cinema, vera; 5 e niente cinema, vera."></svg>
+      <ol class="passi-testo">
+        <li>Prendi 8 e vai al cinema: la promessa è mantenuta. Riga V V: vero.</li>
+        <li>Prendi 8 ma non vai al cinema: la promessa è tradita. È l’unico caso in cui l’implicazione è falsa.</li>
+        <li>Prendi 5 e ti porto lo stesso al cinema: la promessa parlava solo dell’8, quindi non è tradita. Vero.</li>
+        <li>Prendi 5 e niente cinema: anche qui la promessa non è tradita. Vero. Con l’antecedente falso, l’implicazione è sempre vera.</li>
+      </ol>
+    </div>
+  </figure>
+  <figure>
+    <div class="tela passi-anim" id="f-numeri" data-titolo="Una regola sui numeri" data-inizio="Una regola sui numeri è un’implicazione: proviamola con qualche numero.">
+      <svg viewBox="0 0 720 330" role="img" aria-label="La regola «se un numero è divisibile per 4, allora è pari» provata con 8, 6 e 7: la riga vero-falso non capita mai, quindi è vera. Rovesciata, «se un numero è pari è divisibile per 4», il 6 è un controesempio e la rende falsa."></svg>
+      <ol class="passi-testo">
+        <li>8 è divisibile per 4 ed è pari: la regola funziona.</li>
+        <li>6 non è divisibile per 4 ma è pari: la regola non parla dei numeri non divisibili per 4, quindi non è violata.</li>
+        <li>7 non è divisibile per 4 e non è pari: anche qui la regola non è violata.</li>
+        <li>Per violarla servirebbe un numero divisibile per 4 ma dispari: non esiste. La riga “vero, falso” non capita mai, quindi la regola è vera per tutti i numeri.</li>
+        <li>Rovesciamo la regola: 6 è pari ma non divisibile per 4. Basta un solo controesempio e la regola è falsa.</li>
+      </ol>
+    </div>
+  </figure>
+  <p>Esempi: «Se prendi 8, ti porto al cinema»; «Se un numero è divisibile per 4, allora è pari»; la regola 1 della casa smart, «Se è sera e fuori è buio, allora serve la luce».</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«“Se piove prendo l’ombrello”: oggi non piove, quindi la frase è falsa.»</p>
+    <p class="err-si">Con l’<b>antecedente falso</b> l’implicazione è <b>vera</b>: la regola dice che cosa faccio quando piove, e oggi non è stata violata.</p></div>
+  <h3>Doppia implicazione – «se e solo se»</h3>
+  <div class="tab"><table>
+    <thead><tr><th>Nome</th><th>Simboli</th><th>Arietà</th></tr></thead>
+    <tbody>
+      <tr><td>doppia implicazione (o bicondizionale), «se e solo se»</td><td>p ↔ q · p ⇔ q · p ≡ q · in Flowgorithm <code>p == q</code></td><td>binario</td></tr>
+    </tbody></table></div>
+  <p><b>La doppia implicazione è vera quando le due proposizioni hanno lo stesso valore di verità</b>, entrambe vere o entrambe false. Equivale a due implicazioni insieme: se p allora q, <b>e</b> se q allora p.</p>
+  <div class="tab verita"><table>
+    <thead><tr><th>p</th><th>q</th><th>p ↔ q</th></tr></thead>
+    <tbody>
+      <tr><td><span class="ff">F</span></td><td><span class="ff">F</span></td><td><span class="vv">V</span></td></tr>
+      <tr><td><span class="ff">F</span></td><td><span class="vv">V</span></td><td><span class="ff">F</span></td></tr>
+      <tr><td><span class="vv">V</span></td><td><span class="ff">F</span></td><td><span class="ff">F</span></td></tr>
+      <tr><td><span class="vv">V</span></td><td><span class="vv">V</span></td><td><span class="vv">V</span></td></tr>
+    </tbody></table></div>
+  <p>Esempi: «Un numero è pari se e solo se è divisibile per 2» (vale nei due sensi: ogni numero pari è divisibile per 2 e ogni numero divisibile per 2 è pari); «Puoi uscire se e solo se hai finito i compiti» (senza compiti finiti non esci, con i compiti finiti esci). Tra i numeri si vede la differenza con l’implicazione: «divisibile per 4 → pari» vale, «divisibile per 4 ↔ pari» no, perché 6 è pari ma non divisibile per 4.</p>
+
+  <!-- ===================== 2.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">2.5</span>Dalla lingua alle formule</h2>
+  <p>Tradurre una frase in una formula, cioè <b>formalizzare</b>, si fa in tre mosse: <b>trovare le proposizioni atomiche</b> e dar loro una lettera, <b>riconoscere i connettivi</b>, anche quando sono nascosti in altre parole, e <b>mettere le parentesi</b> dove servono.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-traduci" data-titolo="Traduci la frase" data-inizio="Una regola della casa smart, scritta in italiano.">
+      <svg viewBox="0 0 720 290" role="img" aria-label="La frase «Se è sera e non c’è nessuno in casa, la luce resta spenta» diventa una formula: le atomiche s, m, a; i connettivi se-allora, e, non; poi «se s e non m, allora non a» e infine (s ∧ ¬m) → ¬a."></svg>
+      <ol class="passi-testo">
+        <li>Prima mossa: le proposizioni atomiche, in forma affermativa, ciascuna con la sua lettera.</li>
+        <li>Seconda mossa: i connettivi. “Non c’è nessuno” è la negazione di m, “resta spenta” la negazione di a.</li>
+        <li>Sostituiamo le lettere: restano solo atomiche e connettivi.</li>
+        <li>Terza mossa: le parentesi dicono che la condizione è tutto “s e non m”.</li>
+      </ol>
+    </div>
+  </figure>
+  <p>Molte parole italiane nascondono un connettivo:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Nella lingua</th><th>In logica</th><th>Esempio</th></tr></thead>
+    <tbody>
+      <tr><td>ma, però, anche se, eppure</td><td>∧</td><td>«È bravo ma pigro» → b ∧ p</td></tr>
+      <tr><td>né… né…</td><td>¬p ∧ ¬q</td><td>«Né Marco né Luca sono venuti» → ¬m ∧ ¬l</td></tr>
+      <tr><td>o… o…, oppure ma non entrambi</td><td>⊕</td><td>«O vieni o resti» → v ⊕ r</td></tr>
+      <tr><td>se, quando, ogni volta che</td><td>p → q</td><td>«Quando piove prendo l’ombrello» → p → o</td></tr>
+      <tr><td>p solo se q</td><td>p → q</td><td>«Esci solo se hai finito i compiti» → e → c</td></tr>
+      <tr><td>p a meno che q</td><td>¬q → p</td><td>«Esco, a meno che piova» → ¬p → e</td></tr>
+    </tbody></table></div>
+  <p>Come in algebra la moltiplicazione si fa prima dell’addizione, anche i connettivi hanno una <b>precedenza</b>: <b>prima ¬, poi ∧, poi ∨, poi → e infine ↔</b>. Così ¬p ∧ q vuol dire (¬p) ∧ q, e non ¬(p ∧ q). Quando c’è un dubbio, <b>le parentesi tolgono ogni ambiguità</b>.</p>
+  <p>Una formula scritta secondo le regole si chiama <b>formula ben formata</b>: una variabile da sola è una formula ben formata; se A lo è, lo è anche ¬A; se A e B lo sono, lo sono anche (A ∧ B), (A ∨ B), (A ⊕ B), (A → B) e (A ↔ B). «p ∧ ∨ q» e «(p ∧ q» non sono ben formate: come una riga di codice con un errore di sintassi, non vogliono dire niente.</p>
+  <p>Ora le due regole della casa smart del capitolo 1 si possono scrivere in formule. Con s = «è sera», b = «fuori è buio», l = «serve la luce», m = «c’è qualcuno in casa», a = «le luci sono accese»:</p>
+  <ul>
+    <li>regola 1: (s ∧ b) → l</li>
+    <li>regola 2: (l ∧ m) → a</li>
+  </ul>
+  <p class="domanda">“Né Marco né Luca sono venuti”: come si scrive con i connettivi?</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«“Non è vero che piove e fa freddo” si scrive ¬p ∧ f.»</p>
+    <p class="err-si">Si scrive <b>¬(p ∧ f)</b>: il «non è vero che» vale per tutta la frase «piove e fa freddo». Senza parentesi il ¬ vale solo per p, e la formula direbbe «non piove e fa freddo».</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«In Flowgorithm scrivo la condizione <code>voto == 6 or 7 or 8</code>.»</p>
+    <p class="err-si">Ogni parte di un OR deve essere una proposizione completa: <code>voto == 6 or voto == 7 or voto == 8</code>. In italiano «il voto è 6, 7 o 8» sottintende «il voto è» davanti a ogni numero; in un linguaggio formale non si sottintende niente.</p></div>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>Una <b>proposizione</b> è una frase dichiarativa con <b>uno e un solo valore di verità</b>, vero o falso; può anche essere falsa. Domande, ordini, giudizi personali e paradossi non sono proposizioni.</li>
+      <li>Una proposizione è <b>atomica</b> se non si scompone, <b>composta</b> se unisce proposizioni con i <b>connettivi</b>; il suo valore dipende solo da quello delle atomiche. Le atomiche si indicano con <b>variabili proposizionali</b> (p, q, r).</li>
+      <li><b>NOT</b> rovescia il valore; <b>AND</b> è vero solo se sono vere entrambe; <b>OR</b> se ne è vera almeno una; <b>XOR</b> se ne è vera esattamente una.</li>
+      <li><b>p → q</b> è falsa solo quando p è vera e q è falsa; <b>p ↔ q</b> è vera quando p e q hanno lo stesso valore.</li>
+      <li><b>Formalizzare</b> significa trovare le atomiche, riconoscere i connettivi anche nascosti e mettere le parentesi; senza parentesi vale la <b>precedenza</b> ¬, ∧, ∨, →, ↔.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/capitolo-02.js"></script>
+<script src="assets/capitolo-02-aula.js"></script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>4. HTML: avanzato · Sviluppo Web - Front end</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="4">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Sviluppo Web - Front end · Capitolo 04</span></div>
+  <h1>HTML: avanzato</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 4.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">4.1</span>Moduli</h2>
+  <p>I <span class="termine">moduli</span> (<i><code>form</code></i>) <b>raccolgono dati dall’utente</b>: iscrizioni, ricerche, login, sondaggi, ordini. HTML fornisce i campi e i pulsanti, controlla che i dati abbiano la forma giusta e <b>li invia a un indirizzo</b>; <b>che cosa succede ai dati dopo l’invio lo decide il programma sul server</b> (o JavaScript, cap. 8). In un sito statico un modulo da solo non salva niente: servono un servizio esterno o JavaScript.</p>
+  <pre class="codice"><code><span class="k">&lt;form</span> <span class="a">action</span>=<span class="s">"https://httpbin.org/get"</span> <span class="a">method</span>=<span class="s">"get"</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span> <span class="a">for</span>=<span class="s">"nome"</span><span class="k">&gt;</span>Nome<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"text"</span> <span class="a">id</span>=<span class="s">"nome"</span> <span class="a">name</span>=<span class="s">"nome"</span> <span class="a">required</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span> <span class="a">for</span>=<span class="s">"email"</span><span class="k">&gt;</span>E-mail<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"email"</span> <span class="a">id</span>=<span class="s">"email"</span> <span class="a">name</span>=<span class="s">"email"</span> <span class="a">placeholder</span>=<span class="s">"nome@esempio.it"</span> <span class="a">required</span><span class="k">&gt;</span>
+<span class="k">&lt;button</span> <span class="a">type</span>=<span class="s">"submit"</span><span class="k">&gt;</span>Iscriviti<span class="k">&lt;/button</span><span class="k">&gt;</span>
+<span class="k">&lt;/form</span><span class="k">&gt;</span></code></pre>
+  <div class="tab"><table>
+    <thead><tr><th>Parte</th><th>A che cosa serve</th></tr></thead>
+    <tbody>
+      <tr><td><code>action</code></td><td><b>L’indirizzo a cui vengono inviati i dati</b> (un programma sul server). Se manca, i dati vanno alla pagina stessa</td></tr>
+      <tr><td><code>method</code></td><td><b>Come vengono inviati</b>: get o post</td></tr>
+      <tr><td><code>name</code></td><td><b>Il nome con cui il dato arriva al server.</b> Un campo senza <code>name</code> non viene inviato</td></tr>
+      <tr><td><code>id</code> + <code>&lt;label for&gt;</code></td><td>Collegano l’etichetta al campo</td></tr>
+    </tbody></table></div>
+  <p>Per fare prove senza un server proprio si può usare https://httpbin.org/get (o /post): è un servizio di test che <b>mostra in risposta i dati che ha ricevuto</b>.</p>
+  <h3>GET e POST</h3>
+  <p>Con <b>GET i dati vengono aggiunti all’URL</b> dopo il punto interrogativo: …/get?nome=Luca&amp;email=luca%40mail.it. Sono visibili nella barra degli indirizzi, restano nella cronologia e la pagina si può salvare nei preferiti con i dati dentro. Si usa per <b>richieste che leggono e non modificano niente</b>, come una ricerca.</p>
+  <p>Con <b>POST i dati viaggiano nel corpo della richiesta</b>, non nell’URL. Si usa per <b>dati che modificano qualcosa sul server</b> (iscrizioni, ordini, messaggi), per i dati riservati e per i file. <b>POST non cifra i dati</b>: senza HTTPS si leggono comunque; nasconde i dati solo dalla barra degli indirizzi e dalla cronologia.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-getpost" data-titolo="Dove finiscono i dati di un modulo" data-inizio="A sinistra un browser con un modulo compilato (nome «Luca», password «gatto99») e il pulsante «Invia», con l’indirizzo scuola.it/login nella barra; a destra il server.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Con GET i dati si attaccano all’indirizzo e restano visibili e nella cronologia; con POST viaggiano dentro la busta, fuori dall’indirizzo; senza HTTPS si leggono comunque, con HTTPS no"></svg>
+      <ol class="passi-testo">
+        <li>GET: si clicca Invia; i dati si “attaccano” all’indirizzo e la barra diventa “scuola.it/login?nome=Luca&amp;password=gatto99”, evidenziata in rosso.</li>
+        <li>La busta parte con l’indirizzo completo scritto sopra, ben leggibile; nella cronologia del browser compare la stessa riga con la password.</li>
+        <li>POST: si rifà l’invio; la barra resta “scuola.it/login”; i dati vengono messi dentro la busta, chiusa.</li>
+        <li>Si toglie HTTPS: la busta POST diventa trasparente e i dati si leggono lo stesso; si rimette HTTPS e compare il lucchetto. Morale: POST nasconde i dati dall’URL, HTTPS li protegge.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Con POST i dati sono al sicuro, perché non si vedono.»</p>
+    <p class="err-si">POST <b>toglie i dati dall’URL</b>, ma non li cifra. <b>La protezione dei dati durante il viaggio la dà HTTPS</b>, con qualunque metodo. Una password su HTTP con POST si può intercettare.</p></div>
+  <h3>Le etichette</h3>
+  <p>Ogni campo deve avere un’<b>etichetta</b> <code>&lt;label&gt;</code>, collegata al campo <b>con for uguale all’<code>id</code> del campo</b>, oppure avvolgendolo. Il collegamento ha due effetti: <b>cliccando l’etichetta si attiva il campo</b> (comodo soprattutto per caselle piccole come i checkbox) e <b>lo screen reader legge l’etichetta quando si arriva sul campo</b>.</p>
+  <pre class="codice"><code><span class="k">&lt;label</span> <span class="a">for</span>=<span class="s">"citta"</span><span class="k">&gt;</span>Città<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"text"</span> <span class="a">id</span>=<span class="s">"citta"</span> <span class="a">name</span>=<span class="s">"citta"</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span><span class="k">&gt;</span><span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"checkbox"</span> <span class="a">name</span>=<span class="s">"privacy"</span> <span class="a">required</span><span class="k">&gt;</span> Accetto l’informativa sulla privacy<span class="k">&lt;/label</span><span class="k">&gt;</span></code></pre>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Al posto dell’etichetta uso il <code>placeholder</code>, così occupa meno spazio.»</p>
+    <p class="err-si">Il <code>placeholder</code> <b>sparisce appena si inizia a scrivere</b>, quindi l’utente dimentica che cosa doveva inserire; spesso ha poco contrasto e alcuni screen reader non lo leggono. Il <code>placeholder</code> serve per <b>un esempio</b> del formato (“nome@esempio.it”), <b>l’etichetta è sempre necessaria</b>.</p></div>
+  <h3>I tipi di campo</h3>
+  <p>L’elemento <code>&lt;input&gt;</code> cambia completamente comportamento con l’attributo <code>type</code>. <b>Scegliere il tipo giusto ha tre vantaggi: il browser controlla il formato, sul telefono compare la tastiera adatta e spesso c’è un selettore già pronto</b> (calendario, tavolozza dei colori).</p>
+  <div class="tab"><table>
+    <thead><tr><th><code>type</code></th><th>Che cosa fa</th><th>Sul telefono</th></tr></thead>
+    <tbody>
+      <tr><td>text</td><td>Testo libero su una riga (predefinito)</td><td>Tastiera normale</td></tr>
+      <tr><td>password</td><td>Nasconde i caratteri</td><td>Tastiera normale, niente correttore</td></tr>
+      <tr><td>email</td><td>Controlla che ci sia la @ e un dominio</td><td>Tastiera con @</td></tr>
+      <tr><td>number</td><td>Solo numeri, con <code>min</code>, <code>max</code>, <code>step</code></td><td>Tastierino numerico</td></tr>
+      <tr><td>tel</td><td>Numero di telefono (non controlla il formato)</td><td>Tastierino telefonico</td></tr>
+      <tr><td>url</td><td>Controlla che sia un indirizzo web</td><td>Tastiera con / e .com</td></tr>
+      <tr><td>search</td><td>Campo di ricerca (con la X per cancellare)</td><td>Tasto “Cerca”</td></tr>
+      <tr><td>date, time, datetime-local, month, week</td><td>Data e ora con calendario</td><td>Selettore nativo</td></tr>
+      <tr><td>color</td><td>Tavolozza dei colori</td><td>Selettore nativo</td></tr>
+      <tr><td>range</td><td>Cursore tra <code>min</code> e <code>max</code></td><td>Cursore</td></tr>
+      <tr><td>checkbox</td><td>Casella da spuntare: <b>scelte indipendenti</b>, anche più di una</td><td></td></tr>
+      <tr><td>radio</td><td>Pallino: <b>una sola scelta</b> tra quelle con lo stesso <code>name</code></td><td></td></tr>
+      <tr><td>file</td><td>Scelta di un file (con <code>accept="image/*"</code> solo immagini)</td><td>Galleria o fotocamera</td></tr>
+      <tr><td>hidden</td><td>Campo invisibile inviato con il modulo</td><td></td></tr>
+    </tbody></table></div>
+  <pre class="codice"><code><span class="k">&lt;fieldset</span><span class="k">&gt;</span>
+<span class="k">&lt;legend</span><span class="k">&gt;</span>Taglia della felpa<span class="k">&lt;/legend</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span><span class="k">&gt;</span><span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"radio"</span> <span class="a">name</span>=<span class="s">"taglia"</span> <span class="a">value</span>=<span class="s">"S"</span><span class="k">&gt;</span> S<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span><span class="k">&gt;</span><span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"radio"</span> <span class="a">name</span>=<span class="s">"taglia"</span> <span class="a">value</span>=<span class="s">"M"</span> <span class="a">checked</span><span class="k">&gt;</span> M<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span><span class="k">&gt;</span><span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"radio"</span> <span class="a">name</span>=<span class="s">"taglia"</span> <span class="a">value</span>=<span class="s">"L"</span><span class="k">&gt;</span> L<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;/fieldset</span><span class="k">&gt;</span>
+<span class="k">&lt;fieldset</span><span class="k">&gt;</span>
+<span class="k">&lt;legend</span><span class="k">&gt;</span>Interessi<span class="k">&lt;/legend</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span><span class="k">&gt;</span><span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"checkbox"</span> <span class="a">name</span>=<span class="s">"interessi"</span> <span class="a">value</span>=<span class="s">"musica"</span><span class="k">&gt;</span> Musica<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span><span class="k">&gt;</span><span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"checkbox"</span> <span class="a">name</span>=<span class="s">"interessi"</span> <span class="a">value</span>=<span class="s">"sport"</span><span class="k">&gt;</span> Sport<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;/fieldset</span><span class="k">&gt;</span></code></pre>
+  <p><b>I radio funzionano in gruppo solo se hanno lo stesso <code>name</code></b>: è il <code>name</code> comune a dire al browser che le scelte si escludono a vicenda. <code>value</code> è ciò che arriva al server (senza <code>value</code>, arriva “on”). <code>checked</code> preseleziona una scelta.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Nei miei radio si possono selezionare tutte e tre le taglie.»</p>
+    <p class="err-si">I tre <code>input</code> <code>type="radio"</code> hanno <b><code>name</code> diversi</b>, quindi il browser li considera tre gruppi separati. Per avere una sola scelta devono avere <b>lo stesso <code>name</code></b> e <code>value</code> diversi.</p></div>
+  <h3>Altri controlli</h3>
+  <pre class="codice"><code><span class="k">&lt;label</span> <span class="a">for</span>=<span class="s">"classe"</span><span class="k">&gt;</span>Classe<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;select</span> <span class="a">id</span>=<span class="s">"classe"</span> <span class="a">name</span>=<span class="s">"classe"</span><span class="k">&gt;</span>
+<span class="k">&lt;optgroup</span> <span class="a">label</span>=<span class="s">"Triennio"</span><span class="k">&gt;</span>
+<span class="k">&lt;option</span> <span class="a">value</span>=<span class="s">"3"</span><span class="k">&gt;</span>Terza<span class="k">&lt;/option</span><span class="k">&gt;</span>
+<span class="k">&lt;option</span> <span class="a">value</span>=<span class="s">"4"</span><span class="k">&gt;</span>Quarta<span class="k">&lt;/option</span><span class="k">&gt;</span>
+<span class="k">&lt;option</span> <span class="a">value</span>=<span class="s">"5"</span> <span class="a">selected</span><span class="k">&gt;</span>Quinta<span class="k">&lt;/option</span><span class="k">&gt;</span>
+<span class="k">&lt;/optgroup</span><span class="k">&gt;</span>
+<span class="k">&lt;/select</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span> <span class="a">for</span>=<span class="s">"msg"</span><span class="k">&gt;</span>Messaggio<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;textarea</span> <span class="a">id</span>=<span class="s">"msg"</span> <span class="a">name</span>=<span class="s">"messaggio"</span> <span class="a">rows</span>=<span class="s">"5"</span> <span class="a">maxlength</span>=<span class="s">"500"</span><span class="k">&gt;</span><span class="k">&lt;/textarea</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span> <span class="a">for</span>=<span class="s">"browser"</span><span class="k">&gt;</span>Browser preferito<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;input</span> <span class="a">list</span>=<span class="s">"browser-list"</span> <span class="a">id</span>=<span class="s">"browser"</span> <span class="a">name</span>=<span class="s">"browser"</span><span class="k">&gt;</span>
+<span class="k">&lt;datalist</span> <span class="a">id</span>=<span class="s">"browser-list"</span><span class="k">&gt;</span>
+<span class="k">&lt;option</span> <span class="a">value</span>=<span class="s">"Chrome"</span><span class="k">&gt;</span><span class="k">&lt;option</span> <span class="a">value</span>=<span class="s">"Firefox"</span><span class="k">&gt;</span><span class="k">&lt;option</span> <span class="a">value</span>=<span class="s">"Safari"</span><span class="k">&gt;</span>
+<span class="k">&lt;/datalist</span><span class="k">&gt;</span></code></pre>
+  <ul>
+    <li><code>&lt;select&gt;</code> è un <b>menu a tendina</b>; ogni voce è un <code>&lt;option&gt;</code>; <code>&lt;optgroup&gt;</code> raggruppa le voci; con multiple si può scegliere più di una voce.</li>
+    <li><code>&lt;textarea&gt;</code> è un <b>testo su più righe</b>; rows e cols danno le dimensioni iniziali. Il testo iniziale va <b>tra i tag</b>, non in <code>value</code>.</li>
+    <li><code>&lt;datalist&gt;</code> offre <b>suggerimenti</b> a un campo di testo, lasciando comunque scrivere liberamente.</li>
+    <li><code>&lt;fieldset&gt;</code> <b>raggruppa campi collegati</b>, <code>&lt;legend&gt;</code> è il titolo del gruppo (letto dagli screen reader prima di ogni campo).</li>
+  </ul>
+  <h3>I pulsanti</h3>
+  <div class="tab"><table>
+    <thead><tr><th>Pulsante</th><th>Che cosa fa</th></tr></thead>
+    <tbody>
+      <tr><td><code>&lt;button type="submit"&gt;</code></td><td>Invia il modulo (è il tipo <b>predefinito</b> dei <code>button</code> dentro un <code>form</code>)</td></tr>
+      <tr><td><code>&lt;button type="reset"&gt;</code></td><td>Riporta tutti i campi ai valori iniziali (usato raramente: si rischia di cancellare tutto per sbaglio)</td></tr>
+      <tr><td><code>&lt;button type="button"&gt;</code></td><td>Non fa niente da solo: serve per le azioni programmate con JavaScript</td></tr>
+    </tbody></table></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Ho messo nel modulo un pulsante “Mostra password” e quando lo clicco il modulo viene inviato.»</p>
+    <p class="err-si">Dentro un <code>form</code>, un <code>&lt;button&gt;</code> senza <code>type</code> è <b>submit</b>. Per un pulsante che serve solo a JavaScript si scrive <b><code>type="button"</code></b>.</p></div>
+  <h3>La validazione del browser</h3>
+  <p>Prima di inviare, <b>il browser controlla i campi</b> in base agli attributi e, se qualcosa non va, blocca l’invio e mostra un fumetto di errore sul primo campo sbagliato.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Attributo</th><th>Controllo</th><th>Esempio</th></tr></thead>
+    <tbody>
+      <tr><td><code>required</code></td><td>Campo obbligatorio</td><td><code>&lt;input name="nome" required&gt;</code></td></tr>
+      <tr><td><code>minlength</code>, <code>maxlength</code></td><td>Lunghezza minima e massima del testo</td><td><code>&lt;input type="password" minlength="8"&gt;</code></td></tr>
+      <tr><td><code>min</code>, <code>max</code>, <code>step</code></td><td>Intervallo e passo per numeri e date</td><td><code>&lt;input type="number" min="1" max="10" step="0.5"&gt;</code></td></tr>
+      <tr><td><code>type</code></td><td>Il formato del tipo (email, url, number)</td><td><code>&lt;input type="email"&gt;</code></td></tr>
+    </tbody></table></div>
+  <pre class="codice"><code><span class="k">&lt;label</span> <span class="a">for</span>=<span class="s">"cap"</span><span class="k">&gt;</span>CAP<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;input</span> <span class="a">id</span>=<span class="s">"cap"</span> <span class="a">name</span>=<span class="s">"cap"</span> <span class="a">inputmode</span>=<span class="s">"numeric"</span> <span class="a">pattern</span>=<span class="s">"[0-9]{5}"</span> <span class="a">title</span>=<span class="s">"5 cifre, per esempio 00184"</span> <span class="a">required</span><span class="k">&gt;</span></code></pre>
+  <p>Altri attributi utili: <code>autocomplete</code> (per esempio <code>autocomplete="email"</code>) <b>aiuta il browser a compilare in automatico</b>; <code>inputmode</code> sceglie la tastiera sul telefono senza cambiare il tipo di campo; <code>disabled</code> disattiva un campo (e non lo invia); <code>readonly</code> lo rende non modificabile (ma lo invia); <code>autofocus</code> mette il cursore nel campo all’apertura.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Ho messo <code>required</code> e <code>type="email"</code>, quindi sul server arriveranno solo e-mail valide.»</p>
+    <p class="err-si">La validazione del browser <b>aiuta l’utente</b>, ma <b>chiunque può aggirarla</b> (togliendo l’attributo con F12 o inviando i dati senza il modulo). <b>Chi riceve i dati deve sempre controllarli di nuovo sul server.</b></p></div>
+  <div class="box esempio"><h3><i data-ic="book-open" class="ic-20"></i> Esempio</h3>
+    <p><b>Esempio svolto: modulo di iscrizione al torneo di calcetto.</b></p>    <pre class="codice"><code><span class="k">&lt;form</span> <span class="a">action</span>=<span class="s">"https://httpbin.org/post"</span> <span class="a">method</span>=<span class="s">"post"</span><span class="k">&gt;</span>
+<span class="k">&lt;fieldset</span><span class="k">&gt;</span>
+<span class="k">&lt;legend</span><span class="k">&gt;</span>Dati della squadra<span class="k">&lt;/legend</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span> <span class="a">for</span>=<span class="s">"squadra"</span><span class="k">&gt;</span>Nome della squadra<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;input</span> <span class="a">id</span>=<span class="s">"squadra"</span> <span class="a">name</span>=<span class="s">"squadra"</span> <span class="a">required</span> <span class="a">minlength</span>=<span class="s">"3"</span> <span class="a">maxlength</span>=<span class="s">"30"</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span> <span class="a">for</span>=<span class="s">"capitano"</span><span class="k">&gt;</span>E-mail del capitano<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"email"</span> <span class="a">id</span>=<span class="s">"capitano"</span> <span class="a">name</span>=<span class="s">"email"</span> <span class="a">autocomplete</span>=<span class="s">"email"</span> <span class="a">required</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span> <span class="a">for</span>=<span class="s">"giocatori"</span><span class="k">&gt;</span>Numero di giocatori<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"number"</span> <span class="a">id</span>=<span class="s">"giocatori"</span> <span class="a">name</span>=<span class="s">"giocatori"</span> <span class="a">min</span>=<span class="s">"5"</span> <span class="a">max</span>=<span class="s">"8"</span> <span class="a">value</span>=<span class="s">"5"</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span> <span class="a">for</span>=<span class="s">"classe"</span><span class="k">&gt;</span>Classe<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;select</span> <span class="a">id</span>=<span class="s">"classe"</span> <span class="a">name</span>=<span class="s">"classe"</span> <span class="a">required</span><span class="k">&gt;</span>
+<span class="k">&lt;option</span> <span class="a">value</span>=<span class="s">""</span><span class="k">&gt;</span>Scegli…<span class="k">&lt;/option</span><span class="k">&gt;</span>
+<span class="k">&lt;option</span><span class="k">&gt;</span>3AL<span class="k">&lt;/option</span><span class="k">&gt;</span><span class="k">&lt;option</span><span class="k">&gt;</span>4BI<span class="k">&lt;/option</span><span class="k">&gt;</span><span class="k">&lt;option</span><span class="k">&gt;</span>5CL<span class="k">&lt;/option</span><span class="k">&gt;</span>
+<span class="k">&lt;/select</span><span class="k">&gt;</span>
+<span class="k">&lt;/fieldset</span><span class="k">&gt;</span>
+<span class="k">&lt;fieldset</span><span class="k">&gt;</span>
+<span class="k">&lt;legend</span><span class="k">&gt;</span>Turno preferito<span class="k">&lt;/legend</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span><span class="k">&gt;</span><span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"radio"</span> <span class="a">name</span>=<span class="s">"turno"</span> <span class="a">value</span>=<span class="s">"mattina"</span> <span class="a">required</span><span class="k">&gt;</span> Mattina<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span><span class="k">&gt;</span><span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"radio"</span> <span class="a">name</span>=<span class="s">"turno"</span> <span class="a">value</span>=<span class="s">"pomeriggio"</span><span class="k">&gt;</span> Pomeriggio<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;/fieldset</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span> <span class="a">for</span>=<span class="s">"note"</span><span class="k">&gt;</span>Note<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;textarea</span> <span class="a">id</span>=<span class="s">"note"</span> <span class="a">name</span>=<span class="s">"note"</span> <span class="a">rows</span>=<span class="s">"3"</span><span class="k">&gt;</span><span class="k">&lt;/textarea</span><span class="k">&gt;</span>
+<span class="k">&lt;label</span><span class="k">&gt;</span><span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"checkbox"</span> <span class="a">name</span>=<span class="s">"regolamento"</span> <span class="a">required</span><span class="k">&gt;</span> Ho letto il regolamento<span class="k">&lt;/label</span><span class="k">&gt;</span>
+<span class="k">&lt;button</span> <span class="a">type</span>=<span class="s">"submit"</span><span class="k">&gt;</span>Iscrivi la squadra<span class="k">&lt;/button</span><span class="k">&gt;</span>
+<span class="k">&lt;/form</span><span class="k">&gt;</span></code></pre>
+  </div>
+  <p>Provarlo così com’è: inviando a httpbin.org la pagina di risposta mostra i dati ricevuti in formato JSON, ognuno con il suo <code>name</code>. Provare a lasciare vuoti i campi obbligatori, a scrivere 9 giocatori o un’e-mail senza @, e osservare i messaggi del browser.</p>
+  <p class="domanda">Togliete il <code>name</code> al campo della squadra e inviate. Che cosa arriva al server?</p>
+
+  <!-- ===================== 4.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">4.2</span>Multimedia e contenuti incorporati</h2>
+  <h3>Video e audio</h3>
+  <p>Con HTML5 <b>audio e video si inseriscono direttamente nella pagina</b>, senza plugin: il browser fornisce il lettore con i comandi.</p>
+  <pre class="codice"><code><span class="k">&lt;video</span> <span class="a">src</span>=<span class="s">"video/presentazione.mp4"</span> <span class="a">controls</span> <span class="a">width</span>=<span class="s">"640"</span> <span class="a">poster</span>=<span class="s">"img/copertina.jpg"</span><span class="k">&gt;</span>
+Il tuo browser non supporta i video HTML5.
+<span class="k">&lt;/video</span><span class="k">&gt;</span>
+<span class="k">&lt;audio</span> <span class="a">controls</span><span class="k">&gt;</span>
+<span class="k">&lt;source</span> <span class="a">src</span>=<span class="s">"audio/intervista.ogg"</span> <span class="a">type</span>=<span class="s">"audio/ogg"</span><span class="k">&gt;</span>
+<span class="k">&lt;source</span> <span class="a">src</span>=<span class="s">"audio/intervista.mp3"</span> <span class="a">type</span>=<span class="s">"audio/mpeg"</span><span class="k">&gt;</span>
+<span class="k">&lt;/audio</span><span class="k">&gt;</span></code></pre>
+  <div class="tab"><table>
+    <thead><tr><th>Attributo</th><th>Che cosa fa</th></tr></thead>
+    <tbody>
+      <tr><td><code>controls</code></td><td>Mostra i comandi (play, volume, tempo, schermo intero). <b>Senza, l’utente non può controllare il video</b></td></tr>
+      <tr><td><code>autoplay</code></td><td>Avvia la riproduzione da sola. <b>I browser la bloccano se l’audio è attivo</b>: funziona solo insieme a <code>muted</code></td></tr>
+      <tr><td><code>muted</code></td><td>Parte senza audio</td></tr>
+      <tr><td>loop</td><td>Ricomincia alla fine</td></tr>
+      <tr><td><code>poster</code></td><td>L’immagine mostrata prima della riproduzione</td></tr>
+      <tr><td><code>preload="none"</code></td><td>Non scarica niente finché l’utente non preme play (risparmia dati)</td></tr>
+      <tr><td>playsinline</td><td>Su iPhone riproduce nella pagina invece che a schermo intero</td></tr>
+    </tbody></table></div>
+  <p>Con più <code>&lt;source&gt;</code> <b>il browser usa il primo formato che sa leggere</b>; il testo tra i tag compare solo nei browser che non supportano l’elemento. Formati sicuri: <b>MP4 (video H.264) e MP3</b> funzionano ovunque; <b>WebM</b> è più leggero.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Ho messo <code>autoplay</code> ma il video non parte.»</p>
+    <p class="err-si">I browser <b>bloccano l’avvio automatico con l’audio</b> per non disturbare l’utente. Il video parte da solo solo se è anche <b><code>muted</code></b> (come gli sfondi animati dei siti), oppure se l’utente ha già interagito con la pagina.</p></div>
+  <h3>Contenuti incorporati: <code>iframe</code></h3>
+  <p><code>&lt;iframe&gt;</code> (<i>inline frame</i>) <b>inserisce un’intera pagina di un altro sito dentro la propria</b>, come una finestra. È il modo in cui si incorporano <b>video di YouTube, mappe di Google Maps, moduli di Google, presentazioni</b>. Il servizio fornisce il codice già pronto: su YouTube “Condividi › Incorpora”, su Google Maps “Condividi › Incorpora una mappa”.</p>
+  <pre class="codice"><code><span class="k">&lt;iframe</span> <span class="a">width</span>=<span class="s">"560"</span> <span class="a">height</span>=<span class="s">"315"</span>
+<span class="a">src</span>=<span class="s">"https://www.youtube-nocookie.com/embed/ID_DEL_VIDEO"</span>
+<span class="a">title</span>=<span class="s">"Come funziona Internet – video"</span>
+<span class="a">loading</span>=<span class="s">"lazy"</span> <span class="a">allowfullscreen</span><span class="k">&gt;</span><span class="k">&lt;/iframe</span><span class="k">&gt;</span></code></pre>
+  <p>L’attributo <code>title</code> <b>descrive il contenuto per gli screen reader</b>; <code>loading="lazy"</code> lo carica solo quando serve. Il dominio youtube-nocookie.com evita che YouTube salvi cookie di profilazione finché l’utente non avvia il video. <b>Molti siti vietano di essere incorporati</b> (banche, social, Google stesso): in quel caso l’<code>iframe</code> resta vuoto o mostra un errore.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Ho incorporato il sito della mia banca con un <code>iframe</code>, ma è vuoto.»</p>
+    <p class="err-si">Molti siti <b>impediscono di essere mostrati dentro altre pagine</b> per sicurezza: un sito truffa potrebbe incorporare la pagina di login vera e sovrapporci pulsanti invisibili (<i>clickjacking</i>). Il blocco è voluto e non si può aggirare.</p></div>
+  <p class="domanda">Un video di 3 minuti in Full HD pesa circa 100 MB. Conviene metterlo nella cartella del sito o incorporarlo da YouTube?</p>
+
+  <!-- ===================== 4.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">4.3</span>HTML semantico</h2>
+  <p class="domanda">Guardate la home di un sito di notizie: in quali “zone” è divisa? Che nome dareste a ciascuna?</p>
+  <p>Una pagina con soli <code>div</code> funziona, ma <b>non dice niente di sé</b>: per il browser, per Google e per lo screen reader è un mucchio di scatole tutte uguali. Gli <b>elementi semantici</b> (introdotti con HTML5) <b>dicono che ruolo ha ogni parte della pagina</b>.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Elemento</th><th>Ruolo</th><th>Quante volte</th></tr></thead>
+    <tbody>
+      <tr><td><code>&lt;header&gt;</code></td><td>Intestazione della pagina (logo, titolo, spesso il menu) o di una sezione/articolo</td><td>Anche più di una</td></tr>
+      <tr><td><code>&lt;nav&gt;</code></td><td>Un blocco di <b>link di navigazione principali</b> (menu, indice)</td><td>Una o poche</td></tr>
+      <tr><td><code>&lt;main&gt;</code></td><td>Il <b>contenuto principale</b>, unico per la pagina (esclusi intestazione, menu, piè di pagina)</td><td><b>Una sola</b></td></tr>
+      <tr><td><code>&lt;section&gt;</code></td><td>Una <b>sezione tematica</b> di un documento, di solito con un titolo</td><td>Molte</td></tr>
+      <tr><td><code>&lt;article&gt;</code></td><td>Un contenuto <b>autonomo</b>, che avrebbe senso anche da solo (un articolo, un post, una scheda prodotto, un commento)</td><td>Molte</td></tr>
+      <tr><td><code>&lt;aside&gt;</code></td><td>Contenuto <b>collegato ma secondario</b> (box di approfondimento, colonna laterale, pubblicità)</td><td>Molte</td></tr>
+      <tr><td><code>&lt;footer&gt;</code></td><td>Piè di pagina della pagina o di una sezione (autore, contatti, copyright)</td><td>Anche più di uno</td></tr>
+      <tr><td><code>&lt;address&gt;</code></td><td>Informazioni di contatto dell’autore o del sito</td><td></td></tr>
+    </tbody></table></div>
+  <pre class="codice"><code><span class="k">&lt;body</span><span class="k">&gt;</span>
+<span class="k">&lt;header</span><span class="k">&gt;</span>
+<span class="k">&lt;img</span> <span class="a">src</span>=<span class="s">"img/logo.svg"</span> <span class="a">alt</span>=<span class="s">"Il Blog della 5CL"</span><span class="k">&gt;</span>
+<span class="k">&lt;nav</span><span class="k">&gt;</span>
+<span class="k">&lt;ul</span><span class="k">&gt;</span>
+<span class="k">&lt;li</span><span class="k">&gt;</span><span class="k">&lt;a</span> <span class="a">href</span>=<span class="s">"index.html"</span><span class="k">&gt;</span>Home<span class="k">&lt;/a</span><span class="k">&gt;</span><span class="k">&lt;/li</span><span class="k">&gt;</span>
+<span class="k">&lt;li</span><span class="k">&gt;</span><span class="k">&lt;a</span> <span class="a">href</span>=<span class="s">"articoli.html"</span><span class="k">&gt;</span>Articoli<span class="k">&lt;/a</span><span class="k">&gt;</span><span class="k">&lt;/li</span><span class="k">&gt;</span>
+<span class="k">&lt;li</span><span class="k">&gt;</span><span class="k">&lt;a</span> <span class="a">href</span>=<span class="s">"chi-siamo.html"</span><span class="k">&gt;</span>Chi siamo<span class="k">&lt;/a</span><span class="k">&gt;</span><span class="k">&lt;/li</span><span class="k">&gt;</span>
+<span class="k">&lt;/ul</span><span class="k">&gt;</span>
+<span class="k">&lt;/nav</span><span class="k">&gt;</span>
+<span class="k">&lt;/header</span><span class="k">&gt;</span>
+<span class="k">&lt;main</span><span class="k">&gt;</span>
+<span class="k">&lt;article</span><span class="k">&gt;</span>
+<span class="k">&lt;header</span><span class="k">&gt;</span>
+<span class="k">&lt;h1</span><span class="k">&gt;</span>La nostra gita a Ginevra<span class="k">&lt;/h1</span><span class="k">&gt;</span>
+<span class="k">&lt;p</span><span class="k">&gt;</span>di Sara · <span class="k">&lt;time</span> <span class="a">datetime</span>=<span class="s">"2026-04-12"</span><span class="k">&gt;</span>12 aprile 2026<span class="k">&lt;/time</span><span class="k">&gt;</span><span class="k">&lt;/p</span><span class="k">&gt;</span>
+<span class="k">&lt;/header</span><span class="k">&gt;</span>
+<span class="k">&lt;section</span><span class="k">&gt;</span>
+<span class="k">&lt;h2</span><span class="k">&gt;</span>La visita al CERN<span class="k">&lt;/h2</span><span class="k">&gt;</span>
+<span class="k">&lt;p</span><span class="k">&gt;</span>…<span class="k">&lt;/p</span><span class="k">&gt;</span>
+<span class="k">&lt;/section</span><span class="k">&gt;</span>
+<span class="k">&lt;section</span><span class="k">&gt;</span>
+<span class="k">&lt;h2</span><span class="k">&gt;</span>Il lago<span class="k">&lt;/h2</span><span class="k">&gt;</span>
+<span class="k">&lt;p</span><span class="k">&gt;</span>…<span class="k">&lt;/p</span><span class="k">&gt;</span>
+<span class="k">&lt;/section</span><span class="k">&gt;</span>
+<span class="k">&lt;/article</span><span class="k">&gt;</span>
+<span class="k">&lt;aside</span><span class="k">&gt;</span>
+<span class="k">&lt;h2</span><span class="k">&gt;</span>Lo sapevi?<span class="k">&lt;/h2</span><span class="k">&gt;</span>
+<span class="k">&lt;p</span><span class="k">&gt;</span>Il Web è nato proprio al CERN, nel 1989.<span class="k">&lt;/p</span><span class="k">&gt;</span>
+<span class="k">&lt;/aside</span><span class="k">&gt;</span>
+<span class="k">&lt;/main</span><span class="k">&gt;</span>
+<span class="k">&lt;footer</span><span class="k">&gt;</span>
+<span class="k">&lt;address</span><span class="k">&gt;</span>Contatti: <span class="k">&lt;a</span> <span class="a">href</span>=<span class="s">"mailto:blog5cl@scuola.it"</span><span class="k">&gt;</span>blog5cl@scuola.it<span class="k">&lt;/a</span><span class="k">&gt;</span><span class="k">&lt;/address</span><span class="k">&gt;</span>
+<span class="k">&lt;p</span><span class="k">&gt;</span><span class="k">&lt;small</span><span class="k">&gt;</span>© 2026 Classe 5CL<span class="k">&lt;/small</span><span class="k">&gt;</span><span class="k">&lt;/p</span><span class="k">&gt;</span>
+<span class="k">&lt;/footer</span><span class="k">&gt;</span>
+<span class="k">&lt;/body</span><span class="k">&gt;</span></code></pre>
+  <figure>
+    <div class="tela schema" id="s-semantica"><p class="passi-titolo">La struttura di una pagina</p>
+      <svg viewBox="0 0 720 322" role="img" aria-label="A sinistra una pagina con header e nav, main con due article e un aside, footer; a destra la stessa pagina scritta solo con div tutti uguali"></svg>
+    </div>
+  </figure>
+  <h3>Perché usarli</h3>
+  <ul>
+    <li><b>Accessibilità</b>: lo screen reader annuncia “navigazione”, “principale”, “piè di pagina” e permette di <b>saltare direttamente al contenuto principale</b> senza farsi leggere ogni volta tutto il menu.</li>
+    <li><b>Motori di ricerca</b>: capiscono quale parte è il contenuto vero e quale il contorno.</li>
+    <li><b>Leggibilità del codice</b>: <code>&lt;/nav&gt;</code> dice molto più di <code>&lt;/div&gt;</code> quando si cerca dove finisce un blocco.</li>
+    <li><b>Modalità lettura</b> dei browser e altri strumenti estraggono il testo giusto.</li>
+  </ul>
+  <h3><code>section</code>, <code>article</code> o <code>div</code>?</h3>
+  <p>Una domanda pratica aiuta a scegliere: <b>questo contenuto avrebbe senso pubblicato da solo, per esempio condiviso su un social?</b> Se sì, è un <code>article</code>. <b>È una parte di un discorso più ampio, con un suo titolo?</b> Allora è una <code>section</code>. <b>Serve solo per lo stile o per raggruppare?</b> Allora è un <code>div</code>.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Ho trasformato tutti i <code>div</code> in <code>section</code>, così la pagina è più semantica.»</p>
+    <p class="err-si">Una <code>section</code> è <b>una parte tematica con un titolo</b>, non una scatola qualsiasi. Usarla dove serve solo un contenitore per lo stile <b>toglie significato</b> invece di aggiungerlo. Il <code>div</code> va benissimo quando non c’è un ruolo da dichiarare.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>header</code> è la stessa cosa di <code>head</code>, e <code>h1</code> è la stessa cosa di <code>header</code>.»</p>
+    <p class="err-si"><code>&lt;head&gt;</code> contiene <b>informazioni sulla pagina, invisibili</b>; <code>&lt;header&gt;</code> è <b>la zona visibile di intestazione</b>, nel <code>body</code>; <code>&lt;h1&gt;</code> è <b>un titolo</b>. Sono tre elementi diversi.</p></div>
+  <p class="domanda">In una pagina con l’elenco dei prodotti di un negozio online, ogni scheda prodotto è una <code>section</code> o un <code>article</code>?</p>
+
+  <!-- ===================== 4.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">4.4</span>Metadati e SEO di base</h2>
+  <p>I <span class="termine">metadati</span> sono <b>dati sulla pagina</b>, scritti nel <code>head</code> con il tag <code>&lt;meta&gt;</code>: non si vedono nella pagina, ma li leggono il browser, i motori di ricerca e i social network. La <b>SEO</b>, <i>Search Engine Optimization</i>, è <b>l’insieme delle tecniche per far comparire una pagina tra i primi risultati dei motori di ricerca</b>, in modo corretto.</p>
+  <h3>Titolo e descrizione: come si appare su Google</h3>
+  <pre class="codice"><code><span class="k">&lt;head</span><span class="k">&gt;</span>
+<span class="k">&lt;meta</span> <span class="a">charset</span>=<span class="s">"UTF-8"</span><span class="k">&gt;</span>
+<span class="k">&lt;meta</span> <span class="a">name</span>=<span class="s">"viewport"</span> <span class="a">content</span>=<span class="s">"width=device-width, initial-scale=1.0"</span><span class="k">&gt;</span>
+<span class="k">&lt;title</span><span class="k">&gt;</span>Torneo di calcetto 2026 – Liceo Spinelli<span class="k">&lt;/title</span><span class="k">&gt;</span>
+<span class="k">&lt;meta</span> <span class="a">name</span>=<span class="s">"description"</span> <span class="a">content</span>=<span class="s">"Regolamento, calendario delle partite e iscrizioni al torneo di calcetto delle classi del triennio. Iscrizioni entro il 30 novembre."</span><span class="k">&gt;</span>
+<span class="k">&lt;meta</span> <span class="a">name</span>=<span class="s">"author"</span> <span class="a">content</span>=<span class="s">"Classe 5CL"</span><span class="k">&gt;</span>
+<span class="k">&lt;/head</span><span class="k">&gt;</span></code></pre>
+  <p>Nei risultati di Google <b>il <code>title</code> diventa il titolo blu cliccabile</b> e la <b>meta description</b> spesso il testo grigio sotto. Il <code>title</code> dovrebbe essere <b>unico per ogni pagina</b>, con le parole importanti all’inizio e <b>intorno ai 50–60 caratteri</b> (oltre viene tagliato); la description <b>circa 150–160 caratteri</b>, con un riassunto che invogli a cliccare. Google può comunque scegliere un testo diverso se lo ritiene più adatto alla ricerca.</p>
+  <figure>
+    <div class="tela schema" id="s-google"><p class="passi-titolo">Come si appare su Google</p>
+      <svg viewBox="0 0 720 246" role="img" aria-label="Un risultato di Google: il titolo blu viene dal title, il testo grigio dalla meta description, sopra c’è l’indirizzo della pagina"></svg>
+    </div>
+  </figure>
+  <h3>Come Google trova e valuta le pagine</h3>
+  <ol>
+    <li><span class="termine">Scansione</span> (<i>crawling</i>): un programma, il <b>crawler</b> (Googlebot), <b>segue i link</b> da una pagina all’altra e scarica le pagine che trova.</li>
+    <li><b>Indicizzazione</b>: Google <b>legge e analizza il contenuto</b> (testi, titoli, <code>alt</code>, struttura) e lo registra nel suo indice.</li>
+    <li><span class="termine">Posizionamento</span> (<i>ranking</i>): per ogni ricerca <b>ordina le pagine</b> in base a centinaia di fattori: pertinenza del contenuto, qualità, quanti siti affidabili rimandano alla pagina, velocità, compatibilità con il telefono, HTTPS.</li>
+  </ol>
+  <p>Ne segue che <b>l’HTML fatto bene è già buona SEO</b>: titoli <code>h1–h6</code> ordinati, tag semantici, <code>alt</code> descrittivi, link con testo chiaro, pagine veloci e adatte al telefono. <b>Il fattore più importante resta un contenuto utile e originale.</b></p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Se ripeto “pizza Roma” cinquanta volte nella pagina, divento primo su Google.»</p>
+    <p class="err-si">Ripetere le parole chiave (<i>keyword stuffing</i>) è una tecnica vecchia che <b>Google riconosce e penalizza</b>. Oggi conta che la pagina <b>risponda bene a ciò che cerca l’utente</b>. Anche il vecchio <code>&lt;meta name="keywords"&gt;</code> è ignorato da Google da più di dieci anni.</p></div>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>Un modulo invia i dati all’indirizzo di <code>action</code> con il metodo GET (dati nell’URL, per le ricerche) o POST (dati nel corpo della richiesta); solo i campi con <code>name</code> vengono inviati; ogni campo ha la sua <code>label</code>; il tipo di <code>input</code> giusto dà controllo del formato e tastiera adatta; la validazione del browser va sempre ripetuta sul server.</li>
+      <li>video e audio con <code>controls</code> inseriscono contenuti multimediali senza plugin; <code>autoplay</code> funziona solo con <code>muted</code>; <code>iframe</code> incorpora pagine di altri siti come mappe e video.</li>
+      <li>I tag semantici <code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>aside</code> e <code>footer</code> dicono il ruolo di ogni parte della pagina e aiutano screen reader, motori di ricerca e chi legge il codice.</li>
+      <li><code>title</code> e meta description determinano come la pagina appare su Google; l’HTML ben scritto e un contenuto utile sono la base della SEO.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/kit.js"></script>
+<script src="assets/capitolo-02.js"></script>
+<script src="assets/capitolo-04-aula.js"></script>
+</body>
+</html>

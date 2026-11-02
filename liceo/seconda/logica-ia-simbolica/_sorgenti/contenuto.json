@@ -1,0 +1,1905 @@
+{
+ "title": "Logica e IA simbolica",
+ "chapters": [
+  {
+   "n": 1,
+   "titolo": "Macchine che ragionano: che cos'è la logica",
+   "intro": "Le macchine che decidono con le regole, il ragionamento che c'è dietro e perché serve un linguaggio senza ambiguità.",
+   "sezioni": [
+    {
+     "num": "1.1",
+     "titolo": "Macchine che seguono regole",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Una sera d'inverno entri in casa e la luce del soggiorno si accende da sola. Nessuno ha premuto un interruttore: **l'app della casa ha applicato una regola scritta da una persona**, del tipo «se è sera e c'è qualcuno in casa, accendi le luci»."
+      },
+      {
+       "t": "figura",
+       "tipo": "foto",
+       "x": "Una regola in un'app per la casa",
+       "tit": "Una regola in un'app per la casa",
+       "did": "osserva le due condizioni sotto *If* («quando tutte le condizioni sono vere»: sono le 6 **e** il terreno ha meno del 50% di umidità) e l'azione sotto *Then* (annaffia per 15 minuti).",
+       "modo": "grande",
+       "foto": {
+        "url": "https://www.holmanindustries.com.au/Holman-Home/Scene/WX1/Ex4_Point26.png",
+        "pagina": "https://www.holmanindustries.com.au/Holman-Home/Scene/WX1/HH_Example04.html",
+        "chiave": "web:https://www.holmanindustries.com.au/Holman-Home/Scene/WX1/Ex4_Point26.png|https://www.holmanindustries.com.au/Holman-Home/Scene/WX1/HH_Example04.html"
+       },
+       "id": "F1.1.1"
+      },
+      {
+       "t": "p",
+       "x": "Regole di questo tipo sono ovunque:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**casa**: le app di automazione (Google Home, Casa di Apple, IFTTT, *If This Then That*, «se questo allora quello») collegano **condizioni** (ora, presenza, temperatura, umidità) ad **azioni** (luci, riscaldamento, irrigazione);",
+        "**banca**: il sistema antifrode blocca un pagamento con la carta se, per esempio, avviene all'estero pochi minuti dopo un pagamento fatto in Italia, perché nessuno può spostarsi così in fretta;",
+        "**auto**: la spia dell'olio si accende se la pressione scende sotto una soglia;",
+        "**videogiochi**: i personaggi controllati dal computer si muovono seguendo regole (vedi l'esempio di Pac-Man)."
+       ]
+      },
+      {
+       "t": "box",
+       "k": "esempio",
+       "titolo": "I fantasmi di Pac-Man",
+       "x": "In Pac-Man (1980) i quattro fantasmi sembrano una squadra che caccia insieme, ma **ognuno segue solo una regola semplice** per scegliere dove andare:\n- il **rosso** punta dritto alla casella in cui si trova Pac-Man;\n- il **rosa** punta quattro caselle davanti a Pac-Man, per tagliargli la strada;\n- l'**azzurro** calcola il suo bersaglio usando sia la posizione di Pac-Man sia quella del fantasma rosso;\n- l'**arancione** insegue Pac-Man finché è lontano, ma quando gli arriva vicino (meno di 8 caselle) torna verso il suo angolo.\n\nNessun fantasma «pensa» né sa degli altri: **il comportamento da squadra nasce dall'insieme di regole semplici**.",
+       "foto": {
+        "url": "https://www.techspot.com/images2/trivia/bigimage/2024/2024-12-16-image.jpg",
+        "pagina": "https://www.techspot.com/trivia/42-ghosts-original-pac-man-had-unique-ai-traits/",
+        "chiave": "web:https://www.techspot.com/images2/trivia/bigimage/2024/2024-12-16-image.jpg|https://www.techspot.com/trivia/42-ghosts-original-pac-man-had-unique-ai-traits/"
+       },
+       "foto_tit": "Pac-Man (1980)",
+       "foto_tutte": [
+        [
+         "web:https://www.techspot.com/images2/trivia/bigimage/2024/2024-12-16-image.jpg|https://www.techspot.com/trivia/42-ghosts-original-pac-man-had-unique-ai-traits/",
+         "Pac-Man (1980)"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Tutti questi sistemi funzionano con due ingredienti:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "i **fatti**: **ciò che il sistema sa in questo momento** (sono le 19, fuori è buio, Marco è in casa). Arrivano dai sensori, dai dati o da chi usa il sistema;",
+        "le **regole**: **frasi della forma SE condizioni ALLORA conclusione**, scritte da persone che conoscono il problema (chi progetta la casa, un esperto di frodi, il programmatore del gioco)."
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Il sistema confronta le condizioni di ogni regola con i fatti: **quando tutte le condizioni sono vere, la regola «scatta» e la sua conclusione si aggiunge ai fatti**. Il punto importante è che **la conclusione diventa un fatto nuovo, che può far scattare altre regole**: è il **ragionamento a catena**. Per questo con poche regole semplici il sistema arriva a conclusioni che nessuna regola, da sola, contiene."
+      },
+      {
+       "t": "p",
+       "x": "Se invece manca anche un solo fatto, la regola non scatta: **il sistema conclude solo ciò che segue da ciò che sa**, senza «indovinare» come farebbe una persona."
+      },
+      {
+       "t": "figura",
+       "tipo": "animazione",
+       "titolo": "La casa che ragiona",
+       "x": "**Fa capire:** come i fatti fanno scattare le regole e come una conclusione diventa un fatto nuovo che fa scattare la regola successiva; e che senza tutti i fatti la regola non scatta.\n**Scena iniziale (passo 0):** a sinistra il riquadro «Fatti» con due fatti: «è sera (19:00)», «fuori è buio». Al centro due regole: *Regola 1* «SE è sera E fuori è buio ALLORA serve la luce»; *Regola 2* «SE serve la luce E c'è qualcuno in casa ALLORA accendi le luci». A destra una casa disegnata con la luna fuori, una lampada spenta appesa al soffitto e un sensore di presenza spento sulla parete. Descrizione: «La casa conosce due fatti e ha due regole. Per ora la luce è spenta.»\n**Passo 1:** la Regola 1 si illumina (verde acqua) e nei Fatti compare, evidenziato, «serve la luce». Descrizione: «La regola 1 controlla i fatti: è sera e fuori è buio, quindi scatta e aggiunge un fatto nuovo.»\n**Passo 2:** la Regola 2 si colora d'ambra (controlla ma non scatta); la lampada resta spenta. Descrizione: «Il fatto nuovo interessa la regola 2, ma manca \"c'è qualcuno in casa\": la regola non scatta.»\n**Passo 3:** entra Marco (persona con volto minimo), il sensore si accende di verde e nei Fatti compare, evidenziato, «Marco è in casa». Descrizione: «Entra Marco: il sensore lo vede e aggiunge il fatto.»\n**Passo 4:** la Regola 2 si illumina, la lampada si accende con i raggi e nei Fatti compare «luci accese». Descrizione: «Ora la regola 2 ha tutti i fatti che le servono: scatta e la casa accende la luce.»",
+       "passi": [
+        "La regola 1 controlla i fatti: è sera e fuori è buio, quindi scatta e aggiunge un fatto nuovo.",
+        "Il fatto nuovo interessa la regola 2, ma manca \"c'è qualcuno in casa\": la regola non scatta.",
+        "Entra Marco: il sensore lo vede e aggiunge il fatto.",
+        "Ora la regola 2 ha tutti i fatti che le servono: scatta e la casa accende la luce."
+       ],
+       "inizio": "La casa conosce due fatti e ha due regole. Per ora la luce è spenta.",
+       "capire": "come i fatti fanno scattare le regole e come una conclusione diventa un fatto nuovo che fa scattare la regola successiva; e che senza tutti i fatti la regola non scatta.",
+       "id": "F1.1.2"
+      },
+      {
+       "t": "errore",
+       "errata": "«La casa accende la luce perché capisce che è buio e che serve.»",
+       "corretta": "La casa non capisce nulla: **controlla se i fatti che ha soddisfano le condizioni di una regola** che qualcuno ha scritto. Se la regola fosse sbagliata (per esempio senza la condizione «c'è qualcuno in casa»), accenderebbe la luce anche in una casa vuota, senza accorgersene."
+      },
+      {
+       "t": "domanda",
+       "q": "Un programma decide se bloccare la vostra carta seguendo 200 regole scritte da esperti di frodi. È intelligenza artificiale?",
+       "scopo": "preconoscenze",
+       "risposta": "sì. È IA simbolica: una macchina che prende decisioni da esperto applicando conoscenza scritta in forma di regole. Non serve che impari da sola per essere IA."
+      },
+      {
+       "t": "p",
+       "x": "Questo modo di costruire macchine «intelligenti» si chiama **IA simbolica**: **la conoscenza la scrivono le persone, sotto forma di fatti e regole, e la macchina la applica**. Si chiama simbolica perché lavora con simboli, cioè parole o segni che stanno per cose del mondo («buio», «Marco», «in casa»). È anche chiamata **GOFAI** (*Good Old-Fashioned Artificial Intelligence*, «la buona vecchia IA»), perché è stato il primo modo di fare IA, dagli anni Cinquanta. L'altro grande approccio, quello delle reti neurali che imparano dagli esempi, lo metteremo a confronto nel capitolo 9."
+      },
+      {
+       "t": "p",
+       "x": "Per scrivere fatti e regole che una macchina possa applicare **senza ambiguità** serve un linguaggio preciso: la **logica**, l'argomento di questo modulo."
+      }
+     ]
+    },
+    {
+     "num": "1.2",
+     "titolo": "Ragionare e argomentare",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Nella casa smart, quando la regola 1 è scattata, la casa ha fatto un piccolo ragionamento. Scritto per esteso:"
+      },
+      {
+       "t": "arg",
+       "premesse": [
+        "Se è sera e fuori è buio, allora serve la luce.",
+        "È sera e fuori è buio."
+       ],
+       "conclusione": [
+        "Quindi serve la luce."
+       ]
+      },
+      {
+       "t": "p",
+       "x": "**Ragionare significa ricavare una conclusione da informazioni che si danno per buone.** Le informazioni di partenza si chiamano **premesse**, quella ricavata **conclusione**; **premesse e conclusione insieme formano un argomento**. In logica «argomento» non vuol dire «tema di cui si parla», ma proprio questo: un insieme di premesse con la conclusione che se ne ricava. Il passaggio dalle premesse alla conclusione si chiama **inferenza**: è ciò che fa la casa quando una regola scatta."
+      },
+      {
+       "t": "p",
+       "x": "Nella lingua di tutti i giorni premesse e conclusione si riconoscono da alcune parole-spia: «quindi», «perciò», «dunque» introducono la conclusione; «perché», «dato che», «poiché» introducono una premessa. In logica l'argomento si scrive in colonna: premesse sopra, una riga, conclusione sotto."
+      },
+      {
+       "t": "p",
+       "x": "**La logica studia quando una conclusione segue davvero dalle premesse**, chiunque sia a ragionare: una persona o una macchina."
+      },
+      {
+       "t": "figura",
+       "tipo": "schema",
+       "titolo": "Tre argomenti, una stessa forma di scrittura",
+       "x": "Tre riquadri affiancati, ognuno con le premesse sopra, una riga orizzontale e la conclusione sotto; a lato le etichette «premesse» e «conclusione».\n1. Casa smart: «Se è sera e fuori è buio, serve la luce» / «È sera e fuori è buio» → «Serve la luce».\n2. Socrate: «Tutti gli uomini sono mortali» / «Socrate è un uomo» → «Socrate è mortale».\n3. Detective: «Il ladro è entrato dalla porta o dalla finestra» / «La porta era chiusa a chiave e intatta» → «Il ladro è entrato dalla finestra».",
+       "id": "F1.2.1"
+      },
+      {
+       "t": "box",
+       "k": "storia",
+       "titolo": "Aristotele e il sillogismo",
+       "x": "Aristotele (384–322 a.C.) fu il primo a studiare in modo sistematico **la forma dei ragionamenti**, nelle opere che in seguito furono raccolte con il nome di *Organon* («strumento»). Il suo strumento principale è il **sillogismo**: un argomento con due premesse e una conclusione. L'esempio più famoso, «Tutti gli uomini sono mortali; Socrate è un uomo; quindi Socrate è mortale», non è suo ma dei suoi commentatori. La sua logica rimase la base dello studio del ragionamento per più di duemila anni.",
+       "foto": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg",
+        "pagina": "commons:Aristotle Altemps Inv8575.jpg",
+        "chiave": "Aristotle Altemps Inv8575.jpg"
+       },
+       "foto_tit": "Aristotele",
+       "foto_tutte": [
+        [
+         "Aristotle Altemps Inv8575.jpg",
+         "Aristotele"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "num": "1.3",
+     "titolo": "Validità e verità",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Un argomento può andare storto per due motivi molto diversi:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**una premessa è falsa**: il sensore sbaglia, la notizia è inventata;",
+        "**la conclusione non segue dalle premesse**, anche se queste sono vere."
+       ]
+      },
+      {
+       "t": "p",
+       "x": "La logica si occupa del secondo. Un argomento è **valido** quando **è impossibile che le premesse siano vere e la conclusione falsa**: in un argomento valido la verità delle premesse «passa» per forza alla conclusione. Se poi un argomento è valido **e** le sue premesse sono vere, si dice **corretto** (o fondato), e la sua conclusione è sicuramente vera."
+      },
+      {
+       "t": "p",
+       "x": "Il punto chiave è che **la validità dipende dalla forma dell'argomento, non dal suo contenuto**. «Tutti gli A sono B; x è un A; quindi x è un B» è valido qualunque cosa si metta al posto di A, B e x: per accorgersene non serve sapere niente di uomini, pesci o gatti. Proprio per questo **la validità la può controllare anche una macchina**, che delle cose del mondo non sa nulla."
+      },
+      {
+       "t": "p",
+       "x": "Il rovescio della medaglia: una macchina che ragiona in modo valido non si accorge se le premesse sono false. Se il sensore della casa scambia il gatto per una persona, la casa accende la luce in una stanza vuota: ragionamento valido, premessa falsa, conclusione sbagliata. In informatica si dice *garbage in, garbage out* («spazzatura dentro, spazzatura fuori»)."
+      },
+      {
+       "t": "figura",
+       "tipo": "animazione",
+       "titolo": "Lo stampo del ragionamento",
+       "x": "**Fa capire:** che la validità dipende dalla forma (lo «stampo») e non dalla verità delle frasi: uno stampo valido resta valido anche con una premessa falsa, uno stampo non valido può dare una conclusione falsa anche con premesse vere.\n**Scena iniziale (passo 0):** a sinistra un riquadro tratteggiato «Stampo» con tre righe: «Tutti gli A sono B», «x è un A», una riga orizzontale, «x è un B». A destra un riquadro vuoto e sbiadito con la stessa disposizione. Descrizione: «Uno stampo: la forma di un ragionamento, con caselle vuote al posto delle parole.»\n**Passo 1:** a destra compaiono «Tutti gli uomini sono mortali» (vero), «Socrate è un uomo» (vero), «Socrate è mortale» (vero); in basso la fascia verde acqua «valido». Descrizione: «Riempiamo lo stampo: premesse vere, conclusione vera. Il ragionamento è valido.»\n**Passo 2:** a destra «Tutti i pesci sanno volare» (falso, in rosso), «Bolla è un pesce» (vero), «Bolla sa volare» (falso); fascia verde acqua «valido (ma una premessa è falsa)». Descrizione: «Stesso stampo, altre parole: una premessa è falsa e anche la conclusione. Ma se le premesse fossero vere, la conclusione lo sarebbe per forza: è ancora valido.»\n**Passo 3:** lo stampo cambia: «Tutti gli A sono B», «x è un **B**», riga, «x è un **A**» (le due righe cambiate in grassetto); a destra di nuovo vuoto. Descrizione: «Cambiamo stampo: nella seconda riga e nella conclusione A e B si scambiano di posto.»\n**Passo 4:** a destra «Tutti i gatti hanno quattro zampe» (vero), «Fido ha quattro zampe» (vero), «Fido è un gatto» (falso); fascia rossa «non valido». Descrizione: «Premesse tutte vere, eppure la conclusione è falsa: questo stampo non garantisce niente. Non è valido.»",
+       "passi": [
+        "Riempiamo lo stampo: premesse vere, conclusione vera. Il ragionamento è valido.",
+        "Stesso stampo, altre parole: una premessa è falsa e anche la conclusione. Ma se le premesse fossero vere, la conclusione lo sarebbe per forza: è ancora valido.",
+        "Cambiamo stampo: nella seconda riga e nella conclusione A e B si scambiano di posto.",
+        "Premesse tutte vere, eppure la conclusione è falsa: questo stampo non garantisce niente. Non è valido."
+       ],
+       "inizio": "Uno stampo: la forma di un ragionamento, con caselle vuote al posto delle parole.",
+       "capire": "che la validità dipende dalla forma (lo «stampo») e non dalla verità delle frasi: uno stampo valido resta valido anche con una premessa falsa, uno stampo non valido può dare una conclusione falsa anche con premesse vere.",
+       "id": "F1.3.1"
+      },
+      {
+       "t": "domanda",
+       "q": "Tutti i pesci sanno volare. Bolla è un pesce. Quindi Bolla sa volare. Il ragionamento è corretto?",
+       "scopo": "anticipa (prima del passo 2 dell'animazione)",
+       "risposta": "il ragionamento è valido: se le premesse fossero vere, la conclusione lo sarebbe per forza. A essere falsa è la prima premessa, quindi l'argomento è valido ma non corretto."
+      },
+      {
+       "t": "errore",
+       "errata": "«Tutti i gatti hanno quattro zampe; il mio cane ha quattro zampe; quindi il mio cane è un mammifero. Il ragionamento è giusto, perché la conclusione è vera.»",
+       "corretta": "La conclusione è vera, ma **non segue dalle premesse**: le premesse parlano di gatti e zampe, non di mammiferi. Che la conclusione sia vera non basta: un argomento è valido solo se le premesse la garantiscono."
+      }
+     ]
+    },
+    {
+     "num": "1.4",
+     "titolo": "Dal linguaggio naturale al linguaggio formale",
+     "blocchi": [
+      {
+       "t": "domanda",
+       "q": "\"Ho visto un uomo col binocolo\": chi ha il binocolo?",
+       "scopo": "errore",
+       "risposta": "la frase ha due significati, entrambi possibili: posso aver usato io il binocolo per vedere l'uomo, oppure posso aver visto un uomo che aveva un binocolo. È ambigua."
+      },
+      {
+       "t": "figura",
+       "tipo": "schema",
+       "titolo": "Una frase, due significati",
+       "x": "In alto la frase «Ho visto un uomo col binocolo». Sotto, due vignette affiancate (persone con volto minimo). A sinistra: una ragazza guarda nel binocolo un uomo lontano, sull'altra sponda di un fiume. A destra: la stessa ragazza, a occhio nudo, vede da vicino un uomo che tiene in mano un binocolo. Sotto ogni vignetta la frase riscritta senza ambiguità: «Con il binocolo, ho visto un uomo» / «Ho visto un uomo che aveva un binocolo».",
+       "id": "F1.4.1"
+      },
+      {
+       "t": "p",
+       "x": "Chi ascolta sceglie quasi sempre il significato giusto senza accorgersi dell'altro, grazie al **contesto**: dove si era, di che cosa si stava parlando. **Il linguaggio naturale è ambiguo**: la stessa frase può avere più significati, e la comunicazione funziona perché chi ascolta usa il contesto e il buon senso. **Un computer non ha né l'uno né l'altro**: davanti a un'istruzione ambigua non può «capire che cosa si intendeva»."
+      },
+      {
+       "t": "p",
+       "x": "Le ambiguità si nascondono anche nelle parole più piccole, e torneranno nel modulo:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "«Domani c'è la verifica **o** l'interrogazione»: una delle due soltanto, o possono esserci entrambe? (capitolo 2, i connettivi);",
+        "«**Se** finisci i compiti, puoi uscire»: e se non li finisci, non puoi uscire? (capitolo 4, l'implicazione);",
+        "«**Tutti** gli studenti **non** hanno fatto i compiti»: nessuno li ha fatti, o non tutti? (capitolo 6, i quantificatori)."
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Per questo serve un **linguaggio formale**: un linguaggio con regole precise, in cui **ogni frase si scrive solo in modi stabiliti e ha un solo significato**. I linguaggi di programmazione sono linguaggi formali: Python non accetta una riga «più o meno» giusta. **La logica è il linguaggio formale con cui si scrivono fatti e regole.** Tradurre una frase nella logica si dice **formalizzare**, e serve a due cose: **rappresentare la conoscenza** (scrivere ciò che si sa, cioè la base di conoscenza) e **aumentarla** (ricavare fatti nuovi con l'inferenza)."
+      },
+      {
+       "t": "box",
+       "k": "storia",
+       "titolo": "Wittgenstein e la frase come immagine",
+       "x": "Il filosofo austriaco Ludwig Wittgenstein (1889–1951), nel *Tractatus logico-philosophicus* (1921), sostenne che **una proposizione è un'immagine dei fatti**: funziona perché i suoi elementi stanno tra loro come le cose stanno nel mondo. L'idea gli venne leggendo di un processo a Parigi in cui un incidente stradale era stato ricostruito con automobiline e pupazzi: il modellino «diceva» come erano andate le cose perché ne ripeteva la disposizione. Una base di conoscenza fa lo stesso: è un'immagine del mondo fatta di simboli. Sua è la frase: «I limiti del mio linguaggio significano i limiti del mio mondo».",
+       "foto": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Ludwig_Wittgenstein.jpg",
+        "pagina": "commons:Ludwig Wittgenstein.jpg",
+        "chiave": "Ludwig Wittgenstein.jpg"
+       },
+       "foto_tit": "Ludwig Wittgenstein",
+       "foto_tutte": [
+        [
+         "Ludwig Wittgenstein.jpg",
+         "Ludwig Wittgenstein"
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "ricorda": [
+    "Un sistema a regole parte dai **fatti** e applica regole **SE… ALLORA…** scritte da persone; ogni conclusione diventa un fatto nuovo che può farne scattare altre. È l'**IA simbolica**.",
+    "**Ragionare** è ricavare una **conclusione** da **premesse**; insieme formano un **argomento** e il passaggio è l'**inferenza**. La logica studia quando la conclusione segue davvero.",
+    "Un argomento è **valido** se è impossibile che le premesse siano vere e la conclusione falsa: la validità dipende dalla **forma**, non dalla verità delle frasi.",
+    "Il linguaggio naturale è **ambiguo** e si capisce grazie al contesto; il computer non ha contesto, perciò serve un **linguaggio formale**, in cui ogni frase ha un solo significato."
+   ]
+  },
+  {
+   "n": 2,
+   "titolo": "La logica proposizionale",
+   "intro": "Le frasi che sono o vere o false e le parole che le uniscono: il primo linguaggio formale per scrivere fatti e regole.",
+   "sezioni": [
+    {
+     "num": "2.1",
+     "titolo": "Le proposizioni e i principi della logica classica",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Nella base di conoscenza della casa smart ci sono frasi come «è sera», «fuori è buio», «Marco è in casa». Hanno una cosa in comune: in ogni momento **sono vere oppure false**. Sono i mattoni della logica."
+      },
+      {
+       "t": "p",
+       "x": "Una **proposizione** è **una frase dichiarativa, cioè che afferma qualcosa, a cui si può attribuire uno e un solo valore di verità: vero (V) oppure falso (F)**."
+      },
+      {
+       "t": "domanda",
+       "q": "\"7 è un numero pari\" è una proposizione?",
+       "scopo": "errore",
+       "risposta": "sì. È falsa, ma è una proposizione: conta che abbia un valore di verità, non che sia vera."
+      },
+      {
+       "t": "p",
+       "x": "**Una proposizione può benissimo essere falsa**: «7 è un numero pari» è una proposizione falsa. Non sono proposizioni, invece:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "le **domande** («Che ore sono?») e gli **ordini** («Chiudi la porta!»): non affermano niente, quindi non sono né vere né false;",
+        "i **giudizi personali** («La pizza è il cibo più buono»): il loro valore cambia da persona a persona;",
+        "le **frasi paradossali** che parlano di sé stesse («Questa frase è falsa»): vedi il riquadro sui paradossi."
+       ]
+      },
+      {
+       "t": "figura",
+       "tipo": "widget",
+       "titolo": "Prova tu: è una proposizione?",
+       "x": "Sei carte con una frase ciascuna; lo studente sceglie «sì» o «no» e al clic compare la spiegazione.\n1. «Roma è la capitale d'Italia» → sì, vera.\n2. «7 è un numero pari» → sì, falsa: anche le frasi false sono proposizioni.\n3. «Che ore sono?» → no: è una domanda, non afferma niente.\n4. «Chiudi la porta!» → no: è un ordine.\n5. «La pizza è il cibo più buono» → no: è un giudizio personale, il valore cambia da persona a persona.\n6. «Questa frase è falsa» → no: se fosse vera sarebbe falsa e viceversa, quindi non può avere un valore di verità.",
+       "id": "F2.1.1"
+      },
+      {
+       "t": "errore",
+       "errata": "«\"La pizza è il cibo più buono\" è una proposizione: per me è vera.»",
+       "corretta": "Non è una proposizione: è un **giudizio personale**. Per qualcuno è vera, per qualcun altro falsa: non ha un valore di verità uguale per tutti."
+      },
+      {
+       "t": "p",
+       "x": "La logica di questo modulo si chiama **logica classica** e si basa su tre principi, che dicono con precisione che cosa significa «o vera o falsa»:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**principio di bivalenza**: i valori di verità sono **solo due**, vero e falso;",
+        "**principio di non contraddizione**: una proposizione **non può essere vera e falsa nello stesso momento**;",
+        "**principio del terzo escluso**: una proposizione **è vera oppure falsa**, non esiste una terza possibilità (in latino *tertium non datur*, «un terzo non è dato»)."
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Due soli valori sono esattamente ciò che un computer sa gestire: **vero e falso corrispondono ai due stati di un bit, 1 e 0**. Nella programmazione si chiamano valori **booleani**, dal nome del matematico George Boole, e il tipo di dato che li contiene è il tipo **booleano**: in Flowgorithm una variabile di tipo *Boolean* vale `true` oppure `false`. **Ogni condizione di un blocco «Se» è una proposizione**: «voto ≥ 6» è vera o falsa, e a seconda del valore il programma prende un ramo o l'altro."
+      },
+      {
+       "t": "box",
+       "k": "storia",
+       "titolo": "George Boole e l'algebra del pensiero",
+       "x": "George Boole (1815–1864), figlio di un calzolaio inglese, studiò quasi da solo e diventò professore di matematica a Cork, in Irlanda. Nel 1854 pubblicò *Le leggi del pensiero* (*An Investigation of the Laws of Thought*), in cui **il ragionamento diventa un calcolo con due soli valori, 1 e 0**: è l'**algebra di Boole**. Da lui prendono il nome i valori e il tipo **booleani**.",
+       "foto": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/George_Boole_color.jpg",
+        "pagina": "commons:George Boole color.jpg",
+        "chiave": "George Boole color.jpg"
+       },
+       "foto_tit": "George Boole",
+       "foto_tutte": [
+        [
+         "George Boole color.jpg",
+         "George Boole"
+        ]
+       ]
+      },
+      {
+       "t": "box",
+       "k": "storia",
+       "titolo": "I paradossi: frasi che non possono essere né vere né false",
+       "x": "Già nel IV secolo a.C. il filosofo greco Eubulide di Mileto proponeva il **paradosso del mentitore**: un uomo dice «Io sto mentendo». Se la frase è vera, allora sta mentendo, quindi è falsa; se è falsa, allora non sta mentendo, quindi è vera. Non può avere nessuno dei due valori: **non è una proposizione**.\nNel 1918 il filosofo e matematico inglese **Bertrand Russell** (1872–1970) raccontò un paradosso simile con la storia del **barbiere**: in un villaggio il barbiere rade tutti e soli gli uomini che non si radono da soli. Chi rade il barbiere? Se si rade da solo, non dovrebbe farlo; se non si rade, dovrebbe radersi. Conclusione: **un barbiere così non può esistere**. Russell usava questa storia per spiegare un paradosso che aveva scoperto nel 1901 nella teoria degli insiemi e che mise in crisi le basi della matematica.",
+       "foto": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Bertrand_Russell_in_1936.jpg",
+        "pagina": "commons:Bertrand Russell in 1936.jpg",
+        "chiave": "Bertrand Russell in 1936.jpg"
+       },
+       "foto_tit": "Bertrand Russell",
+       "foto_tutte": [
+        [
+         "Bertrand Russell in 1936.jpg",
+         "Bertrand Russell"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "num": "2.2",
+     "titolo": "Proposizioni atomiche e composte",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "«Se piove e non ho l'ombrello, mi bagno» è una proposizione, ma dentro ne contiene altre più piccole: «piove», «ho l'ombrello», «mi bagno»."
+      },
+      {
+       "t": "p",
+       "x": "Una proposizione è **atomica** se **non si può scomporre in proposizioni più semplici** («piove»). È **composta** se è **formata da proposizioni più semplici unite da parole come «non», «e», «o», «se… allora»**, che si chiamano **connettivi**. Anche «non piove» è composta: è «piove» con davanti il connettivo «non»."
+      },
+      {
+       "t": "p",
+       "x": "Il punto importante è che **il valore di verità di una proposizione composta dipende solo dai valori delle proposizioni atomiche e dai connettivi che le uniscono**. Se so se piove e se ho l'ombrello, so anche se mi bagno secondo la regola: non serve sapere altro."
+      },
+      {
+       "t": "p",
+       "x": "Per non riscrivere ogni volta le frasi, le proposizioni atomiche si indicano con lettere minuscole: p = «piove», q = «ho l'ombrello», r = «mi bagno». Queste lettere si chiamano **variabili proposizionali**: come la x in algebra sta al posto di un numero qualsiasi, **una variabile proposizionale sta al posto di una proposizione qualsiasi**. La frase diventa: «se p e non q, allora r»."
+      },
+      {
+       "t": "figura",
+       "tipo": "schema",
+       "titolo": "Smontare una frase",
+       "x": "In alto la frase «Se piove e non ho l'ombrello, mi bagno», con le parole «se… allora», «e», «non» evidenziate in ambra (i connettivi) e le tre parti «piove», «ho l'ombrello», «mi bagno» sottolineate in verde acqua (le proposizioni atomiche). Sotto, da ogni parte verde una freccia verso la sua lettera: p, q, r. In fondo la frase riscritta: «se p e non q, allora r».",
+       "id": "F2.2.1"
+      },
+      {
+       "t": "errore",
+       "errata": "«\"Marco e Luca sono fratelli\" è una proposizione composta, perché c'è la \"e\".»",
+       "corretta": "È **atomica**: qui «e» indica una **relazione** tra due persone, non unisce due proposizioni. Prova a dividerla: «Marco è fratello» da sola non ha senso. Invece «Marco e Luca sono alti» è composta: «Marco è alto» **e** «Luca è alto»."
+      }
+     ]
+    },
+    {
+     "num": "2.3",
+     "titolo": "I connettivi NOT, AND, OR e XOR",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Le regole che incontriamo ogni giorno sono proposizioni composte, e spesso basta una parola a cambiarne il significato:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "«Puoi uscire prima se hai l'autorizzazione dei genitori **e** il permesso della presidenza»;",
+        "«Sconto per chi ha meno di 18 anni **o** è studente»;",
+        "«Il menù comprende primo **o** secondo»."
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Ogni connettivo è definito dalla sua **tavola di verità**: una tabella che, per ogni combinazione dei valori delle proposizioni di partenza, dice il valore della proposizione composta. Un connettivo è **unario** se agisce su una sola proposizione, **binario** se ne unisce due (il numero di proposizioni su cui agisce si chiama **arietà**)."
+      },
+      {
+       "t": "figura",
+       "tipo": "widget",
+       "titolo": "Prova tu: interruttori e lampadina",
+       "x": "Due interruttori, p e q (acceso = vero, spento = falso), un menu per scegliere il connettivo (NOT, AND, OR, XOR, se… allora, se e solo se) e una lampadina che si accende quando la proposizione composta è vera. Accanto, la tavola di verità del connettivo scelto con la riga corrispondente agli interruttori evidenziata (come tutte le tavole del modulo, ordinata partendo dal falso). Con NOT si usa solo l'interruttore p.",
+       "id": "F2.3.1"
+      },
+      {
+       "t": "h3",
+       "x": "NOT – negazione"
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "Nome",
+         "Simboli",
+         "Arietà"
+        ],
+        [
+         "negazione, «non»",
+         "¬p · ~p · p̄ · NOT p · in Flowgorithm `not p` o `!p`",
+         "unario"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "**La negazione rovescia il valore di verità**: se p è vera, ¬p è falsa, e viceversa."
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "p",
+         "¬p"
+        ],
+        [
+         "F",
+         "V"
+        ],
+        [
+         "V",
+         "F"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Esempi: «Non piove» (¬p, con p = «piove»); «Marco non è in casa»; «Non è vero che 7 è pari» (vera, perché «7 è pari» è falsa)."
+      },
+      {
+       "t": "h3",
+       "x": "AND – congiunzione"
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "Nome",
+         "Simboli",
+         "Arietà"
+        ],
+        [
+         "congiunzione, «e»",
+         "p ∧ q · p · q · p & q · p AND q · in Flowgorithm `p and q` o `p && q`",
+         "binario"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "**La congiunzione è vera solo quando sono vere entrambe le proposizioni**; basta che una sia falsa perché sia falsa."
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "p",
+         "q",
+         "p ∧ q"
+        ],
+        [
+         "F",
+         "F",
+         "F"
+        ],
+        [
+         "F",
+         "V",
+         "F"
+        ],
+        [
+         "V",
+         "F",
+         "F"
+        ],
+        [
+         "V",
+         "V",
+         "V"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Esempi: «È sera e fuori è buio»; «Puoi uscire prima se hai l'autorizzazione dei genitori e il permesso della presidenza» (non ne basta una). Anche **«ma», «però», «anche se», «eppure» sono congiunzioni**: «È bravo ma pigro» afferma che è bravo **e** che è pigro; la sfumatura di contrasto, in logica, si perde."
+      },
+      {
+       "t": "domanda",
+       "q": "\"Sconto per chi ha meno di 18 anni o è studente\" e \"il menù comprende primo o secondo\": in tutti e due i casi posso avere entrambe le cose?",
+       "scopo": "errore",
+       "risposta": "nel primo caso sì: chi ha 16 anni ed è studente ha lo sconto. Nel secondo no: si sceglie uno solo dei due piatti. La lingua usa la stessa parola «o», la logica due connettivi diversi: OR e XOR."
+      },
+      {
+       "t": "h3",
+       "x": "OR – disgiunzione inclusiva"
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "Nome",
+         "Simboli",
+         "Arietà"
+        ],
+        [
+         "disgiunzione inclusiva, «o», latino *vel*",
+         "p ∨ q · p + q · p OR q · in Flowgorithm `p or q` o `p || q`",
+         "binario"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "**La disgiunzione inclusiva è vera quando è vera almeno una delle due proposizioni, anche entrambe**; è falsa solo se sono false tutte e due."
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "p",
+         "q",
+         "p ∨ q"
+        ],
+        [
+         "F",
+         "F",
+         "F"
+        ],
+        [
+         "F",
+         "V",
+         "V"
+        ],
+        [
+         "V",
+         "F",
+         "V"
+        ],
+        [
+         "V",
+         "V",
+         "V"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Esempi: «Sconto per chi ha meno di 18 anni o è studente»; «Per entrare serve la tessera o un documento» (se li hai entrambi, entri lo stesso)."
+      },
+      {
+       "t": "h3",
+       "x": "XOR – disgiunzione esclusiva"
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "Nome",
+         "Simboli",
+         "Arietà"
+        ],
+        [
+         "disgiunzione esclusiva, «o… o…», latino *aut aut*",
+         "p ⊕ q · p ⊻ q · p XOR q · in Flowgorithm non c'è un operatore apposito: si scrive `p != q`",
+         "binario"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "**La disgiunzione esclusiva è vera quando è vera una sola delle due proposizioni**: è falsa se sono entrambe vere o entrambe false. Rispetto all'OR cambia solo l'ultima riga."
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "p",
+         "q",
+         "p ⊕ q"
+        ],
+        [
+         "F",
+         "F",
+         "F"
+        ],
+        [
+         "F",
+         "V",
+         "V"
+        ],
+        [
+         "V",
+         "F",
+         "V"
+        ],
+        [
+         "V",
+         "V",
+         "F"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Esempi: «Il menù comprende primo o secondo»; «O vieni con noi o resti a casa»; «Testa o croce». È la risposta all'ambiguità del capitolo 1, «domani c'è la verifica **o** l'interrogazione»: se possono esserci entrambe è un OR, se ce n'è una sola è uno XOR. In italiano, quando si vuole l'esclusiva, si dice «o… o…» oppure «oppure… ma non entrambi»."
+      },
+      {
+       "t": "errore",
+       "errata": "«\"Sconto per chi ha meno di 18 anni o è studente\": se ho 16 anni e sono studente lo sconto non vale, perché la \"o\" vuol dire una sola delle due.»",
+       "corretta": "In logica **«o» è inclusiva**, salvo che si dica esplicitamente il contrario: la proposizione è vera anche quando sono vere entrambe. Lo sconto vale."
+      },
+      {
+       "t": "h3",
+       "x": "I connettivi dentro il computer"
+      },
+      {
+       "t": "p",
+       "x": "Dentro il processore di un computer ogni connettivo è un piccolo circuito elettronico, la **porta logica**: **riceve in ingresso dei bit (1 = vero, 0 = falso) e restituisce il valore di verità del connettivo**. Per farsi un'idea bastano interruttori e lampadina: **due interruttori in fila (in serie) fanno un AND**, perché la corrente passa solo se sono chiusi entrambi; **due interruttori affiancati (in parallelo) fanno un OR**, perché basta che ne sia chiuso uno. Nei computer gli interruttori sono i **transistor**, e un processore di oggi ne contiene miliardi: tutto ciò che fa un computer, anche sommare due numeri, nasce dal combinare porte logiche. Fu l'ingegnere americano Claude Shannon, nel 1937, ad accorgersi che l'algebra di Boole descriveva proprio questi circuiti. Con un solo tipo di porta, la **NAND** («non e»), si possono costruire tutte le altre; e la memoria «flash NAND» delle chiavette USB e dei telefoni deve il nome a questa porta, perché le sue celle sono collegate come in una NAND."
+      }
+     ]
+    },
+    {
+     "num": "2.4",
+     "titolo": "Implicazione e doppia implicazione",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "«Se prendi 8 alla verifica, ti porto al cinema.» È una promessa, cioè una proposizione composta: quando si può dire che è stata **tradita**?"
+      },
+      {
+       "t": "h3",
+       "x": "Implicazione – «se… allora…»"
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "Nome",
+         "Simboli",
+         "Arietà"
+        ],
+        [
+         "implicazione (o condizionale), «se… allora…»",
+         "p → q · p ⇒ q · p ⊃ q · in Flowgorithm non c'è un operatore apposito: si scrive `not p or q` (nel capitolo 3 vedremo perché)",
+         "binario"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "In «se p allora q» la prima proposizione si chiama **antecedente** (p), la seconda **conseguente** (q). **L'implicazione è falsa solo quando l'antecedente è vero e il conseguente è falso**: in tutti gli altri casi è vera."
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "p",
+         "q",
+         "p → q"
+        ],
+        [
+         "F",
+         "F",
+         "V"
+        ],
+        [
+         "F",
+         "V",
+         "V"
+        ],
+        [
+         "V",
+         "F",
+         "F"
+        ],
+        [
+         "V",
+         "V",
+         "V"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Le prime due righe, quelle con l'antecedente falso, sorprendono sempre. Il motivo è che **l'implicazione dice che cosa succede solo quando l'antecedente è vero**: se prendi 5, la promessa non dice niente, quindi non può essere tradita, qualunque cosa succeda. E dato che per il principio di bivalenza ogni proposizione deve essere vera o falsa, «non tradita» vuol dire vera. Per questo si dice anche *ex falso quodlibet*, «dal falso segue qualunque cosa»: con un antecedente falso l'implicazione è vera, qualunque sia il conseguente."
+      },
+      {
+       "t": "domanda",
+       "q": "Prendi 5, ma ti porto al cinema lo stesso: ho tradito la promessa?",
+       "scopo": "anticipa (prima del passo 3 dell'animazione «La promessa»)",
+       "risposta": "no. La promessa diceva che cosa sarebbe successo se avessi preso 8, e non dice niente sul 5: l'implicazione resta vera."
+      },
+      {
+       "t": "figura",
+       "tipo": "animazione",
+       "titolo": "La promessa è stata mantenuta?",
+       "x": "**Fa capire:** che l'implicazione è falsa solo quando l'antecedente è vero e il conseguente falso, riempiendo la tavola di verità un caso alla volta con una situazione concreta.\n**Nota:** la tavola è ordinata partendo dal falso (F F, F V, V F, V V); ogni caso, quando viene raccontato, va a occupare la sua riga.\n**Scena iniziale (passo 0):** in alto il fumetto «Se prendi 8, ti porto al cinema». A sinistra un foglio di verifica senza voto; a destra una tavola vuota con le colonne p, q, «se p allora q» e la legenda «p = prendi 8 · q = vai al cinema». Descrizione: «La promessa collega due proposizioni: p \"prendi 8\" e q \"ti porto al cinema\". Vediamo i quattro casi possibili.»\n**Passo 1:** sul foglio compare 8, accanto un biglietto del cinema; fascia verde acqua «promessa non tradita»; nella tavola la riga V V V. Descrizione: «Prendi 8 e vai al cinema: la promessa è mantenuta. Riga V V: vero.»\n**Passo 2:** 8 e, al posto del biglietto, una casa («niente cinema»); fascia rossa «promessa tradita»; riga V F F in rosso. Descrizione: «Prendi 8 ma non vai al cinema: la promessa è tradita. È l'unico caso in cui l'implicazione è falsa.»\n**Passo 3:** 5 e il biglietto del cinema; fascia verde acqua; riga F V V. Descrizione: «Prendi 5 e ti porto lo stesso al cinema: la promessa parlava solo dell'8, quindi non è tradita. Vero.»\n**Passo 4:** 5 e la casa; fascia verde acqua; riga F F V. Descrizione: «Prendi 5 e niente cinema: anche qui la promessa non è tradita. Vero. Con l'antecedente falso, l'implicazione è sempre vera.»",
+       "passi": [
+        "Prendi 8 e vai al cinema: la promessa è mantenuta. Riga V V: vero.",
+        "Prendi 8 ma non vai al cinema: la promessa è tradita. È l'unico caso in cui l'implicazione è falsa.",
+        "Prendi 5 e ti porto lo stesso al cinema: la promessa parlava solo dell'8, quindi non è tradita. Vero.",
+        "Prendi 5 e niente cinema: anche qui la promessa non è tradita. Vero. Con l'antecedente falso, l'implicazione è sempre vera."
+       ],
+       "inizio": "La promessa collega due proposizioni: p \"prendi 8\" e q \"ti porto al cinema\". Vediamo i quattro casi possibili.",
+       "capire": "che l'implicazione è falsa solo quando l'antecedente è vero e il conseguente falso, riempiendo la tavola di verità un caso alla volta con una situazione concreta.",
+       "id": "F2.4.1"
+      },
+      {
+       "t": "figura",
+       "tipo": "animazione",
+       "titolo": "Una regola sui numeri",
+       "x": "**Fa capire:** che un'implicazione è vera per tutti i casi quando la riga «antecedente vero, conseguente falso» non si presenta mai, e che basta un solo caso di quel tipo (un controesempio) per renderla falsa.\n**Nota:** la tavola è ordinata partendo dal falso (F F, F V, V F, V V); ogni numero provato va a occupare la sua riga.\n**Scena iniziale (passo 0):** in alto la regola «Se un numero è divisibile per 4, allora è pari». A sinistra una carta con un numero (vuota) e sotto due caselle: «divisibile per 4?» e «pari?». A destra la tavola vuota p, q, «se p allora q», con la legenda «p = divisibile per 4 · q = pari». Descrizione: «Una regola sui numeri è un'implicazione: proviamola con qualche numero.»\n**Passo 1:** sulla carta 8; caselle «sì» e «sì»; riga V V V. Descrizione: «8 è divisibile per 4 ed è pari: la regola funziona.»\n**Passo 2:** 6; caselle «no» e «sì»; riga F V V. Descrizione: «6 non è divisibile per 4 ma è pari: la regola non parla dei numeri non divisibili per 4, quindi non è violata.»\n**Passo 3:** 7; caselle «no» e «no»; riga F F V. Descrizione: «7 non è divisibile per 4 e non è pari: anche qui la regola non è violata.»\n**Passo 4:** sulla carta un punto interrogativo; la riga V F compare tratteggiata con la scritta «nessun numero». Descrizione: «Per violarla servirebbe un numero divisibile per 4 ma dispari: non esiste. La riga \"vero, falso\" non capita mai, quindi la regola è vera per tutti i numeri.»\n**Passo 5:** la regola in alto si rovescia: «Se un numero è pari, allora è divisibile per 4». Sulla carta 6; caselle «sì» e «no»; riga V F F in rosso. Descrizione: «Rovesciamo la regola: 6 è pari ma non divisibile per 4. Basta un solo controesempio e la regola è falsa.»",
+       "passi": [
+        "8 è divisibile per 4 ed è pari: la regola funziona.",
+        "6 non è divisibile per 4 ma è pari: la regola non parla dei numeri non divisibili per 4, quindi non è violata.",
+        "7 non è divisibile per 4 e non è pari: anche qui la regola non è violata.",
+        "Per violarla servirebbe un numero divisibile per 4 ma dispari: non esiste. La riga \"vero, falso\" non capita mai, quindi la regola è vera per tutti i numeri.",
+        "Rovesciamo la regola: 6 è pari ma non divisibile per 4. Basta un solo controesempio e la regola è falsa."
+       ],
+       "inizio": "Una regola sui numeri è un'implicazione: proviamola con qualche numero.",
+       "capire": "che un'implicazione è vera per tutti i casi quando la riga «antecedente vero, conseguente falso» non si presenta mai, e che basta un solo caso di quel tipo (un controesempio) per renderla falsa.",
+       "id": "F2.4.2"
+      },
+      {
+       "t": "p",
+       "x": "Esempi: «Se prendi 8, ti porto al cinema»; «Se un numero è divisibile per 4, allora è pari»; la regola 1 della casa smart, «Se è sera e fuori è buio, allora serve la luce»."
+      },
+      {
+       "t": "errore",
+       "errata": "«\"Se piove prendo l'ombrello\": oggi non piove, quindi la frase è falsa.»",
+       "corretta": "Con l'**antecedente falso** l'implicazione è **vera**: la regola dice che cosa faccio quando piove, e oggi non è stata violata."
+      },
+      {
+       "t": "h3",
+       "x": "Doppia implicazione – «se e solo se»"
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "Nome",
+         "Simboli",
+         "Arietà"
+        ],
+        [
+         "doppia implicazione (o bicondizionale), «se e solo se»",
+         "p ↔ q · p ⇔ q · p ≡ q · in Flowgorithm `p == q`",
+         "binario"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "**La doppia implicazione è vera quando le due proposizioni hanno lo stesso valore di verità**, entrambe vere o entrambe false. Equivale a due implicazioni insieme: se p allora q, **e** se q allora p."
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "p",
+         "q",
+         "p ↔ q"
+        ],
+        [
+         "F",
+         "F",
+         "V"
+        ],
+        [
+         "F",
+         "V",
+         "F"
+        ],
+        [
+         "V",
+         "F",
+         "F"
+        ],
+        [
+         "V",
+         "V",
+         "V"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Esempi: «Un numero è pari se e solo se è divisibile per 2» (vale nei due sensi: ogni numero pari è divisibile per 2 e ogni numero divisibile per 2 è pari); «Puoi uscire se e solo se hai finito i compiti» (senza compiti finiti non esci, con i compiti finiti esci). Tra i numeri si vede la differenza con l'implicazione: «divisibile per 4 → pari» vale, «divisibile per 4 ↔ pari» no, perché 6 è pari ma non divisibile per 4."
+      }
+     ]
+    },
+    {
+     "num": "2.5",
+     "titolo": "Dalla lingua alle formule",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Tradurre una frase in una formula, cioè **formalizzare**, si fa in tre mosse: **trovare le proposizioni atomiche** e dar loro una lettera, **riconoscere i connettivi**, anche quando sono nascosti in altre parole, e **mettere le parentesi** dove servono."
+      },
+      {
+       "t": "figura",
+       "tipo": "animazione",
+       "titolo": "Traduci la frase",
+       "x": "**Fa capire:** il procedimento di formalizzazione in tre mosse, su una regola della casa smart.\n**Scena iniziale (passo 0):** la frase «Se è sera e non c'è nessuno in casa, la luce resta spenta». Descrizione: «Una regola della casa smart, scritta in italiano.»\n**Passo 1:** «è sera», «c'è qualcuno in casa», «la luce è accesa» si sottolineano in verde acqua e sotto compaiono s, m, a. Descrizione: «Prima mossa: le proposizioni atomiche, in forma affermativa, ciascuna con la sua lettera.»\n**Passo 2:** «se… ,», «e», «non c'è nessuno», «resta spenta» si evidenziano in ambra, con sotto →, ∧, ¬m, ¬a. Descrizione: «Seconda mossa: i connettivi. \"Non c'è nessuno\" è la negazione di m, \"resta spenta\" la negazione di a.»\n**Passo 3:** compare «se s e non m, allora non a». Descrizione: «Sostituiamo le lettere: restano solo atomiche e connettivi.»\n**Passo 4:** compare la formula (s ∧ ¬m) → ¬a, con le parentesi evidenziate. Descrizione: «Terza mossa: le parentesi dicono che la condizione è tutto \"s e non m\".»",
+       "passi": [
+        "Prima mossa: le proposizioni atomiche, in forma affermativa, ciascuna con la sua lettera.",
+        "Seconda mossa: i connettivi. \"Non c'è nessuno\" è la negazione di m, \"resta spenta\" la negazione di a.",
+        "Sostituiamo le lettere: restano solo atomiche e connettivi.",
+        "Terza mossa: le parentesi dicono che la condizione è tutto \"s e non m\"."
+       ],
+       "inizio": "Una regola della casa smart, scritta in italiano.",
+       "capire": "il procedimento di formalizzazione in tre mosse, su una regola della casa smart.",
+       "id": "F2.5.1"
+      },
+      {
+       "t": "p",
+       "x": "Molte parole italiane nascondono un connettivo:"
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "Nella lingua",
+         "In logica",
+         "Esempio"
+        ],
+        [
+         "ma, però, anche se, eppure",
+         "∧",
+         "«È bravo ma pigro» → b ∧ p"
+        ],
+        [
+         "né… né…",
+         "¬p ∧ ¬q",
+         "«Né Marco né Luca sono venuti» → ¬m ∧ ¬l"
+        ],
+        [
+         "o… o…, oppure ma non entrambi",
+         "⊕",
+         "«O vieni o resti» → v ⊕ r"
+        ],
+        [
+         "se, quando, ogni volta che",
+         "p → q",
+         "«Quando piove prendo l'ombrello» → p → o"
+        ],
+        [
+         "p solo se q",
+         "p → q",
+         "«Esci solo se hai finito i compiti» → e → c"
+        ],
+        [
+         "p a meno che q",
+         "¬q → p",
+         "«Esco, a meno che piova» → ¬p → e"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Come in algebra la moltiplicazione si fa prima dell'addizione, anche i connettivi hanno una **precedenza**: **prima ¬, poi ∧, poi ∨, poi → e infine ↔**. Così ¬p ∧ q vuol dire (¬p) ∧ q, e non ¬(p ∧ q). Quando c'è un dubbio, **le parentesi tolgono ogni ambiguità**."
+      },
+      {
+       "t": "p",
+       "x": "Una formula scritta secondo le regole si chiama **formula ben formata**: una variabile da sola è una formula ben formata; se A lo è, lo è anche ¬A; se A e B lo sono, lo sono anche (A ∧ B), (A ∨ B), (A ⊕ B), (A → B) e (A ↔ B). «p ∧ ∨ q» e «(p ∧ q» non sono ben formate: come una riga di codice con un errore di sintassi, non vogliono dire niente."
+      },
+      {
+       "t": "p",
+       "x": "Ora le due regole della casa smart del capitolo 1 si possono scrivere in formule. Con s = «è sera», b = «fuori è buio», l = «serve la luce», m = «c'è qualcuno in casa», a = «le luci sono accese»:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "regola 1: (s ∧ b) → l",
+        "regola 2: (l ∧ m) → a"
+       ]
+      },
+      {
+       "t": "domanda",
+       "q": "\"Né Marco né Luca sono venuti\": come si scrive con i connettivi?",
+       "scopo": "applicazione",
+       "risposta": "¬m ∧ ¬l: Marco non è venuto **e** Luca non è venuto."
+      },
+      {
+       "t": "errore",
+       "errata": "«\"Non è vero che piove e fa freddo\" si scrive ¬p ∧ f.»",
+       "corretta": "Si scrive **¬(p ∧ f)**: il «non è vero che» vale per tutta la frase «piove e fa freddo». Senza parentesi il ¬ vale solo per p, e la formula direbbe «non piove e fa freddo»."
+      },
+      {
+       "t": "errore",
+       "errata": "«In Flowgorithm scrivo la condizione `voto == 6 or 7 or 8`.»",
+       "corretta": "Ogni parte di un OR deve essere una proposizione completa: `voto == 6 or voto == 7 or voto == 8`. In italiano «il voto è 6, 7 o 8» sottintende «il voto è» davanti a ogni numero; in un linguaggio formale non si sottintende niente."
+      }
+     ]
+    }
+   ],
+   "ricorda": [
+    "Una **proposizione** è una frase dichiarativa con **uno e un solo valore di verità**, vero o falso; può anche essere falsa. Domande, ordini, giudizi personali e paradossi non sono proposizioni.",
+    "Una proposizione è **atomica** se non si scompone, **composta** se unisce proposizioni con i **connettivi**; il suo valore dipende solo da quello delle atomiche. Le atomiche si indicano con **variabili proposizionali** (p, q, r).",
+    "**NOT** rovescia il valore; **AND** è vero solo se sono vere entrambe; **OR** se ne è vera almeno una; **XOR** se ne è vera esattamente una.",
+    "**p → q** è falsa solo quando p è vera e q è falsa; **p ↔ q** è vera quando p e q hanno lo stesso valore.",
+    "**Formalizzare** significa trovare le atomiche, riconoscere i connettivi anche nascosti e mettere le parentesi; senza parentesi vale la **precedenza** ¬, ∧, ∨, →, ↔."
+   ]
+  },
+  {
+   "n": 3,
+   "titolo": "Tavole di verità",
+   "intro": "Calcolare il valore di una formula in tutte le situazioni possibili: per capire se è sempre vera, mai vera o vera solo a volte, e se due formule dicono la stessa cosa.",
+   "sezioni": [
+    {
+     "num": "3.1",
+     "titolo": "Costruire la tavola di una formula",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Su un'isola vivono due tipi di abitanti: i **cavalieri**, che dicono sempre il vero, e i **furfanti**, che mentono sempre. Incontri due abitanti, A e B, e A dice: «Siamo entrambi furfanti». Che cosa sono A e B?"
+      },
+      {
+       "t": "p",
+       "x": "Per rispondere con la logica, prima si formalizza. Con a = «A è un cavaliere» e b = «B è un cavaliere», ciò che dice A è ¬a ∧ ¬b. La regola dell'isola dice che **A è un cavaliere se e solo se ciò che dice è vero**: a ↔ (¬a ∧ ¬b). Ora basta trovare in quali casi questa formula è vera."
+      },
+      {
+       "t": "p",
+       "x": "Una **tavola di verità** di una formula **calcola il suo valore per ogni combinazione possibile dei valori delle variabili**. Si costruisce in tre mosse:"
+      },
+      {
+       "t": "num",
+       "items": [
+        "**Le righe.** Ogni variabile può essere F o V, e **ogni variabile in più raddoppia i casi**: con n variabili le righe sono **2ⁿ** (1 variabile → 2 righe, 2 → 4, 3 → 8, 10 → 1024). Per non dimenticarne nessuna si segue sempre lo stesso ordine, partendo dal falso: nella prima colonna metà F e metà V, nella seconda blocchi di un quarto, e così via fino all'ultima, dove F e V si alternano.",
+        "**Le colonne intermedie.** Una colonna per ogni pezzo della formula, **dall'interno verso l'esterno**, come si risolvono le operazioni di un'espressione partendo dalle parentesi più interne.",
+        "**La colonna finale.** L'ultima colonna dà il valore della formula intera in ogni caso."
+       ]
+      },
+      {
+       "t": "figura",
+       "tipo": "animazione",
+       "titolo": "La tavola risolve l'enigma",
+       "x": "**Fa capire:** come si costruisce una tavola di verità passo per passo, e che la tavola esamina tutti i casi possibili: le righe in cui la formula è vera sono le soluzioni.\n**Scena iniziale (passo 0):** in alto la legenda «a = \"A è un cavaliere\" · b = \"B è un cavaliere\" · A dice: \"Siamo entrambi furfanti\"». Sotto, l'intestazione vuota della tavola con sei colonne: a, b, ¬a, ¬b, ¬a ∧ ¬b, a ↔ (¬a ∧ ¬b). Descrizione: «L'enigma diventa una formula: A è un cavaliere se e solo se ciò che dice è vero, cioè a ↔ (¬a ∧ ¬b). Due variabili: 2² = 4 righe.»\n**Passo 1:** si riempiono le colonne a e b: F F, F V, V F, V V (V in verde, F in rosso). Descrizione: «Prima le combinazioni, partendo dal falso: nella colonna a metà F e metà V, nella colonna b F e V alternati. Ci sono tutti i casi possibili.»\n**Passo 2:** si riempiono ¬a e ¬b. Descrizione: «Poi le colonne più interne: ¬a e ¬b rovesciano a e b.»\n**Passo 3:** si riempie ¬a ∧ ¬b (V solo nella prima riga). Descrizione: «Poi la congiunzione: ¬a ∧ ¬b è vera solo quando sono vere entrambe.»\n**Passo 4:** si riempie la colonna finale (V solo nella seconda riga). Descrizione: «Infine la formula intera: a ↔ (¬a ∧ ¬b) è vera quando a e ¬a ∧ ¬b hanno lo stesso valore.»\n**Passo 5:** la seconda riga (a = F, b = V) si evidenzia in verde acqua e sotto compare la fascia «Unica riga vera: a falso, b vero → A è un furfante, B è un cavaliere». Descrizione: «Una sola riga rende vera la formula: è la soluzione dell'enigma.»",
+       "passi": [
+        "Prima le combinazioni, partendo dal falso: nella colonna a metà F e metà V, nella colonna b F e V alternati. Ci sono tutti i casi possibili.",
+        "Poi le colonne più interne: ¬a e ¬b rovesciano a e b.",
+        "Poi la congiunzione: ¬a ∧ ¬b è vera solo quando sono vere entrambe.",
+        "Infine la formula intera: a ↔ (¬a ∧ ¬b) è vera quando a e ¬a ∧ ¬b hanno lo stesso valore.",
+        "Una sola riga rende vera la formula: è la soluzione dell'enigma."
+       ],
+       "inizio": "L'enigma diventa una formula: A è un cavaliere se e solo se ciò che dice è vero, cioè a ↔ (¬a ∧ ¬b). Due variabili: 2² = 4 righe.",
+       "capire": "come si costruisce una tavola di verità passo per passo, e che la tavola esamina tutti i casi possibili: le righe in cui la formula è vera sono le soluzioni.",
+       "id": "F3.1.1"
+      },
+      {
+       "t": "box",
+       "k": "storia",
+       "titolo": "Leibniz: «Calculemus!»",
+       "x": "Il filosofo e matematico tedesco Gottfried Wilhelm Leibniz (1646–1716) sognava una lingua in cui ogni ragionamento si potesse scrivere con simboli precisi, così che le discussioni si potessero risolvere facendo i conti. Davanti a un disaccordo, scriveva, basterebbe sedersi e dire: «*Calculemus!*», «calcoliamo!». Le tavole di verità realizzano una piccola parte del suo sogno. Leibniz è anche l'inventore del **sistema binario** moderno, descritto in un articolo del 1703: lo stesso che, con 0 e 1, rappresenta falso e vero nei computer.",
+       "foto": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Gottfried_Wilhelm_Leibniz%2C_Bernhard_Christoph_Francke.jpg",
+        "pagina": "commons:Gottfried Wilhelm Leibniz, Bernhard Christoph Francke.jpg",
+        "chiave": "Gottfried Wilhelm Leibniz, Bernhard Christoph Francke.jpg"
+       },
+       "foto_tit": "Gottfried Wilhelm Leibniz",
+       "foto_tutte": [
+        [
+         "Gottfried Wilhelm Leibniz, Bernhard Christoph Francke.jpg",
+         "Gottfried Wilhelm Leibniz"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "num": "3.2",
+     "titolo": "Tautologie, contraddizioni e formule soddisfacibili",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Guardando la colonna finale di una tavola, ogni formula cade in uno di questi casi:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "è una **tautologia** se è **vera in ogni riga**, qualunque siano i valori delle variabili;",
+        "è una **contraddizione** se è **falsa in ogni riga**;",
+        "è **soddisfacibile** se è **vera in almeno una riga**: esiste almeno un caso che la rende vera."
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Una tautologia è anche soddisfacibile; una contraddizione è proprio una formula **non** soddisfacibile. La formula dell'enigma è soddisfacibile, ma non è una tautologia: è vera in una sola riga, ed è per questo che l'enigma ha una soluzione."
+      },
+      {
+       "t": "p",
+       "x": "I principi della logica classica del capitolo 2 sono tautologie: il **terzo escluso** si scrive **p ∨ ¬p** («piove o non piove»), la **non contraddizione** si scrive **¬(p ∧ ¬p)** («non è vero che piove e non piove»). Invece **p ∧ ¬p** («piove e non piove») è una contraddizione."
+      },
+      {
+       "t": "figura",
+       "tipo": "schema",
+       "titolo": "Tre formule, tre colonne finali",
+       "x": "Tre piccole tavole affiancate, ognuna con la colonna finale evidenziata: p ∨ ¬p (righe F, V; colonna finale V, V, tutta verde, etichetta «tautologia»); p ∧ ¬p (colonna finale F, F, tutta rossa, etichetta «contraddizione»); p ∧ q (righe F F, F V, V F, V V; colonna finale F, F, F, V, etichetta «soddisfacibile»).",
+       "id": "F3.2.1"
+      },
+      {
+       "t": "domanda",
+       "q": "\"Domani piove oppure domani non piove\": è una previsione utile?",
+       "scopo": "errore",
+       "risposta": "no. È sempre vera, qualunque tempo faccia: è una tautologia, quindi non dà nessuna informazione sul tempo di domani."
+      },
+      {
+       "t": "errore",
+       "errata": "«Una tautologia è una formula che dice una cosa vera.»",
+       "corretta": "Una tautologia è vera **in ogni caso**, qualunque siano i valori delle variabili. Proprio per questo **non dice niente sul mondo**: «piove o non piove» è vera sia che piova sia che non piova."
+      }
+     ]
+    },
+    {
+     "num": "3.3",
+     "titolo": "Equivalenza logica",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Due formule sono **logicamente equivalenti** (si scrive A ≡ B) se **hanno la stessa colonna finale nella tavola di verità**: in ogni caso sono entrambe vere o entrambe false. Due formule equivalenti **dicono la stessa cosa in modi diversi**, quindi una si può sempre sostituire con l'altra."
+      },
+      {
+       "t": "p",
+       "x": "Un esempio importante: **p → q ≡ ¬p ∨ q**. «Se prendi 8 ti porto al cinema» dice la stessa cosa di «non prendi 8, oppure ti porto al cinema»: in tutti e due i casi l'unica situazione esclusa è «prendi 8 e niente cinema»."
+      },
+      {
+       "t": "figura",
+       "tipo": "schema",
+       "titolo": "Stessa colonna, stessa formula",
+       "x": "Due tavole affiancate con le righe F F, F V, V F, V V: a sinistra p → q (colonna finale V, V, F, V), a destra ¬p ∨ q (colonne ¬p e ¬p ∨ q; colonna finale V, V, F, V). Le due colonne finali sono evidenziate in verde acqua e collegate da un segno ≡.",
+       "id": "F3.3.1"
+      },
+      {
+       "t": "p",
+       "x": "Attenzione a non confondere ≡ con ↔. **↔ è un connettivo**: sta *dentro* una formula e la formula può essere vera o falsa. **≡ non è un connettivo**: è un'affermazione che facciamo *su* due formule, e dice che sono equivalenti. I due simboli sono legati così: **A ≡ B vuol dire che la formula A ↔ B è una tautologia**."
+      }
+     ]
+    },
+    {
+     "num": "3.4",
+     "titolo": "Le leggi della logica",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Alcune equivalenze valgono sempre, qualunque cosa si metta al posto di p, q e r: sono le **leggi della logica**. **Servono a riscrivere e semplificare le formule**, come in algebra le proprietà delle operazioni permettono di trasformare un'espressione senza cambiarne il valore."
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "Legge",
+         "Formula",
+         "Esempio in italiano"
+        ],
+        [
+         "doppia negazione",
+         "¬¬p ≡ p",
+         "«Non è vero che non piove» = «piove»"
+        ],
+        [
+         "commutativa",
+         "p ∧ q ≡ q ∧ p · p ∨ q ≡ q ∨ p",
+         "«È sera e fuori è buio» = «fuori è buio ed è sera»"
+        ],
+        [
+         "associativa",
+         "(p ∧ q) ∧ r ≡ p ∧ (q ∧ r) · lo stesso per ∨",
+         "con un solo tipo di connettivo le parentesi non contano"
+        ],
+        [
+         "distributiva",
+         "p ∧ (q ∨ r) ≡ (p ∧ q) ∨ (p ∧ r) · p ∨ (q ∧ r) ≡ (p ∨ q) ∧ (p ∨ r)",
+         "«Studio e (ascolto musica o guardo la TV)» = «(studio e ascolto musica) o (studio e guardo la TV)»"
+        ],
+        [
+         "idempotenza",
+         "p ∧ p ≡ p · p ∨ p ≡ p",
+         "«Piove e piove» = «piove»"
+        ],
+        [
+         "assorbimento",
+         "p ∧ (p ∨ q) ≡ p · p ∨ (p ∧ q) ≡ p",
+         "«Marco è venuto, e Marco o Luca sono venuti» = «Marco è venuto»"
+        ],
+        [
+         "De Morgan",
+         "¬(p ∧ q) ≡ ¬p ∨ ¬q · ¬(p ∨ q) ≡ ¬p ∧ ¬q",
+         "«Non è vero che Marco e Luca sono venuti» = «Marco non è venuto o Luca non è venuto»; «Non è vero che Marco o Luca sono venuti» = «Né Marco né Luca sono venuti»"
+        ],
+        [
+         "implicazione",
+         "p → q ≡ ¬p ∨ q",
+         "«Se prendi 8 ti porto al cinema» = «Non prendi 8, oppure ti porto al cinema»"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Ogni legge si può verificare con una tavola di verità: basta controllare che le colonne finali delle due formule siano uguali. Le **leggi di De Morgan** sono quelle che si sbagliano più spesso: **negando un AND si ottiene un OR delle negazioni, negando un OR si ottiene un AND delle negazioni**."
+      },
+      {
+       "t": "figura",
+       "tipo": "widget",
+       "titolo": "Prova tu: verifica la legge",
+       "x": "Un menu con le leggi della tabella. Scelta una legge, il widget mostra le due formule e riempie le loro tavole affiancate (righe ordinate partendo dal falso), colonna per colonna a ogni clic; alla fine confronta le colonne finali e le evidenzia in verde acqua se sono uguali. Un'opzione «formula sbagliata» mostra ¬(p ∨ q) a confronto con ¬p ∨ ¬q, con le righe diverse evidenziate in rosso.",
+       "id": "F3.4.1"
+      },
+      {
+       "t": "domanda",
+       "q": "\"Non è vero che Marco e Luca sono venuti tutti e due\": quindi nessuno dei due è venuto?",
+       "scopo": "errore",
+       "risposta": "no. Vuol dire che almeno uno dei due non è venuto (magari Marco sì e Luca no): per De Morgan ¬(m ∧ l) ≡ ¬m ∨ ¬l."
+      },
+      {
+       "t": "errore",
+       "errata": "«¬(p ∨ q) ≡ ¬p ∨ ¬q»",
+       "corretta": "Negando un OR si ottiene un **AND** delle negazioni: **¬(p ∨ q) ≡ ¬p ∧ ¬q**. «Non è vero che piove o nevica» vuol dire «non piove **e** non nevica»."
+      }
+     ]
+    }
+   ],
+   "ricorda": [
+    "La **tavola di verità** calcola il valore di una formula in tutti i casi: **2ⁿ righe** per n variabili, ordinate partendo dal falso, e colonne dall'interno verso l'esterno.",
+    "Una formula è una **tautologia** se è sempre vera, una **contraddizione** se è sempre falsa, **soddisfacibile** se è vera in almeno un caso.",
+    "Due formule sono **equivalenti** (≡) se hanno la stessa colonna finale: dicono la stessa cosa in modi diversi. A ≡ B vuol dire che A ↔ B è una tautologia.",
+    "Le **leggi della logica** sono equivalenze che valgono sempre e servono a riscrivere le formule; le più importanti sono quelle di **De Morgan**: ¬(p ∧ q) ≡ ¬p ∨ ¬q e ¬(p ∨ q) ≡ ¬p ∧ ¬q."
+   ]
+  },
+  {
+   "n": 4,
+   "titolo": "Implicazione e ragionamenti",
+   "intro": "Gli schemi di ragionamento sempre validi, che si possono concatenare fino a una conclusione sicura, e quelli che sembrano validi ma non lo sono.",
+   "sezioni": [
+    {
+     "num": "4.1",
+     "titolo": "Condizione necessaria e condizione sufficiente",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Il regolamento della scuola è pieno di implicazioni: «se hai almeno 18 anni, puoi giustificarti da solo», «se superi il limite di assenze, non puoi essere scrutinato». Per leggerle bene servono due parole."
+      },
+      {
+       "t": "p",
+       "x": "In un'implicazione **p → q**:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "p è **condizione sufficiente** per q: **basta che p sia vera perché q sia vera**;",
+        "q è **condizione necessaria** per p: **senza q non può esserci p**, ma q da sola non basta."
+       ]
+      },
+      {
+       "t": "figura",
+       "tipo": "schema",
+       "titolo": "Roma e l'Italia",
+       "x": "Una cartina dell'Italia con Roma evidenziata. Accanto due frasi: «Essere a Roma è **sufficiente** per essere in Italia» (se sei a Roma, sei per forza in Italia) e «Essere in Italia è **necessario** per essere a Roma» (non puoi essere a Roma senza essere in Italia, ma puoi essere in Italia senza essere a Roma, per esempio a Milano). In basso la formula: Roma → Italia.",
+       "id": "F4.1.1"
+      },
+      {
+       "t": "p",
+       "x": "Quando una condizione è **sia necessaria sia sufficiente**, vale l'implicazione nei due sensi: è la **doppia implicazione** del capitolo 2, «se e solo se». «Un numero è pari se e solo se è divisibile per 2»: essere divisibile per 2 basta e serve."
+      },
+      {
+       "t": "domanda",
+       "q": "Per essere promossi serve la sufficienza in tutte le materie. Se ho la sufficienza in tutte, sono promosso per forza?",
+       "scopo": "errore",
+       "risposta": "no. La sufficienza in tutte le materie è una condizione **necessaria**, non sufficiente: serve anche, per esempio, aver frequentato abbastanza ore di lezione."
+      },
+      {
+       "t": "errore",
+       "errata": "«L'ossigeno è sufficiente per accendere un fuoco.»",
+       "corretta": "L'ossigeno è **necessario** (senza ossigeno il fuoco non si accende), ma non sufficiente: servono anche qualcosa che bruci e una fonte di calore."
+      }
+     ]
+    },
+    {
+     "num": "4.2",
+     "titolo": "Inversa, contraria e contronominale",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Da un'implicazione p → q si possono costruire altre tre frasi, che si somigliano ma non dicono la stessa cosa:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "l'**inversa** scambia le due parti: **q → p**;",
+        "la **contraria** le nega: **¬p → ¬q**;",
+        "la **contronominale** le scambia e le nega: **¬q → ¬p**."
+       ]
+      },
+      {
+       "t": "p",
+       "x": "**Solo la contronominale è equivalente all'implicazione di partenza**: ha la stessa colonna nella tavola di verità. L'inversa e la contraria invece possono essere false anche quando l'originale è vera."
+      },
+      {
+       "t": "figura",
+       "tipo": "schema",
+       "titolo": "Il quadrato delle quattro frasi",
+       "x": "Quattro riquadri disposti a quadrato, con l'esempio «Se un animale è un gatto, allora ha quattro zampe». In alto a sinistra l'originale p → q (vera, verde acqua); in alto a destra l'inversa «se ha quattro zampe, è un gatto» (falsa, rossa: un cane); in basso a sinistra la contraria «se non è un gatto, non ha quattro zampe» (falsa, rossa: un cane); in basso a destra la contronominale «se non ha quattro zampe, non è un gatto» (vera, verde acqua). Una freccia ≡ collega originale e contronominale. Sotto, la tavola con righe F F, F V, V F, V V e le colonne p → q (V, V, F, V) e ¬q → ¬p (V, V, F, V), uguali.",
+       "id": "F4.2.1"
+      },
+      {
+       "t": "domanda",
+       "q": "\"Chi ha la patente ha almeno 18 anni\". Quindi chi non ha la patente ha meno di 18 anni?",
+       "scopo": "errore",
+       "risposta": "no: quella è la contraria e non vale (tanti maggiorenni non hanno la patente). Vale la contronominale: chi ha meno di 18 anni non ha la patente."
+      }
+     ]
+    },
+    {
+     "num": "4.3",
+     "titolo": "Le regole di inferenza",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Una **regola di inferenza** è **uno schema di ragionamento sempre valido**: se le premesse hanno una certa forma, permette di ricavare una certa conclusione, qualunque cosa ci sia al posto delle lettere. Sono gli «stampi» validi del capitolo 1, e sono gli strumenti con cui ragiona un motore inferenziale."
+      },
+      {
+       "t": "p",
+       "x": "Nella tabella il simbolo ∴ si legge «quindi»."
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "Regola",
+         "Schema",
+         "Esempio"
+        ],
+        [
+         "***modus ponens***",
+         "p → q, p ∴ q",
+         "«Se è sera e fuori è buio serve la luce; è sera e fuori è buio; quindi serve la luce»"
+        ],
+        [
+         "***modus tollens***",
+         "p → q, ¬q ∴ ¬p",
+         "«Se fosse entrato dalla porta, la serratura sarebbe rotta; la serratura è intatta; quindi non è entrato dalla porta»"
+        ],
+        [
+         "**sillogismo ipotetico**",
+         "p → q, q → r ∴ p → r",
+         "«Se piove prendo l'ombrello; se prendo l'ombrello non mi bagno; quindi se piove non mi bagno»"
+        ],
+        [
+         "**sillogismo disgiuntivo**",
+         "p ∨ q, ¬p ∴ q",
+         "«Il ladro è entrato dalla porta o dalla finestra; non dalla porta; quindi dalla finestra»"
+        ],
+        [
+         "**introduzione della congiunzione**",
+         "p, q ∴ p ∧ q",
+         "«È sera; fuori è buio; quindi è sera e fuori è buio»"
+        ],
+        [
+         "**eliminazione della congiunzione**",
+         "p ∧ q ∴ p",
+         "«È sera e fuori è buio; quindi è sera»"
+        ],
+        [
+         "**introduzione della disgiunzione**",
+         "p ∴ p ∨ q",
+         "«Ho la tessera; quindi ho la tessera o un documento»"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Due di queste le abbiamo già viste all'opera. Il ***modus ponens*** **è proprio ciò che fa la casa smart quando una regola scatta**: c'è la regola, ci sono i fatti, e la casa ricava la conclusione. Il **sillogismo ipotetico** è il **ragionamento a catena** del capitolo 1: da «sera e buio → serve la luce» e «serve la luce e qualcuno in casa → accendi» si arriva dalla sera alle luci accese."
+      },
+      {
+       "t": "figura",
+       "tipo": "schema",
+       "titolo": "Le regole come stampi",
+       "x": "Una scheda per ogni regola della tabella, nella forma del capitolo 1: premesse sopra, una riga, conclusione sotto, con il nome della regola in alto e l'esempio in italiano accanto.",
+       "id": "F4.3.1"
+      }
+     ]
+    },
+    {
+     "num": "4.4",
+     "titolo": "Le fallacie",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Una **fallacia** è **un ragionamento che sembra valido ma non lo è**. Alcune fallacie hanno la forma di una regola valida, ma «storta»; altre sbagliano nel contenuto, pur sembrando ragionevoli. In tutti i casi **si smontano con un controesempio**: un caso in cui le premesse sono vere e la conclusione falsa."
+      },
+      {
+       "t": "domanda",
+       "q": "\"Se piove, la strada è bagnata\". La strada è bagnata: quindi piove?",
+       "scopo": "anticipa (prima della spiegazione)",
+       "risposta": "non necessariamente: può essere passata la macchina che lava le strade, o si è rotto un tubo. È un'affermazione del conseguente."
+      },
+      {
+       "t": "p",
+       "x": "Le fallacie che somigliano alle regole valide:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**affermazione del conseguente**: p → q, q, quindi p. «Se piove la strada è bagnata; la strada è bagnata; quindi piove.» È lo stampo non valido del capitolo 1 (Fido ha quattro zampe, quindi è un gatto): ora ha un nome. Somiglia al *modus ponens*, ma parte dal conseguente.",
+        "**negazione dell'antecedente**: p → q, ¬p, quindi ¬q. «Se studi passi la verifica; non hai studiato; quindi non la passi» (magari la passi lo stesso). Somiglia al *modus tollens*, ma nega l'antecedente.",
+        "**affermazione di un disgiunto**: p ∨ q, p, quindi ¬q. «Per entrare serve la tessera o un documento; ho la tessera; quindi non ho un documento.» È l'errore di chi legge l'OR come se fosse uno XOR (capitolo 2)."
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Le fallacie della vita di tutti i giorni:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**falso dilemma**: «O sei con me o sei contro di me». Presenta come uno XOR due sole possibilità, quando ce ne sono altre.",
+        "**generalizzazione affrettata**: «Due ragazzi dell'altra classe copiano, quindi copiano tutti». È un'induzione (vedi il 4.6) fatta con pochissimi esempi.",
+        "***post hoc*, cioè scambiare la correlazione per una causa**: «Da quando ho il braccialetto portafortuna prendo voti migliori». Che due cose capitino insieme non vuol dire che una causi l'altra. Vale anche per l'IA: **un modello che impara dai dati trova correlazioni, non cause**.",
+        "***ad hominem***: attaccare la persona invece dell'argomento. «Cosa ne sai tu di matematica, che hai 5?»",
+        "**uomo di paglia**: deformare la tesi dell'altro per attaccarla meglio. «Vuoi meno compiti? Allora vuoi che non si studi più niente.»",
+        "**appello alla maggioranza e all'autorità**: «Lo fanno tutti», «l'ha detto un influencer». Che molti lo facciano, o che lo dica qualcuno di famoso, non lo rende vero."
+       ]
+      },
+      {
+       "t": "figura",
+       "tipo": "widget",
+       "titolo": "Prova tu: valido o fallacia?",
+       "x": "Una serie di carte con un ragionamento ciascuna, prese dalla scuola, dalla pubblicità e dai social. Per ogni carta lo studente sceglie «valido» o «fallacia»; al clic compare il nome della regola o della fallacia e, per le fallacie, un controesempio. Carte: un *modus ponens*, un *modus tollens*, un sillogismo disgiuntivo, un'affermazione del conseguente, una negazione dell'antecedente, un'affermazione di un disgiunto, un falso dilemma, una generalizzazione affrettata, un *post hoc*, un *ad hominem*.",
+       "id": "F4.4.1"
+      },
+      {
+       "t": "errore",
+       "errata": "«Tutti i campioni bevono questa bibita: se la bevo divento un campione.»",
+       "corretta": "È un'**affermazione del conseguente** («campione → beve la bibita; bevo la bibita; quindi sono un campione») e insieme una **falsa causa**: la pubblicità fa passare per una causa del successo una cosa che, al massimo, lo accompagna."
+      },
+      {
+       "t": "p",
+       "x": "Un altro esempio della stessa fallacia, molto comune: «Chi ha l'influenza ha la febbre; ho la febbre; quindi ho l'influenza». La febbre può avere tante altre cause."
+      }
+     ]
+    },
+    {
+     "num": "4.5",
+     "titolo": "Conseguenza logica e derivazione",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Una conclusione è **conseguenza logica** di alcune premesse quando **è vera in tutti i casi in cui le premesse sono vere**. È un altro modo di dire che il ragionamento è valido. Si può verificare in due modi:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "con la **tavola di verità**: si scrivono tutte le righe e si controlla che, dove le premesse sono tutte vere, sia vera anche la conclusione. È un metodo sicuro, ma **le righe sono 2ⁿ** e con molte variabili diventano troppe;",
+        "con una **derivazione**: **una catena di passi, ciascuno ottenuto con una regola di inferenza**, che porta dalle premesse alla conclusione. **È così che ragiona un motore inferenziale**: non prova tutti i casi, applica regole."
+       ]
+      },
+      {
+       "t": "figura",
+       "tipo": "animazione",
+       "titolo": "L'indagine del detective",
+       "x": "**Fa capire:** che una derivazione è una catena di regole di inferenza, ognuna delle quali usa premesse o risultati già ottenuti, fino alla conclusione.\n**Scena iniziale (passo 0):** a sinistra il riquadro «Indizi (premesse)» con quattro schede: «1. porta ∨ finestra — entrato dalla porta o dalla finestra»; «2. porta → serratura rotta — se dalla porta, serratura rotta»; «3. ¬ serratura rotta — la serratura è intatta»; «4. finestra → impronte — se dalla finestra, impronte in giardino». A destra il riquadro vuoto «Derivazione». Descrizione: «Un furto: il detective ha quattro indizi. Ognuno è una proposizione, scritta anche in formula.»\n**Passo 1:** gli indizi 2 e 3 si colorano d'ambra; a destra compare «5. ¬ porta — *modus tollens* (2, 3)». Descrizione: «Dagli indizi 2 e 3: se fosse entrato dalla porta, la serratura sarebbe rotta; ma è intatta. Quindi non è entrato dalla porta.»\n**Passo 2:** si colorano l'indizio 1 e il passo 5; compare «6. finestra — sillogismo disgiuntivo (1, 5)». Descrizione: «Dagli indizi 1 e 5: o porta o finestra; non dalla porta. Quindi dalla finestra.»\n**Passo 3:** si colorano l'indizio 4 e il passo 6; compare «7. impronte in giardino — *modus ponens* (4, 6)». Descrizione: «Dagli indizi 4 e 6: se dalla finestra, ci sono impronte in giardino. Conclusione: cercate in giardino!»\n**Passo 4:** la conclusione 7 si illumina in verde acqua. Descrizione: «Ogni passo usa una regola di inferenza valida: la conclusione è conseguenza logica degli indizi. È così che ragiona un motore inferenziale.»",
+       "passi": [
+        "Dagli indizi 2 e 3: se fosse entrato dalla porta, la serratura sarebbe rotta; ma è intatta. Quindi non è entrato dalla porta.",
+        "Dagli indizi 1 e 5: o porta o finestra; non dalla porta. Quindi dalla finestra.",
+        "Dagli indizi 4 e 6: se dalla finestra, ci sono impronte in giardino. Conclusione: cercate in giardino!",
+        "Ogni passo usa una regola di inferenza valida: la conclusione è conseguenza logica degli indizi. È così che ragiona un motore inferenziale."
+       ],
+       "inizio": "Un furto: il detective ha quattro indizi. Ognuno è una proposizione, scritta anche in formula.",
+       "capire": "che una derivazione è una catena di regole di inferenza, ognuna delle quali usa premesse o risultati già ottenuti, fino alla conclusione.",
+       "id": "F4.5.1"
+      }
+     ]
+    },
+    {
+     "num": "4.6",
+     "titolo": "Deduzione, induzione e abduzione",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Non tutti i ragionamenti che facciamo sono deduzioni. Ne esistono tre tipi:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "la **deduzione** **va da una regola generale a un caso particolare**, e la sua conclusione è **certa** (se le premesse sono vere). È quella di cui abbiamo parlato finora.",
+        "l'**induzione** **ricava una regola generale da tanti casi osservati**, e la sua conclusione è solo **probabile**: un caso nuovo può smentirla.",
+        "l'**abduzione** **cerca la spiegazione più probabile di un fatto osservato**. È il ragionamento del medico e del detective, e anche la sua conclusione è solo **probabile**."
+       ]
+      },
+      {
+       "t": "figura",
+       "tipo": "animazione",
+       "titolo": "I fagioli di Peirce",
+       "x": "**Fa capire:** che deduzione, induzione e abduzione usano gli stessi tre elementi (regola, caso, risultato), ma partono da due diversi e ricavano il terzo.\n**Scena iniziale (passo 0):** un sacco di fagioli e una manciata di fagioli bianchi sul tavolo. Tre schede vuote: «Regola», «Caso», «Risultato». Descrizione: «Un sacco, una manciata di fagioli: tre ragionamenti diversi con gli stessi elementi.»\n**Passo 1 (deduzione):** le schede «Regola: tutti i fagioli di questo sacco sono bianchi» e «Caso: questi fagioli vengono da questo sacco» si riempiono; una freccia porta a «Risultato: questi fagioli sono bianchi», con l'etichetta «certo». Descrizione: «Deduzione: dalla regola e dal caso ricavo il risultato. È certo.»\n**Passo 2 (induzione):** si riempiono «Caso» e «Risultato» (prendo dal sacco una manciata: sono tutti bianchi); la freccia porta a «Regola: tutti i fagioli del sacco sono bianchi», con l'etichetta «probabile». Descrizione: «Induzione: da tanti casi ricavo una regola generale. È solo probabile: in fondo al sacco potrebbe esserci un fagiolo nero.»\n**Passo 3 (abduzione):** si riempiono «Regola» e «Risultato» (trovo dei fagioli bianchi vicino al sacco); la freccia porta a «Caso: questi fagioli vengono da quel sacco», con l'etichetta «probabile». Descrizione: «Abduzione: dalla regola e dal risultato immagino la spiegazione più probabile. Ma potrebbero venire da un altro sacco.»",
+       "passi": [
+        "Deduzione: dalla regola e dal caso ricavo il risultato. È certo.",
+        "Induzione: da tanti casi ricavo una regola generale. È solo probabile: in fondo al sacco potrebbe esserci un fagiolo nero.",
+        "Abduzione: dalla regola e dal risultato immagino la spiegazione più probabile. Ma potrebbero venire da un altro sacco."
+       ],
+       "inizio": "Un sacco, una manciata di fagioli: tre ragionamenti diversi con gli stessi elementi.",
+       "capire": "che deduzione, induzione e abduzione usano gli stessi tre elementi (regola, caso, risultato), ma partono da due diversi e ricavano il terzo.",
+       "id": "F4.6.1"
+      },
+      {
+       "t": "box",
+       "k": "storia",
+       "titolo": "Peirce e i fagioli",
+       "x": "Il filosofo e logico americano Charles S. Peirce (1839–1914) fu il primo a distinguere con chiarezza i tre tipi di ragionamento, in un articolo del 1878 in cui usava proprio l'esempio del sacco di fagioli.",
+       "foto": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Charles_Sanders_Peirce.jpg",
+        "pagina": "commons:Charles Sanders Peirce.jpg",
+        "chiave": "Charles Sanders Peirce.jpg"
+       },
+       "foto_tit": "Charles S. Peirce",
+       "foto_tutte": [
+        [
+         "Charles Sanders Peirce.jpg",
+         "Charles S. Peirce"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Il limite dell'induzione lo racconta una storia famosa: il **tacchino induttivista**."
+      },
+      {
+       "t": "figura",
+       "tipo": "animazione",
+       "titolo": "Il tacchino induttivista",
+       "x": "**Fa capire:** che l'induzione, anche con tantissimi esempi, non dà mai una certezza.\n**Scena iniziale (passo 0):** un tacchino nel recinto di una fattoria e, accanto, un calendario e una barra vuota «quanto è sicuro il tacchino». Descrizione: «Un tacchino arriva in una fattoria e osserva quello che succede.»\n**Passo 1:** sul calendario «giorno 1»; alle 9 arriva il contadino con il cibo; la barra sale appena. Descrizione: «Il primo giorno, alle 9, gli portano da mangiare. Il tacchino prende nota.»\n**Passo 2:** il calendario scorre: giorno 2, 10, 50; una volta piove, una volta c'è il sole, una volta è domenica, e il cibo arriva sempre alle 9; la barra sale. Descrizione: «Il cibo arriva alle 9 con la pioggia e con il sole, di lunedì e di domenica. Il tacchino raccoglie sempre più osservazioni.»\n**Passo 3:** giorno 300; sopra il tacchino compare il fumetto «Ogni giorno alle 9 mi danno da mangiare»; la barra è quasi piena. Descrizione: «Dopo tante osservazioni, il tacchino ricava una regola generale. Ne è sicurissimo.»\n**Passo 4:** sul calendario «24 dicembre»; sono le 9, ma il cibo non arriva; la barra crolla; in un riquadro a lato, una tavola apparecchiata per il pranzo di Natale. Descrizione: «La vigilia di Natale il cibo non arriva: il tacchino finisce sulla tavola di Natale. Nessun numero di osservazioni rende certa una regola ricavata per induzione.»",
+       "passi": [
+        "Il primo giorno, alle 9, gli portano da mangiare. Il tacchino prende nota.",
+        "Il cibo arriva alle 9 con la pioggia e con il sole, di lunedì e di domenica. Il tacchino raccoglie sempre più osservazioni.",
+        "Dopo tante osservazioni, il tacchino ricava una regola generale. Ne è sicurissimo.",
+        "La vigilia di Natale il cibo non arriva: il tacchino finisce sulla tavola di Natale. Nessun numero di osservazioni rende certa una regola ricavata per induzione."
+       ],
+       "inizio": "Un tacchino arriva in una fattoria e osserva quello che succede.",
+       "capire": "che l'induzione, anche con tantissimi esempi, non dà mai una certezza.",
+       "id": "F4.6.2"
+      },
+      {
+       "t": "box",
+       "k": "storia",
+       "titolo": "Da un pollo a un tacchino",
+       "x": "L'esempio nasce da Bertrand Russell, che nel 1912 parlava di un pollo nutrito ogni giorno, fino al giorno in cui il fattore gli tira il collo. Il filosofo Alan Chalmers lo trasformò nel «tacchino induttivista» nel suo libro *Che cos'è questa scienza?* (1976), dedicato a come funziona il metodo scientifico.",
+       "foto": {
+        "url": "https://d3f44jafdqsrtg.cloudfront.net/authors/author-1135/_1600x1600_crop_center-center_none/Chalmers-pic.jpg",
+        "pagina": "https://www.uqp.com.au/books/what-is-this-thing-called-science",
+        "chiave": "web:https://d3f44jafdqsrtg.cloudfront.net/authors/author-1135/_1600x1600_crop_center-center_none/Chalmers-pic.jpg|https://www.uqp.com.au/books/what-is-this-thing-called-science"
+       },
+       "foto_tit": "Alan Chalmers",
+       "foto_tutte": [
+        [
+         "web:https://d3f44jafdqsrtg.cloudfront.net/authors/author-1135/_1600x1600_crop_center-center_none/Chalmers-pic.jpg|https://www.uqp.com.au/books/what-is-this-thing-called-science",
+         "Alan Chalmers"
+        ]
+       ]
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "",
+         "Deduzione",
+         "Induzione",
+         "Abduzione"
+        ],
+        [
+         "Parte da",
+         "una regola e un caso",
+         "tanti casi osservati",
+         "una regola e un fatto osservato"
+        ],
+        [
+         "Arriva a",
+         "un risultato",
+         "una regola generale",
+         "la spiegazione più probabile"
+        ],
+        [
+         "La conclusione è",
+         "certa",
+         "probabile",
+         "probabile"
+        ],
+        [
+         "Esempio",
+         "«Tutti gli abbonati entrano gratis; Anna è abbonata; quindi Anna entra gratis»",
+         "il tacchino",
+         "il medico: «febbre e mal di gola: probabilmente è influenza»"
+        ],
+        [
+         "Nell'IA",
+         "l'IA simbolica, che applica regole",
+         "l'apprendimento automatico, che ricava regole dagli esempi",
+         "i sistemi di diagnosi"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "L'abduzione ha la forma di un'**affermazione del conseguente** («se è influenza c'è la febbre; c'è la febbre; quindi è influenza»): non è valida, ma **usata con prudenza** è il modo in cui medici e detective scelgono l'ipotesi da verificare."
+      },
+      {
+       "t": "domanda",
+       "q": "Il medico vede febbre e mal di gola e dice \"è influenza\": ha fatto una deduzione?",
+       "scopo": "errore",
+       "risposta": "no, un'abduzione: ha scelto la spiegazione più probabile, che potrebbe essere sbagliata. Per questo a volte servono altri esami."
+      },
+      {
+       "t": "errore",
+       "errata": "«Il tacchino aveva visto il cibo arrivare per 300 giorni di fila: la sua regola era sicura.»",
+       "corretta": "Era un'**induzione**, quindi solo **probabile**: per quanti siano i casi osservati, il caso successivo può smentire la regola."
+      }
+     ]
+    }
+   ],
+   "ricorda": [
+    "In **p → q**, p è condizione **sufficiente** per q e q è condizione **necessaria** per p; se valgono entrambe, è un «se e solo se».",
+    "Da p → q si ricavano inversa (q → p), contraria (¬p → ¬q) e contronominale (¬q → ¬p): **solo la contronominale è equivalente** all'originale.",
+    "Le **regole di inferenza** (*modus ponens*, *modus tollens*, sillogismi…) sono schemi di ragionamento sempre validi; il *modus ponens* è ciò che fa un sistema a regole quando una regola scatta.",
+    "Una **fallacia** sembra valida ma non lo è (affermazione del conseguente, negazione dell'antecedente, falso dilemma, falsa causa…): si smonta con un controesempio.",
+    "Una conclusione è **conseguenza logica** delle premesse se è vera in tutti i casi in cui lo sono le premesse; si verifica con la tavola o con una **derivazione**, una catena di regole di inferenza.",
+    "La **deduzione** è certa; l'**induzione** (dai casi alla regola) e l'**abduzione** (la spiegazione più probabile) danno conclusioni solo probabili."
+   ]
+  },
+  {
+   "n": 5,
+   "titolo": "La logica dei predicati",
+   "intro": "Aprire le proposizioni per vedere gli oggetti di cui parlano, le loro proprietà e le loro relazioni: il linguaggio delle basi di conoscenza.",
+   "sezioni": [
+    {
+     "num": "5.1",
+     "titolo": "Quando le proposizioni non bastano",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "«Tutti gli abbonati entrano gratis. Anna è abbonata. Quindi Anna entra gratis.» Il ragionamento è ovviamente giusto. Proviamo però a scriverlo con la logica proposizionale: le tre frasi sono tre proposizioni atomiche diverse, p, q e r, e il ragionamento diventa «p, q, quindi r». **Non è valido**: niente collega r a p e q, e c'è una riga della tavola in cui p e q sono vere e r è falsa."
+      },
+      {
+       "t": "p",
+       "x": "Il problema è che **la logica proposizionale tratta ogni frase come un blocco chiuso**. Non vede:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "gli **oggetti** di cui si parla (Anna);",
+        "le loro **proprietà** e **relazioni** (essere abbonata, entrare gratis);",
+        "le parole **«tutti» e «qualcuno»**, che parlano di molti oggetti in una volta."
+       ]
+      },
+      {
+       "t": "figura",
+       "tipo": "animazione",
+       "titolo": "Aprire i blocchi",
+       "x": "**Fa capire:** che la logica proposizionale non vede ciò che le frasi hanno in comune, e che la logica dei predicati lo rende visibile.\n**Scena iniziale (passo 0):** tre frasi in colonna, nella forma premesse–riga–conclusione: «Tutti gli abbonati entrano gratis», «Anna è abbonata», «Anna entra gratis». Descrizione: «Un ragionamento chiaramente giusto.»\n**Passo 1:** ogni frase si chiude in un blocco grigio con sopra una lettera: p, q, r; i tre blocchi non si toccano. Descrizione: «Per la logica proposizionale sono tre blocchi chiusi: p, q, r. Niente li collega, e il ragionamento non risulta valido.»\n**Passo 2:** i blocchi q e r si aprono e diventano Abbonato(anna) ed EntraGratis(anna); «anna» si evidenzia in verde acqua nei due blocchi. Descrizione: «Apriamo i blocchi: dentro c'è un oggetto, Anna, che compare in entrambe le frasi.»\n**Passo 3:** anche il blocco p si apre: «per ogni x, Abbonato(x) → EntraGratis(x)»; Abbonato ed EntraGratis si evidenziano in ambra in tutte e tre le righe. Descrizione: «E la prima frase dice che chiunque abbia la proprietà \"abbonato\" ha anche la proprietà \"entra gratis\". Ora i pezzi in comune si vedono, e il ragionamento si può dimostrare.»",
+       "passi": [
+        "Per la logica proposizionale sono tre blocchi chiusi: p, q, r. Niente li collega, e il ragionamento non risulta valido.",
+        "Apriamo i blocchi: dentro c'è un oggetto, Anna, che compare in entrambe le frasi.",
+        "E la prima frase dice che chiunque abbia la proprietà \"abbonato\" ha anche la proprietà \"entra gratis\". Ora i pezzi in comune si vedono, e il ragionamento si può dimostrare."
+       ],
+       "inizio": "Un ragionamento chiaramente giusto.",
+       "capire": "che la logica proposizionale non vede ciò che le frasi hanno in comune, e che la logica dei predicati lo rende visibile.",
+       "id": "F5.1.1"
+      },
+      {
+       "t": "p",
+       "x": "Lo stesso problema c'è nella casa smart: per dire chi è in casa servirebbe una proposizione per ogni persona, «Marco è in casa», «Anna è in casa», «Luca è in casa»…, e una regola diversa per ciascuna. Con la logica dei predicati basta scrivere InCasa(x) e **una sola regola vale per tutti**. Per questo **le basi di conoscenza si scrivono con la logica dei predicati**."
+      }
+     ]
+    },
+    {
+     "num": "5.2",
+     "titolo": "Il linguaggio dei predicati",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Per parlare di oggetti servono alcuni elementi nuovi:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "il **dominio**: **l'insieme degli oggetti di cui si parla** (gli studenti della classe, le città d'Italia, i numeri naturali);",
+        "le **costanti**: **nomi che indicano un oggetto preciso** del dominio (anna, roma, 7). Si scrivono con la minuscola;",
+        "le **variabili**: lettere come x, y, z, che **stanno al posto di un oggetto qualsiasi** del dominio, come la x in algebra;",
+        "i **predicati**: **esprimono una proprietà di un oggetto o una relazione tra più oggetti**, e con i loro argomenti formano una frase vera o falsa. Si scrivono con la maiuscola: Abbonato(anna), Genitore(anna, marco)."
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Una frase come Genitore(anna, marco), un predicato con i suoi argomenti, si chiama **formula atomica**: è il «mattone» della logica dei predicati, come la proposizione atomica lo era della logica proposizionale."
+      },
+      {
+       "t": "figura",
+       "tipo": "schema",
+       "titolo": "Anatomia di una formula atomica",
+       "x": "La formula Genitore(anna, marco) in grande. Sopra «Genitore» l'etichetta «predicato» (ambra); sopra «anna» e «marco» l'etichetta «argomenti» (verde acqua), con i numeri 1 e 2; sotto, «arità 2». Sotto ancora, la lettura in italiano: «Anna è genitore di Marco».",
+       "id": "F5.2.1"
+      },
+      {
+       "t": "p",
+       "x": "Il numero di argomenti di un predicato si chiama **arità**, come per i connettivi:"
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "Arità",
+         "Esempio",
+         "Che cosa dice"
+        ],
+        [
+         "1 (proprietà)",
+         "Abbonato(anna)",
+         "Anna è abbonata"
+        ],
+        [
+         "2 (relazione)",
+         "Genitore(anna, marco)",
+         "Anna è genitore di Marco"
+        ],
+        [
+         "3 (relazione)",
+         "Tra(firenze, bologna, roma)",
+         "Firenze sta tra Bologna e Roma"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "**L'ordine degli argomenti conta**: Genitore(anna, marco) e Genitore(marco, anna) dicono cose diverse. Chi scrive una base di conoscenza deve decidere un ordine e usarlo sempre."
+      },
+      {
+       "t": "p",
+       "x": "Le convenzioni di scrittura (maiuscole per i predicati, minuscole per le costanti) sono quelle dei libri di logica; in DLV, nel capitolo 10, saranno un po' diverse."
+      },
+      {
+       "t": "domanda",
+       "q": "Segue(luca, giulia): vuol dire anche che Giulia segue Luca?",
+       "scopo": "errore",
+       "risposta": "no. Dice che Luca segue Giulia (per esempio su Instagram); Giulia può non seguire Luca. L'ordine degli argomenti cambia il significato."
+      },
+      {
+       "t": "errore",
+       "errata": "«Genitore(anna, marco) e Genitore(marco, anna) sono la stessa cosa.»",
+       "corretta": "**L'ordine degli argomenti conta**: la prima dice che Anna è genitore di Marco, la seconda che Marco è genitore di Anna."
+      },
+      {
+       "t": "box",
+       "k": "storia",
+       "titolo": "Frege, Peano e la nascita della logica moderna",
+       "x": "Il matematico tedesco Gottlob Frege (1848–1925), nella sua *Ideografia* (1879), inventò la logica dei predicati e i quantificatori, «tutti» e «qualcuno» scritti con simboli: è considerato il fondatore della logica moderna. Negli stessi anni il matematico italiano Giuseppe Peano (1858–1932), professore a Torino, cercava di scrivere tutta la matematica con simboli precisi, e inventò segni che usiamo ancora oggi, come ∈ («appartiene a») ed ∃ («esiste»). Bertrand Russell, che abbiamo incontrato con il paradosso del barbiere, partì dai loro lavori.",
+       "foto": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Young_frege.jpg",
+        "pagina": "commons:Young frege.jpg",
+        "chiave": "Young frege.jpg"
+       },
+       "foto_tit": "Gottlob Frege",
+       "foto_tutte": [
+        [
+         "Young frege.jpg",
+         "Gottlob Frege"
+        ],
+        [
+         "Giuseppe Peano.jpg",
+         "Giuseppe Peano"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "num": "5.3",
+     "titolo": "Le proprietà delle relazioni",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Alcune relazioni hanno proprietà che permettono di **ricavare fatti nuovi senza scriverli**. Una relazione R è:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**riflessiva** se **ogni oggetto è in relazione con sé stesso**: «è nella stessa classe di» (ognuno è nella stessa classe di sé stesso);",
+        "**simmetrica** se **quando vale R(x, y) vale anche R(y, x)**: «è nella stessa classe di» (se Anna è nella stessa classe di Bea, Bea è nella stessa classe di Anna). «Segue su Instagram» invece non è simmetrica;",
+        "**transitiva** se **da R(x, y) e R(y, z) segue R(x, z)**: «è più alto di» (se Anna è più alta di Bea e Bea di Carla, Anna è più alta di Carla). L'amicizia invece non è transitiva."
+       ]
+      },
+      {
+       "t": "p",
+       "x": "Se un sistema sa che una relazione è transitiva, da pochi fatti ne ricava molti altri. È così che nel capitolo 10, in DLV, una sola regola ricaverà tutti gli **antenati** di una persona dai soli fatti «genitore»."
+      },
+      {
+       "t": "figura",
+       "tipo": "widget",
+       "titolo": "Prova tu: che proprietà ha?",
+       "x": "Quattro persone (Anna, Bea, Carla, Dario) disegnate in cerchio. Un menu per scegliere la relazione: «segue su Instagram», «è nella stessa classe di», «è più alto di», «è genitore di». Scelta la relazione, il widget disegna le frecce tra le persone (anche le frecce da una persona a sé stessa) e accende tre spie, «riflessiva», «simmetrica», «transitiva», verdi se la proprietà vale e rosse se non vale, con la coppia di frecce che lo dimostra evidenziata.",
+       "id": "F5.3.1"
+      },
+      {
+       "t": "domanda",
+       "q": "Anna è amica di Bea e Bea è amica di Carla: allora Anna è amica di Carla?",
+       "scopo": "errore",
+       "risposta": "non per forza: l'amicizia non è transitiva (Anna e Carla potrebbero non conoscersi). «Più alto di», invece, è transitiva."
+      }
+     ]
+    },
+    {
+     "num": "5.4",
+     "titolo": "Formule aperte e insiemi di verità",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "«x è maggiore di 3», o Abbonato(x), non è una proposizione: finché non sappiamo chi è x, non è né vera né falsa. Una formula con una variabile libera si chiama **formula aperta**: **diventa una proposizione quando al posto della variabile si mette un oggetto del dominio**. «7 è maggiore di 3» è vera, «2 è maggiore di 3» è falsa."
+      },
+      {
+       "t": "p",
+       "x": "Gli oggetti del dominio che rendono vera una formula aperta formano il suo **insieme di verità**. Se il dominio sono i numeri da 1 a 10, l'insieme di verità di «x è maggiore di 3» è {4, 5, 6, 7, 8, 9, 10}."
+      },
+      {
+       "t": "p",
+       "x": "Grazie agli insiemi di verità, **i connettivi diventano operazioni tra insiemi**, e si possono vedere con i diagrammi di Venn:"
+      },
+      {
+       "t": "table",
+       "rows": [
+        [
+         "Connettivo",
+         "Operazione tra insiemi",
+         "Nel diagramma"
+        ],
+        [
+         "P(x) ∧ Q(x)",
+         "intersezione P ∩ Q",
+         "la parte comune ai due cerchi"
+        ],
+        [
+         "P(x) ∨ Q(x)",
+         "unione P ∪ Q",
+         "tutto ciò che sta in almeno un cerchio"
+        ],
+        [
+         "¬P(x)",
+         "complementare",
+         "tutto ciò che sta fuori dal cerchio P"
+        ],
+        [
+         "P(x) ⊕ Q(x)",
+         "differenza simmetrica",
+         "i due cerchi senza la parte comune"
+        ],
+        [
+         "P(x) → Q(x) vera per ogni x",
+         "inclusione P ⊆ Q",
+         "il cerchio P sta dentro il cerchio Q"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "x": "L'ultima riga è Roma e l'Italia del capitolo 4: «se sei a Roma sei in Italia» vale per tutti perché Roma sta dentro l'Italia."
+      },
+      {
+       "t": "figura",
+       "tipo": "animazione",
+       "titolo": "La classe e gli insiemi",
+       "x": "**Fa capire:** che una formula aperta ha un insieme di verità e che i connettivi corrispondono a intersezione, unione, complementare e differenza simmetrica.\n**Scena iniziale (passo 0):** un rettangolo «Dominio: la classe» con dodici studenti disegnati come piccole persone; due cerchi che si sovrappongono, «O = porta gli occhiali» (viola) e «C = gioca a calcio» (verde acqua); alcuni studenti in O, alcuni in C, due nell'intersezione, alcuni fuori da tutti e due. Descrizione: «Il dominio è la classe. Ogni studente rende vera o falsa la formula aperta \"x porta gli occhiali\", O(x), e \"x gioca a calcio\", C(x).»\n**Passo 1:** si accendono (ambra) gli studenti in O, gli altri si sbiadiscono. Descrizione: «Insieme di verità di O(x): gli studenti con gli occhiali.»\n**Passo 2:** si accendono quelli in C. Descrizione: «Insieme di verità di C(x): chi gioca a calcio.»\n**Passo 3:** si accendono solo i due nell'intersezione. Descrizione: «O(x) ∧ C(x): occhiali e calcio insieme. È l'intersezione dei due insiemi.»\n**Passo 4:** si accendono tutti quelli in almeno un cerchio. Descrizione: «O(x) ∨ C(x): almeno una delle due. È l'unione.»\n**Passo 5:** si accendono tutti quelli fuori da O. Descrizione: «¬O(x): chi non porta gli occhiali. È il complementare, tutto ciò che sta fuori dal cerchio O.»\n**Passo 6:** si accendono quelli in un solo cerchio. Descrizione: «O(x) ⊕ C(x): una sola delle due. È la differenza simmetrica: l'unione senza l'intersezione.»\n**Passo 7:** si accendono solo i due studenti fuori da entrambi i cerchi; in alto compare ¬(O ∨ C) ≡ ¬O ∧ ¬C. Descrizione: «De Morgan con gli insiemi: chi non è in nessuno dei due cerchi è chi non porta gli occhiali e non gioca a calcio.»",
+       "passi": [
+        "Insieme di verità di O(x): gli studenti con gli occhiali.",
+        "Insieme di verità di C(x): chi gioca a calcio.",
+        "O(x) ∧ C(x): occhiali e calcio insieme. È l'intersezione dei due insiemi.",
+        "O(x) ∨ C(x): almeno una delle due. È l'unione.",
+        "¬O(x): chi non porta gli occhiali. È il complementare, tutto ciò che sta fuori dal cerchio O.",
+        "O(x) ⊕ C(x): una sola delle due. È la differenza simmetrica: l'unione senza l'intersezione.",
+        "De Morgan con gli insiemi: chi non è in nessuno dei due cerchi è chi non porta gli occhiali e non gioca a calcio."
+       ],
+       "inizio": "Il dominio è la classe. Ogni studente rende vera o falsa la formula aperta \"x porta gli occhiali\", O(x), e \"x gioca a calcio\", C(x).",
+       "capire": "che una formula aperta ha un insieme di verità e che i connettivi corrispondono a intersezione, unione, complementare e differenza simmetrica.",
+       "id": "F5.4.1"
+      },
+      {
+       "t": "errore",
+       "errata": "«\"x è maggiore di 3\" è falsa.»",
+       "corretta": "Non è né vera né falsa: è una **formula aperta**, non una proposizione. Diventa vera o falsa solo quando al posto di x si mette un numero."
+      }
+     ]
+    },
+    {
+     "num": "5.5",
+     "titolo": "Interpretazioni e mondi",
+     "blocchi": [
+      {
+       "t": "p",
+       "x": "Il valore di verità di una formula **dipende dal mondo di cui si parla**: dal dominio e dal significato che diamo a costanti e predicati. Questa scelta si chiama **interpretazione**. **La stessa formula può essere vera in un mondo e falsa in un altro**: InCasa(marco) è vera stasera e falsa domattina."
+      },
+      {
+       "t": "p",
+       "x": "Una base di conoscenza è proprio la **descrizione di un mondo**: un elenco di formule vere in quel mondo. Il sistema ragiona su quella descrizione, non sul mondo reale: se la descrizione è sbagliata o incompleta, anche le conclusioni lo saranno."
+      },
+      {
+       "t": "p",
+       "x": "Per allenarsi a leggere le formule in un mondo si usa spesso il **mondo dei blocchi**: un piccolo mondo di forme geometriche disposte su una scacchiera, su cui si scrivono formule come Cubo(a) o ASinistraDi(a, b). È il mondo di un programma didattico molto usato per insegnare la logica, *Tarski's World*, e lo ritroveremo nel capitolo 8 con SHRDLU, uno dei primi programmi di IA."
+      },
+      {
+       "t": "figura",
+       "tipo": "foto",
+       "x": "Tarski's World",
+       "tit": "Tarski's World",
+       "did": "a sinistra il mondo dei blocchi sulla scacchiera, a destra l'elenco delle formule; il programma dice se ciascuna è vera o falsa in quel mondo.",
+       "modo": "grande",
+       "foto": {
+        "url": "https://www.gradegrinder.net/images/static-page-img/Tarskis-main-win7.png",
+        "pagina": "https://www.gradegrinder.net/Support/documentation.html",
+        "chiave": "web:https://www.gradegrinder.net/images/static-page-img/Tarskis-main-win7.png|https://www.gradegrinder.net/Support/documentation.html"
+       },
+       "id": "F5.5.1"
+      },
+      {
+       "t": "figura",
+       "tipo": "widget",
+       "titolo": "Prova tu: il mondo dei blocchi",
+       "x": "Due mondi affiancati, ciascuno con alcune forme su una scacchiera 4 × 4 (cubi, piramidi e sfere, grandi e piccole, con un nome: a, b, c, d) disposte in modo diverso. Sotto, un elenco di formule (Cubo(a), Grande(b), ASinistraDi(a, b), Piramide(c) ∧ Piccola(c), ¬Sfera(d), ASinistraDi(c, d) ∨ Cubo(d)); per ogni formula lo studente sceglie V o F in ciascun mondo e al clic il widget mostra la risposta, evidenziando gli oggetti coinvolti.",
+       "id": "F5.5.2"
+      }
+     ]
+    }
+   ],
+   "ricorda": [
+    "La logica proposizionale tratta le frasi come blocchi chiusi: non vede **oggetti**, **proprietà**, **relazioni** né le parole «tutti» e «qualcuno». La logica dei predicati sì, ed è il linguaggio delle basi di conoscenza.",
+    "Si fissa un **dominio**; le **costanti** nominano oggetti, le **variabili** stanno per oggetti qualsiasi, i **predicati** esprimono proprietà o relazioni. L'**arità** è il numero di argomenti, e il loro **ordine conta**.",
+    "Una relazione può essere **riflessiva**, **simmetrica** o **transitiva**; conoscere queste proprietà permette di ricavare fatti nuovi.",
+    "Una **formula aperta** diventa una proposizione quando la variabile prende un valore; i valori che la rendono vera formano il suo **insieme di verità**. AND, OR, NOT e XOR diventano intersezione, unione, complementare e differenza simmetrica.",
+    "Il valore di una formula dipende dall'**interpretazione**, cioè dal mondo di cui si parla; una base di conoscenza è la descrizione di un mondo."
+   ]
+  }
+ ]
+}

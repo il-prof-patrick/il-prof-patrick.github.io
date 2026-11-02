@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5. La logica dei predicati · Logica e IA simbolica</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="5">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Logica e IA simbolica · Capitolo 05</span></div>
+  <h1>La logica dei predicati</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 5.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">5.1</span>Quando le proposizioni non bastano</h2>
+  <p>«Tutti gli abbonati entrano gratis. Anna è abbonata. Quindi Anna entra gratis.» Il ragionamento è ovviamente giusto. Proviamo però a scriverlo con la logica proposizionale: le tre frasi sono tre proposizioni atomiche diverse, p, q e r, e il ragionamento diventa «p, q, quindi r». <b>Non è valido</b>: niente collega r a p e q, e c’è una riga della tavola in cui p e q sono vere e r è falsa.</p>
+  <p>Il problema è che <b>la logica proposizionale tratta ogni frase come un blocco chiuso</b>. Non vede:</p>
+  <ul>
+    <li>gli <b>oggetti</b> di cui si parla (Anna);</li>
+    <li>le loro <b>proprietà</b> e <b>relazioni</b> (essere abbonata, entrare gratis);</li>
+    <li>le parole <b>«tutti» e «qualcuno»</b>, che parlano di molti oggetti in una volta.</li>
+  </ul>
+  <figure>
+    <div class="tela passi-anim" id="f-blocchi" data-titolo="Aprire i blocchi" data-inizio="Un ragionamento chiaramente giusto.">
+      <svg viewBox="0 0 720 300" role="img" aria-label="Il ragionamento «Tutti gli abbonati entrano gratis; Anna è abbonata; quindi Anna entra gratis». Per la logica proposizionale sono tre blocchi chiusi p, q, r, senza legami. Aprendoli compaiono l’oggetto anna e i predicati Abbonato ed EntraGratis, in comune tra le frasi."></svg>
+      <ol class="passi-testo">
+        <li>Per la logica proposizionale sono tre blocchi chiusi: p, q, r. Niente li collega, e il ragionamento non risulta valido.</li>
+        <li>Apriamo i blocchi: dentro c’è un oggetto, Anna, che compare in entrambe le frasi.</li>
+        <li>E la prima frase dice che chiunque abbia la proprietà “abbonato” ha anche la proprietà “entra gratis”. Ora i pezzi in comune si vedono, e il ragionamento si può dimostrare.</li>
+      </ol>
+    </div>
+  </figure>
+  <p>Lo stesso problema c’è nella casa smart: per dire chi è in casa servirebbe una proposizione per ogni persona, «Marco è in casa», «Anna è in casa», «Luca è in casa»…, e una regola diversa per ciascuna. Con la logica dei predicati basta scrivere InCasa(x) e <b>una sola regola vale per tutti</b>. Per questo <b>le basi di conoscenza si scrivono con la logica dei predicati</b>.</p>
+
+  <!-- ===================== 5.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">5.2</span>Il linguaggio dei predicati</h2>
+  <p>Per parlare di oggetti servono alcuni elementi nuovi:</p>
+  <ul>
+    <li>il <b>dominio</b>: <b>l’insieme degli oggetti di cui si parla</b> (gli studenti della classe, le città d’Italia, i numeri naturali);</li>
+    <li>le <b>costanti</b>: <b>nomi che indicano un oggetto preciso</b> del dominio (anna, roma, 7). Si scrivono con la minuscola;</li>
+    <li>le <b>variabili</b>: lettere come x, y, z, che <b>stanno al posto di un oggetto qualsiasi</b> del dominio, come la x in algebra;</li>
+    <li>i <b>predicati</b>: <b>esprimono una proprietà di un oggetto o una relazione tra più oggetti</b>, e con i loro argomenti formano una frase vera o falsa. Si scrivono con la maiuscola: Abbonato(anna), Genitore(anna, marco).</li>
+  </ul>
+  <p>Una frase come Genitore(anna, marco), un predicato con i suoi argomenti, si chiama <b>formula atomica</b>: è il «mattone» della logica dei predicati, come la proposizione atomica lo era della logica proposizionale.</p>
+  <figure>
+    <div class="tela schema" id="s-anatomia"><p class="passi-titolo">Anatomia di una formula atomica</p>
+      <svg viewBox="0 0 720 250" role="img" aria-label="La formula atomica Genitore(anna, marco): Genitore è il predicato, anna e marco sono gli argomenti 1 e 2, l’arità è 2. Si legge: Anna è genitore di Marco."></svg>
+    </div>
+  </figure>
+  <p>Il numero di argomenti di un predicato si chiama <b>arità</b>, come per i connettivi:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Arità</th><th>Esempio</th><th>Che cosa dice</th></tr></thead>
+    <tbody>
+      <tr><td>1 (proprietà)</td><td>Abbonato(anna)</td><td>Anna è abbonata</td></tr>
+      <tr><td>2 (relazione)</td><td>Genitore(anna, marco)</td><td>Anna è genitore di Marco</td></tr>
+      <tr><td>3 (relazione)</td><td>Tra(firenze, bologna, roma)</td><td>Firenze sta tra Bologna e Roma</td></tr>
+    </tbody></table></div>
+  <p><b>L’ordine degli argomenti conta</b>: Genitore(anna, marco) e Genitore(marco, anna) dicono cose diverse. Chi scrive una base di conoscenza deve decidere un ordine e usarlo sempre.</p>
+  <p>Le convenzioni di scrittura (maiuscole per i predicati, minuscole per le costanti) sono quelle dei libri di logica; in DLV, nel capitolo 10, saranno un po’ diverse.</p>
+  <p class="domanda">Segue(luca, giulia): vuol dire anche che Giulia segue Luca?</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Genitore(anna, marco) e Genitore(marco, anna) sono la stessa cosa.»</p>
+    <p class="err-si"><b>L’ordine degli argomenti conta</b>: la prima dice che Anna è genitore di Marco, la seconda che Marco è genitore di Anna.</p></div>
+  <div class="box storia"><figure class="foto-lato testa dx multi" data-n="2"><div class="fl-uno"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Young_frege.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Young_frege.jpg" alt="Gottlob Frege" referrerpolicy="no-referrer"></a><span class="foto-tit">Gottlob Frege</span></div><div class="fl-uno"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Giuseppe_Peano.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Giuseppe_Peano.jpg" alt="Giuseppe Peano" referrerpolicy="no-referrer"></a><span class="foto-tit">Giuseppe Peano</span></div></figure><h3><i data-ic="history" class="ic-20"></i> Nella storia · Frege, Peano e la nascita della logica moderna</h3>
+    <p>Il matematico tedesco Gottlob Frege (1848–1925), nella sua <i>Ideografia</i> (1879), inventò la logica dei predicati e i quantificatori, «tutti» e «qualcuno» scritti con simboli: è considerato il fondatore della logica moderna. Negli stessi anni il matematico italiano Giuseppe Peano (1858–1932), professore a Torino, cercava di scrivere tutta la matematica con simboli precisi, e inventò segni che usiamo ancora oggi, come ∈ («appartiene a») ed ∃ («esiste»). Bertrand Russell, che abbiamo incontrato con il paradosso del barbiere, partì dai loro lavori.</p></div>
+
+  <!-- ===================== 5.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">5.3</span>Le proprietà delle relazioni</h2>
+  <p>Alcune relazioni hanno proprietà che permettono di <b>ricavare fatti nuovi senza scriverli</b>. Una relazione R è:</p>
+  <ul>
+    <li><b>riflessiva</b> se <b>ogni oggetto è in relazione con sé stesso</b>: «è nella stessa classe di» (ognuno è nella stessa classe di sé stesso);</li>
+    <li><b>simmetrica</b> se <b>quando vale R(x, y) vale anche R(y, x)</b>: «è nella stessa classe di» (se Anna è nella stessa classe di Bea, Bea è nella stessa classe di Anna). «Segue su Instagram» invece non è simmetrica;</li>
+    <li><b>transitiva</b> se <b>da R(x, y) e R(y, z) segue R(x, z)</b>: «è più alto di» (se Anna è più alta di Bea e Bea di Carla, Anna è più alta di Carla). L’amicizia invece non è transitiva.</li>
+  </ul>
+  <p>Se un sistema sa che una relazione è transitiva, da pochi fatti ne ricava molti altri. È così che nel capitolo 10, in DLV, una sola regola ricaverà tutti gli <b>antenati</b> di una persona dai soli fatti «genitore».</p>
+  <figure>
+    <div class="tela" data-widget="relazioni"></div>
+  </figure>
+  <p class="domanda">Anna è amica di Bea e Bea è amica di Carla: allora Anna è amica di Carla?</p>
+
+  <!-- ===================== 5.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">5.4</span>Formule aperte e insiemi di verità</h2>
+  <p>«x è maggiore di 3», o Abbonato(x), non è una proposizione: finché non sappiamo chi è x, non è né vera né falsa. Una formula con una variabile libera si chiama <b>formula aperta</b>: <b>diventa una proposizione quando al posto della variabile si mette un oggetto del dominio</b>. «7 è maggiore di 3» è vera, «2 è maggiore di 3» è falsa.</p>
+  <p>Gli oggetti del dominio che rendono vera una formula aperta formano il suo <b>insieme di verità</b>. Se il dominio sono i numeri da 1 a 10, l’insieme di verità di «x è maggiore di 3» è {4, 5, 6, 7, 8, 9, 10}.</p>
+  <p>Grazie agli insiemi di verità, <b>i connettivi diventano operazioni tra insiemi</b>, e si possono vedere con i diagrammi di Venn:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Connettivo</th><th>Operazione tra insiemi</th><th>Nel diagramma</th></tr></thead>
+    <tbody>
+      <tr><td>P(x) ∧ Q(x)</td><td>intersezione P ∩ Q</td><td>la parte comune ai due cerchi</td></tr>
+      <tr><td>P(x) ∨ Q(x)</td><td>unione P ∪ Q</td><td>tutto ciò che sta in almeno un cerchio</td></tr>
+      <tr><td>¬P(x)</td><td>complementare</td><td>tutto ciò che sta fuori dal cerchio P</td></tr>
+      <tr><td>P(x) ⊕ Q(x)</td><td>differenza simmetrica</td><td>i due cerchi senza la parte comune</td></tr>
+      <tr><td>P(x) → Q(x) vera per ogni x</td><td>inclusione P ⊆ Q</td><td>il cerchio P sta dentro il cerchio Q</td></tr>
+    </tbody></table></div>
+  <p>L’ultima riga è Roma e l’Italia del capitolo 4: «se sei a Roma sei in Italia» vale per tutti perché Roma sta dentro l’Italia.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-insiemi" data-titolo="La classe e gli insiemi" data-inizio="Il dominio è la classe. Ogni studente rende vera o falsa la formula aperta “x porta gli occhiali”, O(x), e “x gioca a calcio”, C(x).">
+      <svg viewBox="0 0 720 380" role="img" aria-label="Dodici studenti nel dominio della classe e due cerchi: O, porta gli occhiali, e C, gioca a calcio. A ogni passo si accendono gli studenti che rendono vera una formula: O, C, intersezione, unione, complementare, differenza simmetrica e infine chi non è in nessuno dei due cerchi."></svg>
+      <ol class="passi-testo">
+        <li>Insieme di verità di O(x): gli studenti con gli occhiali.</li>
+        <li>Insieme di verità di C(x): chi gioca a calcio.</li>
+        <li>O(x) ∧ C(x): occhiali e calcio insieme. È l’intersezione dei due insiemi.</li>
+        <li>O(x) ∨ C(x): almeno una delle due. È l’unione.</li>
+        <li>¬O(x): chi non porta gli occhiali. È il complementare, tutto ciò che sta fuori dal cerchio O.</li>
+        <li>O(x) ⊕ C(x): una sola delle due. È la differenza simmetrica: l’unione senza l’intersezione.</li>
+        <li>De Morgan con gli insiemi: chi non è in nessuno dei due cerchi è chi non porta gli occhiali e non gioca a calcio.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«“x è maggiore di 3” è falsa.»</p>
+    <p class="err-si">Non è né vera né falsa: è una <b>formula aperta</b>, non una proposizione. Diventa vera o falsa solo quando al posto di x si mette un numero.</p></div>
+
+  <!-- ===================== 5.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">5.5</span>Interpretazioni e mondi</h2>
+  <p>Il valore di verità di una formula <b>dipende dal mondo di cui si parla</b>: dal dominio e dal significato che diamo a costanti e predicati. Questa scelta si chiama <b>interpretazione</b>. <b>La stessa formula può essere vera in un mondo e falsa in un altro</b>: InCasa(marco) è vera stasera e falsa domattina.</p>
+  <p>Una base di conoscenza è proprio la <b>descrizione di un mondo</b>: un elenco di formule vere in quel mondo. Il sistema ragiona su quella descrizione, non sul mondo reale: se la descrizione è sbagliata o incompleta, anche le conclusioni lo saranno.</p>
+  <p>Per allenarsi a leggere le formule in un mondo si usa spesso il <b>mondo dei blocchi</b>: un piccolo mondo di forme geometriche disposte su una scacchiera, su cui si scrivono formule come Cubo(a) o ASinistraDi(a, b). È il mondo di un programma didattico molto usato per insegnare la logica, <i>Tarski’s World</i>, e lo ritroveremo nel capitolo 8 con SHRDLU, uno dei primi programmi di IA.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://www.gradegrinder.net/Support/documentation.html" target="_blank" rel="noopener"><img src="https://www.gradegrinder.net/images/static-page-img/Tarskis-main-win7.png" alt="Tarski's World" referrerpolicy="no-referrer"></a><figcaption>A sinistra il mondo dei blocchi sulla scacchiera, a destra l’elenco delle formule; il programma dice se ciascuna è vera o falsa in quel mondo.</figcaption></figure>
+  <figure>
+    <div class="tela" data-widget="blocchi"></div>
+  </figure>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>La logica proposizionale tratta le frasi come blocchi chiusi: non vede <b>oggetti</b>, <b>proprietà</b>, <b>relazioni</b> né le parole «tutti» e «qualcuno». La logica dei predicati sì, ed è il linguaggio delle basi di conoscenza.</li>
+      <li>Si fissa un <b>dominio</b>; le <b>costanti</b> nominano oggetti, le <b>variabili</b> stanno per oggetti qualsiasi, i <b>predicati</b> esprimono proprietà o relazioni. L’<b>arità</b> è il numero di argomenti, e il loro <b>ordine conta</b>.</li>
+      <li>Una relazione può essere <b>riflessiva</b>, <b>simmetrica</b> o <b>transitiva</b>; conoscere queste proprietà permette di ricavare fatti nuovi.</li>
+      <li>Una <b>formula aperta</b> diventa una proposizione quando la variabile prende un valore; i valori che la rendono vera formano il suo <b>insieme di verità</b>. AND, OR, NOT e XOR diventano intersezione, unione, complementare e differenza simmetrica.</li>
+      <li>Il valore di una formula dipende dall’<b>interpretazione</b>, cioè dal mondo di cui si parla; una base di conoscenza è la descrizione di un mondo.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/capitolo-05.js"></script>
+<script src="assets/capitolo-05-aula.js"></script>
+</body>
+</html>

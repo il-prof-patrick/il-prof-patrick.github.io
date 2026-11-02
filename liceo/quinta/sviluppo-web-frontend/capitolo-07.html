@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>7. CSS: avanzato · Sviluppo Web - Front end</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="7">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Sviluppo Web - Front end · Capitolo 07</span></div>
+  <h1>CSS: avanzato</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 7.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">7.1</span>Flexbox</h2>
+  <h3 id="s11-1">L’idea (contenitore ed elementi · asse principale e trasversale)</h3>
+  <p>Con il flusso normale affiancare tre card, centrare un riquadro in verticale o spingere una voce di menu a destra richiede trucchi. <span class="termine">Flexbox</span> (<i>flexible box</i>) nasce per questo: dispone gli elementi <b>in una direzione</b>, distribuendo lo spazio in modo flessibile.</p>
+  <p>Si scrive <code>display: flex</code> sul <b>contenitore</b> (<i>flex container</i>). I suoi <b>figli diretti</b> diventano <b>elementi flessibili</b> (<i>flex item</i>) e si mettono in fila, uno accanto all’altro. I nipoti no: dentro ogni elemento continua il flusso normale, a meno di fare di quell’elemento un altro contenitore flex.</p>
+  <pre class="codice"><span class="kit-pre-nome">index.html</span><code><span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"corsi"</span><span class="k">&gt;</span>          <span class="c">&lt;!-- contenitore: display: flex --&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"card"</span><span class="k">&gt;</span>Arduino<span class="k">&lt;/div</span><span class="k">&gt;</span>   <span class="c">&lt;!-- elemento flessibile --&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"card"</span><span class="k">&gt;</span>Stampa 3D<span class="k">&lt;/div</span><span class="k">&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"card"</span><span class="k">&gt;</span>Robot<span class="k">&lt;/div</span><span class="k">&gt;</span>
+<span class="k">&lt;/div</span><span class="k">&gt;</span></code></pre>
+  <p>Tutto Flexbox ragiona su <b>due assi</b>:</p>
+  <ul>
+    <li>l’<span class="termine">asse principale</span> (<i>main axis</i>) è la direzione in cui gli elementi si mettono in fila: con il valore iniziale <code>flex-direction: row</code> è <b>orizzontale</b>, da sinistra a destra;</li>
+    <li>l’<span class="termine">asse trasversale</span> (<i>cross axis</i>) è <b>perpendicolare</b>: con <code>row</code> è verticale.</li>
+  </ul>
+  <p>Con <code>flex-direction: column</code> gli elementi si impilano dall’alto in basso: l’asse principale diventa <b>verticale</b> e quello trasversale <b>orizzontale</b>. Gli assi <b>si scambiano</b>, e con loro il significato delle proprietà di allineamento (più avanti). Esiste anche <code>display: inline-flex</code>: il contenitore funziona allo stesso modo, ma verso l’esterno sta <b>in linea</b>, largo quanto il contenuto, come un <code>inline-block</code>.</p>
+  <figure>
+    <div class="tela" data-widget="w11_flex"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>display: flex</code> va messo sugli elementi che voglio affiancare.»</p>
+    <p class="err-si">Va sul <b>contenitore</b>: sono i suoi figli diretti a mettersi in fila. Su un elemento da solo non affianca niente.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>justify-content</code> lavora sempre in orizzontale.»</p>
+    <p class="err-si"><code>justify-content</code> lavora sull’<b>asse principale</b>: orizzontale con <code>row</code>, ma <b>verticale</b> con <code>column</code>.</p></div>
+  <h3 id="s11-2">Proprietà del contenitore (flex-direction · flex-wrap · justify-content · align-items · gap)</h3>
+  <p>Le proprietà del contenitore decidono come si dispongono <b>tutti</b> gli elementi. Si provano nel widget del paragrafo precedente.</p>
+  <ul>
+    <li><code>flex-direction</code>: la direzione dell’asse principale. <code>row</code> (predefinito, da sinistra a destra), <code>row-reverse</code> (da destra a sinistra), <code>column</code> (dall’alto in basso), <code>column-reverse</code> (dal basso in alto);</li>
+    <li><code>flex-wrap</code>: se gli elementi non entrano. Con <code>nowrap</code> (predefinito) restano <b>su una riga sola e si restringono</b>; con <code>wrap</code> <b>vanno a capo</b> su più righe. <code>flex-flow</code> riassume le due: <code>flex-flow: row wrap</code>;</li>
+    <li><code>justify-content</code>: come si distribuisce lo spazio libero <b>sull’asse principale</b>. <code>flex-start</code> (all’inizio), <code>flex-end</code> (in fondo), <code>center</code>, <code>space-between</code> (primo e ultimo ai bordi, spazi uguali tra gli altri), <code>space-around</code> (spazio uguale attorno a ognuno: ai bordi è la metà), <code>space-evenly</code> (spazi tutti uguali, anche ai bordi);</li>
+    <li><code>align-items</code>: come si allineano gli elementi <b>sull’asse trasversale</b>. <code>stretch</code> (predefinito: si allungano fino a riempire), <code>flex-start</code>, <code>flex-end</code>, <code>center</code>, <code>baseline</code> (allineati sulla linea di base del testo);</li>
+    <li><code>align-content</code>: come si distribuiscono <b>le righe</b> quando ce n’è più d’una (con <code>wrap</code>), con gli stessi valori di <code>justify-content</code>;</li>
+    <li><code>gap</code>: lo spazio <b>tra</b> gli elementi (non ai bordi). <code>row-gap</code> e <code>column-gap</code> lo danno separatamente tra le righe e tra le colonne.</li>
+  </ul>
+  <p class="domanda">Con <code>flex-direction: column</code>, <code>justify-content: center</code> centra gli elementi in orizzontale o in verticale?</p>
+  <figure>
+    <div class="tela schema" id="s11_justify"><p class="passi-titolo">I sei valori di justify-content sullo stesso contenitore</p>
+      <div class="s11j">
+        <div class="s11j-r"><code>flex-start</code><div class="s11j-c" style="justify-content:flex-start"><i>1</i><i>2</i><i>3</i></div></div>
+        <div class="s11j-r"><code>flex-end</code><div class="s11j-c" style="justify-content:flex-end"><i>1</i><i>2</i><i>3</i></div></div>
+        <div class="s11j-r"><code>center</code><div class="s11j-c" style="justify-content:center"><i>1</i><i>2</i><i>3</i></div></div>
+        <div class="s11j-r"><code>space-between</code><div class="s11j-c" style="justify-content:space-between"><i>1</i><i>2</i><i>3</i></div></div>
+        <div class="s11j-r"><code>space-around</code><div class="s11j-c" style="justify-content:space-around"><i>1</i><i>2</i><i>3</i></div></div>
+        <div class="s11j-r"><code>space-evenly</code><div class="s11j-c" style="justify-content:space-evenly"><i>1</i><i>2</i><i>3</i></div></div>
+      </div>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>flex-wrap</code> è attivo di default: se gli elementi non entrano vanno a capo.»</p>
+    <p class="err-si">Il valore predefinito è <code>nowrap</code>: gli elementi restano <b>su una riga</b> e si restringono, fino a uscire dal contenitore. Per andare a capo serve <code>flex-wrap: wrap</code>.</p></div>
+  <h3 id="s11-3">Proprietà degli elementi (flex-grow · flex-shrink · flex-basis · flex · order · align-self)</h3>
+  <p>Ogni elemento flessibile ha tre proprietà che decidono la sua larghezza (con <code>row</code>) sull’asse principale:</p>
+  <ul>
+    <li><code>flex-basis</code>: la <b>misura di partenza</b>. <code>auto</code> (predefinito) vuol dire la <code>width</code> dell’elemento o, se non c’è, quella del <b>contenuto</b>; <code>0</code> vuol dire partire da zero;</li>
+    <li><code>flex-grow</code>: come l’elemento si spartisce lo <b>spazio avanzato</b>, quello che resta nel contenitore dopo aver messo tutti alla misura di partenza. Con <code>0</code> (predefinito) non cresce; con <code>1</code> su tutti, lo spazio avanzato si divide in parti uguali; un elemento con <code>2</code> ne prende il doppio;</li>
+    <li><code>flex-shrink</code>: come l’elemento rinuncia allo <b>spazio mancante</b> quando le misure di partenza non entrano. Con <code>1</code> (predefinito) si restringe; con <code>0</code> mai.</li>
+  </ul>
+  <p>La scorciatoia <code>flex</code> le scrive tutte e tre, in quest’ordine. I valori da ricordare:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Scrittura</th><th>Equivale a</th><th>Effetto</th></tr></thead>
+    <tbody>
+      <tr><td>valore iniziale</td><td><code>flex: 0 1 auto</code></td><td>non cresce, si restringe, parte dal contenuto</td></tr>
+      <tr><td><code>flex: 1</code></td><td><code>flex: 1 1 0%</code></td><td>parte da zero e cresce: elementi <b>larghi uguali</b></td></tr>
+      <tr><td><code>flex: auto</code></td><td><code>flex: 1 1 auto</code></td><td>parte dal contenuto e cresce: larghi diversi</td></tr>
+      <tr><td><code>flex: none</code></td><td><code>flex: 0 0 auto</code></td><td>rigido: né cresce né si restringe</td></tr>
+    </tbody></table></div>
+  <p class="domanda">Tre box con testi di lunghezza diversa e <code>flex-grow: 1</code> su tutti. Diventano larghi uguali?</p>
+  <figure>
+    <div class="tela" data-widget="w11_elementi"></div>
+  </figure>
+  <p>Altre proprietà degli elementi:</p>
+  <ul>
+    <li><code>order</code> cambia <b>l’ordine in cui compaiono</b>, senza toccare l’HTML (predefinito 0; i numeri più bassi vengono prima). Va usato con cautela: chi naviga con la tastiera o con un lettore di schermo segue l’ordine dell’HTML;</li>
+    <li><code>align-self</code> cambia l’allineamento trasversale <b>di un solo elemento</b>, sovrascrivendo l’<code>align-items</code> del contenitore;</li>
+    <li><code>margin-left: auto</code> (con <code>row</code>) <b>spinge l’elemento in fondo</b>: il margine automatico prende tutto lo spazio libero. È il modo di mandare a destra l’ultima voce di un menu;</li>
+    <li>un elemento flessibile <b>non si restringe sotto la larghezza del suo contenuto</b> (la parola o l’URL più lungo): un testo lungo può uscire dal suo riquadro. La soluzione è <code>min-width: 0</code> sull’elemento.</li>
+  </ul>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>flex: 1</code> e <code>flex-grow: 1</code> sono la stessa cosa.»</p>
+    <p class="err-si"><code>flex: 1</code> mette anche la <b>base a 0</b>: gli elementi diventano larghi uguali. <code>flex-grow: 1</code> lascia la base <code>auto</code>: divide solo lo spazio avanzato e gli elementi restano diversi.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Un testo lungo sta sempre nel suo riquadro.»</p>
+    <p class="err-si">Un elemento flessibile non scende sotto la larghezza del suo contenuto più lungo: una parola o un URL lunghissimi lo fanno sporgere. Serve <code>min-width: 0</code> (e magari <code>overflow-wrap: anywhere</code>).</p></div>
+  <h3 id="s11-4">Schemi ricorrenti (centrare · barra di navigazione · card affiancate · footer in fondo)</h3>
+  <p>Nei siti veri Flexbox si usa soprattutto in quattro modi, che conviene conoscere a memoria:</p>
+  <figure>
+    <div class="tela schema" id="s11_schemi"><p class="passi-titolo">Quattro schemi ricorrenti</p>
+      <div class="s11s">
+        <div class="kit-cella"><b>Centrare in orizzontale e in verticale</b><div class="s11s-r cen"><div>Iscriviti</div></div><pre class="codice"><code><span class="k">.box </span>{
+<span class="a">  display</span>:<span class="s"> flex</span>;
+<span class="a">  justify-content</span>:<span class="s"> center</span>;
+<span class="a">  align-items</span>:<span class="s"> center</span>;
+}</code></pre></div>
+        <div class="kit-cella"><b>Barra di navigazione</b><div class="s11s-r nav"><span>Club</span><span>Corsi</span><span>Orari</span><span class="dx">Accedi</span></div><pre class="codice"><code><span class="k">nav </span>{<span class="a"> display</span>:<span class="s"> flex</span>;<span class="a"> gap</span>:<span class="s"> 16px</span>; }
+<span class="k">.accedi </span>{<span class="a"> margin-left</span>:<span class="s"> auto</span>; }</code></pre></div>
+        <div class="kit-cella"><b>Card che vanno a capo</b><div class="s11s-r card"><div>Arduino</div><div>Stampa 3D</div><div>Robot</div><div>Droni</div><div>Sensori</div></div><pre class="codice"><code><span class="k">.corsi </span>{
+<span class="a">  display</span>:<span class="s"> flex</span>;
+<span class="a">  flex-wrap</span>:<span class="s"> wrap</span>;
+<span class="a">  gap</span>:<span class="s"> 8px</span>;
+}
+<span class="k">.card </span>{<span class="a"> flex</span>:<span class="s"> 1 1 120px</span>; }</code></pre></div>
+        <div class="kit-cella"><b>Footer sempre in fondo</b><div class="s11s-r foot"><div class="h">header</div><div class="m">main · flex: 1</div><div class="f">footer</div></div><pre class="codice"><code><span class="k">body </span>{
+<span class="a">  display</span>:<span class="s"> flex</span>;
+<span class="a">  flex-direction</span>:<span class="s"> column</span>;
+<span class="a">  min-height</span>:<span class="s"> 100vh</span>;
+}
+<span class="k">main </span>{<span class="a"> flex</span>:<span class="s"> 1</span>; }</code></pre></div>
+      </div>
+    </div>
+  </figure>
+  <p>Il quarto merita una parola: in una pagina con poco contenuto il footer resterebbe a metà schermo. Con il <code>body</code> in colonna alto almeno quanto la finestra e <code>flex: 1</code> sul <code>main</code>, il <code>main</code> si prende tutto lo spazio avanzato e <b>spinge il footer in fondo</b>.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>align-items: center</code> centra in orizzontale.»</p>
+    <p class="err-si"><code>align-items</code> lavora sull’<b>asse trasversale</b>: con <code>row</code> centra in <b>verticale</b>. In orizzontale (asse principale) centra <code>justify-content: center</code>.</p></div>
+
+  <!-- ===================== 7.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">7.2</span>Grid</h2>
+  <h3 id="s12-1">L’idea (righe e colonne)</h3>
+  <p>Flexbox dispone gli elementi <b>in una direzione</b> e lascia che ogni riga si arrangi da sola. <span class="termine">Grid</span> (<i>CSS Grid Layout</i>) lavora invece in <b>due direzioni insieme</b>: si disegna prima una <b>griglia</b> di righe e colonne, come un foglio a quadretti, e poi si collocano gli elementi nelle sue caselle. È lo strumento adatto per l’impaginazione di una pagina intera o di una galleria.</p>
+  <p>Come per Flexbox, si scrive <code>display: grid</code> sul <b>contenitore</b> (<i>grid container</i>) e i suoi figli diretti diventano <b>elementi della griglia</b> (<i>grid item</i>). Le parole da conoscere:</p>
+  <ul>
+    <li>le <b>linee</b> (<i>grid line</i>) sono le righe divisorie, orizzontali e verticali, <b>numerate da 1</b>: una griglia di 3 colonne ha 4 linee verticali;</li>
+    <li>una <b>traccia</b> (<i>track</i>) è lo spazio tra due linee vicine: una <b>colonna</b> o una <b>riga</b>;</li>
+    <li>una <b>cella</b> (<i>cell</i>) è l’incrocio tra una riga e una colonna, la casella più piccola;</li>
+    <li>un’<b>area</b> (<i>grid area</i>) è un rettangolo di più celle: un elemento può occuparne una intera.</li>
+  </ul>
+  <figure>
+    <div class="tela schema" id="s12_idea"><p class="passi-titolo">Una griglia di 3 colonne e 2 righe</p>
+      <div class="s12i">
+        <div class="s12i-g">
+          <div class="s12i-c traccia" style="grid-column:3;grid-row:1 / 3"></div>
+          <div class="s12i-c cella" style="grid-column:2;grid-row:1"></div>
+          <div class="s12i-c area" style="grid-column:1 / 3;grid-row:2"></div>
+          <span class="s12i-n v" style="left:0">1</span><span class="s12i-n v" style="left:33.33%">2</span><span class="s12i-n v" style="left:66.66%">3</span><span class="s12i-n v" style="left:100%">4</span>
+          <span class="s12i-n o" style="top:0">1</span><span class="s12i-n o" style="top:50%">2</span><span class="s12i-n o" style="top:100%">3</span>
+        </div>
+        <ul class="s12i-leg"><li><i class="lin"></i>le <b>linee</b>, numerate: 4 verticali e 3 orizzontali</li><li><i class="traccia"></i>una <b>traccia</b>: la colonna 3, tra le linee 3 e 4</li><li><i class="cella"></i>una <b>cella</b>: riga 1, colonna 2</li><li><i class="area"></i>un’<b>area</b> di due celle: riga 2, colonne da 1 a 3</li></ul>
+      </div>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>display: grid</code> va messo sugli elementi da mettere in griglia.»</p>
+    <p class="err-si">Va sul <b>contenitore</b>, come <code>display: flex</code>: sono i suoi figli diretti a diventare elementi della griglia.</p></div>
+  <h3 id="s12-2">Definire la griglia (grid-template-columns · fr · repeat() · minmax() · auto-fit · gap)</h3>
+  <p>Le colonne si disegnano con <code>grid-template-columns</code>, scrivendo <b>una misura per ogni colonna</b>; le righe, allo stesso modo, con <code>grid-template-rows</code>. Le misure possono essere in px, %, rem, oppure nell’unità nata per Grid:</p>
+  <ul>
+    <li><code>fr</code> (<i>fraction</i>) è una <b>frazione dello spazio libero</b>, quello che avanza dopo aver tolto le colonne a misura fissa e i <code>gap</code>. <code>1fr 2fr</code> divide lo spazio in tre parti: una alla prima colonna, due alla seconda. <code>150px 1fr</code> fa una colonna fissa e una che prende <b>tutto il resto</b>. Non è una percentuale: <code>1fr 1fr 1fr</code> con un <code>gap</code> di 10px non sbaglia mai i conti, <code>33% 33% 33%</code> sì;</li>
+    <li><code>repeat(3, 1fr)</code> ripete una misura: è lo stesso di <code>1fr 1fr 1fr</code>;</li>
+    <li><code>minmax(200px, 1fr)</code> dà a una traccia una misura <b>minima e massima</b>: almeno 200px, al massimo una frazione;</li>
+    <li><code>gap</code> (o <code>row-gap</code> e <code>column-gap</code>) è lo spazio <b>tra</b> le tracce.</li>
+  </ul>
+  <p>Insieme danno la riga più famosa di Grid, una galleria che <b>sceglie da sola quante colonne</b> mettere:</p>
+  <pre class="codice"><span class="kit-pre-nome">stile.css</span><code><span class="k">.galleria </span>{
+<span class="a">  display</span>:<span class="s"> grid</span>;
+<span class="a">  grid-template-columns</span>:<span class="s"> repeat(auto-fit, minmax(200px, 1fr))</span>;
+<span class="a">  gap</span>:<span class="s"> 16px</span>;
+}</code></pre>
+  <p><code>auto-fit</code> vuol dire «quante colonne ci stanno, ognuna di almeno 200px»: su un computer quattro, su un tablet due, su un telefono una, <b>senza nessuna media query</b>. Esiste anche <code>auto-fill</code>: la differenza si vede quando gli elementi sono pochi. <code>auto-fill</code> lascia le <b>colonne vuote</b> che ci starebbero, <code>auto-fit</code> le chiude ed <b>espande gli elementi</b> a occupare tutta la larghezza.</p>
+  <p>Se gli elementi sono più delle celle definite, la griglia <b>aggiunge righe da sola</b>: sono le righe della <span class="termine">griglia implicita</span>. La loro altezza si decide con <code>grid-auto-rows</code> (per esempio <code>grid-auto-rows: 120px</code>), e con <code>grid-auto-flow: column</code> la griglia cresce invece per colonne. Tra le misure esistono anche <code>min-content</code> e <code>max-content</code>, cioè «quanto il contenuto più stretto possibile» e «quanto il contenuto senza andare a capo».</p>
+  <p class="domanda">In una griglia a 3 colonne metto 4 elementi. Che fine fa il quarto?</p>
+  <figure>
+    <div class="tela" data-widget="w12_grid"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>fr</code> è una percentuale.»</p>
+    <p class="err-si"><code>fr</code> è una frazione dello <b>spazio libero</b>, cioè di quello che resta dopo le colonne fisse e i <code>gap</code>. Per questo, a differenza delle percentuali, non fa mai uscire la griglia dal contenitore.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>auto-fit</code> e <code>auto-fill</code> sono uguali.»</p>
+    <p class="err-si">Con molti elementi sì. Con pochi, <code>auto-fill</code> lascia <b>colonne vuote</b> in fondo, <code>auto-fit</code> le chiude e <b>allarga gli elementi</b> a tutta la larghezza.</p></div>
+  <h3 id="s12-3">Posizionare gli elementi (grid-column · grid-row · span · grid-template-areas)</h3>
+  <p>Senza indicazioni gli elementi riempiono le celle <b>in ordine</b>, una dopo l’altra. Per mettere un elemento in un punto preciso si dice <b>da quale linea a quale</b> deve andare:</p>
+  <ul>
+    <li><code>grid-column: 1 / 3</code> lo stende dalla linea verticale 1 alla 3, cioè sulle prime <b>due colonne</b>; <code>grid-row: 2 / 4</code> sulle righe 2 e 3;</li>
+    <li><code>span 2</code> vuol dire «occupa due tracce» a partire da dove capita: <code>grid-column: span 2</code>;</li>
+    <li>i numeri <b>negativi</b> contano dalla fine: <code>-1</code> è l’<b>ultima linea</b>, quindi <code>grid-column: 1 / -1</code> stende un elemento su <b>tutta la larghezza</b>, qualunque sia il numero di colonne;</li>
+    <li><code>grid-area</code> è la scorciatoia per riga e colonna insieme: <code>grid-area: 1 / 1 / 3 / 3</code> (riga di inizio, colonna di inizio, riga di fine, colonna di fine).</li>
+  </ul>
+  <p>Il modo più leggibile di impaginare una pagina intera, però, è <b>disegnarla</b>. Con <code>grid-template-areas</code> si scrive una stringa per ogni riga e una parola per ogni cella: celle vicine con lo stesso nome formano un’area. Poi a ogni elemento si dice in quale area andare con <code>grid-area: nome</code>. Ogni area deve essere un <b>rettangolo</b>, e un punto (<code>.</code>) lascia una cella vuota.</p>
+  <figure>
+    <div class="tela" data-widget="w12_aree"></div>
+  </figure>
+  <p>Con le aree cambiare l’impaginazione è facilissimo: su un telefono basta ridisegnare la stringa con una colonna sola (<code>"h" "m" "s" "f"</code>), senza toccare l’HTML né le regole degli elementi.</p>
+  <h3 id="s12-4">Allineamento (justify-items · align-items · place-items)</h3>
+  <p>In Grid ci sono due livelli di allineamento, con nomi simili a quelli di Flexbox:</p>
+  <ul>
+    <li><b>dentro la cella</b>: <code>justify-items</code> allinea gli elementi <b>in orizzontale</b> (sull’asse delle righe), <code>align-items</code> <b>in verticale</b>. I valori sono <code>start</code>, <code>end</code>, <code>center</code> e <code>stretch</code> (predefinito: l’elemento riempie la cella). <code>place-items</code> è la scorciatoia per tutti e due: <code>place-items: center</code> centra ogni elemento nella sua cella. Un elemento solo si sposta con <code>justify-self</code> e <code>align-self</code>;</li>
+    <li><b>la griglia nel contenitore</b>: se le tracce, tutte insieme, sono più piccole del contenitore (per esempio colonne in px), <code>justify-content</code> e <code>align-content</code> decidono dove mettere <b>l’intera griglia</b> e come distribuire lo spazio avanzato, con gli stessi valori di Flexbox (<code>start</code>, <code>center</code>, <code>space-between</code>…). La scorciatoia è <code>place-content</code>.</li>
+  </ul>
+  <figure>
+    <div class="tela schema" id="s12_allinea"><p class="passi-titolo">place-items: lo stesso elemento in una cella, con quattro valori</p>
+      <div class="s12a">
+        <div class="kit-cella"><div class="s12a-g" style="place-items:start"><div>start</div></div><code>place-items: start;</code></div>
+        <div class="kit-cella"><div class="s12a-g" style="place-items:end"><div>end</div></div><code>place-items: end;</code></div>
+        <div class="kit-cella"><div class="s12a-g" style="place-items:center"><div>center</div></div><code>place-items: center;</code></div>
+        <div class="kit-cella"><div class="s12a-g" style="place-items:stretch"><div>stretch</div></div><code>place-items: stretch;</code></div>
+      </div>
+    </div>
+  </figure>
+  <h3 id="s12-5">Differenza tra Flexbox e Grid</h3>
+  <p>Flexbox e Grid non sono in concorrenza: rispondono a domande diverse. Flexbox parte dal <b>contenuto</b> («ho questi elementi, mettili in fila e distribuisci lo spazio»), Grid dalla <b>struttura</b> («ecco le colonne: ogni elemento va nella sua casella»).</p>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Flexbox</th><th>Grid</th></tr></thead>
+    <tbody>
+      <tr><td>Dimensioni</td><td>una: una riga <b>o</b> una colonna (con <code>wrap</code>, righe indipendenti)</td><td>due: righe <b>e</b> colonne insieme</td></tr>
+      <tr><td>Punto di partenza</td><td>il contenuto: le misure nascono dagli elementi</td><td>la struttura: le misure nascono dalla griglia</td></tr>
+      <tr><td>Allineamento tra righe</td><td>ogni riga va per conto suo</td><td>le colonne restano <b>allineate</b> in tutte le righe</td></tr>
+      <tr><td>Quando usarlo</td><td>barre di navigazione, pulsanti, una fila di card, centrare</td><td>l’impaginazione della pagina, gallerie, moduli a colonne</td></tr>
+    </tbody></table></div>
+  <figure>
+    <div class="tela" data-widget="w12_confronto"></div>
+  </figure>
+  <p>Nei siti veri si usano <b>insieme</b>: Grid per l’impaginazione della pagina (intestazione, barra laterale, contenuto, piè di pagina) e Flexbox dentro i singoli componenti (le voci del menu nell’intestazione, l’icona e il testo in un pulsante).</p>
+
+  <!-- ===================== 7.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">7.3</span>Responsive design</h2>
+  <h3 id="s13-1">Perché serve (schermi diversi · meta viewport)</h3>
+  <p>Lo stesso sito si apre su un telefono largo 360px, su un tablet, su un portatile e su un monitor da 1920px. Il <span class="termine">responsive design</span> (<i>design che risponde</i>) è l’insieme delle tecniche con cui <b>una sola pagina si adatta</b> a tutte queste larghezze: una colonna sul telefono, due o tre sul computer, testi leggibili ovunque, senza scorrere di lato.</p>
+  <p>Il primo passo non è nel CSS, ma nell’<code>&lt;head&gt;</code>. I primi smartphone dovevano mostrare siti pensati solo per i computer; per questo, senza indicazioni, il browser del telefono <b>finge di avere una finestra larga circa 980px</b>, impagina la pagina a quella larghezza e poi la <b>rimpicciolisce</b> per farla entrare nello schermo. Il risultato è una pagina intera ma minuscola, da ingrandire con le dita. Una riga dice al browser di usare la <b>larghezza vera</b> dello schermo:</p>
+  <pre class="codice"><span class="kit-pre-nome">index.html, dentro &lt;head&gt;</span><code><span class="k">&lt;meta</span> <span class="a">name</span>=<span class="s">"viewport"</span> <span class="a">content</span>=<span class="s">"width=device-width, initial-scale=1"</span><span class="k">&gt;</span></code></pre>
+  <ul>
+    <li><code>width=device-width</code>: la finestra è larga quanto lo schermo del dispositivo (in px CSS: circa 360–430 su un telefono);</li>
+    <li><code>initial-scale=1</code>: all’apertura la pagina non è né ingrandita né rimpicciolita.</li>
+  </ul>
+  <p>Ultima idea, importante: i punti in cui il layout cambia (i <span class="termine">breakpoint</span>, 13.3) <b>si scelgono guardando il contenuto, non i modelli di telefono</b>. Si allarga e si stringe la finestra e, dove il layout «si rompe» (righe troppo lunghe, card schiacciate), lì serve un cambiamento.</p>
+  <p class="domanda">Il sito, sul telefono, appare minuscolo, come una pagina da computer rimpicciolita. Nell’<code>&lt;head&gt;</code> manca una riga: quale?</p>
+  <figure>
+    <div class="tela" data-widget="w13_viewport"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il meta viewport non serve se ho scritto il CSS responsive.»</p>
+    <p class="err-si">Senza meta viewport il telefono finge di essere largo 980px: le media query per gli schermi piccoli <b>non scattano</b> e la pagina viene rimpicciolita. È la prima riga da scrivere.</p></div>
+  <h3 id="s13-2">Mobile first contro desktop first</h3>
+  <p>Ci sono due modi di organizzare il CSS di un sito che si adatta:</p>
+  <ul>
+    <li><b>mobile first</b> (prima il telefono): le regole di base sono quelle per lo schermo <b>piccolo</b>, di solito una colonna. Poi, con media query <code>min-width</code> («da questa larghezza <b>in su</b>»), si <b>aggiungono</b> le regole per gli schermi più grandi;</li>
+    <li><b>desktop first</b> (prima il computer): le regole di base sono per lo schermo <b>grande</b> e, con media query <code>max-width</code> («fino a questa larghezza»), si <b>tolgono o cambiano</b> cose per gli schermi più piccoli.</li>
+  </ul>
+  <p>Il risultato può essere identico; cambia il modo di arrivarci. Oggi si preferisce <b>mobile first</b>: la maggior parte delle visite arriva dal telefono, il CSS di base è più semplice (una colonna è il flusso normale) e ci si chiede da subito che cosa è davvero essenziale.</p>
+  <p class="domanda">In mobile first scrivo <code>@media (min-width: 768px) { … }</code>. Da quale larghezza valgono quelle regole?</p>
+  <figure>
+    <div class="tela" data-widget="w13_mobile"></div>
+  </figure>
+  <h3 id="s13-3">Media queries (larghezza · orientamento · breakpoint)</h3>
+  <p>Una <span class="termine">media query</span> è un blocco di regole che il browser applica <b>solo se una condizione è vera</b>. Si scrive con <code>@media</code>, una condizione tra parentesi e, tra graffe, normali regole CSS:</p>
+  <pre class="codice"><span class="kit-pre-nome">stile.css</span><code><span class="c">/* base: una colonna */</span>
+<span class="k">.corsi </span>{<span class="a"> display</span>:<span class="s"> grid</span>;<span class="a"> gap</span>:<span class="s"> 16px</span>; }
+
+<span class="k">@media (min-width: 768px) </span>{
+<span class="k">  .corsi </span>{<span class="a"> grid-template-columns</span>:<span class="s"> 1fr 1fr</span>; }
+}
+
+<span class="k">@media (min-width: 768px) and (orientation: landscape) </span>{
+<span class="k">  .testata </span>{<span class="a"> height</span>:<span class="s"> 30vh</span>; }
+}</code></pre>
+  <ul>
+    <li>le condizioni più usate sono sulla <b>larghezza della finestra</b>: <code>min-width</code> (almeno) e <code>max-width</code> (al massimo);</li>
+    <li><code>and</code> unisce due condizioni, che devono essere vere tutte e due;</li>
+    <li><code>orientation: portrait</code> (più alta che larga) e <code>orientation: landscape</code> (più larga che alta) guardano l’orientamento;</li>
+    <li>le regole dentro una media query <b>non hanno più specificità</b> delle altre: se vincono, è perché vengono <b>dopo</b> nel foglio (5.4). Per questo le media query si scrivono <b>in fondo</b> alle regole che modificano.</li>
+  </ul>
+  <p>Le larghezze delle condizioni sono i <b>breakpoint</b>. Si trovano spesso valori «di riferimento» come <b>576, 768, 992 e 1200px</b>, che sono quelli di Bootstrap (7.6); vanno bene come punto di partenza, ma ogni sito sceglie i suoi guardando <b>dove il proprio contenuto si rompe</b>.</p>
+  <figure>
+    <div class="tela" data-widget="w13_media"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>@media (min-width: 768px)</code> vale per gli schermi sotto i 768px.»</p>
+    <p class="err-si"><code>min-width: 768px</code> vuol dire «larghezza <b>almeno</b> 768px»: vale da 768 <b>in su</b>. Per «fino a 767px» si scrive <code>max-width: 767px</code>.</p></div>
+  <h3 id="s13-4">Layout fluidi (percentuali · Flexbox e Grid · clamp())</h3>
+  <p>Le media query cambiano il layout <b>a scatti</b>, a certe larghezze. Ma molte cose si adattano da sole, <b>in modo continuo</b>, se si usano le misure giuste. Un buon sito responsive usa le media query il meno possibile:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Approccio</th><th>Come funziona</th><th>Esempio</th></tr></thead>
+    <tbody>
+      <tr><td><b>fluido</b></td><td>misure relative alla finestra o al contenitore: crescono e calano con lei</td><td><code>width: 90%; max-width: 1100px;</code> · <code>font-size: clamp(1.5rem, 4vw, 3rem);</code></td></tr>
+      <tr><td><b>flessibile</b></td><td>Flexbox e Grid decidono da soli quanti elementi stanno in una riga</td><td><code>flex: 1 1 220px</code> con <code>flex-wrap: wrap</code> · <code>repeat(auto-fit, minmax(220px, 1fr))</code></td></tr>
+      <tr><td><b>a punti di rottura</b></td><td>le media query cambiano il layout oltre una certa larghezza</td><td><code>@media (min-width: 768px) { … }</code> per passare da una a due colonne</td></tr>
+    </tbody></table></div>
+  <p>Nella pratica si combinano: un contenitore <b>fluido</b> con una <code>max-width</code>, una griglia <b>flessibile</b> con <code>auto-fit</code> per le card, titoli con <code>clamp()</code> (5.5) e poche media query solo dove serve cambiare davvero l’impaginazione, per esempio il menu.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il responsive si fa solo con le media query.»</p>
+    <p class="err-si">Percentuali, <code>max-width</code>, Flexbox con <code>wrap</code>, Grid con <code>auto-fit</code> e <code>clamp()</code> adattano il layout <b>senza breakpoint</b>. Le media query servono per i cambiamenti che non si possono ottenere così.</p></div>
+  <h3 id="s13-5">Immagini responsive (srcset · sizes · picture)</h3>
+  <p>Con <code>max-width: 100%</code> un’immagine si stringe con lo schermo (6.1), ma il <b>file</b> resta lo stesso: un telefono scarica una foto da 1600px per mostrarla a 360. Con <code>srcset</code> si offrono <b>più versioni</b> dello stesso file e il browser sceglie la più adatta:</p>
+  <pre class="codice"><span class="kit-pre-nome">index.html</span><code><span class="k">&lt;img</span> <span class="a">src</span>=<span class="s">"robot-800.jpg"</span>
+     <span class="a">srcset</span>=<span class="s">"robot-480.jpg 480w,
+             robot-800.jpg 800w,
+             robot-1600.jpg 1600w"</span>
+     <span class="a">sizes</span>=<span class="s">"(min-width: 800px) 50vw, 100vw"</span>
+     <span class="a">alt</span>=<span class="s">"Il robot del club"</span><span class="k">&gt;</span></code></pre>
+  <ul>
+    <li><code>srcset</code> elenca i file con la loro <b>larghezza vera</b> in pixel, seguita da <code>w</code>: <code>robot-480.jpg 480w</code>;</li>
+    <li><code>sizes</code> dice quanto sarà larga l’immagine <b>nella pagina</b>: «se la finestra è almeno 800px, metà finestra (<code>50vw</code>); altrimenti tutta (<code>100vw</code>)». Il browser lo deve sapere prima di aver scaricato il CSS;</li>
+    <li>il browser calcola quanti pixel servono, tenendo conto anche della <b>densità dello schermo</b> (uno schermo «2x» ne vuole il doppio), e sceglie il file più piccolo che basta. La scelta è <b>indicativa</b>: decide il browser (con una connessione lenta, per esempio, può prendere un file più piccolo).</li>
+  </ul>
+  <figure>
+    <div class="tela" data-widget="w13_srcset"></div>
+  </figure>
+  <p>Quando invece serve un’immagine <b>diversa</b> (un ritaglio stretto per il telefono, una foto larga per il computer) o un <b>formato</b> più moderno, si usa <code>&lt;picture&gt;</code>: il browser prende il primo <code>&lt;source&gt;</code> la cui condizione è vera e, se nessuna lo è, l’<code>&lt;img&gt;</code> finale.</p>
+  <pre class="codice"><span class="kit-pre-nome">index.html</span><code><span class="k">&lt;picture</span><span class="k">&gt;</span>
+  <span class="k">&lt;source</span> <span class="a">media</span>=<span class="s">"(min-width: 800px)"</span> <span class="a">srcset</span>=<span class="s">"robot-largo.jpg"</span><span class="k">&gt;</span>
+  <span class="k">&lt;source</span> <span class="a">type</span>=<span class="s">"image/avif"</span> <span class="a">srcset</span>=<span class="s">"robot.avif"</span><span class="k">&gt;</span>
+  <span class="k">&lt;img</span> <span class="a">src</span>=<span class="s">"robot.jpg"</span> <span class="a">alt</span>=<span class="s">"Il robot del club"</span><span class="k">&gt;</span>
+<span class="k">&lt;/picture</span><span class="k">&gt;</span></code></pre>
+
+  <!-- ===================== 7.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">7.4</span>Trasformazioni, transizioni, animazioni</h2>
+  <h3 id="s14-1">transform (translate · rotate · scale · skew · transform-origin)</h3>
+  <p>La proprietà <code>transform</code> <b>sposta, ruota, ingrandisce o inclina</b> un elemento dopo che il browser lo ha impaginato. È come prendere la scatola già messa al suo posto e muoverla con le mani: <b>i vicini non se ne accorgono</b>, perché per l’impaginazione l’elemento è ancora dov’era. Si scrive una o più funzioni, separate da spazi:</p>
+  <ul>
+    <li><code>translate(40px, 20px)</code> lo <b>sposta</b> di 40px a destra e 20px in basso (<code>translateX()</code> e <code>translateY()</code> per un asse solo). Le percentuali si riferiscono all’elemento stesso: <code>translate(-50%, -50%)</code> lo sposta di metà della sua larghezza e altezza;</li>
+    <li><code>rotate(45deg)</code> lo <b>ruota</b> in senso orario (gradi <code>deg</code> o giri <code>turn</code>: <code>0.5turn</code> è mezzo giro);</li>
+    <li><code>scale(1.5)</code> lo <b>ingrandisce</b> del 50% (<code>scale(0.5)</code> lo dimezza; <code>scale(2, 1)</code> lo allarga solo in orizzontale);</li>
+    <li><code>skew(20deg)</code> lo <b>inclina</b>, trasformando il rettangolo in un parallelogramma.</li>
+  </ul>
+  <p>Due dettagli contano. Il primo è <code>transform-origin</code>, il <b>punto fisso</b> attorno a cui avvengono rotazioni e ingrandimenti: il valore iniziale è il centro (<code>center</code>), ma con <code>top left</code> l’elemento ruota attorno all’angolo in alto a sinistra, come una porta sui cardini. Il secondo è l’<b>ordine</b>: le funzioni si applicano una dopo l’altra, e ognuna lavora sul sistema di riferimento lasciato dalla precedente. <code>translate(60px) rotate(45deg)</code> sposta e poi ruota sul posto; <code>rotate(45deg) translate(60px)</code> prima ruota e poi sposta <b>lungo la direzione ruotata</b>, in diagonale.</p>
+  <figure>
+    <div class="tela" data-widget="w14_transform"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>transform</code> sposta anche gli elementi vicini.»</p>
+    <p class="err-si">Per l’impaginazione l’elemento resta <b>dov’era</b>: i vicini non si muovono e, se serve, l’elemento trasformato si sovrappone a loro. Per spostare davvero i vicini servono margini, Flexbox o Grid.</p></div>
+  <h3 id="s14-2">transition</h3>
+  <p>Quando una proprietà cambia valore, per esempio al passaggio del mouse, il cambiamento è <b>istantaneo</b>. Con <code>transition</code> il browser lo <b>interpola</b>: calcola tutti i valori intermedi e lo fa avvenire in un certo tempo. Servono quattro informazioni:</p>
+  <ul>
+    <li><b>quale proprietà</b> animare (<code>background-color</code>, <code>transform</code>… oppure <code>all</code>);</li>
+    <li>la <b>durata</b> (<code>0.3s</code> o <code>300ms</code>);</li>
+    <li>la <b>funzione di temporizzazione</b> (<i>timing function</i>), cioè <b>come</b> procede nel tempo: <code>linear</code> (velocità costante), <code>ease</code> (il valore iniziale: parte svelto e rallenta), <code>ease-in</code> (parte piano e accelera), <code>ease-out</code> (parte svelto e frena), <code>ease-in-out</code> (parte piano, accelera e frena);</li>
+    <li>un eventuale <b>ritardo</b> prima di partire (<code>0.2s</code>).</li>
+  </ul>
+  <pre class="codice"><span class="kit-pre-nome">stile.css</span><code><span class="k">.bottone </span>{
+<span class="a">  background-color</span>:<span class="s"> #0f8d80</span>;
+<span class="a">  transition</span>:<span class="s"> background-color 0.3s ease-out,</span>
+<span class="s">              transform 0.3s ease-out</span>;
+}
+<span class="k">.bottone:hover </span>{
+<span class="a">  background-color</span>:<span class="s"> #0a6f66</span>;
+<span class="a">  transform</span>:<span class="s"> translateY(-3px)</span>;
+}</code></pre>
+  <p>La <code>transition</code> va scritta nello <b>stato base</b> (<code>.bottone</code>), non nello stato <code>:hover</code>: così vale <b>in tutte e due le direzioni</b>, quando il mouse entra e quando esce. Scritta solo in <code>:hover</code>, l’entrata è morbida ma l’uscita è istantanea. Infine, non tutte le proprietà si possono interpolare: <code>display</code> passa da <code>none</code> a <code>block</code> <b>di colpo</b>. Per far comparire un elemento con una dissolvenza si anima <code>opacity</code> (insieme a <code>visibility</code>).</p>
+  <figure>
+    <div class="tela" data-widget="w14_transition"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Basta scrivere <code>transition</code> in <code>:hover</code>.»</p>
+    <p class="err-si">Così la transizione vale solo <b>all’entrata</b>: all’uscita lo stato base non ha <code>transition</code> e il ritorno è istantaneo. Va scritta nello <b>stato base</b>.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>display: none</code> si anima con <code>transition</code>.»</p>
+    <p class="err-si"><code>display</code> non si interpola: passa da un valore all’altro di colpo. Per una dissolvenza si animano <code>opacity</code> e <code>visibility</code>.</p></div>
+  <h3 id="s14-3">@keyframes e animation</h3>
+  <p>Una transizione va da uno stato all’altro quando qualcosa cambia. Un’<b>animazione</b> invece ha <b>più tappe</b> e può partire da sola, ripetersi, andare avanti e indietro. Si scrive in due parti. Con la regola <code>@keyframes</code> si dà un nome all’animazione e si descrivono i suoi <b>fotogrammi chiave</b> (<i>keyframes</i>) in percentuale del tempo: <code>0%</code> (o <code>from</code>) è l’inizio, <code>100%</code> (o <code>to</code>) la fine, e in mezzo tutte le tappe che servono. Poi, sull’elemento, la proprietà <code>animation</code> la applica.</p>
+  <pre class="codice"><span class="kit-pre-nome">stile.css</span><code><span class="k">@keyframes sali </span>{
+<span class="k">  0%   </span>{<span class="a"> transform</span>:<span class="s"> translateY(0)</span>;<span class="a">     background</span>:<span class="s"> #2f6fd6</span>; }
+<span class="k">  50%  </span>{<span class="a"> transform</span>:<span class="s"> translateY(-60px)</span>;<span class="a"> background</span>:<span class="s"> #2f9e44</span>; }
+<span class="k">  100% </span>{<span class="a"> transform</span>:<span class="s"> translateY(-90px)</span>;<span class="a"> background</span>:<span class="s"> #e9a313</span>; }
+}
+<span class="k">.box </span>{
+<span class="a">  animation</span>:<span class="s"> sali 1.2s ease-in-out</span>;
+}</code></pre>
+  <p><code>animation</code> è una scorciatoia per otto proprietà:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Proprietà</th><th>Che cosa dice</th><th>Esempio</th></tr></thead>
+    <tbody>
+      <tr><td><code>animation-name</code></td><td>il nome dei <code>@keyframes</code></td><td><code>sali</code></td></tr>
+      <tr><td><code>animation-duration</code></td><td>quanto dura un giro</td><td><code>1.2s</code></td></tr>
+      <tr><td><code>animation-timing-function</code></td><td>come procede nel tempo</td><td><code>ease-in-out</code></td></tr>
+      <tr><td><code>animation-delay</code></td><td>quanto aspetta prima di partire</td><td><code>0.5s</code></td></tr>
+      <tr><td><code>animation-iteration-count</code></td><td>quante volte si ripete</td><td><code>3</code>, <code>infinite</code></td></tr>
+      <tr><td><code>animation-direction</code></td><td>il verso di ogni giro</td><td><code>alternate</code> (avanti e indietro)</td></tr>
+      <tr><td><code>animation-fill-mode</code></td><td>che cosa resta prima e dopo</td><td><code>forwards</code> (resta all’ultimo fotogramma)</td></tr>
+      <tr><td><code>animation-play-state</code></td><td>in corso o in pausa</td><td><code>paused</code></td></tr>
+    </tbody></table></div>
+  <figure>
+    <div class="tela" data-widget="w14_keyframes"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Finita l’animazione, l’elemento resta nello stato finale.»</p>
+    <p class="err-si">Finita l’animazione, l’elemento <b>torna allo stato iniziale</b> (quello del suo CSS). Per farlo restare all’ultimo fotogramma serve <code>animation-fill-mode: forwards</code>.</p></div>
+  <h3 id="s14-4">Quando animare e quando no (prestazioni · accessibilità)</h3>
+  <p>Per disegnare ogni fotogramma il browser fa, in ordine, tre lavori: calcola l’<b>impaginazione</b> (dove sta ogni scatola), <b>dipinge</b> i pixel e <b>compone</b> gli strati. Animare una proprietà che cambia l’impaginazione lo costringe a rifare tutto, 60 volte al secondo, per l’elemento e per i suoi vicini: su un telefono l’animazione <b>scatta</b>. <code>transform</code> e <code>opacity</code>, invece, si gestiscono quasi sempre nella sola composizione, spesso dalla scheda grafica.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Conviene animare</th><th>Perché</th><th>Meglio evitare</th><th>Perché</th></tr></thead>
+    <tbody>
+      <tr><td><code>transform</code></td><td>sposta, ruota, ingrandisce senza toccare l’impaginazione</td><td><code>width</code>, <code>height</code></td><td>ogni fotogramma ricalcola l’impaginazione di tutta la zona</td></tr>
+      <tr><td><code>opacity</code></td><td>cambia solo la composizione degli strati</td><td><code>top</code>, <code>left</code>, <code>margin</code></td><td>spostano davvero la scatola: i vicini vanno ricalcolati</td></tr>
+      <tr><td><code>background-color</code>, <code>color</code></td><td>costano un nuovo disegno, ma non l’impaginazione</td><td><code>box-shadow</code> grandi, <code>filter: blur()</code></td><td>ogni fotogramma ridipinge molti pixel</td></tr>
+    </tbody></table></div>
+  <p>Poi c’è chi guarda. Il movimento attira l’attenzione e, per alcune persone, causa nausea o vertigini. Le linee guida per l’accessibilità del web (<b>WCAG</b>) chiedono che ciò che si muove da solo <b>per più di 5 secondi</b> si possa <b>fermare</b>, e che niente <b>lampeggi più di 3 volte al secondo</b>, perché può scatenare crisi in chi soffre di epilessia fotosensibile. E i sistemi operativi hanno un’opzione per <b>ridurre il movimento</b>, che il CSS può rispettare:</p>
+  <pre class="codice"><span class="kit-pre-nome">stile.css</span><code><span class="k">@media (prefers-reduced-motion: reduce) </span>{
+<span class="k">  * </span>{<span class="a"> animation</span>:<span class="s"> none !important</span>;<span class="a"> transition</span>:<span class="s"> none !important</span>; }
+}</code></pre>
+  <p>Il buon senso dice di animare <b>poco e con uno scopo</b>: far capire da dove arriva un elemento, confermare un clic, guidare lo sguardo. Le animazioni di questo sito si fermano da sole se il sistema chiede di ridurre il movimento.</p>
+  <p class="domanda">Per far scorrere un riquadro verso destra, conviene animare <code>left</code> o <code>transform: translateX()</code>?</p>
+
+  <!-- ===================== 7.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">7.5</span>Tabelle e moduli</h2>
+  <h3 id="s15-1">Stile delle tabelle (border-collapse · righe a zebra · tabelle su schermo piccolo)</h3>
+  <p>Una tabella HTML senza CSS non ha bordi. Il primo istinto è dare un bordo alle celle (<code>th, td { border: 1px solid }</code>), ma il risultato sorprende: ogni cella ha la <b>sua</b> cornice, staccata da quella della vicina, e i bordi appaiono <b>doppi</b>. Il motivo è il valore iniziale di <code>border-collapse</code>:</p>
+  <ul>
+    <li><code>border-collapse: separate</code> (iniziale): ogni cella ha i suoi bordi, distanziati da <code>border-spacing</code> (2px nel foglio del browser). Anche con <code>border-spacing: 0</code> i bordi di due celle vicine restano <b>due</b>, uno accanto all’altro;</li>
+    <li><code>border-collapse: collapse</code>: i bordi delle celle vicine si <b>fondono in uno solo</b>. È quasi sempre ciò che si vuole.</li>
+  </ul>
+  <p>Due ritocchi rendono una tabella leggibile. Le <b>righe a zebra</b>, cioè uno sfondo leggero una riga sì e una no, aiutano l’occhio a seguire una riga lunga: si fanno con la pseudo-classe <code>:nth-child(even)</code> (5.3). E un po’ di <code>padding</code> nelle celle stacca il testo dai bordi.</p>
+  <pre class="codice"><span class="kit-pre-nome">stile.css</span><code><span class="k">table </span>{
+<span class="a">  border-collapse</span>:<span class="s"> collapse</span>;
+<span class="a">  width</span>:<span class="s"> 100%</span>;
+}
+<span class="k">th, td </span>{
+<span class="a">  border</span>:<span class="s"> 1px solid #9aa8b6</span>;
+<span class="a">  padding</span>:<span class="s"> 6px 10px</span>;
+<span class="a">  text-align</span>:<span class="s"> left</span>;
+}
+<span class="k">tbody tr:nth-child(even) </span>{
+<span class="a">  background</span>:<span class="s"> #dcefeb</span>;
+}</code></pre>
+  <p>Sul telefono, infine, una tabella con molte colonne <b>non entra</b>: si allarga oltre lo schermo e trascina con sé tutta la pagina, che si mette a scorrere di lato. La soluzione è avvolgerla in un contenitore con <code>overflow-x: auto</code> (6.3): a scorrere di lato è <b>solo la tabella</b>, il resto della pagina resta fermo.</p>
+  <p>Due proprietà meno usate: <code>table-layout: fixed</code> fa decidere la larghezza delle colonne dalla prima riga invece che da tutto il contenuto (la tabella si impagina prima ed è più prevedibile), e <code>caption-side: bottom</code> sposta sotto la tabella il suo titolo, l’elemento <code>&lt;caption&gt;</code>.</p>
+  <figure>
+    <div class="tela" data-widget="w15_tabella"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Con il bordo sulle celle ho un bordo solo tra una cella e l’altra.»</p>
+    <p class="err-si">Con il valore iniziale <code>border-collapse: separate</code> ogni cella ha la sua cornice: i bordi vicini sono <b>due</b>. Per fonderli serve <code>border-collapse: collapse</code>.</p></div>
+  <h3 id="s15-2">Stile dei moduli (input · label · :focus · :valid e :invalid · accent-color)</h3>
+  <p>I campi di un modulo (<i>form</i>) hanno degli <b>stati</b>, e per ognuno c’è una pseudo-classe:</p>
+  <ul>
+    <li><code>:focus</code> quando il campo è attivo, pronto a ricevere il testo (e <code>:focus-visible</code> quando ci si è arrivati con la tastiera);</li>
+    <li><code>:disabled</code> per un campo disattivato, <code>:checked</code> per una casella o un pulsante di scelta selezionati, <code>:required</code> per un campo obbligatorio;</li>
+    <li><code>:valid</code> e <code>:invalid</code> dicono se il contenuto rispetta le regole dell’HTML (<code>required</code>, <code>type="email"</code>, <code>min</code>, <code>pattern</code>…). Valgono <b>subito</b>, appena la pagina si apre;</li>
+    <li><code>:user-valid</code> e <code>:user-invalid</code> fanno lo stesso, ma <b>solo dopo che l’utente ha interagito</b> con il campo: ha scritto qualcosa e ne è uscito, oppure ha provato a inviare il modulo. Funzionano in tutti i browser principali dal novembre 2023 (sono <i>Baseline</i>).</li>
+  </ul>
+  <p>La differenza conta: un campo <code>required</code> vuoto è <b>già non valido</b> all’apertura della pagina. Con <code>:invalid</code> il modulo si presenta tutto rosso prima ancora che l’utente abbia scritto una lettera, come se avesse già sbagliato. Con <code>:user-invalid</code> il rosso compare solo <b>dopo</b>, quando c’è davvero un errore da correggere.</p>
+  <p class="domanda">Metto un bordo rosso con <code>:invalid</code> ai campi <code>required</code> di un modulo di iscrizione. Com’è il modulo appena si apre la pagina?</p>
+  <figure>
+    <div class="tela" data-widget="w15_moduli"></div>
+  </figure>
+  <p>Qualche regola pratica in più:</p>
+  <ul>
+    <li><code>accent-color</code> cambia in un colpo il colore di <b>caselle, pulsanti di scelta, cursori e barre di avanzamento</b>, che altrimenti è quello del sistema: <code>accent-color: #0f8d80</code>;</li>
+    <li>i controlli dei moduli <b>non ereditano il carattere</b> della pagina: <code>input</code>, <code>button</code>, <code>select</code> e <code>textarea</code> usano un font loro, spesso più piccolo. Si sistema con <code>font: inherit</code>;</li>
+    <li><b>mai togliere il contorno del focus</b> (<code>outline: none</code>) senza metterne un altro ben visibile: chi naviga con la tastiera non saprebbe più dove si trova;</li>
+    <li>ogni campo ha la sua etichetta, collegata con <code>&lt;label for="id-del-campo"&gt;</code>: cliccando l’etichetta si attiva il campo, e i lettori di schermo leggono l’etichetta quando il campo riceve il focus.</li>
+  </ul>
+  <pre class="codice"><span class="kit-pre-nome">stile.css</span><code><span class="k">input, button, select, textarea </span>{
+<span class="a">  font</span>:<span class="s"> inherit</span>;
+}
+<span class="k">input:focus-visible </span>{
+<span class="a">  outline</span>:<span class="s"> 3px solid #e9a313</span>;
+<span class="a">  outline-offset</span>:<span class="s"> 2px</span>;
+}
+<span class="k">input:user-invalid </span>{
+<span class="a">  border-color</span>:<span class="s"> #c0392b</span>;
+}
+<span class="k">form </span>{
+<span class="a">  accent-color</span>:<span class="s"> #0f8d80</span>;
+}</code></pre>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>:invalid</code> colora di rosso il campo solo dopo che ho scritto.»</p>
+    <p class="err-si"><code>:invalid</code> vale <b>subito</b>: un campo obbligatorio vuoto è già non valido all’apertura. Solo dopo l’interazione colora <code>:user-invalid</code>.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«I campi del modulo usano automaticamente il font della pagina.»</p>
+    <p class="err-si"><code>input</code>, <code>button</code>, <code>select</code> e <code>textarea</code> <b>non ereditano</b> il carattere: hanno quello del sistema. Serve <code>font: inherit</code>.</p></div>
+
+  <!-- ===================== 7.6 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p6"><span class="num">7.6</span>Framework CSS: Bootstrap e Tailwind</h2>
+  <h3 id="s16-1">Che cos’è un framework CSS e come si collega</h3>
+  <p>Scrivere tutto il CSS di un sito da zero richiede tempo: pulsanti, moduli, griglie, menu, finestre, e ognuno va reso responsive e accessibile. Un <span class="termine">framework CSS</span> è un <b>foglio di stile già scritto</b> (spesso con un po’ di JavaScript) che offre tutto questo attraverso delle <b>classi</b>: invece di scrivere le regole, si aggiungono all’HTML le classi del framework.</p>
+  <p>I vantaggi sono la <b>velocità</b> (un’interfaccia decente in pochi minuti) e la <b>coerenza</b> (stessi margini, colori e pulsanti in tutte le pagine, anche se ci lavorano in tanti). Il prezzo è la <b>dipendenza</b>: si impara il vocabolario di quel framework, il sito tende ad assomigliare agli altri fatti con lo stesso strumento e, quando esce una versione nuova, a volte le classi cambiano.</p>
+  <p>Un framework si collega in due modi:</p>
+  <ul>
+    <li>con un <b>link a una CDN</b> (<i>Content Delivery Network</i>, una rete di server che distribuisce file pubblici): una riga nell’<code>&lt;head&gt;</code> e il framework è pronto. È il modo più rapido, adatto per imparare e per i prototipi;</li>
+    <li>con una <b>build</b>: il framework si installa nel progetto con un gestore di pacchetti (npm) e uno strumento come <b>Vite</b> prepara il CSS finale, togliendo ciò che non si usa e permettendo di personalizzarlo. È il modo dei progetti veri.</li>
+  </ul>
+  <figure>
+    <div class="tela schema" id="s16_bottone"><p class="passi-titolo">Lo stesso pulsante in tre modi</p>
+      <div class="s16b">
+        <div class="kit-cella"><b>CSS scritto a mano</b><div class="s16b-r"><button type="button" class="s16b-mano">Iscriviti</button></div><pre class="codice"><code><span class="k">&lt;button</span> <span class="a">class</span>=<span class="s">"iscriviti"</span><span class="k">&gt;</span>
+  Iscriviti
+<span class="k">&lt;/button</span><span class="k">&gt;</span></code></pre><pre class="codice"><code><span class="k">.iscriviti </span>{
+<span class="a">  padding</span>:<span class="s"> 8px 16px</span>;
+<span class="a">  background</span>:<span class="s"> #0d6efd</span>;
+<span class="a">  color</span>:<span class="s"> white</span>;
+<span class="a">  border</span>:<span class="s"> 0</span>;
+<span class="a">  border-radius</span>:<span class="s"> 6px</span>;
+}</code></pre></div>
+        <div class="kit-cella"><b>Bootstrap</b><div class="s16b-r"><button type="button" class="s16b-bs">Iscriviti</button></div><pre class="codice"><code><span class="k">&lt;link</span> <span class="a">rel</span>=<span class="s">"stylesheet"</span>
+  <span class="a">href</span>=<span class="s">"…/bootstrap.min.css"</span><span class="k">&gt;</span>
+
+<span class="k">&lt;button</span>
+  <span class="a">class</span>=<span class="s">"btn btn-primary"</span><span class="k">&gt;</span>
+  Iscriviti
+<span class="k">&lt;/button</span><span class="k">&gt;</span></code></pre><span>nessuna regola da scrivere: le classi <code>btn</code> e <code>btn-primary</code> sono già nel foglio di Bootstrap</span></div>
+        <div class="kit-cella"><b>Tailwind</b><div class="s16b-r"><button type="button" class="s16b-tw">Iscriviti</button></div><pre class="codice"><code><span class="k">&lt;script</span>
+  <span class="a">src</span>=<span class="s">"…/@tailwindcss/browser@4"</span><span class="k">&gt;</span>
+<span class="k">&lt;/script</span><span class="k">&gt;</span>
+
+<span class="k">&lt;button</span> <span class="a">class</span>=<span class="s">"px-4 py-2
+  bg-blue-500 text-white
+  rounded-md"</span><span class="k">&gt;</span>
+  Iscriviti
+<span class="k">&lt;/button</span><span class="k">&gt;</span></code></pre><span>ogni classe è una sola regola: <code>px-4</code> è il padding orizzontale, <code>bg-blue-500</code> lo sfondo…</span></div>
+      </div>
+    </div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Con un framework non serve conoscere il CSS.»</p>
+    <p class="err-si">Il framework è CSS: per personalizzarlo, capire perché qualcosa non funziona o andare oltre i suoi componenti servono <b>cascata, specificità, box model, Flexbox e Grid</b>. Senza, si è in balia delle classi.</p></div>
+  <h3 id="s16-2">Bootstrap</h3>
+  <p><span class="termine">Bootstrap</span> è nato nel 2011 dentro Twitter ed è il framework CSS più diffuso. La sua idea è offrire <b>componenti pronti</b>: si scrive l’HTML con le classi giuste e si ottiene un pulsante (<code>btn btn-primary</code>), una scheda (<code>card</code>), una barra di navigazione che sul telefono diventa un menu a tendina (<code>navbar</code>), finestre, avvisi, moduli. Le classi descrivono <b>che cosa è</b> l’elemento; l’aspetto lo decide Bootstrap, e si personalizza cambiando le sue variabili.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://getbootstrap.com/docs/5.3/components/buttons/" target="_blank" rel="noopener"><img src="assets/immagini/bootstrap-varianti.png" alt="La pagina Buttons della documentazione di Bootstrap 5.3 con i pulsanti colorati e il codice HTML" referrerpolicy="no-referrer"></a><figcaption>La documentazione di Bootstrap, pagina <i>Buttons</i>: sopra i pulsanti, sotto il codice che li produce. Osservare che ogni pulsante ha due classi: <code>btn</code>, comune a tutti, e una che dice il suo <b>ruolo</b> (<code>btn-primary</code>, <code>btn-danger</code>…), da cui viene il colore.</figcaption></figure>
+  <p>L’altra metà di Bootstrap è la <b>griglia a 12 colonne</b>: un <code>container</code> centra il contenuto, una <code>row</code> è una riga, e dentro ogni <code>col-…</code> dice <b>quante colonne su 12</b> occupa e da quale larghezza. <code>col-md-6</code> vuol dire «metà riga (6 su 12) dagli schermi medi in su (<code>md</code>, da 768px)»; sotto, la colonna occupa tutta la riga. È mobile first (7.3) e usa proprio i breakpoint 576, 768, 992 e 1200 visti in 13.3.</p>
+  <pre class="codice"><span class="kit-pre-nome">index.html</span><code><span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"container"</span><span class="k">&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"row"</span><span class="k">&gt;</span>
+    <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"col-md-6"</span><span class="k">&gt;</span>Arduino<span class="k">&lt;/div</span><span class="k">&gt;</span>   <span class="c">&lt;!-- metà riga da 768px in su --&gt;</span>
+    <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"col-md-6"</span><span class="k">&gt;</span>Stampa 3D<span class="k">&lt;/div</span><span class="k">&gt;</span>
+  <span class="k">&lt;/div</span><span class="k">&gt;</span>
+<span class="k">&lt;/div</span><span class="k">&gt;</span></code></pre>
+  <p>L’ultima versione stabile è la <b>5.3.8</b>. L’<b>8 ottobre 2026</b> è uscita la prima versione <i>alpha</i> (di prova, non ancora per i siti veri) di <b>Bootstrap 6</b>, che funziona solo con browser recenti (Chrome ed Edge 130, Firefox 132, Safari 18).</p>
+  <h3 id="s16-3">Tailwind</h3>
+  <p><span class="termine">Tailwind</span> CSS ha un’idea opposta, detta <i>utility-first</i> (prima le utilità). Non offre componenti, ma <b>centinaia di classi piccolissime</b>, ognuna con <b>una sola regola</b>: <code>p-4</code> è un padding, <code>text-center</code> centra il testo, <code>bg-blue-500</code> dà uno sfondo blu (500 è la tonalità, da 50 chiarissimo a 950 scurissimo), <code>rounded-md</code> arrotonda gli angoli, <code>md:flex</code> applica <code>display: flex</code> dagli schermi medi in su. Il componente lo si <b>costruisce</b> nell’HTML mettendo insieme le classi: non si scrivono regole e non si inventano nomi.</p>
+  <figure class="foto-grande"><a class="fonte" href="https://tailwindcss.com/docs/installation/play-cdn" target="_blank" rel="noopener"><img src="assets/immagini/tailwind-play-cdn.png" alt="La pagina Play CDN della documentazione di Tailwind CSS con il codice HTML di esempio" referrerpolicy="no-referrer"></a><figcaption>La documentazione di Tailwind CSS 4, pagina <i>Play CDN</i>: per provarlo basta uno <code>&lt;script&gt;</code> dalla CDN jsDelivr nell’<code>&lt;head&gt;</code> e un titolo con le classi <code>text-3xl font-bold underline</code>. Osservare che non c’è nessun foglio di stile: il CSS lo genera lo script, leggendo le classi usate nella pagina.</figcaption></figure>
+  <p>La versione attuale è la <b>4</b>, in cui la personalizzazione (colori, caratteri, misure) si scrive <b>direttamente in CSS</b>, dentro un blocco <code>@theme</code>. Lo script dalla CDN è pensato <b>solo per le prove</b>: genera il CSS nel browser, a ogni caricamento. Nei siti veri Tailwind si usa con una <b>build</b> (con Vite o PostCSS), che produce un file CSS con le sole classi usate, piccolissimo. Il vecchio indirizzo <code>cdn.tailwindcss.com</code> è della versione 3 ed è superato. Tailwind 4 richiede browser moderni (Safari 16.4, Chrome 111, Firefox 128).</p>
+  <h3 id="s16-4">Differenza tra Bootstrap e Tailwind</h3>
+  <p>I due framework rispondono in modo opposto alla stessa domanda. Bootstrap dice: «ecco un pulsante, cambialo se vuoi». Tailwind dice: «ecco i mattoni, costruisci il pulsante che vuoi».</p>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Bootstrap</th><th>Tailwind</th></tr></thead>
+    <tbody>
+      <tr><td>Approccio</td><td>componenti pronti, classi che descrivono <b>che cosa è</b> (<code>btn</code>, <code>card</code>)</td><td><i>utility-first</i>: classi che descrivono <b>come appare</b> (<code>p-4</code>, <code>bg-blue-500</code>)</td></tr>
+      <tr><td>Componenti pronti</td><td>sì, anche con JavaScript (menu a tendina, finestre)</td><td>no: si costruiscono (o si prendono da librerie a parte)</td></tr>
+      <tr><td>Personalizzazione</td><td>variabili e temi; uscire dallo stile Bootstrap costa fatica</td><td>totale, nel blocco <code>@theme</code>; ogni sito ha il suo aspetto</td></tr>
+      <tr><td>Peso</td><td>il foglio intero, se non si fa una build</td><td>con la build, solo le classi usate: pochi kB</td></tr>
+      <tr><td>Curva di apprendimento</td><td>bassa: si copia un componente dalla documentazione</td><td>più ripida all’inizio: tante classi da imparare</td></tr>
+      <tr><td>Limiti</td><td>siti che si assomigliano tutti</td><td>HTML pieno di classi, difficile da leggere</td></tr>
+      <tr><td>In comune</td><td>dipendenza da una versione: con quella nuova qualcosa cambia</td><td>idem</td></tr>
+    </tbody></table></div>
+  <p>Non c’è un vincitore: Bootstrap è comodo per un pannello di amministrazione o un prototipo da fare in fretta, Tailwind per un sito con una grafica propria. In tutti e due i casi, ciò che si è imparato in questo modulo resta la base: dietro ogni classe c’è una regola CSS.</p>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>display:flex sul contenitore dispone i figli lungo un asse principale, con un asse trasversale perpendicolare.</li>
+      <li>flex-direction e flex-wrap impostano flusso e a capo; justify-content distribuisce sull’asse principale, align-items sul trasversale.</li>
+      <li>flex-grow, flex-shrink e flex-basis dicono come un elemento si allarga, si restringe e da quale misura parte.</li>
+      <li>Quattro schemi coprono quasi tutti i casi: centrare, barra di navigazione, card affiancate, footer in fondo.</li>
+      <li>Grid dispone gli elementi in due direzioni insieme, su righe e colonne.</li>
+      <li>Le colonne si definiscono con grid-template-columns; fr è una frazione dello spazio libero e auto-fit adatta il numero di colonne.</li>
+      <li>grid-column e grid-row indicano da quale linea a quale; grid-template-areas disegna il layout con i nomi.</li>
+      <li>justify-items e align-items allineano gli elementi dentro le celle, justify-content e align-content la griglia nel contenitore.</li>
+      <li>Flexbox lavora in una direzione partendo dal contenuto, Grid in due partendo dalla struttura; si combinano.</li>
+      <li>Il sito deve adattarsi a schermi diversi; senza meta viewport il telefono rimpicciolisce una pagina disegnata per un computer.</li>
+      <li>Mobile first parte dallo schermo piccolo e con min-width aggiunge regole; desktop first fa l’inverso con max-width.</li>
+      <li>Una media query applica le sue regole solo quando la condizione è vera; i breakpoint si scelgono dove il contenuto si rompe.</li>
+      <li>Il responsive non è solo media queries: percentuali, Flexbox, Grid con auto-fit e clamp() adattano il layout senza breakpoint.</li>
+      <li>srcset e sizes fanno scegliere al browser il file in base alla larghezza, picture cambia immagine o formato a certe condizioni.</li>
+      <li>transform cambia l’aspetto di un elemento senza spostare i vicini; l’ordine delle funzioni conta.</li>
+      <li>transition interpola il passaggio tra due stati; va scritta nello stato base.</li>
+      <li>@keyframes definisce i passi di un’animazione e animation li applica.</li>
+      <li>transform e opacity si animano a basso costo, width, height, top e left ricalcolano l’impaginazione.</li>
+      <li>border-collapse fonde i bordi vicini; su schermo piccolo la tabella va avvolta in un contenitore che scorre.</li>
+      <li>Un campo obbligatorio vuoto è già non valido all’apertura: per colorare solo dopo l’interazione c’è :user-invalid.</li>
+      <li>Un framework è CSS già scritto che si usa con le sue classi, collegato con un link o con una build.</li>
+      <li>Bootstrap offre componenti pronti e una griglia a 12 colonne.</li>
+      <li>Tailwind è utility-first: classi piccole e componibili direttamente nell’HTML.</li>
+      <li>Bootstrap dà componenti pronti da personalizzare, Tailwind mattoni per costruirli.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/kit.js"></script>
+<script src="assets/capitolo-07.js"></script>
+<script src="assets/capitolo-07-aula.js"></script>
+</body>
+</html>

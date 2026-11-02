@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>4. Implicazione e ragionamenti · Logica e IA simbolica</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="4">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Logica e IA simbolica · Capitolo 04</span></div>
+  <h1>Implicazione e ragionamenti</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 4.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">4.1</span>Condizione necessaria e condizione sufficiente</h2>
+  <p>Il regolamento della scuola è pieno di implicazioni: «se hai almeno 18 anni, puoi giustificarti da solo», «se superi il limite di assenze, non puoi essere scrutinato». Per leggerle bene servono due parole.</p>
+  <p>In un’implicazione <b>p → q</b>:</p>
+  <ul>
+    <li>p è <b>condizione sufficiente</b> per q: <b>basta che p sia vera perché q sia vera</b>;</li>
+    <li>q è <b>condizione necessaria</b> per p: <b>senza q non può esserci p</b>, ma q da sola non basta.</li>
+  </ul>
+  <figure>
+    <div class="tela schema" id="s-roma"><p class="passi-titolo">Roma e l'Italia</p>
+      <svg viewBox="0 0 720 320" role="img" aria-label="Cartina dell’Italia con Roma e Milano. Essere a Roma è sufficiente per essere in Italia; essere in Italia è necessario per essere a Roma, ma non basta: si può essere a Milano. In formula: Roma → Italia."></svg>
+    </div>
+  </figure>
+  <p>Quando una condizione è <b>sia necessaria sia sufficiente</b>, vale l’implicazione nei due sensi: è la <b>doppia implicazione</b> del capitolo 2, «se e solo se». «Un numero è pari se e solo se è divisibile per 2»: essere divisibile per 2 basta e serve.</p>
+  <p class="domanda">Per essere promossi serve la sufficienza in tutte le materie. Se ho la sufficienza in tutte, sono promosso per forza?</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«L’ossigeno è sufficiente per accendere un fuoco.»</p>
+    <p class="err-si">L’ossigeno è <b>necessario</b> (senza ossigeno il fuoco non si accende), ma non sufficiente: servono anche qualcosa che bruci e una fonte di calore.</p></div>
+
+  <!-- ===================== 4.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">4.2</span>Inversa, contraria e contronominale</h2>
+  <p>Da un’implicazione p → q si possono costruire altre tre frasi, che si somigliano ma non dicono la stessa cosa:</p>
+  <ul>
+    <li>l’<b>inversa</b> scambia le due parti: <b>q → p</b>;</li>
+    <li>la <b>contraria</b> le nega: <b>¬p → ¬q</b>;</li>
+    <li>la <b>contronominale</b> le scambia e le nega: <b>¬q → ¬p</b>.</li>
+  </ul>
+  <p><b>Solo la contronominale è equivalente all’implicazione di partenza</b>: ha la stessa colonna nella tavola di verità. L’inversa e la contraria invece possono essere false anche quando l’originale è vera.</p>
+  <figure>
+    <div class="tela schema" id="s-quadrato"><p class="passi-titolo">Il quadrato delle quattro frasi</p>
+      <svg viewBox="0 0 720 420" role="img" aria-label="Le quattro frasi da «se un animale è un gatto, ha quattro zampe»: originale vera, inversa falsa (un cane), contraria falsa (un cane), contronominale vera. Nella tavola p → q e ¬q → ¬p hanno la stessa colonna: sono equivalenti."></svg>
+    </div>
+  </figure>
+  <p class="domanda">“Chi ha la patente ha almeno 18 anni”. Quindi chi non ha la patente ha meno di 18 anni?</p>
+
+  <!-- ===================== 4.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">4.3</span>Le regole di inferenza</h2>
+  <p>Una <span class="termine">regola di inferenza</span> è <b>uno schema di ragionamento sempre valido</b>: se le premesse hanno una certa forma, permette di ricavare una certa conclusione, qualunque cosa ci sia al posto delle lettere. Sono gli «stampi» validi del capitolo 1, e sono gli strumenti con cui ragiona un motore inferenziale.</p>
+  <p>Nella tabella il simbolo ∴ si legge «quindi».</p>
+  <div class="tab"><table>
+    <thead><tr><th>Regola</th><th>Schema</th><th>Esempio</th></tr></thead>
+    <tbody>
+      <tr><td><b><i>modus ponens</b></i></td><td>p → q, p ∴ q</td><td>«Se è sera e fuori è buio serve la luce; è sera e fuori è buio; quindi serve la luce»</td></tr>
+      <tr><td><b><i>modus tollens</b></i></td><td>p → q, ¬q ∴ ¬p</td><td>«Se fosse entrato dalla porta, la serratura sarebbe rotta; la serratura è intatta; quindi non è entrato dalla porta»</td></tr>
+      <tr><td><b>sillogismo ipotetico</b></td><td>p → q, q → r ∴ p → r</td><td>«Se piove prendo l’ombrello; se prendo l’ombrello non mi bagno; quindi se piove non mi bagno»</td></tr>
+      <tr><td><b>sillogismo disgiuntivo</b></td><td>p ∨ q, ¬p ∴ q</td><td>«Il ladro è entrato dalla porta o dalla finestra; non dalla porta; quindi dalla finestra»</td></tr>
+      <tr><td><b>introduzione della congiunzione</b></td><td>p, q ∴ p ∧ q</td><td>«È sera; fuori è buio; quindi è sera e fuori è buio»</td></tr>
+      <tr><td><b>eliminazione della congiunzione</b></td><td>p ∧ q ∴ p</td><td>«È sera e fuori è buio; quindi è sera»</td></tr>
+      <tr><td><b>introduzione della disgiunzione</b></td><td>p ∴ p ∨ q</td><td>«Ho la tessera; quindi ho la tessera o un documento»</td></tr>
+    </tbody></table></div>
+  <p>Due di queste le abbiamo già viste all’opera. Il <b><i>modus ponens</b></i> <b>è proprio ciò che fa la casa smart quando una regola scatta</b>: c’è la regola, ci sono i fatti, e la casa ricava la conclusione. Il <b>sillogismo ipotetico</b> è il <b>ragionamento a catena</b> del capitolo 1: da «sera e buio → serve la luce» e «serve la luce e qualcuno in casa → accendi» si arriva dalla sera alle luci accese.</p>
+  <figure>
+    <div class="tela schema" id="s-stampi"><p class="passi-titolo">Le regole come stampi</p>
+      <svg viewBox="0 0 960 420" role="img" aria-label="Sette regole di inferenza scritte come stampi, premesse sopra e conclusione sotto, ciascuna con un esempio: modus ponens, modus tollens, sillogismo ipotetico, sillogismo disgiuntivo, introduzione ed eliminazione della congiunzione, introduzione della disgiunzione."></svg>
+    </div>
+  </figure>
+
+  <!-- ===================== 4.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">4.4</span>Le fallacie</h2>
+  <p>Una <span class="termine">fallacia</span> è <b>un ragionamento che sembra valido ma non lo è</b>. Alcune fallacie hanno la forma di una regola valida, ma «storta»; altre sbagliano nel contenuto, pur sembrando ragionevoli. In tutti i casi <b>si smontano con un controesempio</b>: un caso in cui le premesse sono vere e la conclusione falsa.</p>
+  <p class="domanda">“Se piove, la strada è bagnata”. La strada è bagnata: quindi piove?</p>
+  <p>Le fallacie che somigliano alle regole valide:</p>
+  <ul>
+    <li><b>affermazione del conseguente</b>: p → q, q, quindi p. «Se piove la strada è bagnata; la strada è bagnata; quindi piove.» È lo stampo non valido del capitolo 1 (Fido ha quattro zampe, quindi è un gatto): ora ha un nome. Somiglia al <i>modus ponens</i>, ma parte dal conseguente.</li>
+    <li><b>negazione dell’antecedente</b>: p → q, ¬p, quindi ¬q. «Se studi passi la verifica; non hai studiato; quindi non la passi» (magari la passi lo stesso). Somiglia al <i>modus tollens</i>, ma nega l’antecedente.</li>
+    <li><b>affermazione di un disgiunto</b>: p ∨ q, p, quindi ¬q. «Per entrare serve la tessera o un documento; ho la tessera; quindi non ho un documento.» È l’errore di chi legge l’OR come se fosse uno XOR (capitolo 2).</li>
+  </ul>
+  <p>Le fallacie della vita di tutti i giorni:</p>
+  <ul>
+    <li><b>falso dilemma</b>: «O sei con me o sei contro di me». Presenta come uno XOR due sole possibilità, quando ce ne sono altre.</li>
+    <li><b>generalizzazione affrettata</b>: «Due ragazzi dell’altra classe copiano, quindi copiano tutti». È un’induzione (vedi il 4.6) fatta con pochissimi esempi.</li>
+    <li><b><i>post hoc</i>, cioè scambiare la correlazione per una causa</b>: «Da quando ho il braccialetto portafortuna prendo voti migliori». Che due cose capitino insieme non vuol dire che una causi l’altra. Vale anche per l’IA: <b>un modello che impara dai dati trova correlazioni, non cause</b>.</li>
+    <li><b><i>ad hominem</b></i>: attaccare la persona invece dell’argomento. «Cosa ne sai tu di matematica, che hai 5?»</li>
+    <li><b>uomo di paglia</b>: deformare la tesi dell’altro per attaccarla meglio. «Vuoi meno compiti? Allora vuoi che non si studi più niente.»</li>
+    <li><b>appello alla maggioranza e all’autorità</b>: «Lo fanno tutti», «l’ha detto un influencer». Che molti lo facciano, o che lo dica qualcuno di famoso, non lo rende vero.</li>
+  </ul>
+  <figure>
+    <div class="tela" data-widget="fallacie"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Tutti i campioni bevono questa bibita: se la bevo divento un campione.»</p>
+    <p class="err-si">È un’<b>affermazione del conseguente</b> («campione → beve la bibita; bevo la bibita; quindi sono un campione») e insieme una <b>falsa causa</b>: la pubblicità fa passare per una causa del successo una cosa che, al massimo, lo accompagna.</p></div>
+  <p>Un altro esempio della stessa fallacia, molto comune: «Chi ha l’influenza ha la febbre; ho la febbre; quindi ho l’influenza». La febbre può avere tante altre cause.</p>
+
+  <!-- ===================== 4.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">4.5</span>Conseguenza logica e derivazione</h2>
+  <p>Una conclusione è <b>conseguenza logica</b> di alcune premesse quando <b>è vera in tutti i casi in cui le premesse sono vere</b>. È un altro modo di dire che il ragionamento è valido. Si può verificare in due modi:</p>
+  <ul>
+    <li>con la <b>tavola di verità</b>: si scrivono tutte le righe e si controlla che, dove le premesse sono tutte vere, sia vera anche la conclusione. È un metodo sicuro, ma <b>le righe sono 2ⁿ</b> e con molte variabili diventano troppe;</li>
+    <li>con una <b>derivazione</b>: <b>una catena di passi, ciascuno ottenuto con una regola di inferenza</b>, che porta dalle premesse alla conclusione. <b>È così che ragiona un motore inferenziale</b>: non prova tutti i casi, applica regole.</li>
+  </ul>
+  <figure>
+    <div class="tela passi-anim" id="f-detective" data-titolo="L'indagine del detective" data-inizio="Un furto: il detective ha quattro indizi. Ognuno è una proposizione, scritta anche in formula.">
+      <svg viewBox="0 0 720 346" role="img" aria-label="Quattro indizi di un furto, scritti anche in formula. Con il modus tollens dagli indizi 2 e 3 si ricava «non dalla porta»; con il sillogismo disgiuntivo dagli indizi 1 e 5 «dalla finestra»; con il modus ponens dagli indizi 4 e 6 «impronte in giardino»."></svg>
+      <ol class="passi-testo">
+        <li>Dagli indizi 2 e 3: se fosse entrato dalla porta, la serratura sarebbe rotta; ma è intatta. Quindi non è entrato dalla porta.</li>
+        <li>Dagli indizi 1 e 5: o porta o finestra; non dalla porta. Quindi dalla finestra.</li>
+        <li>Dagli indizi 4 e 6: se dalla finestra, ci sono impronte in giardino. Conclusione: cercate in giardino!</li>
+        <li>Ogni passo usa una regola di inferenza valida: la conclusione è conseguenza logica degli indizi. È così che ragiona un motore inferenziale.</li>
+      </ol>
+    </div>
+  </figure>
+
+  <!-- ===================== 4.6 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p6"><span class="num">4.6</span>Deduzione, induzione e abduzione</h2>
+  <p>Non tutti i ragionamenti che facciamo sono deduzioni. Ne esistono tre tipi:</p>
+  <ul>
+    <li>la <b>deduzione</b> <b>va da una regola generale a un caso particolare</b>, e la sua conclusione è <b>certa</b> (se le premesse sono vere). È quella di cui abbiamo parlato finora.</li>
+    <li>l’<b>induzione</b> <b>ricava una regola generale da tanti casi osservati</b>, e la sua conclusione è solo <b>probabile</b>: un caso nuovo può smentirla.</li>
+    <li>l’<b>abduzione</b> <b>cerca la spiegazione più probabile di un fatto osservato</b>. È il ragionamento del medico e del detective, e anche la sua conclusione è solo <b>probabile</b>.</li>
+  </ul>
+  <figure>
+    <div class="tela passi-anim" id="f-fagioli" data-titolo="I fagioli di Peirce" data-inizio="Un sacco, una manciata di fagioli: tre ragionamenti diversi con gli stessi elementi.">
+      <svg viewBox="0 0 720 340" role="img" aria-label="Un sacco di fagioli e tre schede: regola, caso, risultato. La deduzione ricava il risultato da regola e caso ed è certa; l’induzione ricava la regola da caso e risultato, l’abduzione il caso da regola e risultato: sono solo probabili."></svg>
+      <ol class="passi-testo">
+        <li>Deduzione: dalla regola e dal caso ricavo il risultato. È certo.</li>
+        <li>Induzione: da tanti casi ricavo una regola generale. È solo probabile: in fondo al sacco potrebbe esserci un fagiolo nero.</li>
+        <li>Abduzione: dalla regola e dal risultato immagino la spiegazione più probabile. Ma potrebbero venire da un altro sacco.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box storia"><figure class="foto-lato testa dx"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Charles_Sanders_Peirce.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Charles_Sanders_Peirce.jpg" alt="Charles S. Peirce" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Charles S. Peirce</figcaption></figure><h3><i data-ic="history" class="ic-20"></i> Nella storia · Peirce e i fagioli</h3>
+    <p>Il filosofo e logico americano Charles S. Peirce (1839–1914) fu il primo a distinguere con chiarezza i tre tipi di ragionamento, in un articolo del 1878 in cui usava proprio l’esempio del sacco di fagioli.</p></div>
+  <p>Il limite dell’induzione lo racconta una storia famosa: il <b>tacchino induttivista</b>.</p>
+  <figure>
+    <div class="tela passi-anim" id="f-tacchino" data-titolo="Il tacchino induttivista" data-inizio="Un tacchino arriva in una fattoria e osserva quello che succede.">
+      <svg viewBox="0 0 720 340" role="img" aria-label="Un tacchino in una fattoria riceve il cibo ogni giorno alle 9, con la pioggia e con il sole: dopo 300 giorni è sicurissimo della sua regola. Il 24 dicembre il cibo non arriva e il tacchino finisce sulla tavola di Natale."></svg>
+      <ol class="passi-testo">
+        <li>Il primo giorno, alle 9, gli portano da mangiare. Il tacchino prende nota.</li>
+        <li>Il cibo arriva alle 9 con la pioggia e con il sole, di lunedì e di domenica. Il tacchino raccoglie sempre più osservazioni.</li>
+        <li>Dopo tante osservazioni, il tacchino ricava una regola generale. Ne è sicurissimo.</li>
+        <li>La vigilia di Natale il cibo non arriva: il tacchino finisce sulla tavola di Natale. Nessun numero di osservazioni rende certa una regola ricavata per induzione.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box storia"><figure class="foto-lato testa dx"><a class="fonte" href="https://www.uqp.com.au/books/what-is-this-thing-called-science" target="_blank" rel="noopener"><img src="https://d3f44jafdqsrtg.cloudfront.net/authors/author-1135/_1600x1600_crop_center-center_none/Chalmers-pic.jpg" alt="Alan Chalmers" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Alan Chalmers</figcaption></figure><h3><i data-ic="history" class="ic-20"></i> Nella storia · Da un pollo a un tacchino</h3>
+    <p>L’esempio nasce da Bertrand Russell, che nel 1912 parlava di un pollo nutrito ogni giorno, fino al giorno in cui il fattore gli tira il collo. Il filosofo Alan Chalmers lo trasformò nel «tacchino induttivista» nel suo libro <i>Che cos’è questa scienza?</i> (1976), dedicato a come funziona il metodo scientifico.</p></div>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Deduzione</th><th>Induzione</th><th>Abduzione</th></tr></thead>
+    <tbody>
+      <tr><td>Parte da</td><td>una regola e un caso</td><td>tanti casi osservati</td><td>una regola e un fatto osservato</td></tr>
+      <tr><td>Arriva a</td><td>un risultato</td><td>una regola generale</td><td>la spiegazione più probabile</td></tr>
+      <tr><td>La conclusione è</td><td>certa</td><td>probabile</td><td>probabile</td></tr>
+      <tr><td>Esempio</td><td>«Tutti gli abbonati entrano gratis; Anna è abbonata; quindi Anna entra gratis»</td><td>il tacchino</td><td>il medico: «febbre e mal di gola: probabilmente è influenza»</td></tr>
+      <tr><td>Nell’IA</td><td>l’IA simbolica, che applica regole</td><td>l’apprendimento automatico, che ricava regole dagli esempi</td><td>i sistemi di diagnosi</td></tr>
+    </tbody></table></div>
+  <p>L’abduzione ha la forma di un’<b>affermazione del conseguente</b> («se è influenza c’è la febbre; c’è la febbre; quindi è influenza»): non è valida, ma <b>usata con prudenza</b> è il modo in cui medici e detective scelgono l’ipotesi da verificare.</p>
+  <p class="domanda">Il medico vede febbre e mal di gola e dice “è influenza”: ha fatto una deduzione?</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il tacchino aveva visto il cibo arrivare per 300 giorni di fila: la sua regola era sicura.»</p>
+    <p class="err-si">Era un’<b>induzione</b>, quindi solo <b>probabile</b>: per quanti siano i casi osservati, il caso successivo può smentire la regola.</p></div>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>In <b>p → q</b>, p è condizione <b>sufficiente</b> per q e q è condizione <b>necessaria</b> per p; se valgono entrambe, è un «se e solo se».</li>
+      <li>Da p → q si ricavano inversa (q → p), contraria (¬p → ¬q) e contronominale (¬q → ¬p): <b>solo la contronominale è equivalente</b> all’originale.</li>
+      <li>Le <b>regole di inferenza</b> (<i>modus ponens</i>, <i>modus tollens</i>, sillogismi…) sono schemi di ragionamento sempre validi; il <i>modus ponens</i> è ciò che fa un sistema a regole quando una regola scatta.</li>
+      <li>Una <b>fallacia</b> sembra valida ma non lo è (affermazione del conseguente, negazione dell’antecedente, falso dilemma, falsa causa…): si smonta con un controesempio.</li>
+      <li>Una conclusione è <b>conseguenza logica</b> delle premesse se è vera in tutti i casi in cui lo sono le premesse; si verifica con la tavola o con una <b>derivazione</b>, una catena di regole di inferenza.</li>
+      <li>La <b>deduzione</b> è certa; l’<b>induzione</b> (dai casi alla regola) e l’<b>abduzione</b> (la spiegazione più probabile) danno conclusioni solo probabili.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/capitolo-04.js"></script>
+<script src="assets/capitolo-04-aula.js"></script>
+</body>
+</html>

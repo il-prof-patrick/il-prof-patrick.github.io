@@ -122,7 +122,7 @@ button{font:inherit;color:inherit}
 .only-mob{display:none}
 
 /* ---------- hero ---------- */
-.hero{position:relative;isolation:isolate;display:flex;align-items:center;padding:calc(var(--nav-h) + 24px) 0 24px;overflow:hidden}
+.hero{position:relative;isolation:isolate;display:flex;align-items:center;min-height:100vh;min-height:100svh;padding:calc(var(--nav-h) + 24px) 0 24px;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:-1;pointer-events:none}
 .hero-bg::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 85% 70% at 50% 25%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 85% 70% at 50% 25%,#000 20%,transparent 75%)}
 .hero-bg::after{content:"";position:absolute;inset:auto 0 0;height:180px;background:linear-gradient(to bottom,transparent,var(--bg))}
@@ -386,22 +386,65 @@ h2{margin-top:16px;font-size:clamp(32px,4.4vw,54px);line-height:1.06;letter-spac
 @media (max-width:480px){.anni{grid-template-columns:repeat(3,1fr)}}
 
 /* ---------- novità ---------- */
-#novita .sec-head,#novita .sub{max-width:none}
-.novita-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.novita-card{display:flex;flex-direction:column;padding:0;overflow:hidden;text-align:left;font:inherit;color:inherit;cursor:pointer;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
-.novita-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-card);border-color:var(--line-2)}
-.novita-card:focus-visible{outline:2px solid var(--c2);outline-offset:3px}
-.novita-vis{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--line)}
-.novita-vis img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
-.novita-card:hover .novita-vis img{transform:scale(1.04)}
+/* notizie come prima pagina di giornale: una grande + le altre in colonna */
+#novita{padding:clamp(28px,3.5vw,44px) 0}
+.giornale-testa{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 32px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:18px;border-bottom:2px solid var(--ink)}
+.giornale-testa h2{margin-top:10px;font-size:clamp(30px,3.6vw,44px)}
+.contatore{display:inline-flex;align-items:center;gap:8px;color:var(--ink-2);font-size:14.5px}
+.contatore b{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 7px;border-radius:999px;background:#e11d48;color:#fff;font:600 13px/1 var(--font)}
+.nuova{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 9px;border-radius:999px;background:#e11d48;color:#fff;font:600 11px/1 var(--font);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.nuova::before{content:"";width:6px;height:6px;border-radius:50%;background:#fff;animation:lampeggia 1.6s ease-in-out infinite}
+@keyframes lampeggia{50%{opacity:.25}}
+.giornale{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:28px}
+.g-grande,.g-voce{padding:0;border:0;background:none;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.g-grande{display:block}
+.g-vis{position:relative;display:block;overflow:hidden;background:var(--line)}
+.g-vis img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.g-grande .g-vis{aspect-ratio:16/9;border-radius:18px}
+.g-grande:hover .g-vis img{transform:scale(1.03)}
+.g-riga{display:flex;align-items:center;gap:10px;margin:16px 0 8px;font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.g-grande h3{font-size:clamp(24px,2.5vw,32px);line-height:1.15;letter-spacing:-.028em;font-weight:600;text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+.g-grande p{margin-top:10px;color:var(--ink-2);font-size:16px;line-height:1.55;text-align:justify;-webkit-hyphens:auto;hyphens:auto;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.g-lista{display:flex;flex-direction:column}
+.g-voce{display:grid;grid-template-columns:minmax(0,1fr) 112px;gap:16px;align-items:start;padding:16px 0;border-bottom:1px solid var(--line-2)}
+.g-voce:first-child{padding-top:0}
+.g-voce:last-child{border-bottom:0}
+.g-voce .g-riga{margin:0 0 6px;font-size:11px}
+.g-voce h4{font-size:16px;line-height:1.3;font-weight:600;letter-spacing:-.012em}
+.g-voce:hover h4,.g-grande:hover h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.g-voce .g-vis{width:112px;aspect-ratio:4/3;border-radius:10px}
+.g-grande:focus-visible,.g-voce:focus-visible{outline:2px solid var(--c2);outline-offset:4px;border-radius:12px}
+@media (max-width:860px){.giornale{grid-template-columns:minmax(0,1fr)}}
+/* su computer le notizie stanno in una schermata: la foto grande si adatta all'altezza della finestra */
+@media (min-width:861px){
+  .g-grande .g-vis{aspect-ratio:auto;height:clamp(150px,calc(100svh - 530px),520px)}
+  /* colonna a destra compatta (fino a 5 notizie), allineata in alto: se sono meno resta spazio sotto */
+  .giornale{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)}
+  .g-voce{padding:10px 0;grid-template-columns:minmax(0,1fr) 88px;gap:14px}
+  .g-voce:first-child{padding-top:0}
+  .g-voce .g-vis{width:88px}
+  .g-voce .g-riga{margin-bottom:4px}
+  .g-voce h4{font-size:15px}
+  .g-grande p{-webkit-line-clamp:4}
+}
+/* finestre basse: titoli a destra su due righe al massimo (il titolo intero è nella finestra della notizia) */
+@media (min-width:861px) and (max-height:800px){
+  .g-voce h4{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+}
+/* finestre basse (portatili 1366×768 con le barre del browser): tutto un po' più compatto */
+@media (min-width:861px) and (max-height:760px){
+  #novita{padding:18px 0}
+  .g-grande .g-vis{height:clamp(150px,calc(100svh - 380px),520px)}
+  .giornale-testa{margin-bottom:14px;padding-bottom:10px}
+  .giornale-testa h2{margin-top:6px;font-size:28px}
+  .g-riga{margin:10px 0 6px}
+  .g-grande h3{font-size:24px}
+  .g-grande p{margin-top:6px;font-size:15px;line-height:1.5;-webkit-line-clamp:3}
+}
 .novita-tag{position:absolute;right:12px;bottom:12px;z-index:1;display:inline-flex;align-items:center;height:26px;padding:0 11px;border-radius:999px;background:#d6001c;color:#fff;font:600 12px/1 var(--font);letter-spacing:.01em;box-shadow:0 4px 12px -4px rgba(0,0,0,.5)}
 .novita-tag[data-p="tiktok"]{background:#000}
+.novita-tag[data-p="instagram"]{background:linear-gradient(45deg,#f58529,#dd2a7b 50%,#8134af)}
 .novita-tag[hidden]{display:none}
-.novita-testo{padding:18px 20px 22px}
-.novita-card time{display:block;font:500 12.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
-.novita-card h3{font-size:18px;font-weight:600;line-height:1.3;letter-spacing:-.015em;text-align:justify;-webkit-hyphens:auto;hyphens:auto}
-@media (max-width:860px){.novita-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.novita-grid{grid-template-columns:1fr}}
 /* finestra con la notizia completa */
 .notizia-dlg{margin:auto;width:min(680px,calc(100% - 32px));max-height:calc(100dvh - 40px);padding:0;overflow:auto;color:var(--ink);background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-lg);box-shadow:0 30px 80px -20px rgba(7,10,18,.55)}
 .notizia-dlg::backdrop{background:rgba(7,10,18,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
@@ -585,8 +628,8 @@ body:has(.notizia-dlg[open]){overflow:hidden}
       <span class="brand-t"><b>Informatica</b> <span>con il Prof. Patrick</span></span>
     </a>
     <nav class="links" id="links" aria-label="Sezioni della pagina">
-      <a href="#indirizzo">Il tuo indirizzo</a>
       <a href="#novita">Notizie</a>
+      <a href="#indirizzo">Il tuo indirizzo</a>
     </nav>
     <div class="nav-act">
       <button class="icon-btn" id="b-tema" type="button" aria-label="Cambia tema"><svg class="i"><use href="#i-moon"/></svg></button>
@@ -691,6 +734,17 @@ body:has(.notizia-dlg[open]){overflow:hidden}
   </div>
 </section>
 
+<!-- ============ NOTIZIE ============ -->
+<section class="sec" id="novita">
+  <div class="wrap">
+    <div class="giornale-testa" data-reveal>
+      <div><span class="eyebrow">Notizie dal mondo</span><h2>Cosa sta succedendo.</h2></div>
+      <span class="contatore" id="novita-conta"></span>
+    </div>
+    <div class="giornale" id="novita-grid" data-reveal></div>
+  </div>
+</section>
+
 <!-- ============ INDIRIZZO ============ -->
 <section class="sec" id="indirizzo">
   <div class="wrap">
@@ -715,16 +769,7 @@ body:has(.notizia-dlg[open]){overflow:hidden}
   </div>
 </section>
 
-<!-- ============ NOVITÀ ============ -->
-<section class="sec sec-alt" id="novita">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <span class="eyebrow">Notizie</span>
-      <h2>Ultime notizie dal mondo.</h2>
-      <p class="sub">Storie dal mondo dell’informatica e dell’intelligenza artificiale, segnalate da voi. Clicca una card per leggerla.</p>
-    </div>
-    <div class="novita-grid" id="novita-grid" data-reveal></div>
-  </div>
+<!-- ============ FINESTRA DELLA NOTIZIA ============ -->
   <dialog class="notizia-dlg" id="notizia-dlg" aria-labelledby="notizia-titolo">
     <div class="notizia-in">
       <button class="notizia-x" id="notizia-x" type="button" aria-label="Chiudi"><svg class="i"><use href="#i-x"/></svg></button>
@@ -741,7 +786,6 @@ body:has(.notizia-dlg[open]){overflow:hidden}
       </div>
     </div>
   </dialog>
-</section>
 
 </main>
 
@@ -1040,15 +1084,38 @@ body:has(.notizia-dlg[open]){overflow:hidden}
   (function novita() {
     const el = $('#novita-grid');
     if (!el || typeof NOTIZIE === 'undefined') return;
-    const lista = NOTIZIE.slice(0, 6), dlg = $('#notizia-dlg');
-    el.innerHTML = lista.map((n, i) => `
-      <button class="novita-card" type="button" data-i="${i}" aria-haspopup="dialog">
-        <span class="novita-vis"><img src="${n.immagine}" alt="" loading="lazy" referrerpolicy="no-referrer">${n.piattaforma ? `<span class="novita-tag" data-p="${n.piattaforma.toLowerCase()}">${n.piattaforma}</span>` : ''}</span>
-        <span class="novita-testo"><time datetime="${n.data}">${n.dataVisibile}</time><h3>${n.titolo}</h3></span>
-      </button>`).join('');
+    const lista = NOTIZIE.slice(0, 6), dlg = $('#notizia-dlg'), conta = $('#novita-conta');
+    if (!lista.length) return;
+    // "Nuova" finché lo studente non apre la notizia: lo ricorda solo il suo browser
+    const chiave = n => n.data + ' ' + n.titolo;
+    let lette = []; try { lette = JSON.parse(localStorage.getItem('ip-notizie-lette')) || []; } catch (e) {}
+    const letta = n => lette.includes(chiave(n));
+    const riga = n => `<span class="g-riga">${letta(n) ? '' : '<span class="nuova">Nuova</span>'}<time datetime="${n.data}">${n.dataVisibile}</time></span>`;
+    const tag = n => n.piattaforma ? `<span class="novita-tag" data-p="${n.piattaforma.toLowerCase()}">${n.piattaforma}</span>` : '';
+    const contatore = () => {
+      const d = lista.filter(n => !letta(n)).length;
+      conta.innerHTML = d ? `<b>${d}</b> ${d === 1 ? 'notizia che non hai ancora letto' : 'notizie che non hai ancora letto'}` : 'Le hai lette tutte';
+    };
+    const [p, ...altre] = lista;
+    el.innerHTML = `
+      <button class="g-grande" type="button" data-i="0" aria-haspopup="dialog">
+        <span class="g-vis"><img src="${p.immagine}" alt="" referrerpolicy="no-referrer">${tag(p)}</span>
+        ${riga(p)}<h3>${p.titolo}</h3><p>${p.testo[0]}</p>
+      </button>
+      <div class="g-lista">${altre.map((n, i) => `
+        <button class="g-voce" type="button" data-i="${i + 1}" aria-haspopup="dialog">
+          <span>${riga(n)}<h4>${n.titolo}</h4></span>
+          <span class="g-vis"><img src="${n.immagine}" alt="" loading="lazy" referrerpolicy="no-referrer"></span>
+        </button>`).join('')}</div>`;
+    contatore();
     el.addEventListener('click', e => {
-      const b = e.target.closest('.novita-card'); if (!b || !dlg) return;
+      const b = e.target.closest('[data-i]'); if (!b || !dlg) return;
       const n = lista[+b.dataset.i];
+      if (!letta(n)) {
+        lette.push(chiave(n)); try { localStorage.setItem('ip-notizie-lette', JSON.stringify(lette)); } catch (e) {}
+        const nb = b.querySelector('.nuova'); if (nb) nb.remove();
+        contatore();
+      }
       $('#notizia-img').src = n.immagine;
       const tag = $('#notizia-tag'); tag.hidden = !n.piattaforma; tag.textContent = n.piattaforma || ''; tag.dataset.p = (n.piattaforma || '').toLowerCase();
       $('#notizia-data').textContent = n.dataVisibile; $('#notizia-data').setAttribute('datetime', n.data);

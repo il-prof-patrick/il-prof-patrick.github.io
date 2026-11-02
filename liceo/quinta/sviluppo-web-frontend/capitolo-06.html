@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>6. CSS: base · Sviluppo Web - Front end</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="6">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Sviluppo Web - Front end · Capitolo 06</span></div>
+  <h1>CSS: base</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 6.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">6.1</span>Sfondi, bordi e ombre</h2>
+  <h3 id="s6-3">Immagini di sfondo</h3>
+  <p><code>background-image: url("foto.jpg")</code> mette un’immagine <b>dietro</b> al contenuto dell’elemento. Altre proprietà decidono come:</p>
+  <figure class="foto-margine"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Arduino_Uno_R3_development_board_(1).jpg" target="_blank" rel="noopener"><img src="assets/immagini/arduino.jpg" alt="Una scheda Arduino Uno su fondo chiaro" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Scheda Arduino</figcaption></figure>
+  <ul>
+    <li><code>background-size</code>: <code>auto</code> (la grandezza vera dell’immagine), una misura, oppure <code>cover</code>, che <b>riempie</b> tutto l’elemento e <b>taglia</b> ciò che avanza, o <code>contain</code>, che mostra <b>tutta</b> l’immagine e può lasciare dei <b>vuoti</b>;</li>
+    <li><code>background-position</code>: dove sta l’immagine (<code>center</code>, <code>right bottom</code>, <code>20% 50%</code>);</li>
+    <li><code>background-repeat</code>: se si ripete come una piastrella (<code>repeat</code>, il valore iniziale), solo in orizzontale (<code>repeat-x</code>), in verticale (<code>repeat-y</code>) o no (<code>no-repeat</code>).</li>
+  </ul>
+  <p>Si possono mettere <b>più sfondi</b>, separati da virgole: <b>il primo sta sopra</b>. È il modo classico per scurire una foto e renderci leggibile sopra un titolo bianco, con un gradiente trasparente sopra l’immagine.</p>
+  <figure>
+    <div class="tela" data-widget="w6_sfondo"></div>
+  </figure>
+  <p>Un’immagine di sfondo è <b>decorazione</b>: non ha testo alternativo, gli screen reader non la annunciano e chi stampa la pagina spesso non la vede. Se l’immagine porta un contenuto (la foto di un prodotto, un grafico, il ritratto di una persona), va nell’HTML con <code>&lt;img&gt;</code> e il suo <code>alt</code>.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«L’immagine importante la metto come sfondo con il CSS.»</p>
+    <p class="err-si">Uno sfondo <b>non ha testo alternativo</b>: chi usa uno screen reader non sa che c’è. Le immagini che portano contenuto vanno nell’HTML con <code>&lt;img alt="…"&gt;</code>.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>background-size: cover</code> mostra tutta l’immagine.»</p>
+    <p class="err-si"><code>cover</code> riempie l’elemento e <b>taglia</b> ciò che non entra. Per vedere tutta l’immagine serve <code>contain</code>, che però può lasciare dei vuoti.</p></div>
+  <h3 id="s6-4">Gradienti</h3>
+  <p>Un <span class="termine">gradiente</span> è una sfumatura tra due o più colori. Per il CSS è un’<b>immagine generata dal browser</b>, non un colore: per questo si scrive in <code>background-image</code> (o nella forma abbreviata <code>background</code>), mai in <code>background-color</code>. Ce ne sono tre tipi:</p>
+  <ul>
+    <li><code>linear-gradient()</code> sfuma lungo una retta: si indica una direzione (<code>to right</code>) o un angolo, con <code>0deg</code> verso l’alto e <code>90deg</code> verso destra;</li>
+    <li><code>radial-gradient()</code> sfuma dal centro verso l’esterno, a cerchi o ellissi, con forma e posizione;</li>
+    <li><code>conic-gradient()</code> gira intorno a un centro come le lancette: serve per grafici a torta e ruote di colore.</li>
+  </ul>
+  <p>Ogni colore può avere una <b>posizione</b> (<code>red 30%</code>). Se due colori hanno la <b>stessa posizione</b> non c’è sfumatura: si ottiene un <b>taglio netto</b>, utile per strisce e bandiere: <code>linear-gradient(90deg, green 33%, white 33% 66%, red 66%)</code>.</p>
+  <figure>
+    <div class="tela" data-widget="w6_gradiente"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>background-color: linear-gradient(…)</code> funziona.»</p>
+    <p class="err-si">Un gradiente è un’<b>immagine</b>, non un colore: in <code>background-color</code> la dichiarazione non è valida e viene scartata. Si scrive in <code>background-image</code> o in <code>background</code>.</p></div>
+  <h3 id="s6-5">Bordi e angoli</h3>
+  <p><code>border: spessore stile colore</code> disegna un bordo intorno all’elemento. Lo <b>stile</b> è obbligatorio, perché il suo valore iniziale è <code>none</code>: i più usati sono <code>solid</code>, <code>dashed</code> (tratteggiato), <code>dotted</code> (a puntini) e <code>double</code>. Se manca il colore, il bordo prende <code>currentColor</code>, cioè lo stesso colore del testo. Si può dare un bordo a un solo lato con <code>border-top</code>, <code>border-right</code>, <code>border-bottom</code>, <code>border-left</code>.</p>
+  <p><code>border-radius</code> arrotonda gli angoli. Con uno, due, tre o quattro valori si comporta come <code>margin</code>, ma parte dall’angolo <b>in alto a sinistra</b> e gira in senso orario. Con <code>50%</code> un quadrato diventa un <b>cerchio</b>; con un valore molto grande (<code>999px</code>) un rettangolo diventa una <b>pillola</b>.</p>
+  <figure>
+    <div class="tela schema" id="s6_radius"><p class="passi-titolo">border-radius con uno, due, tre o quattro valori</p>
+      <div class="s6r">
+        <div><i style="border-radius:16px"></i><code>16px</code></div>
+        <div><i style="border-radius:28px 0"></i><code>28px 0</code></div>
+        <div><i style="border-radius:0 28px 8px"></i><code>0 28px 8px</code></div>
+        <div><i style="border-radius:0 12px 24px 36px"></i><code>0 12px 24px 36px</code></div>
+        <div><i class="q" style="border-radius:50%"></i><code>50%</code> (quadrato)</div>
+        <div><i style="height:44px;border-radius:999px"></i><code>999px</code></div>
+      </div>
+    </div>
+  </figure>
+  <p><code>outline</code> sembra un bordo, ma è diverso: è disegnato <b>fuori</b> dall’elemento, <b>sopra</b> a ciò che c’è intorno, e <b>non occupa spazio</b>, quindi non sposta nulla. Non si può dare a un solo lato. Il browser lo usa per mostrare quale elemento ha il <b>fuoco</b> quando si naviga con la tastiera: per questo non va tolto senza metterci qualcosa al suo posto.</p>
+  <figure>
+    <div class="tela" data-widget="w6_bordo"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>outline</code> è un bordo come gli altri.»</p>
+    <p class="err-si"><code>outline</code> <b>non occupa spazio</b> e non sposta i vicini, sta sopra e fuori dall’elemento e non si può dare a un lato solo. Serve soprattutto a segnalare il fuoco.</p></div>
+  <h3 id="s6-6">Ombre</h3>
+  <p><code>box-shadow</code> aggiunge un’ombra alla scatola dell’elemento. I valori, in ordine:</p>
+  <pre class="codice"><code><span class="k">box-shadow: 0 8px 24px 0 rgb(0 0 0 / 25%)</span>;
+<span class="c">/*         x  y   sfocatura  diffusione  colore */</span></code></pre>
+  <ul>
+    <li><b>spostamento orizzontale e verticale</b> (<code>x</code> e <code>y</code>): valori positivi a destra e in basso, negativi a sinistra e in alto;</li>
+    <li><b>sfocatura</b> (facoltativa): 0 dà un’ombra netta, valori più alti un’ombra morbida;</li>
+    <li><b>diffusione</b> (facoltativa): allarga (positiva) o restringe (negativa) l’ombra;</li>
+    <li><b>colore</b>: di solito un nero trasparente; con la parola <code>inset</code> l’ombra va <b>dentro</b> l’elemento.</li>
+  </ul>
+  <p>Si possono sovrapporre <b>più ombre</b> separate da virgole; l’ombra segue la forma data da <code>border-radius</code> e <b>non cambia l’impaginazione</b>. <code>text-shadow</code> fa la stessa cosa per il testo, ma senza diffusione e senza <code>inset</code>. Un’ombra non rimedia a un contrasto troppo basso tra testo e sfondo; l’ombra della forma vera di un’immagine trasparente si fa con <code>filter: drop-shadow()</code> (7.4).</p>
+  <figure>
+    <div class="tela" data-widget="w6_ombra"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il terzo valore di <code>box-shadow</code> è la distanza dell’ombra.»</p>
+    <p class="err-si">Il terzo valore è la <b>sfocatura</b>: con 0 l’ombra ha i bordi netti. La distanza la danno i primi due valori, gli spostamenti x e y.</p></div>
+  <h3 id="s6-7">Immagini nella pagina</h3>
+  <p>Un’immagine nell’HTML (<code>&lt;img&gt;</code>) ha la sua grandezza naturale e, se è più larga del contenitore, ne esce. La regola che si scrive quasi sempre è questa:</p>
+  <pre class="codice"><code><span class="k">img </span>{
+<span class="a">  max-width</span>:<span class="s"> 100%</span>;  <span class="c">/* mai più larga del contenitore */</span>
+<span class="a">  height</span>:<span class="s"> auto</span>;     <span class="c">/* l’altezza segue, senza deformare */</span>
+}</code></pre>
+  <p>Quando invece l’immagine deve riempire un riquadro di misura data (una miniatura quadrata, la foto di una card), si usa <code>object-fit</code>, che funziona come <code>background-size</code> ma per le immagini di contenuto:</p>
+  <ul>
+    <li><code>fill</code> (il valore iniziale) riempie il riquadro <b>deformando</b> l’immagine;</li>
+    <li><code>cover</code> lo riempie mantenendo le proporzioni e <b>taglia</b> ciò che avanza;</li>
+    <li><code>contain</code> mostra <b>tutta</b> l’immagine e può lasciare dei vuoti.</li>
+  </ul>
+  <p><code>aspect-ratio: 16 / 9</code> dà a un elemento delle proporzioni fisse. E gli attributi <code>width</code> e <code>height</code> scritti nell’<code>&lt;img&gt;</code> servono anche con il CSS: dicono al browser le proporzioni <b>prima</b> che l’immagine sia scaricata, così riserva lo spazio giusto e il testo non salta in basso quando la foto arriva.</p>
+  <figure>
+    <div class="tela" data-widget="w6_objectfit"></div>
+  </figure>
+  <div class="tab"><table>
+    <thead><tr><th></th><th><code>object-fit</code></th><th><code>background-size</code></th></tr></thead>
+    <tbody>
+      <tr><td>si usa per</td><td>immagini di contenuto (<code>&lt;img&gt;</code>, <code>&lt;video&gt;</code>)</td><td>immagini di sfondo (CSS)</td></tr>
+      <tr><td>riempire e tagliare</td><td><code>cover</code></td><td><code>cover</code></td></tr>
+      <tr><td>tutta, con i vuoti</td><td><code>contain</code></td><td><code>contain</code></td></tr>
+      <tr><td>valore iniziale</td><td><code>fill</code>: deforma</td><td><code>auto</code>: grandezza vera</td></tr>
+      <tr><td>testo alternativo</td><td>sì, con <code>alt</code></td><td>no</td></tr>
+    </tbody></table></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>width</code> e <code>height</code> fissi in CSS non danneggiano la foto.»</p>
+    <p class="err-si">Se le proporzioni non sono quelle della foto, <code>object-fit: fill</code> la <b>deforma</b>. Si fissa una sola misura con <code>height: auto</code>, oppure si aggiunge <code>object-fit: cover</code>.</p></div>
+  <p class="domanda">Una foto 4:3 con <code>width: 200px; height: 200px</code>. Come appare?</p>
+
+  <!-- ===================== 6.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">6.2</span>Testo, link e liste</h2>
+  <h3 id="s7-1">Famiglie di caratteri</h3>
+  <p><code>font-family</code> non indica un solo carattere ma una <b>lista in ordine di preferenza</b>, separata da virgole. Il browser usa il <b>primo font della lista che è installato</b> sul computer di chi legge; se non ne trova nessuno, usa il suo predefinito. I nomi che contengono spazi vanno tra virgolette: <code>"Segoe UI"</code>, <code>"Times New Roman"</code>.</p>
+  <p>Per questo la lista finisce sempre con una <span class="termine">famiglia generica</span>, una parola chiave che c’è su ogni computer e che il browser traduce nel font adatto di quel sistema:</p>
+  <ul>
+    <li><code>serif</code>: caratteri <b>con le grazie</b>, i piccoli tratti alle estremità delle lettere (Times, Georgia), tipici dei libri;</li>
+    <li><code>sans-serif</code>: caratteri <b>senza grazie</b> (Arial, Helvetica, Segoe UI), i più usati sugli schermi;</li>
+    <li><code>monospace</code>: caratteri a <b>larghezza fissa</b>, dove ogni lettera occupa lo stesso spazio (Consolas, Courier): per il codice;</li>
+    <li>e poi <code>cursive</code>, <code>fantasy</code> e <code>system-ui</code>, il carattere dell’interfaccia del sistema operativo.</li>
+  </ul>
+  <figure>
+    <div class="tela schema" id="s7_grazie"><p class="passi-titolo">Con e senza grazie</p>
+      <svg viewBox="0 0 720 280" role="img" aria-label="Una I con le grazie evidenziate in ambra e una I senza grazie; sotto, la scritta Club di robotica in Georgia e in Arial"></svg>
+    </div>
+  </figure>
+  <p class="domanda">Scrivo <code>font-family: "Gill Sans"</code>. Tutti quelli che aprono la pagina vedranno Gill Sans?</p>
+  <figure>
+    <div class="tela" data-widget="w7_fontstack"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Scrivo <code>font-family: "Gill Sans"</code> e tutti vedranno Gill Sans.»</p>
+    <p class="err-si">Il browser usa solo i font <b>installati sul computer di chi legge</b> (o scaricati con <code>@font-face</code>, 7.2). Senza alternative e senza famiglia generica, chi non ce l’ha vede il carattere predefinito.</p></div>
+  <h3 id="s7-2">Font web</h3>
+  <p>Per usare un carattere che sul computer di chi legge non c’è, lo si fa <b>scaricare</b> insieme alla pagina, con la regola <code>@font-face</code>: si sceglie un nome, si indica il file e il peso, e poi quel nome si usa in <code>font-family</code> come qualunque altro.</p>
+  <pre class="codice"><code><span class="k">@font-face </span>{
+<span class="a">  font-family</span>:<span class="s"> "Titoli"</span>;                     <span class="c">/* il nome che scegliamo noi */</span>
+<span class="a">  src</span>:<span class="s"> url("font/titoli.woff2") format("woff2")</span>; <span class="c">/* il file */</span>
+<span class="a">  font-weight</span>:<span class="s"> 700</span>;                         <span class="c">/* il peso contenuto nel file */</span>
+<span class="a">  font-display</span>:<span class="s"> swap</span>;                       <span class="c">/* nel frattempo, il font di riserva */</span>
+}
+<span class="k">h1 </span>{
+<span class="a">  font-family</span>:<span class="s"> "Titoli", Georgia, serif</span>;
+}</code></pre>
+  <p>Il formato da usare è <b>WOFF2</b>, compresso e letto da tutti i browser moderni. Ogni font e <b>ogni peso</b> (normale, grassetto, corsivo…) è però un <b>file in più</b> da scaricare, e la pagina si appesantisce: meglio pochi pesi, solo quelli usati davvero. I <b>font variabili</b> contengono tutti i pesi in un solo file, che conviene quando ne servono molti.</p>
+  <p>Finché il file del font non è arrivato, che cosa mostra il browser? Senza indicazioni, per qualche istante <b>nasconde il testo</b>. Con <code>font-display: swap</code> lo mostra <b>subito con il font di riserva</b> e lo sostituisce quando il font arriva.</p>
+  <figure>
+    <div class="tela" data-widget="w7_swap"></div>
+  </figure>
+  <p>Il servizio più usato è <b>Google Fonts</b>, che offre centinaia di caratteri gratuiti. Si possono caricare dai server di Google con un <code>&lt;link&gt;</code>, oppure scaricare i file e <b>ospitarli sul proprio sito</b>.</p>
+  <div class="box storia"><h3><i data-ic="scale" class="ic-20"></i> Un caso di cronaca</h3>
+    <p>Il 20 gennaio 2022 il tribunale di Monaco di Baviera ha condannato il gestore di un sito a pagare 100 euro a un visitatore: caricando un carattere dai server di Google Fonts, il sito aveva trasmesso a Google l’indirizzo IP del visitatore senza il suo consenso (causa 3 O 17493/20). È un fatto di cronaca, non una regola generale: mostra però perché molti siti europei hanno scelto di <b>ospitare i font in locale</b>, sul proprio server, cosa che le licenze di Google Fonts permettono.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Più font e più pesi carico, più la pagina è bella.»</p>
+    <p class="err-si">Ogni font e ogni peso è un <b>file da scaricare</b>: la pagina diventa più lenta, soprattutto sul telefono. Due famiglie e pochi pesi bastano quasi sempre.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Incorporare Google Fonts è solo un link, non cambia nulla per la privacy.»</p>
+    <p class="err-si">Il browser di chi visita il sito si collega ai server di Google e gli <b>trasmette l’indirizzo IP</b>. Per questo molti siti ospitano i font in locale.</p></div>
+  <h3 id="s7-3">Dimensione, peso e stile</h3>
+  <p><code>font-size</code> fissa la dimensione del testo, con le unità del 5.5 (di solito <code>rem</code>). <code>font-weight</code> fissa il <b>peso</b>, cioè lo spessore dei tratti, con un numero da 100 (sottilissimo) a 900 (nerissimo): <code>normal</code> vale 400, <code>bold</code> vale 700, mentre <code>lighter</code> e <code>bolder</code> sono relativi al genitore.</p>
+  <p>Ma un peso esiste solo se <b>il font lo contiene</b>: molti font hanno soltanto il normale e il grassetto. Se si chiede un peso che manca, il browser usa il <b>più vicino</b> disponibile, oppure <b>simula</b> il grassetto ispessendo le lettere, con un risultato peggiore.</p>
+  <p><code>font-style</code> sceglie tra <code>normal</code>, <code>italic</code> e <code>oblique</code>. <code>italic</code> usa il <b>corsivo vero</b>, disegnato apposta, con forme diverse (guarda la «a» in molti font); <code>oblique</code> <b>inclina</b> semplicemente il carattere normale.</p>
+  <figure>
+    <div class="tela schema" id="s7_pesi"><p class="passi-titolo">La scala dei pesi (se il font li contiene)</p>
+      <div class="s7p"><div style="font-weight:100">Aa<span>100</span></div><div style="font-weight:200">Aa<span>200</span></div><div style="font-weight:300">Aa<span>300</span></div><div style="font-weight:400">Aa<span>400</span></div><div style="font-weight:500">Aa<span>500</span></div><div style="font-weight:600">Aa<span>600</span></div><div style="font-weight:700">Aa<span>700</span></div><div style="font-weight:800">Aa<span>800</span></div><div style="font-weight:900">Aa<span>900</span></div></div>
+    </div>
+  </figure>
+  <figure>
+    <div class="tela" data-widget="w7_testo"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>font-weight: 900</code> rende più nero qualunque font.»</p>
+    <p class="err-si">Funziona solo se il font <b>ha quel peso</b>. Altrimenti il browser usa il peso più vicino (spesso il 700) o lo simula.</p></div>
+  <h3 id="s7-4">Spaziatura e allineamento</h3>
+  <ul>
+    <li><code>line-height</code> è l’<b>interlinea</b>, la distanza tra le righe. Si scrive <b>senza unità</b> (5.5), così scala con il testo di ogni elemento; per il testo continuo si usa di solito un valore tra <b>1,4 e 1,6</b>;</li>
+    <li><code>letter-spacing</code> è lo spazio <b>tra le lettere</b>, <code>word-spacing</code> quello <b>tra le parole</b>: poco, e soprattutto per i titoli in maiuscolo;</li>
+    <li><code>text-indent</code> è il <b>rientro della prima riga</b> di un paragrafo, come nei libri;</li>
+    <li><code>text-align</code> allinea le righe di testo: <code>left</code>, <code>right</code>, <code>center</code>, <code>justify</code> (giustificato, con le righe che arrivano tutte ai due margini). Esistono anche <code>start</code> ed <code>end</code>, che si adattano alle lingue scritte da destra a sinistra.</li>
+  </ul>
+  <p><code>text-align</code> allinea il <b>contenuto</b> dentro la scatola dell’elemento, non la scatola nella pagina: un paragrafo con <code>text-align: center</code> ha le righe centrate, ma resta largo quanto prima. Per centrare un blocco si usano i margini (6.3) o Flexbox (7.1).</p>
+  <p>Il testo giustificato lascia spesso dei <b>buchi</b> tra le parole. Si attenuano con la sillabazione, <code>hyphens: auto</code>, che però funziona solo se la lingua della pagina è dichiarata (<code>&lt;html lang="it"&gt;</code>).</p>
+  <p>Le linee guida per l’accessibilità (WCAG, criterio 1.4.12) chiedono che il testo resti leggibile, senza tagli né sovrapposizioni, anche quando l’utente porta l’interlinea a <b>1,5</b>: niente altezze fisse sui contenitori di testo.</p>
+  <figure>
+    <div class="tela" data-widget="w7_spazio"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>text-align: center</code> centra il paragrafo nella pagina.»</p>
+    <p class="err-si">Centra le <b>righe di testo</b> dentro il paragrafo; la scatola del paragrafo non si sposta. Per centrare un blocco servono <code>margin: 0 auto</code> con una larghezza, o Flexbox.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>line-height: 20px</code> è come <code>line-height: 1.5</code>.»</p>
+    <p class="err-si">Con l’unità il valore è <b>fisso</b> e viene ereditato già calcolato: un titolo grande ha le righe sovrapposte. Senza unità si moltiplica per il testo di ogni elemento.</p></div>
+  <h3 id="s7-5">Decorazioni e trasformazioni</h3>
+  <ul>
+    <li><code>text-decoration</code> disegna una linea sul testo: tipo (<code>underline</code>, <code>line-through</code>, <code>none</code>), stile (<code>wavy</code>, <code>dotted</code>…), colore e spessore. <code>text-underline-offset</code> sposta la sottolineatura più in basso, lontano dalle lettere;</li>
+    <li><code>text-transform</code> (<code>uppercase</code>, <code>lowercase</code>, <code>capitalize</code>) cambia <b>l’aspetto</b>, non il testo: chi copia il testo o usa uno screen reader trova le lettere come sono scritte nell’HTML;</li>
+    <li><code>white-space</code> decide che cosa fare di spazi e a capo (tabella sotto);</li>
+    <li><code>overflow-wrap: anywhere</code> permette di spezzare le <b>parole lunghissime</b>, come un indirizzo web, che altrimenti uscirebbero dal riquadro.</li>
+  </ul>
+  <div class="tab"><table>
+    <thead><tr><th><code>white-space</code></th><th>Spazi multipli</th><th>A capo dell’HTML</th><th>Va a capo da solo</th></tr></thead>
+    <tbody>
+      <tr><td><code>normal</code></td><td>uniti in uno</td><td>ignorati</td><td>sì</td></tr>
+      <tr><td><code>nowrap</code></td><td>uniti in uno</td><td>ignorati</td><td><b>no</b></td></tr>
+      <tr><td><code>pre</code></td><td>conservati</td><td>conservati</td><td>no</td></tr>
+      <tr><td><code>pre-wrap</code></td><td>conservati</td><td>conservati</td><td>sì</td></tr>
+      <tr><td><code>pre-line</code></td><td>uniti in uno</td><td>conservati</td><td>sì</td></tr>
+    </tbody></table></div>
+  <p>Per tagliare un titolo troppo lungo con i <b>puntini di sospensione</b> serve <code>text-overflow: ellipsis</code>, che però da solo non fa niente: il testo deve stare <b>su una riga</b> (<code>white-space: nowrap</code>) e la parte che avanza deve essere <b>nascosta</b> (<code>overflow: hidden</code>).</p>
+  <figure>
+    <div class="tela" data-widget="w7_ellipsis"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>text-overflow: ellipsis</code> basta per avere i puntini.»</p>
+    <p class="err-si">Servono anche <code>white-space: nowrap</code>, perché il testo non vada a capo, e <code>overflow: hidden</code>, perché la parte in eccesso sia tagliata.</p></div>
+  <h3 id="s7-6">Stile dei link</h3>
+  <p>I link hanno pseudo-classi tutte loro: <code>:link</code> (link non ancora visitato), <code>:visited</code> (già visitato), a cui si aggiungono <code>:hover</code>, <code>:focus</code> e <code>:active</code> (5.3). <code>:any-link</code> prende tutti i link, visitati o no.</p>
+  <p>Le pseudo-classi hanno <b>tutte la stessa specificità</b>, e un link può essere in più stati insieme (visitato e con il mouse sopra). Quindi decide l’<b>ordine di scrittura</b>, e l’ordine giusto è <b>LVHA</b>: <code>:link</code>, <code>:visited</code>, <code>:hover</code>, <code>:active</code> (in inglese si ricorda con <i>LoVe HAte</i>). Se <code>:hover</code> venisse prima di <code>:visited</code>, un link visitato non cambierebbe mai colore al passaggio del mouse.</p>
+  <pre class="codice"><code><span class="k">a:link    </span>{<span class="a"> color</span>:<span class="s"> #0a6f66</span>; }
+<span class="k">a:visited </span>{<span class="a"> color</span>:<span class="s"> #6b4fa0</span>; }
+<span class="k">a:hover   </span>{<span class="a"> color</span>:<span class="s"> #c2410c</span>; }
+<span class="k">a:active  </span>{<span class="a"> color</span>:<span class="s"> #e9a313</span>; }</code></pre>
+  <figure>
+    <div class="tela" data-widget="w7_lvha"></div>
+  </figure>
+  <p>Due limiti e due attenzioni. Per motivi di <b>privacy</b> <code>:visited</code> accetta solo proprietà di <b>colore</b>: altrimenti un sito potrebbe scoprire, misurando la pagina, quali altri siti hai visitato. Non si toglie l’<code>outline</code> del fuoco senza metterci un altro segno ben visibile, perché chi naviga con la tastiera non saprebbe più dove si trova. E il colore da solo non basta a riconoscere un link (chi non distingue i colori non lo vede): di solito si tiene la sottolineatura.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«L’ordine delle regole sui link non conta.»</p>
+    <p class="err-si">Le pseudo-classi dei link hanno la <b>stessa specificità</b>: a parità vince l’ultima. Con un ordine diverso da LVHA alcuni stati non si vedono mai.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>a:visited { display: none; }</code> nasconde i link già visitati.»</p>
+    <p class="err-si">Per privacy <code>:visited</code> accetta <b>solo proprietà di colore</b>: la dichiarazione viene ignorata.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>outline: none</code> toglie solo un contorno fastidioso.»</p>
+    <p class="err-si">Toglie l’unico segno che mostra <b>dove si trova chi usa la tastiera</b>. Se proprio si toglie, va sostituito con un altro segno ben visibile.</p></div>
+  <p class="domanda">Un link già visitato, con il mouse sopra. Prima c’è <code>a:hover { color: red; }</code>, poi <code>a:visited { color: purple; }</code>. Di che colore è?</p>
+  <h3 id="s7-7">Liste</h3>
+  <p><code>list-style</code> imposta il <b>simbolo</b> delle voci (<code>list-style-type</code>: <code>disc</code>, <code>circle</code>, <code>square</code>, <code>decimal</code>, <code>lower-alpha</code>, <code>lower-roman</code>, <code>none</code>), la sua <b>posizione</b> (fuori o dentro il testo) ed eventualmente un’<b>immagine</b>. Lo pseudo-elemento <code>::marker</code> permette di colorare e ingrandire il simbolo: <code>li::marker { color: #0a6f66; }</code>. Gli attributi HTML <code>start</code> e <code>reversed</code> di <code>&lt;ol&gt;</code> fanno partire la numerazione da un altro numero o la fanno contare all’indietro.</p>
+  <p>Il <b>rientro</b> a sinistra degli elenchi non viene dal simbolo ma dal <code>padding-left</code> che il foglio di stile del browser dà a <code>ul</code> e <code>ol</code> (circa 40px). Per questo, nelle barre di navigazione fatte con un elenco, si scrivono sia <code>list-style: none</code> sia <code>padding-left: 0</code>.</p>
+  <figure>
+    <div class="tela schema" id="s7_rientro"><p class="passi-titolo">Da dove viene il rientro degli elenchi</p>
+      <div class="s7r">
+        <div class="kit-cella"><ul><li>Arduino</li><li>Stampa 3D</li><li>Robot</li></ul><span>in ambra il <code>padding-left</code> del foglio del browser</span></div>
+        <div class="kit-cella"><ul class="senza"><li>Arduino</li><li>Stampa 3D</li><li>Robot</li></ul><span>con <code>list-style: none</code> i pallini spariscono, il rientro resta</span></div>
+      </div>
+    </div>
+  </figure>
+  <p>Con i <b>contatori</b> del CSS si può numerare anche ciò che non è un elenco, come i titoli di un documento: <code>counter-reset</code> crea il contatore, <code>counter-increment</code> lo fa avanzare, <code>counter()</code> dentro il <code>content</code> di uno pseudo-elemento lo mostra.</p>
+  <figure>
+    <div class="tela" data-widget="w7_contatori"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>list-style: none</code> toglie anche il rientro dell’elenco.»</p>
+    <p class="err-si">Toglie solo il simbolo. Il rientro viene dal <code>padding-left</code> del browser: serve anche <code>padding-left: 0</code>.</p></div>
+
+  <!-- ===================== 6.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">6.3</span>Il box model</h2>
+  <h3 id="s8-1">Content, padding, border, margin</h3>
+  <p>Per il browser <b>ogni elemento è una scatola rettangolare</b>, anche un link o una parola in grassetto. La scatola è fatta di quattro strati, dal centro verso l’esterno: è il <span class="termine">box model</span>, il modello della scatola.</p>
+  <ul>
+    <li>il <b>contenuto</b> (<i>content</i>): il testo, l’immagine o gli elementi figli;</li>
+    <li>il <b>padding</b>: lo spazio <b>interno</b>, tra il contenuto e il bordo;</li>
+    <li>il <b>bordo</b> (<i>border</i>): la cornice, che può avere spessore zero;</li>
+    <li>il <b>margine</b> (<i>margin</i>): lo spazio <b>esterno</b>, che separa la scatola dalle altre.</li>
+  </ul>
+  <p>Lo <b>sfondo</b> dell’elemento si estende sotto il contenuto, il padding e il bordo, ma <b>non sotto il margine</b>, che resta sempre trasparente: attraverso il margine si vede lo sfondo del genitore.</p>
+  <figure>
+    <div class="tela" data-widget="w8_scatola"></div>
+  </figure>
+  <figure class="foto-grande"><a class="fonte" href="https://developer.chrome.com/docs/devtools/css/reference" target="_blank" rel="noopener"><img src="assets/immagini/devtools-box-model.png" alt="Il diagramma del box model nella scheda Styles dei DevTools di Chrome" referrerpolicy="no-referrer"></a><figcaption>Il diagramma del box model nei DevTools di Chrome: dall’esterno, in arancione il <b>margine</b>, in giallo il <b>bordo</b> (1px), in verde il <b>padding</b> (16px per lato) e al centro, in azzurro, il <b>contenuto</b> (140,531 × 28 px). Osservare che i colori sono gli stessi che il browser usa per evidenziare l’elemento nella pagina.</figcaption></figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il margine fa parte dello sfondo dell’elemento.»</p>
+    <p class="err-si">Lo sfondo arriva fino al <b>bordo</b>. Il margine è sempre <b>trasparente</b>: lì si vede lo sfondo del genitore.</p></div>
+  <h3 id="s8-2">Larghezza e altezza</h3>
+  <p>Senza indicazioni, un elemento di blocco ha <code>width: auto</code>, che vuol dire <b>tutta la larghezza disponibile</b> nel contenitore, e <code>height: auto</code>, cioè <b>l’altezza che serve al contenuto</b>. Di solito conviene lasciarle così: il testo va a capo e la scatola cresce da sola.</p>
+  <p>Quando servono dei limiti si usano <code>min-width</code>, <code>max-width</code>, <code>min-height</code> e <code>max-height</code>. <code>max-width</code> è la più utile: <code>max-width: 70ch</code> o <code>max-width: 1100px</code> lascia che un blocco si stringa sugli schermi piccoli ma gli impedisce di allargarsi troppo su quelli grandi.</p>
+  <p>Una trappola classica: <code>height: 100%</code> funziona <b>solo se il genitore ha un’altezza definita</b>. Se il genitore è <code>auto</code>, la percentuale non ha niente su cui calcolarsi e viene ignorata. Per dire «almeno alto quanto la finestra» si usa <code>min-height: 100vh</code> (o <code>100dvh</code>, 5.2); per «almeno così alto, ma che cresca se serve», <code>min-height</code> al posto di <code>height</code>.</p>
+  <figure>
+    <div class="tela" data-widget="w8_larghezze"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Con <code>width: 100%</code> e un padding l’elemento sta sempre nel contenitore.»</p>
+    <p class="err-si">Con il <code>box-sizing</code> predefinito (<code>content-box</code>) il padding <b>si aggiunge</b> al 100%: l’elemento esce dal contenitore. Serve <code>box-sizing: border-box</code> (più avanti).</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>height: 100%</code> fa riempire tutta la pagina.»</p>
+    <p class="err-si">La percentuale dell’altezza funziona solo se il genitore ha un’<b>altezza definita</b>; altrimenti è ignorata. Per occupare almeno la finestra si usa <code>min-height: 100vh</code>.</p></div>
+  <h3 id="s8-3">box-sizing: content-box contro border-box</h3>
+  <p><code>box-sizing</code> decide che cosa misurano <code>width</code> e <code>height</code>:</p>
+  <ul>
+    <li><code>content-box</code> (il valore predefinito): misurano <b>solo il contenuto</b>. Padding e bordo <b>si aggiungono</b>: un elemento con <code>width: 200px</code>, <code>padding: 20px</code> e un bordo di 5px occupa 200 + 40 + 10 = <b>250px</b>;</li>
+    <li><code>border-box</code>: misurano la scatola <b>fino al bordo compreso</b>. Padding e bordo stanno <b>dentro</b> la larghezza e il contenuto si restringe: lo stesso elemento occupa esattamente <b>200px</b>.</li>
+  </ul>
+  <p>Con <code>border-box</code> i conti tornano come uno se li aspetta, soprattutto con le percentuali. Per questo quasi tutti i fogli di stile cominciano con un piccolo <b>reset</b> che lo applica a tutto:</p>
+  <pre class="codice"><code><span class="k">*, *::before, *::after </span>{
+<span class="a">  box-sizing</span>:<span class="s"> border-box</span>;
+}</code></pre>
+  <p class="domanda">Un <code>div</code> con <code>width: 200px; padding: 20px; border: 5px solid</code>. Quanto spazio occupa in orizzontale?</p>
+  <figure>
+    <div class="tela" data-widget="w8_scatola2"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Con <code>width: 200px</code> l’elemento occupa sempre 200px, anche con padding e bordo.»</p>
+    <p class="err-si">Solo con <code>box-sizing: border-box</code>. Con il valore predefinito, <code>content-box</code>, padding e bordo <b>si aggiungono</b> ai 200px.</p></div>
+  <h3 id="s8-4">Margini</h3>
+  <p>I margini hanno qualche comportamento speciale. Il primo: quando due blocchi stanno <b>uno sopra l’altro</b>, il margine inferiore del primo e quello superiore del secondo <b>si fondono</b> (<i>margin collapsing</i>): la distanza tra i due è il <b>più grande</b> dei due margini, non la somma. Succede solo con i margini <b>verticali</b> e nel <b>flusso normale</b>: i margini orizzontali non si fondono mai, e nemmeno quelli tra gli elementi di un contenitore Flexbox o Grid.</p>
+  <p class="domanda">Un paragrafo con <code>margin-bottom: 20px</code>, sotto un paragrafo con <code>margin-top: 30px</code>. Quanti pixel li separano?</p>
+  <figure>
+    <div class="tela" data-widget="w8_margini"></div>
+  </figure>
+  <p>Il secondo: <code>margin: 0 auto</code> <b>centra in orizzontale</b> un blocco che ha una larghezza definita (o una <code>max-width</code>): il browser divide lo spazio libero in parti uguali a destra e a sinistra. In verticale, nel flusso normale, <code>auto</code> vale <b>zero</b>: per centrare in verticale servono Flexbox o Grid (7.1 e 7.2).</p>
+  <p>Il terzo: i margini possono essere <b>negativi</b>. Un margine negativo avvicina un elemento ai vicini fino a <b>sovrapporlo</b>, o lo fa sporgere fuori dal contenitore.</p>
+  <figure>
+    <div class="tela schema" id="s8_negativi"><p class="passi-titolo">Margini negativi</p>
+      <div class="s8n">
+        <div class="kit-cella"><div class="area"><div class="c1">Card A</div><div class="c2">Card B · <code>margin-top: -18px</code></div></div><span>B sale e si sovrappone ad A</span></div>
+        <div class="kit-cella"><div class="area"><div class="c3">Sporge a sinistra · <code>margin-left: -28px</code></div></div><span>l’elemento esce dal suo contenitore</span></div>
+      </div>
+    </div>
+  </figure>
+  <p>Infine, le <b>proprietà logiche</b> come <code>margin-inline</code> (destra e sinistra) e <code>padding-block</code> (sopra e sotto) indicano i lati secondo la direzione del testo invece che come alto, destra, basso, sinistra: in una lingua scritta da destra a sinistra si adattano da sole.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>margin: auto</code> centra anche in verticale.»</p>
+    <p class="err-si">Nel flusso normale <code>auto</code> in verticale vale <b>zero</b>: centra solo in orizzontale, e solo un blocco con una larghezza definita.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Due blocchi affiancati con i margini orizzontali: i margini si fondono.»</p>
+    <p class="err-si">Si fondono <b>solo i margini verticali</b> tra blocchi uno sopra l’altro. Quelli orizzontali si sommano sempre.</p></div>
+  <p class="domanda">Due card una sopra l’altra, <code>margin-bottom: 24px</code> la prima e <code>margin-top: 24px</code> la seconda. Le metto in un contenitore con <code>display: flex; flex-direction: column</code>. La distanza cambia?</p>
+  <h3 id="s8-5">Differenza tra margin e padding</h3>
+  <p>Padding e margine sono tutti e due spazio vuoto, ma da parti opposte del bordo. Il <b>padding</b> fa «respirare» il contenuto <b>dentro</b> l’elemento: il testo di un pulsante non tocca i bordi. Il <b>margine</b> <b>separa</b> l’elemento dai vicini.</p>
+  <figure>
+    <div class="tela schema" id="s8_padmar"><p class="passi-titolo">Lo stesso elemento con solo padding e con solo margine</p>
+      <div class="s8pm">
+        <div class="kit-cella"><div class="area"><div class="el pad">Club di robotica</div></div><span><code>padding: 24px</code>: lo spazio è <b>dentro</b>, colorato dallo sfondo, e fa parte dell’area cliccabile</span></div>
+        <div class="kit-cella"><div class="area"><div class="el mar">Club di robotica</div></div><span><code>margin: 24px</code>: lo spazio è <b>fuori</b>, trasparente, e allontana l’elemento dal contenitore</span></div>
+      </div>
+    </div>
+  </figure>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Padding</th><th>Margine</th></tr></thead>
+    <tbody>
+      <tr><td>dove sta</td><td>dentro il bordo</td><td>fuori dal bordo</td></tr>
+      <tr><td>sfondo</td><td>prende lo sfondo dell’elemento</td><td>trasparente</td></tr>
+      <tr><td>area cliccabile</td><td>ne fa parte (un link più comodo da toccare)</td><td>non ne fa parte</td></tr>
+      <tr><td>si fonde con i vicini</td><td>mai</td><td>sì, in verticale nel flusso normale</td></tr>
+      <tr><td>valori negativi</td><td>non ammessi</td><td>ammessi</td></tr>
+    </tbody></table></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Per staccare un elemento dal vicino uso il padding.»</p>
+    <p class="err-si">Il padding allarga lo spazio <b>dentro</b> l’elemento (e il suo sfondo). Per allontanarlo dai vicini serve il <b>margine</b>.</p></div>
+  <h3 id="s8-6">overflow</h3>
+  <p>Quando una scatola ha un’altezza (o una larghezza) fissa e il contenuto è più grande, il contenuto <b>trabocca</b>. La proprietà <code>overflow</code> decide che cosa farne:</p>
+  <ul>
+    <li><code>visible</code> (il valore iniziale): il contenuto <b>esce</b> dalla scatola e si sovrappone a ciò che c’è sotto;</li>
+    <li><code>hidden</code>: il contenuto in eccesso è <b>tagliato</b> e non si vede;</li>
+    <li><code>scroll</code>: compaiono le <b>barre di scorrimento</b>, sempre, anche se non servono;</li>
+    <li><code>auto</code>: le barre compaiono <b>solo se servono</b>.</li>
+  </ul>
+  <p>Con <code>overflow-x</code> e <code>overflow-y</code> si decide separatamente per l’orizzontale e il verticale: una tabella larga in un contenitore con <code>overflow-x: auto</code> si può far scorrere di lato sul telefono senza allargare tutta la pagina. Esiste anche <code>clip</code>, simile a <code>hidden</code> ma più rigido: non permette di scorrere nemmeno con JavaScript.</p>
+  <figure>
+    <div class="tela" data-widget="w8_overflow"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>overflow: hidden</code> fa scorrere il contenuto.»</p>
+    <p class="err-si"><code>hidden</code> lo <b>taglia</b>: la parte in eccesso non si vede e non si raggiunge. Per scorrere servono <code>auto</code> o <code>scroll</code>.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>overflow: scroll</code> e <code>overflow: auto</code> sono uguali.»</p>
+    <p class="err-si"><code>scroll</code> mostra le barre <b>sempre</b>, anche quando il contenuto entra; <code>auto</code> solo quando servono.</p></div>
+
+  <!-- ===================== 6.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">6.4</span>Flusso normale e display</h2>
+  <h3 id="s9-1">Il flusso normale (blocco e in linea)</h3>
+  <p>Prima di qualunque regola di impaginazione, il browser dispone gli elementi secondo il <span class="termine">flusso normale</span> (<i>normal flow</i>): li prende <b>nell’ordine in cui compaiono nell’HTML</b>, dall’alto in basso, e li sistema in due modi diversi.</p>
+  <ul>
+    <li>gli <b>elementi di blocco</b> (<i>block</i>) vanno sempre <b>a capo</b>: ognuno comincia su una riga nuova e, con <code>width: auto</code>, occupa <b>tutta la larghezza del contenitore</b>, anche se il suo testo è corto. I blocchi si impilano uno sotto l’altro;</li>
+    <li>gli <b>elementi in linea</b> (<i>inline</i>) <b>scorrono dentro la riga</b> come le parole di un testo: sono larghi quanto il loro contenuto, si mettono uno dopo l’altro e vanno a capo solo quando la riga è piena.</li>
+  </ul>
+  <figure>
+    <div class="tela schema" id="s9_flusso"><p class="passi-titolo">Blocchi impilati e elementi in linea che scorrono</p>
+      <div class="s9f">
+        <div class="kit-cella"><b>Blocchi: uno per riga, larghi quanto il contenitore</b><div class="s9f-area"><div class="s9f-b">h1</div><div class="s9f-b">p</div><div class="s9f-b">div</div><div class="s9f-b">ul</div></div></div>
+        <div class="kit-cella"><b>In linea: uno dopo l’altro, a capo a riga piena</b><div class="s9f-area s9f-righe"><span class="s9f-i">span</span> <span class="s9f-i">a</span> <span class="s9f-i">strong</span> <span class="s9f-i">em</span> <span class="s9f-i">span</span> <span class="s9f-i">a</span> <span class="s9f-i">code</span> <span class="s9f-i">em</span> <span class="s9f-i">span</span></div></div>
+      </div>
+    </div>
+  </figure>
+  <p>Chi decide se un elemento è di blocco o in linea? Non l’elemento in sé, ma il <b>foglio di stile del browser</b> (<i>user agent stylesheet</i>), che assegna a ogni tag il suo <code>display</code> iniziale:</p>
+  <div class="tab"><table>
+    <thead><tr><th>Comportamento</th><th>Elementi</th></tr></thead>
+    <tbody>
+      <tr><td>di blocco (<code>display: block</code>)</td><td><code>div</code>, <code>p</code>, <code>h1</code>…<code>h6</code>, <code>ul</code>, <code>ol</code>, <code>section</code>, <code>header</code>, <code>footer</code>, <code>nav</code>, <code>main</code>, <code>form</code></td></tr>
+      <tr><td>in linea (<code>display: inline</code>)</td><td><code>span</code>, <code>a</code>, <code>em</code>, <code>strong</code>, <code>code</code>, <code>br</code></td></tr>
+      <tr><td>in linea ma <i>sostituiti</i></td><td><code>img</code>, <code>input</code>, <code>button</code>, <code>video</code>: stanno nella riga ma hanno <b>dimensioni proprie</b></td></tr>
+    </tbody></table></div>
+  <p>Gli ultimi della tabella sono gli <span class="termine">elementi sostituiti</span> (<i>replaced elements</i>): il loro contenuto non è testo dell’HTML ma qualcosa che il browser «sostituisce» (un’immagine, un campo di un modulo). Stanno in linea come le parole, però hanno una larghezza e un’altezza loro e accettano <code>width</code> e <code>height</code>. Un caso a parte è <code>li</code>, che ha un <code>display</code> tutto suo, <code>list-item</code>: un blocco con il marcatore (più avanti).</p>
+  <figure class="foto-grande"><a class="fonte" href="https://developer.chrome.com/docs/devtools/css/reference" target="_blank" rel="noopener"><img src="assets/immagini/devtools-user-agent.png" alt="La scheda Styles dei DevTools di Chrome con la regola div display block del foglio di stile del browser" referrerpolicy="no-referrer"></a><figcaption>Nei DevTools di Chrome è selezionato <code>&lt;div class="card"&gt;Arduino&lt;/div&gt;</code>. Nella scheda <i>Styles</i>, sotto la regola <code>.card</code> di <code>stile.css</code>, c’è quella del <b>foglio di stile del browser</b> (<i>user agent stylesheet</i>): <code>div { display: block; }</code>. Nessuno l’ha scritta nel sito. A sinistra, il <code>div</code> evidenziato occupa <b>tutta la larghezza</b> della pagina, anche se contiene una parola sola.</figcaption></figure>
+  <figure>
+    <div class="tela" data-widget="w9_fila"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Gli elementi vanno dove li metto io, senza un ordine.»</p>
+    <p class="err-si">Nel flusso normale seguono <b>l’ordine del codice</b>: un elemento scritto dopo compare dopo, sotto (se è un blocco) o più avanti nella riga (se è in linea).</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Un <code>div</code> è largo quanto il suo testo.»</p>
+    <p class="err-si">Un blocco con <code>width: auto</code> occupa <b>tutta la larghezza del contenitore</b>, anche con una sola parola. Larghi quanto il contenuto sono gli elementi <b>in linea</b>.</p></div>
+  <h3 id="s9-2">display (block · inline · inline-block · none)</h3>
+  <p>La proprietà <code>display</code> cambia il comportamento assegnato dal browser. In realtà dice <b>due cose</b>: come si comporta l’elemento <b>verso l’esterno</b> (blocco o in linea, rispetto ai vicini) e come dispone <b>all’interno</b> i suoi figli (flusso normale, Flexbox, Grid: 7.1 e 7.2). I valori di base:</p>
+  <ul>
+    <li><code>block</code>: va a capo, occupa tutta la larghezza e <b>accetta tutto</b>: <code>width</code>, <code>height</code>, margini e padding in ogni direzione;</li>
+    <li><code>inline</code>: sta nella riga e <b>ignora <code>width</code> e <code>height</code></b>. Padding e margini orizzontali allontanano i vicini; quelli <b>verticali</b> si vedono (lo sfondo si allarga) ma <b>non spostano le righe</b>;</li>
+    <li><code>inline-block</code>: sta nella riga come una parola, ma <b>accetta <code>width</code>, <code>height</code> e margini</b> come un blocco. È il modo classico di affiancare piccoli riquadri, come i pulsanti;</li>
+    <li><code>none</code>: l’elemento <b>non esiste</b> nell’impaginazione, come se non fosse nell’HTML (più avanti).</li>
+  </ul>
+  <p>Ci sono poi valori più specifici: <code>list-item</code> è il <code>display</code> dei <code>li</code> (un blocco con il marcatore); <code>flow-root</code> è un blocco che <b>contiene i propri float</b> e non lascia uscire i margini dei figli (6.5); <code>contents</code> fa sparire la scatola dell’elemento lasciando al loro posto i figli, come se il genitore non ci fosse. <code>inline-flex</code> e <code>inline-grid</code> si vedranno con Flexbox e Grid.</p>
+  <p class="domanda">Metto <code>width: 200px</code> su uno <code>&lt;span&gt;</code>. Quanto diventa largo?</p>
+  <figure>
+    <div class="tela" data-widget="w9_display"></div>
+  </figure>
+  <p>Il widget mostra anche una sorpresa: tra due <code>inline-block</code> scritti su righe diverse dell’HTML compare uno <b>spazio di qualche pixel</b>. Non è un margine: è lo <b>spazio (o l’a capo) tra i tag</b>, che negli elementi in linea conta come lo spazio tra due parole. Lo stesso motivo lascia un piccolo vuoto <b>sotto le immagini</b>: un <code>img</code> è in linea e si appoggia sulla <b>linea di base</b> del testo, sotto la quale resta lo spazio per le lettere come g e p. Si risolve con <code>display: block</code> sull’immagine.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Uno <code>span</code> con <code>width: 200px</code> diventa largo 200px.»</p>
+    <p class="err-si">Gli elementi <b>in linea</b> ignorano <code>width</code> e <code>height</code>. Lo <code>span</code> resta largo quanto il testo, finché non gli si dà <code>display: inline-block</code> o <code>block</code>.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>inline-block</code> e <code>block</code> sono uguali.»</p>
+    <p class="err-si">Accettano tutti e due le misure, ma <code>block</code> va a capo e occupa tutta la riga, <code>inline-block</code> <b>resta nella riga</b>, largo quanto serve, accanto agli altri.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Tra due <code>inline-block</code> c’è uno spazio che non ho messo: è un bug.»</p>
+    <p class="err-si">È lo <b>spazio tra i tag nell’HTML</b>, che in linea vale come lo spazio tra due parole. Sparisce scrivendo i tag attaccati, o con Flexbox (<code>gap</code> al posto degli spazi).</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Sotto la mia immagine c’è uno spazio: è un margine.»</p>
+    <p class="err-si">L’immagine è <b>in linea</b> e si appoggia sulla linea di base del testo: sotto resta lo spazio per le lettere con la gamba. Con <code>display: block</code> sparisce.</p></div>
+  <h3 id="s9-3">Differenza tra display: none e visibility: hidden</h3>
+  <p>Ci sono più modi di nascondere un elemento, e non sono equivalenti:</p>
+  <ul>
+    <li><code>display: none</code> <b>toglie l’elemento dall’impaginazione</b>: i vicini <b>prendono il suo posto</b>, non si può cliccare né raggiungere con la tastiera e i <b>lettori di schermo</b> (i programmi che leggono la pagina a voce alle persone non vedenti) lo ignorano;</li>
+    <li><code>visibility: hidden</code> lo rende <b>invisibile</b> ma il suo <b>spazio resta occupato</b>: al suo posto c’è un buco. Non è cliccabile né letto. A differenza di <code>display: none</code>, un figlio con <code>visibility: visible</code> <b>torna visibile</b> dentro il genitore nascosto;</li>
+    <li><code>opacity: 0</code> lo rende <b>trasparente</b>: lo spazio resta e l’elemento è <b>ancora cliccabile</b> e letto dai lettori di schermo. È invisibile solo agli occhi;</li>
+    <li>l’attributo HTML <code>hidden</code> (<code>&lt;p hidden&gt;</code>) equivale a <code>display: none</code>, ma basta una regola CSS con un altro <code>display</code> sull’elemento per <b>farlo ricomparire</b>.</li>
+  </ul>
+  <p class="domanda">Nascondo il secondo di tre paragrafi. Con <code>display: none</code> il terzo sale? E con <code>visibility: hidden</code>?</p>
+  <figure>
+    <div class="tela" data-widget="w9_nascondi"></div>
+  </figure>
+  <div class="tab"><table>
+    <thead><tr><th></th><th>Spazio occupato</th><th>Cliccabile</th><th>Letto dai lettori di schermo</th><th>Un figlio può riapparire</th></tr></thead>
+    <tbody>
+      <tr><td><code>display: none</code></td><td>no</td><td>no</td><td>no</td><td>no</td></tr>
+      <tr><td><code>visibility: hidden</code></td><td>sì</td><td>no</td><td>no</td><td>sì, con <code>visibility: visible</code></td></tr>
+      <tr><td><code>opacity: 0</code></td><td>sì</td><td><b>sì</b></td><td>sì</td><td>no (l’opacità si moltiplica)</td></tr>
+      <tr><td>attributo <code>hidden</code></td><td>no</td><td>no</td><td>no</td><td>no (ma un <code>display</code> nel CSS lo annulla)</td></tr>
+    </tbody></table></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>display: none</code> e <code>visibility: hidden</code> sono la stessa cosa.»</p>
+    <p class="err-si">Tutti e due nascondono, ma <code>display: none</code> <b>libera lo spazio</b> (i vicini si spostano), <code>visibility: hidden</code> lo <b>lascia occupato</b>.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>opacity: 0</code> nasconde come <code>display: none</code>.»</p>
+    <p class="err-si">Con <code>opacity: 0</code> l’elemento è solo trasparente: <b>occupa lo spazio</b>, si può ancora <b>cliccare</b> e i lettori di schermo lo leggono.</p></div>
+
+  <!-- ===================== 6.5 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p5"><span class="num">6.5</span>Position e float</h2>
+  <h3 id="s10-1">position (static · relative · absolute · fixed · sticky)</h3>
+  <p>Il flusso normale (6.4) va bene per quasi tutto, ma a volte un elemento deve stare <b>in un punto preciso</b>: un’etichetta «Nuovo» sull’angolo di una card, una barra che resta in alto mentre si scorre, un pulsante «torna su» fisso in un angolo. Per questo c’è la proprietà <code>position</code>, con cinque valori.</p>
+  <p>Il valore iniziale è <code>static</code>: l’elemento sta nel flusso normale. Con gli altri quattro l’elemento diventa <span class="termine">posizionato</span> e si possono usare le proprietà di spostamento <code>top</code>, <code>right</code>, <code>bottom</code> e <code>left</code> (oppure la scorciatoia <code>inset</code>, che le imposta tutte e quattro come <code>margin</code>). Su un elemento <code>static</code> queste proprietà <b>non hanno effetto</b>.</p>
+  <ul>
+    <li><code>relative</code>: l’elemento si sposta <b>rispetto alla posizione che avrebbe</b> nel flusso. <code>top: 20px</code> lo abbassa di 20px, <code>left: 30px</code> lo sposta di 30px a destra. Il suo <b>posto originale resta occupato</b>: i vicini non se ne accorgono;</li>
+    <li><code>absolute</code>: l’elemento <b>esce dal flusso</b> (i vicini si comportano come se non ci fosse e ne prendono il posto) e si colloca rispetto al <b>più vicino antenato posizionato</b>, cioè il primo antenato con <code>position</code> diverso da <code>static</code>. Se non ce n’è nessuno, si colloca rispetto alla <b>pagina</b>. La sua larghezza, con <code>width: auto</code>, diventa quella del <b>contenuto</b>;</li>
+    <li><code>fixed</code>: come <code>absolute</code>, ma il riferimento è la <b>finestra del browser</b>: quando la pagina scorre, l’elemento <b>resta fermo</b>;</li>
+    <li><code>sticky</code>: l’elemento scorre con la pagina finché non raggiunge la soglia indicata (per esempio <code>top: 0</code>); da lì <b>resta attaccato</b> al bordo, ma solo <b>finché il suo genitore è visibile</b>: quando il genitore esce, se lo porta via. Senza soglia (<code>top</code>, <code>bottom</code>…) non fa niente, e non funziona se un antenato ha <code>overflow</code> diverso da <code>visible</code>.</li>
+  </ul>
+  <p>Lo schema più usato è la coppia <b>genitore <code>relative</code> + figlio <code>absolute</code></b>: il genitore resta nel flusso e non si sposta (nessun <code>top</code> né <code>left</code>), ma diventa il riferimento del figlio, che si può mettere in un suo angolo con <code>top: 0; right: 0</code>.</p>
+  <pre class="codice"><span class="kit-pre-nome">stile.css</span><code><span class="k">.card </span>{
+<span class="a">  position</span>:<span class="s"> relative</span>;   <span class="c">/* il riferimento */</span>
+}
+<span class="k">.card .etichetta </span>{
+<span class="a">  position</span>:<span class="s"> absolute</span>;
+<span class="a">  top</span>:<span class="s"> 8px</span>;
+<span class="a">  right</span>:<span class="s"> 8px</span>;            <span class="c">/* angolo in alto a destra della card */</span>
+}</code></pre>
+  <p class="domanda">Un <code>div</code> con <code>position: absolute</code> sta dentro un genitore <b>senza</b> <code>position</code>. Rispetto a che cosa si colloca?</p>
+  <figure>
+    <div class="tela" data-widget="w10_position"></div>
+  </figure>
+  <p>Il widget non ha <code>fixed</code>, perché dentro una pagina che scorre in un riquadro si comporterebbe come <code>absolute</code>. L’animazione seguente mostra <code>static</code>, <code>sticky</code> e <code>fixed</code> mentre la pagina scorre.</p>
+  <figure>
+    <div class="tela" data-widget="w10_scroll"></div>
+  </figure>
+  <div class="box storia"><h3><i data-ic="scale" class="ic-20"></i> Quando fixed non è fisso</h3>
+    <p>Un elemento <code>fixed</code> si colloca rispetto alla finestra <b>solo se nessun suo antenato ha un <code>transform</code></b> (7.4) o un <code>filter</code>: in quel caso il riferimento diventa quell’antenato e l’elemento scorre con lui. Se una barra fissa «non resta ferma», è la prima cosa da controllare.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>position: relative</code> sposta l’elemento e libera il suo posto.»</p>
+    <p class="err-si">Con <code>relative</code> l’elemento si vede spostato, ma il suo <b>posto originale resta occupato</b>: i vicini non si muovono. A liberarlo è <code>absolute</code>.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>absolute</code> si posiziona rispetto al genitore.»</p>
+    <p class="err-si">Rispetto al <b>più vicino antenato posizionato</b>. Il genitore è il riferimento solo se ha un <code>position</code> diverso da <code>static</code> (di solito <code>relative</code>).</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>top</code> funziona su ogni elemento.»</p>
+    <p class="err-si"><code>top</code>, <code>right</code>, <code>bottom</code> e <code>left</code> funzionano solo sugli elementi <b>posizionati</b>. Su un elemento <code>static</code> non hanno effetto.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>sticky</code> funziona anche senza <code>top</code>.»</p>
+    <p class="err-si">Senza una <b>soglia</b> (<code>top</code>, <code>bottom</code>…) l’elemento sticky si comporta come <code>relative</code> e scorre via con la pagina.</p></div>
+  <h3 id="s10-2">Differenza tra relative, absolute, fixed e sticky</h3>
+  <p>I quattro valori si distinguono rispondendo a tre domande: <b>rispetto a che cosa</b> si colloca l’elemento? <b>Lascia il suo spazio</b> nel flusso? Che cosa fa <b>quando la pagina scorre</b>?</p>
+  <div class="tab"><table>
+    <thead><tr><th>Valore</th><th>Riferimento</th><th>Spazio nel flusso</th><th>Allo scroll</th><th>Uso tipico</th></tr></thead>
+    <tbody>
+      <tr><td><code>relative</code></td><td>la sua posizione normale</td><td>resta occupato</td><td>scorre con la pagina</td><td>riferimento per i figli <code>absolute</code>, piccoli ritocchi</td></tr>
+      <tr><td><code>absolute</code></td><td>il più vicino antenato posizionato (o la pagina)</td><td>liberato</td><td>scorre con il riferimento</td><td>icona o etichetta sull’angolo di un’immagine o di una card</td></tr>
+      <tr><td><code>fixed</code></td><td>la finestra</td><td>liberato</td><td><b>resta fermo</b></td><td>barra in alto, pulsante «torna su», banner dei cookie</td></tr>
+      <tr><td><code>sticky</code></td><td>la finestra, dentro il genitore</td><td>resta occupato</td><td>scorre, poi <b>si ferma</b> alla soglia</td><td>intestazione di una tabella o di una sezione</td></tr>
+    </tbody></table></div>
+  <h3 id="s10-3">z-index e sovrapposizione</h3>
+  <p>Gli elementi posizionati possono <b>sovrapporsi</b>. Chi sta sopra? A parità di condizioni, l’elemento che <b>viene dopo nel codice</b>. Per cambiare l’ordine c’è <code>z-index</code>: un numero intero (anche negativo); più è alto, più l’elemento sta <b>in primo piano</b>. Funziona sugli elementi <b>posizionati</b> e sui figli di un contenitore Flexbox o Grid.</p>
+  <p>C’è però una regola che sorprende: <code>z-index</code> non vale per tutta la pagina, ma <b>dentro il proprio</b> <span class="termine">contesto di impilamento</span> (<i>stacking context</i>). Un contesto è come una <b>pila di fogli chiusa in una cartellina</b>: i fogli si possono riordinare dentro la cartellina, ma la cartellina intera sta sopra o sotto le altre cartelline. Un contesto nuovo lo crea, tra l’altro:</p>
+  <ul>
+    <li>un elemento posizionato con un <code>z-index</code> diverso da <code>auto</code>;</li>
+    <li>un elemento con <code>opacity</code> minore di 1;</li>
+    <li>un elemento con un <code>transform</code> o un <code>filter</code>.</li>
+  </ul>
+  <p>I contesti si confrontano <b>tra loro</b> come blocchi unici: il <code>z-index</code> di un figlio conta solo dentro il suo contenitore. Per questo un elemento con <code>z-index: 100</code> può restare <b>sotto</b> un altro con <code>z-index: 5</code>.</p>
+  <p class="domanda">A ha <code>z-index: 100</code> dentro un contenitore con <code>z-index: 1</code>; B ha <code>z-index: 5</code> dentro un contenitore con <code>z-index: 2</code>. Chi sta sopra?</p>
+  <figure>
+    <div class="tela" data-widget="w10_zindex"></div>
+  </figure>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>z-index: 9999</code> mette un elemento sopra tutto.»</p>
+    <p class="err-si">Solo <b>dentro il suo contesto di impilamento</b>. Se il suo contenitore crea un contesto più in basso di un altro, l’elemento resta sotto, qualunque numero abbia.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«<code>z-index</code> funziona su qualsiasi elemento.»</p>
+    <p class="err-si">Funziona sugli elementi <b>posizionati</b> (non <code>static</code>) e sui figli di Flexbox e Grid. Su un paragrafo normale non ha effetto.</p></div>
+  <h3 id="s10-4">Float e clear (testo attorno a un’immagine · contenitore collassato · clearfix)</h3>
+  <p><code>float: left</code> (o <code>right</code>) porta un elemento sul lato sinistro (o destro) del contenitore e fa <b>scorrere il testo attorno</b>, come in un giornale. È nato proprio per questo: un’immagine dentro un articolo.</p>
+  <figure>
+    <div class="tela schema" id="s10_float"><p class="passi-titolo">Il testo scorre attorno all’immagine in float</p>
+      <div class="s10f">
+        <div class="kit-cella"><div class="s10f-art"><i class="img"></i>Il club di robotica si riunisce il giovedì in laboratorio. Si costruiscono robot con Arduino, si programmano sensori e motori e a fine anno si partecipa alla gara regionale con le altre scuole. Le righe scorrono accanto all’immagine finché c’è, poi tornano a occupare tutta la larghezza.</div><span><code>img { float: left; margin: 0 12px 6px 0; }</code></span></div>
+      </div>
+    </div>
+  </figure>
+  <p>Il float ha due effetti collaterali. Il primo: un elemento in float <b>non conta nell’altezza del genitore</b>. Se un riquadro con un bordo contiene un’immagine in float e poco testo, il bordo avvolge solo il testo e l’immagine <b>esce sotto</b>: il genitore è <span class="termine">collassato</span>. I rimedi:</p>
+  <ul>
+    <li><code>display: flow-root</code> sul genitore: crea un blocco che <b>contiene i propri float</b>. È il modo moderno;</li>
+    <li>il <b>clearfix</b>: uno pseudo-elemento vuoto in fondo al genitore che «scende sotto» i float con <code>clear: both</code>, trascinando giù il bordo.</li>
+  </ul>
+  <pre class="codice"><span class="kit-pre-nome">clearfix</span><code><span class="k">.riquadro::after </span>{
+<span class="a">  content</span>:<span class="s"> ""</span>;
+<span class="a">  display</span>:<span class="s"> block</span>;
+<span class="a">  clear</span>:<span class="s"> both</span>;
+}</code></pre>
+  <p>Il secondo: gli elementi che seguono il float gli scorrono accanto. Per farli ripartire <b>sotto</b> il float si usa <code>clear: left</code>, <code>clear: right</code> o <code>clear: both</code>.</p>
+  <figure>
+    <div class="tela" data-widget="w10_flowroot"></div>
+  </figure>
+  <p>Per anni i float sono stati usati anche per affiancare le colonne di una pagina, con molti trucchi. Oggi quel lavoro lo fanno <b>Flexbox e Grid</b> (7.1 e 7.2): il float resta per ciò per cui è nato, il testo attorno a un’immagine.</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il float serve a fare i layout a colonne.»</p>
+    <p class="err-si">Si faceva così prima di Flexbox e Grid, con molti trucchi. Oggi il float serve solo a far <b>scorrere il testo attorno</b> a un elemento.</p></div>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Il genitore si allarga attorno a un figlio in float.»</p>
+    <p class="err-si">Il float <b>non conta nell’altezza</b> del genitore, che collassa. Serve <code>display: flow-root</code> o il clearfix.</p></div>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>Le immagini di sfondo si controllano con size, position, repeat e si sovrappongono; le immagini di contenuto vanno nell’HTML.</li>
+      <li>Un gradiente è un’immagine generata: va in background-image, mai in background-color.</li>
+      <li>border imposta spessore, stile e colore; outline è un contorno che non occupa spazio.</li>
+      <li>box-shadow ha offset, sfocatura, diffusione e colore; non cambia l’impaginazione.</li>
+      <li>max-width:100% adatta l’immagine al contenitore, object-fit decide come entra in un riquadro dato.</li>
+      <li>font-family è una lista in ordine di preferenza che finisce con una famiglia generica.</li>
+      <li>@font-face rende scaricabile un font, ma ogni font e peso è un file in più che rallenta la pagina.</li>
+      <li>Il peso del font esiste solo se il font lo contiene; italic è un corsivo disegnato, oblique un testo inclinato.</li>
+      <li>line-height senza unità scala col testo; text-align allinea il contenuto, non la scatola.</li>
+      <li>I puntini di text-overflow compaiono solo con overflow hidden e white-space nowrap.</li>
+      <li>Gli stati dei link hanno la stessa specificità: decide l’ordine, LVHA.</li>
+      <li>list-style none toglie il simbolo ma non il rientro; i contatori CSS numerano anche ciò che non è una lista.</li>
+      <li>Ogni elemento è una scatola a strati: contenuto, padding, bordo, margine.</li>
+      <li>width auto riempie il contenitore, height auto segue il contenuto; min e max fissano i limiti.</li>
+      <li>Con content-box padding e bordo si aggiungono alla width, con border-box ne fanno parte.</li>
+      <li>I margini verticali tra blocchi si fondono (vale il più grande); margin auto centra solo in orizzontale.</li>
+      <li>Il padding è spazio dentro l’elemento e prende lo sfondo, il margine è spazio fuori e trasparente.</li>
+      <li>overflow decide che cosa succede al contenuto che non entra: esce, è tagliato o scorre.</li>
+      <li>Il flusso normale dispone gli elementi nell’ordine dell’HTML: i blocchi vanno a capo, quelli in linea scorrono nella riga.</li>
+      <li>display decide se un elemento si comporta da blocco o in linea e come dispone i figli; gli elementi in linea ignorano width e height.</li>
+      <li>display none toglie l’elemento dall’impaginazione, visibility hidden lo rende invisibile lasciando lo spazio.</li>
+      <li>position decide come si colloca un elemento: relative rispetto al suo posto, absolute al più vicino antenato posizionato, fixed alla finestra, sticky fino a una soglia.</li>
+      <li>I quattro valori differiscono per riferimento, spazio lasciato nel flusso e comportamento allo scroll.</li>
+      <li>z-index ordina gli elementi sovrapposti ma vale solo dentro il proprio contesto di impilamento.</li>
+      <li>float porta un elemento a lato con il testo attorno, ma il genitore collassa: si risolve con clearfix o flow-root.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/kit.js"></script>
+<script src="assets/capitolo-06.js"></script>
+<script src="assets/capitolo-06-aula.js"></script>
+</body>
+</html>

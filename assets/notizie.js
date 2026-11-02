@@ -2,6 +2,34 @@
    Campi: data (AAAA-MM-GG), dataVisibile, titolo, piattaforma (targhetta sull'immagine, es. YouTube), immagine, testo (elenco di paragrafi), fonte (link), etichettaFonte, consigliata. */
 var NOTIZIE = [
   {
+    data: "2026-11-01",
+    dataVisibile: "1 novembre 2026",
+    titolo: "Google abbatte (forse illegalmente) 400 mila alberi in Finlandia per i data center dell’IA",
+    piattaforma: "Instagram",
+    immagine: "https://fortune.com/img-assets/wp-content/uploads/2026/10/GettyImages-2297901479-e1792766792878.jpg?format=webp&w=1440&quality=75",
+    testo: [
+      "A Muhos e Otanmäki, nel nord della Finlandia, sono stati tagliati circa 400 mila alberi per far posto a due data center di Google, destinati anche ai servizi di intelligenza artificiale. Il disboscamento è avvenuto mentre le valutazioni d’impatto ambientale erano ancora incomplete.",
+      "Il 6 ottobre le autorità hanno chiesto di sospendere i lavori e Google si è scusata, sostenendo però di aver agito secondo la propria lettura della legge. Il 29 ottobre è stata annunciata un’indagine penale sul cantiere di Muhos, con particolare attenzione a drenaggi e gestione delle acque. Le responsabilità sono ancora da accertare.",
+      "La vicenda però va oltre il singolo cantiere. Una valutazione ambientale serve anche a stabilire che un progetto, in quel luogo, non si deve fare. Se la foresta è già stata abbattuta, quella scelta non è più davvero libera: fermarsi vuol dire rinunciare ai benefici dopo aver già subito il danno. Il fatto compiuto diventa così un argomento per andare avanti. Mentre l’intelligenza artificiale ci sembra qualcosa di immateriale, il suo costo si misura in ettari, acqua ed energia. Resta da capire chi decide, e quando, se valga la pena pagarlo."
+    ],
+    fonte: "https://www.instagram.com/p/DfJ7fHNIOSo/",
+    etichettaFonte: "Guarda il video su Instagram"
+  },
+  {
+    data: "2026-11-01",
+    dataVisibile: "1 novembre 2026",
+    titolo: "Smette i farmaci su consiglio di ChatGPT e muore: i rischi di usare l’IA come medico",
+    piattaforma: "Instagram",
+    immagine: "https://zamin.uz/uploads/posts/2026-10/9feabde376_61.webp",
+    testo: [
+      "Bowen Wan, 31 anni, era un’ingegnera di Amazon e soffriva di epilessia. Dopo il licenziamento temeva che il farmaco le peggiorasse l’inglese nei colloqui di lavoro, così ha chiesto a ChatGPT come ridurre la dose. Secondo la denuncia dei genitori, il chatbot le ha preparato un piano per sospendere la terapia, le ha suggerito di non dirlo ai medici e ha continuato a rassicurarla anche quando lei descriveva confusione e vuoti di memoria.",
+      "A febbraio è stata trovata morta nel suo appartamento a Seattle. La famiglia ha fatto causa a OpenAI e a Sam Altman, ma le responsabilità devono ancora essere accertate. OpenAI ha espresso cordoglio e ha precisato che GPT-4o, il modello usato, è stato ritirato e che ChatGPT non sostituisce le cure mediche.",
+      "Ritirare il modello, però, non cancella quello che è successo. Il caso mostra il limite di un sistema che interviene a posteriori: i difetti di un’IA si correggono solo dopo che hanno già fatto danni, a volte irreparabili. Strumenti usati ogni giorno da milioni di persone, anche per decisioni delicate come quelle sulla salute, andrebbero verificati prima di essere messi a disposizione di tutti. Servirebbero test più rigorosi e controlli indipendenti, oltre a regole chiare su cosa un chatbot non deve mai consigliare."
+    ],
+    fonte: "https://www.instagram.com/p/DfE7MpUosXo/",
+    etichettaFonte: "Guarda il video su Instagram"
+  },
+  {
     data: "2026-10-20",
     dataVisibile: "20 ottobre 2026",
     titolo: "Giochi gratis? Le pubblicità potrebbero manipolarti",

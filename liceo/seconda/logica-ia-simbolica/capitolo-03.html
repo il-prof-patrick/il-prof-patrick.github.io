@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3. Tavole di verità · Logica e IA simbolica</title>
+<link rel="stylesheet" href="assets/sito.css">
+</head>
+<body data-capitolo="3">
+<div class="corpo">
+<nav class="menu" id="menu" aria-label="Capitoli del modulo"></nav>
+<main class="lezione" lang="it">
+  <div class="meta"><span><i data-ic="layers" class="ic-16"></i> Logica e IA simbolica · Capitolo 03</span></div>
+  <h1>Tavole di verità</h1>
+
+  <div class="contenuto">
+
+  <!-- ===================== 3.1 ===================== -->
+  <section class="sez">
+  <h2 id="p1"><span class="num">3.1</span>Costruire la tavola di una formula</h2>
+  <p>Su un’isola vivono due tipi di abitanti: i <b>cavalieri</b>, che dicono sempre il vero, e i <b>furfanti</b>, che mentono sempre. Incontri due abitanti, A e B, e A dice: «Siamo entrambi furfanti». Che cosa sono A e B?</p>
+  <p>Per rispondere con la logica, prima si formalizza. Con a = «A è un cavaliere» e b = «B è un cavaliere», ciò che dice A è ¬a ∧ ¬b. La regola dell’isola dice che <b>A è un cavaliere se e solo se ciò che dice è vero</b>: a ↔ (¬a ∧ ¬b). Ora basta trovare in quali casi questa formula è vera.</p>
+  <p>Una <b>tavola di verità</b> di una formula <b>calcola il suo valore per ogni combinazione possibile dei valori delle variabili</b>. Si costruisce in tre mosse:</p>
+  <ol>
+    <li><b>Le righe.</b> Ogni variabile può essere F o V, e <b>ogni variabile in più raddoppia i casi</b>: con n variabili le righe sono <b>2ⁿ</b> (1 variabile → 2 righe, 2 → 4, 3 → 8, 10 → 1024). Per non dimenticarne nessuna si segue sempre lo stesso ordine, partendo dal falso: nella prima colonna metà F e metà V, nella seconda blocchi di un quarto, e così via fino all’ultima, dove F e V si alternano.</li>
+    <li><b>Le colonne intermedie.</b> Una colonna per ogni pezzo della formula, <b>dall’interno verso l’esterno</b>, come si risolvono le operazioni di un’espressione partendo dalle parentesi più interne.</li>
+    <li><b>La colonna finale.</b> L’ultima colonna dà il valore della formula intera in ogni caso.</li>
+  </ol>
+  <figure>
+    <div class="tela passi-anim" id="f-enigma" data-titolo="La tavola risolve l'enigma" data-inizio="L’enigma diventa una formula: A è un cavaliere se e solo se ciò che dice è vero, cioè a ↔ (¬a ∧ ¬b). Due variabili: 2² = 4 righe.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="L’enigma dei cavalieri e dei furfanti diventa la formula a ↔ (¬a ∧ ¬b). La tavola si riempie colonna per colonna: a e b, poi ¬a e ¬b, poi ¬a ∧ ¬b, infine la formula, vera solo nella riga a falso, b vero: A è un furfante, B un cavaliere."></svg>
+      <ol class="passi-testo">
+        <li>Prima le combinazioni, partendo dal falso: nella colonna a metà F e metà V, nella colonna b F e V alternati. Ci sono tutti i casi possibili.</li>
+        <li>Poi le colonne più interne: ¬a e ¬b rovesciano a e b.</li>
+        <li>Poi la congiunzione: ¬a ∧ ¬b è vera solo quando sono vere entrambe.</li>
+        <li>Infine la formula intera: a ↔ (¬a ∧ ¬b) è vera quando a e ¬a ∧ ¬b hanno lo stesso valore.</li>
+        <li>Una sola riga rende vera la formula: è la soluzione dell’enigma.</li>
+      </ol>
+    </div>
+  </figure>
+  <div class="box storia"><figure class="foto-lato testa dx"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Gottfried_Wilhelm_Leibniz%2C_Bernhard_Christoph_Francke.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Gottfried_Wilhelm_Leibniz%2C_Bernhard_Christoph_Francke.jpg" alt="Gottfried Wilhelm Leibniz" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Gottfried Wilhelm Leibniz</figcaption></figure><h3><i data-ic="history" class="ic-20"></i> Nella storia · Leibniz: «Calculemus!»</h3>
+    <p>Il filosofo e matematico tedesco Gottfried Wilhelm Leibniz (1646–1716) sognava una lingua in cui ogni ragionamento si potesse scrivere con simboli precisi, così che le discussioni si potessero risolvere facendo i conti. Davanti a un disaccordo, scriveva, basterebbe sedersi e dire: «<i>Calculemus!</i>», «calcoliamo!». Le tavole di verità realizzano una piccola parte del suo sogno. Leibniz è anche l’inventore del <b>sistema binario</b> moderno, descritto in un articolo del 1703: lo stesso che, con 0 e 1, rappresenta falso e vero nei computer.</p></div>
+
+  <!-- ===================== 3.2 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p2"><span class="num">3.2</span>Tautologie, contraddizioni e formule soddisfacibili</h2>
+  <p>Guardando la colonna finale di una tavola, ogni formula cade in uno di questi casi:</p>
+  <ul>
+    <li>è una <b>tautologia</b> se è <b>vera in ogni riga</b>, qualunque siano i valori delle variabili;</li>
+    <li>è una <b>contraddizione</b> se è <b>falsa in ogni riga</b>;</li>
+    <li>è <b>soddisfacibile</b> se è <b>vera in almeno una riga</b>: esiste almeno un caso che la rende vera.</li>
+  </ul>
+  <p>Una tautologia è anche soddisfacibile; una contraddizione è proprio una formula <b>non</b> soddisfacibile. La formula dell’enigma è soddisfacibile, ma non è una tautologia: è vera in una sola riga, ed è per questo che l’enigma ha una soluzione.</p>
+  <p>I principi della logica classica del capitolo 2 sono tautologie: il <b>terzo escluso</b> si scrive <b>p ∨ ¬p</b> («piove o non piove»), la <b>non contraddizione</b> si scrive <b>¬(p ∧ ¬p)</b> («non è vero che piove e non piove»). Invece <b>p ∧ ¬p</b> («piove e non piove») è una contraddizione.</p>
+  <figure>
+    <div class="tela schema" id="s-tre-formule"><p class="passi-titolo">Tre formule, tre colonne finali</p>
+      <svg viewBox="0 0 720 260" role="img" aria-label="Tre tavole: p ∨ ¬p ha la colonna finale tutta vera, è una tautologia; p ∧ ¬p tutta falsa, è una contraddizione; p ∧ q è vera in una riga, è soddisfacibile."></svg>
+    </div>
+  </figure>
+  <p class="domanda">“Domani piove oppure domani non piove”: è una previsione utile?</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«Una tautologia è una formula che dice una cosa vera.»</p>
+    <p class="err-si">Una tautologia è vera <b>in ogni caso</b>, qualunque siano i valori delle variabili. Proprio per questo <b>non dice niente sul mondo</b>: «piove o non piove» è vera sia che piova sia che non piova.</p></div>
+
+  <!-- ===================== 3.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">3.3</span>Equivalenza logica</h2>
+  <p>Due formule sono <b>logicamente equivalenti</b> (si scrive A ≡ B) se <b>hanno la stessa colonna finale nella tavola di verità</b>: in ogni caso sono entrambe vere o entrambe false. Due formule equivalenti <b>dicono la stessa cosa in modi diversi</b>, quindi una si può sempre sostituire con l’altra.</p>
+  <p>Un esempio importante: <b>p → q ≡ ¬p ∨ q</b>. «Se prendi 8 ti porto al cinema» dice la stessa cosa di «non prendi 8, oppure ti porto al cinema»: in tutti e due i casi l’unica situazione esclusa è «prendi 8 e niente cinema».</p>
+  <figure>
+    <div class="tela schema" id="s-stessa-colonna"><p class="passi-titolo">Stessa colonna, stessa formula</p>
+      <svg viewBox="0 0 720 230" role="img" aria-label="Le tavole di p → q e di ¬p ∨ q hanno la stessa colonna finale, V V F V: le due formule sono equivalenti."></svg>
+    </div>
+  </figure>
+  <p>Attenzione a non confondere ≡ con ↔. <b>↔ è un connettivo</b>: sta <i>dentro</i> una formula e la formula può essere vera o falsa. <b>≡ non è un connettivo</b>: è un’affermazione che facciamo <i>su</i> due formule, e dice che sono equivalenti. I due simboli sono legati così: <b>A ≡ B vuol dire che la formula A ↔ B è una tautologia</b>.</p>
+
+  <!-- ===================== 3.4 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p4"><span class="num">3.4</span>Le leggi della logica</h2>
+  <p>Alcune equivalenze valgono sempre, qualunque cosa si metta al posto di p, q e r: sono le <b>leggi della logica</b>. <b>Servono a riscrivere e semplificare le formule</b>, come in algebra le proprietà delle operazioni permettono di trasformare un’espressione senza cambiarne il valore.</p>
+  <div class="tab"><table>
+    <thead><tr><th>Legge</th><th>Formula</th><th>Esempio in italiano</th></tr></thead>
+    <tbody>
+      <tr><td>doppia negazione</td><td>¬¬p ≡ p</td><td>«Non è vero che non piove» = «piove»</td></tr>
+      <tr><td>commutativa</td><td>p ∧ q ≡ q ∧ p · p ∨ q ≡ q ∨ p</td><td>«È sera e fuori è buio» = «fuori è buio ed è sera»</td></tr>
+      <tr><td>associativa</td><td>(p ∧ q) ∧ r ≡ p ∧ (q ∧ r) · lo stesso per ∨</td><td>con un solo tipo di connettivo le parentesi non contano</td></tr>
+      <tr><td>distributiva</td><td>p ∧ (q ∨ r) ≡ (p ∧ q) ∨ (p ∧ r) · p ∨ (q ∧ r) ≡ (p ∨ q) ∧ (p ∨ r)</td><td>«Studio e (ascolto musica o guardo la TV)» = «(studio e ascolto musica) o (studio e guardo la TV)»</td></tr>
+      <tr><td>idempotenza</td><td>p ∧ p ≡ p · p ∨ p ≡ p</td><td>«Piove e piove» = «piove»</td></tr>
+      <tr><td>assorbimento</td><td>p ∧ (p ∨ q) ≡ p · p ∨ (p ∧ q) ≡ p</td><td>«Marco è venuto, e Marco o Luca sono venuti» = «Marco è venuto»</td></tr>
+      <tr><td>De Morgan</td><td>¬(p ∧ q) ≡ ¬p ∨ ¬q · ¬(p ∨ q) ≡ ¬p ∧ ¬q</td><td>«Non è vero che Marco e Luca sono venuti» = «Marco non è venuto o Luca non è venuto»; «Non è vero che Marco o Luca sono venuti» = «Né Marco né Luca sono venuti»</td></tr>
+      <tr><td>implicazione</td><td>p → q ≡ ¬p ∨ q</td><td>«Se prendi 8 ti porto al cinema» = «Non prendi 8, oppure ti porto al cinema»</td></tr>
+    </tbody></table></div>
+  <p>Ogni legge si può verificare con una tavola di verità: basta controllare che le colonne finali delle due formule siano uguali. Le <b>leggi di De Morgan</b> sono quelle che si sbagliano più spesso: <b>negando un AND si ottiene un OR delle negazioni, negando un OR si ottiene un AND delle negazioni</b>.</p>
+  <figure>
+    <div class="tela" data-widget="leggi"></div>
+  </figure>
+  <p class="domanda">“Non è vero che Marco e Luca sono venuti tutti e due”: quindi nessuno dei due è venuto?</p>
+  <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
+    <p class="err-no">«¬(p ∨ q) ≡ ¬p ∨ ¬q»</p>
+    <p class="err-si">Negando un OR si ottiene un <b>AND</b> delle negazioni: <b>¬(p ∨ q) ≡ ¬p ∧ ¬q</b>. «Non è vero che piove o nevica» vuol dire «non piove <b>e</b> non nevica».</p></div>
+  <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
+    <ul>
+      <li>La <b>tavola di verità</b> calcola il valore di una formula in tutti i casi: <b>2ⁿ righe</b> per n variabili, ordinate partendo dal falso, e colonne dall’interno verso l’esterno.</li>
+      <li>Una formula è una <b>tautologia</b> se è sempre vera, una <b>contraddizione</b> se è sempre falsa, <b>soddisfacibile</b> se è vera in almeno un caso.</li>
+      <li>Due formule sono <b>equivalenti</b> (≡) se hanno la stessa colonna finale: dicono la stessa cosa in modi diversi. A ≡ B vuol dire che A ↔ B è una tautologia.</li>
+      <li>Le <b>leggi della logica</b> sono equivalenze che valgono sempre e servono a riscrivere le formule; le più importanti sono quelle di <b>De Morgan</b>: ¬(p ∧ q) ≡ ¬p ∨ ¬q e ¬(p ∨ q) ≡ ¬p ∧ ¬q.</li>
+    </ul></div>
+  </section>
+
+  </div>
+  <nav class="fine" data-auto aria-label="Capitoli vicini"></nav>
+</main>
+</div>
+<script src="assets/modulo.js"></script>
+<script src="assets/icone.js"></script>
+<script src="assets/sito.js"></script>
+<script src="assets/scena.js"></script>
+<script src="assets/capitolo-03.js"></script>
+<script src="assets/capitolo-03-aula.js"></script>
+</body>
+</html>

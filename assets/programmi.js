@@ -16,7 +16,7 @@ window.MODULI = {
     {
       titolo: 'Introduzione a informatica ed AI',
       descr: 'Che cosa vuol dire essere intelligenti e che cosa fa davvero un computer: intelligenza, algoritmi, pensiero computazionale e problemi che le regole non riescono a descrivere.',
-      link: 'introduzione-informatica-ai/index.html',
+      link: 'liceo/prima/introduzione-informatica-ai/index.html',
       stato: 'disponibile',
       immagine: 'assets/immagini/modulo-introduzione-informatica-ai.jpg'
     }
@@ -36,7 +36,7 @@ window.MODULI = {
     {
       titolo: 'Sviluppo Web - Front end',
       descr: 'Dalla richiesta del browser alla pagina sullo schermo: come funziona il Web e come si costruisce la parte di un sito che si vede e si usa, con HTML, CSS e JavaScript.',
-      link: 'sviluppo-web-frontend/index.html',
+      link: 'liceo/quinta/sviluppo-web-frontend/index.html',
       stato: 'disponibile',
       immagine: 'assets/immagini/modulo-web-frontend.png'
     },
@@ -53,7 +53,7 @@ window.MODULI = {
     {
       titolo: 'Introduzione a informatica ed AI',
       descr: 'Che cosa vuol dire essere intelligenti e che cosa fa davvero un computer: intelligenza, algoritmi, pensiero computazionale e problemi che le regole non riescono a descrivere.',
-      link: 'introduzione-informatica-ai/index.html',
+      link: 'liceo/prima/introduzione-informatica-ai/index.html',
       stato: 'disponibile',
       immagine: 'assets/immagini/modulo-introduzione-informatica-ai.jpg'
     },
@@ -104,15 +104,15 @@ window.MODULI = {
     {
       titolo: 'Reti e Internet',
       descr: '7 capitoli per capire come viaggiano i dati: dalla comunicazione digitale alle reti, da Internet al Web, fino a 5G, IoT, cloud e intelligenza artificiale.',
-      link: 'reti-internet/index.html',
+      link: 'liceo/seconda/reti-internet/index.html',
       stato: 'disponibile',
       immagine: 'assets/immagini/modulo-reti-internet.jpg'
     },
     {
       titolo: 'Logica e AI simbolica',
       descr: 'Come si ragiona con regole e simboli: logica proposizionale, sistemi esperti e le basi dell\'intelligenza artificiale simbolica.',
-      link: '#',
-      stato: 'in arrivo',
+      link: 'liceo/seconda/logica-ia-simbolica/index.html',
+      stato: 'disponibile',
       immagine: 'assets/immagini/modulo-logica-ai.jpg'
     },
     {
@@ -173,7 +173,7 @@ window.MODULI = {
     {
       titolo: 'Sviluppo Web - Front end',
       descr: 'Dalla richiesta del browser alla pagina sullo schermo: come funziona il Web e come si costruisce la parte di un sito che si vede e si usa, con HTML, CSS e JavaScript.',
-      link: 'sviluppo-web-frontend/index.html',
+      link: 'liceo/quinta/sviluppo-web-frontend/index.html',
       stato: 'disponibile',
       immagine: 'assets/immagini/modulo-web-frontend.png'
     },
