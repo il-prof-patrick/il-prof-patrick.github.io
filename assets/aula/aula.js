@@ -20,6 +20,9 @@
       '<button class="pl-b" id="pl-sch" aria-label="Schermo intero" title="Schermo intero (F)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>' +
       '<button class="pl-b pl-esci" id="pl-esci" aria-label="Esci dalla presentazione" title="Esci (Esc)">' + icona('x') + '<span>Esci</span></button></div>';
     document.body.appendChild(palco);
+    // stile «schema geometrico» (2 novembre 2026): lo sceglie il modulo con AULA.stile = 'schema'; domanda ed errore ridisegnati, fondo chiaro
+    var SCHEMA = A.stile === 'schema';
+    if (SCHEMA) palco.classList.add('st-schema');
     var scena = palco.querySelector('.pl-scena'), tela = palco.querySelector('.pl-tela'), vaiIn = palco.querySelector('#pl-vai'), tot = palco.querySelector('.pl-tot'),
         com = palco.querySelector('.pl-com'), binario = palco.querySelector('.pl-binario'), riempi = binario.querySelector('i');
 
@@ -45,7 +48,85 @@
     function titolo(s, extra) { return '<h2 class="pl-tit"' + (extra || '') + '>' + md(s.titolo) + '</h2>'; }
     // sottotitolo = il concetto della slide (campo msg), sotto il titolo-argomento
     function sottotitolo(s) { return s.msg ? '<p class="pl-msg">' + md(s.msg) + '</p>' : ''; }
-    function testa(s) { return '<header class="pl-testa en">' + titolo(s) + sottotitolo(s) + '</header>'; }
+    // occhiello: riga piccola maiuscola sopra il titolo («5.2 · Definizione», «Nella storia»)
+    function occ(s) { return s.occhiello ? '<div class="pl-occ' + (s.tonoOcc ? ' ' + s.tonoOcc : '') + '">' + md(s.occhiello) + '</div>' : ''; }
+    function testa(s) { return '<header class="pl-testa en">' + occ(s) + titolo(s) + sottotitolo(s) + '</header>'; }
+    // parole che accompagnano un passo: stanno nella riga sotto la slide (data-riga sull'elemento che si svela)
+    function riga(t) { return t ? ' data-riga="' + esc(md(t)) + '"' : ''; }
+    function corpoNd(b) {
+      return (b.testo ? '<p>' + md(b.testo) + '</p>' : '') +
+        (b.righe ? '<ul>' + b.righe.map(function (r) { return '<li>' + md(r) + '</li>'; }).join('') + '</ul>' : '') +
+        (b.html ? '<pre class="codice"><code>' + b.html + '</code></pre>' : '') +
+        (b.nota ? '<p class="pl-nd-nota">' + md(b.nota) + '</p>' : '');
+    }
+    // blocco bianco con icona nel quadratino e titolo; tono: si (verde), no (rosso), forse (ambra), fine (risultato)
+    function nodo(b, cls) {
+      return '<div class="pl-nd ' + (b.tono || '') + ' ' + (cls || '') + '"' + riga(b.riga) + '>' +
+        (b.titolo || b.icona ? '<div class="pl-nd-t">' + (b.icona ? '<span class="pl-ib">' + icona(b.icona) + '</span>' : '') + '<b>' + md(b.titolo || '') + '</b></div>' : '') + corpoNd(b) + '</div>';
+    }
+    function tag(c) { return c.etichetta ? '<span class="pl-tag ' + (c.tono || '') + '">' + (c.tono === 'si' ? '✓ ' : c.tono === 'no' ? '✗ ' : '') + md(c.etichetta) + '</span>' : ''; }
+
+    // anatomia: i pezzi del codice diventano <span class="pz">, anche annidati (la dichiarazione contiene proprietà e valore)
+    function pezzi(t, parti) {
+      var rr = [];
+      parti.forEach(function (p, k) {
+        var da = 0, at = -1;
+        for (var j = 0; j <= (p[3] || 0); j++) { at = t.indexOf(p[0], da); if (at < 0) break; da = at + 1; }
+        if (at >= 0) rr.push({ a: at, b: at + p[0].length, k: k });
+      });
+      var ev = [];
+      rr.forEach(function (r) { ev.push([r.a, 1, r], [r.b, 0, r]); });
+      ev.sort(function (x, y) {
+        if (x[0] !== y[0]) return x[0] - y[0];
+        if (x[1] !== y[1]) return x[1] - y[1];               // prima si chiude, poi si apre
+        return x[1] ? y[2].b - x[2].b : y[2].a - x[2].a;      // si apre prima il più lungo, si chiude prima il più corto
+      });
+      var o = '', pos = 0;
+      ev.forEach(function (e) { o += t.slice(pos, e[0]); pos = e[0]; o += e[1] ? '<span class="an-pz" data-k="' + e[2].k + '">' : '</span>'; });
+      return o + t.slice(pos);
+    }
+    // dispone le etichette dell'anatomia intorno al codice e disegna le linee (misure in px del palco, senza la scala)
+    function disponiAnatomia(sec) {
+      var c = sec.querySelector('.pl-anat'); if (!c) return;
+      var k = c.getBoundingClientRect().width / c.offsetWidth || 1, R0 = c.getBoundingClientRect();
+      function box(el) { var r = el.getBoundingClientRect(); return { l: (r.left - R0.left) / k, t: (r.top - R0.top) / k, w: r.width / k, h: r.height / k }; }
+      var cod = c.querySelector('.pl-an-cod'), W = c.offsetWidth, H = c.offsetHeight, lato = c.classList.contains('lato');
+      var et = [].slice.call(c.querySelectorAll('.pl-an-et')), svg = c.querySelector('.pl-an-ln'), ln = '';
+      var cb = box(cod);
+      if (lato) {
+        var x0 = cb.l + cb.w + 110, voci = [];
+        et.forEach(function (e) {
+          var pz = c.querySelector('.an-pz[data-k="' + e.getAttribute('data-k') + '"]'); if (!pz) return;
+          e.style.left = x0 + 'px'; e.style.maxWidth = (W - x0) + 'px';
+          var b = box(pz); voci.push({ e: e, b: b, y: b.t + b.h / 2 - e.offsetHeight / 2, h: e.offsetHeight });
+        });
+        voci.sort(function (a, b) { return a.y - b.y; });
+        var giu = 0; voci.forEach(function (v) { v.y = Math.max(v.y, giu); giu = v.y + v.h + 14; });
+        var sopra = Math.max(0, giu - 14 - H); voci.forEach(function (v) { v.y -= sopra; });
+        voci.forEach(function (v) {
+          v.e.style.top = Math.max(0, v.y) + 'px';
+          ln += '<path data-k="' + v.e.getAttribute('data-k') + '" d="M' + (cb.l + cb.w + 4) + ' ' + (v.b.t + v.b.h / 2) + ' H' + (cb.l + cb.w + 30) + ' L' + (x0 - 10) + ' ' + (Math.max(0, v.y) + v.h / 2) + '"/>';
+        });
+      } else {
+        var voci1 = [];
+        et.forEach(function (e) {
+          var pz = c.querySelector('.an-pz[data-k="' + e.getAttribute('data-k') + '"]'); if (!pz) return;
+          var b = box(pz); voci1.push({ e: e, b: b, cx: b.l + b.w / 2 });
+        });
+        voci1.sort(function (a, b) { return a.cx - b.cx; });
+        // in ordine da sinistra, a turno sopra e sotto; su ogni lato le etichette si dividono la larghezza in parti uguali
+        var lati = [voci1.filter(function (v, n) { return n % 2 === 0; }), voci1.filter(function (v, n) { return n % 2 === 1; })];
+        voci1.forEach(function (v, n) {
+          var su = n % 2 === 0, lato1 = lati[su ? 0 : 1], q = lato1.indexOf(v), m = lato1.length, w = v.e.offsetWidth, h = v.e.offsetHeight;
+          var l = Math.max(0, Math.min(W - w, W * (q + 0.5) / m - w / 2));
+          var top = su ? Math.max(0, cb.t - 54 - h) : Math.min(H - h - (c.classList.contains('con-eff') ? 50 : 0), cb.t + cb.h + 54);
+          v.e.style.left = l + 'px'; v.e.style.top = top + 'px';
+          var y1 = su ? v.b.t - 4 : v.b.t + v.b.h + 4, y2 = su ? top + h + 6 : top - 6, x2 = Math.max(l + 12, Math.min(l + w - 12, v.cx));
+          ln += '<path data-k="' + v.e.getAttribute('data-k') + '" d="M' + v.cx + ' ' + y1 + ' L' + x2 + ' ' + y2 + '"/>';
+        });
+      }
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.innerHTML = ln;
+    }
     function nota(s) { return s.nota ? '<p class="pl-nota rv">' + icona('lightbulb') + '<span>' + md(s.nota) + '</span></p>' : ''; }
     function righe(arr, cls) { return arr.map(function (p) { return '<li class="rv">' + ic(p[0]) + '<span>' + md(p[1]) + '</span></li>'; }).join(''); }
 
@@ -119,15 +200,76 @@
       },
       domanda: function (s) {
         var k = nudo(s.testo).length, fs = k < 70 ? 78 : k < 130 ? 64 : k < 200 ? 52 : 44;
-        return '<div class="pl-dom en">' + icona('message-circle-question') + '<p style="font-size:' + fs + 'px">' + md(s.testo) + '</p></div>' +
+        if (SCHEMA) fs = Math.round(fs * 0.82);
+        return '<div class="pl-dom en">' + (SCHEMA ? '<span class="pl-dom-ic">' + icona('message-circle-question') + '</span><span class="pl-dom-k">Domanda per la classe</span>' : icona('message-circle-question')) + '<p style="font-size:' + fs + 'px">' + md(s.testo) + '</p></div>' +
           (s.risposta ? '<div class="pl-dom-r rv">' + icona('circle-check') + '<span>' + md(s.risposta) + '</span></div>' : '');
       },
       errore: function (s) {
+        if (SCHEMA) return '<header class="pl-testa en">' + occ({ occhiello: s.occhiello || 'Errore tipico', tonoOcc: 'r' }) + '</header>' +
+          '<div class="pl-err2 en"><div class="pl-e2-no" data-fit data-min="24"><span class="pl-x">✗</span><p>' + md(s.no) + '</p></div>' +
+          '<div class="pl-e2-si rv" data-fit data-min="20"><span class="pl-x ok">✓</span><p>' + md(s.si) + '</p></div></div>';
         return testa({ titolo: s.titolo || 'Trova l’errore' }) + '<div class="pl-err en"><div class="pl-err-no" data-fit data-min="22">' + icona('message-circle-question') + icona('circle-x') +
           '<div><span class="e1">Che cosa c’è di sbagliato?</span><span class="e2">Sbagliato</span><p>' + md(s.no) + '</p></div></div>' +
           '<div class="pl-err-si rv" data-fit data-min="22">' + icona('circle-check') + '<div><span>Corretto</span><p>' + md(s.si) + '</p></div></div></div>';
       },
-      ricorda: function (s) { return R.punti({ titolo: s.titolo || 'Ricorda', punti: s.punti }); }
+      ricorda: function (s) { return R.punti({ titolo: s.titolo || 'Ricorda', punti: s.punti }); },
+
+      // ---------- forme «schema geometrico»: la slide ha la forma del suo significato ----------
+      // definizione: la frase grande; al clic, sotto, gli ingredienti con l'icona (e la nota)
+      definizione: function (s) {
+        return testa(s) + '<div class="pl-corpo pl-def en"><p class="pl-def-frase" data-fit data-min="24">' + md(s.frase) + '</p>' +
+          (s.parti || s.nota ? '<div class="pl-def-giu rv">' + (s.parti ? '<div class="pl-def-parti n' + s.parti.length + '">' + s.parti.map(function (p) {
+            return '<div>' + icona(p[0]) + '<span>' + md(p[1]) + '</span></div>'; }).join('') + '</div>' : '') +
+            (s.nota ? '<p class="pl-def-nota">' + md(s.nota) + '</p>' : '') + '</div>' : '') + '</div>';
+      },
+      // processo A → B → C: blocchi da sinistra a destra, uno per clic (il primo c'è già); frecce con il nome del passaggio
+      flusso: function (s) {
+        var fr = s.frecce || [];
+        return testa(s) + '<div class="pl-corpo pl-flusso n' + s.blocchi.length + (fr.length ? ' con-nomi' : '') + ' en" data-fit data-min="16">' + s.blocchi.map(function (b, k) {
+          var f = k ? '<span class="pl-fr">' + icona('arrow-right') + (fr[k - 1] ? '<small>' + md(fr[k - 1]) + '</small>' : '') + '</span>' : '';
+          return '<div class="pl-fl-c' + (k ? ' rv' : '') + '"' + riga(b.riga) + '>' + f + nodo(b) + '</div>';
+        }).join('') + '</div>';
+      },
+      // due casi da confrontare: colonne con bordo verde / rosso ed etichetta ✓ ✗
+      casi: function (s) {
+        return testa(s) + '<div class="pl-corpo pl-casi n' + s.casi.length + ' en" data-fit data-min="16">' + s.casi.map(function (c, k) {
+          return '<div class="pl-nd ' + (c.tono || '') + (k && s.aClic ? ' rv' : '') + '"' + riga(c.riga) + '>' + tag(c) + (c.titolo || c.icona ? '<div class="pl-nd-t">' + (c.icona ? '<span class="pl-ib">' + icona(c.icona) + '</span>' : '') + '<b>' + md(c.titolo || '') + '</b></div>' : '') + corpoNd(c) + '</div>';
+        }).join('') + '</div>';
+      },
+      // un'ambiguità o una scelta: la frase al centro che si divide in due rami
+      bivio: function (s) {
+        return testa(s) + '<div class="pl-corpo pl-bivio en" data-fit data-min="16"><div class="pl-nd pl-bv-frase">' + md(s.frase) + '</div>' +
+          '<div class="pl-bv-fr">' + icona('arrow-right') + icona('arrow-right') + '</div><div class="pl-bv-rami">' +
+          s.rami.map(function (r) { return nodo(r, 'rv'); }).join('') + '</div></div>';
+      },
+      // storia con date: linea del tempo orizzontale, una data per clic
+      linea: function (s) {
+        return testa(s) + '<div class="pl-corpo pl-linea n' + s.punti.length + ' en"><i class="pl-ln"></i>' + s.punti.map(function (p) {
+          return '<div class="pl-ln-p rv"><span class="pl-ln-anno">' + md(p[0]) + '</span><p>' + md(p[1]) + '</p></div>'; }).join('') + '</div>';
+      },
+      // confronto con un dato: due colonne con icona tonda, poi la cifra enorme con la cautela
+      cifra: function (s) {
+        function col(c, k) { return '<div class="pl-cf-col rv"><span class="pl-tondo' + (k ? ' b' : '') + '">' + icona(c[0]) + '</span><div><b>' + md(c[1]) + '</b><p>' + md(c[2] || '') + '</p></div></div>'; }
+        return testa(s) + '<div class="pl-corpo pl-cifra en"><div class="pl-cf-due">' + col(s.a, 0) + col(s.b, 1) + '</div>' +
+          '<div class="pl-cf-num rv"><span class="g">' + md(s.cifra) + '</span><p>' + md(s.testo || '') + '</p>' + (s.cautela ? '<small>' + md(s.cautela) + '</small>' : '') + '</div></div>';
+      },
+      // oggetti + a che cosa servono: foto a metà slide, gli oggetti come gettoni, poi un perché per clic
+      gettoni: function (s) {
+        return (s.foto ? '<div class="pl-gt-foto en"><img class="sf" src="' + s.foto.src + '" alt="" aria-hidden="true">' + fotoHtml(s.foto) + '</div>' : '') +
+          '<div class="pl-gt-dx en' + (s.foto ? '' : ' pieno') + '">' + occ(s) + titolo(s) + sottotitolo(s) +
+          '<div class="pl-gt-chips">' + s.gettoni.map(function (g) { return '<span class="pl-chip">' + icona(g[0]) + '<span>' + md(g[1]) + '</span></span>'; }).join('') + '</div>' +
+          '<div class="pl-gt-perche" data-fit data-min="16">' + (s.perche || []).map(function (p) {
+            return '<div class="rv"><span class="pl-ib">' + icona(p[0]) + '</span><div><b>' + md(p[1]) + '</b>' + (p[2] ? '<p>' + md(p[2]) + '</p>' : '') + '</div></div>'; }).join('') + '</div></div>';
+      },
+      // com'è fatto: il codice (o l'oggetto) al centro, un'etichetta collegata da una linea per clic
+      anatomia: function (s) {
+        var rr = s.codice.split('\n'), largo = Math.max.apply(null, rr.map(function (r) { return r.length; })), lato = rr.length > 1;
+        var fs = Math.max(20, Math.min(lato ? 40 : 54, Math.floor((lato ? 560 : 1100) / (0.61 * largo)), Math.floor(400 / (1.5 * rr.length + 1))));
+        return testa(s) + '<div class="pl-corpo pl-anat en ' + (lato ? 'lato' : 'riga1') + (s.effetto ? ' con-eff' : '') + '">' +
+          '<pre class="pl-an-cod" style="font-size:' + fs + 'px">' + pezzi(s.codice, s.parti) + '</pre><svg class="pl-an-ln" aria-hidden="true"></svg>' +
+          s.parti.map(function (p, k) { return '<div class="pl-an-et rv" data-k="' + k + '"><b>' + md(p[1]) + '</b>' + (p[2] ? '<span>' + md(p[2]) + '</span>' : '') + '</div>'; }).join('') +
+          (s.effetto ? '<p class="pl-an-eff rv">' + md(s.effetto) + '</p>' : '') + '</div>';
+      }
     };
 
     // etichetta in basso a sinistra: dove siamo (la funzione della slide, oppure la sezione)
@@ -136,7 +278,7 @@
       if (s.tipo === 'errore') return 'Trova l’errore';
       return s._sez || '';
     }
-    var CAMPO = { sezione: 1, domanda: 1, copertina: 0 };
+    var CAMPO = { sezione: 1, domanda: SCHEMA ? 0 : 1, copertina: 0 };
 
     // riduce il testo finché sta nello spazio che ha
     function sfora(el) { return el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1; }
@@ -154,9 +296,10 @@
       // con il sottotitolo la testata è più alta: il corpo parte subito sotto di essa
       [].forEach.call(sec.querySelectorAll('.pl-testa'), function (t) {
         var c = sec.querySelector('.pl-corpo');
-        if (c) c.style.top = t.querySelector('.pl-msg') ? (t.offsetTop + t.offsetHeight + 26) + 'px' : '';
+        if (c) c.style.top = t.querySelector('.pl-msg,.pl-occ') ? (t.offsetTop + t.offsetHeight + 26) + 'px' : '';
       });
       [].forEach.call(sec.querySelectorAll('[data-fit]'), function (f) { fit(f, parseFloat(f.getAttribute('data-min')) || 14, sfora); });
+      disponiAnatomia(sec);
     }
 
     function adatta() {
@@ -179,8 +322,9 @@
       palco.classList.toggle('campo', !!CAMPO[s.tipo]);
       palco.setAttribute('data-tipo', s.tipo);
 
-      cur = { rv: [].slice.call(sec.querySelectorAll('.rv')), k: 0, av: null };
-      if (dietro) { cur.rv.forEach(function (p) { p.classList.add('visto'); }); cur.k = cur.rv.length; marca(); }
+      if (s.tipo !== 'copertina' && (s.riga || sec.querySelector('[data-riga]'))) sec.insertAdjacentHTML('beforeend', '<p class="pl-riga">' + md(s.riga || '') + '</p>');
+      cur = { rv: [].slice.call(sec.querySelectorAll('.rv')), k: 0, av: null, sec: sec, s: s };
+      if (dietro) { cur.rv.forEach(function (p) { p.classList.add('visto'); }); cur.k = cur.rv.length; }
       var f = sec.querySelector('[data-clona]');
       if (f) {
         var c = clona(f.getAttribute('data-clona'));
@@ -188,12 +332,25 @@
       }
       iconeInline(sec);
       adattaTesti(sec);
+      marca();
       vaiIn.value = i + 1; tot.textContent = '/ ' + S.length;
       progresso(); adatta();
     }
     // l'ultimo elemento svelato è in evidenza, i precedenti si abbassano un po'
     function marca() {
-      cur.rv.forEach(function (p, n) { p.classList.toggle('ult', n === cur.k - 1); });
+      var vis = {}, ult = null, rg = null;
+      cur.rv.forEach(function (p, n) {
+        p.classList.toggle('ult', n === cur.k - 1);
+        if (n >= cur.k) return;
+        if (p.hasAttribute('data-k')) { vis[p.getAttribute('data-k')] = 1; if (n === cur.k - 1) ult = p.getAttribute('data-k'); }
+        if (p.hasAttribute('data-riga')) rg = p.getAttribute('data-riga');
+      });
+      // anatomia: si accendono il pezzo di codice e la linea dell'etichetta svelata
+      [].forEach.call(cur.sec.querySelectorAll('.an-pz[data-k],.pl-an-ln [data-k]'), function (z) {
+        var k = z.getAttribute('data-k'); z.classList.toggle('vis', !!vis[k]); z.classList.toggle('on', k === ult);
+      });
+      var r = cur.sec.querySelector('.pl-riga');
+      if (r) { if (rg === null) { var p0 = cur.sec.querySelector('[data-riga]:not(.rv)'); rg = p0 ? p0.getAttribute('data-riga') : md(cur.s.riga || ''); } r.innerHTML = rg; }
     }
     function avanti() {
       if (cur && cur.k < cur.rv.length) { cur.rv[cur.k++].classList.add('visto'); marca(); return; }
@@ -232,7 +389,7 @@
       i = 0; aperta = true; nera = false; palco.classList.remove('nera'); document.body.classList.add('presenta');
       tela.innerHTML = ''; mostra(false, true); mostraCom();
       // il primo schermo parte quando i caratteri sono pronti
-      if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (aperta) adattaTesti(tela.lastElementChild); });
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (aperta) { adattaTesti(tela.lastElementChild); marca(); } });
     }
     function chiudi() {
       aperta = false; document.body.classList.remove('presenta'); tela.innerHTML = ''; clearTimeout(tCom);

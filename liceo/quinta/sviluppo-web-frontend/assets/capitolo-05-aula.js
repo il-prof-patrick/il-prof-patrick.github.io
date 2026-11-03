@@ -52,195 +52,205 @@ window.AULA = {
    "risposta": "Non il contenuto (l’HTML) ma l’**aspetto**: il **foglio di stile CSS**."
   },
   {
-   "tipo": "sezione",
-   "num": "5.1",
-   "titolo": "A cosa serve il CSS",
-   "sotto": "L’HTML dice cos’è ogni parte della pagina, il CSS come appare; separarli permette di cambiare l’aspetto senza toccare il contenuto.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/1-1.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
    "tipo": "domanda",
    "testo": "Una pagina non ha nemmeno una riga di CSS. Perché allora il titolo è grande e in grassetto e il link è blu e sottolineato?",
    "risposta": "Lo decide il **foglio di stile predefinito del browser** (*user agent stylesheet*). L’HTML dice solo «questo è un titolo di primo livello» e «questo è un link», non come devono apparire."
   },
   {
-   "tipo": "punti",
-   "titolo": "HTML e CSS",
-   "msg": "L’HTML dice che cos’è, il CSS come appare",
-   "punti": [
-    [
-     "file-code",
-     "**CSS** = *Cascading Style Sheets*, «fogli di stile a cascata»"
-    ],
-    [
-     "tag",
-     "**HTML**: che cos’è ogni parte · titolo, paragrafo, elenco, link"
-    ],
+   "tipo": "definizione",
+   "titolo": "Il CSS",
+   "frase": "Il **CSS** (*Cascading Style Sheets*, «fogli di stile a cascata») è il linguaggio che decide **come appare** una pagina web.",
+   "parti": [
     [
      "palette",
-     "**CSS**: come appare · colori, caratteri, spazi, impaginazione"
-    ],
-    [
-     "layers",
-     "Due linguaggi, due file: **significato** da una parte, **presentazione** dall’altra"
-    ]
-   ]
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Il foglio di stile del browser",
-   "msg": "Anche senza CSS una pagina ha un aspetto",
-   "punti": [
-    [
-     "monitor",
-     "Il browser applica il suo **foglio di stile predefinito** (*user agent stylesheet*)"
+     "colori"
     ],
     [
      "type",
-     "Titoli **grandi e in grassetto**, link **blu e sottolineati**, margini intorno al testo"
+     "caratteri"
     ],
     [
-     "copy",
-     "Per questo le pagine senza CSS **si somigliano tutte**"
+     "ruler",
+     "dimensioni e spazi"
     ],
     [
-     "pencil",
-     "Il nostro CSS **parte da lì** e lo modifica"
+     "layout-dashboard",
+     "impaginazione"
     ]
-   ]
+   ],
+   "nota": "L’HTML dà il **significato**, il CSS la **presentazione**.",
+   "occhiello": "A cosa serve il CSS"
   },
   {
-   "tipo": "tessere",
+   "tipo": "flusso",
+   "titolo": "Il foglio di stile del browser",
+   "blocchi": [
+    {
+     "titolo": "Pagina senza CSS",
+     "testo": "solo HTML: titoli, paragrafi, link",
+     "icona": "file-code"
+    },
+    {
+     "titolo": "Foglio predefinito",
+     "testo": "il browser applica il suo *user agent stylesheet*",
+     "icona": "monitor"
+    },
+    {
+     "titolo": "L’aspetto di partenza",
+     "icona": "eye",
+     "righe": [
+      "titoli grandi e in grassetto",
+      "link blu e sottolineati",
+      "margini intorno al testo"
+     ],
+     "tono": "fine"
+    }
+   ],
+   "riga": "Per questo le pagine senza CSS **si somigliano tutte**; il nostro CSS parte da lì e lo modifica.",
+   "occhiello": "A cosa serve il CSS"
+  },
+  {
+   "tipo": "gettoni",
    "titolo": "Perché separarli",
-   "msg": "Cambiare l’aspetto senza toccare il contenuto",
-   "tessere": [
+   "gettoni": [],
+   "perche": [
     [
      "wrench",
      "Manutenzione",
-     "si modifica il foglio di stile, non le pagine"
+     "per cambiare l’aspetto si modifica il foglio di stile, non le pagine"
     ],
     [
      "copy",
      "Coerenza",
-     "stesso foglio → stessi colori e caratteri ovunque"
+     "stesso foglio di stile: stessi colori, caratteri e spazi in tutte le pagine"
     ],
     [
      "repeat",
      "Riuso",
-     "una regola, scritta una volta, vale per tutti gli elementi"
+     "una regola scritta una volta vale per tutti gli elementi a cui si applica"
     ]
-   ]
+   ],
+   "msg": "Significato e presentazione in due linguaggi, di solito in due file",
+   "occhiello": "A cosa serve il CSS"
   },
   {
    "tipo": "widget",
    "titolo": "Stesso HTML, tre fogli di stile",
-   "w": "w1_fogli"
+   "w": "w1_fogli",
+   "occhiello": "A cosa serve il CSS"
   },
   {
-   "tipo": "foto",
+   "tipo": "gettoni",
    "titolo": "CSS Zen Garden",
-   "msg": "Una pagina HTML, centinaia di fogli di stile",
-   "foto": [
-    {
-     "src": "assets/immagini/zen-garden.jpg",
-     "tit": "",
-     "alt": "Quattro versioni della pagina del CSS Zen Garden"
-    }
-   ]
-  },
-  {
-   "tipo": "sezione",
-   "num": "5.1",
-   "titolo": "I quattro modi di collegare il CSS",
-   "sotto": "Per un sito si usa un file CSS esterno collegato con link, perché una modifica vale per tutte le pagine; @import si evita.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/1-2.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "tessere",
-   "titolo": "Quattro modi di collegare il CSS",
-   "msg": "Dal singolo elemento a tutto il sito",
-   "tessere": [
+   "gettoni": [
     [
-     "tag",
-     "Attributo `style`",
-     "un solo elemento"
+     "palmtree",
+     "giardino giapponese"
     ],
+    [
+     "megaphone",
+     "manifesto a colori"
+    ],
+    [
+     "building-2",
+     "struttura d’acciaio"
+    ],
+    [
+     "scroll",
+     "pergamena in fondo al mare"
+    ]
+   ],
+   "perche": [
     [
      "file-code",
-     "Elemento `&lt;style&gt;`",
-     "nell’`head`: una sola pagina"
+     "Una sola pagina HTML",
+     "sempre la stessa"
     ],
     [
-     "link",
-     "File esterno con `&lt;link&gt;`",
-     "nell’`head`: tutte le pagine che lo collegano"
+     "palette",
+     "Centinaia di fogli di stile",
+     "scritti da designer di tutto il mondo"
     ],
     [
-     "download",
-     "`@import`",
-     "un foglio che ne carica un altro"
+     "calendar",
+     "Nato nel 2003",
+     "per dimostrare che con il CSS si fa grafica vera senza toccare l’HTML"
     ]
-   ]
+   ],
+   "foto": {
+    "src": "assets/immagini/zen-garden.jpg",
+    "tit": "CSS Zen Garden",
+    "alt": "Quattro versioni della pagina del CSS Zen Garden"
+   },
+   "occhiello": "A cosa serve il CSS"
   },
   {
    "tipo": "schema",
    "titolo": "Quattro modi per la stessa regola",
-   "sel": "#s1_quattro"
+   "sel": "#s1_quattro",
+   "occhiello": "I quattro modi di collegare il CSS"
   },
   {
-   "tipo": "punti",
+   "tipo": "gettoni",
    "titolo": "Il file esterno",
-   "msg": "Per un sito si usa sempre il file esterno",
-   "punti": [
+   "gettoni": [
     [
      "link",
-     "`&lt;link rel=\"stylesheet\" href=\"stile.css\"&gt;` in ogni pagina"
-    ],
+     "`&lt;link rel=\"stylesheet\" href=\"stile.css\"&gt;`"
+    ]
+   ],
+   "perche": [
     [
      "pencil",
-     "Una modifica **in un punto** vale per **tutte** le pagine"
+     "Una modifica vale ovunque",
+     "tutte le pagine collegano lo stesso file"
     ],
     [
      "hard-drive",
-     "Il browser lo scarica una volta e lo tiene in *cache*: le pagine dopo sono più veloci"
+     "Scaricato una volta",
+     "il browser lo tiene in *cache*: le pagine successive si aprono più in fretta"
     ],
     [
-     "file-code",
-     "`style` e `&lt;style&gt;`: solo per un elemento o una pagina, per prove veloci"
+     "flask-conical",
+     "`style` e `&lt;style&gt;` solo per prove",
+     "un elemento o una pagina isolata"
     ]
-   ]
+   ],
+   "msg": "Per un sito si usa il file esterno",
+   "occhiello": "I quattro modi di collegare il CSS"
   },
   {
-   "tipo": "punti",
-   "titolo": "Perché evitare @import",
-   "msg": "I file arrivano uno dopo l’altro",
-   "punti": [
-    [
-     "download",
-     "Il browser scopre il secondo file **solo dopo** aver letto il primo"
-    ],
-    [
-     "clock",
-     "Due scaricamenti **in fila** invece che insieme: la pagina compare più tardi"
-    ],
-    [
-     "list",
-     "Più fogli di stile? **Più `&lt;link&gt;`**, che partono insieme"
-    ]
-   ]
+   "tipo": "flusso",
+   "titolo": "Perché @import si evita",
+   "blocchi": [
+    {
+     "titolo": "Scarica stile.css",
+     "icona": "download"
+    },
+    {
+     "titolo": "Legge `@import`",
+     "testo": "scopre solo ora il secondo file",
+     "icona": "file-search"
+    },
+    {
+     "titolo": "Scarica colori.css",
+     "icona": "download"
+    },
+    {
+     "titolo": "La pagina compare",
+     "testo": "più tardi",
+     "icona": "clock",
+     "tono": "no"
+    }
+   ],
+   "riga": "Con più `&lt;link&gt;` i file **partono tutti insieme**.",
+   "occhiello": "I quattro modi di collegare il CSS"
   },
   {
    "tipo": "widget",
    "titolo": "Un foglio di stile per cinque pagine",
-   "w": "w1_pagine"
+   "w": "w1_pagine",
+   "occhiello": "I quattro modi di collegare il CSS"
   },
   {
    "tipo": "errore",
@@ -248,55 +258,68 @@ window.AULA = {
    "si": "Il file esterno contiene **solo regole CSS**. `&lt;style&gt;` è un elemento HTML: serve solo per scrivere il CSS dentro una pagina HTML. In un file `.css` un tag non è CSS valido e la regola che lo segue viene scartata."
   },
   {
-   "tipo": "sezione",
-   "num": "5.1",
-   "titolo": "Gli strumenti di lavoro",
-   "sotto": "VS Code per scrivere, Live Server per vedere gli aggiornamenti, DevTools per ispezionare: ciò che cambi nei DevTools resta solo nel browser.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/1-3.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
+   "tipo": "gettoni",
    "titolo": "Editor e Live Server",
-   "msg": "Si salva e la pagina si aggiorna da sola",
-   "punti": [
+   "gettoni": [
     [
      "code",
-     "**VS Code**: l’editor che usiamo in classe"
+     "VS Code"
     ],
     [
      "refresh-cw",
-     "**Live Server**: apre la pagina e la **ricarica a ogni salvataggio**"
+     "Live Server"
     ],
     [
      "sparkles",
-     "Facoltative: **Prettier** riordina il codice, **CSS Peek** trova la regola di una classe"
+     "Prettier"
+    ],
+    [
+     "search",
+     "CSS Peek"
     ]
-   ]
+   ],
+   "perche": [
+    [
+     "refresh-cw",
+     "Live Server",
+     "apre la pagina e la ricarica a ogni salvataggio"
+    ],
+    [
+     "sparkles",
+     "Prettier",
+     "riordina il codice (facoltativa)"
+    ],
+    [
+     "search",
+     "CSS Peek",
+     "dall’HTML porta alla regola di una classe (facoltativa)"
+    ]
+   ],
+   "foto": {
+    "src": "assets/immagini/vscode-live-server.png",
+    "tit": "L’indirizzo comincia con 127.0.0.1: la pagina arriva dal proprio computer",
+    "alt": "VS Code e il browser con Live Server"
+   },
+   "occhiello": "Gli strumenti di lavoro"
   },
   {
-   "tipo": "foto",
-   "titolo": "VS Code e Live Server",
-   "foto": [
-    {
-     "src": "assets/immagini/vscode-live-server.png",
-     "tit": "",
-     "alt": "VS Code con il codice HTML a sinistra e il browser con la pagina aggiornata da Live Server a destra"
-    }
-   ]
-  },
-  {
-   "tipo": "tessere",
+   "tipo": "gettoni",
    "titolo": "I DevTools",
-   "msg": "F12: come il browser ha capito la pagina",
-   "tessere": [
+   "gettoni": [
+    [
+     "keyboard",
+     "F12"
+    ],
+    [
+     "mouse-pointer-click",
+     "tasto destro › Ispeziona"
+    ]
+   ],
+   "perche": [
     [
      "list-tree",
      "Elementi",
-     "l’albero degli elementi; passandoci sopra si illuminano"
+     "l’albero degli elementi; passandoci sopra si illuminano nella pagina"
     ],
     [
      "palette",
@@ -308,46 +331,48 @@ window.AULA = {
      "Calcolati",
      "il valore finale che il browser usa davvero"
     ]
-   ]
+   ],
+   "foto": {
+    "src": "assets/immagini/devtools-elementi-stili.png",
+    "tit": "Elementi e Styles accanto alla pagina",
+    "alt": "I DevTools di Chrome"
+   },
+   "occhiello": "Gli strumenti di lavoro"
   },
   {
-   "tipo": "foto",
-   "titolo": "I DevTools",
-   "foto": [
-    {
-     "src": "assets/immagini/devtools-elementi-stili.png",
-     "tit": "",
-     "alt": "I DevTools di Chrome con il pannello Elementi e la scheda Styles aperti accanto alla pagina"
-    }
-   ]
-  },
-  {
-   "tipo": "punti",
+   "tipo": "flusso",
    "titolo": "Prove in diretta",
-   "msg": "Ciò che cambi nei DevTools resta solo nel tuo browser",
-   "punti": [
-    [
-     "pencil",
-     "Nei DevTools si cambiano i valori e si vede **subito** il risultato"
-    ],
-    [
-     "monitor",
-     "La modifica vive nella **copia della pagina** che c’è nel tuo browser"
-    ],
-    [
-     "refresh-cw",
-     "Non viene salvata: **sparisce** al ricaricamento"
-    ],
-    [
-     "save",
-     "Le prove riuscite vanno **ricopiate nel file CSS**"
-    ]
-   ]
+   "blocchi": [
+    {
+     "titolo": "Cambi un valore",
+     "testo": "nei DevTools",
+     "icona": "pencil"
+    },
+    {
+     "titolo": "Lo vedi subito",
+     "testo": "nella copia della pagina del tuo browser",
+     "icona": "eye"
+    },
+    {
+     "titolo": "Ricarichi",
+     "testo": "la modifica sparisce: non è in nessun file",
+     "icona": "refresh-cw",
+     "tono": "no"
+    },
+    {
+     "titolo": "Ricopi nel file CSS",
+     "testo": "le prove riuscite",
+     "icona": "save",
+     "tono": "si"
+    }
+   ],
+   "occhiello": "Gli strumenti di lavoro"
   },
   {
    "tipo": "widget",
    "titolo": "Una modifica nei DevTools",
-   "w": "w1_devtools"
+   "w": "w1_devtools",
+   "occhiello": "Gli strumenti di lavoro"
   },
   {
    "tipo": "errore",
@@ -376,52 +401,44 @@ window.AULA = {
    "risposta": "No: il browser **scarta in silenzio** ciò che non capisce e va avanti. Per questo bisogna saper cercare gli errori."
   },
   {
-   "tipo": "sezione",
-   "num": "5.2",
-   "titolo": "Anatomia di una regola",
-   "sotto": "Una regola ha un selettore, che dice a chi si applica, e un blocco di dichiarazioni `proprietà: valore;` che dice come.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/2-1.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
+   "tipo": "anatomia",
    "titolo": "Una regola CSS",
-   "msg": "A chi si applica e come deve apparire",
-   "punti": [
+   "codice": "h1 {\n  color: navy;\n  font-size: 32px;\n}",
+   "parti": [
     [
-     "crosshair",
-     "Il **selettore** sceglie gli elementi: `h1` prende tutti i titoli di primo livello"
+     "h1",
+     "selettore",
+     "sceglie gli elementi: tutti i titoli h1"
     ],
     [
-     "braces",
-     "Il **blocco di dichiarazioni** sta tra le graffe `{ }`"
+     "{\n  color: navy;\n  font-size: 32px;\n}",
+     "blocco di dichiarazioni",
+     "tra parentesi graffe"
     ],
     [
-     "pencil",
-     "Ogni **dichiarazione** è `proprietà: valore;`"
+     "color: navy;",
+     "dichiarazione",
+     "`proprietà: valore;`"
     ],
     [
-     "type",
-     "Proprietà **minuscole**, parole unite dal **trattino**: `font-size`, `background-color`"
+     "color",
+     "proprietà",
+     "che cosa cambiare"
     ],
     [
-     "circle-check",
-     "Il punto e virgola finale si scrive **sempre**, anche nell’ultima riga"
+     "navy",
+     "valore",
+     "come"
     ]
-   ]
-  },
-  {
-   "tipo": "schema",
-   "titolo": "Anatomia di una regola",
-   "sel": "#s2_anatomia"
+   ],
+   "msg": "A chi si applica e come deve apparire",
+   "occhiello": "Anatomia di una regola"
   },
   {
    "tipo": "widget",
    "titolo": "Componi una regola",
-   "w": "w2_regola"
+   "w": "w2_regola",
+   "occhiello": "Anatomia di una regola"
   },
   {
    "tipo": "errore",
@@ -429,66 +446,53 @@ window.AULA = {
    "si": "In CSS si scrive `font-size`, minuscolo con il trattino; `fontSize` non esiste e viene ignorata. La forma con la maiuscola in mezzo (*camelCase*) si usa solo quando si cambia lo stile da JavaScript (cap. 8)."
   },
   {
-   "tipo": "sezione",
-   "num": "5.2",
-   "titolo": "Commenti e formattazione",
-   "sotto": "L’unico commento valido è `/* */`; la formattazione non cambia nulla per il browser ma serve a chi legge.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/2-2.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
+   "tipo": "casi",
    "titolo": "I commenti",
-   "msg": "Uno solo: /* … */",
-   "punti": [
-    [
-     "message-square",
-     "`/* … */`, anche su più righe: il browser lo ignora"
-    ],
-    [
-     "circle-x",
-     "`//` **non esiste** in CSS (è di JavaScript e Java)"
-    ],
-    [
-     "layers",
-     "Non si annidano: il primo `*/` chiude il commento"
-    ],
-    [
-     "toggle-left",
-     "Commentare una dichiarazione = **disattivarla** nelle prove"
-    ]
-   ]
+   "casi": [
+    {
+     "testo": "il browser lo ignora; anche su più righe",
+     "tono": "si",
+     "html": "<span class=\"c\">/* Titoli della pagina */</span>",
+     "etichetta": "commento CSS"
+    },
+    {
+     "testo": "viene da JavaScript e Java: la regola sotto viene scartata",
+     "tono": "no",
+     "html": "<span class=\"k\">// Titoli della pagina</span>",
+     "etichetta": "non esiste in CSS"
+    }
+   ],
+   "msg": "I commenti non si annidano: il primo `*/` chiude",
+   "occhiello": "Commenti e formattazione"
   },
   {
-   "tipo": "punti",
-   "titolo": "La formattazione",
-   "msg": "Per il browser non cambia nulla, per chi legge sì",
-   "punti": [
-    [
-     "list",
-     "**Una dichiarazione per riga**, rientro di 2 o 4 spazi"
-    ],
-    [
-     "minus",
-     "Graffa di chiusura su una riga sua, una riga vuota tra le regole"
-    ],
-    [
-     "file-archive",
-     "Online i file sono spesso **compressi** (*minified*): una riga, senza spazi"
-    ],
-    [
-     "sparkles",
-     "Prettier in VS Code riordina il codice da solo"
-    ]
-   ]
+   "tipo": "flusso",
+   "titolo": "Disattivare senza cancellare",
+   "blocchi": [
+    {
+     "titolo": "Una prova",
+     "icona": "flask-conical",
+     "html": "<span class=\"k\">h1 </span>{\n<span class=\"a\">  font-size</span>:<span class=\"s\"> 40px</span>;\n}"
+    },
+    {
+     "titolo": "La commento",
+     "icona": "message-square",
+     "html": "<span class=\"k\">h1 </span>{\n  <span class=\"c\">/* font-size: 40px; */</span>\n<span class=\"a\">  font-size</span>:<span class=\"s\"> 32px</span>;\n}"
+    },
+    {
+     "titolo": "Il browser usa 32px",
+     "testo": "la vecchia riga resta lì, pronta da rimettere",
+     "icona": "circle-check",
+     "tono": "si"
+    }
+   ],
+   "occhiello": "Commenti e formattazione"
   },
   {
    "tipo": "schema",
    "titolo": "Tre modi di scrivere lo stesso CSS",
-   "sel": "#s2_formati"
+   "sel": "#s2_formati",
+   "occhiello": "Commenti e formattazione"
   },
   {
    "tipo": "domanda",
@@ -496,66 +500,89 @@ window.AULA = {
    "risposta": "No: `//` non è un commento in CSS. Il testo finisce nel **selettore**, che non è più valido, e **l’intera regola viene scartata**. Si scrive `/* ricordati di cambiare il colore */`."
   },
   {
-   "tipo": "sezione",
-   "num": "5.2",
-   "titolo": "Proprietà abbreviate",
-   "sotto": "Una proprietà abbreviata ne imposta più insieme e ciò che non scrivi torna al valore iniziale.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/2-3.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
+   "tipo": "definizione",
    "titolo": "Le proprietà abbreviate",
-   "msg": "Una proprietà ne imposta più insieme",
-   "punti": [
+   "frase": "Una proprietà abbreviata (*shorthand*) **ne imposta più insieme**.",
+   "parti": [
     [
      "box",
-     "`margin` = `margin-top` + `-right` + `-bottom` + `-left`"
+     "`margin`: i quattro lati"
     ],
     [
      "square",
-     "`border` = spessore + **stile** + colore"
+     "`border`: spessore, stile, colore"
     ],
     [
      "type",
-     "`font` = stile, peso, dimensione/interlinea, **famiglia**"
+     "`font`: stile, peso, dimensione, famiglia"
     ],
     [
      "image",
-     "`background` = colore, immagine, posizione, ripetizione"
+     "`background`: colore, immagine, posizione"
     ]
-   ]
+   ],
+   "occhiello": "Proprietà abbreviate"
   },
   {
-   "tipo": "punti",
-   "titolo": "Ciò che non scrivi si azzera",
-   "msg": "Le parti mancanti tornano al valore iniziale",
-   "punti": [
+   "tipo": "anatomia",
+   "titolo": "Quattro valori, in senso orario",
+   "codice": "margin: 10px 20px 30px 40px;",
+   "parti": [
     [
-     "image-off",
-     "`background: red` → anche `background-image` torna a `none`"
+     "10px",
+     "sopra",
+     "1° valore"
     ],
     [
-     "square-dashed",
-     "`border` senza stile → stile `none`, **bordo invisibile**"
+     "20px",
+     "destra",
+     "2° valore"
     ],
     [
-     "circle-x",
-     "`font` senza dimensione e famiglia → **scartata**"
+     "30px",
+     "sotto",
+     "3° valore"
     ],
     [
-     "lightbulb",
-     "Per cambiare una cosa sola: la proprietà estesa (`background-color`)"
+     "40px",
+     "sinistra",
+     "4° valore"
     ]
-   ]
+   ],
+   "effetto": "Come le lancette dell’orologio, a partire dall’alto",
+   "occhiello": "Proprietà abbreviate"
   },
   {
    "tipo": "widget",
    "titolo": "Uno, due, tre o quattro valori",
-   "w": "w2_lati"
+   "w": "w2_lati",
+   "occhiello": "Proprietà abbreviate"
+  },
+  {
+   "tipo": "flusso",
+   "titolo": "Ciò che non scrivi si azzera",
+   "blocchi": [
+    {
+     "titolo": "Prima",
+     "testo": "c’è un’immagine di sfondo",
+     "icona": "image",
+     "html": "<span class=\"k\">background: url(foto.jpg)</span>;"
+    },
+    {
+     "titolo": "Poi",
+     "testo": "si cambia il colore con l’abbreviata",
+     "icona": "pencil",
+     "html": "<span class=\"k\">background: red</span>;"
+    },
+    {
+     "titolo": "Risultato",
+     "testo": "sfondo rosso, ma `background-image` torna a `none`: l’immagine sparisce",
+     "icona": "image-off",
+     "tono": "no"
+    }
+   ],
+   "riga": "Per cambiare una cosa sola: la proprietà estesa, `background-color: red`.",
+   "occhiello": "Proprietà abbreviate"
   },
   {
    "tipo": "tabella",
@@ -586,7 +613,8 @@ window.AULA = {
      "`margin-top: 10px` · `margin-right: 30px` · `margin-bottom: 50px` · `margin-left: 30px`",
      "con tre valori il secondo vale a destra e a sinistra"
     ]
-   ]
+   ],
+   "occhiello": "Proprietà abbreviate"
   },
   {
    "tipo": "errore",
@@ -604,66 +632,62 @@ window.AULA = {
    "si": "La forma abbreviata imposta **tutte** le proprietà dello sfondo: anche l’immagine torna a `none` e sparisce. Per cambiare solo il colore si usa `background-color: red`."
   },
   {
-   "tipo": "sezione",
-   "num": "5.2",
-   "titolo": "Errori comuni e validatore",
-   "sotto": "Il browser non segnala gli errori: scarta ciò che non capisce e va avanti; si trovano con editor, DevTools e validatore.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/2-4.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
    "tipo": "domanda",
    "testo": "Dimentico il punto e virgola dopo `color: red` e sotto c’è `font-size: 48px;`. Il titolo sarà rosso, grande, tutti e due o nessuno dei due?",
    "risposta": "**Nessuno dei due**: senza il punto e virgola le due righe diventano una sola dichiarazione, `color: red font-size: 48px`, che non è valida e viene scartata."
   },
   {
-   "tipo": "punti",
+   "tipo": "flusso",
    "titolo": "Il browser non protesta",
-   "msg": "Scarta ciò che non capisce e va avanti",
-   "punti": [
-    [
-     "eye-off",
-     "Nessun messaggio di errore: la regola **non funziona e basta**"
-    ],
-    [
-     "sparkles",
-     "Voluto: le proprietà nuove non rompono i browser vecchi"
-    ],
-    [
-     "triangle-alert",
-     "Il prezzo: gli errori **passano in silenzio**"
-    ]
-   ]
-  },
-  {
-   "tipo": "tessere",
-   "titolo": "Dove si trovano gli errori",
-   "msg": "Editor, DevTools, validatore",
-   "tessere": [
-    [
-     "code",
-     "Editor",
-     "VS Code sottolinea proprietà sconosciute e graffe sbagliate"
-    ],
-    [
-     "search",
-     "DevTools",
-     "dichiarazione **barrata** con il triangolo giallo"
-    ],
-    [
-     "shield-check",
-     "Validatore W3C",
-     "elenco degli errori con il numero di riga"
-    ]
-   ]
+   "blocchi": [
+    {
+     "titolo": "Una dichiarazione che non capisce",
+     "icona": "circle-help",
+     "html": "<span class=\"k\">color: red</span>\n<span class=\"k\">font-size: 48px</span>;"
+    },
+    {
+     "titolo": "La scarta",
+     "testo": "nessun messaggio di errore",
+     "icona": "trash-2",
+     "tono": "no"
+    },
+    {
+     "titolo": "Va avanti con il resto",
+     "testo": "la pagina semplicemente non ha l’aspetto voluto",
+     "icona": "arrow-right"
+    }
+   ],
+   "riga": "Voluto: le proprietà di domani non rompono i browser di oggi. Il prezzo: gli errori **passano in silenzio**.",
+   "occhiello": "Errori comuni e validatore"
   },
   {
    "tipo": "widget",
    "titolo": "Cinque errori che il browser non segnala",
-   "w": "w2_errori"
+   "w": "w2_errori",
+   "occhiello": "Errori comuni e validatore"
+  },
+  {
+   "tipo": "gettoni",
+   "titolo": "Dove si trovano gli errori",
+   "gettoni": [],
+   "perche": [
+    [
+     "code",
+     "Editor",
+     "VS Code sottolinea le proprietà sconosciute e le graffe che non tornano"
+    ],
+    [
+     "search",
+     "DevTools",
+     "la dichiarazione non valida è **barrata**, con il triangolo giallo"
+    ],
+    [
+     "shield-check",
+     "Validatore del W3C",
+     "l’elenco degli errori con il numero di riga"
+    ]
+   ],
+   "occhiello": "Errori comuni e validatore"
   },
   {
    "tipo": "foto",
@@ -679,7 +703,8 @@ window.AULA = {
      "tit": "",
      "alt": "Il validatore CSS del W3C con l’elenco di tre errori e i numeri di riga"
     }
-   ]
+   ],
+   "occhiello": "Errori comuni e validatore"
   },
   {
    "tipo": "sezione",
@@ -698,70 +723,60 @@ window.AULA = {
    "risposta": "Con un **selettore** che li distingue: per esempio una **classe** `avviso` data nell’HTML, e nel CSS la regola `.avviso { … }`."
   },
   {
-   "tipo": "sezione",
-   "num": "5.3",
-   "titolo": "Tipo, classe, id, universale",
-   "sotto": "Tipo, classe, id e universale scelgono per tag, per class, per id unico o tutti; punto e cancelletto fanno parte del selettore.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/3-1.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "tessere",
+   "tipo": "casi",
    "titolo": "I quattro selettori di base",
+   "casi": [
+    {
+     "titolo": "`p` · tipo",
+     "testo": "tutti gli elementi con quel tag",
+     "icona": "tag"
+    },
+    {
+     "titolo": "`.nota` · classe",
+     "testo": "tutti gli elementi con `class=\"nota\"`, qualunque sia il tag",
+     "icona": "layers"
+    },
+    {
+     "titolo": "`#robot` · id",
+     "testo": "l’unico elemento con `id=\"robot\"`",
+     "icona": "hash"
+    },
+    {
+     "titolo": "`*` · universale",
+     "testo": "tutti gli elementi",
+     "icona": "asterisk"
+    }
+   ],
    "msg": "Per tag, per classe, per id, tutti",
-   "tessere": [
-    [
-     "tag",
-     "`p` · tipo",
-     "tutti gli elementi con quel tag"
-    ],
-    [
-     "layers",
-     "`.nota` · classe",
-     "tutti gli elementi con `class=\"nota\"`"
-    ],
-    [
-     "hash",
-     "`#robot` · id",
-     "l’unico elemento con `id=\"robot\"`"
-    ],
-    [
-     "asterisk",
-     "`*` · universale",
-     "tutti gli elementi"
-    ]
-   ]
+   "occhiello": "Tipo, classe, id, universale"
   },
   {
-   "tipo": "punti",
-   "titolo": "Classe e id nell’HTML",
-   "msg": "Punto e cancelletto stanno solo nel CSS",
-   "punti": [
-    [
-     "file-code",
-     "HTML `class=\"nota\"` → CSS `.nota`; HTML `id=\"robot\"` → CSS `#robot`"
-    ],
-    [
-     "copy",
-     "Più classi per elemento, separate da spazi: `class=\"card big\"`"
-    ],
-    [
-     "repeat",
-     "Una classe si dà a **quanti elementi si vuole**"
-    ],
-    [
-     "fingerprint",
-     "L’id è **unico** nella pagina"
-    ]
-   ]
+   "tipo": "flusso",
+   "titolo": "Classe e id: dall’HTML al CSS",
+   "blocchi": [
+    {
+     "titolo": "Nell’HTML",
+     "icona": "file-code",
+     "html": "<span class=\"k\">&lt;p</span> <span class=\"a\">class</span>=<span class=\"s\">\"nota\"</span><span class=\"k\">&gt;</span>…<span class=\"k\">&lt;/p</span><span class=\"k\">&gt;</span>\n<span class=\"k\">&lt;div</span> <span class=\"a\">id</span>=<span class=\"s\">\"robot\"</span><span class=\"k\">&gt;</span>…<span class=\"k\">&lt;/div</span><span class=\"k\">&gt;</span>"
+    },
+    {
+     "titolo": "Nel CSS",
+     "icona": "palette",
+     "tono": "fine",
+     "html": "<span class=\"k\">.nota  </span>{<span class=\"a\"> color</span>:<span class=\"s\"> gray</span>; }\n<span class=\"k\">#robot </span>{<span class=\"a\"> color</span>:<span class=\"s\"> crimson</span>; }"
+    }
+   ],
+   "frecce": [
+    "punto e cancelletto"
+   ],
+   "riga": "Più classi per elemento (`class=\"card big\"`), una classe su quanti elementi si vuole; l’id è **unico**.",
+   "occhiello": "Tipo, classe, id, universale"
   },
   {
    "tipo": "widget",
    "titolo": "Il selettore-cacciatore",
-   "w": "w3_cacc"
+   "w": "w3_cacc",
+   "occhiello": "Tipo, classe, id, universale"
   },
   {
    "tipo": "errore",
@@ -774,61 +789,58 @@ window.AULA = {
    "si": "L’id è **unico** nella pagina. Per dare lo stesso stile a più elementi si usa una **classe**, che si può ripetere quante volte si vuole."
   },
   {
-   "tipo": "sezione",
-   "num": "5.3",
-   "titolo": "Raggruppare e combinare",
-   "sotto": "Virgola raggruppa, spazio prende i discendenti, `&gt;` i figli diretti, `+` e `~` i fratelli; senza spazio le condizioni valgono sullo stesso elemento.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/3-2.jpg",
-    "tit": "",
-    "alt": ""
-   }
+   "tipo": "casi",
+   "titolo": "Virgola, niente spazio, spazio",
+   "casi": [
+    {
+     "titolo": "`h1, h2, h3`",
+     "testo": "una **lista**: la stessa regola per tre selettori",
+     "icona": "list",
+     "nota": "un selettore non valido → scartata tutta la regola"
+    },
+    {
+     "titolo": "`.card.big`",
+     "testo": "condizioni sullo **stesso elemento**: entrambe le classi",
+     "icona": "link"
+    },
+    {
+     "titolo": "`.card .big`",
+     "testo": "un `.big` **dentro** un `.card`, a qualsiasi profondità",
+     "icona": "git-fork"
+    }
+   ],
+   "msg": "La differenza sta tutta in un carattere",
+   "occhiello": "Raggruppare e combinare"
   },
   {
-   "tipo": "punti",
-   "titolo": "Liste e selettori composti",
-   "msg": "Virgola = elenco, niente spazio = stesso elemento",
-   "punti": [
-    [
-     "list",
-     "`h1, h2, h3`: una regola per tre selettori"
-    ],
-    [
-     "triangle-alert",
-     "Un selettore non valido nella lista → **scartata tutta la regola**"
-    ],
-    [
-     "link",
-     "`p.nota`: un `p` **che ha** la classe nota"
-    ],
-    [
-     "layers",
-     "`.card.big`: un elemento con **entrambe** le classi"
-    ]
-   ]
-  },
-  {
-   "tipo": "punti",
+   "tipo": "anatomia",
    "titolo": "Leggere un combinatore",
-   "msg": "Da destra a sinistra: l’ultimo è l’elemento preso",
-   "punti": [
+   "codice": "main p",
+   "parti": [
     [
-     "arrow-left",
-     "`main p`: si prendono i `p`; `main` è una condizione"
+     "p",
+     "l’elemento preso",
+     "l’ultimo, a destra"
     ],
     [
-     "git-fork",
-     "Spazio = dentro, `&gt;` = figlio diretto, `+` = subito dopo, `~` = dopo"
+     " ",
+     "combinatore",
+     "lo spazio: «dentro»"
     ],
     [
-     "arrow-up",
-     "Si guarda solo **sopra** e **prima** nell’albero, mai il genitore"
-    ],
-    [
-     "sparkles",
-     "Per il genitore oggi c’è `:has()`"
+     "main",
+     "condizione",
+     "deve stare sopra nell’albero"
     ]
-   ]
+   ],
+   "effetto": "Si legge da destra a sinistra; per il genitore oggi c’è `:has()`",
+   "occhiello": "Raggruppare e combinare"
+  },
+  {
+   "tipo": "widget",
+   "titolo": "Combinatori nella pagina campione",
+   "w": "w3_cacc_comb",
+   "occhiello": "Raggruppare e combinare"
   },
   {
    "tipo": "tabella",
@@ -859,12 +871,8 @@ window.AULA = {
      "B **fratello successivo** di A",
      "tutti i B che vengono dopo A, con lo stesso genitore: `h2 ~ div`"
     ]
-   ]
-  },
-  {
-   "tipo": "widget",
-   "titolo": "Combinatori nella pagina campione",
-   "w": "w3_cacc_comb"
+   ],
+   "occhiello": "Raggruppare e combinare"
   },
   {
    "tipo": "errore",
@@ -882,38 +890,44 @@ window.AULA = {
    "risposta": "No. Con lo spazio `.big` è un elemento **dentro** un `.card`; senza spazio è **lo stesso elemento** che ha entrambe le classi."
   },
   {
-   "tipo": "sezione",
-   "num": "5.3",
-   "titolo": "Selettori di attributo",
-   "sotto": "I selettori di attributo scelgono in base ai dati dell’elemento, senza aggiungere classi a mano.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/3-3.jpg",
-    "tit": "",
-    "alt": ""
-   }
+   "tipo": "anatomia",
+   "titolo": "Un selettore di attributo",
+   "codice": "a[href$=\".pdf\" i]",
+   "parti": [
+    [
+     "a",
+     "tipo",
+     "i link"
+    ],
+    [
+     "href",
+     "attributo",
+     "tra parentesi quadre"
+    ],
+    [
+     "$=",
+     "confronto",
+     "«finisce con»"
+    ],
+    [
+     "\".pdf\"",
+     "valore",
+     "cercato nel valore dell’attributo"
+    ],
+    [
+     " i",
+     "maiuscole",
+     "prende anche PROGRAMMA.PDF"
+    ]
+   ],
+   "msg": "Lo stile dai dati che l’elemento ha già, senza classi a mano",
+   "occhiello": "Selettori di attributo"
   },
   {
-   "tipo": "punti",
-   "titolo": "Selettori di attributo",
-   "msg": "Lo stile dai dati che l’elemento ha già",
-   "punti": [
-    [
-     "brackets",
-     "Tra parentesi quadre: `[type=\"email\"]`"
-    ],
-    [
-     "equal",
-     "`=` esatto · `^=` inizia · `$=` finisce · `*=` contiene"
-    ],
-    [
-     "link",
-     "`a[href^=\"https\"]`: tutti i link esterni, senza classi"
-    ],
-    [
-     "case-sensitive",
-     "`i` finale: ignora maiuscole e minuscole"
-    ]
-   ]
+   "tipo": "widget",
+   "titolo": "Selettori di attributo nella pagina campione",
+   "w": "w3_cacc_attr",
+   "occhiello": "Selettori di attributo"
   },
   {
    "tipo": "tabella",
@@ -954,12 +968,8 @@ window.AULA = {
      "v è una delle **parole** del valore",
      "`[class~=\"big\"]`"
     ]
-   ]
-  },
-  {
-   "tipo": "widget",
-   "titolo": "Selettori di attributo nella pagina campione",
-   "w": "w3_cacc_attr"
+   ],
+   "occhiello": "Selettori di attributo"
   },
   {
    "tipo": "errore",
@@ -967,65 +977,51 @@ window.AULA = {
    "si": "`=` vuole il valore **esatto**: prenderebbe solo un link con `href=\".pdf\"`. Per «finisce con» serve `$=`: `a[href$=\".pdf\"]`."
   },
   {
-   "tipo": "sezione",
-   "num": "5.3",
-   "titolo": "Pseudo-classi",
-   "sotto": "La pseudo-classe sceglie un elemento esistente in un certo stato, posizione o che non soddisfa una condizione.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/3-4.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "tessere",
-   "titolo": "Tre famiglie di pseudo-classi",
-   "msg": "Un elemento che esiste, in un certo stato o posizione",
-   "tessere": [
+   "tipo": "definizione",
+   "titolo": "Le pseudo-classi",
+   "frase": "Una **pseudo-classe** sceglie un elemento **che esiste già** nell’HTML quando si trova in un certo **stato** o in una certa **posizione**, oppure quando **non** soddisfa una condizione.",
+   "parti": [
     [
      "mouse-pointer",
-     "Stato",
-     "`:hover` `:focus` `:active` `:checked` `:disabled`"
+     "stato: `:hover` `:focus` `:checked`"
     ],
     [
      "list-ordered",
-     "Posizione",
-     "`:first-child` `:nth-child()` `:nth-of-type()` `:empty`"
+     "posizione: `:first-child` `:nth-child()`"
     ],
     [
      "ban",
-     "Negazione",
-     "`:not(.big)`: tutti tranne quelli"
+     "negazione: `:not(.big)`"
     ]
-   ]
-  },
-  {
-   "tipo": "punti",
-   "titolo": "nth-child e nth-of-type",
-   "msg": "Tutti i fratelli contro i fratelli dello stesso tag",
-   "punti": [
-    [
-     "list-ordered",
-     "`:nth-child(2)`: il secondo figlio, **di qualunque tag**"
-    ],
-    [
-     "filter",
-     "`:nth-of-type(2)`: il secondo **tra quelli dello stesso tag**"
-    ],
-    [
-     "calculator",
-     "`odd`, `even`, `3n`, `n+3`: `n` vale 0, 1, 2…"
-    ],
-    [
-     "smartphone",
-     "Sul touch niente vero `:hover`: le cose importanti non vanno solo lì"
-    ]
-   ]
+   ],
+   "nota": "Sul touch non c’è un vero `:hover`: le informazioni importanti non vanno solo lì.",
+   "occhiello": "Pseudo-classi"
   },
   {
    "tipo": "widget",
    "titolo": "Le pseudo-classi di stato",
-   "w": "w3_stati"
+   "w": "w3_stati",
+   "occhiello": "Pseudo-classi"
+  },
+  {
+   "tipo": "casi",
+   "titolo": "nth-child e nth-of-type",
+   "casi": [
+    {
+     "titolo": "`p:nth-child(2)`",
+     "testo": "un `p` che è il **secondo figlio**, contando tutti i fratelli",
+     "icona": "list-ordered",
+     "nota": "div con h2 + tre p → il primo paragrafo"
+    },
+    {
+     "titolo": "`p:nth-of-type(2)`",
+     "testo": "il **secondo tra i soli `p`**",
+     "icona": "filter",
+     "nota": "div con h2 + tre p → il secondo paragrafo"
+    }
+   ],
+   "msg": "Tutti i fratelli contro i fratelli dello stesso tag",
+   "occhiello": "Pseudo-classi"
   },
   {
    "tipo": "tabella",
@@ -1059,12 +1055,14 @@ window.AULA = {
      "`-n+3`",
      "le prime tre: 1, 2, 3"
     ]
-   ]
+   ],
+   "occhiello": "Pseudo-classi"
   },
   {
    "tipo": "widget",
    "titolo": "Pseudo-classi di posizione nella pagina campione",
-   "w": "w3_cacc_pseudo"
+   "w": "w3_cacc_pseudo",
+   "occhiello": "Pseudo-classi"
   },
   {
    "tipo": "errore",
@@ -1077,64 +1075,42 @@ window.AULA = {
    "risposta": "Il **primo paragrafo**: è il secondo figlio del `div`, perché il primo è l’`h2`."
   },
   {
-   "tipo": "sezione",
-   "num": "5.3",
-   "titolo": "Pseudo-elementi",
-   "sotto": "I pseudo-elementi sono parti di un elemento o contenuti generati che nell’HTML non ci sono; servono a decorare.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/3-5.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
+   "tipo": "definizione",
    "titolo": "I pseudo-elementi",
-   "msg": "Parti e contenuti che nell’HTML non ci sono",
-   "punti": [
+   "frase": "Un **pseudo-elemento** (`::`) sceglie una **parte** di un elemento, oppure crea un **contenuto generato** che nell’HTML non c’è.",
+   "parti": [
     [
      "type",
-     "`::first-letter`, `::first-line`: prima lettera e prima riga"
+     "`::first-letter` `::first-line`"
     ],
     [
-     "text-select",
-     "`::selection`, `::placeholder`: selezione e segnaposto"
+     "text-cursor",
+     "`::selection` `::placeholder`"
     ],
     [
      "plus",
-     "`::before`, `::after`: contenuto generato, **solo con `content`**"
-    ],
-    [
-     "eye-off",
-     "Servono a **decorare**: non si selezionano, non tutti gli screen reader li leggono"
+     "`::before` `::after`, solo con `content`"
     ]
-   ]
+   ],
+   "nota": "Servono a **decorare**: un’informazione importante va nell’HTML.",
+   "occhiello": "Pseudo-elementi"
   },
   {
    "tipo": "widget",
    "titolo": "I pseudo-elementi uno alla volta",
-   "w": "w3_pseudoel"
+   "w": "w3_pseudoel",
+   "occhiello": "Pseudo-elementi"
   },
   {
    "tipo": "codice",
    "titolo": "Un’etichetta generata",
-   "html": "<span class=\"k\">.nuovo::after </span>{\n<span class=\"a\">  content</span>:<span class=\"s\"> \"NUOVO\"</span>;\n<span class=\"a\">  background</span>:<span class=\"s\"> crimson</span>;\n<span class=\"a\">  color</span>:<span class=\"s\"> white</span>;\n<span class=\"a\">  font-size</span>:<span class=\"s\"> 0.7em</span>;\n<span class=\"a\">  padding</span>:<span class=\"s\"> 2px 6px</span>;\n<span class=\"a\">  margin-left</span>:<span class=\"s\"> 6px</span>;\n}"
+   "html": "<span class=\"k\">.nuovo::after </span>{\n<span class=\"a\">  content</span>:<span class=\"s\"> \"NUOVO\"</span>;\n<span class=\"a\">  background</span>:<span class=\"s\"> crimson</span>;\n<span class=\"a\">  color</span>:<span class=\"s\"> white</span>;\n<span class=\"a\">  font-size</span>:<span class=\"s\"> 0.7em</span>;\n<span class=\"a\">  padding</span>:<span class=\"s\"> 2px 6px</span>;\n<span class=\"a\">  margin-left</span>:<span class=\"s\"> 6px</span>;\n}",
+   "occhiello": "Pseudo-elementi"
   },
   {
    "tipo": "errore",
    "no": "«`::before` mette l’icona anche senza `content`.»",
    "si": "Senza la proprietà `content` il pseudo-elemento **non viene creato** e non appare nulla, qualunque altra proprietà gli si dia."
-  },
-  {
-   "tipo": "sezione",
-   "num": "5.3",
-   "titolo": "Differenza tra classe e id, tra pseudo-classe e pseudo-elemento",
-   "sotto": "La classe si riusa, l’id è unico; la pseudo-classe sceglie uno stato, il pseudo-elemento una parte o un contenuto generato.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/3-6.jpg",
-    "tit": "",
-    "alt": ""
-   }
   },
   {
    "tipo": "tabella",
@@ -1165,7 +1141,8 @@ window.AULA = {
      "**sì**, è la scelta normale",
      "meglio di no: pesa troppo nella cascata (5.4)"
     ]
-   ]
+   ],
+   "occhiello": "Differenza tra classe e id, tra pseudo-classe e pseudo-elemento"
   },
   {
    "tipo": "tabella",
@@ -1191,46 +1168,57 @@ window.AULA = {
      "`:hover`, `:focus`, `:nth-child()`, `:not()`",
      "`::first-line`, `::before`, `::placeholder`"
     ]
-   ]
+   ],
+   "occhiello": "Differenza tra classe e id, tra pseudo-classe e pseudo-elemento"
   },
   {
-   "tipo": "sezione",
-   "num": "5.3",
-   "titolo": "Dare i nomi alle classi",
-   "sotto": "Il nome dice a che cosa serve l’elemento, non com’è fatto; BEM lo struttura come blocco__elemento--modificatore.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/3-7.jpg",
-    "tit": "",
-    "alt": ""
-   }
+   "tipo": "casi",
+   "titolo": "Due modi di dare un nome",
+   "casi": [
+    {
+     "titolo": "`.rosso` · `.box1` · `.sinistra-grande`",
+     "testo": "quando cambiano colore o impaginazione, il nome **mente**",
+     "tono": "no",
+     "etichetta": "descrive l’aspetto"
+    },
+    {
+     "titolo": "`.avviso` · `.card-corso` · `.menu-principale`",
+     "testo": "minuscolo con i trattini; niente id per lo stile",
+     "tono": "si",
+     "etichetta": "descrive il ruolo"
+    }
+   ],
+   "occhiello": "Dare i nomi alle classi"
   },
   {
-   "tipo": "punti",
-   "titolo": "Nomi per il ruolo",
-   "msg": "Che cosa fa l’elemento, non com’è fatto",
-   "punti": [
+   "tipo": "anatomia",
+   "titolo": "BEM",
+   "codice": ".card\n.card__titolo\n.card--evidenziata",
+   "parti": [
     [
-     "circle-check",
-     "`.avviso` sì, `.rosso` no: il colore può cambiare"
+     ".card",
+     "blocco",
+     "un componente autonomo"
     ],
     [
-     "type",
-     "Minuscolo e trattini: `.card-corso`, `.menu-principale`"
+     "__titolo",
+     "elemento",
+     "una sua parte: due trattini bassi"
     ],
     [
-     "ban",
-     "Niente id per lo stile: pesa troppo e non si riusa"
-    ],
-    [
-     "blocks",
-     "**BEM**: `.card` · `.card__titolo` · `.card--evidenziata`"
+     "--evidenziata",
+     "modificatore",
+     "una variante: due trattini"
     ]
-   ]
+   ],
+   "msg": "*Block, Element, Modifier*: dal nome si capisce il componente",
+   "occhiello": "Dare i nomi alle classi"
   },
   {
    "tipo": "schema",
    "titolo": "Nomi per il ruolo, non per l’aspetto",
-   "sel": "#s3_nomi"
+   "sel": "#s3_nomi",
+   "occhiello": "Dare i nomi alle classi"
   },
   {
    "tipo": "errore",
@@ -1254,47 +1242,62 @@ window.AULA = {
    "risposta": "Non sempre: prima contano **origine**, **importanza** e **specificità**; l’ordine di scrittura decide solo a parità."
   },
   {
-   "tipo": "sezione",
-   "num": "5.4",
+   "tipo": "casi",
    "titolo": "Ereditarietà",
-   "sotto": "Molte proprietà del testo passano ai discendenti, quelle della scatola no; `inherit` forza l’ereditarietà.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/4-1.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "confronto",
-   "titolo": "Ereditarietà",
+   "casi": [
+    {
+     "titolo": "Si ereditano",
+     "icona": "type",
+     "righe": [
+      "`color`",
+      "`font-family`, `font-size`, `font-weight`",
+      "`line-height`, `text-align`"
+     ],
+     "nota": "proprietà del **testo**"
+    },
+    {
+     "titolo": "Non si ereditano",
+     "icona": "square",
+     "righe": [
+      "`margin`, `padding`, `border`",
+      "`background`",
+      "`width`, `height`"
+     ],
+     "nota": "proprietà della **scatola**: niente cornici dappertutto"
+    }
+   ],
    "msg": "Il testo passa ai discendenti, la scatola no",
-   "a": {
-    "icona": "type",
-    "titolo": "Si ereditano",
-    "tono": "buono",
-    "righe": [
-     "+ `color`",
-     "+ `font-family`, `font-size`, `font-weight`",
-     "+ `line-height`, `text-align`"
-    ],
-    "piede": "proprietà del testo"
-   },
-   "b": {
-    "icona": "square",
-    "titolo": "Non si ereditano",
-    "righe": [
-     "- `margin`, `padding`, `border`",
-     "- `background`",
-     "- `width`, `height`"
-    ],
-    "piede": "proprietà della scatola"
-   },
-   "verdetto": "Con `inherit` si forza: `a { color: inherit; }`"
+   "occhiello": "Ereditarietà"
   },
   {
    "tipo": "widget",
    "titolo": "Che cosa passa ai discendenti",
-   "w": "w4_eredita"
+   "w": "w4_eredita",
+   "occhiello": "Ereditarietà"
+  },
+  {
+   "tipo": "flusso",
+   "titolo": "Forzare l’ereditarietà",
+   "blocchi": [
+    {
+     "titolo": "Il body è blu scuro",
+     "icona": "file-code",
+     "html": "<span class=\"k\">body </span>{<span class=\"a\"> color</span>:<span class=\"s\"> navy</span>; }"
+    },
+    {
+     "titolo": "I link restano blu",
+     "testo": "il foglio del browser batte il valore ereditato",
+     "icona": "link"
+    },
+    {
+     "titolo": "`inherit`",
+     "testo": "i link prendono il colore del testo intorno",
+     "icona": "circle-check",
+     "tono": "si",
+     "html": "<span class=\"k\">a </span>{<span class=\"a\"> color</span>:<span class=\"s\"> inherit</span>; }"
+    }
+   ],
+   "occhiello": "Ereditarietà"
   },
   {
    "tipo": "tabella",
@@ -1324,7 +1327,8 @@ window.AULA = {
      "`list-style`, `visibility`, `cursor`",
      "`box-shadow`, `opacity`, `position`"
     ]
-   ]
+   ],
+   "occhiello": "Ereditarietà"
   },
   {
    "tipo": "errore",
@@ -1342,48 +1346,38 @@ window.AULA = {
    "risposta": "I titoli **sì**, perché `color` si eredita. I link **no**: hanno un colore loro dal foglio di stile del browser."
   },
   {
-   "tipo": "sezione",
-   "num": "5.4",
-   "titolo": "Valori speciali",
-   "sotto": "`inherit` prende dal genitore, `initial` il valore iniziale della specifica, `unset` uno dei due, `revert` quello del browser.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/4-2.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "tessere",
+   "tipo": "casi",
    "titolo": "I quattro valori speciali",
-   "msg": "Da dove prendere il valore",
-   "tessere": [
-    [
-     "arrow-up",
-     "`inherit`",
-     "dal genitore"
-    ],
-    [
-     "file-text",
-     "`initial`",
-     "il valore iniziale della specifica, per tutti uguale"
-    ],
-    [
-     "shuffle",
-     "`unset`",
-     "`inherit` se si eredita, altrimenti `initial`"
-    ],
-    [
-     "undo-2",
-     "`revert`",
-     "il valore del foglio del browser"
-    ]
+   "casi": [
+    {
+     "titolo": "`inherit`",
+     "testo": "il valore del **genitore**",
+     "icona": "arrow-up"
+    },
+    {
+     "titolo": "`initial`",
+     "testo": "il valore iniziale della specifica, **uguale per tutti**",
+     "icona": "file-text"
+    },
+    {
+     "titolo": "`unset`",
+     "testo": "`inherit` se la proprietà si eredita, altrimenti `initial`",
+     "icona": "shuffle"
+    },
+    {
+     "titolo": "`revert`",
+     "testo": "il valore del **foglio del browser**",
+     "icona": "undo-2"
+    }
    ],
-   "nota": "`display: initial` su un `div` → **inline**, non block"
+   "msg": "Non danno un valore: dicono da dove prenderlo",
+   "occhiello": "Valori speciali"
   },
   {
    "tipo": "widget",
    "titolo": "I quattro valori speciali a confronto",
-   "w": "w4_valori"
+   "w": "w4_valori",
+   "occhiello": "Valori speciali"
   },
   {
    "tipo": "errore",
@@ -1391,43 +1385,44 @@ window.AULA = {
    "si": "Il valore iniziale di `display` è `inline` per tutti: il `div` diventa **in linea**. Per riavere il `block` del foglio del browser serve `display: revert`."
   },
   {
-   "tipo": "sezione",
-   "num": "5.4",
+   "tipo": "flusso",
    "titolo": "La cascata",
-   "sotto": "Il browser ordina le dichiarazioni in conflitto per origine e importanza, specificità, ordine di scrittura.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/4-3.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
-   "titolo": "La cascata",
-   "msg": "Criteri in ordine: il successivo solo in caso di parità",
-   "punti": [
-    [
-     "layers",
-     "**1 · Origine e importanza**: browser &lt; utente &lt; autore"
-    ],
-    [
-     "folder-tree",
-     "**2 · Livelli** `@layer`"
-    ],
-    [
-     "crosshair",
-     "**3 · Specificità**: il selettore più preciso; `style` batte tutti"
-    ],
-    [
-     "list-ordered",
-     "**4 · Ordine**: a parità, l’ultima scritta"
-    ]
-   ]
+   "blocchi": [
+    {
+     "titolo": "Origine e importanza",
+     "testo": "browser &lt; utente &lt; autore",
+     "icona": "layers"
+    },
+    {
+     "titolo": "Livelli",
+     "testo": "`@layer`",
+     "icona": "folder-tree"
+    },
+    {
+     "titolo": "Specificità",
+     "testo": "il selettore più preciso; `style` batte tutti",
+     "icona": "crosshair"
+    },
+    {
+     "titolo": "Ordine",
+     "testo": "a parità, vince l’ultima scritta",
+     "icona": "list-ordered",
+     "tono": "fine"
+    }
+   ],
+   "frecce": [
+    "parità?",
+    "parità?",
+    "parità?"
+   ],
+   "riga": "Il criterio successivo serve **solo se il precedente finisce in parità**.",
+   "occhiello": "La cascata"
   },
   {
    "tipo": "widget",
    "titolo": "Cinque dichiarazioni per lo stesso link",
-   "w": "w4_cascata"
+   "w": "w4_cascata",
+   "occhiello": "La cascata"
   },
   {
    "tipo": "errore",
@@ -1440,42 +1435,58 @@ window.AULA = {
    "risposta": "**Rosso**: `.nota` (0,1,0) è più specifica di `p` (0,0,1), e la specificità si guarda prima dell’ordine."
   },
   {
-   "tipo": "sezione",
-   "num": "5.4",
-   "titolo": "Calcolo della specificità",
-   "sotto": "La specificità è una terna (id, classi, tipi) confrontata da sinistra; non si somma e l’ordine conta solo a parità.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/4-4.jpg",
-    "tit": "",
-    "alt": ""
-   }
+   "tipo": "anatomia",
+   "titolo": "La specificità",
+   "codice": "#avviso .nota p::first-line",
+   "parti": [
+    [
+     "#avviso",
+     "a = id",
+     "1"
+    ],
+    [
+     ".nota",
+     "b = classi, attributi, pseudo-classi",
+     "1"
+    ],
+    [
+     "p",
+     "c = tipi",
+     "1"
+    ],
+    [
+     "::first-line",
+     "c = pseudo-elementi",
+     "+1"
+    ]
+   ],
+   "msg": "Una terna (a, b, c)",
+   "effetto": "Specificità (1,1,2)",
+   "occhiello": "Calcolo della specificità"
   },
   {
-   "tipo": "punti",
-   "titolo": "La specificità",
-   "msg": "Una terna (id, classi, tipi) confrontata da sinistra",
-   "punti": [
-    [
-     "hash",
-     "**a** = id · **b** = classi, attributi, pseudo-classi · **c** = tipi, pseudo-elementi"
-    ],
-    [
-     "arrow-right",
-     "Colonna per colonna: (0,1,0) batte (0,0,11)"
-    ],
-    [
-     "ban",
-     "Niente somma, niente riporto"
-    ],
-    [
-     "circle",
-     "`*` e i combinatori valgono zero; `:where()` zero"
-    ],
-    [
-     "brackets",
-     "`:not()` `:is()` `:has()`: quanto il loro argomento"
-    ]
-   ]
+   "tipo": "cifra",
+   "titolo": "Colonna per colonna",
+   "a": [
+    "tags",
+    "Undici tipi",
+    "`div div … p` · (0,0,11)"
+   ],
+   "b": [
+    "layers",
+    "Una classe",
+    "`.nota` · (0,1,0)"
+   ],
+   "cifra": "(0,1,0) vince",
+   "testo": "Si confronta da sinistra: **niente somma, niente riporto**.",
+   "cautela": "Come nel dizionario, dove «b» viene dopo «azzzz».",
+   "occhiello": "Calcolo della specificità"
+  },
+  {
+   "tipo": "widget",
+   "titolo": "Chi vince?",
+   "w": "w4_chivince",
+   "occhiello": "Calcolo della specificità"
   },
   {
    "tipo": "tabella",
@@ -1526,12 +1537,8 @@ window.AULA = {
      "(0,1,1)",
      "`:not()` vale quanto `.big`, più il tipo"
     ]
-   ]
-  },
-  {
-   "tipo": "widget",
-   "titolo": "Chi vince?",
-   "w": "w4_chivince"
+   ],
+   "occhiello": "Calcolo della specificità"
   },
   {
    "tipo": "errore",
@@ -1539,48 +1546,60 @@ window.AULA = {
    "si": "Conta **che cosa** scrivi, non quanto: `div div div p` vale (0,0,4) e perde contro `.nota`, che vale (0,1,0)."
   },
   {
-   "tipo": "sezione",
-   "num": "5.4",
-   "titolo": "!important e perché evitarlo",
-   "sotto": "!important batte le regole normali prima di ogni calcolo, ma nel lavoro normale segnala un conflitto di specificità non risolto.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/4-5.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
-   "titolo": "!important",
-   "msg": "Batte tutte le dichiarazioni normali",
-   "punti": [
-    [
-     "zap",
-     "Vince **prima** della specificità; tra più `!important` si riparte"
-    ],
-    [
-     "accessibility",
-     "Inverte le origini: l’utente impone caratteri e colori"
-    ],
-    [
-     "swords",
-     "Nel lavoro normale: **guerra degli !important**"
-    ],
-    [
-     "circle-check",
-     "Usi legittimi: classi di utilità, stili altrui non modificabili"
-    ]
-   ]
-  },
-  {
    "tipo": "schema",
    "titolo": "La precedenza delle origini",
-   "sel": "#s4_scala"
+   "sel": "#s4_scala",
+   "occhiello": "!important e perché evitarlo"
+  },
+  {
+   "tipo": "flusso",
+   "titolo": "La guerra degli !important",
+   "blocchi": [
+    {
+     "titolo": "Funziona subito",
+     "icona": "zap",
+     "html": "<span class=\"k\">.nota </span>{\n<span class=\"a\">  color</span>:<span class=\"s\"> red !important</span>;\n}"
+    },
+    {
+     "titolo": "Per batterlo",
+     "icona": "swords",
+     "html": "<span class=\"k\">#box .nota </span>{\n<span class=\"a\">  color</span>:<span class=\"s\"> blue !important</span>;\n}"
+    },
+    {
+     "titolo": "E poi un altro ancora",
+     "testo": "il foglio di stile diventa impossibile da modificare",
+     "icona": "triangle-alert",
+     "tono": "no"
+    }
+   ],
+   "occhiello": "!important e perché evitarlo"
+  },
+  {
+   "tipo": "casi",
+   "titolo": "Quando usarlo",
+   "casi": [
+    {
+     "testo": "per risolvere un **conflitto di specificità**: meglio capire chi vince e correggere",
+     "tono": "no",
+     "etichetta": "segnala un problema"
+    },
+    {
+     "righe": [
+      "classi di utilità: `.nascosto { display: none !important; }`",
+      "battere stili altrui non modificabili",
+      "l’utente che impone caratteri e colori"
+     ],
+     "tono": "si",
+     "etichetta": "usi legittimi"
+    }
+   ],
+   "occhiello": "!important e perché evitarlo"
   },
   {
    "tipo": "widget",
    "titolo": "Chi vince, con !important",
-   "w": "w4_chivince_imp"
+   "w": "w4_chivince_imp",
+   "occhiello": "!important e perché evitarlo"
   },
   {
    "tipo": "errore",
@@ -1588,20 +1607,37 @@ window.AULA = {
    "si": "Risolve **fino al prossimo** `!important` più specifico. Meglio capire quale regola vince e perché, e correggere la specificità."
   },
   {
-   "tipo": "sezione",
-   "num": "5.4",
-   "titolo": "Perché la mia regola non funziona?",
-   "sotto": "Le cause sono poche e si controllano in ordine con i DevTools.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/4-6.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "schema",
+   "tipo": "gettoni",
    "titolo": "Perché la mia regola non funziona",
-   "sel": "#s4_flusso"
+   "gettoni": [],
+   "perche": [
+    [
+     "crosshair",
+     "1 · Il selettore prende davvero l’elemento?",
+     "no → un refuso, una classe che manca nell’HTML: la regola non compare tra gli Stili"
+    ],
+    [
+     "circle-x",
+     "2 · La dichiarazione è valida?",
+     "no → errore di sintassi: è barrata con il triangolo giallo"
+    ],
+    [
+     "swords",
+     "3 · Un’altra regola la batte?",
+     "sì → più specifica o scritta dopo: è barrata, la vincente sta più in alto"
+    ],
+    [
+     "git-branch",
+     "4 · Il valore arriva da un genitore o dal browser?",
+     "sì → serve una regola per l’elemento: «Ereditato da…» o *user agent stylesheet*"
+    ],
+    [
+     "file-x",
+     "5 · Il file CSS è caricato?",
+     "no → percorso sbagliato nel `link`: nella scheda Rete c’è un errore 404"
+    ]
+   ],
+   "occhiello": "Perché la mia regola non funziona?"
   },
   {
    "tipo": "foto",
@@ -1617,7 +1653,8 @@ window.AULA = {
      "tit": "",
      "alt": "Sezione Inherited from body dei DevTools con proprietà ereditate e non ereditate"
     }
-   ]
+   ],
+   "occhiello": "Perché la mia regola non funziona?"
   },
   {
    "tipo": "sezione",
@@ -1636,65 +1673,44 @@ window.AULA = {
    "risposta": "Quello in **`rem`**, che segue la dimensione del testo della radice scelta dall’utente; quello in `px` resta fisso."
   },
   {
-   "tipo": "sezione",
-   "num": "5.5",
-   "titolo": "I tipi di valore",
-   "sotto": "Ogni proprietà accetta solo certi tipi di valore; uno sbagliato rende la dichiarazione non valida.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/5-1.jpg",
-    "tit": "",
-    "alt": ""
-   }
+   "tipo": "casi",
+   "titolo": "Due regole sui valori",
+   "casi": [
+    {
+     "titolo": "`margin: 0`",
+     "testo": "lo zero non vuole l’unità",
+     "tono": "si",
+     "etichetta": "si può"
+    },
+    {
+     "titolo": "`margin: 10`",
+     "testo": "una lunghezza vuole sempre l’unità: dichiarazione scartata",
+     "tono": "no",
+     "etichetta": "non valida"
+    }
+   ],
+   "msg": "Ogni proprietà accetta solo certi tipi di valore",
+   "occhiello": "I tipi di valore"
   },
   {
-   "tipo": "punti",
-   "titolo": "I tipi di valore",
-   "msg": "Ogni proprietà accetta solo certi tipi",
-   "punti": [
-    [
-     "key",
-     "**Parole chiave**: `auto`, `none`, `center`"
-    ],
-    [
-     "hash",
-     "**Numeri** senza unità: `line-height: 1.5`, `opacity: 0.8`"
-    ],
-    [
-     "ruler",
-     "**Lunghezze**, sempre con l’unità tranne lo **zero**"
-    ],
-    [
-     "percent",
-     "**Percentuali**, **colori**, **stringhe**, `url()`, **funzioni**"
-    ],
-    [
-     "circle-x",
-     "Tipo sbagliato → dichiarazione **scartata**"
-    ]
-   ]
-  },
-  {
-   "tipo": "punti",
-   "titolo": "line-height senza unità",
+   "tipo": "casi",
+   "titolo": "line-height: numero o lunghezza?",
+   "casi": [
+    {
+     "testo": "ogni elemento: 1,5 × il suo testo; titolo a 40px → righe di 60px",
+     "tono": "si",
+     "html": "<span class=\"k\">body </span>{<span class=\"a\"> line-height</span>:<span class=\"s\"> 1.5</span>; }",
+     "etichetta": "numero senza unità"
+    },
+    {
+     "testo": "i discendenti ereditano 24px: titolo a 40px → righe sovrapposte",
+     "tono": "no",
+     "html": "<span class=\"k\">body </span>{<span class=\"a\"> line-height</span>:<span class=\"s\"> 24px</span>; }",
+     "etichetta": "lunghezza"
+    }
+   ],
    "msg": "Il numero si moltiplica, la lunghezza si eredita già calcolata",
-   "punti": [
-    [
-     "calculator",
-     "`line-height: 1.5`: per ogni elemento 1,5 × il suo testo"
-    ],
-    [
-     "ruler",
-     "`line-height: 24px`: tutti i discendenti ereditano 24px"
-    ],
-    [
-     "triangle-alert",
-     "Un titolo a 40px con righe di 24px: **righe sovrapposte**"
-    ],
-    [
-     "circle-check",
-     "Per l’interlinea: **numero senza unità**"
-    ]
-   ]
+   "occhiello": "I tipi di valore"
   },
   {
    "tipo": "tabella",
@@ -1740,71 +1756,85 @@ window.AULA = {
      "`calc(100% - 2rem)`, `rgb()`, `clamp()`",
      "quasi tutte"
     ]
-   ]
+   ],
+   "occhiello": "I tipi di valore"
   },
   {
-   "tipo": "sezione",
-   "num": "5.5",
-   "titolo": "Unità di misura",
-   "sotto": "Le unità sono assolute o relative a un’altra grandezza; la percentuale dipende dalla proprietà.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/5-2.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "confronto",
+   "tipo": "casi",
    "titolo": "Assolute e relative",
-   "msg": "Misura fissa o misura che si adatta",
-   "a": {
-    "icona": "ruler",
-    "titolo": "Assolute",
-    "righe": [
-     "• `px`, `cm`, `mm`, `in`, `pt`",
-     "• 1in = 96px = 2,54cm",
-     "• il pixel CSS **non** è un pixel dello schermo"
-    ],
-    "piede": "per lo schermo, in pratica solo `px`"
-   },
-   "b": {
-    "icona": "scaling",
-    "titolo": "Relative",
-    "tono": "buono",
-    "righe": [
-     "• `%`, `em`, `rem`, `ch`",
-     "• `vw`, `vh`, `vmin`, `vmax`",
-     "• `svh`, `lvh`, `dvh` per i telefoni"
-    ],
-    "piede": "si adattano a schermi e preferenze"
-   }
+   "casi": [
+    {
+     "titolo": "Assolute",
+     "icona": "ruler",
+     "righe": [
+      "`px`, `cm`, `mm`, `in`, `pt`",
+      "1in = 96px = 2,54cm",
+      "il pixel CSS **non** è un pixel dello schermo"
+     ],
+     "nota": "per lo schermo, in pratica solo `px`"
+    },
+    {
+     "titolo": "Relative",
+     "icona": "scaling",
+     "righe": [
+      "`%`, `em`, `rem`, `ch`",
+      "`vw`, `vh`, `vmin`, `vmax`",
+      "`svh`, `lvh`, `dvh` per i telefoni"
+     ],
+     "tono": "si",
+     "nota": "si adattano a schermi e preferenze"
+    }
+   ],
+   "msg": "Misura fissa o misura che dipende da un’altra grandezza",
+   "occhiello": "Unità di misura"
   },
   {
-   "tipo": "punti",
-   "titolo": "La percentuale",
-   "msg": "Dipende dalla proprietà",
-   "punti": [
-    [
-     "move-horizontal",
-     "`width: 50%`: metà della larghezza del **contenitore**"
-    ],
-    [
-     "type",
-     "`font-size: 120%`: 1,2 × il testo del **genitore**"
-    ],
-    [
-     "triangle-alert",
-     "`padding-top: 50%`: metà della **larghezza** del contenitore!"
-    ],
-    [
-     "smartphone",
-     "`100vh` sul telefono: più alto dello schermo → `100dvh`"
-    ],
-    [
-     "scroll",
-     "`100vw` include la barra di scorrimento → esce"
-    ]
-   ]
+   "tipo": "casi",
+   "titolo": "La percentuale dipende dalla proprietà",
+   "casi": [
+    {
+     "titolo": "`width: 50%`",
+     "testo": "metà della larghezza del **contenitore**",
+     "icona": "move-horizontal"
+    },
+    {
+     "titolo": "`font-size: 120%`",
+     "testo": "1,2 × il testo del **genitore**",
+     "icona": "type"
+    },
+    {
+     "titolo": "`padding-top: 50%`",
+     "testo": "metà della **larghezza** del contenitore, non dell’altezza",
+     "icona": "triangle-alert",
+     "tono": "forse"
+    }
+   ],
+   "occhiello": "Unità di misura"
+  },
+  {
+   "tipo": "casi",
+   "titolo": "Le trappole della finestra",
+   "casi": [
+    {
+     "titolo": "`100vh` sul telefono",
+     "testo": "più alto dello schermo visibile: calcolato con la barra degli indirizzi nascosta",
+     "icona": "smartphone",
+     "nota": "`100dvh`: l’altezza del momento"
+    },
+    {
+     "titolo": "`100vw`",
+     "testo": "comprende la barra di scorrimento: l’elemento esce e scorre in orizzontale",
+     "icona": "scroll",
+     "nota": "`width: 100%`, o lasciare `auto`"
+    }
+   ],
+   "occhiello": "Unità di misura"
+  },
+  {
+   "tipo": "widget",
+   "titolo": "Sei larghezze, sei unità",
+   "w": "w5_unita",
+   "occhiello": "Unità di misura"
   },
   {
    "tipo": "tabella",
@@ -1850,12 +1880,8 @@ window.AULA = {
      "1% dell’altezza della finestra piccola, grande, attuale (sul telefono)",
      "`min-height: 100dvh`"
     ]
-   ]
-  },
-  {
-   "tipo": "widget",
-   "titolo": "Sei larghezze, sei unità",
-   "w": "w5_unita"
+   ],
+   "occhiello": "Unità di misura"
   },
   {
    "tipo": "errore",
@@ -1868,48 +1894,42 @@ window.AULA = {
    "si": "`100vw` comprende anche la barra di scorrimento verticale: l’elemento **esce** di qualche pixel e compare lo scorrimento orizzontale. Per tutta la larghezza disponibile basta `width: 100%` (o lasciare `auto`)."
   },
   {
-   "tipo": "sezione",
-   "num": "5.5",
-   "titolo": "Differenza tra px, em e rem",
-   "sotto": "px non cambia mai, rem segue il testo della radice, em quello dell’elemento e si accumula nei livelli annidati.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/5-3.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
    "tipo": "domanda",
    "testo": "Lista dentro lista dentro lista, ognuna con `font-size: 1.2em`. Il terzo livello è grande quanto il primo?",
    "risposta": "No: ogni livello moltiplica il genitore, quindi 1,2 × 1,2 × 1,2 = **1,73** volte il testo di partenza."
   },
   {
-   "tipo": "tessere",
+   "tipo": "casi",
    "titolo": "px, em, rem",
-   "msg": "Fisso, relativo all’elemento, relativo alla radice",
-   "tessere": [
-    [
-     "lock",
-     "`px`",
-     "non cambia mai · bordi sottili"
-    ],
-    [
-     "type",
-     "`em`",
-     "testo dell’elemento · si **accumula** · padding dei pulsanti"
-    ],
-    [
-     "house",
-     "`rem`",
-     "testo della radice, scelto dall’utente · testi e spaziature"
-    ]
+   "casi": [
+    {
+     "titolo": "`px`",
+     "testo": "fisso: 16px restano 16px",
+     "icona": "lock",
+     "nota": "bordi sottili"
+    },
+    {
+     "titolo": "`em`",
+     "testo": "il testo dell’elemento (in `font-size`: del genitore); **si accumula**",
+     "icona": "type",
+     "nota": "padding dei pulsanti"
+    },
+    {
+     "titolo": "`rem`",
+     "testo": "il testo della radice, che **l’utente può cambiare**",
+     "icona": "house",
+     "tono": "si",
+     "nota": "testi e spaziature"
+    }
    ],
-   "nota": "Mai `html { font-size: 10px; }`: ignora la preferenza dell’utente"
+   "msg": "Fisso, relativo all’elemento, relativo alla radice",
+   "occhiello": "Differenza tra px, em e rem"
   },
   {
    "tipo": "widget",
    "titolo": "Liste annidate con em e con rem",
-   "w": "w5_annidate"
+   "w": "w5_annidate",
+   "occhiello": "Differenza tra px, em e rem"
   },
   {
    "tipo": "errore",
@@ -1922,47 +1942,34 @@ window.AULA = {
    "si": "Cambia per l’utente: la radice in pixel **ignora la dimensione del testo scelta nel browser**, e chi ha bisogno di caratteri più grandi non li ottiene."
   },
   {
-   "tipo": "sezione",
-   "num": "5.5",
-   "titolo": "Funzioni di calcolo",
-   "sotto": "calc() combina unità, min() e max() fissano limiti, clamp() tiene un valore tra minimo e massimo.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/5-4.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Le funzioni di calcolo",
-   "msg": "Il CSS fa i conti tra unità diverse",
-   "punti": [
+   "tipo": "anatomia",
+   "titolo": "clamp() per un testo fluido",
+   "codice": "font-size: clamp(1rem, 0.5rem + 2vw, 2rem);",
+   "parti": [
     [
-     "calculator",
-     "`calc(100% - 2rem)`: spazi **obbligatori** attorno a + e −"
+     "1rem",
+     "minimo",
+     "non scende sotto"
     ],
     [
-     "arrow-down-to-line",
-     "`min(100%, 600px)`: il più piccolo → limite **massimo**"
+     "0.5rem + 2vw",
+     "preferito",
+     "una parte in rem, una che cresce con la finestra"
     ],
     [
-     "arrow-up-to-line",
-     "`max(1rem, 2vw)`: il più grande → limite **minimo**"
-    ],
-    [
-     "brackets",
-     "`clamp(min, preferito, max)`: il preferito, tenuto tra i limiti"
-    ],
-    [
-     "zoom-in",
-     "Testo fluido: `1rem + 1vw`, non solo `vw` (lo zoom deve funzionare)"
+     "2rem",
+     "massimo",
+     "non sale sopra"
     ]
-   ]
+   ],
+   "effetto": "Solo `vw` non risponde allo zoom: serve anche una parte in rem",
+   "occhiello": "Funzioni di calcolo"
   },
   {
    "tipo": "widget",
    "titolo": "clamp() al lavoro",
-   "w": "w5_clamp"
+   "w": "w5_clamp",
+   "occhiello": "Funzioni di calcolo"
   },
   {
    "tipo": "tabella",
@@ -1993,7 +2000,8 @@ window.AULA = {
      "il preferito, tra minimo e massimo",
      "`font-size: clamp(1rem, 0.5rem + 2vw, 2rem)`"
     ]
-   ]
+   ],
+   "occhiello": "Funzioni di calcolo"
   },
   {
    "tipo": "errore",
@@ -2011,53 +2019,63 @@ window.AULA = {
    "risposta": "**Massima**: `min()` sceglie il più piccolo dei due, quindi la larghezza non supera mai 600px (e su uno schermo stretto è il 100%)."
   },
   {
-   "tipo": "sezione",
-   "num": "5.5",
-   "titolo": "Formati dei colori",
-   "sotto": "Lo stesso colore si scrive in più formati; HSL è comodo per costruire palette, RGB per i canali.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/6-1.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
    "tipo": "domanda",
    "testo": "`#ff0000`, `rgb(255 0 0)`, `hsl(0 100% 50%)` e `red`: quanti colori diversi sono?",
    "risposta": "**Uno solo**: il rosso puro, scritto in quattro formati diversi."
   },
   {
-   "tipo": "tessere",
-   "titolo": "I formati dei colori",
-   "msg": "Lo stesso colore, più scritture",
-   "tessere": [
+   "tipo": "anatomia",
+   "titolo": "L’esadecimale",
+   "codice": "color: #0a6f66;",
+   "parti": [
     [
-     "type",
-     "Nomi",
-     "`tomato`, `rebeccapurple`"
+     "0a",
+     "rosso",
+     "da 00 a ff"
     ],
     [
-     "hash",
-     "Esadecimale",
-     "`#0a6f66` · breve `#fc0` = `#ffcc00`"
+     "6f",
+     "verde",
+     "da 00 a ff"
     ],
     [
-     "sliders-horizontal",
-     "`rgb()`",
-     "tre canali da 0 a 255"
-    ],
-    [
-     "palette",
-     "`hsl()`",
-     "tinta in gradi, saturazione %, luminosità %"
+     "66",
+     "blu",
+     "da 00 a ff"
     ]
    ],
-   "nota": "Sintassi moderna: `rgb(10 111 102 / 0.5)` · `rgba()` non serve più"
+   "effetto": "Forma breve: `#fc0` = `#ffcc00`, ogni cifra si raddoppia",
+   "occhiello": "Formati dei colori"
+  },
+  {
+   "tipo": "anatomia",
+   "titolo": "HSL",
+   "codice": "color: hsl(175 83% 24%);",
+   "parti": [
+    [
+     "175",
+     "tinta",
+     "gradi sulla ruota: 0 rosso, 120 verde, 240 blu"
+    ],
+    [
+     "83%",
+     "saturazione",
+     "0% grigio, 100% colore pieno"
+    ],
+    [
+     "24%",
+     "luminosità",
+     "0% nero, 50% puro, 100% bianco"
+    ]
+   ],
+   "effetto": "Stessa tinta, luminosità diverse: una palette",
+   "occhiello": "Formati dei colori"
   },
   {
    "tipo": "widget",
    "titolo": "Un colore, due scritture",
-   "w": "w6_colori"
+   "w": "w6_colori",
+   "occhiello": "Formati dei colori"
   },
   {
    "tipo": "tabella",
@@ -2093,7 +2111,8 @@ window.AULA = {
      "`border-color: currentColor`",
      "per legare un bordo o un’icona al colore del testo"
     ]
-   ]
+   ],
+   "occhiello": "Formati dei colori"
   },
   {
    "tipo": "errore",
@@ -2101,44 +2120,31 @@ window.AULA = {
    "si": "Nella forma breve **ogni cifra si raddoppia**: `#fc0` vale `#ffcc00`, un giallo oro; `#fc0000` è un rosso."
   },
   {
-   "tipo": "sezione",
-   "num": "5.5",
-   "titolo": "Trasparenza: opacity contro canale alfa",
-   "sotto": "opacity rende trasparente tutto l’elemento, l’alfa di un colore solo quel colore.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/6-2.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "confronto",
+   "tipo": "casi",
    "titolo": "Due trasparenze",
+   "casi": [
+    {
+     "titolo": "`opacity: 0.5`",
+     "testo": "tutto l’elemento: sfondo, testo, bordi e figli",
+     "icona": "layers",
+     "nota": "con 0 è invisibile ma **c’è ancora**, e si clicca"
+    },
+    {
+     "titolo": "canale alfa",
+     "testo": "solo quel colore: sullo sfondo, il testo resta pieno",
+     "icona": "droplet",
+     "tono": "si",
+     "html": "<span class=\"k\">background: rgb(30 80 200 / 0.5)</span>;"
+    }
+   ],
    "msg": "Tutto l’elemento o solo un colore",
-   "a": {
-    "icona": "layers",
-    "titolo": "`opacity: 0.5`",
-    "righe": [
-     "• sfondo, testo, bordi e figli",
-     "• con 0: invisibile ma **c’è**, e si clicca"
-    ],
-    "piede": "tutto l’elemento"
-   },
-   "b": {
-    "icona": "droplet",
-    "titolo": "`rgb(… / 0.5)`",
-    "tono": "buono",
-    "righe": [
-     "• solo quel colore",
-     "• sullo sfondo: il testo resta pieno"
-    ],
-    "piede": "solo il colore"
-   }
+   "occhiello": "Trasparenza: opacity contro canale alfa"
   },
   {
    "tipo": "widget",
    "titolo": "opacity o canale alfa?",
-   "w": "w6_alfa"
+   "w": "w6_alfa",
+   "occhiello": "Trasparenza: opacity contro canale alfa"
   },
   {
    "tipo": "errore",
@@ -2150,5 +2156,6 @@ window.AULA = {
    "testo": "Card con sfondo blu e testo bianco, poi `opacity: 0.5`. Che cosa diventa trasparente?",
    "risposta": "**Tutto**: sfondo, testo e bordo. Per rendere trasparente solo lo sfondo serve il canale alfa nel colore di sfondo."
   }
- ]
+ ],
+ "stile": "schema"
 };

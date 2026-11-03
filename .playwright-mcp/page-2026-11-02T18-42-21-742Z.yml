@@ -1,0 +1,213 @@
+- generic [active] [ref=f20e1]:
+  - generic [ref=f20e2]:
+    - link "Prime Radiant Superpowers v7.0.0" [ref=f20e4] [cursor=pointer]:
+      - /url: https://github.com/obra/superpowers
+      - img "Prime Radiant" [ref=f20e5]
+      - generic [ref=f20e6]: Superpowers v7.0.0
+    - generic [ref=f20e7]: Connected
+  - generic [ref=f20e10]:
+    - heading "Le slide di 6.4, 6.5 e 6.6 con il contenuto del capitolo" [level=2] [ref=f20e11]
+    - paragraph [ref=f20e12]: Tutti i testi vengono dal capitolo 6 (sito), parola per parola o quasi; niente aggiunto. Sezioni, domande, errore e storie sono rifatti nello stesso stile; l'animazione del termostato resta la tua. Clicca sulle slide per farle avanzare.
+    - paragraph [ref=f20e13]: 6.4 · L'Internet of Things
+    - generic [ref=f20e14]:
+      - generic [ref=f20e15]: "6.4"
+      - paragraph [ref=f20e16]: L’Internet of Things
+    - paragraph [ref=f20e17]: Sezione.
+    - generic [ref=f20e18]:
+      - generic [ref=f20e22]: Domanda per la classe
+      - paragraph [ref=f20e23]: Elencate gli oggetti di casa vostra, esclusi telefoni, computer e TV, che secondo voi sono collegati a Internet.
+    - paragraph [ref=f20e24]: Domanda stimolo, prima della definizione (come nel capitolo).
+    - generic [ref=f20e25] [cursor=pointer]:
+      - generic [ref=f20e26]:
+        - generic [ref=f20e27]: 6.4 · Definizione
+        - paragraph [ref=f20e28]: L'Internet of Things (IoT)
+      - paragraph [ref=f20e29]: La rete di oggetti fisici dotati di sensori, capacità di calcolo e connessione, che raccolgono dati sull'ambiente, li scambiano tramite Internet e possono agire di conseguenza, spesso senza l'intervento di una persona.
+      - generic [ref=f20e30]:
+        - generic [ref=f20e31]: sensori
+        - generic [ref=f20e34]: capacità di calcolo
+        - generic [ref=f20e37]: connessione
+      - paragraph [ref=f20e40]: Un oggetto così si dice smart (intelligente) o connesso.
+      - generic [ref=f20e41]: clic · passo 0 di 1
+    - paragraph [ref=f20e42]: Definizione → frase grande. Al clic, sotto, i tre ingredienti con la loro icona.
+    - generic [ref=f20e43] [cursor=pointer]:
+      - paragraph [ref=f20e45]: A comunicare sono soprattutto le cose
+      - generic [ref=f20e46]:
+        - generic [ref=f20e51]:
+          - generic [ref=f20e52]: Le persone
+          - paragraph [ref=f20e53]: usano Internet attraverso telefoni e computer
+        - generic [ref=f20e58]:
+          - generic [ref=f20e59]: Nell'IoT
+          - paragraph [ref=f20e60]: a comunicare sono soprattutto le cose
+      - generic [ref=f20e61]:
+        - text: diverse decine di miliardi
+        - paragraph [ref=f20e62]: "di oggetti connessi nel mondo: hanno già superato le persone."
+        - generic [ref=f20e63]: Valore indicativo, che cambia molto a seconda di come si conta.
+      - generic [ref=f20e64]: clic · passo 0 di 3
+    - paragraph [ref=f20e65]: Confronto + numero → due colonne e una cifra enorme.
+    - generic [ref=f20e66] [cursor=pointer]:
+      - generic [ref=f20e67]:
+        - generic [ref=f20e68]: Un esempio
+        - paragraph [ref=f20e69]: Il termostato smart
+      - img "Termostato smart con sensore, calcolo e connessione" [ref=f20e70]:
+        - generic [ref=f20e73]: 17 °C
+        - generic [ref=f20e87]:
+          - generic [ref=f20e89]: caldaia
+          - generic [ref=f20e90]: accesa
+        - generic [ref=f20e93]:
+          - generic [ref=f20e95]: Sensore
+          - generic [ref=f20e96]: "misura 17 °C: il valore compare sul termostato"
+        - generic [ref=f20e97]:
+          - generic [ref=f20e100]: Calcolo
+          - generic [ref=f20e101]: confronta il valore con l'obiettivo (20 °C) e accende la caldaia
+        - generic [ref=f20e102]:
+          - generic [ref=f20e105]: Connessione
+          - generic [ref=f20e106]: "il dato viaggia via Wi-Fi fino al cloud: l'app mostra «17 °C, riscaldamento acceso»"
+      - generic [ref=f20e107]: clic · passo 0 di 3
+    - paragraph [ref=f20e108]: Com'è fatto → anatomia. I tre ingredienti della definizione ritrovati dentro l'oggetto del capitolo; il resto della storia (finestra aperta, comando dal telefono) lo racconta la tua animazione, subito dopo.
+    - generic [ref=f20e109]:
+      - text: "Animazione del capitolo: il termostato smart"
+      - generic [ref=f20e112]: 5 passi · invariata
+    - paragraph [ref=f20e113]: La tua animazione.
+    - generic [ref=f20e114] [cursor=pointer]:
+      - generic [ref=f20e115]:
+        - generic [ref=f20e116]: Nella storia
+        - paragraph [ref=f20e117]: Le origini dell’IoT
+      - generic [ref=f20e119]:
+        - generic [ref=f20e120]: inizio anni '80
+        - paragraph [ref=f20e121]: "Il primo «oggetto connesso»: un distributore di Coca-Cola dell'Università Carnegie Mellon, collegato ad ARPANET. Gli studenti controllavano da lontano se c'erano lattine e se erano fredde."
+      - generic [ref=f20e122]:
+        - generic [ref=f20e123]: "1999"
+        - paragraph [ref=f20e124]: L'inglese Kevin Ashton, che lavorava sui tag RFID per seguire i prodotti nei magazzini, usa per la prima volta l'espressione Internet of Things.
+      - generic [ref=f20e125]: clic · passo 0 di 2
+    - paragraph [ref=f20e126]: Storia → linea del tempo, in ordine cronologico (nel capitolo è raccontata al contrario).
+    - generic [ref=f20e127] [cursor=pointer]:
+      - generic [ref=f20e128]: Errore tipico
+      - generic [ref=f20e130]:
+        - generic [ref=f20e131]: ✗
+        - paragraph [ref=f20e132]: «Un oggetto IoT è intelligente perché ragiona da solo.»
+      - generic [ref=f20e133]:
+        - generic [ref=f20e134]: ✓
+        - paragraph [ref=f20e135]: Un oggetto «smart» di solito segue un programma e reagisce ai dati dei sensori; l'intelligenza vera, quando c'è, è spesso nel cloud del produttore o in modelli di IA.
+      - generic [ref=f20e136]: clic · passo 0 di 1
+    - paragraph [ref=f20e137]: Errore → sbagliato sopra, giusto sotto, al clic.
+    - paragraph [ref=f20e138]: 6.5 · Le applicazioni dell'IoT
+    - generic [ref=f20e139]:
+      - generic [ref=f20e140]: "6.5"
+      - paragraph [ref=f20e141]: Le applicazioni dell’IoT
+    - paragraph [ref=f20e142]: Sezione.
+    - generic [ref=f20e143] [cursor=pointer]:
+      - generic [ref=f20e145]:
+        - generic [ref=f20e146]: Smart home
+        - paragraph [ref=f20e147]: La casa intelligente
+        - generic [ref=f20e148]:
+          - generic [ref=f20e149]: termostati
+          - generic [ref=f20e152]: lampadine
+          - generic [ref=f20e155]: prese
+          - generic [ref=f20e158]: serrature
+          - generic [ref=f20e161]: videocamere
+          - generic [ref=f20e164]: robot aspirapolvere
+          - generic [ref=f20e167]: elettrodomestici
+          - generic [ref=f20e170]: assistenti vocali
+        - generic [ref=f20e173]:
+          - generic [ref=f20e178]:
+            - generic [ref=f20e179]: Risparmio energetico
+            - paragraph [ref=f20e180]: riscaldare solo quando serve
+          - generic [ref=f20e185]:
+            - generic [ref=f20e186]: Autonomia
+            - paragraph [ref=f20e187]: persone anziane o con disabilità comandano la casa con la voce
+      - generic [ref=f20e188]: clic · passo 0 di 3
+    - paragraph [ref=f20e189]: Che cosa c'è + a che cosa serve → foto, elenco a gettoni, poi le due applicazioni più utili. Al primo clic si evidenzia l'assistente vocale, che ha un ruolo diverso dagli altri.
+    - generic [ref=f20e190] [cursor=pointer]:
+      - img "Mappa schematica di un quartiere con cinque sensori" [ref=f20e191]
+      - paragraph [ref=f20e226]: "Un sensore di parcheggio sull'asfalto: rileva se sopra c'è un'auto e invia il dato via radio, così un'app mostra i posti liberi."
+      - generic [ref=f20e227]:
+        - generic [ref=f20e228]:
+          - generic [ref=f20e229]: Smart city
+          - paragraph [ref=f20e230]: Le città intelligenti
+          - paragraph [ref=f20e231]: I sensori servono a gestire meglio servizi e risorse.
+        - generic [ref=f20e232]:
+          - generic [ref=f20e233]: Parcheggi
+          - text: che segnalano i posti liberi
+        - generic [ref=f20e234]:
+          - generic [ref=f20e235]: Lampioni
+          - text: che si accendono solo quando passa qualcuno
+        - generic [ref=f20e236]:
+          - generic [ref=f20e237]: Cassonetti
+          - text: che avvisano quando sono pieni
+        - generic [ref=f20e238]:
+          - generic [ref=f20e239]: Semafori
+          - text: regolati dal traffico reale
+        - generic [ref=f20e240]:
+          - generic [ref=f20e241]: Centraline
+          - text: che misurano la qualità dell'aria
+      - generic [ref=f20e242]: clic · passo 0 di 5
+    - paragraph [ref=f20e243]: Esempi nello spazio → mappa. Al primo clic compare anche la foto del sensore di parcheggio del capitolo, con la sua didascalia; poi lascia spazio alla mappa.
+    - generic [ref=f20e244]:
+      - generic [ref=f20e248]: Domanda per la classe
+      - paragraph [ref=f20e249]: Quale applicazione dell'IoT vi sembra più utile per la vostra città? E quale vi sembra inutile o addirittura preoccupante?
+    - paragraph [ref=f20e250]: Domanda.
+    - paragraph [ref=f20e251]: 6.6 · I rischi dell'IoT
+    - generic [ref=f20e252]:
+      - generic [ref=f20e253]: "6.6"
+      - paragraph [ref=f20e254]: I rischi dell'IoT
+    - paragraph [ref=f20e255]: Sezione.
+    - generic [ref=f20e256] [cursor=pointer]:
+      - generic [ref=f20e257]:
+        - generic [ref=f20e258]: Sicurezza
+        - paragraph [ref=f20e259]: Una porta in più verso la rete
+      - 'img "Rete di casa: ogni oggetto connesso è una porta" [ref=f20e260]':
+        - generic [ref=f20e269]: rete di casa
+      - generic [ref=f20e294]:
+        - generic [ref=f20e299]:
+          - generic [ref=f20e300]: Password predefinite
+          - paragraph [ref=f20e301]: uguali per tutti e mai cambiate
+        - generic [ref=f20e306]:
+          - generic [ref=f20e307]: Aggiornamenti
+          - paragraph [ref=f20e308]: che non arrivano mai
+        - generic [ref=f20e313]:
+          - generic [ref=f20e314]: Niente cifratura
+          - paragraph [ref=f20e315]: dati inviati senza cifratura
+      - paragraph [ref=f20e316]:
+        - generic [ref=f20e317]: Ogni oggetto connesso è anche una porta in più verso la rete…
+      - generic [ref=f20e318]: clic · passo 0 di 4
+    - paragraph [ref=f20e319]: «Porta verso la rete» → la rete di casa disegnata, con gli oggetti del capitolo intorno al router. Al primo clic diventano porte aperte (tratteggio rosso); poi i tre problemi.
+    - generic [ref=f20e320] [cursor=pointer]:
+      - generic [ref=f20e321]:
+        - generic [ref=f20e322]: Nella storia · ottobre 2016
+        - paragraph [ref=f20e323]: Il malware Mirai
+      - img "Videocamere infettate che attaccano il DNS di Dyn" [ref=f20e324]:
+        - generic [ref=f20e361]: botnet
+        - generic [ref=f20e372]: DNS di Dyn
+        - generic [ref=f20e376]: Twitter
+        - generic [ref=f20e379]: Netflix
+        - generic [ref=f20e382]: Spotify
+      - paragraph [ref=f20e385]:
+        - generic [ref=f20e386]: Centinaia di migliaia di videocamere e videoregistratori collegati a Internet.
+      - generic [ref=f20e387]: clic · passo 0 di 4
+    - paragraph [ref=f20e388]: Catena di cause → rete che si contagia.
+    - generic [ref=f20e389] [cursor=pointer]:
+      - generic [ref=f20e390]:
+        - generic [ref=f20e391]: Privacy
+        - paragraph [ref=f20e392]: Dati molto personali
+      - img "I dati personali raccolti dagli oggetti IoT" [ref=f20e393]:
+        - generic [ref=f20e402]: oggetti IoT
+        - generic [ref=f20e403]: quando si è in casa
+        - generic [ref=f20e406]:
+          - generic [ref=f20e408]: che cosa si dice vicino
+          - generic [ref=f20e409]: a un assistente vocale
+        - generic [ref=f20e410]: dove si va
+        - generic [ref=f20e413]: come si dorme
+        - generic [ref=f20e416]: quanto si consuma
+      - generic [ref=f20e419]:
+        - generic [ref=f20e420]:
+          - generic [ref=f20e421]: Chi possiede quei dati? Dove sono conservati? A chi vengono ceduti?
+          - paragraph [ref=f20e422]: È spesso scritto in condizioni d'uso che nessuno legge.
+        - generic [ref=f20e423]:
+          - generic [ref=f20e424]: E gli altri?
+          - paragraph [ref=f20e425]: Videocamere e campanelli connessi riprendono anche altre persone, come vicini e passanti.
+      - generic [ref=f20e426]: clic · passo 0 di 3
+    - paragraph [ref=f20e427]: Che cosa raccolgono → raggiera intorno agli oggetti; a destra, una per clic, le due domande del capitolo.
+    - generic [ref=f20e428]:
+      - generic [ref=f20e432]: Domanda per la classe
+      - paragraph [ref=f20e433]: Una lampadina smart viene violata. Che danno può fare, se non può «vedere» niente?
+    - paragraph [ref=f20e434]: Domanda.

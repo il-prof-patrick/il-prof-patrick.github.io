@@ -102,9 +102,11 @@ class Pagina:
     @property
     def S(self): return self.sezioni[-1]
 
-    def sez(self, num, titolo, R):
+    def sez(self, num, titolo, R, ic=None):
+        """Paragrafo (h3) con l'icona Lucide della sua idea (scrittura-e-forma: un'icona sui sotto-titoli)."""
         self.sezioni.append(dict(num=num, titolo=titolo, R=R, fig=[], err=[], dom=[]))
-        self.c += f'  <h3 id="s{num.replace(".", "-")}">{md(titolo)}</h3>\n'
+        i = f'<i data-ic="{ic}" class="ic-20"></i>' if ic else ''
+        self.c += f'  <h3 id="s{num.replace(".", "-")}"' + (' class="con-ic"' if ic else '') + f'>{i}{md(titolo)}</h3>\n'
 
     def p(self, *righe):
         for r in righe: self.c += '  <p>' + md(r) + '</p>\n'
@@ -130,8 +132,35 @@ class Pagina:
         if aula: self.S['fig'].append(('cod', t, aula, 'html'))
 
     def es(self, t, titolo='Esempio'):
-        corpo = '</p>\n    <p>'.join(md(x) for x in t.split('\n\n'))
-        self.c += SL.box('esempio', titolo, 'book-open', '<p>' + corpo + '</p>')
+        """Riquadro «Esempio»: riga grigia a sinistra, etichetta piccola; paragrafi separati da una riga vuota, righe con «- » = elenco."""
+        corpo = ''
+        for x in t.split('\n\n'):
+            rr = x.split('\n')
+            if all(r.startswith('- ') for r in rr): corpo += '<ul>' + ''.join('<li>' + md(r[2:]) + '</li>' for r in rr) + '</ul>'
+            else: corpo += '<p>' + md(x) + '</p>'
+        self.c += f'  <div class="ese"><b>{titolo}</b>{corpo}</div>\n'
+
+    def forma(self, *voci):
+        """Schema in una riga: blocco, freccia, blocco… (voci pari = 'nome|sottotitolo', dispari = nome del passaggio)."""
+        h = ''
+        for k, v in enumerate(voci):
+            if k % 2: h += f'<span class="fr"><i>⟶</i>{md(v)}</span>'
+            else:
+                n, _, sotto = v.partition('|')
+                cl = ' class="out"' if k == len(voci) - 1 else ''
+                h += f'<span{cl}>{md(n)}' + (f'<small>{md(sotto)}</small>' if sotto else '') + '</span>'
+        self.c += f'  <div class="forma">{h}</div>\n'
+
+    def casi(self, *cc):
+        """Due colonne per un confronto vero: (tono 'si'/'no', etichetta, testo, css facoltativo)."""
+        h = ''
+        for c in cc:
+            tono, et, testo = c[0], c[1], c[2]
+            segno = '✓ ' if tono == 'si' else '✗ ' if tono == 'no' else ''
+            h += f'<div class="{tono}"><b>{segno}{md(et)}</b>' + ''.join('<p>' + md(x) + '</p>' for x in testo.split('\n\n') if x)
+            if len(c) > 3: h += codice_css(c[3]).strip()
+            h += '</div>'
+        self.c += f'  <div class="casi">{h}</div>\n'
 
     def approfondimento(self, t, titolo='Approfondimento'):
         corpo = '</p>\n    <p>'.join(md(x) for x in t.split('\n\n'))
@@ -178,12 +207,12 @@ class Pagina:
     def aula(self, sotto, spiega, apertura=None, sotto_sez=None):
         """Slide del tema in corso: la sua apertura, poi per ogni paragrafo domande di previsione, slide di spiegazione
         (spiega[num], scritte a mano), figure della pagina (widget, schemi, tabelle, codice, foto), errori e domande."""
-        sotto_sez = sotto_sez or {}
         cp = self.capi[-1]
         S = [{'tipo': 'sezione', 'num': cp['num'], 'titolo': cp['titolo'], 'sotto': sotto, 'foto': atm('c%d' % cp['v'])}]
         if apertura: S.append({'tipo': 'domanda', 'testo': apertura[0], 'risposta': apertura[1]})
         for s in self.sezioni[cp['da']:]:
-            S.append({'tipo': 'sezione', 'num': cp['num'], 'titolo': s['titolo'], 'sotto': sotto_sez.get(s['num'], s['R']), 'foto': atm(s['num'])})
+            # niente slide di sezione per i paragrafi (h3): il loro titolo va nell'occhiello delle slide
+            n0 = len(S)
             S += [{'tipo': 'domanda', 'testo': q, 'risposta': r} for q, r, pr in s['dom'] if pr]
             usati = set()
             for x in spiega.get(s['num'], []):
@@ -195,12 +224,14 @@ class Pagina:
                 S.append(self._figura(f))
             S += [{'tipo': 'errore', 'no': no, 'si': si} for no, si in s['err']]
             S += [{'tipo': 'domanda', 'testo': q, 'risposta': r} for q, r, pr in s['dom'] if not pr]
+            for x in S[n0:]:
+                if x['tipo'] not in ('domanda', 'errore', 'sezione') and 'occhiello' not in x: x['occhiello'] = s['titolo']
         self.slide += S
 
     def scrivi_aula(self, sotto):
         cop = {'tipo': 'copertina', 'titolo': self.titolo, 'sotto': sotto,
                'indice': [[c['num'], c['titolo']] for c in self.capi], 'foto': atm('c%d' % self.capi[0]['v'])}
-        SL.scrivi_aula(os.path.join(SITO, 'assets', 'capitolo-%02d-aula.js' % self.n), '%02d' % self.n, self.titolo, fix([cop] + self.slide))
+        SL.scrivi_aula(os.path.join(SITO, 'assets', 'capitolo-%02d-aula.js' % self.n), '%02d' % self.n, self.titolo, fix([cop] + self.slide), stile='schema')
 
     def _fig(self, s, chiave):
         for f in s['fig']:
@@ -233,7 +264,7 @@ def atm(k):
     return F('local:assets/immagini/atmosfera/' + v, '', '') if v else None
 
 
-NON_TESTO = {'src', 'sel', 'id', 'w', 'tipo', 'num', 'alt', 'icona', 'html'}
+NON_TESTO = {'src', 'sel', 'id', 'w', 'tipo', 'num', 'alt', 'icona', 'html', 'tono', 'tonoOcc'}
 
 
 def fix(o, chiave=None):
@@ -272,3 +303,63 @@ def codice(titolo, msg, testo, note=None, lingua='css'):
 
 def tabella(titolo, msg, righe):
     return {'tipo': 'tabella', 'titolo': titolo, 'msg': msg, 'righe': righe}
+
+
+# forme «schema geometrico» (scrittura-e-forma.md, parte 2): la slide ha la forma del suo significato
+def _d(tipo, titolo, **k):
+    d = {'tipo': tipo, 'titolo': titolo}
+    d.update({a: b for a, b in k.items() if b is not None})
+    return d
+
+
+def nd(titolo=None, testo=None, icona=None, righe=None, css=None, html=None, tono=None, nota=None, riga=None):
+    """Blocco di flusso/bivio/casi: css = codice CSS da colorare, html = codice HTML."""
+    b = {'titolo': titolo, 'testo': testo, 'icona': icona, 'righe': righe, 'tono': tono, 'nota': nota, 'riga': riga}
+    if css: b['html'] = cod_aula(css)
+    if html: b['html'] = cod_aula(html, 'html')
+    return {a: v for a, v in b.items() if v is not None}
+
+
+def caso(tono, etichetta, **k):
+    """Un caso di casi(): tono 'si' (✓ verde) o 'no' (✗ rosso) + gli stessi campi di nd()."""
+    b = nd(tono=tono, **k); b['etichetta'] = etichetta
+    return b
+
+
+def definizione(titolo, frase, parti=None, nota=None, occhiello=None):
+    return _d('definizione', titolo, frase=frase, parti=parti, nota=nota, occhiello=occhiello)
+
+
+def flusso(titolo, blocchi, frecce=None, msg=None, occhiello=None, riga=None):
+    return _d('flusso', titolo, blocchi=blocchi, frecce=frecce, msg=msg, occhiello=occhiello, riga=riga)
+
+
+def casi(titolo, cc, msg=None, occhiello=None, aClic=None):
+    return _d('casi', titolo, casi=cc, msg=msg, occhiello=occhiello, aClic=aClic)
+
+
+def bivio(titolo, frase, rami, msg=None, occhiello=None):
+    return _d('bivio', titolo, frase=frase, rami=rami, msg=msg, occhiello=occhiello)
+
+
+def linea(titolo, pp, msg=None, occhiello=None):
+    return _d('linea', titolo, punti=pp, msg=msg, occhiello=occhiello)
+
+
+def anatomia(titolo, codice, parti, msg=None, effetto=None, occhiello=None):
+    """parti: [frammento, nome, spiegazione(, occorrenza)]: il frammento è cercato nel codice."""
+    return _d('anatomia', titolo, codice=codice, parti=parti, msg=msg, effetto=effetto, occhiello=occhiello)
+
+
+def cifra(titolo, a, b, num, testo, cautela=None, occhiello=None):
+    return _d('cifra', titolo, a=a, b=b, cifra=num, testo=testo, cautela=cautela, occhiello=occhiello)
+
+
+def gettoni(titolo, gg, perche=None, foto=None, msg=None, occhiello=None):
+    return _d('gettoni', titolo, gettoni=gg, perche=perche, foto=foto, msg=msg, occhiello=occhiello)
+
+
+def domanda(testo, risposta=None):
+    d = {'tipo': 'domanda', 'testo': testo}
+    if risposta: d['risposta'] = risposta
+    return d

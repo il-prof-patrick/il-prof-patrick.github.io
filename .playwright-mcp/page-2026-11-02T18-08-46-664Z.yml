@@ -1,0 +1,128 @@
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - link "Prime Radiant Superpowers v7.0.0" [ref=f1e4] [cursor=pointer]:
+      - /url: https://github.com/obra/superpowers
+      - img "Prime Radiant" [ref=f1e5]
+      - generic [ref=f1e6]: Superpowers v7.0.0
+    - generic [ref=f1e7]: Connected
+  - generic [ref=f1e9]:
+    - 'heading "Schema geometrico: più contenuto" [level=2] [ref=f1e10]'
+    - paragraph [ref=f1e11]: "Sei slide da capitoli diversi, nello stile C ma con più sostanza: un sottotitolo che dice il concetto (non una frase a effetto), testo vero dentro gli schemi, esempi concreti. Ogni schema può comparire un pezzo alla volta."
+    - generic [ref=f1e12]:
+      - generic [ref=f1e13]:
+        - generic [ref=f1e14]:
+          - paragraph [ref=f1e15]: Un sistema a regole
+          - paragraph [ref=f1e16]: La conclusione di una regola diventa un fatto nuovo, che può farne scattare altre.
+          - generic [ref=f1e17]:
+            - generic [ref=f1e18]:
+              - generic [ref=f1e19]: Fatti
+              - list [ref=f1e25]:
+                - listitem [ref=f1e26]: sono le 19
+                - listitem [ref=f1e27]: fuori è buio
+                - listitem [ref=f1e28]: Marco è in casa
+            - generic [ref=f1e32]:
+              - generic [ref=f1e33]: Regola
+              - text: SE è sera e qualcuno è in casaALLORA accendi la luce
+            - generic [ref=f1e40]:
+              - generic [ref=f1e41]: Fatto nuovo
+              - text: la luce è accesa
+        - paragraph [ref=f1e45]: Cap. 1 · Processo in tre passi, con i fatti veri dentro. Compare da sinistra a destra.
+      - generic [ref=f1e46]:
+        - generic [ref=f1e47]:
+          - paragraph [ref=f1e48]: Una frase, due significati
+          - paragraph [ref=f1e49]: Chi ascolta sceglie con il contesto. Il computer non ce l'ha.
+          - generic [ref=f1e50]:
+            - generic [ref=f1e51]: «Ho visto un uomo col binocolo»
+            - generic [ref=f1e59]:
+              - generic [ref=f1e60]:
+                - generic [ref=f1e61]:
+                  - generic [ref=f1e62]: "1"
+                  - text: Il binocolo ce l'ho io
+                - text: l'ho usato per guardarlo
+              - generic [ref=f1e63]:
+                - generic [ref=f1e64]:
+                  - generic [ref=f1e65]: "2"
+                  - text: Il binocolo ce l'ha lui
+                - text: ho visto un uomo che lo teneva
+        - paragraph [ref=f1e66]: "Cap. 1 · Ambiguità come bivio: una frase, due rami."
+      - generic [ref=f1e67]:
+        - generic [ref=f1e68]:
+          - paragraph [ref=f1e69]: Valido o no?
+          - paragraph [ref=f1e70]: Stesse premesse vere, ma solo a sinistra la conclusione segue per forza.
+          - generic [ref=f1e71]:
+            - generic [ref=f1e72]:
+              - generic [ref=f1e73]: ✓ valido
+              - generic [ref=f1e75]: Tutti i gatti hanno quattro zampe
+              - generic [ref=f1e76]: Tom è un gatto
+              - generic [ref=f1e78]: Tom ha quattro zampe
+            - generic [ref=f1e79]:
+              - generic [ref=f1e80]: ✗ non valido
+              - generic [ref=f1e82]: Tutti i gatti hanno quattro zampe
+              - generic [ref=f1e83]: Fido ha quattro zampe
+              - generic [ref=f1e85]: Fido è un gatto
+              - generic [ref=f1e86]: "Fido è un cane: premesse vere, conclusione falsa"
+        - paragraph [ref=f1e87]: "Cap. 1 · Confronto vero: due ragionamenti affiancati, con il controesempio scritto."
+      - generic [ref=f1e88]:
+        - generic [ref=f1e89]:
+          - paragraph [ref=f1e90]: Dall'italiano alla logica
+          - paragraph [ref=f1e91]: "Formalizzare: ogni frase semplice diventa una lettera, ogni parola-chiave un connettivo."
+          - generic [ref=f1e92]:
+            - generic [ref=f1e93]: piove e fa freddo, quindi resto a casa
+            - generic [ref=f1e97]:
+              - generic [ref=f1e98]: ppiove
+              - generic [ref=f1e99]: qfa freddo
+              - generic [ref=f1e100]: rresto a casa
+              - generic [ref=f1e101]: (p ∧ q) → r
+        - paragraph [ref=f1e103]: "Cap. 2 · Traduzione passo per passo: sottolineo, estraggo le lettere, scrivo la formula."
+      - generic [ref=f1e104]:
+        - generic [ref=f1e105]:
+          - paragraph [ref=f1e106]: La tavola di «e»
+          - paragraph [ref=f1e107]: "p ∧ q è vera in un solo caso: quando lo sono entrambe."
+          - generic [ref=f1e108]:
+            - table [ref=f1e109]:
+              - rowgroup [ref=f1e110]:
+                - row [ref=f1e111]:
+                  - columnheader "p" [ref=f1e112]
+                  - columnheader "q" [ref=f1e113]
+                  - columnheader "p ∧ q" [ref=f1e114]
+                - row [ref=f1e115]:
+                  - cell "V" [ref=f1e116]
+                  - cell "V" [ref=f1e117]
+                  - cell "V" [ref=f1e118]
+                - row [ref=f1e119]:
+                  - cell "V" [ref=f1e120]
+                  - cell "F" [ref=f1e121]
+                  - cell "F" [ref=f1e122]
+                - row [ref=f1e123]:
+                  - cell "F" [ref=f1e124]
+                  - cell "V" [ref=f1e125]
+                  - cell "F" [ref=f1e126]
+                - row [ref=f1e127]:
+                  - cell "F" [ref=f1e128]
+                  - cell "F" [ref=f1e129]
+                  - cell "F" [ref=f1e130]
+            - generic [ref=f1e131]:
+              - generic [ref=f1e132]: Esempio
+              - text: "«Esco se ho finito i compiti e non piove»: basta che una delle due manchi e resto a casa."
+        - paragraph [ref=f1e136]: Cap. 3 · Tavola grande e leggibile, riga chiave cerchiata, accanto l'esempio che la rende concreta.
+      - generic [ref=f1e137]:
+        - generic [ref=f1e138]:
+          - paragraph [ref=f1e139]: "Abduzione: dal fatto alle ipotesi"
+          - paragraph [ref=f1e140]: Si cerca la spiegazione più probabile, che poi va verificata.
+          - generic [ref=f1e141]:
+            - generic [ref=f1e142]:
+              - generic [ref=f1e143]: Vedo
+              - text: febbre e mal di gola
+            - generic [ref=f1e151]:
+              - generic [ref=f1e152]: Possibili cause
+              - list [ref=f1e157]:
+                - listitem [ref=f1e158]:
+                  - text: influenza
+                  - generic [ref=f1e159]: la più probabile
+                - listitem [ref=f1e160]: raffreddore
+                - listitem [ref=f1e161]: mal di gola batterico
+            - generic [ref=f1e165]:
+              - generic [ref=f1e166]: Verifico
+              - text: con un tampone, una visita
+          - paragraph [ref=f1e171]: "Stessa forma dell'affermazione del conseguente: non dimostra, sceglie da dove partire."
+        - paragraph [ref=f1e172]: "Cap. 4 · Più ricca di prima: le ipotesi alternative si vedono, e c'è il passo della verifica."

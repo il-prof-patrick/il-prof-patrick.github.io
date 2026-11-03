@@ -5,4 +5,4 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'css
 from lib import componi
 
 componi(6, 'CSS: base', [6, 7, 8, 9, 10],
-        'Colori, testo, scatole e posizione: l’aspetto di ogni elemento.')
+        'Sfondi, testo, scatole e posizione: l’aspetto di ogni elemento.')

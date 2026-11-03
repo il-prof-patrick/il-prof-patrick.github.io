@@ -6,7 +6,7 @@ window.AULA = {
   {
    "tipo": "copertina",
    "titolo": "CSS: base",
-   "sotto": "Colori, testo, scatole e posizione: l’aspetto di ogni elemento.",
+   "sotto": "Sfondi, testo, scatole e posizione: l’aspetto di ogni elemento.",
    "indice": [
     [
      "6.1",
@@ -47,52 +47,80 @@ window.AULA = {
    }
   },
   {
-   "tipo": "sezione",
-   "num": "6.1",
-   "titolo": "Immagini di sfondo",
-   "sotto": "Le immagini di sfondo si controllano con size, position, repeat e si sovrappongono; le immagini di contenuto vanno nell’HTML.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/6-3.jpg",
-    "tit": "",
-    "alt": ""
-   }
+   "tipo": "domanda",
+   "testo": "Su una foto di sfondo molto chiara un titolo bianco non si legge. Come si può rimediare senza cambiare la foto?",
+   "risposta": "Mettendo **sopra la foto un gradiente scuro e trasparente**: con più sfondi separati da virgole, il primo sta sopra."
   },
   {
-   "tipo": "punti",
+   "tipo": "gettoni",
    "titolo": "Le immagini di sfondo",
-   "msg": "Dimensione, posizione, ripetizione",
-   "punti": [
+   "gettoni": [
     [
      "maximize",
-     "`background-size`: `cover` riempie e taglia, `contain` tutta con i vuoti"
+     "`background-size`"
     ],
     [
      "move",
-     "`background-position`: `center`, `right bottom`"
+     "`background-position`"
     ],
     [
      "repeat",
-     "`background-repeat`: `repeat`, `repeat-x`, `no-repeat`"
+     "`background-repeat`"
+    ]
+   ],
+   "perche": [
+    [
+     "maximize",
+     "Dimensione",
+     "`auto` grandezza vera · `cover` riempie e taglia · `contain` tutta, con i vuoti"
+    ],
+    [
+     "move",
+     "Posizione",
+     "`center`, `right bottom`, `20% 50%`"
+    ],
+    [
+     "repeat",
+     "Ripetizione",
+     "`repeat` (iniziale), `repeat-x`, `repeat-y`, `no-repeat`"
     ],
     [
      "layers",
-     "Più sfondi separati da virgole: **il primo sta sopra**"
-    ],
-    [
-     "image",
-     "Immagine che porta contenuto? `&lt;img alt=\"…\"&gt;` nell’HTML"
+     "Più sfondi",
+     "separati da virgole: **il primo sta sopra**"
     ]
    ],
    "foto": {
     "src": "assets/immagini/arduino.jpg",
-    "tit": "",
-    "alt": "Scheda Arduino"
-   }
+    "tit": "Scheda Arduino",
+    "alt": "Una scheda Arduino Uno"
+   },
+   "occhiello": "Immagini di sfondo"
   },
   {
    "tipo": "widget",
    "titolo": "La stessa foto di sfondo, sei impostazioni",
-   "w": "w6_sfondo"
+   "w": "w6_sfondo",
+   "occhiello": "Immagini di sfondo"
+  },
+  {
+   "tipo": "casi",
+   "titolo": "Sfondo o immagine nell’HTML?",
+   "casi": [
+    {
+     "titolo": "`background-image`",
+     "testo": "niente testo alternativo: gli screen reader non la annunciano, in stampa spesso sparisce",
+     "tono": "no",
+     "etichetta": "decorazione"
+    },
+    {
+     "titolo": "`&lt;img alt=\"…\"&gt;`",
+     "testo": "la foto di un prodotto, un grafico, un ritratto: vanno nell’HTML",
+     "tono": "si",
+     "etichetta": "contenuto"
+    }
+   ],
+   "occhiello": "Immagini di sfondo"
   },
   {
    "tipo": "errore",
@@ -105,43 +133,60 @@ window.AULA = {
    "si": "`cover` riempie l’elemento e **taglia** ciò che non entra. Per vedere tutta l’immagine serve `contain`, che però può lasciare dei vuoti."
   },
   {
-   "tipo": "sezione",
-   "num": "6.1",
-   "titolo": "Gradienti",
-   "sotto": "Un gradiente è un’immagine generata: va in background-image, mai in background-color.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/6-4.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "tessere",
+   "tipo": "definizione",
    "titolo": "I gradienti",
-   "msg": "Immagini generate dal browser",
-   "tessere": [
+   "frase": "Un **gradiente** è una sfumatura tra due o più colori: per il CSS è un’**immagine generata dal browser**, non un colore.",
+   "parti": [
     [
      "move-right",
-     "`linear-gradient()`",
-     "lungo una retta · `90deg` = verso destra"
+     "`linear-gradient()`: lungo una retta"
     ],
     [
      "circle-dot",
-     "`radial-gradient()`",
-     "dal centro verso l’esterno"
+     "`radial-gradient()`: dal centro verso l’esterno"
     ],
     [
-     "pie-chart",
-     "`conic-gradient()`",
-     "intorno al centro: torte, ruote"
+     "chart-pie",
+     "`conic-gradient()`: intorno al centro"
     ]
    ],
-   "nota": "Vanno in `background-image`, mai in `background-color` · stessa posizione = taglio netto"
+   "nota": "Si scrive in `background-image`, mai in `background-color`.",
+   "occhiello": "Gradienti"
+  },
+  {
+   "tipo": "anatomia",
+   "titolo": "Un taglio netto",
+   "codice": "linear-gradient(90deg, green 33%, white 33% 66%, red 66%)",
+   "parti": [
+    [
+     "90deg",
+     "direzione",
+     "verso destra"
+    ],
+    [
+     "green 33%",
+     "verde",
+     "fino al 33%"
+    ],
+    [
+     "white 33% 66%",
+     "bianco",
+     "comincia dove finisce il verde"
+    ],
+    [
+     "red 66%",
+     "rosso",
+     "dal 66% in fondo"
+    ]
+   ],
+   "effetto": "Stessa posizione per due colori = nessuna sfumatura",
+   "occhiello": "Gradienti"
   },
   {
    "tipo": "widget",
    "titolo": "Costruisci un gradiente",
-   "w": "w6_gradiente"
+   "w": "w6_gradiente",
+   "occhiello": "Gradienti"
   },
   {
    "tipo": "errore",
@@ -149,48 +194,59 @@ window.AULA = {
    "si": "Un gradiente è un’**immagine**, non un colore: in `background-color` la dichiarazione non è valida e viene scartata. Si scrive in `background-image` o in `background`."
   },
   {
-   "tipo": "sezione",
-   "num": "6.1",
-   "titolo": "Bordi e angoli",
-   "sotto": "border imposta spessore, stile e colore; outline è un contorno che non occupa spazio.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/6-5.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Bordi e angoli",
-   "msg": "Spessore, stile, colore",
-   "punti": [
+   "tipo": "anatomia",
+   "titolo": "Il bordo",
+   "codice": "border: 2px solid red;",
+   "parti": [
     [
-     "square",
-     "`border: 2px solid red`: lo **stile** è obbligatorio"
+     "2px",
+     "spessore",
+     ""
     ],
     [
-     "palette",
-     "Senza colore → `currentColor`, il colore del testo"
+     "solid",
+     "stile",
+     "obbligatorio: l’iniziale è `none`"
     ],
     [
-     "square-round-corner",
-     "`border-radius`: da alto-sinistra, in senso orario"
-    ],
-    [
-     "circle",
-     "`50%` su un quadrato → cerchio · `999px` → pillola"
+     "red",
+     "colore",
+     "se manca: `currentColor`"
     ]
-   ]
+   ],
+   "effetto": "Un lato solo: `border-top`, `border-right`, `border-bottom`, `border-left`",
+   "occhiello": "Bordi e angoli"
   },
   {
    "tipo": "schema",
    "titolo": "Gli angoli arrotondati",
-   "sel": "#s6_radius"
+   "sel": "#s6_radius",
+   "occhiello": "Bordi e angoli"
+  },
+  {
+   "tipo": "casi",
+   "titolo": "border e outline",
+   "casi": [
+    {
+     "titolo": "`border`",
+     "testo": "fa parte della scatola: **occupa spazio** e allontana i vicini",
+     "icona": "square",
+     "nota": "anche su un lato solo"
+    },
+    {
+     "titolo": "`outline`",
+     "testo": "fuori e sopra: **non occupa spazio**, non sposta nulla",
+     "icona": "scan",
+     "nota": "segnala il fuoco: non toglierlo senza sostituirlo"
+    }
+   ],
+   "occhiello": "Bordi e angoli"
   },
   {
    "tipo": "widget",
    "titolo": "border o outline?",
-   "w": "w6_bordo"
+   "w": "w6_bordo",
+   "occhiello": "Bordi e angoli"
   },
   {
    "tipo": "errore",
@@ -198,47 +254,40 @@ window.AULA = {
    "si": "`outline` **non occupa spazio** e non sposta i vicini, sta sopra e fuori dall’elemento e non si può dare a un lato solo. Serve soprattutto a segnalare il fuoco."
   },
   {
-   "tipo": "sezione",
-   "num": "6.1",
-   "titolo": "Ombre",
-   "sotto": "box-shadow ha offset, sfocatura, diffusione e colore; non cambia l’impaginazione.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/6-6.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Le ombre",
-   "msg": "x, y, sfocatura, diffusione, colore",
-   "punti": [
+   "tipo": "anatomia",
+   "titolo": "L’ombra",
+   "codice": "box-shadow: 0 8px 24px 0 rgb(0 0 0 / 25%);",
+   "parti": [
     [
-     "move",
-     "**x** e **y**: lo spostamento dell’ombra"
+     "0 8px",
+     "x e y",
+     "lo spostamento"
     ],
     [
-     "cloud",
-     "**sfocatura**: 0 = netta"
+     "24px",
+     "sfocatura",
+     "0 = netta"
     ],
     [
-     "expand",
-     "**diffusione**: la allarga o la restringe"
+     " 0 ",
+     "diffusione",
+     "la allarga o la restringe",
+     1
     ],
     [
-     "square-dashed",
-     "`inset`: dentro · più ombre con le virgole"
-    ],
-    [
-     "circle-check",
-     "Non sposta nulla nell’impaginazione"
+     "rgb(0 0 0 / 25%)",
+     "colore",
+     "di solito un nero trasparente"
     ]
-   ]
+   ],
+   "effetto": "`inset`: dentro · più ombre con le virgole · non sposta nulla",
+   "occhiello": "Ombre"
   },
   {
    "tipo": "widget",
    "titolo": "Costruisci l’ombra",
-   "w": "w6_ombra"
+   "w": "w6_ombra",
+   "occhiello": "Ombre"
   },
   {
    "tipo": "errore",
@@ -246,43 +295,59 @@ window.AULA = {
    "si": "Il terzo valore è la **sfocatura**: con 0 l’ombra ha i bordi netti. La distanza la danno i primi due valori, gli spostamenti x e y."
   },
   {
-   "tipo": "sezione",
-   "num": "6.1",
-   "titolo": "Immagini nella pagina",
-   "sotto": "max-width:100% adatta l’immagine al contenitore, object-fit decide come entra in un riquadro dato.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/6-7.jpg",
-    "tit": "",
-    "alt": ""
-   }
+   "tipo": "flusso",
+   "titolo": "Un’immagine nel contenitore",
+   "blocchi": [
+    {
+     "titolo": "Grandezza naturale",
+     "testo": "se è più larga del contenitore, **ne esce**",
+     "icona": "image",
+     "tono": "no"
+    },
+    {
+     "titolo": "La regola di sempre",
+     "icona": "minimize",
+     "html": "<span class=\"k\">img </span>{\n<span class=\"a\">  max-width</span>:<span class=\"s\"> 100%</span>;\n<span class=\"a\">  height</span>:<span class=\"s\"> auto</span>;\n}"
+    },
+    {
+     "titolo": "Mai più larga del contenitore",
+     "testo": "l’altezza segue, senza deformare",
+     "icona": "circle-check",
+     "tono": "si"
+    }
+   ],
+   "riga": "`width` e `height` nell’`&lt;img&gt;`: il browser riserva lo spazio **prima** che la foto arrivi.",
+   "occhiello": "Immagini nella pagina"
   },
   {
-   "tipo": "punti",
-   "titolo": "Immagini nella pagina",
-   "msg": "Adattarle al contenitore senza deformarle",
-   "punti": [
-    [
-     "minimize",
-     "`max-width: 100%; height: auto;`: mai fuori dal contenitore"
-    ],
-    [
-     "crop",
-     "`object-fit: cover`: riempie il riquadro e taglia"
-    ],
-    [
-     "frame",
-     "`object-fit: contain`: tutta, con i vuoti · `fill` deforma"
-    ],
-    [
-     "ratio",
-     "`width` e `height` nell’`&lt;img&gt;`: spazio riservato prima del caricamento"
-    ]
-   ]
+   "tipo": "casi",
+   "titolo": "object-fit in un riquadro",
+   "casi": [
+    {
+     "titolo": "`fill`",
+     "testo": "il valore iniziale: riempie **deformando**",
+     "icona": "stretch-horizontal",
+     "tono": "no"
+    },
+    {
+     "titolo": "`cover`",
+     "testo": "riempie, mantiene le proporzioni e **taglia**",
+     "icona": "crop"
+    },
+    {
+     "titolo": "`contain`",
+     "testo": "mostra **tutta** l’immagine, con i vuoti",
+     "icona": "frame"
+    }
+   ],
+   "msg": "Come `background-size`, ma per le immagini di contenuto",
+   "occhiello": "Immagini nella pagina"
   },
   {
    "tipo": "widget",
    "titolo": "Una foto in un riquadro",
-   "w": "w6_objectfit"
+   "w": "w6_objectfit",
+   "occhiello": "Immagini nella pagina"
   },
   {
    "tipo": "tabella",
@@ -318,7 +383,8 @@ window.AULA = {
      "sì, con `alt`",
      "no"
     ]
-   ]
+   ],
+   "occhiello": "Immagini nella pagina"
   },
   {
    "tipo": "errore",
@@ -347,122 +413,160 @@ window.AULA = {
    "risposta": "Il browser usa i font **installati** sul computer di chi legge: dove Gill Sans manca, passa al font successivo della lista."
   },
   {
-   "tipo": "sezione",
-   "num": "6.2",
-   "titolo": "Famiglie di caratteri",
-   "sotto": "font-family è una lista in ordine di preferenza che finisce con una famiglia generica.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/7-1.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
    "tipo": "domanda",
    "testo": "Scrivo `font-family: \"Gill Sans\"`. Tutti quelli che aprono la pagina vedranno Gill Sans?",
    "risposta": "No: solo chi ha quel font **installato**. Gli altri vedranno il carattere predefinito del browser. Serve una lista che finisca con una famiglia generica: `\"Gill Sans\", \"Segoe UI\", sans-serif`."
   },
   {
-   "tipo": "punti",
-   "titolo": "font-family",
-   "msg": "Una lista in ordine di preferenza",
-   "punti": [
-    [
-     "list-ordered",
-     "Il browser usa il **primo font installato** sul computer di chi legge"
-    ],
-    [
-     "quote",
-     "Nomi con spazi tra virgolette: `\"Segoe UI\"`"
-    ],
-    [
-     "shield-check",
-     "In fondo sempre una **famiglia generica**: c’è su ogni computer"
-    ],
-    [
-     "type",
-     "`serif` con grazie · `sans-serif` senza · `monospace` larghezza fissa"
-    ]
-   ]
+   "tipo": "flusso",
+   "titolo": "Una lista in ordine di preferenza",
+   "blocchi": [
+    {
+     "titolo": "`\"Gill Sans\"`",
+     "testo": "installato? lo usa",
+     "icona": "type"
+    },
+    {
+     "titolo": "`\"Segoe UI\"`",
+     "testo": "altrimenti il successivo",
+     "icona": "type"
+    },
+    {
+     "titolo": "`sans-serif`",
+     "testo": "la **famiglia generica**: c’è su ogni computer",
+     "icona": "shield-check",
+     "tono": "fine"
+    }
+   ],
+   "frecce": [
+    "non c’è",
+    "non c’è"
+   ],
+   "riga": "Il browser usa il **primo font installato** sul computer di chi legge; nomi con spazi tra virgolette.",
+   "occhiello": "Famiglie di caratteri"
   },
   {
    "tipo": "schema",
    "titolo": "Con e senza grazie",
-   "sel": "#s7_grazie"
+   "sel": "#s7_grazie",
+   "occhiello": "Famiglie di caratteri"
+  },
+  {
+   "tipo": "casi",
+   "titolo": "Le famiglie generiche",
+   "casi": [
+    {
+     "titolo": "`serif`",
+     "testo": "con le grazie: Times, Georgia",
+     "icona": "book-open",
+     "nota": "i libri"
+    },
+    {
+     "titolo": "`sans-serif`",
+     "testo": "senza grazie: Arial, Helvetica, Segoe UI",
+     "icona": "monitor",
+     "nota": "gli schermi"
+    },
+    {
+     "titolo": "`monospace`",
+     "testo": "larghezza fissa: Consolas, Courier",
+     "icona": "code",
+     "nota": "il codice"
+    }
+   ],
+   "msg": "E poi `cursive`, `fantasy`, `system-ui`",
+   "occhiello": "Famiglie di caratteri"
   },
   {
    "tipo": "widget",
    "titolo": "Quale font userà il browser?",
-   "w": "w7_fontstack"
+   "w": "w7_fontstack",
+   "occhiello": "Famiglie di caratteri"
   },
   {
    "tipo": "errore",
    "no": "«Scrivo `font-family: \"Gill Sans\"` e tutti vedranno Gill Sans.»",
-   "si": "Il browser usa solo i font **installati sul computer di chi legge** (o scaricati con `@font-face`, 7.2). Senza alternative e senza famiglia generica, chi non ce l’ha vede il carattere predefinito."
+   "si": "Il browser usa solo i font **installati sul computer di chi legge** (o scaricati con `@font-face`, più avanti). Senza alternative e senza famiglia generica, chi non ce l’ha vede il carattere predefinito."
   },
   {
-   "tipo": "sezione",
-   "num": "6.2",
-   "titolo": "Font web",
-   "sotto": "@font-face rende scaricabile un font, ma ogni font e peso è un file in più che rallenta la pagina.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/7-2.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
-   "titolo": "I font web",
-   "msg": "Un font scaricato insieme alla pagina",
-   "punti": [
-    [
-     "download",
-     "`@font-face`: nome scelto, `src: url()` del file, peso"
-    ],
-    [
-     "file-archive",
-     "Formato **WOFF2**; ogni peso è un **file in più**"
-    ],
-    [
-     "timer",
-     "`font-display: swap`: subito il font di riserva, poi il cambio"
-    ],
-    [
-     "server",
-     "Google Fonts dai loro server **o ospitato in locale**"
-    ]
-   ]
-  },
-  {
-   "tipo": "storia",
-   "titolo": "Un caso di cronaca",
-   "anno": "20 gennaio 2022",
-   "icona": "scale",
-   "punti": [
-    [
-     "scale",
-     "Tribunale di Monaco: **100 euro** a un visitatore di un sito"
-    ],
-    [
-     "globe",
-     "Il sito caricava un font da Google Fonts e trasmetteva il suo **indirizzo IP**"
-    ],
-    [
-     "server",
-     "Da allora molti siti europei **ospitano i font in locale**"
-    ]
-   ]
-  },
-  {
-   "tipo": "codice",
+   "tipo": "anatomia",
    "titolo": "La regola @font-face",
-   "html": "<span class=\"k\">@font-face </span>{\n<span class=\"a\">  font-family</span>:<span class=\"s\"> \"Titoli\"</span>;                     <span class=\"c\">/* il nome che scegliamo noi */</span>\n<span class=\"a\">  src</span>:<span class=\"s\"> url(\"font/titoli.woff2\") format(\"woff2\")</span>; <span class=\"c\">/* il file */</span>\n<span class=\"a\">  font-weight</span>:<span class=\"s\"> 700</span>;                         <span class=\"c\">/* il peso contenuto nel file */</span>\n<span class=\"a\">  font-display</span>:<span class=\"s\"> swap</span>;                       <span class=\"c\">/* nel frattempo, il font di riserva */</span>\n}\n<span class=\"k\">h1 </span>{\n<span class=\"a\">  font-family</span>:<span class=\"s\"> \"Titoli\", Georgia, serif</span>;\n}"
+   "codice": "@font-face {\n  font-family: \"Titoli\";\n  src: url(\"font/titoli.woff2\");\n  font-weight: 700;\n  font-display: swap;\n}",
+   "parti": [
+    [
+     "\"Titoli\"",
+     "il nome",
+     "lo scegliamo noi"
+    ],
+    [
+     "url(\"font/titoli.woff2\")",
+     "il file",
+     "formato WOFF2"
+    ],
+    [
+     "700",
+     "il peso",
+     "ogni peso è un file in più"
+    ],
+    [
+     "swap",
+     "nel frattempo",
+     "subito il font di riserva"
+    ]
+   ],
+   "msg": "Un font che chi legge non ha, scaricato con la pagina",
+   "occhiello": "Font web"
+  },
+  {
+   "tipo": "flusso",
+   "titolo": "Mentre il font arriva",
+   "blocchi": [
+    {
+     "titolo": "Pagina aperta",
+     "testo": "il file del font non c’è ancora",
+     "icona": "clock"
+    },
+    {
+     "titolo": "Font di riserva",
+     "testo": "con `swap` il testo si legge subito",
+     "icona": "type",
+     "tono": "si"
+    },
+    {
+     "titolo": "Font scelto",
+     "testo": "arriva il file e il browser lo sostituisce",
+     "icona": "circle-check"
+    }
+   ],
+   "riga": "Senza indicazioni, per qualche istante il testo resta **nascosto**.",
+   "occhiello": "Font web"
   },
   {
    "tipo": "widget",
    "titolo": "Mentre il font sta arrivando",
-   "w": "w7_swap"
+   "w": "w7_swap",
+   "occhiello": "Font web"
+  },
+  {
+   "tipo": "storia",
+   "titolo": "Un caso di cronaca",
+   "anno": "2022",
+   "icona": "scale",
+   "punti": [
+    [
+     "scale",
+     "20 gennaio, tribunale di Monaco di Baviera: **100 euro** a un visitatore di un sito"
+    ],
+    [
+     "globe",
+     "Il sito caricava un font da Google Fonts e trasmetteva il suo **indirizzo IP** senza consenso"
+    ],
+    [
+     "server",
+     "Per questo molti siti europei **ospitano i font in locale**, come le licenze permettono"
+    ]
+   ],
+   "occhiello": "Font web"
   },
   {
    "tipo": "errore",
@@ -475,48 +579,53 @@ window.AULA = {
    "si": "Il browser di chi visita il sito si collega ai server di Google e gli **trasmette l’indirizzo IP**. Per questo molti siti ospitano i font in locale."
   },
   {
-   "tipo": "sezione",
-   "num": "6.2",
-   "titolo": "Dimensione, peso e stile",
-   "sotto": "Il peso del font esiste solo se il font lo contiene; italic è un corsivo disegnato, oblique un testo inclinato.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/7-3.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Dimensione, peso, stile",
-   "msg": "Il peso esiste solo se il font lo contiene",
-   "punti": [
-    [
-     "type",
-     "`font-size`: in `rem`, di solito"
-    ],
-    [
-     "bold",
-     "`font-weight` da 100 a 900 · `normal` = 400 · `bold` = 700"
-    ],
-    [
-     "circle-alert",
-     "Peso mancante → il più vicino o **simulato**"
-    ],
-    [
-     "italic",
-     "`italic`: corsivo disegnato · `oblique`: carattere inclinato"
-    ]
-   ]
-  },
-  {
    "tipo": "schema",
    "titolo": "La scala dei pesi",
-   "sel": "#s7_pesi"
+   "sel": "#s7_pesi",
+   "occhiello": "Dimensione, peso e stile"
+  },
+  {
+   "tipo": "casi",
+   "titolo": "Il peso che manca",
+   "casi": [
+    {
+     "titolo": "Il font ce l’ha",
+     "testo": "`font-weight: 900` → il nero più nero",
+     "icona": "circle-check",
+     "tono": "si"
+    },
+    {
+     "titolo": "Il font non ce l’ha",
+     "testo": "il browser usa il peso **più vicino**, o lo **simula** ispessendo le lettere",
+     "icona": "circle-alert",
+     "tono": "forse"
+    }
+   ],
+   "msg": "Da 100 a 900: `normal` = 400, `bold` = 700",
+   "occhiello": "Dimensione, peso e stile"
+  },
+  {
+   "tipo": "casi",
+   "titolo": "italic e oblique",
+   "casi": [
+    {
+     "titolo": "`italic`",
+     "testo": "il **corsivo vero**, disegnato apposta: forme diverse (la «a»)",
+     "icona": "italic"
+    },
+    {
+     "titolo": "`oblique`",
+     "testo": "il carattere normale **inclinato**",
+     "icona": "slash"
+    }
+   ],
+   "occhiello": "Dimensione, peso e stile"
   },
   {
    "tipo": "widget",
    "titolo": "Dimensione, peso e stile",
-   "w": "w7_testo"
+   "w": "w7_testo",
+   "occhiello": "Dimensione, peso e stile"
   },
   {
    "tipo": "errore",
@@ -524,47 +633,58 @@ window.AULA = {
    "si": "Funziona solo se il font **ha quel peso**. Altrimenti il browser usa il peso più vicino (spesso il 700) o lo simula."
   },
   {
-   "tipo": "sezione",
-   "num": "6.2",
-   "titolo": "Spaziatura e allineamento",
-   "sotto": "line-height senza unità scala col testo; text-align allinea il contenuto, non la scatola.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/7-4.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Spaziatura e allineamento",
-   "msg": "Righe leggibili, testo allineato",
-   "punti": [
+   "tipo": "gettoni",
+   "titolo": "Spazi nel testo",
+   "gettoni": [],
+   "perche": [
     [
      "between-horizontal-start",
-     "`line-height` **senza unità**, tra 1,4 e 1,6"
+     "`line-height`",
+     "l’interlinea, **senza unità**: tra 1,4 e 1,6 per il testo continuo"
     ],
     [
      "letter-text",
-     "`letter-spacing`, `word-spacing`: con misura"
+     "`letter-spacing` · `word-spacing`",
+     "tra le lettere e tra le parole, con misura"
     ],
     [
      "indent-increase",
-     "`text-indent`: rientro della prima riga"
-    ],
-    [
-     "align-center",
-     "`text-align` allinea il **contenuto**, non la scatola"
+     "`text-indent`",
+     "il rientro della prima riga, come nei libri"
     ],
     [
      "accessibility",
-     "WCAG 1.4.12: con interlinea 1,5 il testo non deve rompersi"
+     "WCAG 1.4.12",
+     "con l’interlinea a 1,5 il testo non deve rompersi: niente altezze fisse"
     ]
-   ]
+   ],
+   "occhiello": "Spaziatura e allineamento"
+  },
+  {
+   "tipo": "casi",
+   "titolo": "text-align allinea il contenuto",
+   "casi": [
+    {
+     "titolo": "Centrare il paragrafo nella pagina",
+     "testo": "la scatola resta larga e ferma dov’era",
+     "tono": "no",
+     "etichetta": "non fa questo"
+    },
+    {
+     "titolo": "Centrare le righe nel paragrafo",
+     "testo": "per il blocco: `margin: 0 auto` o Flexbox",
+     "tono": "si",
+     "etichetta": "fa questo"
+    }
+   ],
+   "msg": "`left`, `right`, `center`, `justify` · con `justify` aiuta `hyphens: auto`",
+   "occhiello": "Spaziatura e allineamento"
   },
   {
    "tipo": "widget",
    "titolo": "Spaziatura e allineamento",
-   "w": "w7_spazio"
+   "w": "w7_spazio",
+   "occhiello": "Spaziatura e allineamento"
   },
   {
    "tipo": "errore",
@@ -577,38 +697,62 @@ window.AULA = {
    "si": "Con l’unità il valore è **fisso** e viene ereditato già calcolato: un titolo grande ha le righe sovrapposte. Senza unità si moltiplica per il testo di ogni elemento."
   },
   {
-   "tipo": "sezione",
-   "num": "6.2",
+   "tipo": "gettoni",
    "titolo": "Decorazioni e trasformazioni",
-   "sotto": "I puntini di text-overflow compaiono solo con overflow hidden e white-space nowrap.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/7-5.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Decorazioni e trasformazioni",
-   "msg": "Linee, maiuscole, spazi, parole lunghe",
-   "punti": [
+   "gettoni": [],
+   "perche": [
     [
      "underline",
-     "`text-decoration` + `text-underline-offset`"
+     "`text-decoration`",
+     "una linea sul testo; `text-underline-offset` la allontana dalle lettere"
     ],
     [
      "case-upper",
-     "`text-transform`: cambia l’aspetto, **non** il testo"
+     "`text-transform`",
+     "cambia l’**aspetto**, non il testo: chi copia trova le lettere dell’HTML"
     ],
     [
      "wrap-text",
-     "`white-space`: spazi e a capo · `overflow-wrap` per le parole lunghe"
+     "`white-space`",
+     "che cosa fare di spazi e a capo dell’HTML"
     ],
     [
-     "ellipsis",
-     "Puntini: `text-overflow` + `nowrap` + `overflow: hidden`"
+     "scissors",
+     "`overflow-wrap: anywhere`",
+     "spezza le parole lunghissime, come un indirizzo web"
     ]
-   ]
+   ],
+   "occhiello": "Decorazioni e trasformazioni"
+  },
+  {
+   "tipo": "flusso",
+   "titolo": "Tre dichiarazioni per i puntini",
+   "blocchi": [
+    {
+     "titolo": "Su una riga",
+     "icona": "move-horizontal",
+     "html": "<span class=\"k\">white-space: nowrap</span>;"
+    },
+    {
+     "titolo": "Nascondi ciò che avanza",
+     "icona": "eye-off",
+     "html": "<span class=\"k\">overflow: hidden</span>;"
+    },
+    {
+     "titolo": "I puntini",
+     "icona": "ellipsis",
+     "tono": "si",
+     "html": "<span class=\"k\">text-overflow: ellipsis</span>;"
+    }
+   ],
+   "riga": "`text-overflow` **da solo non fa niente**.",
+   "occhiello": "Decorazioni e trasformazioni"
+  },
+  {
+   "tipo": "widget",
+   "titolo": "Tre dichiarazioni per i puntini",
+   "w": "w7_ellipsis",
+   "occhiello": "Decorazioni e trasformazioni"
   },
   {
    "tipo": "tabella",
@@ -650,12 +794,8 @@ window.AULA = {
      "conservati",
      "sì"
     ]
-   ]
-  },
-  {
-   "tipo": "widget",
-   "titolo": "Tre dichiarazioni per i puntini",
-   "w": "w7_ellipsis"
+   ],
+   "occhiello": "Decorazioni e trasformazioni"
   },
   {
    "tipo": "errore",
@@ -663,47 +803,61 @@ window.AULA = {
    "si": "Servono anche `white-space: nowrap`, perché il testo non vada a capo, e `overflow: hidden`, perché la parte in eccesso sia tagliata."
   },
   {
-   "tipo": "sezione",
-   "num": "6.2",
-   "titolo": "Stile dei link",
-   "sotto": "Gli stati dei link hanno la stessa specificità: decide l’ordine, LVHA.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/7-6.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Gli stati dei link",
-   "msg": "Stessa specificità: decide l’ordine",
-   "punti": [
-    [
-     "link",
-     "`:link` · `:visited` · `:hover` · `:active` (+ `:focus`)"
-    ],
-    [
-     "heart",
-     "Ordine **LVHA**: *LoVe HAte*"
-    ],
-    [
-     "eye-off",
-     "`:visited` accetta solo colori (privacy)"
-    ],
-    [
-     "keyboard",
-     "Mai togliere l’`outline` del fuoco senza sostituirlo"
-    ],
-    [
-     "underline",
-     "Il solo colore non basta: tieni la sottolineatura"
-    ]
-   ]
+   "tipo": "flusso",
+   "titolo": "L’ordine LVHA",
+   "blocchi": [
+    {
+     "titolo": "`:link`",
+     "testo": "non visitato",
+     "icona": "link"
+    },
+    {
+     "titolo": "`:visited`",
+     "testo": "già visitato",
+     "icona": "history"
+    },
+    {
+     "titolo": "`:hover`",
+     "testo": "il mouse sopra",
+     "icona": "mouse-pointer"
+    },
+    {
+     "titolo": "`:active`",
+     "testo": "mentre lo si preme",
+     "icona": "pointer"
+    }
+   ],
+   "riga": "Stessa specificità: vince l’ultima. In inglese si ricorda con *LoVe HAte*.",
+   "occhiello": "Stile dei link"
   },
   {
    "tipo": "widget",
    "titolo": "L’ordine delle regole dei link",
-   "w": "w7_lvha"
+   "w": "w7_lvha",
+   "occhiello": "Stile dei link"
+  },
+  {
+   "tipo": "gettoni",
+   "titolo": "Un limite e due attenzioni",
+   "gettoni": [],
+   "perche": [
+    [
+     "eye-off",
+     "`:visited` accetta solo colori",
+     "privacy: un sito non deve scoprire, misurando la pagina, dove sei stato"
+    ],
+    [
+     "keyboard",
+     "L’`outline` del fuoco",
+     "non toglierlo senza un altro segno ben visibile"
+    ],
+    [
+     "underline",
+     "Non solo il colore",
+     "chi non distingue i colori non vede il link: si tiene la sottolineatura"
+    ]
+   ],
+   "occhiello": "Stile dei link"
   },
   {
    "tipo": "errore",
@@ -726,48 +880,59 @@ window.AULA = {
    "risposta": "**Viola**: le due regole hanno la stessa specificità e vince l’ultima. Per questo si scrive nell’ordine LVHA."
   },
   {
-   "tipo": "sezione",
-   "num": "6.2",
-   "titolo": "Liste",
-   "sotto": "list-style none toglie il simbolo ma non il rientro; i contatori CSS numerano anche ciò che non è una lista.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/7-7.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Le liste",
-   "msg": "Simbolo, rientro, contatori",
-   "punti": [
+   "tipo": "anatomia",
+   "titolo": "Simbolo e rientro",
+   "codice": "ul {\n  list-style: none;\n  padding-left: 0;\n}",
+   "parti": [
     [
-     "list",
-     "`list-style`: `disc` `square` `decimal` `lower-roman` `none`"
+     "list-style: none;",
+     "toglie il simbolo",
+     "`disc`, `square`, `decimal`… o `none`"
     ],
     [
-     "palette",
-     "`::marker` per colore e dimensione del simbolo"
-    ],
-    [
-     "indent-increase",
-     "Il rientro è il `padding-left` del browser"
-    ],
-    [
-     "hash",
-     "Contatori: `counter-reset` · `counter-increment` · `counter()`"
+     "padding-left: 0;",
+     "toglie il rientro",
+     "il browser dà circa 40px a `ul` e `ol`"
     ]
-   ]
+   ],
+   "msg": "Per una barra di navigazione servono tutte e due",
+   "occhiello": "Liste"
   },
   {
    "tipo": "schema",
    "titolo": "Il rientro degli elenchi",
-   "sel": "#s7_rientro"
+   "sel": "#s7_rientro",
+   "occhiello": "Liste"
+  },
+  {
+   "tipo": "flusso",
+   "titolo": "Numerare con un contatore",
+   "blocchi": [
+    {
+     "titolo": "Crea",
+     "icona": "rotate-ccw",
+     "html": "<span class=\"k\">counter-reset</span>"
+    },
+    {
+     "titolo": "Fai avanzare",
+     "icona": "plus",
+     "html": "<span class=\"k\">counter-increment</span>"
+    },
+    {
+     "titolo": "Mostra",
+     "icona": "hash",
+     "tono": "si",
+     "html": "<span class=\"k\">content: counter(…)</span>"
+    }
+   ],
+   "riga": "Si numera anche ciò che non è un elenco, come i titoli; `::marker` colora il simbolo delle voci.",
+   "occhiello": "Liste"
   },
   {
    "tipo": "widget",
    "titolo": "Numerare i titoli con un contatore",
-   "w": "w7_contatori"
+   "w": "w7_contatori",
+   "occhiello": "Liste"
   },
   {
    "tipo": "errore",
@@ -791,58 +956,85 @@ window.AULA = {
    "risposta": "Sono tutti **scatole rettangolari**, con contenuto, padding, bordo e margine: è il box model."
   },
   {
-   "tipo": "sezione",
-   "num": "6.3",
-   "titolo": "Content, padding, border, margin",
-   "sotto": "Ogni elemento è una scatola a strati: contenuto, padding, bordo, margine.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/8-1.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "tessere",
+   "tipo": "definizione",
    "titolo": "Il box model",
-   "msg": "Ogni elemento è una scatola a quattro strati",
-   "tessere": [
+   "frase": "Per il browser **ogni elemento è una scatola rettangolare**, fatta di quattro strati dal centro verso l’esterno.",
+   "parti": [
     [
      "type",
-     "Contenuto",
-     "testo, immagini, figli"
+     "contenuto"
     ],
     [
      "square",
-     "Padding",
-     "spazio interno, prende lo sfondo"
+     "padding: spazio interno"
     ],
     [
      "square-dashed",
-     "Bordo",
-     "la cornice"
+     "bordo: la cornice"
     ],
     [
      "move",
-     "Margine",
-     "spazio esterno, sempre trasparente"
+     "margine: spazio esterno"
     ]
-   ]
+   ],
+   "nota": "Lo sfondo arriva fino al bordo; il margine è sempre **trasparente**.",
+   "occhiello": "Content, padding, border, margin"
   },
   {
    "tipo": "widget",
    "titolo": "La scatola",
-   "w": "w8_scatola"
+   "w": "w8_scatola",
+   "occhiello": "Content, padding, border, margin"
   },
   {
-   "tipo": "foto",
+   "tipo": "gettoni",
    "titolo": "Il box model nei DevTools",
-   "foto": [
-    {
-     "src": "assets/immagini/devtools-box-model.png",
-     "tit": "",
-     "alt": "Il diagramma del box model nella scheda Styles dei DevTools di Chrome"
-    }
-   ]
+   "gettoni": [
+    [
+     "move",
+     "margine"
+    ],
+    [
+     "square-dashed",
+     "bordo"
+    ],
+    [
+     "square",
+     "padding"
+    ],
+    [
+     "type",
+     "contenuto"
+    ]
+   ],
+   "perche": [
+    [
+     "move",
+     "Arancione",
+     "il margine"
+    ],
+    [
+     "square-dashed",
+     "Giallo",
+     "il bordo (1px)"
+    ],
+    [
+     "square",
+     "Verde",
+     "il padding (16px per lato)"
+    ],
+    [
+     "type",
+     "Azzurro",
+     "il contenuto (140,531 × 28 px)"
+    ]
+   ],
+   "foto": {
+    "src": "assets/immagini/devtools-box-model.png",
+    "tit": "Gli stessi colori evidenziano l’elemento nella pagina",
+    "alt": "Il diagramma del box model nei DevTools di Chrome"
+   },
+   "occhiello": "Content, padding, border, margin"
   },
   {
    "tipo": "errore",
@@ -850,43 +1042,53 @@ window.AULA = {
    "si": "Lo sfondo arriva fino al **bordo**. Il margine è sempre **trasparente**: lì si vede lo sfondo del genitore."
   },
   {
-   "tipo": "sezione",
-   "num": "6.3",
+   "tipo": "casi",
    "titolo": "Larghezza e altezza",
-   "sotto": "width auto riempie il contenitore, height auto segue il contenuto; min e max fissano i limiti.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/8-2.jpg",
-    "tit": "",
-    "alt": ""
-   }
+   "casi": [
+    {
+     "titolo": "`width: auto`",
+     "testo": "tutta la larghezza disponibile nel contenitore",
+     "icona": "move-horizontal"
+    },
+    {
+     "titolo": "`height: auto`",
+     "testo": "l’altezza che serve al contenuto",
+     "icona": "move-vertical"
+    },
+    {
+     "titolo": "`max-width`",
+     "testo": "si stringe sugli schermi piccoli, non si allarga troppo su quelli grandi",
+     "icona": "arrow-left-right",
+     "tono": "si"
+    }
+   ],
+   "msg": "Di solito si lasciano `auto`; i limiti con `min-` e `max-`",
+   "occhiello": "Larghezza e altezza"
   },
   {
-   "tipo": "punti",
-   "titolo": "Larghezza e altezza",
-   "msg": "auto riempie il contenitore e segue il contenuto",
-   "punti": [
-    [
-     "move-horizontal",
-     "`width: auto`: tutta la larghezza disponibile"
-    ],
-    [
-     "move-vertical",
-     "`height: auto`: l’altezza che serve al contenuto"
-    ],
-    [
-     "arrow-down-to-line",
-     "`max-width`: si stringe, ma non si allarga troppo"
-    ],
-    [
-     "triangle-alert",
-     "`height: 100%` solo se il genitore ha un’altezza → `min-height`"
-    ]
-   ]
+   "tipo": "casi",
+   "titolo": "height: 100%",
+   "casi": [
+    {
+     "titolo": "`height: 100%`",
+     "testo": "con il genitore `auto` la percentuale non ha niente su cui calcolarsi",
+     "tono": "no",
+     "etichetta": "ignorata"
+    },
+    {
+     "titolo": "`min-height: 100vh`",
+     "testo": "almeno alto quanto la finestra, e cresce se serve",
+     "tono": "si",
+     "etichetta": "funziona"
+    }
+   ],
+   "occhiello": "Larghezza e altezza"
   },
   {
    "tipo": "widget",
    "titolo": "Quattro modi di dare la larghezza",
-   "w": "w8_larghezze"
+   "w": "w8_larghezze",
+   "occhiello": "Larghezza e altezza"
   },
   {
    "tipo": "errore",
@@ -899,55 +1101,39 @@ window.AULA = {
    "si": "La percentuale dell’altezza funziona solo se il genitore ha un’**altezza definita**; altrimenti è ignorata. Per occupare almeno la finestra si usa `min-height: 100vh`."
   },
   {
-   "tipo": "sezione",
-   "num": "6.3",
-   "titolo": "box-sizing: content-box contro border-box",
-   "sotto": "Con content-box padding e bordo si aggiungono alla width, con border-box ne fanno parte.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/8-3.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
    "tipo": "domanda",
    "testo": "Un `div` con `width: 200px; padding: 20px; border: 5px solid`. Quanto spazio occupa in orizzontale?",
    "risposta": "**250px**: con `content-box` padding (20 + 20) e bordo (5 + 5) si aggiungono ai 200px del contenuto."
   },
   {
-   "tipo": "confronto",
-   "titolo": "box-sizing",
-   "msg": "Che cosa misura width",
-   "a": {
-    "icona": "box",
-    "titolo": "`content-box`",
-    "righe": [
-     "• solo il contenuto (predefinito)",
-     "• padding e bordo **si aggiungono**",
-     "• 200 + 2×20 + 2×5 = **250px**"
-    ]
-   },
-   "b": {
-    "icona": "package",
-    "titolo": "`border-box`",
-    "tono": "buono",
-    "righe": [
-     "• fino al bordo compreso",
-     "• padding e bordo stanno **dentro**",
-     "• occupa **200px**"
-    ]
-   },
-   "verdetto": "Il reset: `*, *::before, *::after { box-sizing: border-box; }`"
-  },
-  {
-   "tipo": "codice",
-   "titolo": "Il reset di box-sizing",
-   "html": "<span class=\"k\">*, *::before, *::after </span>{\n<span class=\"a\">  box-sizing</span>:<span class=\"s\"> border-box</span>;\n}"
+   "tipo": "cifra",
+   "titolo": "Che cosa misura width",
+   "a": [
+    "box",
+    "`content-box`",
+    "il predefinito: padding e bordo **si aggiungono**"
+   ],
+   "b": [
+    "package",
+    "`border-box`",
+    "padding e bordo stanno **dentro**"
+   ],
+   "cifra": "250px contro 200px",
+   "testo": "La stessa `width: 200px` con `padding: 20px` e un bordo di 5px: 200 + 40 + 10, oppure 200.",
+   "cautela": "Per questo quasi tutti i fogli di stile cominciano con il reset di `box-sizing`.",
+   "occhiello": "box-sizing: content-box contro border-box"
   },
   {
    "tipo": "widget",
    "titolo": "content-box o border-box?",
-   "w": "w8_scatola2"
+   "w": "w8_scatola2",
+   "occhiello": "box-sizing: content-box contro border-box"
+  },
+  {
+   "tipo": "codice",
+   "titolo": "Il reset di box-sizing",
+   "html": "<span class=\"k\">*, *::before, *::after </span>{\n<span class=\"a\">  box-sizing</span>:<span class=\"s\"> border-box</span>;\n}",
+   "occhiello": "box-sizing: content-box contro border-box"
   },
   {
    "tipo": "errore",
@@ -955,57 +1141,58 @@ window.AULA = {
    "si": "Solo con `box-sizing: border-box`. Con il valore predefinito, `content-box`, padding e bordo **si aggiungono** ai 200px."
   },
   {
-   "tipo": "sezione",
-   "num": "6.3",
-   "titolo": "Margini",
-   "sotto": "I margini verticali tra blocchi si fondono (vale il più grande); margin auto centra solo in orizzontale.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/8-4.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
    "tipo": "domanda",
    "testo": "Un paragrafo con `margin-bottom: 20px`, sotto un paragrafo con `margin-top: 30px`. Quanti pixel li separano?",
    "risposta": "**30px**: i margini verticali si fondono e vale il più grande."
   },
   {
-   "tipo": "punti",
-   "titolo": "Tre cose dei margini",
-   "msg": "Si fondono, centrano, possono essere negativi",
-   "punti": [
-    [
-     "merge",
-     "Verticali tra blocchi: si **fondono**, vale il più grande"
-    ],
-    [
-     "columns-2",
-     "Mai quelli orizzontali, mai in flex e grid"
-    ],
-    [
-     "align-center-horizontal",
-     "`margin: 0 auto` centra in orizzontale un blocco con larghezza"
-    ],
-    [
-     "minus",
-     "Negativi: avvicinano e **sovrappongono**"
-    ],
-    [
-     "languages",
-     "`margin-inline`, `padding-block`: lati secondo la direzione del testo"
-    ]
-   ]
+   "tipo": "casi",
+   "titolo": "Margini che si fondono",
+   "casi": [
+    {
+     "titolo": "Verticali, nel flusso normale",
+     "testo": "20px e 30px tra due blocchi: distanza **30px**",
+     "icona": "merge",
+     "nota": "vale il più grande, non la somma"
+    },
+    {
+     "titolo": "Orizzontali, o in flex e grid",
+     "testo": "non si fondono mai: **si sommano**",
+     "icona": "columns-2"
+    }
+   ],
+   "occhiello": "Margini"
   },
   {
    "tipo": "widget",
    "titolo": "Margini che si fondono",
-   "w": "w8_margini"
+   "w": "w8_margini",
+   "occhiello": "Margini"
+  },
+  {
+   "tipo": "anatomia",
+   "titolo": "Centrare un blocco",
+   "codice": "margin: 0 auto;",
+   "parti": [
+    [
+     "0",
+     "sopra e sotto",
+     ""
+    ],
+    [
+     "auto",
+     "destra e sinistra",
+     "lo spazio libero diviso in parti uguali"
+    ]
+   ],
+   "effetto": "Solo con una larghezza; in verticale `auto` vale zero",
+   "occhiello": "Margini"
   },
   {
    "tipo": "schema",
    "titolo": "Margini negativi",
-   "sel": "#s8_negativi"
+   "sel": "#s8_negativi",
+   "occhiello": "Margini"
   },
   {
    "tipo": "errore",
@@ -1023,20 +1210,10 @@ window.AULA = {
    "risposta": "Sì: da **24px** (margini fusi) diventa **48px**, perché tra gli elementi di un contenitore flex i margini non si fondono e si sommano."
   },
   {
-   "tipo": "sezione",
-   "num": "6.3",
-   "titolo": "Differenza tra margin e padding",
-   "sotto": "Il padding è spazio dentro l’elemento e prende lo sfondo, il margine è spazio fuori e trasparente.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/8-5.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
    "tipo": "schema",
    "titolo": "Padding e margine",
-   "sel": "#s8_padmar"
+   "sel": "#s8_padmar",
+   "occhiello": "Differenza tra margin e padding"
   },
   {
    "tipo": "tabella",
@@ -1072,7 +1249,8 @@ window.AULA = {
      "non ammessi",
      "ammessi"
     ]
-   ]
+   ],
+   "occhiello": "Differenza tra margin e padding"
   },
   {
    "tipo": "errore",
@@ -1080,48 +1258,39 @@ window.AULA = {
    "si": "Il padding allarga lo spazio **dentro** l’elemento (e il suo sfondo). Per allontanarlo dai vicini serve il **margine**."
   },
   {
-   "tipo": "sezione",
-   "num": "6.3",
+   "tipo": "casi",
    "titolo": "overflow",
-   "sotto": "overflow decide che cosa succede al contenuto che non entra: esce, è tagliato o scorre.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/8-6.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "tessere",
-   "titolo": "overflow",
-   "msg": "Il contenuto che non entra",
-   "tessere": [
-    [
-     "eye",
-     "`visible`",
-     "esce dalla scatola (iniziale)"
-    ],
-    [
-     "scissors",
-     "`hidden`",
-     "tagliato"
-    ],
-    [
-     "scroll",
-     "`scroll`",
-     "barre sempre"
-    ],
-    [
-     "scan",
-     "`auto`",
-     "barre solo se servono"
-    ]
+   "casi": [
+    {
+     "titolo": "`visible`",
+     "testo": "il valore iniziale: il contenuto **esce** dalla scatola",
+     "icona": "eye"
+    },
+    {
+     "titolo": "`hidden`",
+     "testo": "il contenuto in eccesso è **tagliato**",
+     "icona": "scissors"
+    },
+    {
+     "titolo": "`scroll`",
+     "testo": "barre di scorrimento **sempre**",
+     "icona": "scroll"
+    },
+    {
+     "titolo": "`auto`",
+     "testo": "barre **solo se servono**",
+     "icona": "scan",
+     "tono": "si"
+    }
    ],
-   "nota": "`overflow-x: auto` per una tabella larga sul telefono"
+   "msg": "Il contenuto che non entra · `overflow-x: auto` per una tabella larga sul telefono",
+   "occhiello": "overflow"
   },
   {
    "tipo": "widget",
    "titolo": "Che cosa succede al contenuto che non entra",
-   "w": "w8_overflow"
+   "w": "w8_overflow",
+   "occhiello": "overflow"
   },
   {
    "tipo": "errore",
@@ -1150,47 +1319,42 @@ window.AULA = {
    "risposta": "Il browser dà a ogni tag un `display`: `p` è un **blocco** (va a capo), `strong` è **in linea** (scorre nella riga)."
   },
   {
-   "tipo": "sezione",
-   "num": "6.4",
-   "titolo": "Il flusso normale (blocco e in linea)",
-   "sotto": "Il flusso normale dispone gli elementi nell’ordine dell’HTML: i blocchi vanno a capo, quelli in linea scorrono nella riga.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/9-1.jpg",
-    "tit": "",
-    "alt": ""
-   }
+   "tipo": "casi",
+   "titolo": "Il flusso normale",
+   "casi": [
+    {
+     "titolo": "Blocchi",
+     "testo": "vanno a capo e occupano **tutta la larghezza** del contenitore",
+     "icona": "rows-3",
+     "nota": "`div`, `p`, `h1`, `ul`, `section`…"
+    },
+    {
+     "titolo": "In linea",
+     "testo": "scorrono nella riga come parole, larghi quanto il contenuto",
+     "icona": "wrap-text",
+     "nota": "`span`, `a`, `em`, `strong`, `code`"
+    },
+    {
+     "titolo": "Sostituiti",
+     "testo": "in linea, ma con **misure proprie**: accettano `width` e `height`",
+     "icona": "image",
+     "nota": "`img`, `input`, `button`, `video`"
+    }
+   ],
+   "msg": "Gli elementi nell’ordine dell’HTML, in due modi",
+   "occhiello": "Il flusso normale (blocco e in linea)"
   },
   {
-   "tipo": "punti",
-   "titolo": "Il flusso normale",
-   "msg": "L’ordine dell’HTML, in due modi",
-   "punti": [
-    [
-     "list-ordered",
-     "Gli elementi si dispongono **nell’ordine del codice**, dall’alto in basso"
-    ],
-    [
-     "rows-3",
-     "**Blocchi**: vanno a capo e occupano tutta la larghezza del contenitore"
-    ],
-    [
-     "wrap-text",
-     "**In linea**: scorrono nella riga come parole, a capo a riga piena"
-    ],
-    [
-     "image",
-     "**Sostituiti** (`img`, `input`, `button`): in linea, ma con misure proprie"
-    ],
-    [
-     "globe",
-     "Chi è blocco e chi in linea lo decide il **foglio di stile del browser**"
-    ]
-   ]
+   "tipo": "widget",
+   "titolo": "Il browser mette in fila",
+   "w": "w9_fila",
+   "occhiello": "Il flusso normale (blocco e in linea)"
   },
   {
    "tipo": "schema",
    "titolo": "Blocchi impilati e elementi in linea che scorrono",
-   "sel": "#s9_flusso"
+   "sel": "#s9_flusso",
+   "occhiello": "Il flusso normale (blocco e in linea)"
   },
   {
    "tipo": "tabella",
@@ -1212,7 +1376,8 @@ window.AULA = {
      "in linea ma *sostituiti*",
      "`img`, `input`, `button`, `video`: stanno nella riga ma hanno **dimensioni proprie**"
     ]
-   ]
+   ],
+   "occhiello": "Il flusso normale (blocco e in linea)"
   },
   {
    "tipo": "foto",
@@ -1223,12 +1388,8 @@ window.AULA = {
      "tit": "",
      "alt": "La scheda Styles dei DevTools di Chrome con la regola div display block del foglio di stile del browser"
     }
-   ]
-  },
-  {
-   "tipo": "widget",
-   "titolo": "Il browser mette in fila",
-   "w": "w9_fila"
+   ],
+   "occhiello": "Il flusso normale (blocco e in linea)"
   },
   {
    "tipo": "errore",
@@ -1241,72 +1402,65 @@ window.AULA = {
    "si": "Un blocco con `width: auto` occupa **tutta la larghezza del contenitore**, anche con una sola parola. Larghi quanto il contenuto sono gli elementi **in linea**."
   },
   {
-   "tipo": "sezione",
-   "num": "6.4",
-   "titolo": "display (block · inline · inline-block · none)",
-   "sotto": "display decide se un elemento si comporta da blocco o in linea e come dispone i figli; gli elementi in linea ignorano width e height.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/9-2.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
    "tipo": "domanda",
    "testo": "Metto `width: 200px` su uno `&lt;span&gt;`. Quanto diventa largo?",
    "risposta": "**Quanto il suo contenuto**: uno `span` è in linea e gli elementi in linea ignorano `width` e `height`. Per dargli una larghezza serve `display: inline-block` o `block`."
   },
   {
-   "tipo": "tessere",
+   "tipo": "casi",
    "titolo": "I valori di display",
-   "msg": "Verso l’esterno: blocco o in linea",
-   "tessere": [
-    [
-     "square",
-     "`block`",
-     "a capo, tutta la riga, accetta tutte le misure"
-    ],
-    [
-     "type",
-     "`inline`",
-     "nella riga, ignora width e height"
-    ],
-    [
-     "layout-grid",
-     "`inline-block`",
-     "nella riga, ma accetta le misure"
-    ],
-    [
-     "eye-off",
-     "`none`",
-     "non esiste nell’impaginazione"
-    ]
+   "casi": [
+    {
+     "titolo": "`block`",
+     "testo": "a capo, tutta la riga, **accetta tutte le misure**",
+     "icona": "square"
+    },
+    {
+     "titolo": "`inline`",
+     "testo": "nella riga, **ignora** `width` e `height`",
+     "icona": "type",
+     "nota": "padding verticale: si vede, ma non sposta le righe"
+    },
+    {
+     "titolo": "`inline-block`",
+     "testo": "nella riga, ma **accetta le misure**",
+     "icona": "layout-grid",
+     "nota": "i pulsanti affiancati"
+    },
+    {
+     "titolo": "`none`",
+     "testo": "non esiste nell’impaginazione",
+     "icona": "eye-off"
+    }
    ],
-   "nota": "Altri: `list-item`, `flow-root`, `contents`; `flex` e `grid` dispongono i figli (7.1–7.2)"
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Due spazi misteriosi",
-   "msg": "Vengono dall’HTML, non dal CSS",
-   "punti": [
-    [
-     "space",
-     "Tra due `inline-block` c’è lo **spazio tra i tag**, come tra due parole"
-    ],
-    [
-     "image",
-     "Sotto un’immagine c’è lo spazio per le lettere con la **gamba**"
-    ],
-    [
-     "wrench",
-     "Rimedi: tag attaccati o Flexbox; `display: block` sull’immagine"
-    ]
-   ]
+   "msg": "Verso l’esterno: blocco o in linea",
+   "occhiello": "display (block · inline · inline-block · none)"
   },
   {
    "tipo": "widget",
    "titolo": "display",
-   "w": "w9_display"
+   "w": "w9_display",
+   "occhiello": "display (block · inline · inline-block · none)"
+  },
+  {
+   "tipo": "casi",
+   "titolo": "Due spazi misteriosi",
+   "casi": [
+    {
+     "titolo": "Tra due `inline-block`",
+     "testo": "è lo **spazio tra i tag** nell’HTML, come tra due parole",
+     "icona": "space",
+     "nota": "tag attaccati, o Flexbox con `gap`"
+    },
+    {
+     "titolo": "Sotto un’immagine",
+     "testo": "l’`img` sta sulla **linea di base**: sotto resta lo spazio per g e p",
+     "icona": "image",
+     "nota": "`display: block` sull’immagine"
+    }
+   ],
+   "msg": "Vengono dall’HTML, non dal CSS",
+   "occhiello": "display (block · inline · inline-block · none)"
   },
   {
    "tipo": "errore",
@@ -1329,17 +1483,6 @@ window.AULA = {
    "si": "L’immagine è **in linea** e si appoggia sulla linea di base del testo: sotto resta lo spazio per le lettere con la gamba. Con `display: block` sparisce."
   },
   {
-   "tipo": "sezione",
-   "num": "6.4",
-   "titolo": "Differenza tra display: none e visibility: hidden",
-   "sotto": "display none toglie l’elemento dall’impaginazione, visibility hidden lo rende invisibile lasciando lo spazio.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/9-3.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
    "tipo": "domanda",
    "testo": "Nascondo il secondo di tre paragrafi. Con `display: none` il terzo sale? E con `visibility: hidden`?",
    "risposta": "Con `display: none` **sale** e prende il posto del secondo; con `visibility: hidden` **resta dov’era** e al posto del secondo rimane un vuoto."
@@ -1347,7 +1490,8 @@ window.AULA = {
   {
    "tipo": "widget",
    "titolo": "Quattro modi di nascondere B",
-   "w": "w9_nascondi"
+   "w": "w9_nascondi",
+   "occhiello": "Differenza tra display: none e visibility: hidden"
   },
   {
    "tipo": "tabella",
@@ -1388,7 +1532,8 @@ window.AULA = {
      "no",
      "no (ma un `display` nel CSS lo annulla)"
     ]
-   ]
+   ],
+   "occhiello": "Differenza tra display: none e visibility: hidden"
   },
   {
    "tipo": "errore",
@@ -1417,68 +1562,103 @@ window.AULA = {
    "risposta": "Hanno `position: fixed` (o `sticky`): si collocano rispetto alla **finestra**, non alla pagina."
   },
   {
-   "tipo": "sezione",
-   "num": "6.5",
-   "titolo": "position (static · relative · absolute · fixed · sticky)",
-   "sotto": "position decide come si colloca un elemento: relative rispetto al suo posto, absolute al più vicino antenato posizionato, fixed alla finestra, sticky fino a una soglia.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/10-1.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
    "tipo": "domanda",
    "testo": "Un `div` con `position: absolute` sta dentro un genitore **senza** `position`. Rispetto a che cosa si colloca?",
    "risposta": "Al **più vicino antenato posizionato** (con `position` diverso da `static`). Se non c’è, alla **pagina**: il genitore, da solo, non basta."
   },
   {
-   "tipo": "tessere",
+   "tipo": "gettoni",
    "titolo": "I cinque valori di position",
-   "msg": "Rispetto a che cosa si colloca l’elemento",
-   "tessere": [
+   "gettoni": [],
+   "perche": [
     [
      "minus",
      "`static`",
-     "nel flusso; top e left ignorati"
+     "il valore iniziale: nel flusso; `top` e `left` non hanno effetto"
     ],
     [
      "move",
      "`relative`",
-     "spostato dal suo posto, che resta occupato"
+     "spostato rispetto al suo posto, che **resta occupato**"
     ],
     [
      "crosshair",
      "`absolute`",
-     "fuori dal flusso, dal più vicino antenato posizionato"
+     "fuori dal flusso, rispetto al più vicino **antenato posizionato**"
     ],
     [
      "pin",
      "`fixed`",
-     "fermo nella finestra"
+     "rispetto alla **finestra**: resta fermo quando si scorre"
     ],
     [
      "sticky-note",
      "`sticky`",
-     "scorre, poi si ferma alla soglia"
+     "scorre, poi **si ferma** alla soglia, finché il genitore è visibile"
     ]
    ],
-   "nota": "`top`, `right`, `bottom`, `left` (o `inset`) solo sugli elementi posizionati"
+   "occhiello": "position (static · relative · absolute · fixed · sticky)"
   },
   {
-   "tipo": "codice",
+   "tipo": "anatomia",
    "titolo": "Genitore relative, figlio absolute",
-   "html": "<span class=\"k\">.card </span>{\n<span class=\"a\">  position</span>:<span class=\"s\"> relative</span>;   <span class=\"c\">/* il riferimento */</span>\n}\n<span class=\"k\">.card .etichetta </span>{\n<span class=\"a\">  position</span>:<span class=\"s\"> absolute</span>;\n<span class=\"a\">  top</span>:<span class=\"s\"> 8px</span>;\n<span class=\"a\">  right</span>:<span class=\"s\"> 8px</span>;            <span class=\"c\">/* angolo in alto a destra della card */</span>\n}"
+   "codice": ".card {\n  position: relative;\n}\n.card .etichetta {\n  position: absolute;\n  top: 8px;\n  right: 8px;\n}",
+   "parti": [
+    [
+     "position: relative;",
+     "il riferimento",
+     "resta nel flusso, non si sposta"
+    ],
+    [
+     "position: absolute;",
+     "esce dal flusso",
+     "si colloca rispetto alla card"
+    ],
+    [
+     "top: 8px;",
+     "dall’alto",
+     "8px"
+    ],
+    [
+     "right: 8px;",
+     "da destra",
+     "angolo in alto a destra"
+    ]
+   ],
+   "msg": "Lo schema più usato",
+   "occhiello": "position (static · relative · absolute · fixed · sticky)"
   },
   {
    "tipo": "widget",
    "titolo": "position",
-   "w": "w10_position"
+   "w": "w10_position",
+   "occhiello": "position (static · relative · absolute · fixed · sticky)"
   },
   {
    "tipo": "widget",
    "titolo": "Tre barre mentre la pagina scorre",
-   "w": "w10_scroll"
+   "w": "w10_scroll",
+   "occhiello": "position (static · relative · absolute · fixed · sticky)"
+  },
+  {
+   "tipo": "casi",
+   "titolo": "Quando fixed non è fisso",
+   "casi": [
+    {
+     "titolo": "Nessun antenato con `transform`",
+     "testo": "l’elemento `fixed` si colloca rispetto alla **finestra**",
+     "icona": "pin",
+     "tono": "si"
+    },
+    {
+     "titolo": "Un antenato con `transform` o `filter`",
+     "testo": "il riferimento diventa **quell’antenato**: l’elemento scorre con lui",
+     "icona": "triangle-alert",
+     "tono": "forse"
+    }
+   ],
+   "msg": "Se una barra fissa non resta ferma, è la prima cosa da controllare",
+   "occhiello": "position (static · relative · absolute · fixed · sticky)"
   },
   {
    "tipo": "errore",
@@ -1499,17 +1679,6 @@ window.AULA = {
    "tipo": "errore",
    "no": "«`sticky` funziona anche senza `top`.»",
    "si": "Senza una **soglia** (`top`, `bottom`…) l’elemento sticky si comporta come `relative` e scorre via con la pagina."
-  },
-  {
-   "tipo": "sezione",
-   "num": "6.5",
-   "titolo": "Differenza tra relative, absolute, fixed e sticky",
-   "sotto": "I quattro valori differiscono per riferimento, spazio lasciato nel flusso e comportamento allo scroll.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/10-2.jpg",
-    "tit": "",
-    "alt": ""
-   }
   },
   {
    "tipo": "tabella",
@@ -1550,18 +1719,8 @@ window.AULA = {
      "scorre, poi **si ferma** alla soglia",
      "intestazione di una tabella o di una sezione"
     ]
-   ]
-  },
-  {
-   "tipo": "sezione",
-   "num": "6.5",
-   "titolo": "z-index e sovrapposizione",
-   "sotto": "z-index ordina gli elementi sovrapposti ma vale solo dentro il proprio contesto di impilamento.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/10-3.jpg",
-    "tit": "",
-    "alt": ""
-   }
+   ],
+   "occhiello": "Differenza tra relative, absolute, fixed e sticky"
   },
   {
    "tipo": "domanda",
@@ -1569,32 +1728,31 @@ window.AULA = {
    "risposta": "**B**. I contenitori creano due contesti: si confrontano prima loro (2 batte 1), e tutto il contenuto del secondo sta sopra tutto il contenuto del primo."
   },
   {
-   "tipo": "punti",
+   "tipo": "definizione",
    "titolo": "Il contesto di impilamento",
-   "msg": "z-index vale solo dentro la sua cartellina",
-   "punti": [
+   "frase": "`z-index` ordina gli elementi sovrapposti, ma vale solo **dentro il proprio contesto di impilamento**: una pila di fogli chiusa in una cartellina.",
+   "parti": [
     [
      "layers",
-     "Numero più alto = **più in primo piano**; a parità, vince chi viene dopo"
+     "posizionato con `z-index` ≠ `auto`"
     ],
     [
-     "folder",
-     "Un **contesto** è una cartellina: i fogli si riordinano solo al suo interno"
+     "blend",
+     "`opacity` minore di 1"
     ],
     [
-     "square-stack",
-     "Lo crea un posizionato con `z-index` ≠ auto, `opacity` &lt; 1, `transform`, `filter`"
-    ],
-    [
-     "scale",
-     "Si confrontano **prima i contesti**, poi i figli dentro ciascuno"
+     "rotate-cw",
+     "`transform` o `filter`"
     ]
-   ]
+   ],
+   "nota": "Si confrontano **prima i contesti**, poi i figli dentro ciascuno; a parità vince chi viene dopo nel codice.",
+   "occhiello": "z-index e sovrapposizione"
   },
   {
    "tipo": "widget",
    "titolo": "Chi sta sopra?",
-   "w": "w10_zindex"
+   "w": "w10_zindex",
+   "occhiello": "z-index e sovrapposizione"
   },
   {
    "tipo": "errore",
@@ -1607,57 +1765,66 @@ window.AULA = {
    "si": "Funziona sugli elementi **posizionati** (non `static`) e sui figli di Flexbox e Grid. Su un paragrafo normale non ha effetto."
   },
   {
-   "tipo": "sezione",
-   "num": "6.5",
-   "titolo": "Float e clear (testo attorno a un’immagine · contenitore collassato · clearfix)",
-   "sotto": "float porta un elemento a lato con il testo attorno, ma il genitore collassa: si risolve con clearfix o flow-root.",
-   "foto": {
-    "src": "assets/immagini/atmosfera/10-4.jpg",
-    "tit": "",
-    "alt": ""
-   }
-  },
-  {
-   "tipo": "punti",
-   "titolo": "Float e clear",
-   "msg": "Nato per il testo attorno a un’immagine",
-   "punti": [
-    [
-     "image",
-     "`float: left | right`: l’elemento va a lato, il testo gli scorre attorno"
-    ],
-    [
-     "arrow-down-to-line",
-     "`clear: both`: l’elemento successivo riparte **sotto** il float"
-    ],
-    [
-     "triangle-alert",
-     "Il float non conta nell’altezza: il genitore **collassa**"
-    ],
-    [
-     "wrench",
-     "Rimedi: `display: flow-root` sul genitore o il **clearfix**"
-    ],
-    [
-     "columns-3",
-     "Le colonne della pagina oggi si fanno con **Flexbox e Grid**"
-    ]
-   ]
-  },
-  {
    "tipo": "schema",
    "titolo": "Float: il testo attorno",
-   "sel": "#s10_float"
+   "sel": "#s10_float",
+   "occhiello": "Float e clear (testo attorno a un’immagine · contenitore collassato · clearfix)"
   },
   {
-   "tipo": "codice",
-   "titolo": "Il clearfix",
-   "html": "<span class=\"k\">.riquadro::after </span>{\n<span class=\"a\">  content</span>:<span class=\"s\"> \"\"</span>;\n<span class=\"a\">  display</span>:<span class=\"s\"> block</span>;\n<span class=\"a\">  clear</span>:<span class=\"s\"> both</span>;\n}"
+   "tipo": "flusso",
+   "titolo": "Il genitore che collassa",
+   "blocchi": [
+    {
+     "titolo": "Un’immagine in float",
+     "testo": "**non conta** nell’altezza del genitore",
+     "icona": "image"
+    },
+    {
+     "titolo": "Il genitore collassa",
+     "testo": "il bordo avvolge solo il testo, l’immagine esce sotto",
+     "icona": "triangle-alert",
+     "tono": "no"
+    },
+    {
+     "titolo": "Il rimedio",
+     "testo": "`display: flow-root` sul genitore, oppure il **clearfix**",
+     "icona": "wrench",
+     "tono": "si"
+    }
+   ],
+   "riga": "Per far ripartire un elemento **sotto** il float: `clear: both`.",
+   "occhiello": "Float e clear (testo attorno a un’immagine · contenitore collassato · clearfix)"
   },
   {
    "tipo": "widget",
    "titolo": "Il genitore che collassa",
-   "w": "w10_flowroot"
+   "w": "w10_flowroot",
+   "occhiello": "Float e clear (testo attorno a un’immagine · contenitore collassato · clearfix)"
+  },
+  {
+   "tipo": "casi",
+   "titolo": "A che cosa serve oggi il float",
+   "casi": [
+    {
+     "titolo": "Le colonne della pagina",
+     "testo": "si faceva prima di Flexbox e Grid, con molti trucchi",
+     "tono": "no",
+     "etichetta": "non più"
+    },
+    {
+     "titolo": "Il testo attorno a un’immagine",
+     "testo": "ciò per cui il float è nato",
+     "tono": "si",
+     "etichetta": "ancora sì"
+    }
+   ],
+   "occhiello": "Float e clear (testo attorno a un’immagine · contenitore collassato · clearfix)"
+  },
+  {
+   "tipo": "codice",
+   "titolo": "Il clearfix",
+   "html": "<span class=\"k\">.riquadro::after </span>{\n<span class=\"a\">  content</span>:<span class=\"s\"> \"\"</span>;\n<span class=\"a\">  display</span>:<span class=\"s\"> block</span>;\n<span class=\"a\">  clear</span>:<span class=\"s\"> both</span>;\n}",
+   "occhiello": "Float e clear (testo attorno a un’immagine · contenitore collassato · clearfix)"
   },
   {
    "tipo": "errore",
@@ -1669,5 +1836,6 @@ window.AULA = {
    "no": "«Il genitore si allarga attorno a un figlio in float.»",
    "si": "Il float **non conta nell’altezza** del genitore, che collassa. Serve `display: flow-root` o il clearfix."
   }
- ]
+ ],
+ "stile": "schema"
 };

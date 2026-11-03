@@ -18,30 +18,23 @@
   <!-- ===================== 5.1 ===================== -->
   <section class="sez">
   <h2 id="p1"><span class="num">5.1</span>Che cos’è il CSS e come si collega</h2>
-  <h3 id="s1-1">A cosa serve il CSS</h3>
-  <p>Il <b>CSS</b> (<i>Cascading Style Sheets</i>, «fogli di stile a cascata») è il linguaggio che decide <b>come appare</b> una pagina web: colori, caratteri, dimensioni, spazi, impaginazione. L’HTML dice <b>che cos’è</b> ogni parte della pagina (un titolo, un paragrafo, un elenco, un link); il CSS dice come quella parte si presenta.</p>
-  <p>Anche una pagina senza una riga di CSS ha un aspetto. Il browser applica il suo <span class="termine">foglio di stile predefinito</span> (<i>user agent stylesheet</i>): titoli grandi e in grassetto, link blu e sottolineati, un po’ di margine intorno al testo. Per questo tutte le pagine senza CSS si somigliano; il nostro CSS parte da lì e lo modifica.</p>
-  <p>In breve: <b>HTML = significato, CSS = presentazione</b>. Tenerli separati ha tre vantaggi:</p>
-  <ul>
-    <li><b>Manutenzione</b>: per cambiare l’aspetto si modifica il foglio di stile, senza toccare il contenuto delle pagine.</li>
-    <li><b>Coerenza</b>: tutte le pagine che usano lo stesso foglio di stile hanno gli stessi colori, caratteri e spazi.</li>
-    <li><b>Riuso</b>: una regola scritta una volta vale per tutti gli elementi a cui si applica, in tutte le pagine.</li>
-  </ul>
+  <h3 id="s1-1" class="con-ic"><i data-ic="palette" class="ic-20"></i>A cosa serve il CSS</h3>
+  <p class="domanda">Una pagina non ha nemmeno una riga di CSS. Perché allora il titolo è grande e in grassetto e il link è blu e sottolineato?</p>
+  <p>Nei capitoli sull’HTML abbiamo descritto <b>che cos’è</b> ogni parte di una pagina: questo è un titolo, questo un paragrafo, questo un elenco, questo un link. Non abbiamo mai detto di che colore deve essere il titolo, con quale carattere va scritto il paragrafo o quanto spazio deve esserci tra un elenco e l’altro. Di questo si occupa un secondo linguaggio.</p>
+  <p>Il <b>CSS</b> (<i>Cascading Style Sheets</i>, «fogli di stile a cascata») è il linguaggio che decide <b>come appare</b> una pagina web: colori, caratteri, dimensioni, spazi, impaginazione. In breve: <b>l’HTML dà il significato, il CSS la presentazione</b>.</p>
+  <div class="forma"><span>HTML<small>che cos’è ogni parte</small></span><span class="fr"><i>⟶</i>più</span><span>CSS<small>come appare</small></span><span class="fr"><i>⟶</i>insieme</span><span class="out">la pagina che vediamo</span></div>
+  <p>Eppure anche una pagina senza una riga di CSS ha un aspetto. Il browser applica il suo <span class="termine">foglio di stile predefinito</span> (<i>user agent stylesheet</i>): titoli <b>grandi e in grassetto</b>, link <b>blu e sottolineati</b>, un po’ di margine intorno al testo. Per questo tutte le pagine senza CSS si somigliano. Il nostro CSS <b>parte da lì e lo modifica</b>.</p>
+  <p>Tenere separati significato e presentazione, in due linguaggi e di solito in due file, ha tre vantaggi. Il primo è la <b>manutenzione</b>: per cambiare l’aspetto si modifica il foglio di stile, senza toccare il contenuto delle pagine. Il secondo è la <b>coerenza</b>: tutte le pagine che usano lo stesso foglio di stile hanno gli stessi colori, caratteri e spazi. Il terzo è il <b>riuso</b>: una regola scritta una volta vale per tutti gli elementi a cui si applica, in tutte le pagine.</p>
+  <p>Nel widget qui sotto la stessa pagina HTML cambia aspetto solo cambiando il foglio di stile.</p>
   <figure>
     <div class="tela" data-widget="w1_fogli"></div>
   </figure>
   <figure class="foto-margine"><a class="fonte" href="https://www.csszengarden.com/" target="_blank" rel="noopener"><img src="assets/immagini/zen-garden.jpg" alt="Quattro versioni della pagina del CSS Zen Garden: stesso HTML, quattro fogli di stile diversi" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">CSS Zen Garden</figcaption></figure>
-  <p>L’esempio più famoso è il <b>CSS Zen Garden</b> (csszengarden.com): una sola pagina HTML, sempre la stessa, e centinaia di fogli di stile diversi scritti da designer di tutto il mondo. Cambiando solo il CSS, la stessa pagina diventa un giardino giapponese, un manifesto a colori, una struttura d’acciaio, una pergamena in fondo al mare.</p>
-  <p>Il sito è nato nel 2003 per dimostrare che con il CSS si poteva fare grafica vera senza toccare l’HTML; è ancora online e ogni progetto si può scaricare per vedere come è fatto.</p>
-  <p class="domanda">Una pagina non ha nemmeno una riga di CSS. Perché allora il titolo è grande e in grassetto e il link è blu e sottolineato?</p>
-  <h3 id="s1-2">I quattro modi di collegare il CSS</h3>
-  <p>Il CSS si può collegare all’HTML in quattro modi:</p>
-  <ol>
-    <li><b>Attributo <code>style</code></b> su un singolo elemento: <code>&lt;h1 style="color: red"&gt;</code>. Vale solo per quell’elemento.</li>
-    <li><b>Elemento <code>&lt;style&gt;</code></b> dentro <code>&lt;head&gt;</code>: le regole valgono per tutta la pagina, ma solo per quella.</li>
-    <li><b>File esterno</b> collegato con <code>&lt;link rel="stylesheet" href="stile.css"&gt;</code> dentro <code>&lt;head&gt;</code>: un file <code>.css</code> che contiene <b>solo regole</b> e che tutte le pagine del sito possono collegare.</li>
-    <li><b><code>@import</code></b>: una riga all’inizio di un foglio di stile che ne carica un altro, per esempio <code>@import url("colori.css");</code>.</li>
-  </ol>
+  <p>L’esempio più famoso di questa idea è il <b>CSS Zen Garden</b> (csszengarden.com): <b>una sola pagina HTML</b>, sempre la stessa, e <b>centinaia di fogli di stile</b> diversi scritti da designer di tutto il mondo. Cambiando solo il CSS, la stessa pagina diventa un giardino giapponese, un manifesto a colori, una struttura d’acciaio, una pergamena in fondo al mare.</p>
+  <p>Il sito è nato nel 2003 per dimostrare che con il CSS si poteva fare <b>grafica vera senza toccare l’HTML</b>; è ancora online e ogni progetto si può scaricare per vedere come è fatto. Resta da capire dove si scrive, concretamente, questo CSS e come si aggancia alla pagina.</p>
+  <h3 id="s1-2" class="con-ic"><i data-ic="link" class="ic-20"></i>I quattro modi di collegare il CSS</h3>
+  <p>Il CSS si può collegare all’HTML in quattro modi, che si distinguono per <b>quanta parte del sito raggiungono</b>. Il più piccolo è l’<b>attributo <code>style</code></b> su un singolo elemento, come <code>&lt;h1 style="color: red"&gt;</code>: vale solo per quell’elemento. Poi c’è l’<b>elemento <code>&lt;style&gt;</code></b> dentro <code>&lt;head&gt;</code>: le regole che contiene valgono per tutta la pagina, ma solo per quella.</p>
+  <p>Il terzo modo è il <b>file esterno</b>: un file <code>.css</code> che contiene <b>solo regole</b> e che si collega con <code>&lt;link rel="stylesheet" href="stile.css"&gt;</code> dentro <code>&lt;head&gt;</code>. Tutte le pagine del sito possono collegare lo stesso file. Il quarto è <b><code>@import</code></b>: una riga all’inizio di un foglio di stile che ne carica un altro, per esempio <code>@import url("colori.css");</code>.</p>
   <figure>
     <div class="tela schema" id="s1_quattro"><p class="passi-titolo">La stessa regola (titolo rosso) nei quattro modi</p>
       <div class="kit-schema-griglia">
@@ -71,25 +64,23 @@
       </div>
     </div>
   </figure>
-  <p>Per un sito si usa <b>il file esterno</b>: tutte le pagine lo collegano, e una modifica fatta in un punto vale ovunque. In più il browser scarica il file una volta e lo tiene in memoria (<i>cache</i>) per le pagine successive, che quindi si aprono più in fretta.</p>
-  <p>L’attributo <code>style</code> rimescola aspetto e contenuto e va ritoccato tag per tag; <code>&lt;style&gt;</code> va bene per una pagina isolata o per una prova veloce. <code>@import</code> funziona, ma <b>si evita</b>: il browser scopre il secondo file solo dopo aver scaricato e letto il primo, così i file arrivano uno dopo l’altro invece che insieme e la pagina compare più tardi. Se servono più fogli di stile, si scrivono più <code>&lt;link&gt;</code>.</p>
+  <p>Per un sito si usa <b>il file esterno</b>. Tutte le pagine lo collegano, e <b>una modifica fatta in un punto vale ovunque</b>. In più il browser scarica il file una volta e lo tiene in memoria (<i>cache</i>) per le pagine successive, che quindi si aprono più in fretta. Gli altri modi hanno usi più ristretti: l’attributo <code>style</code> rimescola aspetto e contenuto e va ritoccato tag per tag; <code>&lt;style&gt;</code> va bene per una pagina isolata o per una prova veloce.</p>
+  <p><code>@import</code> funziona, ma <b>si evita</b>, e il motivo sta nell’ordine in cui arrivano i file.</p>
+  <div class="forma"><span>scarica stile.css</span><span class="fr"><i>⟶</i>legge</span><span>@import</span><span class="fr"><i>⟶</i>solo ora</span><span class="out">scarica colori.css<small>la pagina compare più tardi</small></span></div>
+  <p>Il browser scopre il secondo file <b>solo dopo</b> aver scaricato e letto il primo: i file arrivano uno dopo l’altro invece che insieme, e la pagina compare più tardi. Se servono più fogli di stile, si scrivono <b>più <code>&lt;link&gt;</code></b>, che partono tutti insieme.</p>
   <figure>
     <div class="tela" data-widget="w1_pagine"></div>
   </figure>
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«Nel file stile.css devo scrivere anche il tag <code>&lt;style&gt;</code>.»</p>
     <p class="err-si">Il file esterno contiene <b>solo regole CSS</b>. <code>&lt;style&gt;</code> è un elemento HTML: serve solo per scrivere il CSS dentro una pagina HTML. In un file <code>.css</code> un tag non è CSS valido e la regola che lo segue viene scartata.</p></div>
-  <h3 id="s1-3">Gli strumenti di lavoro</h3>
-  <p>Per scrivere CSS bastano un editor e un browser. In classe usiamo <b>Visual Studio Code</b> (VS Code) con l’estensione <b>Live Server</b>: apre la pagina nel browser e la <b>ricarica da sola a ogni salvataggio</b>, così si vede subito l’effetto di ogni modifica. Due estensioni facoltative: <b>Prettier</b>, che riordina il codice, e <b>CSS Peek</b>, che dall’HTML porta alla regola di una classe.</p>
+  <h3 id="s1-3" class="con-ic"><i data-ic="wrench" class="ic-20"></i>Gli strumenti di lavoro</h3>
+  <p>Una volta scritto il foglio di stile, bisogna <b>vederne l’effetto</b> e, quando qualcosa non torna, capire perché. Per scrivere CSS bastano un editor e un browser. In classe usiamo <b>Visual Studio Code</b> (VS Code) con l’estensione <b>Live Server</b>, che apre la pagina nel browser e la <b>ricarica da sola a ogni salvataggio</b>: si vede subito l’effetto di ogni modifica. Due estensioni facoltative: <b>Prettier</b>, che riordina il codice, e <b>CSS Peek</b>, che dall’HTML porta alla regola di una classe.</p>
   <figure class="foto-grande"><a class="fonte" href="https://github.com/ritwickdey/vscode-live-server" target="_blank" rel="noopener"><img src="assets/immagini/vscode-live-server.png" alt="VS Code con il codice HTML a sinistra e il browser con la pagina aggiornata da Live Server a destra" referrerpolicy="no-referrer"></a><figcaption>VS Code a sinistra e il browser a destra con Live Server: si scrive «I Am Live» nel titolo e, appena si salva il file, la pagina si aggiorna da sola. Osservare l’indirizzo nel browser: comincia con 127.0.0.1, cioè la pagina arriva dal proprio computer.</figcaption></figure>
-  <p>Gli <b>strumenti per sviluppatori</b> del browser (<i>DevTools</i>: tasto F12, oppure tasto destro › <i>Ispeziona</i>) mostrano come il browser ha capito la pagina:</p>
-  <ul>
-    <li>il pannello <b>Elementi</b> (<i>Elements</i>): l’albero degli elementi della pagina; passando sopra a un elemento, si illumina nella pagina;</li>
-    <li>la scheda <b>Stili</b> (<i>Styles</i>): tutte le regole che si applicano all’elemento scelto, con il file e la riga da cui vengono; le dichiarazioni battute da altre sono <b>barrate</b>;</li>
-    <li>la scheda <b>Calcolati</b> (<i>Computed</i>): il valore finale di ogni proprietà, quello che il browser usa davvero.</li>
-  </ul>
+  <p>Per capire come il browser ha interpretato la pagina ci sono gli <b>strumenti per sviluppatori</b> (<i>DevTools</i>), che si aprono con il tasto F12 oppure con tasto destro › <i>Ispeziona</i>. Il pannello <b>Elementi</b> (<i>Elements</i>) mostra l’albero degli elementi della pagina: passando sopra a un elemento, quello si illumina nella pagina. Accanto, la scheda <b>Stili</b> (<i>Styles</i>) elenca tutte le regole che si applicano all’elemento scelto, con il file e la riga da cui vengono; le dichiarazioni battute da altre sono <b>barrate</b>. La scheda <b>Calcolati</b> (<i>Computed</i>) mostra infine il <b>valore finale</b> di ogni proprietà, quello che il browser usa davvero.</p>
   <figure class="foto-grande"><a class="fonte" href="https://developer.chrome.com/docs/devtools/css" target="_blank" rel="noopener"><img src="assets/immagini/devtools-elementi-stili.png" alt="I DevTools di Chrome con il pannello Elementi e la scheda Styles aperti accanto alla pagina" referrerpolicy="no-referrer"></a><figcaption>I DevTools di Chrome. A destra in alto il pannello <b>Elementi</b> con l’elemento scelto evidenziato in azzurro; sotto, la scheda <b>Styles</b> con la regola <code>.aloha</code> (bordo tratteggiato rosso, <code>display</code>, <code>padding</code>) e, accanto, il file e la riga da cui viene. Osservare a sinistra l’elemento «Inspect Me!» illuminato nella pagina.</figcaption></figure>
-  <p>Nei DevTools si possono <b>cambiare i valori in diretta</b> e vedere subito il risultato: è il modo più veloce per fare prove. Ma la modifica vive <b>solo nella copia della pagina che c’è nel tuo browser</b>: non viene salvata in nessun file e <b>sparisce al ricaricamento</b>. Le prove riuscite vanno ricopiate nel file CSS.</p>
+  <p>Nei DevTools si possono anche <b>cambiare i valori in diretta</b> e vedere subito il risultato: è il modo più veloce per fare prove. Ma la modifica vive <b>solo nella copia della pagina che c’è nel tuo browser</b>: non viene salvata in nessun file e <b>sparisce al ricaricamento</b>.</p>
+  <div class="forma"><span>prova nei DevTools<small>si vede subito</small></span><span class="fr"><i>⟶</i>se funziona</span><span class="out">ricopiala nel file CSS<small>così resta</small></span></div>
   <figure>
     <div class="tela" data-widget="w1_devtools"></div>
   </figure>
@@ -97,45 +88,45 @@
     <p class="err-no">«Ho cambiato il colore nei DevTools del sito della scuola: ora lo vedono tutti.»</p>
     <p class="err-si">È cambiato <b>solo nella copia della pagina che c’è nel tuo browser</b>. Il file sul server non è stato toccato: gli altri vedono il sito come prima, e anche tu lo rivedi come prima appena ricarichi.</p></div>
   <p class="domanda">Cambiate il colore del titolo del sito della scuola nei DevTools e poi premete F5. Che cosa succede? Il compagno di banco vede il nuovo colore?</p>
+  <p>Con l’editor per scrivere e i DevTools per controllare abbiamo tutto quello che serve. Ora possiamo guardare da vicino come è fatto il CSS che scriviamo.</p>
 
   <!-- ===================== 5.2 ===================== -->
   </section>
   <section class="sez">
   <h2 id="p2"><span class="num">5.2</span>La sintassi</h2>
-  <h3 id="s2-1">Anatomia di una regola</h3>
-  <p>Un foglio di stile è un elenco di <b>regole</b>. Ogni regola dice <b>a chi</b> si applica e <b>come</b> deve apparire:</p>
+  <h3 id="s2-1" class="con-ic"><i data-ic="braces" class="ic-20"></i>Anatomia di una regola</h3>
+  <p>Un foglio di stile è un elenco di <b>regole</b>, e ogni regola risponde a due domande: <b>a chi</b> si applica e <b>come</b> deve apparire. Prendiamo la regola che rende blu scuro e grande il titolo principale:</p>
   <pre class="codice"><code><span class="k">h1 </span>{
 <span class="a">  color</span>:<span class="s"> navy</span>;
 <span class="a">  font-size</span>:<span class="s"> 32px</span>;
 }</code></pre>
-  <ul>
-    <li>il <span class="termine">selettore</span> (<code>h1</code>) sceglie gli elementi a cui si applica la regola;</li>
-    <li>il <b>blocco di dichiarazioni</b>, tra parentesi graffe <code>{ }</code>, contiene le istruzioni;</li>
-    <li>ogni <span class="termine">dichiarazione</span> è una coppia <code>proprietà: valore;</code>: la <b>proprietà</b> (<code>color</code>) dice che cosa cambiare, il <b>valore</b> (<code>navy</code>) come. I due punti separano proprietà e valore, il punto e virgola chiude la dichiarazione.</li>
-  </ul>
+  <p>All’inizio c’è il <span class="termine">selettore</span>, <code>h1</code>, che sceglie gli elementi a cui la regola si applica: qui tutti i titoli di primo livello. Segue, tra parentesi graffe <code>{ }</code>, il <b>blocco di dichiarazioni</b>, che contiene le istruzioni. Ogni <span class="termine">dichiarazione</span> è una coppia <b><code>proprietà: valore;</code></b>: la <b>proprietà</b> (<code>color</code>) dice che cosa cambiare, il <b>valore</b> (<code>navy</code>) dice come. I due punti separano proprietà e valore, il punto e virgola chiude la dichiarazione.</p>
   <figure>
     <div class="tela schema" id="s2_anatomia"><p class="passi-titolo">Anatomia di una regola</p>
       <svg viewBox="0 0 720 290" role="img" aria-label="La regola h1 { color: navy; font-size: 32px; } con indicati il selettore, le proprietà, i valori, le due dichiarazioni e il blocco di dichiarazioni tra graffe"></svg>
     </div>
   </figure>
-  <p>I nomi delle proprietà si scrivono in <b>minuscolo</b> e, se sono fatti di più parole, le parole sono unite da un <b>trattino</b>: <code>font-size</code>, <code>background-color</code>, <code>text-align</code>. L’ultimo punto e virgola prima della graffa si potrebbe omettere, ma conviene scriverlo sempre: quando si aggiunge una riga sotto, non lo si dimentica.</p>
+  <p>I nomi delle proprietà si scrivono in <b>minuscolo</b> e, se sono fatti di più parole, le parole sono unite da un <b>trattino</b>: <code>font-size</code>, <code>background-color</code>, <code>text-align</code>. L’ultimo punto e virgola prima della graffa si potrebbe omettere, ma conviene <b>scriverlo sempre</b>: quando si aggiunge una riga sotto, non lo si dimentica.</p>
   <figure>
     <div class="tela" data-widget="w2_regola"></div>
   </figure>
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«Le proprietà si scrivono come in Java: <code>fontSize</code>.»</p>
     <p class="err-si">In CSS si scrive <code>font-size</code>, minuscolo con il trattino; <code>fontSize</code> non esiste e viene ignorata. La forma con la maiuscola in mezzo (<i>camelCase</i>) si usa solo quando si cambia lo stile da JavaScript (cap. 8).</p></div>
-  <h3 id="s2-2">Commenti e formattazione</h3>
-  <p>Un <span class="termine">commento</span> si scrive tra <code>/*</code> e <code>*/</code>, anche su più righe, e il browser lo ignora. È l’<b>unico</b> commento del CSS: la doppia barra <code>//</code>, comune in JavaScript e in Java, qui non esiste. I commenti <b>non si possono annidare</b>: il primo <code>*/</code> chiude il commento, anche se dentro ce n’era un altro aperto.</p>
+  <h3 id="s2-2" class="con-ic"><i data-ic="message-square" class="ic-20"></i>Commenti e formattazione</h3>
+  <p>Una regola si può scrivere in modo che il browser la capisca, ma anche in modo che <b>la capisca una persona</b>: chi la rilegge tra un mese, o un compagno che lavora allo stesso sito. A questo servono i commenti e la formattazione.</p>
+  <p>Un <span class="termine">commento</span> si scrive tra <code>/*</code> e <code>*/</code>, anche su più righe, e il browser lo ignora. È <b>l’unico commento del CSS</b>: la doppia barra <code>//</code>, comune in JavaScript e in Java, qui non esiste. I commenti inoltre <b>non si possono annidare</b>: il primo <code>*/</code> chiude il commento, anche se dentro ce n’era un altro aperto.</p>
+  <div class="casi"><div class="si"><b>✓ commento CSS</b><p>Tra <code>/*</code> e <code>*/</code>, anche su più righe: il browser lo ignora.</p><pre class="codice"><code><span class="c">/* Titoli della pagina */</span></code></pre></div><div class="no"><b>✗ non è un commento</b><p>La doppia barra viene da JavaScript e Java: in CSS il testo finisce nel selettore e la regola viene scartata.</p><pre class="codice"><code><span class="k">// Titoli della pagina</span></code></pre></div></div>
   <p>Un uso pratico durante le prove: <b>commentare una dichiarazione per disattivarla</b>, senza cancellarla.</p>
+  <div class="ese"><b>Esempio</b><p>Nella regola qui sotto la vecchia dimensione del titolo, 40px, è disattivata da un commento: resta lì, pronta per essere rimessa, ma il browser usa solo 32px.</p></div>
   <pre class="codice"><code><span class="c">/* Titoli della pagina */</span>
 <span class="k">h1 </span>{
 <span class="a">  color</span>:<span class="s"> navy</span>;
   <span class="c">/* font-size: 40px; */</span>
 <span class="a">  font-size</span>:<span class="s"> 32px</span>;
 }</code></pre>
-  <p>Spazi, a capo e rientri <b>non cambiano nulla per il browser</b>, ma servono a chi legge. La convenzione: <b>una dichiarazione per riga</b>, rientrata di due o quattro spazi, la graffa di chiusura su una riga sua e una riga vuota tra una regola e l’altra.</p>
-  <p>I fogli di stile pubblicati sono spesso <b>compressi</b> (<i>minified</i>): tutto su una riga, senza spazi né commenti, per pesare meno. Si leggono male, ma il browser li interpreta esattamente come la versione ordinata.</p>
+  <p>Spazi, a capo e rientri <b>non cambiano nulla per il browser</b>, ma servono a chi legge. La convenzione è <b>una dichiarazione per riga</b>, rientrata di due o quattro spazi, la graffa di chiusura su una riga sua e una riga vuota tra una regola e l’altra.</p>
+  <p>I fogli di stile pubblicati sono invece spesso <b>compressi</b> (<i>minified</i>): tutto su una riga, senza spazi né commenti, per pesare meno. Si leggono male, ma il browser li interpreta esattamente come la versione ordinata. Non si scrivono a mano: li produce un programma, partendo dal file ordinato.</p>
   <figure>
     <div class="tela schema" id="s2_formati"><p class="passi-titolo">Lo stesso CSS scritto in tre modi</p>
       <div class="kit-schema-griglia">
@@ -161,20 +152,16 @@
     </div>
   </figure>
   <p class="domanda">Scrivo <code>// ricordati di cambiare il colore</code> sopra la regola dei titoli. La regola funziona ancora?</p>
-  <h3 id="s2-3">Proprietà abbreviate</h3>
-  <p>Alcune proprietà ne raggruppano altre: sono le <span class="termine">proprietà abbreviate</span> (<i>shorthand</i>). <code>margin</code> imposta in un colpo solo <code>margin-top</code>, <code>margin-right</code>, <code>margin-bottom</code> e <code>margin-left</code>; <code>border</code> imposta spessore, stile e colore del bordo; <code>font</code> lo stile, il peso, la dimensione, l’interlinea e la famiglia del carattere; <code>background</code> il colore, l’immagine, la posizione e la ripetizione dello sfondo.</p>
-  <p><code>margin</code> e <code>padding</code> accettano da uno a quattro valori, letti <b>in senso orario a partire dall’alto</b>:</p>
-  <ul>
-    <li><b>1 valore</b>: vale per tutti e quattro i lati (<code>margin: 10px</code>);</li>
-    <li><b>2 valori</b>: il primo sopra e sotto, il secondo a destra e a sinistra (<code>margin: 10px 30px</code>);</li>
-    <li><b>3 valori</b>: sopra, poi destra e sinistra, poi sotto (<code>margin: 10px 30px 50px</code>);</li>
-    <li><b>4 valori</b>: sopra, destra, sotto, sinistra, come le lancette dell’orologio (<code>margin: 10px 20px 30px 40px</code>).</li>
-  </ul>
+  <h3 id="s2-3" class="con-ic"><i data-ic="layers" class="ic-20"></i>Proprietà abbreviate</h3>
+  <p>Scrivere una dichiarazione per ogni dettaglio può diventare lungo: per dare un margine ai quattro lati di un elemento servirebbero quattro righe. Per questo alcune proprietà ne raggruppano altre: sono le <span class="termine">proprietà abbreviate</span> (<i>shorthand</i>). <code>margin</code> imposta in un colpo solo <code>margin-top</code>, <code>margin-right</code>, <code>margin-bottom</code> e <code>margin-left</code>; <code>border</code> imposta <b>spessore, stile e colore</b> del bordo; <code>font</code> lo stile, il peso, la dimensione, l’interlinea e la famiglia del carattere; <code>background</code> il colore, l’immagine, la posizione e la ripetizione dello sfondo.</p>
+  <p><code>margin</code> e <code>padding</code> accettano <b>da uno a quattro valori</b>, letti <b>in senso orario a partire dall’alto</b>, come le lancette dell’orologio. Con un valore solo, quello vale per tutti e quattro i lati; con due, il primo vale sopra e sotto, il secondo a destra e a sinistra; con tre, il primo vale sopra, il secondo a destra e a sinistra, il terzo sotto; con quattro, si va sopra, destra, sotto, sinistra.</p>
+  <div class="ese"><b>Esempio</b><ul><li><code>margin: 10px</code> · 10px su tutti e quattro i lati</li><li><code>margin: 10px 30px</code> · 10px sopra e sotto, 30px a destra e a sinistra</li><li><code>margin: 10px 30px 50px</code> · 10px sopra, 30px a destra e a sinistra, 50px sotto</li><li><code>margin: 10px 20px 30px 40px</code> · sopra, destra, sotto, sinistra</li></ul></div>
   <figure>
     <div class="tela" data-widget="w2_lati"></div>
   </figure>
-  <p>Attenzione: una proprietà abbreviata imposta <b>tutte</b> le sue proprietà, anche quelle che non scrivi, e quelle mancanti tornano al loro <span class="termine">valore iniziale</span>. <code>background: red</code> imposta il colore ma rimette anche <code>background-image</code> a <code>none</code>: se prima c’era un’immagine di sfondo, sparisce.</p>
-  <p>Alcune parti poi sono obbligatorie. <code>border</code> senza lo <b>stile</b> (<code>solid</code>, <code>dashed</code>, <code>dotted</code>…) non disegna niente, perché lo stile iniziale è <code>none</code>. <code>font</code> senza <b>dimensione e famiglia</b> non è valida e viene scartata.</p>
+  <p>La comodità ha però un prezzo: una proprietà abbreviata imposta <b>tutte</b> le sue proprietà, anche quelle che non scrivi, e quelle mancanti <b>tornano al loro <span class="termine">valore iniziale</span></b>.</p>
+  <div class="forma"><span><code>background: url(foto.jpg)</code><small>c’è un’immagine</small></span><span class="fr"><i>⟶</i>poi</span><span><code>background: red</code></span><span class="fr"><i>⟶</i>risultato</span><span class="out">sfondo rosso<small>l’immagine sparisce</small></span></div>
+  <p>Alcune parti, poi, sono <b>obbligatorie</b>. <code>border</code> senza lo <b>stile</b> (<code>solid</code>, <code>dashed</code>, <code>dotted</code>…) non disegna niente, perché lo stile iniziale è <code>none</code>. <code>font</code> senza <b>dimensione e famiglia</b> non è valida e viene scartata. Per cambiare una cosa sola, conviene la proprietà estesa: <code>background-color: red</code> cambia il colore e lascia stare l’immagine.</p>
   <div class="tab"><table>
     <thead><tr><th>Abbreviata</th><th>Equivale a</th><th>Attenzione</th></tr></thead>
     <tbody>
@@ -192,41 +179,37 @@
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«<code>background: red</code> cambia solo il colore di sfondo.»</p>
     <p class="err-si">La forma abbreviata imposta <b>tutte</b> le proprietà dello sfondo: anche l’immagine torna a <code>none</code> e sparisce. Per cambiare solo il colore si usa <code>background-color: red</code>.</p></div>
-  <h3 id="s2-4">Errori comuni e validatore</h3>
-  <p>Quando incontra qualcosa che non capisce, il browser <b>non segnala nessun errore</b>: scarta la dichiarazione (o l’intera regola) e va avanti con il resto. È una scelta voluta: un foglio di stile scritto con le proprietà di domani funziona anche nei browser di oggi, che ignorano soltanto ciò che non conoscono. Il prezzo è che gli errori <b>passano in silenzio</b>: la pagina semplicemente non ha l’aspetto voluto.</p>
+  <h3 id="s2-4" class="con-ic"><i data-ic="bug" class="ic-20"></i>Errori comuni e validatore</h3>
   <p class="domanda">Dimentico il punto e virgola dopo <code>color: red</code> e sotto c’è <code>font-size: 48px;</code>. Il titolo sarà rosso, grande, tutti e due o nessuno dei due?</p>
+  <p>Gli errori della sezione precedente hanno una cosa in comune: nessuno di loro produce un messaggio. Quando incontra qualcosa che non capisce, il browser <b>non segnala nessun errore</b>: <b>scarta la dichiarazione</b> (o l’intera regola) e va avanti con il resto.</p>
+  <div class="forma"><span>dichiarazione che non capisce</span><span class="fr"><i>⟶</i>il browser</span><span>la scarta</span><span class="fr"><i>⟶</i>e</span><span class="out">va avanti con il resto<small>nessun messaggio</small></span></div>
+  <p>È una scelta voluta: un foglio di stile scritto con le proprietà di domani funziona anche nei browser di oggi, che <b>ignorano soltanto ciò che non conoscono</b>. Il prezzo è che gli errori <b>passano in silenzio</b>: la pagina semplicemente non ha l’aspetto voluto, e tocca a noi capire perché.</p>
   <figure>
     <div class="tela" data-widget="w2_errori"></div>
   </figure>
-  <p>Gli errori si trovano in tre modi:</p>
-  <ul>
-    <li>con l’<b>editor</b>: VS Code colora in modo diverso e sottolinea le proprietà sconosciute e le graffe che non tornano;</li>
-    <li>con i <b>DevTools</b>: nella scheda Stili una dichiarazione non valida è <b>barrata</b> e ha accanto un <b>triangolo giallo</b> di avviso;</li>
-    <li>con il <span class="termine">validatore</span> del W3C (jigsaw.w3.org/css-validator): si incolla il CSS o si carica il file e restituisce l’elenco degli errori con il numero di riga. Il profilo predefinito è «CSS livello 3 + SVG»; conviene provarlo, perché alcune novità recenti possono risultare errori anche se i browser le capiscono.</li>
-  </ul>
+  <p>Per fortuna gli errori si possono cercare in tre posti. Il primo è l’<b>editor</b>: VS Code colora in modo diverso e sottolinea le proprietà sconosciute e le graffe che non tornano. Il secondo sono i <b>DevTools</b>: nella scheda Stili una dichiarazione non valida è <b>barrata</b> e ha accanto un <b>triangolo giallo</b> di avviso.</p>
+  <p>Il terzo è il <span class="termine">validatore</span> del W3C (jigsaw.w3.org/css-validator): si incolla il CSS o si carica il file, e restituisce <b>l’elenco degli errori con il numero di riga</b>. Il profilo predefinito è «CSS livello 3 + SVG»; conviene provarlo, ma alcune novità recenti possono risultare errori anche se i browser le capiscono.</p>
   <div class="foto-coppia">
     <figure><a class="fonte" href="https://developer.chrome.com/docs/devtools/css/issues" target="_blank" rel="noopener"><img src="assets/immagini/devtools-non-valida.png" alt="I DevTools con due dichiarazioni non valide barrate e segnalate da un triangolo giallo" referrerpolicy="no-referrer"></a><figcaption>Nei DevTools <code>color: unicornpink</code> (un colore che non esiste) e <code>colour: deeppink</code> (la proprietà scritta all’inglese) sono <b>barrate</b> con il triangolo giallo; vale solo l’ultima, <code>color: deeppink</code>.</figcaption></figure>
     <figure><a class="fonte" href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener"><img src="assets/immagini/validatore-w3c.png" alt="Il validatore CSS del W3C con l’elenco di tre errori e i numeri di riga" referrerpolicy="no-referrer"></a><figcaption>Il validatore del W3C su un foglio con tre errori: il punto e virgola mancante dopo <code>color</code> (riga 3), la proprietà <code>colour</code> che non esiste, con il suggerimento <code>color</code> (riga 6), il <code>18</code> senza unità (riga 7).</figcaption></figure>
   </div>
+  <p>Ora sappiamo scrivere una regola e trovarne gli errori. La parte della regola che decide <b>a chi</b> si applica, il selettore, è però molto più ricca di un semplice <code>h1</code>.</p>
 
   <!-- ===================== 5.3 ===================== -->
   </section>
   <section class="sez">
   <h2 id="p3"><span class="num">5.3</span>I selettori</h2>
-  <h3 id="s3-1">Tipo, classe, id, universale</h3>
-  <p>I selettori di base sono quattro:</p>
-  <ul>
-    <li>il <b>selettore di tipo</b> sceglie gli elementi per nome del tag: <code>p</code> prende tutti i paragrafi;</li>
-    <li>il <b>selettore di classe</b> sceglie gli elementi che hanno quella classe nell’attributo <code>class</code>: <code>.nota</code> prende tutti gli elementi con <code>class="nota"</code>, qualunque sia il tag;</li>
-    <li>il <b>selettore di id</b> sceglie l’elemento con quell’<code>id</code>: <code>#robot</code> prende l’elemento con <code>id="robot"</code>;</li>
-    <li>il <b>selettore universale</b> <code>*</code> prende tutti gli elementi.</li>
-  </ul>
+  <h3 id="s3-1" class="con-ic"><i data-ic="crosshair" class="ic-20"></i>Tipo, classe, id, universale</h3>
+  <p>Il selettore <code>h1</code> del tema precedente prende <b>tutti</b> i titoli di primo livello. Ma spesso vogliamo colorare solo alcuni elementi: tre avvisi tra trenta paragrafi, una sola immagine in tutta la pagina. Per questo esistono quattro selettori di base, che scelgono gli elementi in modi diversi.</p>
+  <p>Il <b>selettore di tipo</b> sceglie gli elementi per nome del tag: <code>p</code> prende tutti i paragrafi. Il <b>selettore di classe</b> sceglie gli elementi che hanno quella classe nell’attributo <code>class</code>: <code>.nota</code> prende tutti gli elementi con <code>class="nota"</code>, <b>qualunque sia il tag</b>. Il <b>selettore di id</b> sceglie l’elemento con quell’<code>id</code>: <code>#robot</code> prende l’elemento con <code>id="robot"</code>. Infine il <b>selettore universale</b> <code>*</code> prende <b>tutti gli elementi</b>.</p>
   <pre class="codice"><code><span class="k">p      </span>{<span class="a"> line-height</span>:<span class="s"> 1.5</span>; }        <span class="c">/* tutti i paragrafi */</span>
 <span class="k">.nota  </span>{<span class="a"> color</span>:<span class="s"> gray</span>; }             <span class="c">/* class="nota" */</span>
 <span class="k">#robot </span>{<span class="a"> color</span>:<span class="s"> crimson</span>; }          <span class="c">/* id="robot" */</span>
 <span class="k">*      </span>{<span class="a"> box-sizing</span>:<span class="s"> border-box</span>; }  <span class="c">/* tutti gli elementi */</span></code></pre>
-  <p>Il <b>punto</b> e il <b>cancelletto</b> fanno parte del selettore, non del nome: nell’HTML si scrive <code>class="nota"</code>, nel CSS <code>.nota</code>. Un elemento può avere <b>più classi</b>, separate da spazi (<code>class="card big"</code>), e una classe si può dare a tutti gli elementi che si vuole. L’<code>id</code> invece è <b>unico</b>: nella pagina non ci possono essere due elementi con lo stesso id.</p>
-  <p>Nel widget qui sotto c’è la pagina campione del club di robotica che useremo in tutto il capitolo, scritta come elenco di elementi: ogni riga è un elemento, rientrato dentro il suo genitore. Scrivi un selettore, o scegli un esempio, e guarda quali elementi prende.</p>
+  <p>Il <b>punto</b> e il <b>cancelletto</b> fanno parte del selettore, non del nome: nell’HTML si scrive <code>class="nota"</code>, nel CSS <code>.nota</code>.</p>
+  <div class="forma"><span>HTML<small><code>class="nota"</code> · <code>id="robot"</code></small></span><span class="fr"><i>⟶</i>nel CSS</span><span class="out">selettore<small><code>.nota</code> · <code>#robot</code></small></span></div>
+  <p>Classi e id si comportano però in modo diverso. Un elemento può avere <b>più classi</b>, separate da spazi (<code>class="card big"</code>), e una classe si può dare a <b>tutti gli elementi che si vuole</b>. L’<code>id</code> invece è <b>unico</b>: nella pagina non ci possono essere due elementi con lo stesso id.</p>
+  <p>Nel widget qui sotto c’è la pagina campione del club di robotica che useremo in tutto il tema, scritta come elenco di elementi: ogni riga è un elemento, rientrato dentro il suo genitore. Scrivi un selettore, o scegli un esempio, e guarda quali elementi prende.</p>
   <figure>
     <div class="tela" data-widget="w3_cacc"></div>
   </figure>
@@ -236,10 +219,12 @@
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«Lo stesso id si può dare a più elementi che devono avere lo stesso stile.»</p>
     <p class="err-si">L’id è <b>unico</b> nella pagina. Per dare lo stesso stile a più elementi si usa una <b>classe</b>, che si può ripetere quante volte si vuole.</p></div>
-  <h3 id="s3-2">Raggruppare e combinare</h3>
+  <h3 id="s3-2" class="con-ic"><i data-ic="git-fork" class="ic-20"></i>Raggruppare e combinare</h3>
+  <p>I selettori di base si possono mettere insieme in tre modi, e la differenza sta tutta in un carattere: una virgola, nessuno spazio, oppure uno spazio o un simbolo.</p>
   <p>La <b>virgola</b> crea una <b>lista di selettori</b> che condividono le stesse dichiarazioni: <code>h1, h2, h3 { font-family: Georgia, serif; }</code> vale per tutti e tre i titoli. Attenzione: se <b>uno solo</b> dei selettori della lista non è valido, <b>l’intera regola viene scartata</b>, anche per gli altri.</p>
   <p>Più selettori <b>scritti di seguito, senza spazio</b>, sono condizioni sullo <b>stesso elemento</b> e formano un <span class="termine">selettore composto</span>: <code>p.nota</code> prende i paragrafi con la classe <code>nota</code>, <code>.card.big</code> gli elementi che hanno entrambe le classi.</p>
-  <p>I <b>combinatori</b> collegano due selettori in base alla posizione degli elementi nell’albero della pagina:</p>
+  <div class="casi"><div class=""><b><code>.card.big</code> · senza spazio</b><p>Lo <b>stesso elemento</b> deve avere entrambe le classi: nella pagina campione, la card «Stampa 3D».</p></div><div class=""><b><code>.card .big</code> · con lo spazio</b><p>Un elemento <code>.big</code> <b>dentro</b> un <code>.card</code>, a qualsiasi profondità: nella pagina campione, nessuno.</p></div></div>
+  <p>Lo spazio dell’ultimo esempio è il primo dei <b>combinatori</b>, che collegano due selettori in base alla <b>posizione degli elementi nell’albero</b> della pagina:</p>
   <div class="tab"><table>
     <thead><tr><th>Combinatore</th><th>Si legge</th><th>Che cosa prende</th></tr></thead>
     <tbody>
@@ -248,7 +233,7 @@
       <tr><td><code>A + B</code></td><td>B <b>fratello adiacente</b> di A</td><td>il B subito dopo A, con lo stesso genitore: <code>h3 + p</code></td></tr>
       <tr><td><code>A ~ B</code></td><td>B <b>fratello successivo</b> di A</td><td>tutti i B che vengono dopo A, con lo stesso genitore: <code>h2 ~ div</code></td></tr>
     </tbody></table></div>
-  <p>Un selettore si legge <b>da destra a sinistra</b>: l’elemento preso è sempre l’ultimo (in <code>main p</code> sono i <code>p</code>), quelli prima sono condizioni. E il CSS sceglie solo in base a ciò che sta <b>sopra</b> o <b>prima</b> nell’albero: non c’è un combinatore per «il genitore di B» o per «l’elemento che viene prima di B». Per questi casi oggi esiste <code>:has()</code>.</p>
+  <p>Un selettore con i combinatori si legge <b>da destra a sinistra</b>: l’elemento preso è sempre <b>l’ultimo</b> (in <code>main p</code> sono i <code>p</code>), quelli prima sono condizioni. E il CSS sceglie solo in base a ciò che sta <b>sopra</b> o <b>prima</b> nell’albero: non c’è un combinatore per «il genitore di B» o per «l’elemento che viene prima di B». Per questi casi oggi esiste <code>:has()</code>.</p>
   <figure>
     <div class="tela" data-widget="w3_cacc_comb"></div>
   </figure>
@@ -259,8 +244,8 @@
     <p class="err-no">«Se un selettore della lista è sbagliato, funzionano comunque gli altri.»</p>
     <p class="err-si">Basta un selettore non valido nella lista perché <b>l’intera regola venga scartata</b>, per tutti i selettori.</p></div>
   <p class="domanda"><code>.card .big</code> e <code>.card.big</code>: sono lo stesso selettore?</p>
-  <h3 id="s3-3">Selettori di attributo</h3>
-  <p>I <span class="termine">selettori di attributo</span> scelgono gli elementi in base ai loro attributi e ai loro valori, scritti tra parentesi quadre. Così si possono dare uno stile a tutti i link esterni o a tutti i campi email <b>senza aggiungere classi a mano</b>: l’informazione c’è già nell’HTML.</p>
+  <h3 id="s3-3" class="con-ic"><i data-ic="brackets" class="ic-20"></i>Selettori di attributo</h3>
+  <p>Spesso l’informazione che serve per scegliere un elemento <b>c’è già nell’HTML</b>: un link esterno ha un <code>href</code> che comincia con <code>https</code>, un link a un documento finisce con <code>.pdf</code>, un campo email ha <code>type="email"</code>. I <span class="termine">selettori di attributo</span> scelgono gli elementi proprio in base ai loro attributi e ai loro valori, scritti <b>tra parentesi quadre</b>. Così si dà uno stile a tutti i link esterni o a tutti i campi email <b>senza aggiungere classi a mano</b>.</p>
   <div class="tab"><table>
     <thead><tr><th>Selettore</th><th>Significato</th><th>Esempio</th></tr></thead>
     <tbody>
@@ -271,7 +256,7 @@
       <tr><td><code>[attr*="v"]</code></td><td>valore che <b>contiene</b> v</td><td><code>a[href*="arduino"]</code></td></tr>
       <tr><td><code>[attr~="v"]</code></td><td>v è una delle <b>parole</b> del valore</td><td><code>[class~="big"]</code></td></tr>
     </tbody></table></div>
-  <p>Dopo il valore si può aggiungere una <code>i</code> per ignorare maiuscole e minuscole: <code>a[href$=".pdf" i]</code> prende anche un link a <code>PROGRAMMA.PDF</code>.</p>
+  <p>Dopo il valore si può aggiungere una <code>i</code> per <b>ignorare maiuscole e minuscole</b>: <code>a[href$=".pdf" i]</code> prende anche un link a <code>PROGRAMMA.PDF</code>.</p>
   <pre class="codice"><code><span class="k">a[href^="https"]    </span>{<span class="a"> color</span>:<span class="s"> #0a6f66</span>; }   <span class="c">/* link esterni */</span>
 <span class="k">a[href$=".pdf"]     </span>{<span class="a"> font-weight</span>:<span class="s"> bold</span>; } <span class="c">/* link ai PDF */</span>
 <span class="k">input[type="email"] </span>{<span class="a"> border-color</span>:<span class="s"> #0a6f66</span>; }</code></pre>
@@ -281,18 +266,17 @@
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«<code>[href=".pdf"]</code> prende i link ai PDF.»</p>
     <p class="err-si"><code>=</code> vuole il valore <b>esatto</b>: prenderebbe solo un link con <code>href=".pdf"</code>. Per «finisce con» serve <code>$=</code>: <code>a[href$=".pdf"]</code>.</p></div>
-  <h3 id="s3-4">Pseudo-classi</h3>
-  <p>Una <span class="termine">pseudo-classe</span> (due punti seguiti da un nome) sceglie un elemento che esiste già nell’HTML <b>quando si trova in un certo stato o in una certa posizione</b>, oppure quando <b>non</b> soddisfa una condizione. Sono tre famiglie:</p>
-  <ul>
-    <li><b>stato</b>: <code>:hover</code> (il puntatore è sopra), <code>:focus</code> (l’elemento ha il fuoco, dopo un clic o con il tasto Tab), <code>:active</code> (mentre lo si preme), <code>:checked</code> (casella spuntata), <code>:disabled</code> (elemento disattivato);</li>
-    <li><b>posizione</b> tra i fratelli: <code>:first-child</code>, <code>:last-child</code>, <code>:nth-child()</code>, <code>:nth-of-type()</code>, <code>:only-child</code> (figlio unico), <code>:empty</code> (senza contenuto);</li>
-    <li><b>negazione</b>: <code>:not()</code> prende gli elementi che <b>non</b> corrispondono al selettore tra parentesi, per esempio <code>.card:not(.big)</code>.</li>
-  </ul>
+  <h3 id="s3-4" class="con-ic"><i data-ic="mouse-pointer" class="ic-20"></i>Pseudo-classi</h3>
+  <p>Finora abbiamo scelto gli elementi per quello che <b>sono</b>: un tag, una classe, un attributo. Ma un link sotto il puntatore del mouse, un campo in cui si sta scrivendo, il primo elemento di un elenco non hanno niente di scritto nell’HTML che li distingua. Per sceglierli servono le pseudo-classi.</p>
+  <p>Una <span class="termine">pseudo-classe</span> (due punti seguiti da un nome) sceglie un elemento <b>che esiste già</b> nell’HTML quando si trova <b>in un certo stato</b> o <b>in una certa posizione</b>, oppure quando <b>non</b> soddisfa una condizione. Sono quindi tre famiglie.</p>
+  <p>Le pseudo-classi di <b>stato</b> dipendono da che cosa sta facendo l’utente: <code>:hover</code> (il puntatore è sopra), <code>:focus</code> (l’elemento ha il fuoco, dopo un clic o con il tasto Tab), <code>:active</code> (mentre lo si preme), <code>:checked</code> (casella spuntata), <code>:disabled</code> (elemento disattivato). Quelle di <b>posizione</b> guardano il posto dell’elemento tra i fratelli: <code>:first-child</code>, <code>:last-child</code>, <code>:nth-child()</code>, <code>:nth-of-type()</code>, <code>:only-child</code> (figlio unico), <code>:empty</code> (senza contenuto). Infine la <b>negazione</b> <code>:not()</code> prende gli elementi che <b>non</b> corrispondono al selettore tra parentesi, per esempio <code>.card:not(.big)</code>.</p>
   <figure>
     <div class="tela" data-widget="w3_stati"></div>
   </figure>
-  <p>Sugli schermi touch un vero <code>:hover</code> non esiste: non c’è un puntatore che passa sopra senza toccare. Le informazioni importanti non devono quindi comparire solo al passaggio del mouse.</p>
-  <p><code>:nth-child()</code> conta <b>tutti i fratelli</b>, di qualunque tag; <code>:nth-of-type()</code> conta solo i fratelli <b>dello stesso tag</b>. Quindi <code>p:nth-child(2)</code> vuol dire «un <code>p</code> che è il secondo figlio del suo genitore», non «il secondo <code>p</code>». Tra le parentesi si scrive un numero, una parola chiave o un’espressione con <code>n</code>, che vale 0, 1, 2, 3…:</p>
+  <p>Sugli schermi touch un vero <code>:hover</code> <b>non esiste</b>: non c’è un puntatore che passa sopra senza toccare. Le informazioni importanti non devono quindi comparire solo al passaggio del mouse.</p>
+  <p>Tra le pseudo-classi di posizione, due si confondono spesso. <code>:nth-child()</code> conta <b>tutti i fratelli</b>, di qualunque tag; <code>:nth-of-type()</code> conta solo i fratelli <b>dello stesso tag</b>.</p>
+  <div class="ese"><b>Esempio</b><p>In un <code>div</code> ci sono un <code>h2</code> e poi tre <code>p</code>. <code>p:nth-child(2)</code> vuol dire «un <code>p</code> che è il secondo figlio del suo genitore»: è il primo paragrafo, perché il primo figlio è l’<code>h2</code>. Il secondo paragrafo si prende con <code>p:nth-of-type(2)</code>.</p></div>
+  <p>Tra le parentesi si scrive un numero, una parola chiave o un’espressione con <code>n</code>, che vale 0, 1, 2, 3…:</p>
   <div class="tab"><table>
     <thead><tr><th>Espressione</th><th>Posizioni prese</th></tr></thead>
     <tbody>
@@ -311,18 +295,15 @@
     <p class="err-no">«<code>p:nth-child(2)</code> colora il secondo paragrafo.»</p>
     <p class="err-si">Colora un <code>p</code> <b>solo se è il secondo figlio</b> del suo genitore, contando tutti i fratelli. Per il secondo paragrafo tra i soli paragrafi serve <code>p:nth-of-type(2)</code>.</p></div>
   <p class="domanda">In un <code>div</code> ci sono un <code>h2</code> seguito da tre <code>p</code>. Che cosa colora <code>p:nth-child(2)</code>?</p>
-  <h3 id="s3-5">Pseudo-elementi</h3>
-  <p>Un <span class="termine">pseudo-elemento</span> (con due volte i due punti, <code>::</code>) sceglie una <b>parte</b> di un elemento, oppure crea un <b>contenuto generato</b> che nell’HTML non c’è:</p>
-  <ul>
-    <li><code>::first-letter</code> la prima lettera e <code>::first-line</code> la prima riga di un blocco di testo;</li>
-    <li><code>::selection</code> il testo selezionato dall’utente e <code>::placeholder</code> il testo segnaposto di un campo;</li>
-    <li><code>::before</code> e <code>::after</code> creano un elemento finto all’inizio e alla fine del contenuto, che compare <b>solo se ha la proprietà <code>content</code></b> (anche vuota: <code>content: ""</code>).</li>
-  </ul>
+  <h3 id="s3-5" class="con-ic"><i data-ic="sparkles" class="ic-20"></i>Pseudo-elementi</h3>
+  <p>Le pseudo-classi scelgono elementi che esistono. A volte invece vogliamo dare uno stile a qualcosa che <b>non è un elemento</b>: la prima lettera di un paragrafo, il testo selezionato, un’etichetta «NUOVO» che nell’HTML non c’è.</p>
+  <p>Un <span class="termine">pseudo-elemento</span> (con due volte i due punti, <code>::</code>) sceglie una <b>parte</b> di un elemento, oppure crea un <b>contenuto generato</b> che nell’HTML non c’è. <code>::first-letter</code> sceglie la prima lettera e <code>::first-line</code> la prima riga di un blocco di testo; <code>::selection</code> il testo selezionato dall’utente e <code>::placeholder</code> il testo segnaposto di un campo. <code>::before</code> e <code>::after</code>, infine, creano un elemento finto all’inizio e alla fine del contenuto, che compare <b>solo se ha la proprietà <code>content</code></b> (anche vuota: <code>content: ""</code>).</p>
   <figure>
     <div class="tela" data-widget="w3_pseudoel"></div>
   </figure>
   <p>La forma con un solo due punti (<code>:before</code>) è un’eredità del CSS 2 e funziona ancora, ma la regola è: <b>due due punti</b> per i pseudo-elementi, <b>un due punti</b> per le pseudo-classi.</p>
-  <p>Il contenuto generato serve a <b>decorare</b>: non si può selezionare né copiare e non tutti gli screen reader lo leggono. Un’informazione importante va nell’HTML.</p>
+  <p>Il contenuto generato serve a <b>decorare</b>: non si può selezionare né copiare e non tutti gli screen reader lo leggono. <b>Un’informazione importante va nell’HTML.</b></p>
+  <div class="ese"><b>Esempio</b><p>Un’etichetta «NUOVO» accanto ai corsi appena aggiunti: è una decorazione, quindi può nascere da <code>::after</code>.</p></div>
   <pre class="codice"><code><span class="k">.nuovo::after </span>{
 <span class="a">  content</span>:<span class="s"> "NUOVO"</span>;
 <span class="a">  background</span>:<span class="s"> crimson</span>;
@@ -334,8 +315,8 @@
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«<code>::before</code> mette l’icona anche senza <code>content</code>.»</p>
     <p class="err-si">Senza la proprietà <code>content</code> il pseudo-elemento <b>non viene creato</b> e non appare nulla, qualunque altra proprietà gli si dia.</p></div>
-  <h3 id="s3-6">Differenza tra classe e id, tra pseudo-classe e pseudo-elemento</h3>
-  <p>Due coppie che si confondono spesso, messe a confronto.</p>
+  <h3 id="s3-6" class="con-ic"><i data-ic="scale" class="ic-20"></i>Differenza tra classe e id, tra pseudo-classe e pseudo-elemento</h3>
+  <p>Con tanti selettori nuovi, due coppie si confondono spesso. Conviene metterle a confronto.</p>
   <div class="tab"><table>
     <thead><tr><th></th><th>Classe</th><th>Id</th></tr></thead>
     <tbody>
@@ -351,15 +332,12 @@
       <tr><td>Sceglie</td><td>un elemento <b>che esiste</b>, in un certo stato o posizione</td><td>una <b>parte</b> dell’elemento o un <b>contenuto generato</b></td></tr>
       <tr><td>Esempi</td><td><code>:hover</code>, <code>:focus</code>, <code>:nth-child()</code>, <code>:not()</code></td><td><code>::first-line</code>, <code>::before</code>, <code>::placeholder</code></td></tr>
     </tbody></table></div>
-  <p>Si possono combinare, prima la pseudo-classe e poi il pseudo-elemento: <code>a:hover::after { content: " →"; }</code> mostra una freccia dopo il link <b>solo mentre</b> il mouse è sopra.</p>
-  <h3 id="s3-7">Dare i nomi alle classi</h3>
-  <p>Il nome di una classe deve dire <b>a che cosa serve</b> l’elemento, non <b>com’è fatto</b>. <code>.avviso</code> va bene, <code>.rosso</code> no: se domani gli avvisi diventano arancioni, la classe <code>.rosso</code> colorerà di arancione e il nome mentirà. Allo stesso modo <code>.box1</code> non dice niente e <code>.sinistra-grande</code> smette di essere vero appena si cambia l’impaginazione.</p>
-  <ul>
-    <li>nomi in <b>minuscolo</b>, con le parole separate da <b>trattini</b>: <code>.card-corso</code>, <code>.menu-principale</code>;</li>
-    <li>né troppo generici (<code>.testo</code>, <code>.blocco</code>) né legati a una sola pagina;</li>
-    <li><b>niente id per lo stile</b>: è una convenzione condivisa, perché un id pesa molto più di una classe nella cascata (5.4) e non si può riusare.</li>
-  </ul>
-  <p>Per i progetti più grandi ci sono delle convenzioni per i nomi. La più diffusa è <b>BEM</b> (<i>Block, Element, Modifier</i>): un <b>blocco</b> è un componente autonomo (<code>.card</code>); un <b>elemento</b> è una sua parte, unita al blocco da due trattini bassi (<code>.card__titolo</code>); un <b>modificatore</b> è una variante, unita da due trattini (<code>.card--evidenziata</code>). Dal nome si capisce subito a quale componente appartiene una regola.</p>
+  <p>Pseudo-classi e pseudo-elementi si possono anche <b>combinare</b>, prima la pseudo-classe e poi il pseudo-elemento: <code>a:hover::after { content: " →"; }</code> mostra una freccia dopo il link <b>solo mentre</b> il mouse è sopra.</p>
+  <h3 id="s3-7" class="con-ic"><i data-ic="tag" class="ic-20"></i>Dare i nomi alle classi</h3>
+  <p>Le classi sono il selettore che useremo di più, e il loro nome lo scegliamo noi. Un buon nome dice <b>a che cosa serve</b> l’elemento, non <b>com’è fatto</b>.</p>
+  <div class="casi"><div class="no"><b>✗ <code>.rosso</code></b><p>Descrive l’aspetto: se domani gli avvisi diventano arancioni, la classe <code>.rosso</code> colorerà di arancione e <b>il nome mentirà</b>.</p></div><div class="si"><b>✓ <code>.avviso</code></b><p>Descrive il ruolo: resta vero qualunque colore abbiano gli avvisi.</p></div></div>
+  <p>Allo stesso modo <code>.box1</code> non dice niente e <code>.sinistra-grande</code> smette di essere vero appena si cambia l’impaginazione. I nomi si scrivono in <b>minuscolo</b>, con le parole separate da <b>trattini</b> (<code>.card-corso</code>, <code>.menu-principale</code>), e non devono essere né troppo generici (<code>.testo</code>, <code>.blocco</code>) né legati a una sola pagina. Ed è una convenzione condivisa <b>non usare gli id per lo stile</b>: un id pesa molto più di una classe nella cascata (5.4) e non si può riusare.</p>
+  <p>Per i progetti più grandi ci sono delle convenzioni per i nomi. La più diffusa è <b>BEM</b> (<i>Block, Element, Modifier</i>). Un <b>blocco</b> è un componente autonomo (<code>.card</code>); un <b>elemento</b> è una sua parte, unita al blocco da <b>due trattini bassi</b> (<code>.card__titolo</code>); un <b>modificatore</b> è una variante, unita da <b>due trattini</b> (<code>.card--evidenziata</code>). Dal nome si capisce subito a quale componente appartiene una regola.</p>
   <figure>
     <div class="tela schema" id="s3_nomi"><p class="passi-titolo">Nomi che descrivono l’aspetto e nomi che descrivono il ruolo</p>
       <div class="kit-schema-griglia">
@@ -387,16 +365,15 @@
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«<code>.rosso</code> è un buon nome per la classe degli avvisi.»</p>
     <p class="err-si">Descrive l’aspetto, non il ruolo: quando il colore degli avvisi cambia, il nome <b>mente</b>. Meglio <code>.avviso</code>.</p></div>
+  <p>Ora sappiamo scegliere gli elementi in molti modi diversi. Proprio per questo capita spesso che <b>più regole scelgano lo stesso elemento</b> e gli diano valori diversi: bisogna capire quale vince.</p>
 
   <!-- ===================== 5.4 ===================== -->
   </section>
   <section class="sez">
   <h2 id="p4"><span class="num">5.4</span>Cascata, ereditarietà, specificità</h2>
-  <h3 id="s4-1">Ereditarietà</h3>
-  <p>Alcune proprietà date a un elemento passano da sole ai suoi discendenti: è l’<span class="termine">ereditarietà</span>. Se il <code>body</code> ha <code>color: navy</code>, anche i paragrafi, i titoli e le voci degli elenchi sono blu scuro, senza bisogno di una regola per ciascuno.</p>
+  <h3 id="s4-1" class="con-ic"><i data-ic="git-branch" class="ic-20"></i>Ereditarietà</h3>
+  <p>Il valore di una proprietà non arriva sempre da una regola scritta per quell’elemento. Alcune proprietà date a un elemento <b>passano da sole ai suoi discendenti</b>: è l’<span class="termine">ereditarietà</span>. Se il <code>body</code> ha <code>color: navy</code>, anche i paragrafi, i titoli e le voci degli elenchi sono blu scuro, senza bisogno di una regola per ciascuno.</p>
   <p>Si ereditano soprattutto le <b>proprietà del testo</b>: <code>color</code>, le <code>font-*</code> (famiglia, dimensione, peso, stile), <code>line-height</code>, <code>text-align</code>, <code>letter-spacing</code>. <b>Non</b> si ereditano le <b>proprietà della scatola</b>: <code>margin</code>, <code>padding</code>, <code>border</code>, <code>background</code>, <code>width</code>, <code>height</code>. È una scelta sensata: se il bordo di un articolo passasse a tutti i paragrafi e ai link che contiene, ci sarebbero cornici dappertutto.</p>
-  <p>Un caso che sorprende: il <code>color</code> del <code>body</code> <b>non arriva ai link</b>. Il foglio di stile del browser dà ai link un colore loro, e una regola che prende direttamente l’elemento batte sempre un valore ereditato. Per colorare i link serve una regola per <code>a</code>.</p>
-  <p>Con il valore <code>inherit</code> si forza l’ereditarietà, anche per una proprietà che normalmente non si eredita o che il browser ha già impostato: <code>a { color: inherit; }</code> dà ai link il colore del testo che li circonda.</p>
   <figure>
     <div class="tela" data-widget="w4_eredita"></div>
   </figure>
@@ -409,6 +386,9 @@
       <tr><td><code>text-align</code>, <code>text-indent</code>, <code>text-transform</code></td><td><code>width</code>, <code>height</code>, <code>display</code></td></tr>
       <tr><td><code>list-style</code>, <code>visibility</code>, <code>cursor</code></td><td><code>box-shadow</code>, <code>opacity</code>, <code>position</code></td></tr>
     </tbody></table></div>
+  <p>Un caso che sorprende: il <code>color</code> del <code>body</code> <b>non arriva ai link</b>. Il foglio di stile del browser dà ai link un colore loro, e una regola che prende direttamente l’elemento <b>batte sempre un valore ereditato</b>. Per colorare i link serve una regola per <code>a</code>.</p>
+  <p>Con il valore <code>inherit</code> si può però <b>forzare l’ereditarietà</b>, anche per una proprietà che normalmente non si eredita o che il browser ha già impostato.</p>
+  <div class="ese"><b>Esempio</b><p><code>a { color: inherit; }</code> dà ai link il colore del testo che li circonda: in un paragrafo blu scuro, i link diventano blu scuro anche loro.</p></div>
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«Se do un bordo al genitore, ce l’hanno anche i figli.»</p>
     <p class="err-si"><code>border</code> è una proprietà della scatola e <b>non si eredita</b>: il bordo ce l’ha solo l’elemento a cui lo hai dato.</p></div>
@@ -416,52 +396,35 @@
     <p class="err-no">«Il <code>color</code> del <code>body</code> vale per tutto il testo, link compresi.»</p>
     <p class="err-si">I link hanno un colore <b>dal foglio di stile del browser</b>, che batte il valore ereditato dal <code>body</code>. Serve una regola per <code>a</code> (o <code>a { color: inherit; }</code>).</p></div>
   <p class="domanda">Metto <code>color: green</code> sul <code>body</code>. Titoli e link diventano verdi?</p>
-  <h3 id="s4-2">Valori speciali</h3>
-  <p>Quattro parole chiave valgono per <b>qualunque proprietà</b> e dicono da dove prendere il valore:</p>
-  <ul>
-    <li><code>inherit</code>: il valore del <b>genitore</b>;</li>
-    <li><code>initial</code>: il <span class="termine">valore iniziale</span> scritto nella specifica della proprietà, uguale per tutti gli elementi;</li>
-    <li><code>unset</code>: si comporta come <code>inherit</code> se la proprietà si eredita (come <code>color</code>), altrimenti come <code>initial</code> (come <code>display</code> o <code>border</code>);</li>
-    <li><code>revert</code>: il valore che darebbe il <b>foglio di stile del browser</b>, come se le nostre regole per quella proprietà non ci fossero.</li>
-  </ul>
-  <p>Attenzione a <code>initial</code>: <b>non</b> è il valore che il browser dà a quell’elemento. Il valore iniziale di <code>display</code> è <code>inline</code> per tutti gli elementi, quindi un <code>div</code> con <code>display: initial</code> diventa <b>in linea</b> e non torna a blocco. Per tornare al blocco serve <code>revert</code>.</p>
+  <h3 id="s4-2" class="con-ic"><i data-ic="undo-2" class="ic-20"></i>Valori speciali</h3>
+  <p><code>inherit</code> non è l’unica parola di questo tipo. Quattro parole chiave valgono per <b>qualunque proprietà</b> e, invece di dare un valore, dicono <b>da dove prenderlo</b>. <code>inherit</code> prende il valore del <b>genitore</b>. <code>initial</code> prende il <span class="termine">valore iniziale</span> scritto nella specifica della proprietà, <b>uguale per tutti gli elementi</b>. <code>unset</code> si comporta come <code>inherit</code> se la proprietà si eredita (come <code>color</code>), altrimenti come <code>initial</code> (come <code>display</code> o <code>border</code>). <code>revert</code>, infine, prende il valore che darebbe il <b>foglio di stile del browser</b>, come se le nostre regole per quella proprietà non ci fossero.</p>
+  <p>Attenzione a <code>initial</code>: <b>non</b> è il valore che il browser dà a quell’elemento.</p>
+  <div class="ese"><b>Esempio</b><p>Il valore iniziale di <code>display</code> è <code>inline</code> per tutti gli elementi, quindi un <code>div</code> con <code>display: initial</code> diventa <b>in linea</b> e non torna a blocco. Per riavere il blocco che gli dà il browser serve <code>display: revert</code>.</p></div>
   <figure>
     <div class="tela" data-widget="w4_valori"></div>
   </figure>
-  <p>La proprietà <code>all</code> le imposta tutte insieme (tranne pochissime): <code>all: unset</code> toglie a un elemento ogni stile, <code>all: revert</code> lo riporta all’aspetto che gli dà il browser. Esiste anche <code>revert-layer</code>, che si capisce con i livelli della cascata (<code>@layer</code>).</p>
+  <p>La proprietà <code>all</code> le imposta tutte insieme (tranne pochissime): <code>all: unset</code> toglie a un elemento <b>ogni stile</b>, <code>all: revert</code> lo riporta <b>all’aspetto che gli dà il browser</b>. Esiste anche <code>revert-layer</code>, che si capisce con i livelli della cascata (<code>@layer</code>), di cui parliamo subito.</p>
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«<code>display: initial</code> rimette il <code>block</code> dei <code>div</code>.»</p>
     <p class="err-si">Il valore iniziale di <code>display</code> è <code>inline</code> per tutti: il <code>div</code> diventa <b>in linea</b>. Per riavere il <code>block</code> del foglio del browser serve <code>display: revert</code>.</p></div>
-  <h3 id="s4-3">La cascata</h3>
-  <p>Spesso più dichiarazioni cercano di dare un valore alla <b>stessa proprietà dello stesso elemento</b>. Per scegliere, il browser applica la <span class="termine">cascata</span> (la «C» di CSS): mette in fila le dichiarazioni in conflitto e le confronta con dei criteri, <b>in ordine</b>. Il criterio successivo serve solo se il precedente finisce in parità.</p>
-  <ol>
-    <li><b>origine e importanza</b>: da dove viene la dichiarazione. Le origini sono tre: il <b>browser</b> (il suo foglio predefinito), l’<b>utente</b> (le preferenze impostate nel browser, per esempio caratteri più grandi) e l’<b>autore</b> (chi ha scritto il sito). Tra le dichiarazioni normali vale browser &lt; utente &lt; autore; con <code>!important</code> l’ordine si inverte (più avanti);</li>
-    <li><b>livelli</b> (<i>cascade layers</i>, <code>@layer</code>): un modo moderno per ordinare interi gruppi di regole;</li>
-    <li><b>specificità</b>: quanto è preciso il selettore (più avanti); una dichiarazione nell’attributo <code>style</code> batte tutti i selettori;</li>
-    <li><b>ordine di apparizione</b>: a parità di tutto il resto vince la dichiarazione <b>scritta per ultima</b>.</li>
-  </ol>
+  <h3 id="s4-3" class="con-ic"><i data-ic="list-ordered" class="ic-20"></i>La cascata</h3>
+  <p>Ereditarietà e valori speciali dicono che cosa succede quando <b>nessuna regola</b> dà un valore a un elemento. Più spesso succede il contrario: <b>più dichiarazioni</b> cercano di dare un valore alla <b>stessa proprietà dello stesso elemento</b>. Per scegliere, il browser applica la <span class="termine">cascata</span> (la «C» di CSS): mette in fila le dichiarazioni in conflitto e le confronta con dei criteri, <b>in ordine</b>. Il criterio successivo serve <b>solo se il precedente finisce in parità</b>.</p>
+  <div class="forma"><span>origine e importanza</span><span class="fr"><i>⟶</i>parità?</span><span>livelli</span><span class="fr"><i>⟶</i>parità?</span><span>specificità</span><span class="fr"><i>⟶</i>parità?</span><span class="out">ordine di scrittura<small>vince l’ultima</small></span></div>
+  <p>Il primo criterio è l’<b>origine e importanza</b>, cioè da dove viene la dichiarazione. Le origini sono tre: il <b>browser</b> (il suo foglio predefinito), l’<b>utente</b> (le preferenze impostate nel browser, per esempio caratteri più grandi) e l’<b>autore</b> (chi ha scritto il sito). Tra le dichiarazioni normali vale <b>browser &lt; utente &lt; autore</b>; con <code>!important</code>, come vedremo, l’ordine si inverte.</p>
+  <p>Vengono poi i <b>livelli</b> (<i>cascade layers</i>, <code>@layer</code>), un modo moderno per ordinare interi gruppi di regole. Il terzo criterio è la <b>specificità</b>, cioè quanto è preciso il selettore, che vedremo nella prossima sezione; una dichiarazione nell’attributo <code>style</code> batte tutti i selettori. L’ultimo è l’<b>ordine di apparizione</b>: a parità di tutto il resto vince la dichiarazione <b>scritta per ultima</b>.</p>
   <figure>
     <div class="tela" data-widget="w4_cascata"></div>
   </figure>
-  <p>L’ordine di scrittura è quindi l’<b>ultimo</b> criterio, non il primo: conta solo quando origine e specificità sono uguali. Per questo spostare in fondo al file una regola «che non funziona», spesso, non serve a niente.</p>
+  <p>L’ordine di scrittura è quindi <b>l’ultimo criterio, non il primo</b>: conta solo quando origine e specificità sono uguali. Per questo spostare in fondo al file una regola «che non funziona», spesso, non serve a niente.</p>
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«Vince sempre la regola scritta per ultima.»</p>
     <p class="err-si">L’ordine conta <b>solo a parità</b> di origine, importanza e specificità. Una regola più specifica vince anche se è scritta prima.</p></div>
   <p class="domanda">Prima <code>.nota { color: red; }</code>, poi <code>p { color: blue; }</code>. Di che colore è un paragrafo con <code>class="nota"</code>?</p>
-  <h3 id="s4-4">Calcolo della specificità</h3>
-  <p>La <span class="termine">specificità</span> misura quanto è preciso un selettore. Si scrive come una <b>terna di numeri</b> (a, b, c):</p>
-  <ul>
-    <li><b>a</b>: quanti <b>id</b>;</li>
-    <li><b>b</b>: quante <b>classi</b>, <b>selettori di attributo</b> e <b>pseudo-classi</b>;</li>
-    <li><b>c</b>: quanti <b>tipi</b> (nomi di tag) e <b>pseudo-elementi</b>.</li>
-  </ul>
+  <h3 id="s4-4" class="con-ic"><i data-ic="calculator" class="ic-20"></i>Calcolo della specificità</h3>
+  <p>Tra i criteri della cascata, quello che decide più spesso è la <span class="termine">specificità</span>, che misura <b>quanto è preciso</b> un selettore. Si scrive come una <b>terna di numeri</b> (a, b, c): <b>a</b> conta gli <b>id</b>; <b>b</b> conta le <b>classi</b>, i <b>selettori di attributo</b> e le <b>pseudo-classi</b>; <b>c</b> conta i <b>tipi</b> (nomi di tag) e i <b>pseudo-elementi</b>.</p>
+  <div class="ese"><b>Esempio</b><p><code>#avviso .nota p::first-line</code> ha un id, una classe, un tipo e un pseudo-elemento: la sua specificità è (1,1,2).</p></div>
   <p>Due terne si confrontano <b>colonna per colonna, da sinistra</b>: vince chi ha più id; a parità di id, chi ha più classi; a parità anche di quelle, chi ha più tipi. <b>Non si fa una somma e non c’è riporto</b>: undici tipi (0,0,11) non battono una classe (0,1,0), così come nel dizionario «b» viene dopo «azzzz».</p>
-  <ul>
-    <li>il selettore universale <code>*</code> e i combinatori (spazio, <code>&gt;</code>, <code>+</code>, <code>~</code>) valgono <b>zero</b>;</li>
-    <li><code>:where()</code> vale sempre <b>zero</b>;</li>
-    <li><code>:not()</code>, <code>:is()</code> e <code>:has()</code> non contano per sé: valgono quanto il selettore <b>più specifico</b> che hanno tra parentesi;</li>
-    <li>una dichiarazione nell’<b>attributo <code>style</code></b> batte qualunque selettore.</li>
-  </ul>
+  <p>Alcuni pezzi di selettore hanno regole proprie. Il selettore universale <code>*</code> e i combinatori (spazio, <code>&gt;</code>, <code>+</code>, <code>~</code>) <b>valgono zero</b>, e anche <code>:where()</code> vale sempre zero. <code>:not()</code>, <code>:is()</code> e <code>:has()</code> non contano per sé: valgono quanto il selettore <b>più specifico</b> che hanno tra parentesi. E una dichiarazione nell’<b>attributo <code>style</code></b> batte qualunque selettore.</p>
   <div class="tab"><table>
     <thead><tr><th>Selettore</th><th>Specificità</th><th>Perché</th></tr></thead>
     <tbody>
@@ -480,9 +443,9 @@
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«Più selettori scrivo, più la regola è forte.»</p>
     <p class="err-si">Conta <b>che cosa</b> scrivi, non quanto: <code>div div div p</code> vale (0,0,4) e perde contro <code>.nota</code>, che vale (0,1,0).</p></div>
-  <h3 id="s4-5">!important e perché evitarlo</h3>
-  <p>Scritto alla fine di un valore, <code>!important</code> (<code>color: red !important;</code>) fa vincere la dichiarazione su tutte quelle <b>normali</b>, prima ancora di guardare la specificità. Tra più dichiarazioni con <code>!important</code> si torna a confrontare specificità e ordine.</p>
-  <p>Con <code>!important</code> l’ordine delle origini <b>si inverte</b>: le dichiarazioni importanti dell’utente battono quelle importanti dell’autore. Non è un caso: <code>!important</code> esiste soprattutto per l’<b>accessibilità</b>. Chi vede poco può imporre i propri caratteri o i propri colori, e nessun sito glieli può togliere.</p>
+  <h3 id="s4-5" class="con-ic"><i data-ic="zap" class="ic-20"></i>!important e perché evitarlo</h3>
+  <p>C’è un modo per scavalcare la specificità. Scritto alla fine di un valore, <code>!important</code> (<code>color: red !important;</code>) fa vincere la dichiarazione su <b>tutte quelle normali</b>, prima ancora di guardare la specificità. Tra più dichiarazioni con <code>!important</code> si torna a confrontare specificità e ordine.</p>
+  <p>Con <code>!important</code> l’ordine delle origini <b>si inverte</b>: le dichiarazioni importanti dell’utente battono quelle importanti dell’autore. Non è un caso: <code>!important</code> esiste soprattutto per l’<b>accessibilità</b>. Chi vede poco può imporre i propri caratteri o i propri colori, e <b>nessun sito glieli può togliere</b>.</p>
   <figure>
     <div class="tela schema" id="s4_scala"><p class="passi-titolo">Chi batte chi: la precedenza delle origini</p>
       <div class="s4s">
@@ -499,16 +462,17 @@
       </div>
     </div>
   </figure>
-  <p>Nel lavoro normale, invece, <code>!important</code> è quasi sempre il segno di un <b>conflitto di specificità non risolto</b>. Funziona subito, ma la prossima volta che bisognerà battere quella regola ci vorrà un altro <code>!important</code> più specifico, poi un altro ancora: è la «guerra degli <code>!important</code>», e il foglio di stile diventa impossibile da modificare.</p>
-  <p>Gli usi legittimi sono pochi: le <b>classi di utilità</b> che devono valere sempre (<code>.nascosto { display: none !important; }</code>) e il bisogno di battere stili scritti da altri, per esempio un attributo <code>style</code> inserito da un programma che non si può modificare.</p>
+  <p>Nel lavoro normale, invece, <code>!important</code> è quasi sempre il segno di un <b>conflitto di specificità non risolto</b>. Funziona subito, ma la prossima volta che bisognerà battere quella regola ci vorrà un altro <code>!important</code> più specifico, poi un altro ancora: è la «<b>guerra degli <code>!important</code></b>», e il foglio di stile diventa impossibile da modificare.</p>
+  <div class="forma"><span><code>!important</code><small>funziona subito</small></span><span class="fr"><i>⟶</i>per batterlo</span><span>un altro <code>!important</code><small>più specifico</small></span><span class="fr"><i>⟶</i>e poi</span><span class="out">un altro ancora<small>foglio impossibile da modificare</small></span></div>
+  <p>Gli usi legittimi sono pochi: le <b>classi di utilità</b> che devono valere sempre (<code>.nascosto { display: none !important; }</code>) e il bisogno di <b>battere stili scritti da altri</b>, per esempio un attributo <code>style</code> inserito da un programma che non si può modificare.</p>
   <figure>
     <div class="tela" data-widget="w4_chivince_imp"></div>
   </figure>
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«<code>!important</code> risolve sempre.»</p>
     <p class="err-si">Risolve <b>fino al prossimo</b> <code>!important</code> più specifico. Meglio capire quale regola vince e perché, e correggere la specificità.</p></div>
-  <h3 id="s4-6">Perché la mia regola non funziona?</h3>
-  <p>Quando una regola non ha effetto, le cause possibili sono poche e conviene controllarle <b>in ordine</b>, con i DevTools aperti sull’elemento (tasto destro › <i>Ispeziona</i>):</p>
+  <h3 id="s4-6" class="con-ic"><i data-ic="search" class="ic-20"></i>Perché la mia regola non funziona?</h3>
+  <p>Mettendo insieme tutto il tema, quando una regola non ha effetto le cause possibili sono poche, e conviene controllarle <b>in ordine</b>, con i DevTools aperti sull’elemento (tasto destro › <i>Ispeziona</i>):</p>
   <figure>
     <div class="tela schema" id="s4_flusso"><p class="passi-titolo">Cinque domande, in quest’ordine</p>
       <ol class="s4f">
@@ -520,18 +484,19 @@
       </ol>
     </div>
   </figure>
-  <p>Nella scheda <b>Stili</b> le regole compaiono dalla più forte alla più debole: una dichiarazione <b>barrata</b> è stata battuta da un’altra più in alto; un triangolo giallo indica una dichiarazione non valida; la sezione «Ereditato da…» (<i>Inherited from</i>) mostra i valori che arrivano dai genitori. La scheda <b>Calcolati</b> mostra il valore finale e, aprendo la proprietà, la regola che l’ha deciso.</p>
+  <p>Nella scheda <b>Stili</b> le regole compaiono <b>dalla più forte alla più debole</b>: una dichiarazione <b>barrata</b> è stata battuta da un’altra più in alto; un triangolo giallo indica una dichiarazione non valida; la sezione «Ereditato da…» (<i>Inherited from</i>) mostra i valori che arrivano dai genitori. La scheda <b>Calcolati</b> mostra il valore finale e, aprendo la proprietà, la regola che l’ha deciso.</p>
   <div class="foto-coppia">
     <figure><a class="fonte" href="https://developer.chrome.com/docs/devtools/css/issues" target="_blank" rel="noopener"><img src="assets/immagini/devtools-barrate.png" alt="Scheda Styles dei DevTools con una dichiarazione barrata" referrerpolicy="no-referrer"></a><figcaption>La scheda <b>Styles</b>: la regola <code>body, h1, h2, h3, p, pre</code> si applica all’elemento, ma la sua dichiarazione <code>margin</code> è <b>barrata</b> perché un’altra la batte.</figcaption></figure>
     <figure><a class="fonte" href="https://developer.chrome.com/docs/devtools/css/issues" target="_blank" rel="noopener"><img src="assets/immagini/devtools-ereditate.png" alt="Sezione Inherited from body dei DevTools con proprietà ereditate e non ereditate" referrerpolicy="no-referrer"></a><figcaption>La sezione <b>Inherited from body</b>: in nero le proprietà che l’elemento eredita davvero (<code>color</code>, <code>overflow-wrap</code>), in grigio quelle che non si ereditano.</figcaption></figure>
   </div>
+  <p>Sappiamo ora quale dichiarazione vince. Resta da guardare più da vicino la parte destra di ogni dichiarazione: i <b>valori</b> che si possono scrivere dopo i due punti.</p>
 
   <!-- ===================== 5.5 ===================== -->
   </section>
   <section class="sez">
   <h2 id="p5"><span class="num">5.5</span>Valori, unità e colori</h2>
-  <h3 id="s5-1">I tipi di valore</h3>
-  <p>Ogni proprietà accetta solo certi <b>tipi di valore</b>: <code>color</code> vuole un colore, <code>width</code> una lunghezza o una percentuale, <code>display</code> una parola chiave. Un valore del tipo sbagliato rende la dichiarazione <b>non valida</b>, e il browser la scarta come un errore di battitura.</p>
+  <h3 id="s5-1" class="con-ic"><i data-ic="shapes" class="ic-20"></i>I tipi di valore</h3>
+  <p>Dopo i due punti di una dichiarazione non si può scrivere qualunque cosa. Ogni proprietà accetta solo certi <b>tipi di valore</b>: <code>color</code> vuole un colore, <code>width</code> una lunghezza o una percentuale, <code>display</code> una parola chiave. Un valore del tipo sbagliato rende la dichiarazione <b>non valida</b>, e il browser la scarta come un errore di battitura.</p>
   <div class="tab"><table>
     <thead><tr><th>Tipo</th><th>Esempi</th><th>Proprietà tipiche</th></tr></thead>
     <tbody>
@@ -543,14 +508,13 @@
       <tr><td>stringhe e URL</td><td><code>"NUOVO"</code>, <code>url("foto.jpg")</code></td><td><code>content</code>, <code>background-image</code>, <code>font-family</code></td></tr>
       <tr><td>funzioni</td><td><code>calc(100% - 2rem)</code>, <code>rgb()</code>, <code>clamp()</code></td><td>quasi tutte</td></tr>
     </tbody></table></div>
-  <p>Due dettagli da ricordare. Una <b>lunghezza</b> vuole sempre l’unità, tranne lo <b>zero</b>: <code>margin: 0</code> va bene, <code>margin: 10</code> no. E <code>line-height</code> accetta sia un numero senza unità sia una lunghezza, ma non sono la stessa cosa: un numero (<code>1.5</code>) si <b>moltiplica per la dimensione del testo di ogni elemento</b>, mentre una lunghezza (<code>24px</code>, o <code>1.5em</code>) viene calcolata una volta e i discendenti <b>ereditano il risultato già calcolato</b>. Con <code>line-height: 24px</code> un titolo a 40px ha le righe che si sovrappongono; con <code>line-height: 1.5</code> ha un’interlinea di 60px, proporzionata.</p>
-  <pre class="codice"><code><span class="k">body </span>{<span class="a"> line-height</span>:<span class="s"> 1.5</span>; }   <span class="c">/* ogni elemento: 1,5 × il suo testo */</span>
-<span class="k">h1   </span>{<span class="a"> font-size</span>:<span class="s"> 40px</span>; }     <span class="c">/* interlinea 60px, giusta */</span>
-
-<span class="c">/* con body { line-height: 24px; } il titolo avrebbe righe di 24px: sovrapposte */</span></code></pre>
-  <h3 id="s5-2">Unità di misura</h3>
-  <p>Le unità di lunghezza sono di due famiglie. Le <b>unità assolute</b> hanno una misura fissa: <code>px</code>, <code>cm</code>, <code>mm</code>, <code>in</code> (pollice), <code>pt</code> (punto tipografico). Sono legate tra loro: 1in = 96px = 2,54cm. Ma il <span class="termine">pixel CSS</span> <b>non è un pixel dello schermo</b>: è un’unità di riferimento, e su uno schermo ad alta densità un pixel CSS corrisponde a due, tre o più pixel fisici. Per lo schermo, delle assolute si usa praticamente solo <code>px</code>; <code>cm</code> e <code>pt</code> hanno senso per la stampa.</p>
-  <p>Le <b>unità relative</b> dipendono da un’altra grandezza, e per questo si adattano a schermi e preferenze diverse:</p>
+  <p>Due dettagli da ricordare. Il primo: una <b>lunghezza vuole sempre l’unità</b>, tranne lo <b>zero</b>: <code>margin: 0</code> va bene, <code>margin: 10</code> no.</p>
+  <p>Il secondo riguarda <code>line-height</code>, che accetta sia un numero senza unità sia una lunghezza, ma non sono la stessa cosa. Un numero (<code>1.5</code>) <b>si moltiplica per la dimensione del testo di ogni elemento</b>; una lunghezza (<code>24px</code>, o <code>1.5em</code>) viene calcolata una volta, e i discendenti <b>ereditano il risultato già calcolato</b>.</p>
+  <div class="casi"><div class="si"><b>✓ numero senza unità</b><p>Ogni elemento ha un’interlinea di 1,5 volte il suo testo: un titolo a 40px ha righe di 60px, proporzionate.</p><pre class="codice"><code><span class="k">body </span>{<span class="a"> line-height</span>:<span class="s"> 1.5</span>; }</code></pre></div><div class="no"><b>✗ lunghezza</b><p>Tutti i discendenti ereditano 24px: un titolo a 40px ha righe di 24px, che si sovrappongono.</p><pre class="codice"><code><span class="k">body </span>{<span class="a"> line-height</span>:<span class="s"> 24px</span>; }</code></pre></div></div>
+  <p>Tra tutti i tipi di valore, le lunghezze sono quelle con più possibilità di scelta, perché hanno molte unità di misura diverse.</p>
+  <h3 id="s5-2" class="con-ic"><i data-ic="ruler" class="ic-20"></i>Unità di misura</h3>
+  <p>Le unità di lunghezza sono di due famiglie. Le <b>unità assolute</b> hanno una <b>misura fissa</b>: <code>px</code>, <code>cm</code>, <code>mm</code>, <code>in</code> (pollice), <code>pt</code> (punto tipografico), legate tra loro (1in = 96px = 2,54cm). Ma il <span class="termine">pixel CSS</span> <b>non è un pixel dello schermo</b>: è un’unità di riferimento, e su uno schermo ad alta densità un pixel CSS corrisponde a due, tre o più pixel fisici. Per lo schermo, delle assolute si usa praticamente solo <code>px</code>; <code>cm</code> e <code>pt</code> hanno senso per la stampa.</p>
+  <p>Le <b>unità relative</b> dipendono <b>da un’altra grandezza</b>, e per questo si adattano a schermi e preferenze diverse:</p>
   <div class="tab"><table>
     <thead><tr><th>Unità</th><th>Rispetto a che cosa</th><th>Esempio</th></tr></thead>
     <tbody>
@@ -562,9 +526,9 @@
       <tr><td><code>vmin</code> · <code>vmax</code></td><td>1% del lato più corto · più lungo della finestra</td><td><code>font-size: 5vmin</code></td></tr>
       <tr><td><code>svh</code> · <code>lvh</code> · <code>dvh</code></td><td>1% dell’altezza della finestra piccola, grande, attuale (sul telefono)</td><td><code>min-height: 100dvh</code></td></tr>
     </tbody></table></div>
-  <p>La <b>percentuale</b> cambia significato secondo la proprietà: in <code>width</code> è la larghezza del <b>contenitore</b>; in <code>font-size</code> è il testo del <b>genitore</b>; in <code>margin</code> e <code>padding</code> è sempre la <b>larghezza</b> del contenitore, anche per l’alto e il basso. Quindi <code>padding-top: 50%</code> non è metà dell’altezza.</p>
-  <p>Due trappole delle unità della finestra. Sui telefoni <code>100vh</code> è <b>più alto dello schermo visibile</b>, perché è calcolato come se la barra degli indirizzi fosse nascosta: per questo sono nate <code>svh</code> (finestra piccola, barre visibili), <code>lvh</code> (finestra grande) e <code>dvh</code> (quella del momento), supportate da tutti i browser principali dal 2025. E <code>100vw</code> comprende anche la <b>barra di scorrimento verticale</b>: un elemento largo <code>100vw</code> è un po’ più largo della pagina e fa comparire lo scorrimento orizzontale.</p>
-  <p>L’unità <code>ch</code> è comoda per il testo: <code>max-width: 65ch</code> tiene le righe intorno ai 60–70 caratteri, la lunghezza più facile da leggere.</p>
+  <p>La <b>percentuale</b> cambia significato secondo la proprietà: in <code>width</code> è la larghezza del <b>contenitore</b>; in <code>font-size</code> è il testo del <b>genitore</b>; in <code>margin</code> e <code>padding</code> è sempre la <b>larghezza</b> del contenitore, anche per l’alto e il basso. Quindi <code>padding-top: 50%</code> <b>non</b> è metà dell’altezza.</p>
+  <p>Anche le unità della finestra hanno due trappole. Sui telefoni <code>100vh</code> è <b>più alto dello schermo visibile</b>, perché è calcolato come se la barra degli indirizzi fosse nascosta: per questo sono nate <code>svh</code> (finestra piccola, barre visibili), <code>lvh</code> (finestra grande) e <code>dvh</code> (quella del momento), supportate da tutti i browser principali dal 2025. E <code>100vw</code> comprende anche la <b>barra di scorrimento verticale</b>: un elemento largo <code>100vw</code> è un po’ più largo della pagina e fa comparire lo scorrimento orizzontale.</p>
+  <p>L’unità <code>ch</code>, infine, è comoda per il testo: <code>max-width: 65ch</code> tiene le righe intorno ai <b>60–70 caratteri</b>, la lunghezza più facile da leggere.</p>
   <figure>
     <div class="tela" data-widget="w5_unita"></div>
   </figure>
@@ -574,34 +538,26 @@
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«<code>width: 100vw</code> riempie esattamente la pagina.»</p>
     <p class="err-si"><code>100vw</code> comprende anche la barra di scorrimento verticale: l’elemento <b>esce</b> di qualche pixel e compare lo scorrimento orizzontale. Per tutta la larghezza disponibile basta <code>width: 100%</code> (o lasciare <code>auto</code>).</p></div>
-  <h3 id="s5-3">Differenza tra px, em e rem</h3>
-  <p>Le tre unità più usate a confronto:</p>
-  <ul>
-    <li><code>px</code> è <b>fisso</b>: 16px restano 16px qualunque cosa succeda;</li>
-    <li><code>rem</code> (<i>root em</i>) moltiplica la <b>dimensione del testo della radice</b>, cioè dell’elemento <code>html</code>: di solito 16px, ma <b>l’utente la può cambiare</b> nelle impostazioni del browser per leggere meglio;</li>
-    <li><code>em</code> moltiplica la <b>dimensione del testo dell’elemento stesso</b>; dentro <code>font-size</code>, che non può riferirsi a sé stessa, moltiplica quella del <b>genitore</b>. Per questo con gli <code>em</code> le dimensioni <b>si accumulano</b> negli elementi annidati.</li>
-  </ul>
-  <p>Da qui le scelte consigliate: <code>rem</code> per le <b>dimensioni del testo</b> e per le <b>spaziature</b> generali, così tutta la pagina segue la preferenza dell’utente; <code>em</code> per i <b>componenti che devono crescere con il proprio testo</b>, come il <code>padding</code> di un pulsante (un pulsante con il testo più grande ha anche più spazio intorno); <code>px</code> per i dettagli che non devono cambiare, come i <b>bordi sottili</b>.</p>
+  <h3 id="s5-3" class="con-ic"><i data-ic="type" class="ic-20"></i>Differenza tra px, em e rem</h3>
   <p class="domanda">Lista dentro lista dentro lista, ognuna con <code>font-size: 1.2em</code>. Il terzo livello è grande quanto il primo?</p>
+  <p>Tra tutte queste unità, tre si usano più delle altre, e conviene confrontarle da vicino. <code>px</code> è <b>fisso</b>: 16px restano 16px qualunque cosa succeda. <code>rem</code> (<i>root em</i>) moltiplica la <b>dimensione del testo della radice</b>, cioè dell’elemento <code>html</code>: di solito 16px, ma <b>l’utente la può cambiare</b> nelle impostazioni del browser per leggere meglio. <code>em</code> moltiplica la <b>dimensione del testo dell’elemento stesso</b>; dentro <code>font-size</code>, che non può riferirsi a sé stessa, moltiplica quella del <b>genitore</b>. Per questo con gli <code>em</code> le dimensioni <b>si accumulano</b> negli elementi annidati.</p>
+  <div class="forma"><span>lista<small>1,2em</small></span><span class="fr"><i>⟶</i>× 1,2</span><span>lista nella lista<small>1,44 volte</small></span><span class="fr"><i>⟶</i>× 1,2</span><span class="out">terzo livello<small>1,73 volte il testo di partenza</small></span></div>
   <figure>
     <div class="tela" data-widget="w5_annidate"></div>
   </figure>
-  <p>Un vecchio trucco da evitare: scrivere <code>html { font-size: 10px; }</code> per avere conti facili (1rem = 10px). Così però la dimensione della radice è fissata in pixel e <b>ignora la preferenza dell’utente</b>: chi ha impostato caratteri più grandi nel browser non li vedrà più.</p>
+  <p>Da qui le scelte consigliate. <code>rem</code> per le <b>dimensioni del testo</b> e per le <b>spaziature</b> generali, così tutta la pagina segue la preferenza dell’utente. <code>em</code> per i <b>componenti che devono crescere con il proprio testo</b>, come il <code>padding</code> di un pulsante: un pulsante con il testo più grande ha anche più spazio intorno. <code>px</code> per i dettagli che non devono cambiare, come i <b>bordi sottili</b>.</p>
+  <p>Un vecchio trucco da evitare è scrivere <code>html { font-size: 10px; }</code> per avere conti facili (1rem = 10px). Così però la dimensione della radice è fissata in pixel e <b>ignora la preferenza dell’utente</b>: chi ha impostato caratteri più grandi nel browser non li vedrà più.</p>
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«<code>1em</code> è sempre 16px.»</p>
     <p class="err-si"><code>1em</code> è la dimensione del testo <b>dell’elemento</b> (o del genitore, dentro <code>font-size</code>): vale 16px solo se il testo è a 16px. È <code>1rem</code> che vale di solito 16px, e solo finché l’utente non cambia le impostazioni.</p></div>
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«Con <code>html { font-size: 10px; }</code> i conti sono più facili e non cambia nulla.»</p>
     <p class="err-si">Cambia per l’utente: la radice in pixel <b>ignora la dimensione del testo scelta nel browser</b>, e chi ha bisogno di caratteri più grandi non li ottiene.</p></div>
-  <h3 id="s5-4">Funzioni di calcolo</h3>
-  <p>Il CSS sa fare i conti, anche tra unità diverse, che il browser converte al momento:</p>
-  <ul>
-    <li><code>calc()</code> fa un calcolo: <code>width: calc(100% - 2rem)</code> è tutta la larghezza meno 2rem. Gli spazi attorno a <code>+</code> e <code>-</code> sono <b>obbligatori</b> (attorno a <code>*</code> e <code>/</code> no);</li>
-    <li><code>min()</code> sceglie il valore <b>più piccolo</b> dell’elenco, quindi fa da <b>limite massimo</b>: <code>width: min(100%, 600px)</code> non supera mai 600px;</li>
-    <li><code>max()</code> sceglie il <b>più grande</b>, quindi fa da <b>limite minimo</b>: <code>font-size: max(1rem, 2vw)</code> non scende mai sotto 1rem;</li>
-    <li><code>clamp(minimo, preferito, massimo)</code> usa il valore preferito, ma lo tiene tra minimo e massimo; equivale a <code>max(minimo, min(preferito, massimo))</code>.</li>
-  </ul>
-  <p><code>clamp()</code> serve soprattutto per un <b>testo fluido</b>, che cresce con la finestra ma entro dei limiti. Il valore preferito non deve però essere solo in <code>vw</code>: un testo in <code>vw</code> dipende solo dalla larghezza della finestra e <b>non risponde allo zoom</b> dell’utente. Si scrive allora <code>1rem + 1vw</code>: una parte fissa in rem, che segue le preferenze, e una parte che cresce con la finestra.</p>
+  <h3 id="s5-4" class="con-ic"><i data-ic="sigma" class="ic-20"></i>Funzioni di calcolo</h3>
+  <p>Unità diverse servono a cose diverse, e a volte bisogna metterle insieme: tutta la larghezza meno un margine in rem, un testo che cresce con la finestra ma non oltre un certo limite. Il CSS <b>sa fare i conti</b>, anche tra unità diverse, che il browser converte al momento.</p>
+  <p><code>calc()</code> fa un calcolo: <code>width: calc(100% - 2rem)</code> è tutta la larghezza meno 2rem. Gli spazi attorno a <code>+</code> e <code>-</code> sono <b>obbligatori</b> (attorno a <code>*</code> e <code>/</code> no). <code>min()</code> sceglie il valore <b>più piccolo</b> dell’elenco, quindi fa da <b>limite massimo</b>: <code>width: min(100%, 600px)</code> non supera mai 600px. <code>max()</code> sceglie il <b>più grande</b>, quindi fa da <b>limite minimo</b>: <code>font-size: max(1rem, 2vw)</code> non scende mai sotto 1rem.</p>
+  <p><code>clamp(minimo, preferito, massimo)</code> usa il valore preferito, ma <b>lo tiene tra minimo e massimo</b>; equivale a <code>max(minimo, min(preferito, massimo))</code>. Serve soprattutto per un <b>testo fluido</b>, che cresce con la finestra ma entro dei limiti.</p>
+  <p>Il valore preferito non deve però essere solo in <code>vw</code>: un testo in <code>vw</code> dipende solo dalla larghezza della finestra e <b>non risponde allo zoom</b> dell’utente. Si scrive allora <code>1rem + 1vw</code>: una parte fissa in rem, che segue le preferenze, e una parte che cresce con la finestra.</p>
   <figure>
     <div class="tela" data-widget="w5_clamp"></div>
   </figure>
@@ -620,16 +576,14 @@
     <p class="err-no">«<code>min()</code> mette un minimo.»</p>
     <p class="err-si"><code>min()</code> sceglie il valore più piccolo, quindi impedisce di superare l’altro: è un <b>limite massimo</b>. Il limite minimo si ottiene con <code>max()</code>.</p></div>
   <p class="domanda"><code>width: min(100%, 600px)</code>: è una larghezza minima o massima?</p>
-  <h3 id="s6-1">Formati dei colori</h3>
-  <p>Lo stesso colore si può scrivere in più formati:</p>
-  <ul>
-    <li><b>nomi</b>: circa 140 parole chiave in inglese, da <code>red</code> a <code>rebeccapurple</code> (aggiunto nel 2014 in ricordo della figlia di Eric Meyer, uno dei padri del CSS);</li>
-    <li><b>esadecimale</b> <code>#rrggbb</code>: tre coppie di cifre da <code>00</code> a <code>ff</code> per rosso, verde e blu (<code>#0a6f66</code>). La <b>forma breve</b> <code>#rgb</code> raddoppia ogni cifra: <code>#fc0</code> vale <code>#ffcc00</code>. Con una quarta coppia, <code>#rrggbbaa</code>, si aggiunge la trasparenza;</li>
-    <li><code>rgb()</code>: i tre canali di luce <b>da 0 a 255</b>: <code>rgb(10 111 102)</code>;</li>
-    <li><code>hsl()</code>: <b>tinta</b> in gradi sulla ruota dei colori (0 rosso, 120 verde, 240 blu), <b>saturazione</b> in percentuale (0% grigio, 100% colore pieno), <b>luminosità</b> in percentuale (0% nero, 50% colore puro, 100% bianco): <code>hsl(175 83% 24%)</code>;</li>
-    <li>due parole speciali: <code>currentColor</code>, il valore attuale di <code>color</code> dell’elemento, e <code>transparent</code>, del tutto trasparente.</li>
-  </ul>
-  <p>La <b>sintassi moderna</b> separa i valori con spazi e aggiunge la trasparenza dopo una barra: <code>rgb(10 111 102 / 0.5)</code>. Per questo <code>rgba()</code> e <code>hsla()</code> non servono più, anche se le vecchie forme con le virgole restano valide. Esistono anche formati più recenti come <code>hwb()</code> e <code>oklch()</code>, che descrivono il colore in modo più vicino a come lo percepiamo; prima di usarli conviene verificare che i browser a cui ci si rivolge li supportino.</p>
+  <p>Lunghezze e calcoli sono una parte dei valori. L’altra grande famiglia, quella che si nota per prima in ogni pagina, sono i colori.</p>
+  <h3 id="s6-1" class="con-ic"><i data-ic="palette" class="ic-20"></i>Formati dei colori</h3>
+  <p class="domanda"><code>#ff0000</code>, <code>rgb(255 0 0)</code>, <code>hsl(0 100% 50%)</code> e <code>red</code>: quanti colori diversi sono?</p>
+  <p>Lo stesso colore si può scrivere in più formati. Il più semplice sono i <b>nomi</b>: circa 140 parole chiave in inglese, da <code>red</code> a <code>rebeccapurple</code> (aggiunto nel 2014 in ricordo della figlia di Eric Meyer, uno dei padri del CSS).</p>
+  <p>Il formato più diffuso è l’<b>esadecimale</b> <code>#rrggbb</code>: tre coppie di cifre da <code>00</code> a <code>ff</code> per <b>rosso, verde e blu</b>, come in <code>#0a6f66</code>. La <b>forma breve</b> <code>#rgb</code> raddoppia ogni cifra: <code>#fc0</code> vale <code>#ffcc00</code>. Con una quarta coppia, <code>#rrggbbaa</code>, si aggiunge la trasparenza.</p>
+  <p><code>rgb()</code> scrive gli stessi tre canali di luce in decimale, <b>da 0 a 255</b>: <code>rgb(10 111 102)</code>. <code>hsl()</code> descrive invece il colore come lo pensiamo: <b>tinta</b> in gradi sulla ruota dei colori (0 rosso, 120 verde, 240 blu), <b>saturazione</b> in percentuale (0% grigio, 100% colore pieno), <b>luminosità</b> in percentuale (0% nero, 50% colore puro, 100% bianco): <code>hsl(175 83% 24%)</code>. Ci sono infine due parole speciali: <code>currentColor</code>, il valore attuale di <code>color</code> dell’elemento, e <code>transparent</code>, del tutto trasparente.</p>
+  <div class="ese"><b>Esempio</b><p><code>#0a6f66</code>, <code>rgb(10 111 102)</code> e <code>hsl(175 83% 24%)</code> sono lo stesso verde acqua di questo sito. Per una palette con HSL basta tenere la tinta, 175, e cambiare la luminosità: più alta per un verde chiaro di sfondo, più bassa per un verde scuro per il testo.</p></div>
+  <p>La <b>sintassi moderna</b> separa i valori con spazi e aggiunge la trasparenza <b>dopo una barra</b>: <code>rgb(10 111 102 / 0.5)</code>. Per questo <code>rgba()</code> e <code>hsla()</code> non servono più, anche se le vecchie forme con le virgole restano valide. Esistono anche formati più recenti come <code>hwb()</code> e <code>oklch()</code>, che descrivono il colore in modo più vicino a come lo percepiamo; prima di usarli conviene verificare che i browser a cui ci si rivolge li supportino.</p>
   <figure>
     <div class="tela" data-widget="w6_colori"></div>
   </figure>
@@ -642,16 +596,13 @@
       <tr><td><code>hsl()</code></td><td><code>hsl(175 83% 24%)</code></td><td>per costruire una palette: stessa tinta, luminosità diverse</td></tr>
       <tr><td><code>currentColor</code></td><td><code>border-color: currentColor</code></td><td>per legare un bordo o un’icona al colore del testo</td></tr>
     </tbody></table></div>
-  <p>I colori vanno scelti in modo che si leggano bene: serve un <b>contrasto sufficiente</b> tra testo e sfondo.</p>
+  <p>Qualunque formato si usi, i colori vanno scelti in modo che si leggano bene: serve un <b>contrasto sufficiente</b> tra testo e sfondo.</p>
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«<code>#fc0</code> è uguale a <code>#fc0000</code>.»</p>
     <p class="err-si">Nella forma breve <b>ogni cifra si raddoppia</b>: <code>#fc0</code> vale <code>#ffcc00</code>, un giallo oro; <code>#fc0000</code> è un rosso.</p></div>
-  <h3 id="s6-2">Trasparenza: opacity contro canale alfa</h3>
-  <p>Ci sono due modi per rendere trasparente qualcosa, e non fanno la stessa cosa:</p>
-  <ul>
-    <li><code>opacity</code> (da 0 a 1) agisce su <b>tutto l’elemento</b>: sfondo, testo, bordi e anche tutti i figli;</li>
-    <li>il <b>canale alfa</b> di un colore (<code>rgb(30 80 200 / 0.5)</code>, <code>#1e50c880</code>) agisce <b>solo su quel colore</b>: se è il colore di sfondo, il testo resta pieno.</li>
-  </ul>
+  <h3 id="s6-2" class="con-ic"><i data-ic="droplet" class="ic-20"></i>Trasparenza: opacity contro canale alfa</h3>
+  <p>Abbiamo visto che un colore può avere una trasparenza. Ma c’è anche un secondo modo per rendere trasparente qualcosa, e i due <b>non fanno la stessa cosa</b>.</p>
+  <div class="casi"><div class=""><b><code>opacity: 0.5</code></b><p>Da 0 a 1, agisce su <b>tutto l’elemento</b>: sfondo, testo, bordi e anche tutti i figli.</p></div><div class=""><b>canale alfa: <code>rgb(30 80 200 / 0.5)</code></b><p>Agisce <b>solo su quel colore</b>: se è il colore di sfondo, il testo resta pieno. Si scrive anche <code>#1e50c880</code>.</p></div></div>
   <p>Attenzione: un elemento con <code>opacity: 0</code> è invisibile ma <b>c’è ancora</b>: occupa il suo posto nell’impaginazione e si può cliccare. Per toglierlo davvero serve <code>display: none</code> (6.4).</p>
   <figure>
     <div class="tela" data-widget="w6_alfa"></div>
@@ -660,6 +611,7 @@
     <p class="err-no">«<code>opacity: 0.5</code> rende trasparente solo lo sfondo.»</p>
     <p class="err-si"><code>opacity</code> rende trasparente <b>tutto</b> l’elemento, testo compreso. Per lo sfondo soltanto si usa l’alfa nel colore: <code>background: rgb(30 80 200 / 0.5)</code>.</p></div>
   <p class="domanda">Card con sfondo blu e testo bianco, poi <code>opacity: 0.5</code>. Che cosa diventa trasparente?</p>
+  <p>Con i valori abbiamo tutti gli ingredienti di una dichiarazione. Nel prossimo capitolo li useremo per dare forma a sfondi, bordi, testi e scatole.</p>
   <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
     <ul>
       <li>L’HTML dice cos’è ogni parte della pagina, il CSS come appare; separarli permette di cambiare l’aspetto senza toccare il contenuto.</li>

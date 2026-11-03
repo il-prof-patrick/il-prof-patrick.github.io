@@ -1,0 +1,77 @@
+- generic [active] [ref=f15e1]:
+  - generic [ref=f15e2]:
+    - link "Prime Radiant Superpowers v7.0.0" [ref=f15e4] [cursor=pointer]:
+      - /url: https://github.com/obra/superpowers
+      - img "Prime Radiant" [ref=f15e5]
+      - generic [ref=f15e6]: Superpowers v7.0.0
+    - generic [ref=f15e7]: Connected
+  - generic [ref=f15e10]:
+    - 'heading "IoT, seconda prova: ogni slide ha la sua forma" [level=2] [ref=f15e11]'
+    - paragraph [ref=f15e12]: "Meno testo, una foto vera, e quattro impaginazioni diverse scelte dal significato: definizione (foto + frase), com'è fatto (anatomia di un oggetto), dove si trova (mappa), come si propaga (rete che si infetta). Clicca su ogni slide per farla avanzare, come in aula."
+    - generic [ref=f15e15] [cursor=pointer]:
+      - generic [ref=f15e16]: 6.4 · Internet of Things
+      - paragraph [ref=f15e17]: Quando a comunicare sono le cose
+      - paragraph [ref=f15e18]: Oggetti fisici che raccolgono dati, li scambiano via Internet e agiscono, spesso senza una persona.
+      - generic [ref=f15e19]:
+        - generic [ref=f15e20]: sensori
+        - generic [ref=f15e23]: calcolo
+        - generic [ref=f15e26]: connessione
+    - paragraph [ref=f15e29]: "Definizione → foto + frase. Metà slide è l'oggetto vero, l'altra metà la definizione in una frase e i tre ingredienti. Nessun passo: si guarda e si spiega."
+    - generic [ref=f15e30] [cursor=pointer]:
+      - generic [ref=f15e31]:
+        - generic [ref=f15e32]: Com'è fatto
+        - paragraph [ref=f15e33]: Dentro un termostato smart
+      - img "Schema di un termostato smart con sensore, chip e antenna" [ref=f15e34]:
+        - generic [ref=f15e37]: 17 °C
+        - generic [ref=f15e51]:
+          - generic [ref=f15e53]: caldaia
+          - generic [ref=f15e54]: accesa
+        - generic [ref=f15e57]:
+          - generic [ref=f15e59]: Sensore
+          - generic [ref=f15e60]: "misura la temperatura della stanza: 17 °C"
+        - generic [ref=f15e61]:
+          - generic [ref=f15e64]: Chip
+          - generic [ref=f15e65]: "confronta con l'obiettivo (20 °C) e decide: accendere"
+        - generic [ref=f15e66]:
+          - generic [ref=f15e69]: Antenna Wi-Fi
+          - generic [ref=f15e70]: "manda il dato al cloud: l'app mostra «17 °C, riscaldamento acceso»"
+      - paragraph [ref=f15e71]: "Un oggetto smart visto da dentro: tre componenti."
+      - generic [ref=f15e72]: clic · passo 0 di 4
+    - paragraph [ref=f15e73]: Componenti → anatomia. Un oggetto disegnato pulito (non a mano), le etichette compaiono una per clic, la riga sotto dice il concetto del passo. Sostituisce «sensori + calcolo + connessione» fatto a riquadri.
+    - generic [ref=f15e74] [cursor=pointer]:
+      - img "Mappa schematica di un quartiere con cinque sensori" [ref=f15e75]
+      - generic [ref=f15e108]:
+        - generic [ref=f15e109]:
+          - generic [ref=f15e110]: 6.5 · Smart city
+          - paragraph [ref=f15e111]: Una città che si misura
+        - generic [ref=f15e112]:
+          - generic [ref=f15e113]: Parcheggi
+          - text: segnalano i posti liberi all'app
+        - generic [ref=f15e114]:
+          - generic [ref=f15e115]: Lampioni
+          - text: si accendono quando passa qualcuno
+        - generic [ref=f15e116]:
+          - generic [ref=f15e117]: Cassonetti
+          - text: avvisano quando sono pieni
+        - generic [ref=f15e118]:
+          - generic [ref=f15e119]: Semafori
+          - text: seguono il traffico reale
+        - generic [ref=f15e120]:
+          - generic [ref=f15e121]: Centraline
+          - text: misurano la qualità dell'aria
+      - generic [ref=f15e122]: clic · passo 0 di 5
+    - paragraph [ref=f15e123]: Esempi distribuiti nello spazio → mappa. A ogni clic si accende un sensore sulla mappa e compare la sua voce. Le voci precedenti restano, così alla fine c'è il quadro completo.
+    - generic [ref=f15e124] [cursor=pointer]:
+      - generic [ref=f15e125]:
+        - generic [ref=f15e126]: 6.6 · 2016
+        - paragraph [ref=f15e127]: "Mirai: le videocamere che spensero il web"
+      - img "Videocamere infettate che attaccano il DNS di Dyn" [ref=f15e128]:
+        - generic [ref=f15e166]: botnet
+        - generic [ref=f15e174]: DNS di Dyn
+        - generic [ref=f15e182]: Twitter
+        - generic [ref=f15e185]: Netflix
+        - generic [ref=f15e188]: Spotify
+      - paragraph [ref=f15e191]:
+        - generic [ref=f15e192]: Centinaia di migliaia di videocamere e videoregistratori, con le password di fabbrica.
+      - generic [ref=f15e193]: clic · passo 0 di 4
+    - paragraph [ref=f15e194]: Una catena di cause → una rete che si contagia. Al primo clic le videocamere diventano rosse; poi l'attacco converge sul DNS; poi i siti si spengono. Le parole stanno nella riga sotto, non nella scena.
