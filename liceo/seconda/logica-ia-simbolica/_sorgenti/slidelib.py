@@ -10,7 +10,7 @@ from webconv import Tmd
 QUI = os.path.dirname(os.path.abspath(__file__))
 COPERTINA = 'local:../../../assets/immagini/modulo-logica-ai.jpg'   # foto d'atmosfera della copertina (quella del modulo)
 
-NON_TESTO = {'src', 'sel', 'id', 'w', 'tipo', 'num', 'alt', 'icona', 'html'}
+NON_TESTO = {'src', 'sel', 'id', 'w', 'tipo', 'num', 'alt', 'icona', 'html', 'tono', 'tonoOcc'}
 
 
 def fix(o, chiave=None):
@@ -42,7 +42,7 @@ class Capitolo:
 
     def DOM(self, i, testo=None, risposta=None):
         b = self.dom[i]; self.usati['dom'].add(i)
-        return {'tipo': 'domanda', 'testo': testo or self.md(b['q']), 'risposta': risposta if risposta is not None else self.md(b['risposta'])}
+        return {'tipo': 'domanda', 'testo': testo or self.md(b['q']), 'risposta': risposta if risposta is not None else self.md(b['risposta'][:1].upper() + b['risposta'][1:])}
 
     def ERR(self, i, titolo=None):
         b = self.err[i]; self.usati['err'].add(i)
@@ -92,7 +92,7 @@ class Capitolo:
         return {'tipo': 'copertina', 'titolo': titolo or self.C['titolo'], 'sotto': sotto,
                 'indice': [[s['num'], s['titolo']] for s in self.C['sezioni']], 'foto': F(COPERTINA, '', '')}
 
-    def scrivi(self, out, slide):
+    def scrivi(self, out, slide, **extra):
         mancano = []
         mancano += ['domanda %d: %s' % (i, self.dom[i]['q'][:50]) for i in range(len(self.dom)) if i not in self.usati['dom']]
         mancano += ['errore %d: %s' % (i, self.err[i]['errata'][:50]) for i in range(len(self.err)) if i not in self.usati['err']]
@@ -101,4 +101,44 @@ class Capitolo:
         for w in re.findall(r'data-widget="(\w+)"', open(os.path.join(out, 'capitolo-%02d.html' % self.n), encoding='utf8').read()):
             if not any(s.get('w') == w for s in slide): mancano.append('widget ' + w)
         if mancano: print('MANCANO NELLE SLIDE:\n  ' + '\n  '.join(mancano))
-        scrivi_aula(os.path.join(out, 'assets', 'capitolo-%02d-aula.js' % self.n), '%02d' % self.n, self.C['titolo'], fix(slide))
+        scrivi_aula(os.path.join(out, 'assets', 'capitolo-%02d-aula.js' % self.n), '%02d' % self.n, self.C['titolo'], fix(slide), **extra)
+
+
+# forme «schema geometrico» (scrittura-e-forma.md, parte 2): la slide ha la forma del suo significato (come css/lib.py di Sviluppo Web)
+def _d(tipo, titolo, **k):
+    d = {'tipo': tipo, 'titolo': titolo}
+    d.update({a: b for a, b in k.items() if b is not None})
+    return d
+
+
+def nd(titolo=None, testo=None, icona=None, righe=None, tono=None, nota=None, riga=None):
+    """Blocco di flusso/bivio/casi; tono: si (verde), no (rosso), forse (ambra), fine (risultato)."""
+    b = {'titolo': titolo, 'testo': testo, 'icona': icona, 'righe': righe, 'tono': tono, 'nota': nota, 'riga': riga}
+    return {a: v for a, v in b.items() if v is not None}
+
+
+def caso(tono, etichetta, **k):
+    b = nd(tono=tono, **k); b['etichetta'] = etichetta
+    return b
+
+
+def definizione(titolo, frase, parti=None, nota=None, msg=None, occhiello=None, parafrasi=None):
+    """frase = definizione formale; parafrasi = «In altre parole», al clic sotto la frase."""
+    return _d('definizione', titolo, frase=frase, parti=parti, nota=nota, msg=msg, occhiello=occhiello, parafrasi=parafrasi)
+
+
+def flusso(titolo, blocchi, frecce=None, msg=None, occhiello=None, riga=None):
+    return _d('flusso', titolo, blocchi=blocchi, frecce=frecce, msg=msg, occhiello=occhiello, riga=riga)
+
+
+def casi(titolo, cc, msg=None, occhiello=None, aClic=None, riga=None):
+    return _d('casi', titolo, casi=cc, msg=msg, occhiello=occhiello, aClic=aClic, riga=riga)
+
+
+def anatomia(titolo, codice, parti, msg=None, effetto=None, occhiello=None):
+    """parti: [frammento, nome, spiegazione(, occorrenza)]: il frammento è cercato nel testo."""
+    return _d('anatomia', titolo, codice=codice, parti=parti, msg=msg, effetto=effetto, occhiello=occhiello)
+
+
+def gettoni(titolo, gg, perche=None, foto=None, msg=None, occhiello=None, riga=None):
+    return _d('gettoni', titolo, gettoni=gg, perche=perche, foto=foto, msg=msg, occhiello=occhiello, riga=riga)

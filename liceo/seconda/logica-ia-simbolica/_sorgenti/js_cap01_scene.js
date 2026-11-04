@@ -80,7 +80,7 @@
     fr('M466 252 C520 252 530 170 588 168', 'ok', { p: 4, r: 300 });
   });
 
-  /* ===================== 1.3 · lo stampo del ragionamento ===================== */
+  /* ===================== 1.4 · lo stampo del ragionamento ===================== */
   costruisci('f-stampo', function (svg, A) {
     frecce(svg, 'st');
     // stampo a sinistra (tratteggiato)
@@ -122,22 +122,25 @@
     A.txt(360, 261, 'non valido', 't-e', { p: 4 });
   });
 
-  /* ===================== 1.4 · una frase, due significati ===================== */
+  /* ===================== 1.2 · una regola, due significati ===================== */
   costruisci('s-binocolo', function (svg, A) {
-    var t = A.txt(360, 30, '«Ho visto un uomo col binocolo»', 't-b'); t.style.fontSize = '18px';
-    // vignetta di sinistra: il binocolo ce l’ha lei, l’uomo è lontano oltre il fiume
+    var GUARDIA = '#34465f';
+    var t = A.txt(360, 30, '«Se vedi un uomo con il binocolo, uccidilo»', 't-b'); t.style.fontSize = '18px';
     A.box(16, 50, 336, 230, 'nodo'); A.box(368, 50, 336, 230, 'nodo');
+    // vignetta di sinistra: il binocolo ce l’ha la guardia, l’uomo è lontano oltre il fiume
     S(svg, 'rect', { x: 140, y: 52, width: 70, height: 226, fill: 'var(--brand-100)' });
     S(svg, 'path', { d: 'M150 90 q8 -4 16 0 t16 0 M156 170 q8 -4 16 0 t16 0 M146 240 q8 -4 16 0 t16 0', stroke: 'var(--brand-500)', 'stroke-width': 2, fill: 'none' });
-    persona(svg, 80, 262, { capelli: 'coda', binocolo: 'occhi', maglia: 'var(--accent-500)' });
+    persona(svg, 80, 262, { berretto: GUARDIA, binocolo: 'occhi', maglia: GUARDIA });
     S(svg, 'path', { d: 'M104 157 L268 200', stroke: 'var(--ink-soft)', 'stroke-width': 2, 'stroke-dasharray': '3 6', fill: 'none' });
     var g = S(svg, 'g', { transform: 'translate(282 262) scale(.62) translate(-282 -262)' });
-    persona(g, 282, 262, { maglia: 'var(--brand-600)' });
-    // vignetta di destra: lei a occhio nudo, l’uomo vicino con il binocolo in mano
-    persona(svg, 470, 262, { capelli: 'coda', maglia: 'var(--accent-500)' });
-    persona(svg, 600, 262, { binocolo: 'mano', maglia: 'var(--brand-600)' });
-    A.txt(184, 308, '«Con il binocolo, ho visto un uomo»', 't');
-    A.txt(536, 308, '«Ho visto un uomo che aveva un binocolo»', 't');
-    A.txt(184, 330, 'il binocolo ce l’ha chi guarda', 't-m');
-    A.txt(536, 330, 'il binocolo ce l’ha l’uomo', 't-m');
+    persona(g, 282, 262, { maglia: 'var(--accent-500)' });
+    // vignetta di destra: la guardia a occhio nudo, l’uomo vicino con il binocolo in mano
+    persona(svg, 470, 262, { berretto: GUARDIA, maglia: GUARDIA });
+    persona(svg, 600, 262, { binocolo: 'mano', maglia: 'var(--accent-500)' });
+    A.txt(184, 304, '«Se, guardando nel binocolo,', 't');
+    A.txt(184, 322, 'vedi un uomo, uccidilo»', 't');
+    A.txt(536, 304, '«Se vedi un uomo che ha', 't');
+    A.txt(536, 322, 'in mano un binocolo, uccidilo»', 't');
+    A.txt(184, 346, 'il binocolo ce l’ha la guardia', 't-m');
+    A.txt(536, 346, 'il binocolo ce l’ha l’uomo', 't-m');
   });

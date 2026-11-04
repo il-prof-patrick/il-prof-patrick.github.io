@@ -225,9 +225,9 @@ def F(key, tit='', alt=''):
     return {'src': _src(key)[0], 'tit': tit, 'alt': alt or tit}
 
 
-def scrivi_aula(percorso, n, titolo, slide):
-    """Scrive assets/capitolo-NN-aula.js. n come stringa a due cifre ('04')."""
-    data = {'modulo': CONF['modulo'], 'n': n, 'titolo': titolo, 'slide': slide}
+def scrivi_aula(percorso, n, titolo, slide, **extra):
+    """Scrive assets/capitolo-NN-aula.js. n come stringa a due cifre ('04'). extra: es. stile='schema' (slide «schema geometrico»)."""
+    data = {'modulo': CONF['modulo'], 'n': n, 'titolo': titolo, 'slide': slide, **extra}
     open(percorso, 'w', encoding='utf8', newline='\n').write('window.AULA = ' + json.dumps(data, ensure_ascii=False, indent=1) + ';\n')
     print('scritto', percorso, len(slide), 'slide')
 

@@ -109,7 +109,8 @@ def capitolo(n, conf, out):
                     el.append(('fig', anim(a['id'], a['titolo'], a['inizio'], a['vb'], a['aria'], passi), None, fid))
                 elif b['tipo'] == 'schema':
                     s = SCHEMI[fid]
-                    el.append(('fig', schema(s['titolo'], s['svg'], s['id']), None, fid))
+                    if 'html' in s: el.append(('blk', s['html'], None, fid))       # schema in una riga (forma)
+                    else: el.append(('fig', schema(s['titolo'], s['svg'], s['id']), None, fid))
                 elif b['tipo'] == 'widget':
                     el.append(('fig', widget(conf['WIDGET'][fid]), None, fid))
                 k += 1; continue
@@ -119,7 +120,15 @@ def capitolo(n, conf, out):
                 else: el.append(('p', '  <p>' + termini(html(x)) + '</p>\n', None, k))
             elif t == 'riga':      # paragrafo + sua foto, preparati dal capitolo_NN.py (b['x'], b['chiave'], b['tit'], b['alt'])
                 el.append(('blk', riga(html(b['x']), b['chiave'], b['tit'], b['alt']), None, k))
-            elif t == 'h3': el.append(('h3', f'  <h3>{html(b["x"])}</h3>\n', None, k))
+            elif t == 'h3':
+                ic = conf.get('IC', {}).get(b['x'])     # icona del sotto-titolo (scrittura-e-forma)
+                i_ = f' class="con-ic"><i data-ic="{ic}" class="ic-20"></i>' if ic else '>'
+                el.append(('h3', f'  <h3{i_}{html(b["x"])}</h3>\n', None, k))
+            elif t == 'box' and b['k'] == 'esempio' and conf.get('ESE'):
+                # riquadro «Esempio» nuovo: riga grigia a sinistra, etichetta piccola (eventuale foto a lato)
+                img = fl(*[(ch_, t_, t_) for ch_, t_ in b['foto_tutte']]) if 'foto' in b else ''
+                tit = 'Esempio' + (' · ' + html(b['titolo']) if b.get('titolo') else '')
+                el.append(('box', f'  <div class="ese">{img.strip()}<b>{tit}</b>{corpo_md(b["x"])}</div>\n', None, k))
             elif t in ('list', 'num'):
                 tag = 'ul' if t == 'list' else 'ol'
                 el.append(('p', f'  <{tag}>\n' + ''.join(f'    <li>{termini(html(i))}</li>\n' for i in b['items']) + f'  </{tag}>\n', None, k))
@@ -139,7 +148,10 @@ def capitolo(n, conf, out):
                     if len(b.get('foto_tutte', [])) > 1:
                         img = fl(*[(ch_, t_, t_) for ch_, t_ in b['foto_tutte']])
                 tit = nome + (' · ' + html(b['titolo']) if b.get('titolo') else '')
-                el.append(('box', box(b['k'], tit, ic, corpo_md(b['x']), img), None, k))
+                corpo_b = corpo_md(b['x'])
+                # definizione formale prima, poi «In altre parole: …» in una fascia sotto (scrittura-e-forma: definizioni)
+                corpo_b = re.sub(r'<p>In altre parole: (.*?)</p>$', lambda m: '<div class="parafrasi"><span>In altre parole</span><p>' + m.group(1)[:1].upper() + m.group(1)[1:] + '</p></div>', corpo_b, flags=re.S)
+                el.append(('box', box(b['k'], tit, ic, corpo_b, img), None, k))
             elif t == 'arg':
                 el.append(('blk', argomento(b['premesse'], b['conclusione']), None, k))
             elif t == 'errore':
@@ -204,6 +216,18 @@ def capitolo(n, conf, out):
 
 
 # ---------------------------------------------------------------- aiuti per i capitolo_NN.py
+def forma(*voci):
+    """Schema in una riga: blocco, freccia, blocco… (voci pari = 'nome|sottotitolo', dispari = nome del passaggio)."""
+    h = ''
+    for k, v in enumerate(voci):
+        if k % 2: h += f'<span class="fr"><i>⟶</i>{html(v)}</span>'
+        else:
+            n_, _, sotto = v.partition('|')
+            cl = ' class="out"' if k == len(voci) - 1 else ''
+            h += f'<span{cl}>{html(n_)}' + (f'<small>{html(sotto)}</small>' if sotto else '') + '</span>'
+    return f'  <div class="forma">{h}</div>\n'
+
+
 def virgolette(s):
     """Le virgolette dritte del brainstorming diventano caporali (servono anche dentro gli attributi HTML)."""
     return re.sub(r'"([^"]+)"', r'“\1”', s)

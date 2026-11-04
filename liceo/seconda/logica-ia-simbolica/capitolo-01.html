@@ -18,31 +18,19 @@
   <!-- ===================== 1.1 ===================== -->
   <section class="sez">
   <h2 id="p1"><span class="num">1.1</span>Macchine che seguono regole</h2>
-  <p>Una sera d’inverno entri in casa e la luce del soggiorno si accende da sola. Nessuno ha premuto un interruttore: <b>l’app della casa ha applicato una regola scritta da una persona</b>, del tipo «se è sera e c’è qualcuno in casa, accendi le luci».</p>
+  <p>Una sera d’inverno entri in casa e la luce del soggiorno si accende da sola. Nessuno ha premuto un interruttore: <b>l’app della casa ha applicato una regola scritta da una persona</b>, del tipo «se è sera e c’è qualcuno in casa, accendi le luci». Le app per la casa permettono a chiunque di scrivere regole di questo tipo: in quella della foto, per esempio, una regola comanda l’impianto che annaffia il giardino.</p>
   <figure class="foto-grande"><a class="fonte" href="https://www.holmanindustries.com.au/Holman-Home/Scene/WX1/HH_Example04.html" target="_blank" rel="noopener"><img src="https://www.holmanindustries.com.au/Holman-Home/Scene/WX1/Ex4_Point26.png" alt="Una regola in un'app per la casa" referrerpolicy="no-referrer"></a><figcaption>Osserva le due condizioni sotto <i>If</i> («quando tutte le condizioni sono vere»: sono le 6 <b>e</b> il terreno ha meno del 50% di umidità) e l’azione sotto <i>Then</i> (annaffia per 15 minuti).</figcaption></figure>
-  <p>Regole di questo tipo sono ovunque:</p>
-  <ul>
-    <li><b>casa</b>: le app di automazione (Google Home, Casa di Apple, IFTTT, <i>If This Then That</i>, «se questo allora quello») collegano <b>condizioni</b> (ora, presenza, temperatura, umidità) ad <b>azioni</b> (luci, riscaldamento, irrigazione);</li>
-    <li><b>banca</b>: il sistema antifrode blocca un pagamento con la carta se, per esempio, avviene all’estero pochi minuti dopo un pagamento fatto in Italia, perché nessuno può spostarsi così in fretta;</li>
-    <li><b>auto</b>: la spia dell’olio si accende se la pressione scende sotto una soglia;</li>
-    <li><b>videogiochi</b>: i personaggi controllati dal computer si muovono seguendo regole (vedi l’esempio di Pac-Man).</li>
-  </ul>
-  <div class="box esempio"><figure class="foto-lato testa dx"><a class="fonte" href="https://www.techspot.com/trivia/42-ghosts-original-pac-man-had-unique-ai-traits/" target="_blank" rel="noopener"><img src="https://www.techspot.com/images2/trivia/bigimage/2024/2024-12-16-image.jpg" alt="Pac-Man (1980)" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Pac-Man (1980)</figcaption></figure><h3><i data-ic="book-open" class="ic-20"></i> Esempio · I fantasmi di Pac-Man</h3>
-    <p>In Pac-Man (1980) i quattro fantasmi sembrano una squadra che caccia insieme, ma <b>ognuno segue solo una regola semplice</b> per scegliere dove andare:</p>
+  <p>Regole come queste lavorano ogni giorno anche dove non le vediamo. Il sistema antifrode della <b>banca</b> blocca la carta se un pagamento avviene all’estero pochi minuti dopo uno fatto in Italia, perché nessuno può spostarsi così in fretta; nell’<b>auto</b> la spia dell’olio si accende se la pressione scende sotto una soglia. Sono tutti esempi dello stesso tipo di programma.</p>
+  <h3 class="con-ic"><i data-ic="scroll-text" class="ic-20"></i>Fatti e regole</h3>
+  <div class="box concetto"><h3><i data-ic="key" class="ic-20"></i> Concetto · Sistema a regole</h3>
+    <p>Un <b>sistema a regole</b> è un programma che <b>rappresenta la conoscenza come un insieme di fatti e di regole condizionali</b> e ne trae conclusioni <b>applicando automaticamente le regole ai fatti</b>:</p>
     <ul>
-      <li>il <b>rosso</b> punta dritto alla casella in cui si trova Pac-Man;</li>
-      <li>il <b>rosa</b> punta quattro caselle davanti a Pac-Man, per tagliargli la strada;</li>
-      <li>l’<b>azzurro</b> calcola il suo bersaglio usando sia la posizione di Pac-Man sia quella del fantasma rosso;</li>
-      <li>l’<b>arancione</b> insegue Pac-Man finché è lontano, ma quando gli arriva vicino (meno di 8 caselle) torna verso il suo angolo.</li>
+      <li>i <b>fatti</b> sono le affermazioni che il sistema considera vere in un dato momento, come «è sera» o «fuori è buio»;</li>
+      <li>le <b>regole</b> sono affermazioni della forma <b>SE condizioni ALLORA conclusione</b>.</li>
     </ul>
-    <p>Nessun fantasma «pensa» né sa degli altri: <b>il comportamento da squadra nasce dall’insieme di regole semplici</b>.</p></div>
-  <p>Tutti questi sistemi funzionano con due ingredienti:</p>
-  <ul>
-    <li>i <b>fatti</b>: <b>ciò che il sistema sa in questo momento</b> (sono le 19, fuori è buio, Marco è in casa). Arrivano dai sensori, dai dati o da chi usa il sistema;</li>
-    <li>le <b>regole</b>: <b>frasi della forma SE condizioni ALLORA conclusione</b>, scritte da persone che conoscono il problema (chi progetta la casa, un esperto di frodi, il programmatore del gioco).</li>
-  </ul>
-  <p>Il sistema confronta le condizioni di ogni regola con i fatti: <b>quando tutte le condizioni sono vere, la regola «scatta» e la sua conclusione si aggiunge ai fatti</b>. Il punto importante è che <b>la conclusione diventa un fatto nuovo, che può far scattare altre regole</b>: è il <b>ragionamento a catena</b>. Per questo con poche regole semplici il sistema arriva a conclusioni che nessuna regola, da sola, contiene.</p>
-  <p>Se invece manca anche un solo fatto, la regola non scatta: <b>il sistema conclude solo ciò che segue da ciò che sa</b>, senza «indovinare» come farebbe una persona.</p>
+    <p>Una regola <b>scatta</b> quando <b>tutte le sue condizioni sono tra i fatti</b>: la sua conclusione viene aggiunta ai fatti oppure, se è un’azione, eseguita. Il fatto nuovo può far scattare altre regole: è il <b>ragionamento a catena</b>.</p>
+    <div class="parafrasi"><span>In altre parole</span><p>Le regole le scrive chi conosce il problema, i fatti arrivano dai sensori, dai dati o da chi usa il sistema, e il programma si limita a controllare quali regole hanno tutte le condizioni soddisfatte. Se ne manca anche una sola, la regola non scatta: il sistema conclude solo ciò che segue da ciò che sa.</p></div></div>
+  <p>Ecco la casa smart al lavoro, con due fatti di partenza e due regole.</p>
   <figure>
     <div class="tela passi-anim" id="f-casa" data-titolo="La casa che ragiona" data-inizio="La casa conosce due fatti e ha due regole. Per ora la luce è spenta.">
       <svg viewBox="0 0 720 360" role="img" aria-label="A sinistra i fatti che la casa conosce, al centro due regole SE… ALLORA…, a destra la casa. La regola 1 scatta e aggiunge il fatto «serve la luce»; la regola 2 aspetta finché Marco entra, poi scatta e accende la luce."></svg>
@@ -57,38 +45,93 @@
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
     <p class="err-no">«La casa accende la luce perché capisce che è buio e che serve.»</p>
     <p class="err-si">La casa non capisce nulla: <b>controlla se i fatti che ha soddisfano le condizioni di una regola</b> che qualcuno ha scritto. Se la regola fosse sbagliata (per esempio senza la condizione «c’è qualcuno in casa»), accenderebbe la luce anche in una casa vuota, senza accorgersene.</p></div>
+  <h3 class="con-ic"><i data-ic="gamepad-2" class="ic-20"></i>Regole semplici, comportamento intelligente</h3>
+  <p>Eppure, visti da fuori, i sistemi a regole possono sembrare molto più furbi di quanto siano.</p>
+  <div class="ese"><figure class="foto-lato dx"><a class="fonte" href="https://www.techspot.com/trivia/42-ghosts-original-pac-man-had-unique-ai-traits/" target="_blank" rel="noopener"><img src="https://www.techspot.com/images2/trivia/bigimage/2024/2024-12-16-image.jpg" alt="Pac-Man (1980)" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Pac-Man (1980)</figcaption></figure><b>Esempio · I fantasmi di Pac-Man</b><p>In Pac-Man (1980) i quattro fantasmi sembrano dotati di intelligenza strategica, eppure <b>ognuno segue una sola regola</b> per scegliere dove andare:</p>
+    <ul>
+      <li><b>Rosso</b>: punta direttamente alla casella in cui si trova Pac-Man.</li>
+      <li><b>Rosa</b>: punta quattro caselle davanti a Pac-Man, cercando di anticiparne i movimenti.</li>
+      <li><b>Azzurro</b>: sceglie il proprio bersaglio combinando la posizione di Pac-Man con quella del fantasma rosso.</li>
+      <li><b>Arancione</b>: insegue Pac-Man finché si trova ad almeno 8 caselle di distanza; quando si avvicina di più, punta verso il proprio angolo del labirinto.</li>
+    </ul>
+    <p>Nessun fantasma «pensa» né sa degli altri: quella che sembra una strategia nasce da quattro regole semplici.</p></div>
   <p class="domanda">Un programma decide se bloccare la vostra carta seguendo 200 regole scritte da esperti di frodi. È intelligenza artificiale?</p>
-  <p>Questo modo di costruire macchine «intelligenti» si chiama <b>IA simbolica</b>: <b>la conoscenza la scrivono le persone, sotto forma di fatti e regole, e la macchina la applica</b>. Si chiama simbolica perché lavora con simboli, cioè parole o segni che stanno per cose del mondo («buio», «Marco», «in casa»). È anche chiamata <b>GOFAI</b> (<i>Good Old-Fashioned Artificial Intelligence</i>, «la buona vecchia IA»), perché è stato il primo modo di fare IA, dagli anni Cinquanta. L’altro grande approccio, quello delle reti neurali che imparano dagli esempi, lo metteremo a confronto nel capitolo 9.</p>
-  <p>Per scrivere fatti e regole che una macchina possa applicare <b>senza ambiguità</b> serve un linguaggio preciso: la <b>logica</b>, l’argomento di questo modulo.</p>
+  <div class="box concetto"><h3><i data-ic="key" class="ic-20"></i> Concetto · IA simbolica</h3>
+    <p>L’<b>IA simbolica</b> è l’approccio all’intelligenza artificiale che <b>rappresenta la conoscenza in modo esplicito, con simboli organizzati in fatti e regole</b>, e ne ricava conclusioni <b>applicando le regole ai fatti</b>. Un <b>simbolo</b> è un segno che sta per un oggetto, una proprietà o una relazione del mondo («Marco», «buio», «in casa»).</p>
+    <div class="parafrasi"><span>In altre parole</span><p>Sono le persone a scrivere ciò che la macchina sa, e la macchina lo usa come la casa smart. È detta anche <b>GOFAI</b> (<i>Good Old-Fashioned Artificial Intelligence</i>, «la buona vecchia IA»), perché è stato il primo modo di fare IA, dagli anni Cinquanta.</p></div></div>
+  <p>L’altro grande approccio, quello delle reti neurali che imparano dagli esempi, lo metteremo a confronto più avanti nel modulo. Qui resta una domanda pratica: <b>in che lingua vanno scritti fatti e regole</b>, perché una macchina li possa usare?</p>
 
   <!-- ===================== 1.2 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p2"><span class="num">1.2</span>Ragionare e argomentare</h2>
-  <p>Nella casa smart, quando la regola 1 è scattata, la casa ha fatto un piccolo ragionamento. Scritto per esteso:</p>
+  <h2 id="p2"><span class="num">1.2</span>Che cos’è la logica</h2>
+  <h3 class="con-ic"><i data-ic="split" class="ic-20"></i>Il problema: le nostre frasi sono ambigue</h3>
+  <p>La prima idea sarebbe scriverli in italiano, come le regole della casa. Proviamo con una regola per le guardie di un videogioco di spionaggio.</p>
+  <p class="domanda">Le guardie di un videogioco seguono la regola “Se vedi un uomo con il binocolo, uccidilo”. Chi devono colpire?</p>
+  <figure>
+    <div class="tela schema" id="s-binocolo"><p class="passi-titolo">Una regola, due significati</p>
+      <svg viewBox="0 0 720 360" role="img" aria-label="La regola «Se vedi un uomo con il binocolo, uccidilo» ha due significati. A sinistra la guardia guarda nel binocolo un uomo lontano, sull’altra sponda di un fiume: se, guardando nel binocolo, vedi un uomo. A destra la guardia, a occhio nudo, vede da vicino un uomo che tiene in mano un binocolo: se vedi un uomo che ha in mano un binocolo."></svg>
+    </div>
+  </figure>
+  <p>Una persona che riceve un ordine così sceglie quasi sempre il significato giusto senza accorgersi dell’altro, grazie al <b>contesto</b>: dove si trova, che cosa sta succedendo, che cosa vuole chi ha dato l’ordine. E nel dubbio può chiedere. Un programma no: esegue la regola in uno dei due modi e, se è quello sbagliato, la guardia colpisce le persone sbagliate.</p>
+  <div class="box concetto"><h3><i data-ic="key" class="ic-20"></i> Concetto · Linguaggio naturale e ambiguità</h3>
+    <p>Un <b>linguaggio naturale</b> è una lingua storica, come l’italiano o l’inglese, che si è formata e si trasforma <b>spontaneamente nell’uso</b> di una comunità di parlanti, <b>senza regole stabilite in anticipo</b>. Una frase è <b>ambigua</b> quando <b>ammette più di un’interpretazione</b>.</p>
+    <div class="parafrasi"><span>In altre parole</span><p>Nessuno ha progettato l’italiano, e le sue frasi spesso si possono capire in più modi. Le persone si capiscono lo stesso perché usano il <b>contesto</b> e il buon senso; <b>un computer non ha né l’uno né l’altro</b>: davanti a un’istruzione ambigua non può «capire che cosa si intendeva».</p></div></div>
+  <p>Le ambiguità si nascondono anche nelle parole più piccole, proprio quelle che servono per scrivere le regole.</p>
+  <div class="ese"><b>Esempio · Ambiguità nelle parole piccole</b><ul>
+      <li>«Domani c’è la verifica <b>o</b> l’interrogazione»: una delle due soltanto, o possono esserci entrambe?</li>
+      <li>«<b>Se</b> finisci i compiti, puoi uscire»: e se non li finisci, non puoi uscire?</li>
+      <li>«<b>Tutti</b> gli studenti <b>non</b> hanno fatto i compiti»: nessuno li ha fatti, o non tutti?</li>
+    </ul>
+    <p>Le ritroveremo tutte nel modulo, una alla volta.</p></div>
+  <h3 class="con-ic"><i data-ic="code" class="ic-20"></i>La soluzione: un linguaggio formale</h3>
+  <div class="box concetto"><h3><i data-ic="key" class="ic-20"></i> Concetto · Linguaggio formale</h3>
+    <p>Un <b>linguaggio formale</b> è un linguaggio <b>artificiale</b> definito da un insieme di <b>simboli</b> e da <b>regole esplicite</b>: le regole di <b>sintassi</b> stabiliscono quali sequenze di simboli sono <b>formule ben formate</b>, quelle di <b>semantica</b> assegnano a ciascuna formula <b>un solo significato</b>. <b>Formalizzare</b> una frase significa <b>tradurla dal linguaggio naturale in una formula di un linguaggio formale</b>.</p>
+    <div class="parafrasi"><span>In altre parole</span><p>Un linguaggio formale non nasce dall’uso, lo progetta qualcuno, e ogni frase scritta correttamente si capisce in un modo solo. Se la frase di partenza è ambigua, formalizzarla obbliga a <b>scegliere uno dei suoi significati</b>.</p></div></div>
+  <p>I linguaggi di programmazione sono linguaggi formali: Python non accetta una riga «più o meno» giusta, e una riga che accetta fa sempre la stessa cosa. Le due riscritture della regola della guardia sono un primo passo verso la formalizzazione: ognuna sceglie uno dei due significati e scarta l’altro.</p>
+  <div class="forma"><span>linguaggio naturale<small>ambiguo</small></span><span class="fr"><i>⟶</i>formalizzare</span><span class="out">linguaggio formale<small>un solo significato</small></span></div>
+  <h3 class="con-ic"><i data-ic="scale" class="ic-20"></i>La logica</h3>
+  <div class="box concetto"><h3><i data-ic="key" class="ic-20"></i> Concetto · Che cos’è la logica</h3>
+    <p>La <b>logica</b> è la disciplina che studia le <b>condizioni di validità dei ragionamenti</b>: stabilisce in quali casi la verità di alcune affermazioni (le <i>proposizioni</i>, come diremo nel capitolo 2) <b>garantisce, per la sola forma, la verità di un’altra</b>. Per farlo scrive le affermazioni in un <b>linguaggio formale</b>.</p>
+    <div class="parafrasi"><span>In altre parole</span><p>La logica non si chiede se una cosa è vera, ma se <b>segue con certezza</b> da ciò che si dà per vero, qualunque sia l’argomento e chiunque ragioni, una persona o una macchina.</p></div></div>
+  <p>È proprio il linguaggio che serve a un sistema di IA simbolica, e la logica gli serve a due cose. La prima è <b>rappresentare la conoscenza</b>: scrivere in modo preciso ciò che il sistema sa. L’insieme dei fatti e delle regole di un sistema, scritti in questo modo, è la sua <b>base di conoscenza</b>. La seconda è <b>ricavare conoscenza nuova</b> con l’<b>inferenza</b>, il passaggio da affermazioni date per vere a un’affermazione che ne segue. È ciò che fa la casa quando una regola scatta e aggiunge un fatto.</p>
+  <div class="forma"><span>base di conoscenza<small>fatti + regole</small></span><span class="fr"><i>⟶</i>inferenza</span><span class="out">fatti nuovi</span></div>
+  <div class="box storia"><figure class="foto-lato testa dx"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Ludwig_Wittgenstein.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Ludwig_Wittgenstein.jpg" alt="Ludwig Wittgenstein" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Ludwig Wittgenstein</figcaption></figure><h3><i data-ic="history" class="ic-20"></i> Nella storia · Wittgenstein e la frase come immagine</h3>
+    <p>Il filosofo austriaco Ludwig Wittgenstein (1889–1951), nel <i>Tractatus logico-philosophicus</i> (1921), sostenne che <b>una proposizione è un’immagine dei fatti</b>: funziona perché i suoi elementi stanno tra loro come le cose stanno nel mondo. L’idea gli venne leggendo di un processo a Parigi in cui un incidente stradale era stato ricostruito con automobiline e pupazzi: il modellino «diceva» come erano andate le cose perché ne ripeteva la disposizione. Una base di conoscenza fa lo stesso: è un’immagine del mondo fatta di simboli. Sua è la frase: «I limiti del mio linguaggio significano i limiti del mio mondo».</p></div>
+  <p>Un passaggio di questo tipo, da ciò che si sa a ciò che ne segue, è un <b>ragionamento</b>. Prima di imparare il linguaggio della logica, guardiamo da vicino com’è fatto.</p>
+
+  <!-- ===================== 1.3 ===================== -->
+  </section>
+  <section class="sez">
+  <h2 id="p3"><span class="num">1.3</span>Ragionare: dalle premesse alla conclusione</h2>
+  <p>Quando la regola 1 scatta, la casa parte da due informazioni, la regola e i fatti, e ne ricava una terza. È un piccolo ragionamento, con le stesse parti di qualunque ragionamento fatto da una persona.</p>
+  <div class="box concetto"><h3><i data-ic="key" class="ic-20"></i> Concetto · Premesse, conclusione, argomento</h3>
+    <p>Un <b>argomento</b> (o ragionamento) è una <b>sequenza di affermazioni</b> in cui una, la <b>conclusione</b>, è <b>presentata come conseguenza</b> delle altre, le <b>premesse</b>. L’<b>inferenza</b> è il passaggio dalle premesse alla conclusione.</p>
+    <div class="parafrasi"><span>In altre parole</span><p>Le premesse sono ciò che si dà per vero, la conclusione è ciò che se ne ricava. In logica «argomento» non vuol dire «tema di cui si parla»: è un insieme di premesse con la conclusione che se ne ricava.</p></div></div>
+  <p>In logica un argomento si scrive in colonna: premesse sopra, una riga, conclusione sotto. Il ragionamento della casa diventa:</p>
   <div class="argomento">
     <p>Se è sera e fuori è buio, allora serve la luce.</p>
     <p>È sera e fuori è buio.</p>
     <hr>
     <p class="concl">Quindi serve la luce.</p>
   </div>
-  <p><b>Ragionare significa ricavare una conclusione da informazioni che si danno per buone.</b> Le informazioni di partenza si chiamano <b>premesse</b>, quella ricavata <b>conclusione</b>; <b>premesse e conclusione insieme formano un argomento</b>. In logica «argomento» non vuol dire «tema di cui si parla», ma proprio questo: un insieme di premesse con la conclusione che se ne ricava. Il passaggio dalle premesse alla conclusione si chiama <b>inferenza</b>: è ciò che fa la casa quando una regola scatta.</p>
-  <p>Nella lingua di tutti i giorni premesse e conclusione si riconoscono da alcune parole-spia: «quindi», «perciò», «dunque» introducono la conclusione; «perché», «dato che», «poiché» introducono una premessa. In logica l’argomento si scrive in colonna: premesse sopra, una riga, conclusione sotto.</p>
-  <p><b>La logica studia quando una conclusione segue davvero dalle premesse</b>, chiunque sia a ragionare: una persona o una macchina.</p>
+  <p>Nella lingua di tutti i giorni la riga non c’è: premesse e conclusione si riconoscono da alcune parole-spia.</p>
+  <div class="ese"><b>Esempio · Le parole-spia</b><p>«Quindi», «perciò», «dunque» introducono la <b>conclusione</b>; «perché», «dato che», «poiché» introducono una <b>premessa</b>. In «Il ladro è entrato dalla finestra, dato che la porta era chiusa a chiave» la conclusione viene prima e la premessa dopo: a dirlo è «dato che».</p></div>
+  <p>Argomenti su temi diversissimi si scrivono tutti allo stesso modo:</p>
   <figure>
     <div class="tela schema" id="s-argomenti"><p class="passi-titolo">Tre argomenti, una stessa forma di scrittura</p>
-      <svg viewBox="0 0 760 262" role="img" aria-label="Tre argomenti scritti nello stesso modo: premesse sopra, una riga, conclusione sotto. Casa smart: se è sera e fuori è buio serve la luce; è sera e fuori è buio; quindi serve la luce. Socrate: tutti gli uomini sono mortali; Socrate è un uomo; quindi Socrate è mortale. Detective: il ladro è entrato dalla porta o dalla finestra; la porta era chiusa a chiave e intatta; quindi il ladro è entrato dalla finestra.">
+      <svg viewBox="-24 0 784 262" role="img" aria-label="Tre argomenti scritti nello stesso modo: premesse sopra, una riga, conclusione sotto. Pioggia: se piove la strada è bagnata; piove; quindi la strada è bagnata. Socrate: tutti gli uomini sono mortali; Socrate è un uomo; quindi Socrate è mortale. Detective: il ladro è entrato dalla porta o dalla finestra; la porta era chiusa a chiave e intatta; quindi il ladro è entrato dalla finestra.">
         <text x="64" y="118" text-anchor="end" class="t-a">premesse</text>
         <path d="M72 76 V160" class="lin att"/>
         <text x="64" y="218" text-anchor="end" class="t-b">conclusione</text>
         <path d="M72 194 V230" class="lin ok"/>
         <rect x="80" y="34" width="214" height="214" rx="4" class="nodo"/>
-        <text x="187" y="58" text-anchor="middle" class="t-eti">CASA SMART</text>
-        <text x="187" y="90" text-anchor="middle" class="t-n">Se è sera e fuori è buio,</text>
-        <text x="187" y="109" text-anchor="middle" class="t-n">serve la luce</text>
-        <text x="187" y="137" text-anchor="middle" class="t-n">È sera e fuori è buio</text>
+        <text x="187" y="58" text-anchor="middle" class="t-eti">PIOGGIA</text>
+        <text x="187" y="90" text-anchor="middle" class="t-n">Se piove, la strada</text>
+        <text x="187" y="109" text-anchor="middle" class="t-n">è bagnata</text>
+        <text x="187" y="137" text-anchor="middle" class="t-n">Piove</text>
         <path d="M98 182 H276" class="lin" style="stroke:var(--ink);stroke-width:2"/>
-        <text x="187" y="208" text-anchor="middle" class="t-b">Serve la luce</text>
+        <text x="187" y="208" text-anchor="middle" class="t-b">La strada è bagnata</text>
         <rect x="310" y="34" width="214" height="214" rx="4" class="nodo"/>
         <text x="417" y="58" text-anchor="middle" class="t-eti">SOCRATE</text>
         <text x="417" y="90" text-anchor="middle" class="t-n">Tutti gli uomini</text>
@@ -108,21 +151,30 @@
       </svg>
     </div>
   </figure>
+  <p>Con queste parole la definizione di logica si può riscrivere: la logica studia <b>quando la conclusione di un argomento segue necessariamente dalle premesse</b>. Il primo a studiarlo in modo sistematico fu un filosofo greco.</p>
   <div class="box storia"><figure class="foto-lato testa dx"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg" alt="Aristotele" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Aristotele</figcaption></figure><h3><i data-ic="history" class="ic-20"></i> Nella storia · Aristotele e il sillogismo</h3>
     <p>Aristotele (384–322 a.C.) fu il primo a studiare in modo sistematico <b>la forma dei ragionamenti</b>, nelle opere che in seguito furono raccolte con il nome di <i>Organon</i> («strumento»). Il suo strumento principale è il <b>sillogismo</b>: un argomento con due premesse e una conclusione. L’esempio più famoso, «Tutti gli uomini sono mortali; Socrate è un uomo; quindi Socrate è mortale», non è suo ma dei suoi commentatori. La sua logica rimase la base dello studio del ragionamento per più di duemila anni.</p></div>
+  <p>Scrivere un ragionamento in colonna, però, non lo rende buono: un ragionamento può andare storto, e la logica serve proprio a capire quando.</p>
 
-  <!-- ===================== 1.3 ===================== -->
+  <!-- ===================== 1.4 ===================== -->
   </section>
   <section class="sez">
-  <h2 id="p3"><span class="num">1.3</span>Validità e verità</h2>
+  <h2 id="p4"><span class="num">1.4</span>Validità e verità</h2>
+  <h3 class="con-ic"><i data-ic="circle-x" class="ic-20"></i>Due modi di sbagliare</h3>
   <p>Un argomento può andare storto per due motivi molto diversi:</p>
   <ul>
     <li><b>una premessa è falsa</b>: il sensore sbaglia, la notizia è inventata;</li>
     <li><span class="termine">la conclusione non segue dalle premesse</span>, anche se queste sono vere.</li>
   </ul>
-  <p>La logica si occupa del secondo. Un argomento è <b>valido</b> quando <b>è impossibile che le premesse siano vere e la conclusione falsa</b>: in un argomento valido la verità delle premesse «passa» per forza alla conclusione. Se poi un argomento è valido <b>e</b> le sue premesse sono vere, si dice <b>corretto</b> (o fondato), e la sua conclusione è sicuramente vera.</p>
-  <p>Il punto chiave è che <b>la validità dipende dalla forma dell’argomento, non dal suo contenuto</b>. «Tutti gli A sono B; x è un A; quindi x è un B» è valido qualunque cosa si metta al posto di A, B e x: per accorgersene non serve sapere niente di uomini, pesci o gatti. Proprio per questo <b>la validità la può controllare anche una macchina</b>, che delle cose del mondo non sa nulla.</p>
-  <p>Il rovescio della medaglia: una macchina che ragiona in modo valido non si accorge se le premesse sono false. Se il sensore della casa scambia il gatto per una persona, la casa accende la luce in una stanza vuota: ragionamento valido, premessa falsa, conclusione sbagliata. In informatica si dice <i>garbage in, garbage out</i> («spazzatura dentro, spazzatura fuori»).</p>
+  <p>Il primo motivo una macchina non lo vede.</p>
+  <div class="ese"><b>Esempio · Garbage in, garbage out</b><p>Se il sensore della casa scambia il gatto per una persona, nei fatti entra «c’è qualcuno in casa» e la casa accende la luce in una stanza vuota. Le regole sono applicate senza errori, ma una premessa è falsa e la conclusione è sbagliata. In informatica si dice <i>garbage in, garbage out</i> («spazzatura dentro, spazzatura fuori»).</p></div>
+  <p>La logica si occupa del secondo motivo: non controlla se le premesse sono vere, controlla <b>il passaggio</b> dalle premesse alla conclusione.</p>
+  <h3 class="con-ic"><i data-ic="circle-check" class="ic-20"></i>La validità</h3>
+  <div class="box concetto"><h3><i data-ic="key" class="ic-20"></i> Concetto · Valido e corretto</h3>
+    <p>Un argomento è <b>valido</b> quando <b>è impossibile che tutte le premesse siano vere e la conclusione falsa</b>. Un argomento è <b>corretto</b> (o fondato) quando <b>è valido e ha tutte le premesse vere</b>.</p>
+    <div class="parafrasi"><span>In altre parole</span><p>In un argomento valido, se le premesse sono vere la conclusione lo è per forza. La validità non dice se le premesse sono vere: dice che cosa succede alla conclusione se lo sono. Solo un argomento corretto garantisce che la conclusione sia vera.</p></div></div>
+  <p>Per capire se un argomento è valido si guarda la sua <b>forma logica</b>: la struttura che resta quando ai termini specifici si sostituiscono delle lettere e rimangono solo le <b>parole logiche</b>, come «tutti», «non», «e», «o», «se… allora». Per esempio «Tutti gli A sono B; x è un A; quindi x è un B». Qualunque cosa si metta al posto di A, B e x, se le premesse sono vere lo è per forza anche la conclusione: è uno «stampo» valido.</p>
+  <p class="domanda">Tutti i pesci sanno volare. Bolla è un pesce. Quindi Bolla sa volare. Il ragionamento è corretto?</p>
   <figure>
     <div class="tela passi-anim" id="f-stampo" data-titolo="Lo stampo del ragionamento" data-inizio="Uno stampo: la forma di un ragionamento, con caselle vuote al posto delle parole.">
       <svg viewBox="0 0 720 300" role="img" aria-label="A sinistra lo stampo di un ragionamento con le lettere A, B e x, a destra le frasi che lo riempiono. Con lo stampo «Tutti gli A sono B, x è un A, quindi x è un B» il ragionamento è valido anche quando una premessa è falsa; scambiando A e B lo stampo non è più valido: premesse vere e conclusione falsa."></svg>
@@ -134,37 +186,18 @@
       </ol>
     </div>
   </figure>
-  <p class="domanda">Tutti i pesci sanno volare. Bolla è un pesce. Quindi Bolla sa volare. Il ragionamento è corretto?</p>
+  <div class="box concetto"><h3><i data-ic="key" class="ic-20"></i> Concetto · Conta la forma</h3>
+    <p><b>La validità dipende dalla forma logica dell’argomento, non dal suo contenuto</b>: se una forma è valida, è valido ogni argomento che ha quella forma. Per controllarla non serve sapere niente di uomini, pesci o gatti: per questo <b>la può controllare anche una macchina</b>, che delle cose del mondo non sa nulla.</p></div>
   <div class="box errore"><h3><i data-ic="circle-x" class="ic-20"></i> Errore tipico</h3>
-    <p class="err-no">«Tutti i gatti hanno quattro zampe; il mio cane ha quattro zampe; quindi il mio cane è un mammifero. Il ragionamento è giusto, perché la conclusione è vera.»</p>
-    <p class="err-si">La conclusione è vera, ma <b>non segue dalle premesse</b>: le premesse parlano di gatti e zampe, non di mammiferi. Che la conclusione sia vera non basta: un argomento è valido solo se le premesse la garantiscono.</p></div>
-
-  <!-- ===================== 1.4 ===================== -->
-  </section>
-  <section class="sez">
-  <h2 id="p4"><span class="num">1.4</span>Dal linguaggio naturale al linguaggio formale</h2>
-  <p class="domanda">“Ho visto un uomo col binocolo”: chi ha il binocolo?</p>
-  <figure>
-    <div class="tela schema" id="s-binocolo"><p class="passi-titolo">Una frase, due significati</p>
-      <svg viewBox="0 0 720 340" role="img" aria-label="La frase «Ho visto un uomo col binocolo» ha due significati. A sinistra una ragazza guarda con il binocolo un uomo lontano, sull’altra sponda di un fiume: con il binocolo, ho visto un uomo. A destra la ragazza, a occhio nudo, vede da vicino un uomo che tiene in mano un binocolo: ho visto un uomo che aveva un binocolo."></svg>
-    </div>
-  </figure>
-  <p>Chi ascolta sceglie quasi sempre il significato giusto senza accorgersi dell’altro, grazie al <b>contesto</b>: dove si era, di che cosa si stava parlando. <b>Il linguaggio naturale è ambiguo</b>: la stessa frase può avere più significati, e la comunicazione funziona perché chi ascolta usa il contesto e il buon senso. <b>Un computer non ha né l’uno né l’altro</b>: davanti a un’istruzione ambigua non può «capire che cosa si intendeva».</p>
-  <p>Le ambiguità si nascondono anche nelle parole più piccole, e torneranno nel modulo:</p>
-  <ul>
-    <li>«Domani c’è la verifica <b>o</b> l’interrogazione»: una delle due soltanto, o possono esserci entrambe? (capitolo 2, i connettivi);</li>
-    <li>«<b>Se</b> finisci i compiti, puoi uscire»: e se non li finisci, non puoi uscire? (capitolo 4, l’implicazione);</li>
-    <li>«<b>Tutti</b> gli studenti <b>non</b> hanno fatto i compiti»: nessuno li ha fatti, o non tutti? (capitolo 6, i quantificatori).</li>
-  </ul>
-  <p>Per questo serve un <b>linguaggio formale</b>: un linguaggio con regole precise, in cui <b>ogni frase si scrive solo in modi stabiliti e ha un solo significato</b>. I linguaggi di programmazione sono linguaggi formali: Python non accetta una riga «più o meno» giusta. <b>La logica è il linguaggio formale con cui si scrivono fatti e regole.</b> Tradurre una frase nella logica si dice <b>formalizzare</b>, e serve a due cose: <b>rappresentare la conoscenza</b> (scrivere ciò che si sa, cioè la base di conoscenza) e <b>aumentarla</b> (ricavare fatti nuovi con l’inferenza).</p>
-  <div class="box storia"><figure class="foto-lato testa dx"><a class="fonte" href="https://commons.wikimedia.org/wiki/File:Ludwig_Wittgenstein.jpg" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Ludwig_Wittgenstein.jpg" alt="Ludwig Wittgenstein" referrerpolicy="no-referrer"></a><figcaption class="foto-tit">Ludwig Wittgenstein</figcaption></figure><h3><i data-ic="history" class="ic-20"></i> Nella storia · Wittgenstein e la frase come immagine</h3>
-    <p>Il filosofo austriaco Ludwig Wittgenstein (1889–1951), nel <i>Tractatus logico-philosophicus</i> (1921), sostenne che <b>una proposizione è un’immagine dei fatti</b>: funziona perché i suoi elementi stanno tra loro come le cose stanno nel mondo. L’idea gli venne leggendo di un processo a Parigi in cui un incidente stradale era stato ricostruito con automobiline e pupazzi: il modellino «diceva» come erano andate le cose perché ne ripeteva la disposizione. Una base di conoscenza fa lo stesso: è un’immagine del mondo fatta di simboli. Sua è la frase: «I limiti del mio linguaggio significano i limiti del mio mondo».</p></div>
+    <p class="err-no">«Tutti i cani sono mammiferi; Fido è un mammifero; quindi Fido è un cane. Le premesse sono vere e Fido è davvero un cane: il ragionamento è valido.»</p>
+    <p class="err-si">La conclusione è vera, ma <b>non segue dalle premesse</b>: anche un gatto è un mammifero. È lo stampo non valido dell’animazione («Tutti gli A sono B; x è un B; quindi x è un A»), e questa volta la conclusione è vera per caso. <b>Che la conclusione sia vera non rende valido un argomento</b>: deve essere la forma a garantirla.</p></div>
   <div class="box nota"><h3><i data-ic="lightbulb" class="ic-20"></i> Ricorda</h3>
     <ul>
-      <li>Un sistema a regole parte dai <b>fatti</b> e applica regole <b>SE… ALLORA…</b> scritte da persone; ogni conclusione diventa un fatto nuovo che può farne scattare altre. È l’<b>IA simbolica</b>.</li>
-      <li><b>Ragionare</b> è ricavare una <b>conclusione</b> da <b>premesse</b>; insieme formano un <b>argomento</b> e il passaggio è l’<b>inferenza</b>. La logica studia quando la conclusione segue davvero.</li>
-      <li>Un argomento è <b>valido</b> se è impossibile che le premesse siano vere e la conclusione falsa: la validità dipende dalla <b>forma</b>, non dalla verità delle frasi.</li>
-      <li>Il linguaggio naturale è <b>ambiguo</b> e si capisce grazie al contesto; il computer non ha contesto, perciò serve un <b>linguaggio formale</b>, in cui ogni frase ha un solo significato.</li>
+      <li>Un <b>sistema a regole</b> rappresenta la conoscenza come <b>fatti</b> e regole <b>SE… ALLORA…</b> e ne trae conclusioni applicando le regole ai fatti; una regola scatta quando tutte le sue condizioni sono tra i fatti, e la sua conclusione diventa un fatto nuovo. Rappresentare la conoscenza in modo esplicito, con simboli, è l’<b>IA simbolica</b>.</li>
+      <li>Il <b>linguaggio naturale</b> è <b>ambiguo</b>: una frase può ammettere più interpretazioni, e le persone scelgono quella giusta grazie al contesto, che il computer non ha. In un <b>linguaggio formale</b> regole esplicite di <b>sintassi</b> e di <b>semantica</b> danno a ogni formula ben formata un solo significato; <b>formalizzare</b> è tradurre una frase in una formula.</li>
+      <li>La <b>logica</b> studia le <b>condizioni di validità dei ragionamenti</b> e usa un linguaggio formale. Serve a <b>rappresentare la conoscenza</b> (la <b>base di conoscenza</b>) e a ricavarne di nuova con l’<b>inferenza</b>.</li>
+      <li>Un <b>argomento</b> è una sequenza di affermazioni in cui la <b>conclusione</b> è presentata come conseguenza delle <b>premesse</b>; l’<b>inferenza</b> è il passaggio dalle une all’altra.</li>
+      <li>Un argomento è <b>valido</b> se è impossibile che le premesse siano vere e la conclusione falsa; è <b>corretto</b> se è valido e ha le premesse vere. La validità dipende dalla <b>forma logica</b>, non dal contenuto.</li>
     </ul></div>
   </section>
 

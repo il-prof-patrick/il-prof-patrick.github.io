@@ -218,6 +218,8 @@
       // definizione: la frase grande; al clic, sotto, gli ingredienti con l'icona (e la nota)
       definizione: function (s) {
         return testa(s) + '<div class="pl-corpo pl-def en"><p class="pl-def-frase" data-fit data-min="24">' + md(s.frase) + '</p>' +
+          // parafrasi: la stessa definizione in parole semplici, al clic, subito sotto (prima la definizione formale)
+          (s.parafrasi ? '<div class="pl-def-para rv"><span>In altre parole</span><p>' + md(s.parafrasi) + '</p></div>' : '') +
           (s.parti || s.nota ? '<div class="pl-def-giu rv">' + (s.parti ? '<div class="pl-def-parti n' + s.parti.length + '">' + s.parti.map(function (p) {
             return '<div>' + icona(p[0]) + '<span>' + md(p[1]) + '</span></div>'; }).join('') + '</div>' : '') +
             (s.nota ? '<p class="pl-def-nota">' + md(s.nota) + '</p>' : '') + '</div>' : '') + '</div>';

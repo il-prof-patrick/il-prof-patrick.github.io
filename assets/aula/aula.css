@@ -302,7 +302,9 @@ body.presenta #palco{
 .pl-nd.no{border:3px solid var(--errore-ink)}
 .pl-nd.no .pl-nd-nota{color:var(--errore-ink)}
 .pl-nd.forse{border:3px dashed var(--accent-ink)}
-.pl-nd.fine{border:3px solid var(--ink)}
+/* tono «fine» (risultato): azzera le regole di .fine del sito (navigazione a fondo pagina), che lo spostavano 48px più in basso */
+.pl-nd.fine{border:3px solid var(--ink);margin-top:0;padding-top:22px;display:block}
+.pl-casi .pl-nd.fine{display:flex}
 .pl-ib{flex:none;width:46px;height:46px;border-radius:11px;background:var(--brand-100);color:var(--brand-ink);display:inline-grid;place-items:center;font-weight:800;font-size:22px}
 #palco .pl-ib .ic{width:27px;height:27px;stroke-width:1.8}
 .pl-nd.no .pl-ib{background:var(--errore-bg);color:var(--errore-ink)}
@@ -324,6 +326,12 @@ body.presenta #palco{
 .pl-def-parti.n4>div{font-size:24px}
 #palco .pl-def-parti .ic{width:50px;height:50px;flex:none;color:var(--brand-ink);stroke-width:1.6}
 .pl-def-nota{margin:20px 0 0;font-size:24px;color:var(--ink-muted)}
+.pl-def-para{flex:none;background:var(--brand-100);border-radius:var(--radius-sm,4px);padding:14px 22px 16px}
+.pl-def-para>span{display:block;font-size:16px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-ink);margin-bottom:4px}
+.pl-def-para p{margin:0;font-size:24px;line-height:1.36}
+.pl-def:has(.pl-def-para){gap:20px}
+.pl-def:has(.pl-def-para) .pl-def-nota{margin-top:12px;font-size:22px}
+.pl-def-para+.pl-def-giu{margin-top:0}
 
 /* flusso */
 .pl-flusso{display:grid;align-items:center;column-gap:70px;font-size:27px}

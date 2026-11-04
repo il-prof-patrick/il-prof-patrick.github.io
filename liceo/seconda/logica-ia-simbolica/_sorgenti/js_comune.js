@@ -14,7 +14,7 @@
   }
 
   /* Persona con volto minimo e braccia corte, in piedi con i piedi in (x, y).
-     o: { maglia, capelli: 'corti'|'coda', binocolo: 'occhi'|'mano', p, f } */
+     o: { maglia, capelli: 'corti'|'coda', berretto: colore, binocolo: 'occhi'|'mano', p, f } */
   function persona(svg, x, y, o) {
     o = o || {};
     var g = S(svg, 'g', K.pa(o)), maglia = o.maglia || VERDE;
@@ -41,6 +41,10 @@
     if (o.capelli === 'coda') E('path', { d: 'M' + (x + 12) + ' ' + (ty - 6) + ' q12 6 8 24', stroke: CAPELLI, 'stroke-width': 7, 'stroke-linecap': 'round', fill: 'none' });
     E('circle', { cx: x, cy: ty, r: 16, fill: PELLE });
     E('path', { d: 'M' + (x - 16) + ' ' + (ty - 1) + ' a16 16 0 0 1 32 0 q-8 -9 -16 -7 q-9 -2 -16 7 z', fill: CAPELLI });
+    if (o.berretto) {   // berretto con visiera (guardia)
+      E('path', { d: 'M' + (x - 16) + ' ' + (ty - 5) + ' a16 14 0 0 1 32 0 z', fill: o.berretto });
+      E('rect', { x: x - 19, y: ty - 7, width: 38, height: 5, rx: 2.5, fill: 'var(--ink)' });
+    }
     if (o.binocolo !== 'occhi') {
       [-6, 6].forEach(function (d) {
         E('circle', { cx: x + d, cy: ty + 2, r: 3.4, fill: '#fff' });
